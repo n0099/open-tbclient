@@ -5,14 +5,14 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ll3;
+import com.baidu.tieba.ml3;
 /* loaded from: classes3.dex */
 public class OpenLocationMenuItem {
-    public static final int e = ll3.g(45.0f);
+    public static final int e = ml3.g(45.0f);
     public MenuItemType a;
     public b b;
     public TextView c;
-    public int d = ll3.g(1.0f);
+    public int d = ml3.g(1.0f);
 
     /* loaded from: classes3.dex */
     public enum MenuItemType {

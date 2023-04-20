@@ -1,124 +1,44 @@
 package com.baidu.tieba;
 
-import android.animation.ValueAnimator;
+import android.text.TextUtils;
+import android.util.Pair;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.container.NgWebView;
-import com.baidu.tieba.xv1;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class rw1 extends nw1 {
+public class rw1 extends ow1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.xv1
+    @Override // com.baidu.tieba.yv1
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "PageScrollToApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "NavigationBarApi" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes6.dex */
-    public class a implements xv1.a {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rw1 a;
+        public final /* synthetic */ b72 a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ rw1 d;
 
-        /* renamed from: com.baidu.tieba.rw1$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class RunnableC0420a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ int a;
-            public final /* synthetic */ int b;
-            public final /* synthetic */ a c;
-
-            /* renamed from: com.baidu.tieba.rw1$a$a$a  reason: collision with other inner class name */
-            /* loaded from: classes6.dex */
-            public class C0421a implements ValueAnimator.AnimatorUpdateListener {
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ bu1 a;
-
-                public C0421a(RunnableC0420a runnableC0420a, bu1 bu1Var) {
-                    Interceptable interceptable = $ic;
-                    if (interceptable != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {runnableC0420a, bu1Var};
-                        interceptable.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.a = bu1Var;
-                }
-
-                @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-                public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                    Interceptable interceptable = $ic;
-                    if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                        this.a.webViewScrollTo(0, ((Integer) valueAnimator.getAnimatedValue()).intValue());
-                    }
-                }
-            }
-
-            public RunnableC0420a(a aVar, int i, int i2) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, Integer.valueOf(i), Integer.valueOf(i2)};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i3 = newInitContext.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.c = aVar;
-                this.a = i;
-                this.b = i2;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                bu1 i;
-                int f;
-                Interceptable interceptable = $ic;
-                if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (i = ht2.U().i()) == null) {
-                    return;
-                }
-                if (i instanceof NgWebView) {
-                    f = rw1.z(i, ll3.f(this.c.a.getContext(), this.a));
-                } else {
-                    f = ll3.f(this.c.a.getContext(), this.a);
-                }
-                ValueAnimator ofInt = ValueAnimator.ofInt(i.getWebViewScrollY(), f);
-                ofInt.setDuration(this.b);
-                ofInt.addUpdateListener(new C0421a(this, i));
-                ofInt.start();
-            }
-        }
-
-        public a(rw1 rw1Var) {
+        public a(rw1 rw1Var, b72 b72Var, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {rw1Var};
+                Object[] objArr = {rw1Var, b72Var, str, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -128,40 +48,161 @@ public class rw1 extends nw1 {
                     return;
                 }
             }
-            this.a = rw1Var;
+            this.d = rw1Var;
+            this.a = b72Var;
+            this.b = str;
+            this.c = str2;
         }
 
-        @Override // com.baidu.tieba.xv1.a
-        public uz1 a(u73 u73Var, JSONObject jSONObject, @Nullable String str) {
-            InterceptResult invokeLLL;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, u73Var, jSONObject, str)) == null) {
-                int optInt = jSONObject.optInt("scrollTop", -1);
-                int optInt2 = jSONObject.optInt("duration", -1);
-                if (optInt > -1 && optInt2 > -1) {
-                    ol3.e0(new RunnableC0420a(this, optInt, optInt2));
-                    return new uz1(0);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                b72 b72Var = this.a;
+                boolean z = true;
+                if (!((b72Var == null || !b72Var.z2(this.b, true)) ? false : false)) {
+                    v42.c("NavigationBarApi", "set title fail");
+                    this.d.d(this.c, new vz1(1001));
                 }
-                u42.c("PageScrollToApi", "illegal scrollTop or duration");
-                return new uz1(1001, "illegal params");
+                this.d.d(this.c, new vz1(0));
             }
-            return (uz1) invokeLLL.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b72 a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ JSONObject e;
+        public final /* synthetic */ rw1 f;
+
+        public b(rw1 rw1Var, b72 b72Var, String str, String str2, String str3, JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rw1Var, b72Var, str, str2, str3, jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f = rw1Var;
+            this.a = b72Var;
+            this.b = str;
+            this.c = str2;
+            this.d = str3;
+            this.e = jSONObject;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                b72 b72Var = this.a;
+                if (b72Var != null && b72Var.H2(this.b, true)) {
+                    if (!this.a.x2(SwanAppConfigData.t(this.d), true)) {
+                        v42.c("NavigationBarApi", "set title background fail");
+                        this.f.d(this.c, new vz1(1001));
+                        return;
+                    }
+                    JSONObject jSONObject = this.e;
+                    if (jSONObject != null) {
+                        this.a.v2(jSONObject.optInt("duration"), this.e.optString("timingFunc"));
+                        v42.i("NavigationBarApi", "set action bar animator");
+                    }
+                    this.f.d(this.c, new vz1(0));
+                    return;
+                }
+                v42.c("NavigationBarApi", "set title color fail");
+                this.f.d(this.c, new vz1(1001));
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b72 a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ boolean c;
+        public final /* synthetic */ rw1 d;
+
+        public c(rw1 rw1Var, b72 b72Var, String str, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rw1Var, b72Var, str, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = rw1Var;
+            this.a = b72Var;
+            this.b = str;
+            this.c = z;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            boolean V1;
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                b72 b72Var = this.a;
+                if (b72Var == null) {
+                    v42.c("NavigationBarApi", "swanAppFragment is null");
+                    this.d.d(this.b, new vz1(1001));
+                    return;
+                }
+                if (this.c) {
+                    V1 = b72Var.Q2();
+                } else {
+                    V1 = b72Var.V1();
+                }
+                if (!V1) {
+                    if (this.c) {
+                        str = "show";
+                    } else {
+                        str = "hide";
+                    }
+                    v42.c("NavigationBarApi", str + " navigation loading progressbar fail");
+                    this.d.d(this.b, new vz1(1001));
+                    return;
+                }
+                this.d.d(this.b, new vz1(0));
+            }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rw1(@NonNull vv1 vv1Var) {
-        super(vv1Var);
+    public rw1(@NonNull wv1 wv1Var) {
+        super(wv1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vv1Var};
+            Object[] objArr = {wv1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((vv1) newInitContext.callArgs[0]);
+                super((wv1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -169,29 +210,110 @@ public class rw1 extends nw1 {
         }
     }
 
-    public uz1 A(String str) {
+    public vz1 B(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            q("#showNavigationBarLoading", false);
+            v73 b0 = v73.b0();
+            if (b0 != null && b0.n0()) {
+                return new vz1(1001, "ui operation does not supported when app is invisible.");
+            }
+            return x(str, true);
+        }
+        return (vz1) invokeL.objValue;
+    }
+
+    public vz1 A(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            q("#pageScrollTo", false);
-            return l(str, false, new a(this));
+            q("#setNavigationBarTitle", false);
+            Pair<vz1, JSONObject> s = s(str);
+            vz1 vz1Var = (vz1) s.first;
+            if (!vz1Var.isSuccess()) {
+                return vz1Var;
+            }
+            JSONObject jSONObject = (JSONObject) s.second;
+            if (jSONObject == null) {
+                return new vz1(1001);
+            }
+            String optString = jSONObject.optString("title");
+            e72 V = it2.U().V();
+            if (V == null) {
+                v42.c("NavigationBarApi", "manager is null");
+                return new vz1(1001);
+            }
+            String optString2 = jSONObject.optString("cb");
+            if (TextUtils.isEmpty(optString2)) {
+                p("cb is empty", null, true);
+                return new vz1(1001, "cb is empty");
+            }
+            pl3.e0(new a(this, V.m(), optString, optString2));
+            return vz1.f();
         }
-        return (uz1) invokeL.objValue;
+        return (vz1) invokeL.objValue;
     }
 
-    public static int z(@NonNull bu1 bu1Var, int i) {
-        InterceptResult invokeLI;
+    public vz1 z(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, bu1Var, i)) == null) {
-            int contentHeight = ((int) (bu1Var.getContentHeight() * bu1Var.getScale())) - ((Integer) ht2.U().r().second).intValue();
-            if (contentHeight <= 0) {
-                return 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            q("#setNavigationBarColor", false);
+            e72 V = it2.U().V();
+            if (V == null) {
+                v42.c("NavigationBarApi", "manager is null");
+                return new vz1(1001);
             }
-            if (i > contentHeight) {
-                return contentHeight;
+            Pair<vz1, JSONObject> s = s(str);
+            vz1 vz1Var = (vz1) s.first;
+            if (!vz1Var.isSuccess()) {
+                return vz1Var;
             }
-            return i;
+            JSONObject jSONObject = (JSONObject) s.second;
+            String optString = jSONObject.optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                p("cb is empty", null, true);
+                return new vz1(1001, "cb is empty");
+            }
+            pl3.e0(new b(this, V.m(), jSONObject.optString("frontColor"), optString, jSONObject.optString(TtmlNode.ATTR_TTS_BACKGROUND_COLOR), jSONObject.optJSONObject("animation")));
+            return vz1.f();
         }
-        return invokeLI.intValue;
+        return (vz1) invokeL.objValue;
+    }
+
+    public final vz1 x(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, str, z)) == null) {
+            e72 V = it2.U().V();
+            if (V == null) {
+                v42.c("NavigationBarApi", "manager is null");
+                return new vz1(1001);
+            }
+            Pair<vz1, JSONObject> s = s(str);
+            vz1 vz1Var = (vz1) s.first;
+            if (!vz1Var.isSuccess()) {
+                return vz1Var;
+            }
+            String optString = ((JSONObject) s.second).optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                p("cb is empty", null, true);
+                return new vz1(1001, "cb is empty");
+            }
+            pl3.e0(new c(this, V.m(), optString, z));
+            return vz1.f();
+        }
+        return (vz1) invokeLZ.objValue;
+    }
+
+    public vz1 y(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            q("#hideNavigationBarLoading", false);
+            return x(str, false);
+        }
+        return (vz1) invokeL.objValue;
     }
 }

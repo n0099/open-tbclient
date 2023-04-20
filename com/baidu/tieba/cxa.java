@@ -1,183 +1,67 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.InputStream;
-import java.security.KeyStore;
-import java.security.KeyStoreException;
-import java.security.NoSuchAlgorithmException;
-import java.security.cert.CertificateException;
-import java.security.cert.X509Certificate;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import javax.net.ssl.TrustManager;
-import javax.net.ssl.TrustManagerFactory;
-import javax.net.ssl.X509TrustManager;
+import com.huawei.hms.common.internal.TransactionIdCreater;
+import java.io.UnsupportedEncodingException;
+import java.util.Locale;
 /* loaded from: classes4.dex */
-public class cxa implements X509TrustManager {
+public final class cxa {
     public static /* synthetic */ Interceptable $ic;
-    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<X509TrustManager> a;
 
-    public void b(X509Certificate[] x509CertificateArr) {
+    public static String a(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x509CertificateArr) == null) {
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947691517, "Lcom/baidu/tieba/cxa;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947691517, "Lcom/baidu/tieba/cxa;");
-                return;
-            }
-        }
-        b = cxa.class.getSimpleName();
-    }
-
-    public cxa(InputStream inputStream, String str) throws IllegalArgumentException {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {inputStream, str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new ArrayList();
-        a(inputStream, str);
-    }
-
-    public final void a(InputStream inputStream, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, inputStream, str) == null) {
-            if (inputStream != null && str != null) {
-                long currentTimeMillis = System.currentTimeMillis();
-                try {
-                    try {
-                        TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance("X509");
-                        KeyStore keyStore = KeyStore.getInstance("bks");
-                        keyStore.load(inputStream, str.toCharArray());
-                        trustManagerFactory.init(keyStore);
-                        TrustManager[] trustManagers = trustManagerFactory.getTrustManagers();
-                        for (int i = 0; i < trustManagers.length; i++) {
-                            if (trustManagers[i] instanceof X509TrustManager) {
-                                this.a.add((X509TrustManager) trustManagers[i]);
-                            }
-                        }
-                        kxa.b(inputStream);
-                    } finally {
-                        kxa.b(inputStream);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
+            if (bArr != null && bArr.length != 0) {
+                StringBuilder sb = new StringBuilder();
+                for (byte b : bArr) {
+                    String hexString = Integer.toHexString(b & 255);
+                    if (hexString.length() == 1) {
+                        sb.append(TransactionIdCreater.FILL_BYTE);
                     }
-                } catch (IOException | KeyStoreException | NoSuchAlgorithmException | CertificateException e) {
-                    String str2 = b;
-                    lxa.d(str2, "loadInputStream: exception : " + e.getMessage());
+                    sb.append(hexString);
                 }
-                String str3 = b;
-                lxa.b(str3, "loadInputStream: cost : " + (System.currentTimeMillis() - currentTimeMillis) + " ms");
-                return;
+                return sb.toString();
             }
-            throw new IllegalArgumentException("inputstream or trustPwd is null");
+            return "";
         }
+        return (String) invokeL.objValue;
     }
 
-    @Override // javax.net.ssl.X509TrustManager
-    public void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
+    public static byte[] b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, x509CertificateArr, str) == null) {
-            lxa.e(b, "checkClientTrusted: ");
-            for (X509TrustManager x509TrustManager : this.a) {
-                try {
-                    x509TrustManager.checkServerTrusted(x509CertificateArr, str);
-                    return;
-                } catch (CertificateException e) {
-                    String str2 = b;
-                    lxa.d(str2, "checkServerTrusted CertificateException" + e.getMessage());
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return new byte[0];
             }
-            throw new CertificateException("checkServerTrusted CertificateException");
-        }
-    }
-
-    @Override // javax.net.ssl.X509TrustManager
-    public void checkServerTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, x509CertificateArr, str) == null) {
-            b(x509CertificateArr);
-            lxa.e(b, "checkServerTrusted begin ,server ca chain size is : " + x509CertificateArr.length + " ,auth type is : " + str);
-            long currentTimeMillis = System.currentTimeMillis();
-            for (X509Certificate x509Certificate : x509CertificateArr) {
-                lxa.b(b, "server ca chain: getSubjectDN is :" + x509Certificate.getSubjectDN());
-                lxa.b(b, "IssuerDN :" + x509Certificate.getIssuerDN());
-                lxa.b(b, "SerialNumber : " + x509Certificate.getSerialNumber());
-            }
-            int size = this.a.size();
-            for (int i = 0; i < size; i++) {
-                try {
-                    lxa.e(b, "check server i : " + i);
-                    X509TrustManager x509TrustManager = this.a.get(i);
-                    X509Certificate[] acceptedIssuers = x509TrustManager.getAcceptedIssuers();
-                    if (acceptedIssuers != null) {
-                        lxa.e(b, "client root ca size is : " + acceptedIssuers.length);
-                        for (int i2 = 0; i2 < acceptedIssuers.length; i2++) {
-                            lxa.b(b, "client root ca getIssuerDN :" + acceptedIssuers[i2].getIssuerDN());
-                        }
-                    }
-                    x509TrustManager.checkServerTrusted(x509CertificateArr, str);
-                    lxa.e(b, "checkServerTrusted succeed ,root ca issuer is : " + x509CertificateArr[x509CertificateArr.length - 1].getIssuerDN());
-                    return;
-                } catch (CertificateException e) {
-                    lxa.d(b, "checkServerTrusted error :" + e.getMessage() + " , time : " + i);
-                    if (i == size - 1) {
-                        if (x509CertificateArr != null && x509CertificateArr.length > 0) {
-                            lxa.d(b, "root ca issuer : " + x509CertificateArr[x509CertificateArr.length - 1].getIssuerDN());
-                        }
-                        throw e;
-                    }
-                }
-            }
-            lxa.b(b, "checkServerTrusted: cost : " + (System.currentTimeMillis() - currentTimeMillis) + " ms");
-        }
-    }
-
-    @Override // javax.net.ssl.X509TrustManager
-    public X509Certificate[] getAcceptedIssuers() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             try {
-                ArrayList arrayList = new ArrayList();
-                for (X509TrustManager x509TrustManager : this.a) {
-                    arrayList.addAll(Arrays.asList(x509TrustManager.getAcceptedIssuers()));
+                String upperCase = str.toUpperCase(Locale.ENGLISH);
+                int length = upperCase.length() / 2;
+                byte[] bArr = new byte[length];
+                try {
+                    byte[] bytes = upperCase.getBytes("UTF-8");
+                    for (int i = 0; i < length; i++) {
+                        StringBuilder sb = new StringBuilder();
+                        sb.append("0x");
+                        int i2 = i * 2;
+                        sb.append(new String(new byte[]{bytes[i2]}, "UTF-8"));
+                        bArr[i] = (byte) (((byte) (Byte.decode(sb.toString()).byteValue() << 4)) ^ Byte.decode("0x" + new String(new byte[]{bytes[i2 + 1]}, "UTF-8")).byteValue());
+                    }
+                    return bArr;
+                } catch (UnsupportedEncodingException | NumberFormatException e) {
+                    fxa.c("HexUtil", "hex string 2 byte array exception : " + e.getMessage());
+                    return new byte[0];
                 }
-                return (X509Certificate[]) arrayList.toArray(new X509Certificate[arrayList.size()]);
-            } catch (Exception e) {
-                String str = b;
-                lxa.d(str, "getAcceptedIssuers exception : " + e.getMessage());
-                return new X509Certificate[0];
+            } catch (Throwable th) {
+                fxa.c("HexUtil", "hex string toUpperCase exception : " + th.getMessage());
+                return new byte[0];
             }
         }
-        return (X509Certificate[]) invokeV.objValue;
+        return (byte[]) invokeL.objValue;
     }
 }

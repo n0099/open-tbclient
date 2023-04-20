@@ -17,8 +17,8 @@ import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.an5;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.zm5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -116,7 +116,7 @@ public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessA
             super.changeSkinType(i);
             super.changeSkinType(i);
             getLayoutMode().k(this.b);
-            zm5.a(getPageContext(), this.b);
+            an5.a(getPageContext(), this.b);
             NoNetworkView noNetworkView = this.d;
             if (noNetworkView != null && noNetworkView.getVisibility() == 0) {
                 this.d.d(getPageContext(), TbadkCoreApplication.getInst().getSkinType());

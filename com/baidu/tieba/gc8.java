@@ -1,69 +1,121 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.chatmessage.messages.TextMsg;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.impersonal.components.PersonalMsgContainer;
+import com.baidu.tieba.ka8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes4.dex */
-public final class gc8 extends bc8<TextMsg, oa8> {
+public abstract class gc8<T, V extends View, M extends ka8<T>> implements b07<PersonalMsgContainer<T, V>, M> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
 
-    @Override // com.baidu.tieba.bc8
-    public int c() {
-        InterceptResult invokeV;
+    public abstract void d(V v, M m);
+
+    public void f(ViewGroup container) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 1;
+        if (interceptable == null || interceptable.invokeL(1048581, this, container) == null) {
+            Intrinsics.checkNotNullParameter(container, "container");
         }
-        return invokeV.intValue;
     }
 
-    public gc8() {
+    public abstract V g(ViewGroup viewGroup);
+
+    public gc8(String name) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {name};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(name, "name");
+        this.a = name;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.bc8
+    @Override // com.baidu.tieba.b07
+    /* renamed from: e */
+    public void b(PersonalMsgContainer<T, V> view2, M data) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, view2, data) == null) {
+            Intrinsics.checkNotNullParameter(view2, "view");
+            Intrinsics.checkNotNullParameter(data, "data");
+            view2.h(data);
+            d(view2.getChild(), data);
+            f(view2.getChildContainer());
+        }
+    }
+
+    @Override // com.baidu.tieba.b07
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return StringsKt__StringsJVMKt.endsWith$default(c(), "_left", false, 2, null);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return StringsKt__StringsJVMKt.endsWith$default(c(), "_right", false, 2, null);
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.b07
     /* renamed from: h */
-    public TextMsg e(oa8 oa8Var) {
+    public PersonalMsgContainer<T, V> a(ViewGroup parent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, oa8Var)) == null) {
-            TextMsg textMsg = new TextMsg();
-            textMsg.setText((oa8Var == null || (r5 = oa8Var.a()) == null) ? "" : "");
-            return textMsg;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, parent)) == null) {
+            Intrinsics.checkNotNullParameter(parent, "parent");
+            if (i()) {
+                Context context = parent.getContext();
+                Intrinsics.checkNotNullExpressionValue(context, "parent.context");
+                PersonalMsgContainer<T, V> personalMsgContainer = new PersonalMsgContainer<>(true, context, null, 4, null);
+                personalMsgContainer.e(g(parent));
+                return personalMsgContainer;
+            } else if (j()) {
+                Context context2 = parent.getContext();
+                Intrinsics.checkNotNullExpressionValue(context2, "parent.context");
+                PersonalMsgContainer<T, V> personalMsgContainer2 = new PersonalMsgContainer<>(false, context2, null, 4, null);
+                personalMsgContainer2.e(g(parent));
+                return personalMsgContainer2;
+            } else {
+                throw new IllegalArgumentException("unknown template: " + c());
+            }
         }
-        return (TextMsg) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.bc8
-    /* renamed from: i */
-    public oa8 g(TextMsg sdkMsg) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, sdkMsg)) == null) {
-            Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
-            oa8 oa8Var = new oa8();
-            String text = sdkMsg.getText();
-            Intrinsics.checkNotNullExpressionValue(text, "sdkMsg.getText()");
-            oa8Var.b(text);
-            return oa8Var;
-        }
-        return (oa8) invokeL.objValue;
+        return (PersonalMsgContainer) invokeL.objValue;
     }
 }

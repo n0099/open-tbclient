@@ -1,22 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public final class uza {
     public static /* synthetic */ Interceptable $ic;
-    public static final uza[] d;
+    public static final int[] a;
+    public static final int[] b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final byte[] a;
-    public final int b;
-    public final byte[] c;
 
     static {
         InterceptResult invokeClinit;
@@ -31,98 +25,8 @@ public final class uza {
                 return;
             }
         }
-        d = new uza[]{new uza("", 0, ""), new uza("", 0, " "), new uza(" ", 0, " "), new uza("", 12, ""), new uza("", 10, " "), new uza("", 0, " the "), new uza(" ", 0, ""), new uza("s ", 0, " "), new uza("", 0, " of "), new uza("", 10, ""), new uza("", 0, " and "), new uza("", 13, ""), new uza("", 1, ""), new uza(StringUtil.ARRAY_ELEMENT_SEPARATOR, 0, " "), new uza("", 0, StringUtil.ARRAY_ELEMENT_SEPARATOR), new uza(" ", 10, " "), new uza("", 0, " in "), new uza("", 0, " to "), new uza("e ", 0, " "), new uza("", 0, "\""), new uza("", 0, "."), new uza("", 0, "\">"), new uza("", 0, "\n"), new uza("", 3, ""), new uza("", 0, PreferencesUtil.RIGHT_MOUNT), new uza("", 0, " for "), new uza("", 14, ""), new uza("", 2, ""), new uza("", 0, " a "), new uza("", 0, " that "), new uza(" ", 10, ""), new uza("", 0, ". "), new uza(".", 0, ""), new uza(" ", 0, StringUtil.ARRAY_ELEMENT_SEPARATOR), new uza("", 15, ""), new uza("", 0, " with "), new uza("", 0, "'"), new uza("", 0, " from "), new uza("", 0, " by "), new uza("", 16, ""), new uza("", 17, ""), new uza(" the ", 0, ""), new uza("", 4, ""), new uza("", 0, ". The "), new uza("", 11, ""), new uza("", 0, " on "), new uza("", 0, " as "), new uza("", 0, " is "), new uza("", 7, ""), new uza("", 1, "ing "), new uza("", 0, "\n\t"), new uza("", 0, ":"), new uza(" ", 0, ". "), new uza("", 0, "ed "), new uza("", 20, ""), new uza("", 18, ""), new uza("", 6, ""), new uza("", 0, "("), new uza("", 10, StringUtil.ARRAY_ELEMENT_SEPARATOR), new uza("", 8, ""), new uza("", 0, " at "), new uza("", 0, "ly "), new uza(" the ", 0, " of "), new uza("", 5, ""), new uza("", 9, ""), new uza(" ", 10, StringUtil.ARRAY_ELEMENT_SEPARATOR), new uza("", 10, "\""), new uza(".", 0, "("), new uza("", 11, " "), new uza("", 10, "\">"), new uza("", 0, "=\""), new uza(" ", 0, "."), new uza(".com/", 0, ""), new uza(" the ", 0, " of the "), new uza("", 10, "'"), new uza("", 0, ". This "), new uza("", 0, ","), new uza(".", 0, " "), new uza("", 10, "("), new uza("", 10, "."), new uza("", 0, " not "), new uza(" ", 0, "=\""), new uza("", 0, "er "), new uza(" ", 11, " "), new uza("", 0, "al "), new uza(" ", 11, ""), new uza("", 0, "='"), new uza("", 11, "\""), new uza("", 10, ". "), new uza(" ", 0, "("), new uza("", 0, "ful "), new uza(" ", 10, ". "), new uza("", 0, "ive "), new uza("", 0, "less "), new uza("", 11, "'"), new uza("", 0, "est "), new uza(" ", 10, "."), new uza("", 11, "\">"), new uza(" ", 0, "='"), new uza("", 10, ","), new uza("", 0, "ize "), new uza("", 11, "."), new uza("Â ", 0, ""), new uza(" ", 0, ","), new uza("", 10, "=\""), new uza("", 11, "=\""), new uza("", 0, "ous "), new uza("", 11, StringUtil.ARRAY_ELEMENT_SEPARATOR), new uza("", 10, "='"), new uza(" ", 10, ","), new uza(" ", 11, "=\""), new uza(" ", 11, StringUtil.ARRAY_ELEMENT_SEPARATOR), new uza("", 11, ","), new uza("", 11, "("), new uza("", 11, ". "), new uza(" ", 11, "."), new uza("", 11, "='"), new uza(" ", 11, ". "), new uza(" ", 10, "=\""), new uza(" ", 11, "='"), new uza(" ", 10, "='")};
-    }
-
-    public uza(String str, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), str2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = a(str);
-        this.b = i;
-        this.c = a(str2);
-    }
-
-    public static byte[] a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            int length = str.length();
-            byte[] bArr = new byte[length];
-            for (int i = 0; i < length; i++) {
-                bArr[i] = (byte) str.charAt(i);
-            }
-            return bArr;
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public static int b(byte[] bArr, int i, byte[] bArr2, int i2, int i3, uza uzaVar) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{bArr, Integer.valueOf(i), bArr2, Integer.valueOf(i2), Integer.valueOf(i3), uzaVar})) == null) {
-            int i4 = i;
-            for (byte b : uzaVar.a) {
-                bArr[i4] = b;
-                i4++;
-            }
-            int i5 = uzaVar.b;
-            int a = wza.a(i5);
-            if (a > i3) {
-                a = i3;
-            }
-            int i6 = i2 + a;
-            int b2 = (i3 - a) - wza.b(i5);
-            int i7 = b2;
-            while (i7 > 0) {
-                bArr[i4] = bArr2[i6];
-                i7--;
-                i4++;
-                i6++;
-            }
-            if (i5 == 11 || i5 == 10) {
-                int i8 = i4 - b2;
-                if (i5 == 10) {
-                    b2 = 1;
-                }
-                while (b2 > 0) {
-                    int i9 = bArr[i8] & 255;
-                    if (i9 < 192) {
-                        if (i9 >= 97 && i9 <= 122) {
-                            bArr[i8] = (byte) (bArr[i8] ^ 32);
-                        }
-                        i8++;
-                        b2--;
-                    } else if (i9 < 224) {
-                        int i10 = i8 + 1;
-                        bArr[i10] = (byte) (bArr[i10] ^ 32);
-                        i8 += 2;
-                        b2 -= 2;
-                    } else {
-                        int i11 = i8 + 2;
-                        bArr[i11] = (byte) (bArr[i11] ^ 5);
-                        i8 += 3;
-                        b2 -= 3;
-                    }
-                }
-            }
-            for (byte b3 : uzaVar.c) {
-                bArr[i4] = b3;
-                i4++;
-            }
-            return i4 - i;
-        }
-        return invokeCommon.intValue;
+        a = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 12, 16, 12, 12, 20, 12, 16, 24, 28, 12, 12, 32, 12, 36, 12, 44, 44, 44, 44, 44, 44, 44, 44, 44, 44, 32, 32, 24, 40, 28, 12, 12, 48, 52, 52, 52, 48, 52, 52, 52, 48, 52, 52, 52, 52, 52, 48, 52, 52, 52, 52, 52, 48, 52, 52, 52, 52, 52, 24, 12, 28, 12, 12, 12, 56, 60, 60, 60, 56, 60, 60, 60, 56, 60, 60, 60, 60, 60, 56, 60, 60, 60, 60, 60, 56, 60, 60, 60, 60, 60, 24, 12, 28, 12, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 7, 0, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 
+        40, 40, 40, 40, 40, 40, 40, 40, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 56, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 7, 7, 7, 7, 8, 8, 8, 8, 9, 9, 9, 9, 10, 10, 10, 10, 11, 11, 11, 11, 12, 12, 12, 12, 13, 13, 13, 13, 14, 14, 14, 14, 15, 15, 15, 15, 16, 16, 16, 16, 17, 17, 17, 17, 18, 18, 18, 18, 19, 19, 19, 19, 20, 20, 20, 20, 21, 21, 21, 21, 22, 22, 22, 22, 23, 23, 23, 23, 24, 24, 24, 24, 25, 25, 25, 25, 26, 26, 26, 26, 27, 27, 27, 27, 28, 28, 28, 28, 29, 29, 29, 29, 30, 30, 30, 30, 31, 31, 31, 31, 32, 32, 32, 32, 33, 33, 33, 33, 34, 34, 34, 34, 35, 35, 35, 35, 36, 36, 36, 36, 37, 37, 37, 37, 38, 38, 38, 38, 39, 39, 39, 39, 40, 40, 40, 40, 41, 41, 41, 41, 42, 42, 42, 42, 43, 43, 43, 43, 44, 44, 44, 44, 45, 45, 45, 45, 46, 46, 46, 46, 47, 47, 47, 47, 48, 48, 48, 48, 49, 49, 49, 49, 50, 50, 50, 50, 51, 51, 51, 51, 52, 52, 52, 52, 53, 53, 53, 53, 54, 54, 54, 54, 55, 55, 55, 55, 56, 56, 56, 56, 57, 57, 57, 57, 58, 58, 58, 58, 59, 59, 59, 59, 60, 60, 60, 60, 61, 61, 61, 61, 62, 62, 62, 62, 63, 63, 63, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+        b = new int[]{1024, 1536, 1280, 1536, 0, 256, 768, 512};
     }
 }

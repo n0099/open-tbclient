@@ -3,7 +3,7 @@ package com.xiaomi.push.service;
 import android.content.Context;
 import com.xiaomi.push.fw;
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class cu extends XMPushService.j {
     public final /* synthetic */ XMPushService a;
 

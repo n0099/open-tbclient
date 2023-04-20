@@ -1,17 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.ForumListActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class hj9 implements nj9 {
+public class hj9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
+    public String c;
+    public String d;
+    public ArrayList<hj9> e;
 
     public hj9() {
         Interceptable interceptable = $ic;
@@ -27,35 +33,29 @@ public class hj9 implements nj9 {
         }
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.a = str;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            this.a = jSONObject.optString(ForumListActivityConfig.KEY_MENU_TYPE);
+            this.b = jSONObject.optString("menu_name");
+            this.c = jSONObject.optString("menu_id");
+            String str = null;
+            String optString = jSONObject.optString("default_logo_url", null);
+            this.d = optString;
+            if (optString != null) {
+                str = this.d + "?v=2";
+            }
+            this.d = str;
+            if (jSONObject.has("child_menu_list")) {
+                ArrayList<hj9> arrayList = new ArrayList<>();
+                JSONArray optJSONArray = jSONObject.optJSONArray("child_menu_list");
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    hj9 hj9Var = new hj9();
+                    hj9Var.a(optJSONArray.getJSONObject(i));
+                    arrayList.add(hj9Var);
+                }
+                this.e = arrayList;
+            }
         }
     }
 }

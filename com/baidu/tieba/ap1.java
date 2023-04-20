@@ -1,7 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.j03;
+import java.util.List;
 /* loaded from: classes3.dex */
 public interface ap1 {
-    void a(String str, j03.k kVar);
+    List<s93> a(s83 s83Var);
+
+    List<s93> b(s83 s83Var);
+
+    List<s93> c(s83 s83Var);
 }

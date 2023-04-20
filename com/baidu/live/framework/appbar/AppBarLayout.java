@@ -27,8 +27,8 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.customview.view.AbsSavedState;
 import com.baidu.live.framework.coordinatorlayout.CoordinatorLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ta0;
-import com.baidu.tieba.v90;
+import com.baidu.tieba.ua0;
+import com.baidu.tieba.w90;
 import java.lang.ref.WeakReference;
 import java.util.List;
 @CoordinatorLayout.c(Behavior.class)
@@ -664,7 +664,7 @@ public class AppBarLayout extends LinearLayout {
         public LayoutParams(Context context, AttributeSet attributeSet) {
             super(context, attributeSet);
             this.a = 1;
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, v90.LiveAppBarLayout_Layout);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, w90.LiveAppBarLayout_Layout);
             this.a = obtainStyledAttributes.getInt(0, 0);
             if (obtainStyledAttributes.hasValue(1)) {
                 this.b = AnimationUtils.loadInterpolator(context, obtainStyledAttributes.getResourceId(1, 0));
@@ -712,7 +712,7 @@ public class AppBarLayout extends LinearLayout {
 
         public ScrollingViewBehavior(Context context, AttributeSet attributeSet) {
             super(context, attributeSet);
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, v90.LiveScrollingViewBehavior_Layout);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, w90.LiveScrollingViewBehavior_Layout);
             if (obtainStyledAttributes.hasValue(0)) {
                 O(obtainStyledAttributes.getDimensionPixelSize(0, 0));
             }
@@ -911,7 +911,7 @@ public class AppBarLayout extends LinearLayout {
     @Deprecated
     public void setTargetElevation(float f) {
         if (Build.VERSION.SDK_INT >= 21) {
-            ta0.b(this, f);
+            ua0.b(this, f);
         }
     }
 
@@ -923,15 +923,15 @@ public class AppBarLayout extends LinearLayout {
         this.e = 0;
         setOrientation(1);
         if (Build.VERSION.SDK_INT >= 21) {
-            ta0.a(this);
-            ta0.c(this, attributeSet, 0, R.style.obfuscated_res_0x7f100126);
+            ua0.a(this);
+            ua0.c(this, attributeSet, 0, R.style.obfuscated_res_0x7f100126);
         }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, v90.LiveAppBarLayout, 0, R.style.obfuscated_res_0x7f100126);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, w90.LiveAppBarLayout, 0, R.style.obfuscated_res_0x7f100126);
         if (obtainStyledAttributes.hasValue(2)) {
             l(obtainStyledAttributes.getBoolean(2, false), false, false);
         }
         if (Build.VERSION.SDK_INT >= 21 && obtainStyledAttributes.hasValue(1)) {
-            ta0.b(this, obtainStyledAttributes.getDimensionPixelSize(1, 0));
+            ua0.b(this, obtainStyledAttributes.getDimensionPixelSize(1, 0));
         }
         if (Build.VERSION.SDK_INT >= 26) {
             if (obtainStyledAttributes.hasValue(3)) {

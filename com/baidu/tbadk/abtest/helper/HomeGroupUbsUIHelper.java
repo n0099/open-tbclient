@@ -13,9 +13,9 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
+import com.baidu.tieba.h89;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.jw4;
-import com.baidu.tieba.z79;
+import com.baidu.tieba.kw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -132,11 +132,11 @@ public final class HomeGroupUbsUIHelper {
         SkinManager.setBackgroundColor(view2, R.color.CAM_X0202);
     }
 
-    public static boolean isFromHotRankTab(jw4 jw4Var) {
+    public static boolean isFromHotRankTab(kw4 kw4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, jw4Var)) == null) {
-            if (jw4Var != null && jw4Var.getThreadData() != null && jw4Var.getThreadData().isFromHotRankTab) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, kw4Var)) == null) {
+            if (kw4Var != null && kw4Var.getThreadData() != null && kw4Var.getThreadData().isFromHotRankTab) {
                 return true;
             }
             return false;
@@ -228,11 +228,11 @@ public final class HomeGroupUbsUIHelper {
         return invokeCommon.booleanValue;
     }
 
-    public static boolean handleVerticalVideoSize(ViewGroup.LayoutParams layoutParams, boolean z, z79 z79Var, int i, int i2) {
+    public static boolean handleVerticalVideoSize(ViewGroup.LayoutParams layoutParams, boolean z, h89 h89Var, int i, int i2) {
         InterceptResult invokeCommon;
         boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{layoutParams, Boolean.valueOf(z), z79Var, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{layoutParams, Boolean.valueOf(z), h89Var, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
             if (layoutParams == null) {
                 return z;
             }
@@ -247,8 +247,8 @@ public final class HomeGroupUbsUIHelper {
             } else {
                 z2 = true;
             }
-            if (z79Var != null) {
-                z79Var.changeRenderViewMode(0);
+            if (h89Var != null) {
+                h89Var.changeRenderViewMode(0);
             }
             return z2;
         }

@@ -1,25 +1,16 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.content.Context;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.IOException;
 /* loaded from: classes5.dex */
-public class od2 extends pd2 {
+public class od2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
-    public static final String c;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,71 +26,51 @@ public class od2 extends pd2 {
                 return;
             }
         }
-        b = eo1.a;
-        c = "swan_preset" + File.separator + "preset_list.json";
+        a = fo1.a;
     }
 
-    public od2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.pd2
-    public String i() {
+    @NonNull
+    public static md2 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return fk3.b(br2.c(), c);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            md2 b = b(c());
+            if (a) {
+                Log.d("PrelinkStrategyFactory", "prelink strategy - " + b.getClass().getSimpleName());
+            }
+            return b;
         }
-        return (String) invokeV.objValue;
+        return (md2) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.pd2
-    public boolean e(qd2 qd2Var) {
-        InterceptResult invokeL;
+    public static int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, qd2Var)) == null) {
-            if (qd2Var == null) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            cr2.g0().getSwitch("swan_prelink_policy_when_prefetch", 0);
+            if (a) {
+                Log.d("PrelinkStrategyFactory", "swan_prelink_policy_when_prefetch = 0");
             }
-            Context appContext = AppRuntime.getAppContext();
-            String str = "swan_preset" + File.separator + qd2Var.g + File.separator + qd2Var.q;
-            try {
-                File j = j(qd2Var.h, qd2Var.g, qd2Var.i);
-                if (j == null) {
-                    if (b) {
-                        Log.e("AssetPresetController", "获取解压路径失败");
-                    }
-                    return false;
-                }
-                return n(new BufferedInputStream(appContext.getAssets().open(str)), j);
-            } catch (IOException e) {
-                if (b) {
-                    e.printStackTrace();
-                }
-                return false;
-            }
+            return 0;
         }
-        return invokeL.booleanValue;
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.pd2
-    public String f(String str) {
-        InterceptResult invokeL;
+    public static md2 b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            Application c2 = br2.c();
-            return fk3.b(c2, "swan_preset" + File.separator + str + File.separator + "app_info.json");
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (i == 0) {
+                return new kd2();
+            }
+            if (i > 0) {
+                return new nd2(i);
+            }
+            if (i == -1) {
+                return new ld2();
+            }
+            return new kd2();
         }
-        return (String) invokeL.objValue;
+        return (md2) invokeI.objValue;
     }
 }

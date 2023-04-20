@@ -7,19 +7,55 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tieba.dg6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class tb7 extends um<sn6, CardViewHolder<dg6>> {
+public class tb7 extends vm<sn6, CardViewHolder<dg6>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
     public dg6 b;
-    public String c;
+    public yg6 c;
+    public String d;
+
+    /* loaded from: classes6.dex */
+    public class a implements dg6.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ tb7 a;
+
+        public a(tb7 tb7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tb7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tb7Var;
+        }
+
+        @Override // com.baidu.tieba.dg6.a
+        public void a(View view2, BaseCardInfo baseCardInfo) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, view2, baseCardInfo) == null) && this.a.c != null) {
+                this.a.c.a(view2, baseCardInfo);
+            }
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public tb7(TbPageContext tbPageContext, String str) {
@@ -41,27 +77,32 @@ public class tb7 extends um<sn6, CardViewHolder<dg6>> {
             }
         }
         this.a = tbPageContext;
-        this.c = str;
+        this.d = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.um
-    /* renamed from: s */
+    @Override // com.baidu.tieba.vm
+    /* renamed from: t */
     public CardViewHolder<dg6> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            dg6 dg6Var = new dg6(this.a);
-            this.b = dg6Var;
-            dg6Var.t(this.c);
+            this.b = new dg6(this.a, this.d);
             return new CardViewHolder<>(this.b);
         }
         return (CardViewHolder) invokeL.objValue;
     }
 
+    public void x(yg6 yg6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, yg6Var) == null) {
+            this.c = yg6Var;
+        }
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.um
-    /* renamed from: t */
+    @Override // com.baidu.tieba.vm
+    /* renamed from: u */
     public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, sn6 sn6Var, CardViewHolder<dg6> cardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
@@ -71,6 +112,7 @@ public class tb7 extends um<sn6, CardViewHolder<dg6>> {
             }
             cardViewHolder.a().l(sn6Var);
             cardViewHolder.a().m(this.a, TbadkCoreApplication.getInst().getSkinType());
+            cardViewHolder.a().u(new a(this));
             return cardViewHolder.a().h();
         }
         return (View) invokeCommon.objValue;

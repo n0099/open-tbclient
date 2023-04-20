@@ -11,12 +11,12 @@ import android.widget.RelativeLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kt5;
-import com.baidu.tieba.q25;
+import com.baidu.tieba.c0a;
+import com.baidu.tieba.fk9;
+import com.baidu.tieba.lt5;
+import com.baidu.tieba.r25;
 import com.baidu.tieba.tbadkcore.databinding.ProgressBallBinding;
-import com.baidu.tieba.uz9;
 import com.baidu.tieba.view.progressball.ProgressBall;
-import com.baidu.tieba.xj9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -33,7 +33,7 @@ public final class ProgressBall extends RelativeLayout {
     public int c;
     public final Path d;
     public int e;
-    public uz9 f;
+    public c0a f;
     public ProgressBallBinding g;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -99,7 +99,7 @@ public final class ProgressBall extends RelativeLayout {
         }
         this.a = "res:///";
         this.d = new Path();
-        this.f = new uz9();
+        this.f = new c0a();
         a();
     }
 
@@ -136,7 +136,7 @@ public final class ProgressBall extends RelativeLayout {
         }
     }
 
-    public final void b(uz9 data) {
+    public final void b(c0a data) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, data) == null) {
@@ -160,7 +160,7 @@ public final class ProgressBall extends RelativeLayout {
                     Intrinsics.throwUninitializedPropertyAccessException("binding");
                     progressBallBinding3 = null;
                 }
-                progressBallBinding3.b.setForegroundColor(xj9.a(SkinManager.getColor(R.color.CAM_X0611), 0.6f));
+                progressBallBinding3.b.setForegroundColor(fk9.a(SkinManager.getColor(R.color.CAM_X0611), 0.6f));
                 ProgressBallBinding progressBallBinding4 = this.g;
                 if (progressBallBinding4 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("binding");
@@ -180,7 +180,7 @@ public final class ProgressBall extends RelativeLayout {
                     Intrinsics.throwUninitializedPropertyAccessException("binding");
                     progressBallBinding6 = null;
                 }
-                progressBallBinding6.c.setPlaceHolderDrawable(kt5.a.a());
+                progressBallBinding6.c.setPlaceHolderDrawable(lt5.a.a());
                 Uri parse = Uri.parse(this.a + data.c());
                 ProgressBallBinding progressBallBinding7 = this.g;
                 if (progressBallBinding7 == null) {
@@ -207,7 +207,7 @@ public final class ProgressBall extends RelativeLayout {
                     Intrinsics.throwUninitializedPropertyAccessException("binding");
                     progressBallBinding10 = null;
                 }
-                q25.d(progressBallBinding10.d).f(data.b());
+                r25.d(progressBallBinding10.d).f(data.b());
                 ProgressBallBinding progressBallBinding11 = this.g;
                 if (progressBallBinding11 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("binding");
@@ -239,7 +239,7 @@ public final class ProgressBall extends RelativeLayout {
                     Intrinsics.throwUninitializedPropertyAccessException("binding");
                     progressBallBinding14 = null;
                 }
-                q25 d = q25.d(progressBallBinding14.e);
+                r25 d = r25.d(progressBallBinding14.e);
                 d.C(R.string.F_X02);
                 d.w(R.color.CAM_X0101);
             }
@@ -274,7 +274,7 @@ public final class ProgressBall extends RelativeLayout {
             } else {
                 this.e = i;
             }
-            post(new Runnable() { // from class: com.baidu.tieba.tz9
+            post(new Runnable() { // from class: com.baidu.tieba.b0a
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

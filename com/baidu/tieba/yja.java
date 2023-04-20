@@ -1,28 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Inject;
+import com.baidu.searchbox.retrieve.upload.AcUploadResultObserver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.yalog.LoggerManager;
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public class yja {
+public class yja implements bj1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Inject(force = false)
-    public dj1<LoggerManager.c> a;
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            bj1 b = bj1.b();
-            this.a = b;
-            b.a(new zja());
-        }
-    }
 
     public yja() {
         Interceptable interceptable = $ic;
@@ -34,18 +22,19 @@ public class yja {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        b();
     }
 
-    public LoggerManager.c a() {
+    @Override // com.baidu.tieba.bj1
+    public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.get();
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new AcUploadResultObserver());
+            return arrayList;
         }
-        return (LoggerManager.c) invokeV.objValue;
+        return invokeV.objValue;
     }
 }

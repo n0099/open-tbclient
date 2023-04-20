@@ -9,14 +9,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes6.dex */
 public class s59 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId c;
+    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public List<hn> b;
+    public String a;
+    public String b;
+    public String c;
 
     static {
         InterceptResult invokeClinit;
@@ -31,7 +31,7 @@ public class s59 extends BaseCardInfo {
                 return;
             }
         }
-        c = BdUniqueId.gen();
+        d = BdUniqueId.gen();
     }
 
     public s59() {
@@ -48,12 +48,12 @@ public class s59 extends BaseCardInfo {
         }
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.hn
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.in
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return c;
+            return d;
         }
         return (BdUniqueId) invokeV.objValue;
     }

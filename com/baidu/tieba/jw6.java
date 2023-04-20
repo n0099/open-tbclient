@@ -1,9 +1,7 @@
 package com.baidu.tieba;
 
 import android.view.View;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.uistate.CardUiStateKt;
 import com.baidu.tieba.feed.helper.CommonOnClickKt;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,23 +11,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.Unit;
-import kotlin.jvm.JvmOverloads;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class jw6 extends zz6 {
+public final class jw6 extends gw6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final tw6 c;
-    public vx6 d;
-    public vx6 e;
-    public String f;
-    public final x17 g;
-    public ux6 h;
-    public final Function1<ux6, Unit> i;
-    public final Function2<View, String, Unit> j;
+    public String b;
+    public int c;
+    public final px6 d;
+    public final gx6 e;
+    public final Function2<gx6, View, Unit> f;
 
     static {
         InterceptResult invokeClinit;
@@ -55,7 +49,7 @@ public final class jw6 extends zz6 {
             }
             if (obj instanceof jw6) {
                 jw6 jw6Var = (jw6) obj;
-                return Intrinsics.areEqual(this.c, jw6Var.c) && Intrinsics.areEqual(this.d, jw6Var.d) && Intrinsics.areEqual(this.e, jw6Var.e) && Intrinsics.areEqual(this.f, jw6Var.f) && Intrinsics.areEqual(this.g, jw6Var.g) && Intrinsics.areEqual(this.h, jw6Var.h) && Intrinsics.areEqual(this.i, jw6Var.i) && Intrinsics.areEqual(this.j, jw6Var.j);
+                return Intrinsics.areEqual(this.b, jw6Var.b) && this.c == jw6Var.c && Intrinsics.areEqual(this.d, jw6Var.d) && Intrinsics.areEqual(this.e, jw6Var.e) && Intrinsics.areEqual(this.f, jw6Var.f);
             }
             return false;
         }
@@ -66,15 +60,10 @@ public final class jw6 extends zz6 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            int hashCode = this.c.hashCode() * 31;
-            vx6 vx6Var = this.d;
-            int hashCode2 = (hashCode + (vx6Var == null ? 0 : vx6Var.hashCode())) * 31;
-            vx6 vx6Var2 = this.e;
-            int hashCode3 = (hashCode2 + (vx6Var2 == null ? 0 : vx6Var2.hashCode())) * 31;
-            String str = this.f;
-            int hashCode4 = (((hashCode3 + (str == null ? 0 : str.hashCode())) * 31) + this.g.hashCode()) * 31;
-            ux6 ux6Var = this.h;
-            return ((((hashCode4 + (ux6Var != null ? ux6Var.hashCode() : 0)) * 31) + this.i.hashCode()) * 31) + this.j.hashCode();
+            String str = this.b;
+            int hashCode = (((((str == null ? 0 : str.hashCode()) * 31) + this.c) * 31) + this.d.hashCode()) * 31;
+            gx6 gx6Var = this.e;
+            return ((hashCode + (gx6Var != null ? gx6Var.hashCode() : 0)) * 31) + this.f.hashCode();
         }
         return invokeV.intValue;
     }
@@ -82,155 +71,86 @@ public final class jw6 extends zz6 {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return "RecommendPersonAttentionCardUiState(headData=" + this.c + ", userName=" + this.d + ", userDesc=" + this.e + ", schema=" + this.f + ", personAttentionUiState=" + this.g + ", statData=" + this.h + ", onStat=" + this.i + ", onItemClick=" + this.j + ')';
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return "RecommendCardUiState(mTitle=" + this.b + ", titleColorId=" + this.c + ", mNestedData=" + this.d + ", feedBackData=" + this.e + ", onFeedBackClick=" + this.f + ')';
         }
         return (String) invokeV.objValue;
     }
 
-    @JvmOverloads
-    public jw6(tw6 headData, vx6 vx6Var, vx6 vx6Var2, String str, x17 personAttentionUiState, ux6 ux6Var, Function1<? super ux6, Unit> onStat, Function2<? super View, ? super String, Unit> onItemClick) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public jw6(String str, int i, px6 mNestedData, gx6 gx6Var, Function2<? super gx6, ? super View, Unit> onFeedBackClick) {
+        super(null, null, 3, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {headData, vx6Var, vx6Var2, str, personAttentionUiState, ux6Var, onStat, onItemClick};
+            Object[] objArr = {str, Integer.valueOf(i), mNestedData, gx6Var, onFeedBackClick};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Function2) objArr2[0], (Function1) objArr2[1], ((Integer) objArr2[2]).intValue(), (DefaultConstructorMarker) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(headData, "headData");
-        Intrinsics.checkNotNullParameter(personAttentionUiState, "personAttentionUiState");
-        Intrinsics.checkNotNullParameter(onStat, "onStat");
-        Intrinsics.checkNotNullParameter(onItemClick, "onItemClick");
-        this.c = headData;
-        this.d = vx6Var;
-        this.e = vx6Var2;
-        this.f = str;
-        this.g = personAttentionUiState;
-        this.h = ux6Var;
-        this.i = onStat;
-        this.j = onItemClick;
+        Intrinsics.checkNotNullParameter(mNestedData, "mNestedData");
+        Intrinsics.checkNotNullParameter(onFeedBackClick, "onFeedBackClick");
+        this.b = str;
+        this.c = i;
+        this.d = mNestedData;
+        this.e = gx6Var;
+        this.f = onFeedBackClick;
     }
 
-    /* JADX WARN: Illegal instructions before constructor call */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public /* synthetic */ jw6(tw6 tw6Var, vx6 vx6Var, vx6 vx6Var2, String str, x17 x17Var, ux6 ux6Var, Function1 function1, Function2 function2, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(tw6Var, r5, r6, r7, x17Var, r9, r10, r11);
-        vx6 vx6Var3;
-        vx6 vx6Var4;
-        String str2;
-        ux6 ux6Var2;
-        Function1<ux6, Unit> function12;
-        Function2<View, String, Unit> function22;
-        if ((i & 2) != 0) {
-            vx6Var3 = null;
-        } else {
-            vx6Var3 = vx6Var;
-        }
-        if ((i & 4) != 0) {
-            vx6Var4 = null;
-        } else {
-            vx6Var4 = vx6Var2;
-        }
-        if ((i & 8) != 0) {
-            str2 = null;
-        } else {
-            str2 = str;
-        }
-        if ((i & 32) != 0) {
-            ux6Var2 = null;
-        } else {
-            ux6Var2 = ux6Var;
-        }
-        if ((i & 64) != 0) {
-            function12 = CardUiStateKt.b();
-        } else {
-            function12 = function1;
-        }
-        if ((i & 128) != 0) {
-            function22 = CommonOnClickKt.b();
-        } else {
-            function22 = function2;
-        }
+    public /* synthetic */ jw6(String str, int i, px6 px6Var, gx6 gx6Var, Function2 function2, int i2, DefaultConstructorMarker defaultConstructorMarker) {
+        this(str, i, px6Var, gx6Var, (i2 & 16) != 0 ? CommonOnClickKt.a() : function2);
     }
 
-    public final tw6 d() {
+    public final gx6 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+            return this.e;
         }
-        return (tw6) invokeV.objValue;
+        return (gx6) invokeV.objValue;
     }
 
-    public final Function2<View, String, Unit> e() {
+    public final px6 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.j;
+            return this.d;
         }
-        return (Function2) invokeV.objValue;
+        return (px6) invokeV.objValue;
     }
 
-    public final Function1<ux6, Unit> f() {
+    public final String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.i;
-        }
-        return (Function1) invokeV.objValue;
-    }
-
-    public final x17 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.g;
-        }
-        return (x17) invokeV.objValue;
-    }
-
-    public final String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.f;
+            return this.b;
         }
         return (String) invokeV.objValue;
     }
 
-    public final ux6 i() {
+    public final Function2<gx6, View, Unit> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.h;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.f;
         }
-        return (ux6) invokeV.objValue;
+        return (Function2) invokeV.objValue;
     }
 
-    public final vx6 j() {
+    public final int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.e;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.c;
         }
-        return (vx6) invokeV.objValue;
-    }
-
-    public final vx6 k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.d;
-        }
-        return (vx6) invokeV.objValue;
+        return invokeV.intValue;
     }
 }

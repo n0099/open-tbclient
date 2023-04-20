@@ -1,164 +1,172 @@
 package com.baidu.tieba;
 
-import android.graphics.Point;
-import android.view.MotionEvent;
-import android.view.View;
-import android.widget.ListView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.widget.dragsort.SimpleDragSortListView;
-import com.baidu.tieba.os5;
+import com.baidu.tieba.newfaceshop.facemake.FaceGroupDraft;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 /* loaded from: classes7.dex */
 public class xp8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String a;
+    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SimpleDragSortListView a;
-    public final a b;
-    public final os5 c;
 
-    /* loaded from: classes7.dex */
-    public static class a extends ps5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int F;
-        public int G;
-        public ListView H;
-
-        @Override // com.baidu.tieba.ss5, com.baidu.tieba.os5.j
-        public void a(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            }
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(os5 os5Var, ListView listView) {
-            super(os5Var, listView, 0, 2, 0);
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948308169, "Lcom/baidu/tieba/xp8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {os5Var, listView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((os5) objArr2[0], (ListView) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue(), ((Integer) objArr2[4]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.F = 0;
-            this.G = Integer.MAX_VALUE;
-            s(false);
-            this.H = listView;
-        }
-
-        @Override // com.baidu.tieba.ps5, com.baidu.tieba.os5.j
-        public void c(View view2, Point point, Point point2) {
-            View view3;
-            int top;
-            int top2;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, point, point2) == null) {
-                int firstVisiblePosition = this.H.getFirstVisiblePosition();
-                int dividerHeight = this.H.getDividerHeight();
-                int headerViewsCount = (this.F - firstVisiblePosition) + this.H.getHeaderViewsCount();
-                int headerViewsCount2 = (this.G - firstVisiblePosition) + this.H.getHeaderViewsCount();
-                int childCount = this.H.getChildCount();
-                View view4 = null;
-                if (headerViewsCount >= 0 && headerViewsCount < childCount) {
-                    view3 = this.H.getChildAt(headerViewsCount);
-                } else {
-                    view3 = null;
-                }
-                if (headerViewsCount2 >= 0 && headerViewsCount2 < childCount) {
-                    view4 = this.H.getChildAt(headerViewsCount2);
-                }
-                if (view3 != null && point.y < (top2 = view3.getTop())) {
-                    point.y = top2;
-                }
-                if (view4 != null && point.y > (top = (view4.getTop() - dividerHeight) - view2.getHeight())) {
-                    point.y = top;
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.ps5
-        public int w(MotionEvent motionEvent) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
-                int n = super.n(motionEvent);
-                int headerViewsCount = n - this.H.getHeaderViewsCount();
-                if (headerViewsCount >= this.F && headerViewsCount < this.G) {
-                    return n;
-                }
-                return -1;
-            }
-            return invokeL.intValue;
-        }
-
-        public void z(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
-                this.F = i;
-                this.G = i2;
-            }
-        }
-    }
-
-    public xp8(SimpleDragSortListView simpleDragSortListView) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {simpleDragSortListView};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948308169, "Lcom/baidu/tieba/xp8;");
                 return;
             }
         }
-        this.a = simpleDragSortListView;
-        os5 os5Var = new os5(simpleDragSortListView, simpleDragSortListView.getViewSuperMethods());
-        this.c = os5Var;
-        simpleDragSortListView.setDragSortViewEventDelegate(os5Var);
-        a aVar = new a(this.c, simpleDragSortListView);
-        this.b = aVar;
-        aVar.d(-1);
-        this.c.s0(this.b);
-        this.c.u0(this.b);
-        simpleDragSortListView.setOnTouchListener(this.b);
+        a = pp8.c + "draft/";
+        b = a + "upload_draft";
     }
 
-    public void a(boolean z) {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.c.o0(z);
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            File file = new File(b);
+            if (file.exists()) {
+                file.delete();
+            }
         }
     }
 
-    public void c(os5.i iVar) {
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:39:0x0010 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r2v1 */
+    /* JADX WARN: Type inference failed for: r2v2, types: [java.io.InputStream] */
+    /* JADX WARN: Type inference failed for: r2v6, types: [com.baidu.tieba.newfaceshop.facemake.FaceGroupDraft] */
+    public static FaceGroupDraft b() {
+        InterceptResult invokeV;
+        FaceGroupDraft faceGroupDraft;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iVar) == null) {
-            this.c.t0(iVar);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            File file = new File(b);
+            ?? r2 = 0;
+            r2 = null;
+            r2 = null;
+            r2 = null;
+            r2 = null;
+            FaceGroupDraft faceGroupDraft2 = null;
+            r2 = null;
+            r2 = null;
+            ObjectInputStream objectInputStream = null;
+            try {
+                if (!file.exists()) {
+                    return null;
+                }
+                try {
+                    ObjectInputStream objectInputStream2 = new ObjectInputStream(new FileInputStream(file));
+                    try {
+                        Object readObject = objectInputStream2.readObject();
+                        if (readObject != null && (readObject instanceof FaceGroupDraft)) {
+                            faceGroupDraft2 = (FaceGroupDraft) readObject;
+                        }
+                        objectInputStream2.close();
+                        fg.c(objectInputStream2);
+                        return faceGroupDraft2;
+                    } catch (IOException e) {
+                        e = e;
+                        FaceGroupDraft faceGroupDraft3 = faceGroupDraft2;
+                        objectInputStream = objectInputStream2;
+                        faceGroupDraft = faceGroupDraft3;
+                        e.printStackTrace();
+                        fg.c(objectInputStream);
+                        r2 = faceGroupDraft;
+                        return r2;
+                    } catch (ClassNotFoundException e2) {
+                        e = e2;
+                        FaceGroupDraft faceGroupDraft4 = faceGroupDraft2;
+                        objectInputStream = objectInputStream2;
+                        faceGroupDraft = faceGroupDraft4;
+                        e.printStackTrace();
+                        fg.c(objectInputStream);
+                        r2 = faceGroupDraft;
+                        return r2;
+                    } catch (Throwable th) {
+                        th = th;
+                        FaceGroupDraft faceGroupDraft5 = faceGroupDraft2;
+                        objectInputStream = objectInputStream2;
+                        faceGroupDraft = faceGroupDraft5;
+                        th.printStackTrace();
+                        fg.c(objectInputStream);
+                        r2 = faceGroupDraft;
+                        return r2;
+                    }
+                } catch (IOException e3) {
+                    e = e3;
+                    faceGroupDraft = null;
+                } catch (ClassNotFoundException e4) {
+                    e = e4;
+                    faceGroupDraft = null;
+                } catch (Throwable th2) {
+                    th = th2;
+                    faceGroupDraft = null;
+                }
+            } catch (Throwable th3) {
+                fg.c(r2);
+                throw th3;
+            }
+        } else {
+            return (FaceGroupDraft) invokeV.objValue;
         }
     }
 
-    public void b(int i, int i2) {
+    public static void c(FaceGroupDraft faceGroupDraft) {
+        ObjectOutputStream objectOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
-            this.b.z(i, i2);
+        if (interceptable == null || interceptable.invokeL(65539, null, faceGroupDraft) == null) {
+            ObjectOutputStream objectOutputStream2 = null;
+            try {
+                try {
+                    File file = new File(a);
+                    if (!file.exists()) {
+                        file.mkdirs();
+                    }
+                    a();
+                    objectOutputStream = new ObjectOutputStream(new FileOutputStream(b));
+                } finally {
+                    fg.d(objectOutputStream2);
+                }
+            } catch (FileNotFoundException e) {
+                e = e;
+            } catch (IOException e2) {
+                e = e2;
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                objectOutputStream.writeObject(faceGroupDraft);
+                fg.d(objectOutputStream);
+            } catch (FileNotFoundException e3) {
+                e = e3;
+                objectOutputStream2 = objectOutputStream;
+                e.printStackTrace();
+            } catch (IOException e4) {
+                e = e4;
+                objectOutputStream2 = objectOutputStream;
+                e.printStackTrace();
+            } catch (Throwable th2) {
+                th = th2;
+                objectOutputStream2 = objectOutputStream;
+                th.printStackTrace();
+            }
         }
     }
 }

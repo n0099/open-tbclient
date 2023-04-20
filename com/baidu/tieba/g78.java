@@ -1,206 +1,110 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.immessagecenter.chatgroup.data.RecentlyBotSkillInfoDto;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.BotsDTO;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes4.dex */
-public class g78 {
+public class g78 extends f78 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile g78 a;
+    public static final int f;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean e;
 
-    public g78() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947746945, "Lcom/baidu/tieba/g78;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947746945, "Lcom/baidu/tieba/g78;");
+                return;
+            }
+        }
+        f = BdUniqueId.gen().getId();
+    }
+
+    @Override // com.baidu.tieba.f78, com.baidu.tieba.y78
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return f;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public g78(BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO) {
+        super(itemsDTO);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {itemsDTO};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((BotsDTO.BotListDTO.SkillDTO.ItemsDTO) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.e = false;
     }
 
-    public static g78 f() {
+    public boolean o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (g78.class) {
-                    if (a == null) {
-                        a = new g78();
-                    }
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO optsDTO = this.c;
+            if (optsDTO == null || optsDTO.getExt() == null) {
+                return false;
             }
-            return a;
+            BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO.Ext ext = this.c.getExt();
+            if (StringUtils.isNull(ext.getPicPath()) || StringUtils.isNull(ext.getPicSize())) {
+                return false;
+            }
+            return true;
         }
-        return (g78) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    @NonNull
-    public final String i() {
-        InterceptResult invokeV;
-        String s;
+    public void q(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            synchronized (this) {
-                s = p45.m().s("key_group_bot_skill_info", "");
-            }
-            return s;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public final String a(@NonNull List<RecentlyBotSkillInfoDto> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return "";
-            }
-            return DataExt.toJson(list);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @NonNull
-    public final List<RecentlyBotSkillInfoDto> b(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return DataExt.toEntityList(str, RecentlyBotSkillInfoDto.class);
-        }
-        return (List) invokeL.objValue;
-    }
-
-    @NonNull
-    public final List<RecentlyBotSkillInfoDto> d(@NonNull List<RecentlyBotSkillInfoDto> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, list)) == null) {
-            synchronized (this) {
-                if (10 >= list.size()) {
-                    return list;
-                }
-                return list.subList(0, 10);
-            }
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public final void j(@NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            synchronized (this) {
-                p45.m().B("key_group_bot_skill_info", str);
-            }
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.e = z;
         }
     }
 
-    public RecentlyBotSkillInfoDto c(@NonNull String str, int i, @NonNull String str2, @NonNull String str3, @NonNull String str4, @NonNull String str5) {
-        InterceptResult invokeCommon;
+    public void r(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Integer.valueOf(i), str2, str3, str4, str5})) == null) {
-            RecentlyBotSkillInfoDto recentlyBotSkillInfoDto = new RecentlyBotSkillInfoDto();
-            recentlyBotSkillInfoDto.setBotUk(str);
-            recentlyBotSkillInfoDto.setSkillId(i);
-            recentlyBotSkillInfoDto.setBotName(str2);
-            recentlyBotSkillInfoDto.setSkillName(str3);
-            recentlyBotSkillInfoDto.setAvatar(str4);
-            recentlyBotSkillInfoDto.setDesc(str5);
-            recentlyBotSkillInfoDto.setTimeStamp(System.currentTimeMillis());
-            return recentlyBotSkillInfoDto;
-        }
-        return (RecentlyBotSkillInfoDto) invokeCommon.objValue;
-    }
-
-    public List<RecentlyBotSkillInfoDto> e(List<BotsDTO.BotListDTO> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, list)) == null) {
-            String i = i();
-            if (!TextUtils.isEmpty(i) && !ListUtils.isEmpty(list)) {
-                int i2 = 0;
-                ArrayList arrayList = new ArrayList();
-                List<RecentlyBotSkillInfoDto> b = b(i);
-                synchronized (this) {
-                    for (RecentlyBotSkillInfoDto recentlyBotSkillInfoDto : b) {
-                        if (recentlyBotSkillInfoDto != null && i2 < 3) {
-                            for (BotsDTO.BotListDTO botListDTO : list) {
-                                if (i2 < 3 && botListDTO != null && botListDTO.getUser() != null && !TextUtils.isEmpty(botListDTO.getUser().getUk()) && recentlyBotSkillInfoDto.getBotUk().equals(botListDTO.getUser().getUk()) && !ListUtils.isEmpty(botListDTO.getSkill())) {
-                                    for (BotsDTO.BotListDTO.SkillDTO skillDTO : botListDTO.getSkill()) {
-                                        if (i2 < 3 && skillDTO != null && skillDTO.getType() == recentlyBotSkillInfoDto.getSkillId()) {
-                                            recentlyBotSkillInfoDto.setDesc(skillDTO.getDesc());
-                                            recentlyBotSkillInfoDto.setSkillName(skillDTO.getName());
-                                            recentlyBotSkillInfoDto.setBotName(botListDTO.getUser().getNameShow());
-                                            recentlyBotSkillInfoDto.setAvatar(botListDTO.getUser().getPortrait());
-                                            arrayList.add(recentlyBotSkillInfoDto);
-                                            i2++;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                return arrayList;
-            }
-            return new ArrayList();
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public final Boolean g(@NonNull RecentlyBotSkillInfoDto recentlyBotSkillInfoDto, @NonNull List<RecentlyBotSkillInfoDto> list) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, recentlyBotSkillInfoDto, list)) == null) {
-            synchronized (this) {
-                if (list.contains(recentlyBotSkillInfoDto)) {
-                    list.remove(recentlyBotSkillInfoDto);
-                    list.add(0, recentlyBotSkillInfoDto);
-                    return Boolean.TRUE;
-                }
-                return Boolean.FALSE;
-            }
-        }
-        return (Boolean) invokeLL.objValue;
-    }
-
-    public void h(@NonNull RecentlyBotSkillInfoDto recentlyBotSkillInfoDto) {
-        List<RecentlyBotSkillInfoDto> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, recentlyBotSkillInfoDto) == null) {
-            String i = i();
-            if (!TextUtils.isEmpty(i)) {
-                list = b(i);
-            } else {
-                list = null;
-            }
-            if (list == null) {
-                list = new ArrayList<>();
-            }
-            if (!g(recentlyBotSkillInfoDto, list).booleanValue()) {
-                list.add(0, recentlyBotSkillInfoDto);
-            }
-            String a2 = a(d(list));
-            if (!TextUtils.isEmpty(a2)) {
-                j(a2);
-            }
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) && this.c != null) {
+            BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO.Ext ext = new BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO.Ext();
+            ext.setPicPath(str);
+            ext.setPicSize(str2);
+            this.c.setExt(ext);
         }
     }
 }

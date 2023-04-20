@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.jg;
-import com.baidu.tieba.o25;
-import com.baidu.tieba.rm5;
+import com.baidu.tieba.p25;
+import com.baidu.tieba.sm5;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -129,7 +129,7 @@ public class FlutterPluginManager {
                             this.this$0.mIFlutterPlugin = (IFlutterPlugin) ((Class) obj).newInstance();
                             this.this$0.mIFlutterPlugin.init();
                         }
-                        o25.a();
+                        p25.a();
                     } catch (IllegalAccessException e) {
                         e.printStackTrace();
                     } catch (InstantiationException e2) {
@@ -358,22 +358,22 @@ public class FlutterPluginManager {
         }
     }
 
-    public void init(rm5 rm5Var) {
+    public void init(sm5 sm5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rm5Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sm5Var) == null) {
             if (this.mIFlutterPlugin == null) {
-                invokePlugin(new IInvokeCallback(this, rm5Var) { // from class: com.baidu.tieba.flutter.FlutterPluginManager.4
+                invokePlugin(new IInvokeCallback(this, sm5Var) { // from class: com.baidu.tieba.flutter.FlutterPluginManager.4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ FlutterPluginManager this$0;
-                    public final /* synthetic */ rm5 val$callback;
+                    public final /* synthetic */ sm5 val$callback;
 
                     {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {this, rm5Var};
+                            Object[] objArr = {this, sm5Var};
                             interceptable2.invokeUnInit(65536, newInitContext);
                             int i = newInitContext.flag;
                             if ((i & 1) != 0) {
@@ -384,7 +384,7 @@ public class FlutterPluginManager {
                             }
                         }
                         this.this$0 = this;
-                        this.val$callback = rm5Var;
+                        this.val$callback = sm5Var;
                     }
 
                     @Override // com.baidu.nps.main.invoke.IInvokeCallback
@@ -415,7 +415,7 @@ public class FlutterPluginManager {
                     }
                 });
             } else {
-                rm5Var.onSuccess();
+                sm5Var.onSuccess();
             }
         }
     }

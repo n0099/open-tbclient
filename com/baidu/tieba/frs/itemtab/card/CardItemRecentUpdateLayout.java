@@ -16,16 +16,16 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.view.MultiLineEllipsizeTextView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.ix;
-import com.baidu.tieba.q25;
-import com.baidu.tieba.v55;
+import com.baidu.tieba.jx;
+import com.baidu.tieba.r25;
+import com.baidu.tieba.w55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.RecentUpdate;
 /* loaded from: classes4.dex */
-public class CardItemRecentUpdateLayout extends LinearLayout implements ix {
+public class CardItemRecentUpdateLayout extends LinearLayout implements jx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
@@ -117,7 +117,7 @@ public class CardItemRecentUpdateLayout extends LinearLayout implements ix {
                 this.a.g.setText(R.string.obfuscated_res_0x7f0f0696);
                 this.a.f.setMaxLines(Integer.MAX_VALUE);
                 this.a.f.setText(this.a.h);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new v55(10)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new w55(10)));
             }
         }
     }
@@ -213,7 +213,7 @@ public class CardItemRecentUpdateLayout extends LinearLayout implements ix {
             multiLineEllipsizeTextView.setMaxLines(3);
             MultiLineEllipsizeTextView multiLineEllipsizeTextView2 = this.f;
             multiLineEllipsizeTextView2.setIconWidthForLastLine((int) multiLineEllipsizeTextView2.getPaint().measureText(String.valueOf(getResources().getText(R.string.obfuscated_res_0x7f0f062c))));
-            q25 d = q25.d(this.f);
+            r25 d = r25.d(this.f);
             d.B(R.dimen.T_X06);
             d.y(R.dimen.M_T_X002);
             this.f.setPadding(ii.g(context, R.dimen.M_W_X005), 0, 0, ii.g(context, R.dimen.M_H_X005));
@@ -222,7 +222,7 @@ public class CardItemRecentUpdateLayout extends LinearLayout implements ix {
             EMTextView eMTextView = new EMTextView(context);
             this.g = eMTextView;
             eMTextView.setText(R.string.obfuscated_res_0x7f0f062c);
-            q25.d(this.f).B(R.dimen.T_X06);
+            r25.d(this.f).B(R.dimen.T_X06);
             this.g.setPadding(ii.g(context, R.dimen.M_W_X005), ii.g(context, R.dimen.M_H_X005), 0, ii.g(context, R.dimen.M_H_X005));
             this.g.setVisibility(8);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
@@ -232,29 +232,29 @@ public class CardItemRecentUpdateLayout extends LinearLayout implements ix {
         }
     }
 
-    @Override // com.baidu.tieba.ix
+    @Override // com.baidu.tieba.jx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
-            q25 d = q25.d(this);
+            r25 d = r25.d(this);
             d.o(R.string.J_X06);
             d.f(R.color.CAM_X0201);
-            q25 d2 = q25.d(this.a);
+            r25 d2 = r25.d(this.a);
             d2.C(R.string.F_X02);
             d2.w(R.color.CAM_X0105);
-            q25 d3 = q25.d(this.b);
+            r25 d3 = r25.d(this.b);
             d3.C(R.string.F_X01);
             d3.w(R.color.CAM_X0108);
-            q25 d4 = q25.d(this.c);
+            r25 d4 = r25.d(this.c);
             d4.C(R.string.F_X01);
             d4.w(R.color.CAM_X0108);
-            q25 d5 = q25.d(this.f);
+            r25 d5 = r25.d(this.f);
             d5.C(R.string.F_X01);
             d5.w(R.color.CAM_X0105);
-            q25 d6 = q25.d(this.g);
+            r25 d6 = r25.d(this.g);
             d6.C(R.string.F_X01);
             d6.w(R.color.CAM_X0304);
-            q25.d(this.d).f(R.color.CAM_X0111);
+            r25.d(this.d).f(R.color.CAM_X0111);
         }
     }
 }

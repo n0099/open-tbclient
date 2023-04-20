@@ -1,20 +1,17 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.tieba.n31;
+import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.JvmStatic;
-@Autowired
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public final class f31 {
+public class f31 {
     public static /* synthetic */ Interceptable $ic;
+    public static e31 a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,16 +29,36 @@ public final class f31 {
         }
     }
 
-    @NonNull
-    @JvmStatic
-    @Singleton
-    @Inject(force = false)
-    public static final n31 a() {
+    public f31() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static e31 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new n31.a();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
+                synchronized (f31.class) {
+                    if (a == null) {
+                        a = (e31) ServiceManager.getService(e31.a);
+                    }
+                    if (a == null) {
+                        a = e31.b;
+                    }
+                }
+            }
+            return a;
         }
-        return (n31) invokeV.objValue;
+        return (e31) invokeV.objValue;
     }
 }

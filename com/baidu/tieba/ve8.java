@@ -1,28 +1,38 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.lego.card.model.ICardInfo;
+import android.graphics.Color;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface ve8<T extends ICardInfo> {
-    void d();
+public class ve8 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void e();
+    public static boolean a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) ? i == Integer.MAX_VALUE : invokeI.booleanValue;
+    }
 
-    void f(BdUniqueId bdUniqueId);
-
-    void g();
-
-    void h();
-
-    void setAfterClickSchemeListener(zd8 zd8Var);
-
-    void setBusinessType(int i);
-
-    void setFromCDN(boolean z);
-
-    void setMulDel(boolean z);
-
-    void setPosition(int i);
-
-    void update(Object obj);
+    public static int b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (str == null) {
+                return Integer.MAX_VALUE;
+            }
+            if (str.length() != 0) {
+                try {
+                    if (!str.startsWith("#")) {
+                        str = "#" + str;
+                    }
+                } catch (Exception unused) {
+                    return Integer.MAX_VALUE;
+                }
+            }
+            return Color.parseColor(str);
+        }
+        return invokeL.intValue;
+    }
 }

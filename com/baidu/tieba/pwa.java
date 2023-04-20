@@ -1,78 +1,61 @@
 package com.baidu.tieba;
 
-import android.os.Build;
+import com.baidu.tieba.vwa;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
-import javax.crypto.SecretKeyFactory;
-import javax.crypto.spec.PBEKeySpec;
-/* loaded from: classes5.dex */
-public abstract class pwa {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String a = "PBKDF2";
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+/* loaded from: classes6.dex */
+public class pwa {
+    public static /* synthetic */ Interceptable $ic;
+    public static vwa a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948077839, "Lcom/baidu/tieba/pwa;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948077839, "Lcom/baidu/tieba/pwa;");
-        }
-    }
-
-    public static byte[] a(char[] cArr, byte[] bArr, int i, int i2, boolean z) {
-        SecretKeyFactory secretKeyFactory;
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{cArr, bArr, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            try {
-                PBEKeySpec pBEKeySpec = new PBEKeySpec(cArr, bArr, i, i2);
-                if (z) {
-                    secretKeyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA256");
-                } else {
-                    secretKeyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
-                }
-                return secretKeyFactory.generateSecret(pBEKeySpec).getEncoded();
-            } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
-                String str = a;
-                xwa.c(str, "pbkdf exception : " + e.getMessage());
-                return new byte[0];
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948077839, "Lcom/baidu/tieba/pwa;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948077839, "Lcom/baidu/tieba/pwa;");
+                return;
             }
         }
-        return (byte[]) invokeCommon.objValue;
+        a = new vwa();
     }
 
-    public static byte[] b(char[] cArr, byte[] bArr, int i, int i2) {
-        InterceptResult invokeLLII;
+    public static <TResult> TResult a(mwa<TResult> mwaVar) throws ExecutionException, InterruptedException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65538, null, cArr, bArr, i, i2)) == null) {
-            return a(cArr, bArr, i, i2, false);
-        }
-        return (byte[]) invokeLLII.objValue;
-    }
-
-    public static byte[] c(char[] cArr, byte[] bArr, int i, int i2) {
-        InterceptResult invokeLLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65539, null, cArr, bArr, i, i2)) == null) {
-            byte[] bArr2 = new byte[0];
-            if (Build.VERSION.SDK_INT < 26) {
-                xwa.c(a, "system version not high than 26");
-                return bArr2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, mwaVar)) == null) {
+            vwa.c("await must not be called on the UI thread");
+            if (mwaVar.g()) {
+                return (TResult) vwa.b(mwaVar);
             }
-            return a(cArr, bArr, i, i2, true);
+            vwa.b bVar = new vwa.b();
+            mwaVar.c(bVar);
+            mwaVar.b(bVar);
+            bVar.a.await();
+            return (TResult) vwa.b(mwaVar);
         }
-        return (byte[]) invokeLLII.objValue;
+        return (TResult) invokeL.objValue;
+    }
+
+    public static <TResult> mwa<TResult> b(Callable<TResult> callable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, callable)) == null) ? a.a(owa.a(), callable) : (mwa) invokeL.objValue;
+    }
+
+    public static <TResult> mwa<TResult> call(Callable<TResult> callable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, callable)) == null) ? a.a(owa.b(), callable) : (mwa) invokeL.objValue;
     }
 }

@@ -1,326 +1,140 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.IToken;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.PayType;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
-import tv.athena.revenue.api.pay.IMiddlePayService;
-import tv.athena.revenue.api.pay.params.AppCustomExpand;
+import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes4.dex */
-public final class g6b {
+public final class g6b implements u1b {
     public static /* synthetic */ Interceptable $ic;
+    public static final a2b b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Activity a;
-    public PayType b;
-    public long c;
-    public String d;
-    public ProductInfo e;
-    public int f;
-    public int g;
-    public IMiddlePayService.SubscriptType h;
-    public IMiddlePayService.ChargeSource i;
-    public String j;
-    public Map<String, Object> k;
-    public IPayCallback<String> l;
-    public IToken m;
-    public AppCustomExpand n;
-    public String o;
-    public int p;
-    public String q;
+    public final AtomicReference<a2b> a;
+
+    /* loaded from: classes4.dex */
+    public static class a implements a2b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.a2b
+        public void call() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            }
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947747286, "Lcom/baidu/tieba/g6b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947747286, "Lcom/baidu/tieba/g6b;");
+                return;
+            }
+        }
+        b = new a();
+    }
 
     public g6b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = PayType.ALI_PAY;
-        this.d = "";
-        this.h = IMiddlePayService.SubscriptType.NORMAL_CHARGE;
-        this.i = IMiddlePayService.ChargeSource.WALLET_CHARGE;
-        this.j = "";
+        this.a = new AtomicReference<>();
     }
 
-    public final void A(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.d = str;
-        }
-    }
-
-    public final void B(IToken iToken) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iToken) == null) {
-            this.m = iToken;
-        }
-    }
-
-    public final void C(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.o = str;
-        }
-    }
-
-    public final void D(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            this.c = j;
-        }
-    }
-
-    public final void E(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.f = i;
-        }
-    }
-
-    public final void q(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, activity) == null) {
-            this.a = activity;
-        }
-    }
-
-    public final void r(AppCustomExpand appCustomExpand) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, appCustomExpand) == null) {
-            this.n = appCustomExpand;
-        }
-    }
-
-    public final void s(IPayCallback<String> iPayCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, iPayCallback) == null) {
-            this.l = iPayCallback;
-        }
-    }
-
-    public final void t(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048601, this, i) == null) {
-            this.g = i;
-        }
-    }
-
-    public final void u(Map<String, Object> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, map) == null) {
-            this.k = map;
-        }
-    }
-
-    public final void v(ProductInfo productInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, productInfo) == null) {
-            this.e = productInfo;
-        }
-    }
-
-    public final void w(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048604, this, i) == null) {
-            this.p = i;
-        }
-    }
-
-    public final void x(PayType payType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048605, this, payType) == null) {
-            this.b = payType;
-        }
-    }
-
-    public final void y(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048606, this, str) == null) {
-            this.j = str;
-        }
-    }
-
-    public final void z(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048607, this, str) == null) {
-            this.q = str;
-        }
-    }
-
-    public final AppCustomExpand a() {
+    public static g6b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.n;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return new g6b();
         }
-        return (AppCustomExpand) invokeV.objValue;
+        return (g6b) invokeV.objValue;
     }
 
-    public final IPayCallback<String> b() {
+    @Override // com.baidu.tieba.u1b
+    public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.l;
-        }
-        return (IPayCallback) invokeV.objValue;
-    }
-
-    public final IMiddlePayService.ChargeSource c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.i;
-        }
-        return (IMiddlePayService.ChargeSource) invokeV.objValue;
-    }
-
-    public final int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.g;
-        }
-        return invokeV.intValue;
-    }
-
-    public final Map<String, Object> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.k;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public final ProductInfo f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            ProductInfo productInfo = this.e;
-            if (productInfo == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("info");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.a.get() == b) {
+                return true;
             }
-            return productInfo;
+            return false;
         }
-        return (ProductInfo) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final int g() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.u1b
+    public void unsubscribe() {
+        a2b andSet;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.p;
-        }
-        return invokeV.intValue;
-    }
-
-    public final Activity getActivity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            Activity activity = this.a;
-            if (activity == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("activity");
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            a2b a2bVar = this.a.get();
+            a2b a2bVar2 = b;
+            if (a2bVar != a2bVar2 && (andSet = this.a.getAndSet(a2bVar2)) != null && andSet != b) {
+                andSet.call();
             }
-            return activity;
         }
-        return (Activity) invokeV.objValue;
     }
 
-    public final PayType h() {
-        InterceptResult invokeV;
+    public g6b(a2b a2bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.b;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {a2bVar};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
         }
-        return (PayType) invokeV.objValue;
+        this.a = new AtomicReference<>(a2bVar);
     }
 
-    public final String i() {
-        InterceptResult invokeV;
+    public static g6b b(a2b a2bVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.j;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, a2bVar)) == null) {
+            return new g6b(a2bVar);
         }
-        return (String) invokeV.objValue;
-    }
-
-    public final String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return this.q;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final IMiddlePayService.SubscriptType k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return this.h;
-        }
-        return (IMiddlePayService.SubscriptType) invokeV.objValue;
-    }
-
-    public final String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final IToken m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return this.m;
-        }
-        return (IToken) invokeV.objValue;
-    }
-
-    public final String n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            return this.o;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final long o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return this.c;
-        }
-        return invokeV.longValue;
-    }
-
-    public final int p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            return this.f;
-        }
-        return invokeV.intValue;
+        return (g6b) invokeL.objValue;
     }
 }

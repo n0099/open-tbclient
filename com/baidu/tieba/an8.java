@@ -1,12 +1,37 @@
 package com.baidu.tieba;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import android.graphics.Color;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes3.dex */
-public interface an8 {
-    void a(JSONObject jSONObject) throws JSONException;
+public class an8 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(JSONObject jSONObject) throws JSONException;
+    public static int a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            try {
+                return Color.parseColor(b(str));
+            } catch (Exception unused) {
+                return 0;
+            }
+        }
+        return invokeL.intValue;
+    }
 
-    void c(JSONObject jSONObject) throws JSONException;
+    public static String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (str == null) {
+                return null;
+            }
+            return TbadkCoreApplication.getInst().getString(R.string.color_prefix) + str;
+        }
+        return (String) invokeL.objValue;
+    }
 }

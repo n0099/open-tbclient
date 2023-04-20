@@ -1,5 +1,7 @@
 package com.baidu.tieba;
-/* loaded from: classes5.dex */
+
+import android.view.View;
+/* loaded from: classes6.dex */
 public interface pv5 {
-    void a();
+    void a(View view2);
 }

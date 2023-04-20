@@ -1,8 +1,8 @@
 package com.google.ar.core;
 
-import com.baidu.tieba.hsa;
+import com.baidu.tieba.psa;
 /* loaded from: classes8.dex */
-public class TrackableBase implements hsa {
+public class TrackableBase implements psa {
     public final long a;
     public final Session b;
 

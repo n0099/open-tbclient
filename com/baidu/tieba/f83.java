@@ -1,8 +1,8 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,184 +11,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.io.File;
+import java.util.Map;
+import java.util.TreeMap;
 /* loaded from: classes4.dex */
 public final class f83 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes4.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final i83<a> e;
-        public static final h83<a> f;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-        public int c;
-        public int d;
-
-        /* renamed from: com.baidu.tieba.f83$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public static class C0259a extends i83<a> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            public C0259a() {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.i83
-            /* renamed from: b */
-            public void a(@NonNull a aVar, @NonNull ar2 ar2Var) throws Exception {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, ar2Var) == null) {
-                    ar2Var.writeInt(aVar.a);
-                    ar2Var.writeInt(aVar.b);
-                    ar2Var.writeInt(aVar.c);
-                    ar2Var.writeInt(aVar.d);
-                }
-            }
-        }
-
-        /* loaded from: classes4.dex */
-        public static class b extends h83<a> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            public b() {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.h83
-            /* renamed from: b */
-            public a a(@NonNull zq2 zq2Var) throws Exception {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zq2Var)) == null) {
-                    a aVar = new a();
-                    aVar.a = zq2Var.readInt();
-                    aVar.b = zq2Var.readInt();
-                    aVar.c = zq2Var.readInt();
-                    aVar.d = zq2Var.readInt();
-                    return aVar;
-                }
-                return (a) invokeL.objValue;
-            }
-        }
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-848800533, "Lcom/baidu/tieba/f83$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-848800533, "Lcom/baidu/tieba/f83$a;");
-                    return;
-                }
-            }
-            e = new C0259a();
-            f = new b();
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-
-        public static a b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-                if (f83.a) {
-                    Log.w("SwanAppCommonConfigData", "NetworkConfig createNullObject()");
-                }
-                a aVar = new a();
-                aVar.a = 10000;
-                aVar.b = 60000;
-                return aVar;
-            }
-            return (a) invokeV.objValue;
-        }
-
-        public static a a(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-                if (jSONObject == null) {
-                    return b();
-                }
-                JSONObject optJSONObject = jSONObject.optJSONObject("networkTimeout");
-                if (optJSONObject == null) {
-                    return b();
-                }
-                a aVar = new a();
-                if (optJSONObject.optInt("request") > 0 && optJSONObject.optInt("request") <= 60000) {
-                    aVar.a = optJSONObject.optInt("request", 10000);
-                } else {
-                    aVar.a = 10000;
-                }
-                aVar.b = optJSONObject.optInt("connectSocket", 60000);
-                aVar.c = optJSONObject.optInt("uploadFile");
-                aVar.d = optJSONObject.optInt("downloadFile");
-                return aVar;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public static int c(a aVar) {
-            InterceptResult invokeL;
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, aVar)) == null) {
-                if (aVar != null && aVar.a > 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (z) {
-                    return aVar.a;
-                }
-                return 10000;
-            }
-            return invokeL.intValue;
-        }
-    }
+    public Map<String, k83> a;
 
     static {
         InterceptResult invokeClinit;
@@ -203,6 +34,93 @@ public final class f83 {
                 return;
             }
         }
-        a = eo1.a;
+        b = fo1.a;
+    }
+
+    public f83() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = null;
+    }
+
+    public static String c(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            File d = c33.d(str2);
+            if (d == null || !d.exists()) {
+                if (str.endsWith(File.separator)) {
+                    d = new File(str + str2 + ".json");
+                } else {
+                    d = new File(str + File.separator + str2 + ".json");
+                }
+            }
+            if (b) {
+                Log.d("PageConfigData", "parseConfigFile baseUrl : " + str + " ,page: " + str2 + " file exist:" + d.exists());
+            }
+            if (!d.exists()) {
+                return null;
+            }
+            return rq2.m(d);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public k83 a(String str, @NonNull String str2, @NonNull k83 k83Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, k83Var)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                k83 d = d(str, str2, k83Var);
+                this.a.put(str2, d);
+                return d;
+            }
+            return k83Var;
+        }
+        return (k83) invokeLLL.objValue;
+    }
+
+    public final k83 d(String str, String str2, @NonNull k83 k83Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, k83Var)) == null) {
+            String c = c(str, str2);
+            if (TextUtils.isEmpty(c)) {
+                return k83Var;
+            }
+            return k83.b(c, k83Var);
+        }
+        return (k83) invokeLLL.objValue;
+    }
+
+    public k83 b(String str, String str2, @NonNull k83 k83Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, k83Var)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                if (this.a == null) {
+                    this.a = new TreeMap();
+                }
+                k83 k83Var2 = this.a.get(str2);
+                if (k83Var2 != null) {
+                    return k83Var2;
+                }
+                k83 d = d(str, str2, k83Var);
+                this.a.put(str2, d);
+                return d;
+            }
+            return k83Var;
+        }
+        return (k83) invokeLLL.objValue;
     }
 }

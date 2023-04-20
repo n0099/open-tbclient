@@ -71,7 +71,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class XMPushService extends Service implements fy {
     public static boolean b;
 

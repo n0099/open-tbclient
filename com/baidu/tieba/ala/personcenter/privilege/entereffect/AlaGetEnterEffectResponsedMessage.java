@@ -6,8 +6,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
-import com.baidu.tieba.ea6;
-import com.baidu.tieba.hn;
+import com.baidu.tieba.fa6;
+import com.baidu.tieba.in;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +21,7 @@ import org.json.JSONObject;
 public class AlaGetEnterEffectResponsedMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<hn> mEffectList;
+    public List<in> mEffectList;
     public int mEnterEffectCount;
     public String mNickName;
     public String mPortrait;
@@ -77,9 +77,9 @@ public class AlaGetEnterEffectResponsedMessage extends JsonHttpResponsedMessage 
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
                     if (optJSONObject2 != null) {
-                        ea6 ea6Var = new ea6();
-                        ea6Var.a(optJSONObject2);
-                        this.mEffectList.add(ea6Var);
+                        fa6 fa6Var = new fa6();
+                        fa6Var.a(optJSONObject2);
+                        this.mEffectList.add(fa6Var);
                         JSONArray optJSONArray2 = optJSONObject2.optJSONArray("effect_list");
                         if (optJSONArray2 != null && optJSONArray2.length() > 0) {
                             for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
@@ -97,7 +97,7 @@ public class AlaGetEnterEffectResponsedMessage extends JsonHttpResponsedMessage 
         }
     }
 
-    public List<hn> getEffectList() {
+    public List<in> getEffectList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

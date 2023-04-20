@@ -42,7 +42,7 @@ import com.google.android.material.ripple.RippleUtils;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.MaterialShapeUtils;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class BottomNavigationView extends FrameLayout {
     public static final int DEF_STYLE_RES = 2131755832;
     public static final int MENU_PRESENTER_ID = 1;
@@ -58,12 +58,12 @@ public class BottomNavigationView extends FrameLayout {
     public OnNavigationItemReselectedListener reselectedListener;
     public OnNavigationItemSelectedListener selectedListener;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface OnNavigationItemReselectedListener {
         void onNavigationItemReselected(@NonNull MenuItem menuItem);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface OnNavigationItemSelectedListener {
         boolean onNavigationItemSelected(@NonNull MenuItem menuItem);
     }
@@ -195,7 +195,7 @@ public class BottomNavigationView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class SavedState extends AbsSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: com.google.android.material.bottomnavigation.BottomNavigationView.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */

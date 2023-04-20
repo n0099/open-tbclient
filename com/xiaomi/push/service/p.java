@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.SystemClock;
 import com.xiaomi.push.service.XMPushService;
 import java.util.concurrent.RejectedExecutionException;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class p {
     public static long a;
     public static long b;
@@ -16,7 +16,7 @@ public class p {
     /* renamed from: a  reason: collision with other field name */
     public final c f993a;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class a {
         public final c a;
 
@@ -36,7 +36,7 @@ public class p {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static abstract class b implements Runnable {
         public int a;
 
@@ -45,7 +45,7 @@ public class p {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class c extends Thread {
 
         /* renamed from: b  reason: collision with other field name */
@@ -60,7 +60,7 @@ public class p {
         /* renamed from: a  reason: collision with other field name */
         public a f994a = new a();
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes9.dex */
         public static final class a {
             public int a;
 
@@ -338,7 +338,7 @@ public class p {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class d {
         public int a;
 

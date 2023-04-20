@@ -4,6 +4,8 @@ import android.text.TextUtils;
 import android.util.Pair;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,54 +13,117 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class az1 extends ty1 {
+public class az1 extends uy1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.xv1
+    @Override // com.baidu.tieba.yv1
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "HandleExceptionApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "GetPerformanceLevelApi" : (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes3.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ az1 b;
+
+        public a(az1 az1Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {az1Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = az1Var;
+            this.a = str;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.d(this.a, new vz1(0, this.b.y()));
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947632369, "Lcom/baidu/tieba/az1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947632369, "Lcom/baidu/tieba/az1;");
+                return;
+            }
+        }
+        boolean z = fo1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public az1(@NonNull vv1 vv1Var) {
-        super(vv1Var);
+    public az1(@NonNull wv1 wv1Var) {
+        super(wv1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vv1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {wv1Var};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((vv1) newInitContext.callArgs[0]);
+                super((wv1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
     }
 
-    public uz1 x(String str) {
+    public vz1 x(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#handleException", false);
-            Pair<uz1, JSONObject> s = s(str);
-            uz1 uz1Var = (uz1) s.first;
-            if (!uz1Var.isSuccess()) {
-                return uz1Var;
+            q("#getPerformanceLevel", false);
+            Pair<vz1, JSONObject> s = s(str);
+            if (!((vz1) s.first).isSuccess()) {
+                return (vz1) s.first;
             }
-            JSONObject jSONObject = (JSONObject) s.second;
-            String optString = jSONObject.optString("code");
+            String optString = ((JSONObject) s.second).optString("cb");
             if (TextUtils.isEmpty(optString)) {
-                return new uz1(202, "code is required");
+                return new vz1(202, "cb is empty");
             }
-            return (uz1) a92.a(optString).a(jSONObject);
+            pk3.k(new a(this, optString), "SWAN_DEVICE_PERFORMANCE_CHECK");
+            return new vz1(0);
         }
-        return (uz1) invokeL.objValue;
+        return (vz1) invokeL.objValue;
+    }
+
+    public JSONObject y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            String b = cr2.u0().b();
+            v42.k("GetPerformanceLevelApi", "getPerformanceLevel: " + b);
+            JSONObject jSONObject = new JSONObject();
+            vk3.f(jSONObject, "performanceLevel", b);
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
     }
 }

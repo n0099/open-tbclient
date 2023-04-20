@@ -1,17 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.List;
+import tbclient.GetForumSquare.DataRes;
+import tbclient.Page;
+import tbclient.RecommendForumInfo;
 /* loaded from: classes7.dex */
-public class yi9 extends ni9 {
+public class yi9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zi9 c;
 
     public yi9() {
         Interceptable interceptable = $ic;
@@ -27,31 +27,14 @@ public class yi9 extends ni9 {
         }
     }
 
-    public zi9 h() {
-        InterceptResult invokeV;
+    public void a(DataRes dataRes) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, dataRes) != null) || dataRes == null) {
+            return;
         }
-        return (zi9) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ni9
-    public void d(JSONObject jSONObject) throws Exception {
-        JSONObject optJSONObject;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && (optJSONObject = jSONObject.optJSONObject("forum_dir")) != null) {
-            zi9 zi9Var = new zi9();
-            zi9Var.a(optJSONObject);
-            i(zi9Var);
-        }
-    }
-
-    public void i(zi9 zi9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, zi9Var) == null) {
-            this.c = zi9Var;
-            g(null);
-        }
+        String str = dataRes.class_name;
+        Page page = dataRes.page;
+        List<String> list = dataRes.page_structure;
+        List<RecommendForumInfo> list2 = dataRes.forum_info;
     }
 }

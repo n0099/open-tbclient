@@ -10,10 +10,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ForumListActivityConfig;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tieba.a9;
-import com.baidu.tieba.b05;
+import com.baidu.tieba.c05;
+import com.baidu.tieba.gj9;
+import com.baidu.tieba.hj9;
 import com.baidu.tieba.me;
-import com.baidu.tieba.yi9;
-import com.baidu.tieba.zi9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,15 +39,15 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
 
     /* loaded from: classes6.dex */
     public interface c {
-        void a(boolean z, int i, zi9 zi9Var, String str, boolean z2);
+        void a(boolean z, int i, hj9 hj9Var, String str, boolean z2);
     }
 
     /* loaded from: classes6.dex */
-    public class b extends BdAsyncTask<Object, Integer, yi9> {
+    public class b extends BdAsyncTask<Object, Integer, gj9> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
-        public yi9 b;
+        public gj9 b;
         public final /* synthetic */ DirMenuModel c;
 
         public b(DirMenuModel dirMenuModel) {
@@ -67,7 +67,7 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
             }
             this.c = dirMenuModel;
             this.a = null;
-            this.b = new yi9();
+            this.b = new gj9();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -90,14 +90,14 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public yi9 doInBackground(Object... objArr) {
+        public gj9 doInBackground(Object... objArr) {
             InterceptResult invokeL;
             String str;
             String postNetData;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
-                b05.d();
-                me<String> e = b05.e("tb.my_posts");
+                c05.d();
+                me<String> e = c05.e("tb.my_posts");
                 if (e != null) {
                     str = e.get(TbadkCoreApplication.getCurrentAccount() + "_" + this.c.c + "_dir");
                 } else {
@@ -134,19 +134,19 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
                 }
                 return this.b;
             }
-            return (yi9) invokeL.objValue;
+            return (gj9) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(yi9 yi9Var) {
+        public void onPostExecute(gj9 gj9Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yi9Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gj9Var) == null) {
                 if (!this.c.f) {
-                    this.c.b.a(false, -1, null, yi9Var.b(), this.c.g);
-                } else if (yi9Var.h() != null) {
-                    this.c.b.a(true, yi9Var.a(), yi9Var.h(), yi9Var.b(), this.c.g);
+                    this.c.b.a(false, -1, null, gj9Var.b(), this.c.g);
+                } else if (gj9Var.h() != null) {
+                    this.c.b.a(true, gj9Var.a(), gj9Var.h(), gj9Var.b(), this.c.g);
                 }
             }
         }

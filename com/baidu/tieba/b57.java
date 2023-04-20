@@ -1,94 +1,97 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class b57 implements hn {
+public class b57 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947596037, "Lcom/baidu/tieba/b57;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes3.dex */
+    public static class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ d05 a;
+
+        public a(d05 d05Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {d05Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947596037, "Lcom/baidu/tieba/b57;");
-                return;
+            this.a = d05Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.dismiss();
             }
         }
-        c = BdUniqueId.gen();
     }
 
-    public b57() {
+    public static void a(Activity activity, TbPageContext<?> tbPageContext) {
+        int l;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeLL(65536, null, activity, tbPageContext) == null) && activity != null && tbPageContext != null) {
+            View inflate = LayoutInflater.from(activity).inflate(R.layout.frs_general_tab_notify_dialog_layout, (ViewGroup) null);
+            TextView textView = (TextView) inflate.findViewById(R.id.general_title);
+            TextView textView2 = (TextView) inflate.findViewById(R.id.general_content_1);
+            TextView textView3 = (TextView) inflate.findViewById(R.id.general_content_2);
+            TextView textView4 = (TextView) inflate.findViewById(R.id.general_content_3);
+            TextView textView5 = (TextView) inflate.findViewById(R.id.general_btn);
+            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.top_general_image);
+            d05 d05Var = new d05(activity);
+            d05Var.setContentView(inflate);
+            d05Var.setContentViewSize(2);
+            d05Var.setCanceledOnTouchOutside(true);
+            d05Var.setAutoNight(true);
+            d05Var.setCancelable(true);
+            int g = ii.g(activity, R.dimen.tbds31);
+            SkinManager.setBackgroundShapeDrawable(inflate, g, R.color.CAM_X0201, R.color.CAM_X0101);
+            tbImageView.setRadius(g);
+            tbImageView.setConrers(3);
+            tbImageView.setIsBitmapPic(true);
+            int g2 = ii.g(activity, R.dimen.tbds44);
+            if (UtilHelper.getRealScreenOrientation(activity) == 2) {
+                l = ii.j(activity);
+            } else {
+                l = ii.l(activity);
             }
-        }
-        this.a = 0;
-        this.b = 0;
-    }
-
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.hn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return c;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.a = i;
+            int i = l - (g2 * 2);
+            ViewGroup.LayoutParams layoutParams = tbImageView.getLayoutParams();
+            layoutParams.width = -1;
+            layoutParams.height = (i * 556) / 988;
+            tbImageView.setLayoutParams(layoutParams);
+            SkinManager.setImageResource(tbImageView, R.drawable.frs_general_tab_notify_pic);
+            SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(textView2, (int) R.color.CAM_X0107);
+            SkinManager.setViewTextColor(textView3, (int) R.color.CAM_X0107);
+            SkinManager.setViewTextColor(textView4, (int) R.color.CAM_X0107);
+            SkinManager.setViewTextColor(textView5, (int) R.color.CAM_X0302);
+            textView5.setOnClickListener(new a(d05Var));
+            d05Var.create(tbPageContext).show();
         }
     }
 }

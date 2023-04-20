@@ -1,7 +1,7 @@
 package com.baidu.tieba;
+
+import com.baidu.tbadk.core.data.ThreadData;
 /* loaded from: classes6.dex */
 public interface r36 {
-    boolean Y0();
-
-    String getFrom();
+    void a(ThreadData threadData);
 }

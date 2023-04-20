@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import android.content.Intent;
 import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public interface p91 {
     public static final p91 a = new a();
 
-    boolean a(int i);
+    boolean a(Intent intent);
 
     /* loaded from: classes5.dex */
     public static class a implements p91 {
@@ -20,13 +21,13 @@ public interface p91 {
         public transient /* synthetic */ FieldHolder $fh;
 
         @Override // com.baidu.tieba.p91
-        public boolean a(int i) {
-            InterceptResult invokeI;
+        public boolean a(Intent intent) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
                 return false;
             }
-            return invokeI.booleanValue;
+            return invokeL.booleanValue;
         }
 
         public a() {
@@ -63,7 +64,7 @@ public interface p91 {
                     return;
                 }
             }
-            a = n91.e();
+            a = o91.d();
         }
 
         @NonNull

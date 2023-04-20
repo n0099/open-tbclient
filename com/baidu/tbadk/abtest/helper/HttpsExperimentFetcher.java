@@ -6,9 +6,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.switchs.HttpsTestSwitch;
 import com.baidu.tbadk.switchs.Ipv6TestSwitch;
 import com.baidu.tieba.ef;
-import com.baidu.tieba.i85;
+import com.baidu.tieba.j85;
 import com.baidu.tieba.nf;
-import com.baidu.tieba.qj1;
+import com.baidu.tieba.rj1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class HttpsExperimentFetcher extends qj1<ef> {
+public class HttpsExperimentFetcher extends rj1<ef> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -50,7 +50,7 @@ public class HttpsExperimentFetcher extends qj1<ef> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                i85 httpsWhileData = TbadkCoreApplication.getInst().getHttpsWhileData();
+                j85 httpsWhileData = TbadkCoreApplication.getInst().getHttpsWhileData();
                 if (httpsWhileData == null) {
                     return null;
                 }
@@ -63,7 +63,7 @@ public class HttpsExperimentFetcher extends qj1<ef> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                i85 httpsWhileData = TbadkCoreApplication.getInst().getHttpsWhileData();
+                j85 httpsWhileData = TbadkCoreApplication.getInst().getHttpsWhileData();
                 if (httpsWhileData == null) {
                     return false;
                 }
@@ -113,7 +113,7 @@ public class HttpsExperimentFetcher extends qj1<ef> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.qj1
+    @Override // com.baidu.tieba.rj1
     public ef createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

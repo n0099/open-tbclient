@@ -1,17 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.pyramid.annotation.Service;
-import com.baidu.searchbox.common.security.ioc.IHostStateAbiltiy;
-import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.cloudcommand.processor.CloudCommandProcessor;
+import com.baidu.searchbox.cloudcontrol.processor.DataProcessors;
+import com.baidu.searchbox.cloudcontrol.processor.ICloudControlProcessor;
+import com.baidu.searchbox.cloudcontrol.runtime.ICloudControlRegister;
+import com.baidu.searchbox.pms.init.ApsCloudControlProcessor;
+import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.xiaomi.mipush.sdk.MiPushClient;
+@Singleton
 @Service
 /* loaded from: classes5.dex */
-public class mf9 implements IHostStateAbiltiy {
+public class mf9 implements ICloudControlRegister {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,23 +36,17 @@ public class mf9 implements IHostStateAbiltiy {
         }
     }
 
-    @Override // com.baidu.searchbox.common.security.ioc.IHostStateAbiltiy
-    public boolean hasAgreedPrivacyPolicy() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.cloudcontrol.runtime.ICloudControlRegister
+    public void registerAllProcessors(DataProcessors dataProcessors) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return PermissionUtil.isAgreePrivacyPolicy();
+        if (interceptable == null || interceptable.invokeL(1048576, this, dataProcessors) == null) {
+            dataProcessors.addProcessor("aps", new ApsCloudControlProcessor());
+            dataProcessors.addProcessor(UBCCloudControlProcessor.UBC_KEY, new UBCCloudControlProcessor());
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921656, ICloudControlProcessor.class, MiPushClient.COMMAND_REGISTER);
+            if (runTask != null) {
+                dataProcessors.addProcessor("config", (ICloudControlProcessor) runTask.getData());
+            }
+            dataProcessors.addProcessor("command", new CloudCommandProcessor());
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.common.security.ioc.IHostStateAbiltiy
-    public boolean isForeground() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return !cq5.g().k();
-        }
-        return invokeV.booleanValue;
     }
 }

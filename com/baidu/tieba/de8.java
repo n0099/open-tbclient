@@ -1,52 +1,57 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes4.dex */
-public class de8 {
+public class de8 implements ds4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.tieba.ds4
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            switch (i) {
-                case 1:
-                    return R.drawable.icon_hand_normal_card_recommend;
-                case 2:
-                    return R.drawable.icon_comment_n;
-                case 3:
-                    return R.drawable.icon_home_yule;
-                case 4:
-                    return R.drawable.icon_see_n;
-                case 5:
-                    return R.drawable.icon_frs_ba_ticket;
-                case 6:
-                    return R.drawable.icon_frs_game;
-                case 7:
-                    return R.drawable.icon_frs_news;
-                case 8:
-                    return R.drawable.icon_new_live;
-                case 9:
-                    return R.drawable.icon_hottopic_new;
-                case 10:
-                    return R.drawable.icon_hottopic_hot;
-                case 11:
-                    return R.drawable.icon_hottopic_tuijian;
-                case 12:
-                    return R.drawable.icon_people_num;
-                case 13:
-                    return R.drawable.icon_time_start;
-                case 14:
-                    return R.drawable.lego_interview_notice_button_before_selector;
-                case 15:
-                    return R.drawable.lego_interview_notice_button_after_selector;
-                default:
-                    return 0;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TbConfig.FOLLOW_ADDRESS : (String) invokeV.objValue;
+    }
+
+    public de8() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        return invokeI.intValue;
+    }
+
+    @Override // com.baidu.tieba.ds4
+    public void b(HashMap<String, String> hashMap, es4 es4Var) {
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap, es4Var) == null) && es4Var != null && hashMap != null && !hashMap.isEmpty()) {
+            UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
+            aVar.a = es4Var.a;
+            aVar.b = es4Var.c;
+            aVar.d = true;
+            if (hashMap.get("touid") == null) {
+                str = "";
+            } else {
+                str = hashMap.get("touid");
+            }
+            aVar.c = str;
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new UpdateAttentionMessage(aVar));
+        }
     }
 }

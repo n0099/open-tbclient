@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.switchs.FixNpsAnrSwitch;
 import com.baidu.tieba.ii;
 import com.baidu.tieba.jg;
-import com.baidu.tieba.p45;
+import com.baidu.tieba.q45;
 /* loaded from: classes2.dex */
 public class NightPluginTask extends LaunchTask {
     public BdUniqueId tag = BdUniqueId.gen();
@@ -24,7 +24,7 @@ public class NightPluginTask extends LaunchTask {
             if (loadInt == 1) {
                 TbadkCoreApplication.getInst().setSkinTypeValue(4);
                 TbadkCoreApplication.getInst().SendSkinTypeBroadcast(4);
-            } else if (p45.m().i("key_is_follow_system_mode", false)) {
+            } else if (q45.m().i("key_is_follow_system_mode", false)) {
                 SkinManager.setDayOrDarkSkinTypeWithSystemMode(false, true);
             } else {
                 TbadkCoreApplication.getInst().setSkinTypeValue(loadInt);

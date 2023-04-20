@@ -1,10 +1,12 @@
 package com.baidu.tieba;
 
 import android.os.Bundle;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
+import com.baidu.tieba.ts2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,12 +14,56 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class qg2 extends ProviderDelegation {
+public class qg2 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
+    public static long b;
+    public static String c;
+    public static String d;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes6.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Bundle a;
+
+        public a(Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bundle};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = bundle;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                ts2.a aVar = (ts2.a) new ts2.a().s(this.a);
+                ye3 ye3Var = new ye3();
+                ye3Var.a = oe3.n(0);
+                ye3Var.b = "launch";
+                ye3Var.e = "repeatlaunch";
+                ye3Var.a("launchInterval", Long.valueOf(aVar.l("launch_interval", -1L)));
+                ye3Var.j(aVar);
+                ye3Var.d(aVar.s0().getString(UBCCloudControlProcessor.UBC_KEY));
+                ye3Var.b(oe3.k(aVar.W()));
+                oe3.onEvent(ye3Var);
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -32,59 +78,56 @@ public class qg2 extends ProviderDelegation {
                 return;
             }
         }
-        br2.g0().getSwitch("swan_recovery_enable", true);
-        a = true;
+        a = fo1.a;
     }
 
-    public qg2() {
+    public static long a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return System.currentTimeMillis() - b;
+        }
+        return invokeV.longValue;
+    }
+
+    public static void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            b = System.currentTimeMillis();
         }
     }
 
-    public static void c(ah2 ah2Var) {
+    public static boolean b(String str, String str2) {
+        InterceptResult invokeLL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, ah2Var) != null) || !a || ah2Var == null) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            long currentTimeMillis = System.currentTimeMillis() - b;
+            if (currentTimeMillis < 800 && TextUtils.equals(c, str) && TextUtils.equals(d, str2)) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (a && z) {
+                Log.d("SeriesLaunchChecker", "CurrentLaunchInterval:" + currentTimeMillis + ",PreventSeriesLaunchInterval:800");
+            }
+            return z;
         }
-        if (ProcessUtils.isMainProcess()) {
-            rg2.a(ah2Var).b();
-            zg2.b().a(ah2Var.a);
-            return;
-        }
-        Bundle bundle = new Bundle();
-        bundle.putInt("recovery_level", ah2Var.a);
-        bundle.putStringArrayList("recovery_app_list", ah2Var.b);
-        DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), qg2.class, bundle);
+        return invokeLL.booleanValue;
     }
 
-    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-    public Bundle execCall(Bundle bundle) {
-        InterceptResult invokeL;
+    public static void d(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-            if (!a) {
-                return null;
-            }
-            int i = bundle.getInt("recovery_level", -1);
-            ArrayList<String> stringArrayList = bundle.getStringArrayList("recovery_app_list");
-            ah2 ah2Var = new ah2();
-            ah2Var.a = i;
-            if (stringArrayList != null) {
-                ah2Var.b = stringArrayList;
-            }
-            rg2.a(ah2Var).b();
-            zg2.b().a(ah2Var.a);
-            return null;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bundle) == null) {
+            ExecutorUtilsExt.postOnElastic(new a(bundle), "SeriesLaunchChecker", 3);
         }
-        return (Bundle) invokeL.objValue;
+    }
+
+    public static void e(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
+            c = str;
+            d = str2;
+        }
     }
 }

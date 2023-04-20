@@ -15,15 +15,15 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
+import com.baidu.tieba.fe9;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.iw4;
-import com.baidu.tieba.ka5;
-import com.baidu.tieba.o95;
-import com.baidu.tieba.q95;
+import com.baidu.tieba.jw4;
+import com.baidu.tieba.la5;
+import com.baidu.tieba.p95;
+import com.baidu.tieba.r95;
 import com.baidu.tieba.setting.model.MsgRemindModel;
-import com.baidu.tieba.sm5;
-import com.baidu.tieba.tv5;
-import com.baidu.tieba.xd9;
+import com.baidu.tieba.tm5;
+import com.baidu.tieba.uv5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -33,13 +33,13 @@ import java.util.Date;
 public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implements BdSwitchView.b, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xd9 a;
+    public fe9 a;
     public MsgRemindModel b;
-    public final tv5 c;
+    public final uv5 c;
     public MsgRemindModel.f d;
 
     /* loaded from: classes6.dex */
-    public class a implements tv5 {
+    public class a implements uv5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MsgRemindActivity a;
@@ -62,11 +62,11 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
             this.a = msgRemindActivity;
         }
 
-        @Override // com.baidu.tieba.tv5
+        @Override // com.baidu.tieba.uv5
         public void a(Date date, View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(1048576, this, date, view2) == null) && this.a.a != null) {
-                o95.d().c0(date.getHours(), date.getMinutes());
+                p95.d().c0(date.getHours(), date.getMinutes());
                 this.a.a.e0();
                 this.a.a.d0();
             }
@@ -180,7 +180,7 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onNetRefreshButtonClicked();
-            ka5.e(getPageContext());
+            la5.e(getPageContext());
         }
     }
 
@@ -189,7 +189,7 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onStop();
-            o95.d().I();
+            p95.d().I();
         }
     }
 
@@ -207,9 +207,9 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
-            xd9 xd9Var = new xd9(this);
-            this.a = xd9Var;
-            xd9Var.R(this);
+            fe9 fe9Var = new fe9(this);
+            this.a = fe9Var;
+            fe9Var.R(this);
             this.b = new MsgRemindModel(getPageContext());
         }
     }
@@ -245,13 +245,13 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
             boolean z = false;
             if (view2 == this.a.N()) {
                 if (switchState == BdSwitchView.SwitchState.ON) {
-                    o95.d().b0(true);
+                    p95.d().b0(true);
                     TiebaStatic.log(new StatisticItem("c12939").param("obj_type", 2));
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SIGN_REMIND_SWITCH).param("obj_type", 1));
                     this.a.e0();
                     this.a.b0(true);
                 } else {
-                    o95.d().b0(false);
+                    p95.d().b0(false);
                     TiebaStatic.log(new StatisticItem("c12939").param("obj_type", 1));
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SIGN_REMIND_SWITCH).param("obj_type", 0));
                     this.a.b0(false);
@@ -344,9 +344,9 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
         if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
             super.onClick(view2);
             if (view2 == this.a.M()) {
-                q95.c().k(3, getPageContext(), this.c, false);
+                r95.c().k(3, getPageContext(), this.c, false);
             } else if (view2 == this.a.G()) {
-                iw4.c().b();
+                jw4.c().b();
             }
         }
     }
@@ -356,7 +356,7 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onResume();
-            boolean a2 = sm5.a(this);
+            boolean a2 = tm5.a(this);
             if (getIntent() != null && getIntent().getBooleanExtra("not_need_account", false)) {
                 return;
             }

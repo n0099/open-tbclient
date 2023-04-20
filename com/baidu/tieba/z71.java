@@ -1,9 +1,14 @@
 package com.baidu.tieba;
+
+import android.app.Activity;
+import android.content.Intent;
 /* loaded from: classes7.dex */
 public interface z71 {
-    boolean g();
+    void d();
 
-    boolean j1();
+    boolean f();
 
-    boolean v0();
+    Activity getActivity();
+
+    Intent getIntent();
 }

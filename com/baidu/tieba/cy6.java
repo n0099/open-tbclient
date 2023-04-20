@@ -1,64 +1,46 @@
 package com.baidu.tieba;
 
+import android.text.SpannableStringBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
-import tbclient.BaseTextColor;
-import tbclient.FeedContentColor;
-import tbclient.FeedContentText;
+import tbclient.AbstractComponent;
+import tbclient.FeedContentResource;
 /* loaded from: classes4.dex */
 public final class cy6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final xw6 a(BaseTextColor baseTextColor) {
-        InterceptResult invokeL;
+    public static final vv6 a(SpannableStringBuilder titleBuilder, List<FeedContentResource> contentList, ex6 feedExtraData) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, baseTextColor)) == null) {
-            Intrinsics.checkNotNullParameter(baseTextColor, "<this>");
-            Integer type = baseTextColor.type;
-            Intrinsics.checkNotNullExpressionValue(type, "type");
-            return new xw6(type.intValue(), baseTextColor.day, baseTextColor.night);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, titleBuilder, contentList, feedExtraData)) == null) {
+            Intrinsics.checkNotNullParameter(titleBuilder, "titleBuilder");
+            Intrinsics.checkNotNullParameter(contentList, "contentList");
+            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+            vv6 vv6Var = new vv6(new pw6(titleBuilder, spannableStringBuilder));
+            my6.a(contentList, spannableStringBuilder, feedExtraData, vv6Var);
+            return vv6Var;
         }
-        return (xw6) invokeL.objValue;
+        return (vv6) invokeLLL.objValue;
     }
 
-    public static final xw6 b(FeedContentColor feedContentColor) {
-        InterceptResult invokeL;
+    public static final void b(AbstractComponent abstractComponent, List<c07<?>> dataList, SpannableStringBuilder titleBuilder, ex6 feedExtraData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, feedContentColor)) == null) {
-            Intrinsics.checkNotNullParameter(feedContentColor, "<this>");
-            Integer type = feedContentColor.type;
-            Intrinsics.checkNotNullExpressionValue(type, "type");
-            return new xw6(type.intValue(), feedContentColor.day, feedContentColor.night);
+        if (interceptable == null || interceptable.invokeLLLL(65537, null, abstractComponent, dataList, titleBuilder, feedExtraData) == null) {
+            Intrinsics.checkNotNullParameter(abstractComponent, "<this>");
+            Intrinsics.checkNotNullParameter(dataList, "dataList");
+            Intrinsics.checkNotNullParameter(titleBuilder, "titleBuilder");
+            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
+            List<FeedContentResource> data = abstractComponent.data;
+            Intrinsics.checkNotNullExpressionValue(data, "data");
+            vv6 a = a(titleBuilder, data, feedExtraData);
+            if (a.g()) {
+                dataList.add(new d07(a, "abstract"));
+            }
         }
-        return (xw6) invokeL.objValue;
-    }
-
-    public static final vx6 c(FeedContentText feedContentText) {
-        InterceptResult invokeL;
-        xw6 xw6Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, feedContentText)) == null) {
-            Intrinsics.checkNotNullParameter(feedContentText, "<this>");
-            String str = feedContentText.text;
-            if (str == null) {
-                str = "";
-            }
-            FeedContentColor feedContentColor = feedContentText.color;
-            xw6 xw6Var2 = null;
-            if (feedContentColor != null) {
-                xw6Var = b(feedContentColor);
-            } else {
-                xw6Var = null;
-            }
-            FeedContentColor feedContentColor2 = feedContentText.bg_color;
-            if (feedContentColor2 != null) {
-                xw6Var2 = b(feedContentColor2);
-            }
-            return new vx6(str, xw6Var, xw6Var2);
-        }
-        return (vx6) invokeL.objValue;
     }
 }

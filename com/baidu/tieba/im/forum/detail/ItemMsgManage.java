@@ -14,9 +14,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.coreExtra.view.SettingTextSwitchView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fq5;
-import com.baidu.tieba.hv4;
-import com.baidu.tieba.x08;
+import com.baidu.tieba.gq5;
+import com.baidu.tieba.iv4;
+import com.baidu.tieba.y08;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -39,7 +39,7 @@ public class ItemMsgManage extends LinearLayout {
     public TextView h;
 
     /* loaded from: classes4.dex */
-    public class a implements fq5<Boolean> {
+    public class a implements gq5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ItemMsgManage a;
@@ -63,7 +63,7 @@ public class ItemMsgManage extends LinearLayout {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.fq5
+        @Override // com.baidu.tieba.gq5
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             Interceptable interceptable = $ic;
@@ -160,7 +160,7 @@ public class ItemMsgManage extends LinearLayout {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumDetailActivity, i) == null) {
-            hv4 layoutMode = forumDetailActivity.getLayoutMode();
+            iv4 layoutMode = forumDetailActivity.getLayoutMode();
             if (i == 4) {
                 z = true;
             } else {
@@ -259,7 +259,7 @@ public class ItemMsgManage extends LinearLayout {
             } else {
                 this.e.setVisibility(8);
             }
-            x08.j().d(TbadkCoreApplication.getCurrentAccount(), String.valueOf(recommendForumInfo.forum_id), new a(this));
+            y08.j().d(TbadkCoreApplication.getCurrentAccount(), String.valueOf(recommendForumInfo.forum_id), new a(this));
         }
     }
 

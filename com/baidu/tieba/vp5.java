@@ -1,144 +1,97 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Matrix;
-import android.graphics.Paint;
 import android.view.View;
-import androidx.core.view.InputDeviceCompat;
+import android.view.ViewGroup;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.adp.widget.ListView.BdRecyclerView;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.util.RemoveViewNPE;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class vp5 {
+public final class vp5 {
     public static /* synthetic */ Interceptable $ic;
+    public static final vp5 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(BitmapFactory.Options options, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65536, null, options, i, i2)) == null) {
-            int i3 = options.outHeight;
-            int i4 = options.outWidth;
-            if (i3 <= i2 && i4 <= i) {
-                return 1;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948248494, "Lcom/baidu/tieba/vp5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            int round = Math.round(i3 / i2);
-            int round2 = Math.round(i4 / i);
-            if (round >= round2) {
-                round = round2;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948248494, "Lcom/baidu/tieba/vp5;");
+                return;
             }
-            if (round >= 3) {
-                if (round < 6.5d) {
-                    return 4;
-                }
-                if (round < 8) {
-                    return 8;
-                }
-            }
-            return round;
         }
-        return invokeLII.intValue;
+        a = new vp5();
     }
 
-    public static Bitmap b(String str, int i, int i2) {
-        InterceptResult invokeLII;
+    public vp5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, str, i, i2)) == null) {
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inJustDecodeBounds = true;
-            options.inPreferredConfig = Bitmap.Config.RGB_565;
-            options.inSampleSize = a(options, i, i2);
-            options.inJustDecodeBounds = false;
-            return BitmapFactory.decodeFile(str, options);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
-        return (Bitmap) invokeLII.objValue;
     }
 
-    public static Bitmap c(View view2) {
+    @JvmStatic
+    public static final void a(BdRecyclerView viewGroup, int i, NullPointerException e) {
+        aq5 aq5Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(65538, null, viewGroup, i, e) == null) {
+            Intrinsics.checkNotNullParameter(viewGroup, "viewGroup");
+            Intrinsics.checkNotNullParameter(e, "e");
+            View childAt = viewGroup.getChildAt(i);
+            Intrinsics.checkNotNullExpressionValue(childAt, "viewGroup.getChildAt(index)");
+            if (childAt instanceof ViewGroup) {
+                aq5Var = a.b((ViewGroup) childAt);
+            } else {
+                aq5Var = null;
+            }
+            if (aq5Var != null) {
+                String str = "BdRecyclerView removeViewAt() NPE at index: " + i + ", the out parent is: [class: " + childAt.getClass().getSimpleName() + ", id: " + childAt.getId() + "], internal parent is: [class: " + aq5Var.b().getClass().getSimpleName() + ", id: " + aq5Var.b().getId() + "], child index is: " + aq5Var.a();
+                Throwable initCause = new RemoveViewNPE().initCause(new Throwable(str, e));
+                BdLog.detailException(initCause);
+                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_RD_USE).param("obj_param1", 6).param("obj_source", str));
+                initCause.printStackTrace();
+            }
+        }
+    }
+
+    public final aq5 b(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
-            Bitmap bitmap = null;
-            if (view2 == null || view2.getWidth() <= 0 || view2.getHeight() <= 0) {
-                return null;
-            }
-            try {
-                try {
-                    Bitmap createBitmap = Bitmap.createBitmap(view2.getWidth(), view2.getHeight(), Bitmap.Config.ARGB_8888);
-                    view2.draw(new Canvas(createBitmap));
-                    return createBitmap;
-                } catch (OutOfMemoryError e) {
-                    BdLog.e(e);
-                    return bitmap;
-                }
-            } catch (OutOfMemoryError unused) {
-                TbadkCoreApplication.getInst().onAppMemoryLow();
-                bitmap = Bitmap.createBitmap(view2.getWidth(), view2.getHeight(), Bitmap.Config.RGB_565);
-                view2.draw(new Canvas(bitmap));
-                return bitmap;
-            }
-        }
-        return (Bitmap) invokeL.objValue;
-    }
-
-    public static float[] d(Bitmap bitmap, Matrix matrix) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, bitmap, matrix)) == null) {
-            float[] fArr = new float[8];
-            matrix.mapPoints(fArr, new float[]{0.0f, 0.0f, bitmap.getWidth(), 0.0f, 0.0f, bitmap.getHeight(), bitmap.getWidth(), bitmap.getHeight()});
-            return fArr;
-        }
-        return (float[]) invokeLL.objValue;
-    }
-
-    public static int[] e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inJustDecodeBounds = true;
-            return new int[]{options.outWidth, options.outHeight};
-        }
-        return (int[]) invokeL.objValue;
-    }
-
-    public static Bitmap f(Bitmap bitmap, Bitmap bitmap2, int i, int i2) {
-        InterceptResult invokeLLII;
-        Bitmap bitmap3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65541, null, bitmap, bitmap2, i, i2)) == null) {
-            if (bitmap == null || bitmap2 == null || i <= 0 || i2 <= 0) {
-                return null;
-            }
-            try {
-                bitmap3 = Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_8888);
-            } catch (OutOfMemoryError unused) {
-                bitmap3 = null;
-            }
-            try {
-                Canvas canvas = new Canvas(bitmap3);
-                canvas.drawBitmap(bitmap, 0.0f, 0.0f, (Paint) null);
-                canvas.drawBitmap(bitmap2, 0.0f, 0.0f, (Paint) null);
-                return bitmap3;
-            } catch (OutOfMemoryError unused2) {
-                try {
-                    TbadkCoreApplication.getInst().onAppMemoryLow();
-                    bitmap3 = Bitmap.createBitmap(i, i2, Bitmap.Config.RGB_565);
-                    Canvas canvas2 = new Canvas(bitmap3);
-                    canvas2.drawBitmap(bitmap, 0.0f, 0.0f, (Paint) null);
-                    canvas2.drawBitmap(bitmap2, 0.0f, 0.0f, (Paint) null);
-                    return bitmap3;
-                } catch (OutOfMemoryError e) {
-                    BdLog.e(e);
-                    return bitmap3;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            int childCount = viewGroup.getChildCount();
+            for (int i = 0; i < childCount; i++) {
+                View childAt = viewGroup.getChildAt(i);
+                if (childAt instanceof ViewGroup) {
+                    b((ViewGroup) childAt);
+                } else if (childAt == null) {
+                    return new aq5(viewGroup, i);
                 }
             }
+            return null;
         }
-        return (Bitmap) invokeLLII.objValue;
+        return (aq5) invokeL.objValue;
     }
 }

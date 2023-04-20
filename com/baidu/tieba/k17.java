@@ -1,56 +1,121 @@
 package com.baidu.tieba;
 
 import android.net.Uri;
-import android.view.View;
-import android.widget.ImageView;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tieba.bv6;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sina.weibo.sdk.utils.ResourceManager;
 import java.util.List;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes5.dex */
 public final class k17 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final void a(View imageView, String iconUrl) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, imageView, iconUrl) == null) {
-            Intrinsics.checkNotNullParameter(imageView, "imageView");
-            Intrinsics.checkNotNullParameter(iconUrl, "iconUrl");
-            bv6.d a = bv6.a().a();
-            boolean z = false;
-            if (StringsKt__StringsJVMKt.startsWith$default(iconUrl, "local://icon/", false, 2, null)) {
-                if (!(imageView instanceof ImageView)) {
-                    return;
-                }
-                Uri parse = Uri.parse(iconUrl);
-                List<String> pathSegments = parse.getPathSegments();
-                if (pathSegments.size() > 0) {
-                    int identifier = yu6.a.getResources().getIdentifier(pathSegments.get(pathSegments.size() - 1), ResourceManager.DRAWABLE, yu6.a.getPackageName());
-                    String queryParameter = parse.getQueryParameter("type");
-                    String queryParameter2 = parse.getQueryParameter("color");
-                    if ((queryParameter2 == null || queryParameter2.length() == 0) ? true : true) {
-                        SkinManager.setImageResource((ImageView) imageView, identifier);
-                        return;
-                    }
-                    int identifier2 = yu6.a.getResources().getIdentifier(queryParameter2, "color", yu6.a.getPackageName());
-                    if (Intrinsics.areEqual(queryParameter, "webp")) {
-                        ((ImageView) imageView).setImageDrawable(WebPManager.getPureDrawable(identifier, SkinManager.getColor(identifier2), WebPManager.ResourceStateType.NORMAL));
-                    } else if (Intrinsics.areEqual(queryParameter, "svg")) {
-                        ((ImageView) imageView).setImageDrawable(SvgManager.getInstance().getPureDrawable(identifier, identifier2, null));
-                    } else {
-                        SkinManager.setImageResource((ImageView) imageView, identifier);
-                    }
-                }
-            } else if (a != null) {
-                a.e(imageView, iconUrl);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947860312, "Lcom/baidu/tieba/k17;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947860312, "Lcom/baidu/tieba/k17;");
+                return;
+            }
+        }
+        a = new a(null);
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public final mx6 a(String iconUrl) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, iconUrl)) == null) {
+                Intrinsics.checkNotNullParameter(iconUrl, "iconUrl");
+                if (TextUtils.isEmpty(iconUrl)) {
+                    return null;
+                }
+                int i = 0;
+                if (StringsKt__StringsJVMKt.startsWith$default(iconUrl, "local://icon/", false, 2, null)) {
+                    Uri parse = Uri.parse(iconUrl);
+                    List<String> pathSegments = parse.getPathSegments();
+                    if (pathSegments.size() > 0) {
+                        boolean z = true;
+                        int identifier = zu6.a.getResources().getIdentifier(pathSegments.get(pathSegments.size() - 1), ResourceManager.DRAWABLE, zu6.a.getPackageName());
+                        String queryParameter = parse.getQueryParameter("type");
+                        if (queryParameter == null) {
+                            queryParameter = "";
+                        }
+                        int identifier2 = zu6.a.getResources().getIdentifier(parse.getQueryParameter("color"), "color", zu6.a.getPackageName());
+                        String queryParameter2 = parse.getQueryParameter(CriusAttrConstants.PADDING);
+                        if (queryParameter2 != null && queryParameter2.length() != 0) {
+                            z = false;
+                        }
+                        if (!z) {
+                            i = ii.g(zu6.a, zu6.a.getResources().getIdentifier(queryParameter2, EMABTest.TYPE_DIMEN, zu6.a.getPackageName()));
+                        }
+                        if (identifier > 0) {
+                            return new mx6(identifier, queryParameter, identifier2, i);
+                        }
+                    }
+                }
+                return null;
+            }
+            return (mx6) invokeL.objValue;
+        }
+
+        public final String b(ix6 iconData) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iconData)) == null) {
+                Intrinsics.checkNotNullParameter(iconData, "iconData");
+                String b = iconData.b();
+                int currentSkinType = SkinManager.getCurrentSkinType();
+                if (currentSkinType != 0) {
+                    if (currentSkinType == 4) {
+                        return iconData.a();
+                    }
+                    return b;
+                }
+                return iconData.b();
+            }
+            return (String) invokeL.objValue;
         }
     }
 }

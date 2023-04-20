@@ -1,6 +1,8 @@
 package com.baidu.tieba;
 
-import androidx.collection.LongSparseArray;
+import android.text.TextUtils;
+import android.util.SparseArray;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,13 +10,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
 /* loaded from: classes6.dex */
 public class w57 {
     public static /* synthetic */ Interceptable $ic;
-    public static final w57 b;
+    public static w57 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public LongSparseArray<LinkedList<String>> a;
+    public final SparseArray<String> a;
 
     static {
         InterceptResult invokeClinit;
@@ -45,7 +46,7 @@ public class w57 {
                 return;
             }
         }
-        this.a = new LongSparseArray<>();
+        this.a = new SparseArray<>();
     }
 
     public static w57 a() {
@@ -57,11 +58,22 @@ public class w57 {
         return (w57) invokeV.objValue;
     }
 
-    public void b(long j) {
-        LinkedList<String> linkedList;
+    public boolean b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048576, this, j) == null) && (linkedList = this.a.get(j)) != null) {
-            linkedList.clear();
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i > 100) {
+                i = 100;
+            }
+            return !TextUtils.isEmpty(this.a.get(i));
+        }
+        return invokeI.booleanValue;
+    }
+
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.a.put(i, "1");
         }
     }
 }

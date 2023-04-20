@@ -1,17 +1,6 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ListAdapter;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tieba.interestlabel.activity.LabelRecommendActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,219 +8,123 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class zc8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LabelRecommendActivity a;
-    public ViewGroup b;
-    public View c;
-    public TextView d;
-    public NoNetworkView e;
-    public TextView f;
-    public BdListView g;
-    public uc8 h;
-    public yc8 i;
-    public View.OnClickListener j;
-    public List<vc8> k;
-    public List<Integer> l;
-    public View.OnClickListener m;
+    public int a;
+    public int b;
+    public List<ad8> c;
+    public ArrayList<Integer> d;
 
-    /* loaded from: classes7.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zc8 a;
-
-        public a(zc8 zc8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zc8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zc8Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (view2.getTag() instanceof vc8)) {
-                Integer valueOf = Integer.valueOf(((vc8) view2.getTag()).a);
-                if (this.a.l.contains(valueOf)) {
-                    this.a.l.remove(valueOf);
-                } else {
-                    this.a.l.add(valueOf);
-                }
-                this.a.i();
-            }
-        }
-    }
-
-    public zc8(LabelRecommendActivity labelRecommendActivity) {
+    public zc8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {labelRecommendActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.k = new ArrayList();
-        this.l = new ArrayList();
-        this.m = new a(this);
-        if (labelRecommendActivity == null) {
-            return;
-        }
-        this.a = labelRecommendActivity;
-        g();
     }
 
-    public void k(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onClickListener) == null) {
-            this.j = onClickListener;
-            this.d.setOnClickListener(onClickListener);
-        }
-    }
-
-    public View c() {
+    public ArrayList<Integer> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+            return this.d;
         }
-        return (View) invokeV.objValue;
+        return (ArrayList) invokeV.objValue;
     }
 
-    public List<Integer> d() {
+    public List<ad8> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList arrayList = new ArrayList(this.l);
-            arrayList.add(0, Integer.valueOf(this.i.b()));
-            return arrayList;
+            return this.c;
         }
         return (List) invokeV.objValue;
     }
 
-    public View e() {
+    public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
+            return this.a;
         }
-        return (View) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public View f() {
+    public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.f;
+            return this.b;
         }
-        return (View) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public final void g() {
+    public static zc8 e(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a.setContentView(R.layout.obfuscated_res_0x7f0d0041);
-            this.b = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f0927d2);
-            this.c = this.a.findViewById(R.id.obfuscated_res_0x7f09214d);
-            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0920c3);
-            this.e = (NoNetworkView) this.a.findViewById(R.id.view_no_network);
-            this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092166);
-            if (UtilHelper.canUseStyleImmersiveSticky()) {
-                this.c.getLayoutParams().height = UtilHelper.getStatusBarHeight();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
-            l(0, 0);
-            this.g = (BdListView) this.a.findViewById(R.id.obfuscated_res_0x7f0914a1);
-            uc8 uc8Var = new uc8(this.a.getPageContext().getPageActivity());
-            this.h = uc8Var;
-            uc8Var.b(this.m);
-            yc8 yc8Var = new yc8(this.a.getPageContext().getPageActivity());
-            this.i = yc8Var;
-            this.g.addHeaderView(yc8Var.a());
-            this.g.setAdapter((ListAdapter) this.h);
-            h();
-        }
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.f, (int) R.drawable.color_sub_lable_selector);
-            SkinManager.setBackgroundResource(this.f, R.drawable.bule_bg_commen_label_button);
-            this.e.d(this.a.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-        }
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            for (vc8 vc8Var : this.k) {
-                if (vc8Var != null) {
-                    vc8Var.c = this.l.contains(Integer.valueOf(vc8Var.a));
+            zc8 zc8Var = new zc8();
+            zc8Var.h(jSONObject.optInt("follow_forum_number"));
+            zc8Var.i(jSONObject.optInt("interest_board_stage"));
+            JSONArray optJSONArray = jSONObject.optJSONArray("day_config");
+            if (optJSONArray != null) {
+                ArrayList arrayList = new ArrayList();
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    arrayList.add(ad8.c(optJSONArray.optJSONObject(i)));
                 }
+                zc8Var.g(arrayList);
             }
-            this.h.a(this.k);
-            l(this.l.size(), this.k.size());
-        }
-    }
-
-    public void j(wc8 wc8Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, wc8Var) == null) && wc8Var != null && wc8Var.b() != null && wc8Var.a() != null) {
-            for (vc8 vc8Var : wc8Var.a()) {
-                if (vc8Var != null) {
-                    vc8Var.c = false;
+            JSONArray optJSONArray2 = jSONObject.optJSONArray("class_id");
+            if (optJSONArray2 != null) {
+                ArrayList<Integer> arrayList2 = new ArrayList<>();
+                for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                    arrayList2.add(Integer.valueOf(optJSONArray2.optInt(i2)));
                 }
+                zc8Var.f(arrayList2);
             }
-            this.k.clear();
-            this.k.addAll(wc8Var.a());
-            this.i.d(wc8Var.b());
-            this.h.a(this.k);
-            this.g.setVisibility(0);
-            l(0, this.k.size());
+            return zc8Var;
+        }
+        return (zc8) invokeL.objValue;
+    }
+
+    public void f(ArrayList<Integer> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) {
+            this.d = arrayList;
         }
     }
 
-    public final void l(int i, int i2) {
-        boolean z;
-        View.OnClickListener onClickListener;
+    public void g(List<ad8> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048585, this, i, i2) == null) {
-            TextView textView = this.f;
-            if (i > 0) {
-                z = true;
-            } else {
-                z = false;
-            }
-            textView.setEnabled(z);
-            this.f.setText(this.a.getString(R.string.obfuscated_res_0x7f0f12da, new Object[]{Integer.valueOf(i), Integer.valueOf(i2)}));
-            TextView textView2 = this.f;
-            if (i > 0) {
-                onClickListener = this.j;
-            } else {
-                onClickListener = null;
-            }
-            textView2.setOnClickListener(onClickListener);
+        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
+            this.c = list;
+        }
+    }
+
+    public void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.a = i;
+        }
+    }
+
+    public void i(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.b = i;
         }
     }
 }

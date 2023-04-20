@@ -1,43 +1,36 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.message.EvaluateRelevanceItemSelectedMessage;
-import com.baidu.tbadk.coreExtra.data.HeadItem;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tbadk.widget.richText.TbRichTextEvaluateItemInfo;
-import com.baidu.tieba.write.view.WriteEvaluationHeaderView;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.atomData.MissonDetailsActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.write.write.checkquestion.message.CheckIsQuestionThreadRequestMsg;
+import com.baidu.tieba.write.write.checkquestion.message.CheckIsQuestionThreadRespondedMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.gson.Gson;
-import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class x3a extends l4a<y4a> {
+public class x3a {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile x3a d;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public WriteEvaluationHeaderView g;
-    public final CustomMessageListener h;
+    public boolean a;
+    public b b;
+    public final HttpMessageListener c;
 
-    public final int D(double d) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Double.valueOf(d)})) == null) ? (int) ((d + 1.0d) / 2.0d) : invokeCommon.intValue;
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(boolean z);
     }
 
     /* loaded from: classes6.dex */
-    public class a extends CustomMessageListener {
+    public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ x3a a;
@@ -65,214 +58,93 @@ public class x3a extends l4a<y4a> {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || !(customResponsedMessage instanceof EvaluateRelevanceItemSelectedMessage)) {
-                return;
-            }
-            this.a.E((EvaluateRelevanceItemSelectedMessage) customResponsedMessage);
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements WriteEvaluationHeaderView.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ x3a a;
-
-        public b(x3a x3aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x3aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
+                this.a.a = false;
+                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003544 && (httpResponsedMessage instanceof CheckIsQuestionThreadRespondedMsg)) {
+                    if (httpResponsedMessage.getError() != 0) {
+                        if (this.a.b != null) {
+                            this.a.b.a(false);
+                        }
+                    } else if (this.a.b != null) {
+                        this.a.b.a(((CheckIsQuestionThreadRespondedMsg) httpResponsedMessage).isQuestionThread());
+                    }
+                } else if (this.a.b != null) {
+                    this.a.b.a(false);
                 }
             }
-            this.a = x3aVar;
-        }
-
-        @Override // com.baidu.tieba.write.view.WriteEvaluationHeaderView.c
-        public void onClose() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.b != null) {
-                this.a.b.i();
-            }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public x3a(TbPageContext<?> tbPageContext) {
-        super(tbPageContext, y4a.class);
+    public x3a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (Class) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.h = new a(this, 2921516);
+        this.a = false;
+        this.c = new a(this, CmdConfigHttp.CMD_CHECK_IS_QUESTION_THREAD);
+        d();
     }
 
-    @Override // com.baidu.tieba.q4a
-    public void e(@NonNull WriteData writeData) {
-        WriteEvaluationHeaderView writeEvaluationHeaderView;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, writeData) != null) || (writeEvaluationHeaderView = this.g) == null) {
-            return;
-        }
-        writeData.setItemInfo(writeEvaluationHeaderView.getEvaluateItemInfo());
-        writeData.setEvaluationStar(this.g.getStarCount());
-    }
-
-    @Override // com.baidu.tieba.l4a, com.baidu.tieba.q4a
-    public void j(@NonNull s4a s4aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, s4aVar) == null) {
-            super.j(s4aVar);
-            this.a.registerListener(this.h);
-        }
-    }
-
-    @Override // com.baidu.tieba.q4a
-    public void onChangeSkinType(int i) {
-        WriteEvaluationHeaderView writeEvaluationHeaderView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048583, this, i) == null) && (writeEvaluationHeaderView = this.g) != null) {
-            writeEvaluationHeaderView.f();
-        }
-    }
-
-    public final String C() {
+    public static x3a c() {
         InterceptResult invokeV;
-        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            WriteEvaluationHeaderView writeEvaluationHeaderView = this.g;
-            if (writeEvaluationHeaderView != null) {
-                i = writeEvaluationHeaderView.getStarCount();
-            } else {
-                i = 0;
-            }
-            arrayList.add(new HeadItem("", String.valueOf(i), 2));
-            return new Gson().toJson(arrayList);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void E(EvaluateRelevanceItemSelectedMessage evaluateRelevanceItemSelectedMessage) {
-        WriteEvaluationHeaderView writeEvaluationHeaderView;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, evaluateRelevanceItemSelectedMessage) != null) || (writeEvaluationHeaderView = this.g) == null) {
-            return;
-        }
-        writeEvaluationHeaderView.setVisibility(0);
-        TbRichTextEvaluateItemInfo tbRichTextEvaluateItemInfo = new TbRichTextEvaluateItemInfo();
-        tbRichTextEvaluateItemInfo.setItemID(evaluateRelevanceItemSelectedMessage.item_id);
-        tbRichTextEvaluateItemInfo.setTags(evaluateRelevanceItemSelectedMessage.tags);
-        tbRichTextEvaluateItemInfo.setScore(evaluateRelevanceItemSelectedMessage.score);
-        tbRichTextEvaluateItemInfo.setStar(evaluateRelevanceItemSelectedMessage.star);
-        tbRichTextEvaluateItemInfo.setIconUrl(evaluateRelevanceItemSelectedMessage.icon_url);
-        tbRichTextEvaluateItemInfo.setIconSize(evaluateRelevanceItemSelectedMessage.icon_size);
-        tbRichTextEvaluateItemInfo.setTitle(evaluateRelevanceItemSelectedMessage.item_name);
-        this.g.setItemInfo(tbRichTextEvaluateItemInfo);
-    }
-
-    @Override // com.baidu.tieba.q4a
-    public void a(@NonNull WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, writeData) == null) && this.g != null && writeData.getItemInfo() != null) {
-            WriteData writeData2 = this.e;
-            if (writeData2 != null) {
-                writeData2.setItemInfo(writeData.getItemInfo());
-                this.e.setEvaluationStar(writeData.getEvaluationStar());
-            }
-            this.g.setItemInfo(writeData.getItemInfo());
-            this.g.setStarCount(writeData.getEvaluationStar());
-        }
-    }
-
-    @Override // com.baidu.tieba.q4a
-    public void c(WriteData writeData) {
-        WriteEvaluationHeaderView writeEvaluationHeaderView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, writeData) == null) && (writeEvaluationHeaderView = this.g) != null) {
-            writeData.setItemInfo(writeEvaluationHeaderView.getEvaluateItemInfo());
-            if (this.g.getEvaluateItemInfo() != null) {
-                writeData.setItem_id(this.g.getEvaluateItemInfo().getItemID());
-                writeData.setComment_head(C());
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.q4a
-    public View s(@NonNull ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d04d8, viewGroup, false);
-            this.c = inflate;
-            WriteEvaluationHeaderView writeEvaluationHeaderView = (WriteEvaluationHeaderView) inflate.findViewById(R.id.obfuscated_res_0x7f0928ba);
-            this.g = writeEvaluationHeaderView;
-            if (writeEvaluationHeaderView != null) {
-                writeEvaluationHeaderView.setItemCloseListener(new b(this));
-                WriteData writeData = this.e;
-                if (writeData != null) {
-                    if (writeData.isFromItemDetail()) {
-                        this.g.setShowItemInfo(false);
-                    }
-                    if (this.e.getIntentItemInfo() != null) {
-                        TbRichTextEvaluateItemInfo tbRichTextEvaluateItemInfo = new TbRichTextEvaluateItemInfo();
-                        tbRichTextEvaluateItemInfo.setItemID(String.valueOf(this.e.getIntentItemInfo().id));
-                        tbRichTextEvaluateItemInfo.setTags(this.e.getIntentItemInfo().tags);
-                        tbRichTextEvaluateItemInfo.setScore(this.e.getIntentItemInfo().averageScore);
-                        tbRichTextEvaluateItemInfo.setStar(D(this.e.getIntentItemInfo().averageScore));
-                        tbRichTextEvaluateItemInfo.setIconUrl(this.e.getIntentItemInfo().icon_url);
-                        tbRichTextEvaluateItemInfo.setIconSize(this.e.getIntentItemInfo().icon_size);
-                        tbRichTextEvaluateItemInfo.setTitle(this.e.getIntentItemInfo().name);
-                        this.g.setItemInfo(tbRichTextEvaluateItemInfo);
-                        this.g.setStarCount(this.e.getIntentStarCount());
-                        this.e.setItemInfo(tbRichTextEvaluateItemInfo);
-                        WriteData writeData2 = this.e;
-                        writeData2.setEvaluationStar(writeData2.getIntentStarCount());
-                    } else if (this.e.getItemInfo() != null) {
-                        this.g.setItemInfo(this.e.getItemInfo());
-                        this.g.setStarCount(this.e.getEvaluationStar());
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (d == null) {
+                synchronized (x3a.class) {
+                    if (d == null) {
+                        d = new x3a();
                     }
                 }
             }
-            return this.c;
+            return d;
         }
-        return (View) invokeL.objValue;
+        return (x3a) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.l4a, com.baidu.tieba.q4a
-    public boolean t() {
-        InterceptResult invokeV;
+    public final void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            WriteEvaluationHeaderView writeEvaluationHeaderView = this.g;
-            if (writeEvaluationHeaderView != null && writeEvaluationHeaderView.e()) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            e();
+            f();
         }
-        return invokeV.booleanValue;
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            MessageManager.getInstance().registerListener(this.c);
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CHECK_IS_QUESTION_THREAD, TbConfig.SERVER_ADDRESS + "c/s/checkIsQuestionThread");
+            tbHttpMessageTask.setResponsedClass(CheckIsQuestionThreadRespondedMsg.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        }
+    }
+
+    public void g(String str, String str2, b bVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(1048579, this, str, str2, bVar) != null) || this.a) {
+            return;
+        }
+        this.b = bVar;
+        this.a = true;
+        CheckIsQuestionThreadRequestMsg checkIsQuestionThreadRequestMsg = new CheckIsQuestionThreadRequestMsg(CmdConfigHttp.CMD_CHECK_IS_QUESTION_THREAD);
+        checkIsQuestionThreadRequestMsg.addParam(MissonDetailsActivityConfig.THREAD_TITLE, str);
+        checkIsQuestionThreadRequestMsg.addParam("thread_content", str2);
+        MessageManager.getInstance().sendMessage(checkIsQuestionThreadRequestMsg);
     }
 }

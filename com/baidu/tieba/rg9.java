@@ -1,48 +1,51 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.searchbox.http.statistics.NetworkStatRecord;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.Random;
 /* loaded from: classes6.dex */
-public class rg9 {
+public class rg9 implements tg9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
+    public int a;
+    public int b;
 
-    public rg9() {
+    public rg9(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public void a(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            if (jSONObject == null) {
-                BdStatisticsManager.getInstance().eventStat(null, "signall_advert_err", null, 1, "reason", StringUtil.NULL_STRING);
                 return;
             }
-            try {
-                this.a = jSONObject.optString("banner_pic");
-                this.b = jSONObject.optString("banner_url");
-            } catch (Exception e) {
-                BdStatisticsManager.getInstance().eventStat(null, "signall_advert_err", null, 1, "reason", e.toString());
-                BdLog.e(e.getMessage());
-            }
         }
+        this.a = i;
+        this.b = i2;
+    }
+
+    @Override // com.baidu.tieba.tg9
+    public boolean a(NetworkStatRecord networkStatRecord) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, networkStatRecord)) == null) {
+            if (networkStatRecord == null) {
+                return false;
+            }
+            if ((networkStatRecord.from == 3 && kv4.e()) || new Random().nextInt(this.b) >= this.a) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

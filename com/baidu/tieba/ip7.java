@@ -1,42 +1,24 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 import tbclient.RecomTopicList;
 /* loaded from: classes5.dex */
-public class ip7 extends jw4 {
+public class ip7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<hp7> a;
-
-    @Override // com.baidu.tieba.jw4
-    public hy4 getNegFeedBackData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
-        }
-        return (hy4) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.jw4
-    public ThreadData getThreadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return null;
-        }
-        return (ThreadData) invokeV.objValue;
-    }
+    public long a;
+    public String b;
+    public int c;
+    public int d;
+    public boolean e;
+    public int f;
+    public long g;
 
     public ip7() {
         Interceptable interceptable = $ic;
@@ -48,56 +30,53 @@ public class ip7 extends jw4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.e = true;
     }
 
-    public List<hp7> c() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            return this.f;
         }
-        return (List) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.hn
-    public BdUniqueId getType() {
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return gp7.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.f == 1) {
+                return true;
+            }
+            return false;
         }
-        return (BdUniqueId) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public ip7(@NonNull List<RecomTopicList> list) {
+    public ip7(@NonNull RecomTopicList recomTopicList, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {list};
+            Object[] objArr = {recomTopicList, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
-        int size = list.size();
-        size = size > 4 ? 4 : size;
-        for (int i3 = 0; i3 < size; i3++) {
-            this.a.add(new hp7(list.get(i3), i3));
-        }
-    }
-
-    public void d(List<hp7> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.a = list;
-        }
+        this.a = recomTopicList.topic_id.longValue();
+        this.b = recomTopicList.topic_name;
+        this.c = recomTopicList.tag.intValue();
+        this.d = i + 1;
+        this.f = recomTopicList.is_video_topic.intValue();
+        this.g = recomTopicList.discuss_num.longValue();
     }
 }

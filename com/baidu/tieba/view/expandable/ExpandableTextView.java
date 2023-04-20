@@ -19,9 +19,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bv5;
+import com.baidu.tieba.cv5;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.q25;
+import com.baidu.tieba.r25;
 import com.baidu.tieba.tbadkCore.data.WorksInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -47,8 +47,8 @@ public class ExpandableTextView extends RelativeLayout {
     public e l;
     public boolean m;
     public ViewTreeObserver.OnGlobalLayoutListener n;
-    public bv5 o;
-    public bv5 p;
+    public cv5 o;
+    public cv5 p;
     public View.OnClickListener q;
 
     /* loaded from: classes6.dex */
@@ -162,7 +162,7 @@ public class ExpandableTextView extends RelativeLayout {
     }
 
     /* loaded from: classes6.dex */
-    public class b extends bv5 {
+    public class b extends cv5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ExpandableTextView i;
@@ -189,7 +189,7 @@ public class ExpandableTextView extends RelativeLayout {
             this.i = expandableTextView;
         }
 
-        @Override // com.baidu.tieba.bv5, android.text.style.ClickableSpan
+        @Override // com.baidu.tieba.cv5, android.text.style.ClickableSpan
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
@@ -200,7 +200,7 @@ public class ExpandableTextView extends RelativeLayout {
     }
 
     /* loaded from: classes6.dex */
-    public class c extends bv5 {
+    public class c extends cv5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ExpandableTextView i;
@@ -227,7 +227,7 @@ public class ExpandableTextView extends RelativeLayout {
             this.i = expandableTextView;
         }
 
-        @Override // com.baidu.tieba.bv5, android.text.style.ClickableSpan
+        @Override // com.baidu.tieba.cv5, android.text.style.ClickableSpan
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
@@ -505,7 +505,7 @@ public class ExpandableTextView extends RelativeLayout {
     public void setHasDown() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            q25.d(this.g).A(R.array.S_O_X001);
+            r25.d(this.g).A(R.array.S_O_X001);
         }
     }
 

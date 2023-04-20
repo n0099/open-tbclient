@@ -15,16 +15,16 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tieba.R;
-import com.baidu.tieba.rh0;
-import com.baidu.tieba.za1;
-import com.baidu.tieba.zp0;
+import com.baidu.tieba.ab1;
+import com.baidu.tieba.aq0;
+import com.baidu.tieba.sh0;
 /* loaded from: classes2.dex */
 public class SimpleAdInfoView extends FrameLayout {
     public TextView a;
     public TextView b;
     public TextView c;
     public TextView d;
-    public zp0 e;
+    public aq0 e;
     public c f;
     public View.OnClickListener g;
     public int h;
@@ -48,7 +48,7 @@ public class SimpleAdInfoView extends FrameLayout {
             int id = view2.getId();
             String str2 = "";
             if (id == R.id.nad_app_privacy) {
-                zp0.b bVar = SimpleAdInfoView.this.e.g;
+                aq0.b bVar = SimpleAdInfoView.this.e.g;
                 if (bVar != null) {
                     str2 = bVar.b;
                     str = ClogBuilder.Area.APP_PRIVACY.type;
@@ -56,7 +56,7 @@ public class SimpleAdInfoView extends FrameLayout {
                 str = "";
             } else {
                 if (id == R.id.nad_app_permission) {
-                    zp0.a aVar = SimpleAdInfoView.this.e.h;
+                    aq0.a aVar = SimpleAdInfoView.this.e.h;
                     if (aVar != null) {
                         str2 = aVar.b;
                         str = ClogBuilder.Area.APP_PERMISSION.type;
@@ -70,7 +70,7 @@ public class SimpleAdInfoView extends FrameLayout {
                 }
                 str = "";
             }
-            rh0.c(str2, SimpleAdInfoView.this.getContext());
+            sh0.c(str2, SimpleAdInfoView.this.getContext());
             c cVar = SimpleAdInfoView.this.f;
             if (cVar != null) {
                 cVar.a(str);
@@ -117,7 +117,7 @@ public class SimpleAdInfoView extends FrameLayout {
         if (attributeSet == null) {
             return;
         }
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, za1.SimpleAdInfoView);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, ab1.SimpleAdInfoView);
         this.h = obtainStyledAttributes.getResourceId(0, -1);
         obtainStyledAttributes.recycle();
     }
@@ -172,12 +172,12 @@ public class SimpleAdInfoView extends FrameLayout {
         return this.h;
     }
 
-    public void setAdInfo(zp0 zp0Var) {
-        if (zp0Var != null && zp0Var.k) {
-            this.e = zp0Var;
+    public void setAdInfo(aq0 aq0Var) {
+        if (aq0Var != null && aq0Var.k) {
+            this.e = aq0Var;
             if (this.a != null) {
-                if (!TextUtils.isEmpty(zp0Var.f)) {
-                    this.a.setText(zp0Var.f);
+                if (!TextUtils.isEmpty(aq0Var.f)) {
+                    this.a.setText(aq0Var.f);
                     this.a.setVisibility(0);
                     b(this.a);
                 } else {
@@ -185,8 +185,8 @@ public class SimpleAdInfoView extends FrameLayout {
                 }
             }
             if (this.b != null) {
-                if (!TextUtils.isEmpty(zp0Var.d)) {
-                    this.b.setText(zp0Var.d);
+                if (!TextUtils.isEmpty(aq0Var.d)) {
+                    this.b.setText(aq0Var.d);
                     this.b.setVisibility(0);
                     b(this.b);
                 } else {
@@ -194,18 +194,18 @@ public class SimpleAdInfoView extends FrameLayout {
                 }
             }
             if (this.c != null) {
-                zp0.b bVar = zp0Var.g;
-                if (bVar != null && !TextUtils.isEmpty(bVar.b) && !TextUtils.isEmpty(zp0Var.g.a)) {
-                    this.c.setText(zp0Var.g.a);
+                aq0.b bVar = aq0Var.g;
+                if (bVar != null && !TextUtils.isEmpty(bVar.b) && !TextUtils.isEmpty(aq0Var.g.a)) {
+                    this.c.setText(aq0Var.g.a);
                     this.c.setVisibility(0);
                 } else {
                     this.c.setVisibility(8);
                 }
             }
             if (this.d != null) {
-                zp0.a aVar = zp0Var.h;
-                if (aVar != null && !TextUtils.isEmpty(aVar.b) && !TextUtils.isEmpty(zp0Var.h.a)) {
-                    this.d.setText(zp0Var.h.a);
+                aq0.a aVar = aq0Var.h;
+                if (aVar != null && !TextUtils.isEmpty(aVar.b) && !TextUtils.isEmpty(aq0Var.h.a)) {
+                    this.d.setText(aq0Var.h.a);
                     this.d.setVisibility(0);
                     return;
                 }

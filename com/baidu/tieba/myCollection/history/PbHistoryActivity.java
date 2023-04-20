@@ -39,17 +39,17 @@ import com.baidu.tbadk.mvc.message.WriteCacheMessage;
 import com.baidu.tbadk.mvc.message.WriteCacheRespMsg;
 import com.baidu.tbadk.mvc.model.CacheModel;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ao8;
-import com.baidu.tieba.bo8;
-import com.baidu.tieba.c05;
+import com.baidu.tieba.d05;
 import com.baidu.tieba.gg;
 import com.baidu.tieba.ii;
+import com.baidu.tieba.io8;
+import com.baidu.tieba.jo8;
 import com.baidu.tieba.myCollection.baseHistory.PbHistoryCacheModel;
 import com.baidu.tieba.myCollection.message.AlaMGetLiveStatusHttpResponseMessage;
 import com.baidu.tieba.myCollection.message.AlaMGetLiveStatusRequestMessage;
-import com.baidu.tieba.pk5;
+import com.baidu.tieba.qk5;
 import com.baidu.tieba.video.VideoItemData;
-import com.baidu.tieba.wk5;
+import com.baidu.tieba.xk5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -66,16 +66,16 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
     public NavigationBarShadowView c;
     public TextView d;
     public BdListView e;
-    public wk5<ao8, pk5, bo8> f;
+    public xk5<io8, qk5, jo8> f;
     public boolean g;
-    public List<ao8> h;
+    public List<io8> h;
     public List<Long> i;
     public PbHistoryCacheModel j;
-    public final CacheModel.c<ao8> k;
+    public final CacheModel.c<io8> k;
     public final HttpMessageListener l;
     public AbsListView.OnScrollListener m;
 
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.ll5
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.ml5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -89,7 +89,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
         public final /* synthetic */ PbHistoryActivity a;
 
         /* loaded from: classes5.dex */
-        public class a implements c05.e {
+        public class a implements d05.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ d a;
@@ -112,18 +112,18 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
                 this.a = dVar;
             }
 
-            @Override // com.baidu.tieba.c05.e
-            public void onClick(c05 c05Var) {
+            @Override // com.baidu.tieba.d05.e
+            public void onClick(d05 d05Var) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) {
+                if (interceptable == null || interceptable.invokeL(1048576, this, d05Var) == null) {
                     this.a.a.j.Z();
-                    c05Var.dismiss();
+                    d05Var.dismiss();
                 }
             }
         }
 
         /* loaded from: classes5.dex */
-        public class b implements c05.e {
+        public class b implements d05.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -143,11 +143,11 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
                 }
             }
 
-            @Override // com.baidu.tieba.c05.e
-            public void onClick(c05 c05Var) {
+            @Override // com.baidu.tieba.d05.e
+            public void onClick(d05 d05Var) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) {
-                    c05Var.dismiss();
+                if (interceptable == null || interceptable.invokeL(1048576, this, d05Var) == null) {
+                    d05Var.dismiss();
                 }
             }
         }
@@ -174,17 +174,17 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                c05 c05Var = new c05(this.a.getPageContext().getPageActivity());
-                c05Var.setMessageId(R.string.obfuscated_res_0x7f0f0eb6);
-                c05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f045d, new a(this));
-                c05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038d, new b(this));
-                c05Var.create(this.a.getPageContext()).show();
+                d05 d05Var = new d05(this.a.getPageContext().getPageActivity());
+                d05Var.setMessageId(R.string.obfuscated_res_0x7f0f0eb6);
+                d05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f045d, new a(this));
+                d05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038d, new b(this));
+                d05Var.create(this.a.getPageContext()).show();
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class a implements CacheModel.c<ao8> {
+    public class a implements CacheModel.c<io8> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PbHistoryActivity a;
@@ -208,7 +208,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
         }
 
         @Override // com.baidu.tbadk.mvc.model.CacheModel.c
-        public void k(WriteCacheRespMsg<List<ao8>> writeCacheRespMsg, WriteCacheMessage<ao8> writeCacheMessage) {
+        public void k(WriteCacheRespMsg<List<io8>> writeCacheRespMsg, WriteCacheMessage<io8> writeCacheMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(1048576, this, writeCacheRespMsg, writeCacheMessage) == null) && writeCacheRespMsg != null && writeCacheRespMsg.isSuccess()) {
                 if (!writeCacheMessage.isClear()) {
@@ -220,14 +220,14 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
         }
 
         @Override // com.baidu.tbadk.mvc.model.CacheModel.c
-        public void o(ReadCacheRespMsg<List<ao8>> readCacheRespMsg, ReadCacheMessage<ao8> readCacheMessage) {
+        public void o(ReadCacheRespMsg<List<io8>> readCacheRespMsg, ReadCacheMessage<io8> readCacheMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, readCacheRespMsg, readCacheMessage) == null) && readCacheRespMsg != null && readCacheRespMsg.getData() != null) {
                 this.a.h = readCacheRespMsg.getData();
                 ArrayList arrayList = new ArrayList();
-                for (ao8 ao8Var : readCacheRespMsg.getData()) {
-                    if (!StringUtils.isNull(ao8Var.e()) && Long.valueOf(ao8Var.e()).longValue() != 0) {
-                        arrayList.add(Long.valueOf(ao8Var.e()));
+                for (io8 io8Var : readCacheRespMsg.getData()) {
+                    if (!StringUtils.isNull(io8Var.e()) && Long.valueOf(io8Var.e()).longValue() != 0) {
+                        arrayList.add(Long.valueOf(io8Var.e()));
                     }
                 }
                 if (this.a.g) {
@@ -353,40 +353,40 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
-            ao8 ao8Var;
+            io8 io8Var;
             String str;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) && (ao8Var = (ao8) this.a.f.getItem(i)) != null) {
-                if (ao8Var.i() == 49) {
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) && (io8Var = (io8) this.a.f.getItem(i)) != null) {
+                if (io8Var.i() == 49) {
                     AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-                    alaLiveInfoCoreData.liveID = gg.g(ao8Var.e(), 0L);
+                    alaLiveInfoCoreData.liveID = gg.g(io8Var.e(), 0L);
                     if (!StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
                         str = TbadkCoreApplication.getCurrentAccount();
                     } else {
                         str = "";
                     }
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(this.a.getPageContext().getPageActivity(), alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_SCAN_HISTORY, str, false, "")));
-                } else if (ao8Var.o()) {
+                } else if (io8Var.o()) {
                     if (TbadkCoreApplication.getInst().appResponseToIntentClass(MangaBrowserActivityConfig.class)) {
                         if (StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
                             ViewHelper.skipToLoginActivity(this.a.getActivity());
                             return;
                         } else {
-                            this.a.sendMessage(new CustomMessage(2002001, new MangaBrowserActivityConfig(this.a.getPageContext().getPageActivity(), ao8Var.a(), ao8Var.b(), 5)));
+                            this.a.sendMessage(new CustomMessage(2002001, new MangaBrowserActivityConfig(this.a.getPageContext().getPageActivity(), io8Var.a(), io8Var.b(), 5)));
                             return;
                         }
                     }
                     ii.P(this.a.getPageContext().getPageActivity(), R.string.manga_plugin_not_install_tip);
-                } else if (ao8Var.i() == 40) {
+                } else if (io8Var.i() == 40) {
                     ArrayList arrayList = new ArrayList();
                     VideoItemData videoItemData = new VideoItemData();
-                    videoItemData.thread_id = ao8Var.g();
+                    videoItemData.thread_id = io8Var.g();
                     arrayList.add(videoItemData);
                     new VideoRecommentPlayActivityConfig(SelectorHelper.getContext(), arrayList, null, VideoRecommentPlayActivityConfig.FROM_HISTORY).start();
                 } else {
-                    PbActivityConfig createHistoryCfg = new PbActivityConfig(this.a.getPageContext().getPageActivity()).createHistoryCfg(ao8Var.g(), ao8Var.f(), ao8Var.l(), ao8Var.q(), null);
+                    PbActivityConfig createHistoryCfg = new PbActivityConfig(this.a.getPageContext().getPageActivity()).createHistoryCfg(io8Var.g(), io8Var.f(), io8Var.l(), io8Var.q(), null);
                     createHistoryCfg.setStartFrom(11);
-                    createHistoryCfg.setIsShareThread(ao8Var.p());
+                    createHistoryCfg.setIsShareThread(io8Var.p());
                     this.a.sendMessage(new CustomMessage(2004001, createHistoryCfg));
                 }
             }
@@ -412,12 +412,12 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
         this.m = new c(this);
     }
 
-    public final void O1(List<ao8> list) {
+    public final void O1(List<io8> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            wk5<ao8, pk5, bo8> wk5Var = this.f;
-            if (wk5Var != null) {
-                wk5Var.g(list);
+            xk5<io8, qk5, jo8> xk5Var = this.f;
+            if (xk5Var != null) {
+                xk5Var.g(list);
             }
             if (list != null && list.size() != 0) {
                 this.d.setVisibility(0);
@@ -440,10 +440,10 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
     public final void L1() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !ListUtils.isEmpty(this.i) && !ListUtils.isEmpty(this.h)) {
-            for (ao8 ao8Var : this.h) {
-                if (!StringUtils.isNull(ao8Var.e()) && Long.valueOf(ao8Var.e()).longValue() != 0) {
-                    if (this.i.contains(Long.valueOf(ao8Var.e()))) {
-                        ao8Var.A(false);
+            for (io8 io8Var : this.h) {
+                if (!StringUtils.isNull(io8Var.e()) && Long.valueOf(io8Var.e()).longValue() != 0) {
+                    if (this.i.contains(Long.valueOf(io8Var.e()))) {
+                        io8Var.A(false);
                     }
                 }
             }
@@ -512,7 +512,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
             TextView textView = new TextView(getActivity());
             textView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + ii.g(getActivity(), R.dimen.obfuscated_res_0x7f070307)));
             this.e.w(textView, 0);
-            this.f = new wk5<>(getPageContext(), bo8.class, R.layout.obfuscated_res_0x7f0d0721, null);
+            this.f = new xk5<>(getPageContext(), jo8.class, R.layout.obfuscated_res_0x7f0d0721, null);
             this.f.f(NoDataViewFactory.d.b(NoDataViewFactory.ImgType.SINGALL, (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070268)), NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f0eb8)), null, null);
             this.e.setAdapter((ListAdapter) this.f);
             this.e.setOnItemClickListener(new e(this));

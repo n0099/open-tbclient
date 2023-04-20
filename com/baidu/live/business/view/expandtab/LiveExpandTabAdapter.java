@@ -13,9 +13,9 @@ import com.baidu.live.business.model.data.LiveTabEntity;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ac0;
-import com.baidu.tieba.p90;
-import com.baidu.tieba.wb0;
+import com.baidu.tieba.bc0;
+import com.baidu.tieba.q90;
+import com.baidu.tieba.xb0;
 import com.google.android.gms.common.internal.ServiceSpecificExtraArgs;
 import java.util.List;
 import kotlin.Metadata;
@@ -60,7 +60,7 @@ public final class LiveExpandTabAdapter extends RecyclerView.Adapter<ExpandTabVi
             Resources resources;
             TextView textView = this.c;
             if (textView != null) {
-                wb0.k(textView, 1, 12.0f, 0, 0, 12, null);
+                xb0.k(textView, 1, 12.0f, 0, 0, 12, null);
             }
             View view2 = this.a;
             if (view2 != null && (context = view2.getContext()) != null && (resources = context.getResources()) != null) {
@@ -70,7 +70,7 @@ public final class LiveExpandTabAdapter extends RecyclerView.Adapter<ExpandTabVi
             }
             ImageView imageView = this.b;
             if (imageView != null) {
-                imageView.setImageDrawable(wb0.b(drawable, 0, 0, 6, null));
+                imageView.setImageDrawable(xb0.b(drawable, 0, 0, 6, null));
             }
         }
 
@@ -108,28 +108,28 @@ public final class LiveExpandTabAdapter extends RecyclerView.Adapter<ExpandTabVi
             if (i2 == i) {
                 View view2 = this.a;
                 if (view2 != null) {
-                    p90 p90Var = p90.a;
+                    q90 q90Var = q90.a;
                     Context context = this.d.getContext();
                     Intrinsics.checkExpressionValueIsNotNull(context, "view.context");
-                    view2.setBackgroundDrawable(p90Var.e(context, this.e));
+                    view2.setBackgroundDrawable(q90Var.e(context, this.e));
                 }
                 TextView textView4 = this.c;
                 if (textView4 != null) {
-                    textView4.setTextColor(ac0.f().a(this.d.getContext(), this.e, "color_FF33551"));
+                    textView4.setTextColor(bc0.f().a(this.d.getContext(), this.e, "color_FF33551"));
                     return;
                 }
                 return;
             }
             View view3 = this.a;
             if (view3 != null) {
-                p90 p90Var2 = p90.a;
+                q90 q90Var2 = q90.a;
                 Context context2 = this.d.getContext();
                 Intrinsics.checkExpressionValueIsNotNull(context2, "view.context");
-                view3.setBackgroundDrawable(p90Var2.b(context2, this.e));
+                view3.setBackgroundDrawable(q90Var2.b(context2, this.e));
             }
             TextView textView5 = this.c;
             if (textView5 != null) {
-                textView5.setTextColor(ac0.f().a(this.d.getContext(), this.e, "color_525252"));
+                textView5.setTextColor(bc0.f().a(this.d.getContext(), this.e, "color_525252"));
             }
         }
     }

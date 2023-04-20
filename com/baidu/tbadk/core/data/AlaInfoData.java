@@ -9,8 +9,8 @@ import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.searchbox.live.interfaces.service.bd.IFavorStateServiceKt;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tieba.hi;
-import com.baidu.tieba.qw4;
-import com.baidu.tieba.sz4;
+import com.baidu.tieba.rw4;
+import com.baidu.tieba.tz4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -47,7 +47,7 @@ public class AlaInfoData implements Serializable, Parcelable {
     public boolean haveRedpkg;
     public String hls_url;
     public boolean isChushou;
-    public transient qw4 label;
+    public transient rw4 label;
     public String label_name;
     public boolean liveStageForceTop;
     public String liveStagePicUrl;
@@ -76,7 +76,7 @@ public class AlaInfoData implements Serializable, Parcelable {
     public String thirdLiveType;
     public String thirdRoomId;
     public long thread_id;
-    public sz4 userLabelInfo;
+    public tz4 userLabelInfo;
     public transient AlaUserInfoData user_info;
 
     @Override // android.os.Parcelable
@@ -253,9 +253,9 @@ public class AlaInfoData implements Serializable, Parcelable {
             this.thread_id = jSONObject.optLong("thread_id");
             JSONObject optJSONObject = jSONObject.optJSONObject("label");
             if (optJSONObject != null) {
-                qw4 qw4Var = new qw4();
-                this.label = qw4Var;
-                qw4Var.a(optJSONObject);
+                rw4 rw4Var = new rw4();
+                this.label = rw4Var;
+                rw4Var.a(optJSONObject);
             }
             JSONArray optJSONArray = jSONObject.optJSONArray("stage_dislike_info");
             boolean z = false;
@@ -306,7 +306,7 @@ public class AlaInfoData implements Serializable, Parcelable {
             }
             JSONObject optJSONObject4 = jSONObject.optJSONObject("user_label");
             if (this.label != null) {
-                this.userLabelInfo = sz4.g(optJSONObject4);
+                this.userLabelInfo = tz4.g(optJSONObject4);
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -393,7 +393,7 @@ public class AlaInfoData implements Serializable, Parcelable {
                 yyExtData.parseProtoBuf(alaLiveInfo.yy_ext);
             }
             if (alaLiveInfo.user_label != null) {
-                this.userLabelInfo = sz4.h(alaLiveInfo.user_label);
+                this.userLabelInfo = tz4.h(alaLiveInfo.user_label);
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());

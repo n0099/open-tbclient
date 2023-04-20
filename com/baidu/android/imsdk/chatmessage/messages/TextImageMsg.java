@@ -3,6 +3,7 @@ package com.baidu.android.imsdk.chatmessage.messages;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -147,6 +148,29 @@ public class TextImageMsg extends ImageMsg {
         this.mExt = parcel.readString();
     }
 
+    @Override // com.baidu.android.imsdk.chatmessage.messages.ImageMsg
+    public void setContent(String str) {
+        JSONObject jSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject2.put("text", this.mText);
+                jSONObject2.put("ext", this.mExt);
+                String imgContent = getImgContent(str);
+                if (TextUtils.isEmpty(imgContent)) {
+                    jSONObject = null;
+                } else {
+                    jSONObject = new JSONObject(imgContent);
+                }
+                jSONObject2.put("image", jSONObject);
+                setMsgContent(jSONObject2.toString());
+            } catch (JSONException e) {
+                LogUtils.e("TextImageMsg", "setContent exception :" + e.getMessage());
+            }
+        }
+    }
+
     @Override // com.baidu.android.imsdk.chatmessage.messages.ImageMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg
     public boolean parseJsonString() {
         InterceptResult invokeV;
@@ -175,10 +199,33 @@ public class TextImageMsg extends ImageMsg {
         return invokeV.booleanValue;
     }
 
+    public void setContent(String str, String str2, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLII(1048581, this, str, str2, i, i2) == null) {
+            setText(str);
+            setImgWH(i, i2);
+            setContent(str2);
+        }
+    }
+
+    public void setExt(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.mExt = str;
+        }
+    }
+
+    public void setText(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.mText = str;
+        }
+    }
+
     @Override // com.baidu.android.imsdk.chatmessage.messages.ImageMsg, com.baidu.android.imsdk.chatmessage.messages.RichMediaMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, parcel, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, parcel, i) == null) {
             super.writeToParcel(parcel, i);
             parcel.writeString(this.mText);
             parcel.writeString(this.mExt);

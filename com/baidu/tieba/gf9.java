@@ -1,186 +1,195 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.bdutil.cuid.sdk.AppCuidRuntime;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.view.RoundRelativeLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
 /* loaded from: classes4.dex */
-public class gf9 implements x00, ILokiIdentityContext, s00 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "";
+public class gf9 extends ff9 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context M;
+    public sj9 N;
+    public RoundRelativeLayout O;
+    public TbImageView P;
+    public TextView Q;
+    public TextView R;
+    public RoundRelativeLayout S;
+    public TbImageView T;
+    public TextView U;
+    public TextView V;
+    public ImageView W;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947792143, "Lcom/baidu/tieba/gf9;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947792143, "Lcom/baidu/tieba/gf9;");
-        }
-    }
-
-    @Override // com.baidu.tieba.s00
-    public String getAppName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "tieba" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.x00, com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
-    public String getBDVCInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
-    public String getDeviceScore() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
-    public String getIID() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.x00, com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
-    public String getSchemeHeader() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.x00
-    public String processUrlExternal(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048588, this, str, z)) == null) ? str : (String) invokeLZ.objValue;
-    }
-
-    public gf9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gf9(Context context, boolean z, int i, sj9 sj9Var) {
+        super(context, z, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Boolean.valueOf(z), Integer.valueOf(i), sj9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Boolean) objArr2[1]).booleanValue(), ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.M = context;
+        this.N = sj9Var;
+        C0();
+        i0(2);
+    }
+
+    public final Bitmap B0(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
+            if (view2 == null) {
+                return null;
+            }
+            Bitmap createBitmap = Bitmap.createBitmap(view2.getWidth(), view2.getHeight(), Bitmap.Config.ARGB_4444);
+            view2.draw(new Canvas(createBitmap));
+            return createBitmap;
+        }
+        return (Bitmap) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ff9
+    public void l0(Window window) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, window) == null) {
+            window.setLayout(-1, -1);
         }
     }
 
-    @Override // com.baidu.tieba.x00, com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
-    public String getC3Aid() {
+    public final void C0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.O = (RoundRelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f09213a);
+            this.P = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f092139);
+            this.S = (RoundRelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091415);
+            this.T = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09213d);
+            this.Q = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09213c);
+            this.R = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09213b);
+            this.U = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0925fe);
+            this.V = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0925fd);
+            this.W = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09106f);
+            E0();
+            this.O.setRoundLayoutRadius(p25.B(R.string.J_X06));
+            this.S.setRoundLayoutRadius(p25.B(R.string.J_X04));
+        }
+    }
+
+    @Override // com.baidu.tieba.ff9
+    public View D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (hasPrivacyAuthority()) {
-                return TbadkCoreApplication.getInst().getCuidGalaxy3();
+            return LayoutInflater.from(TbadkCoreApplication.getInst().getContext()).inflate(R.layout.obfuscated_res_0x7f0d086b, (ViewGroup) null);
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public final void D0(TbImageView tbImageView) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, tbImageView) != null) || tbImageView == null) {
+            return;
+        }
+        if (this.N.b() == 1) {
+            SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f080aee);
+        } else if (this.N.b() == 2) {
+            SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f080c67);
+        } else if (this.N.b() == 3) {
+            SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f080aef);
+        } else if (this.N.b() == 4) {
+            SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f080af2);
+        } else {
+            tbImageView.N(this.N.c(), 10, false);
+        }
+    }
+
+    public final void E0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            int l = (ii.l(TbadkCoreApplication.getInst()) * 879) / 1076;
+            int i = (l * 1342) / 879;
+            ViewGroup.LayoutParams layoutParams = this.O.getLayoutParams();
+            if (layoutParams != null) {
+                layoutParams.width = l;
+                layoutParams.height = i;
             }
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.x00, com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
-    public String getCfrom() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return TbConfig.getCurrentFrom();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.x00
-    public String getDeviceId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (hasPrivacyAuthority()) {
-                return AppCuidRuntime.getAppCuidManager().getCuid();
+            this.O.setLayoutParams(layoutParams);
+            int i2 = (l * 416) / 879;
+            ViewGroup.LayoutParams layoutParams2 = this.P.getLayoutParams();
+            if (layoutParams2 != null) {
+                layoutParams2.width = i2;
+                layoutParams2.height = i2;
             }
-            return null;
+            this.P.setLayoutParams(layoutParams2);
         }
-        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.x00, com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
-    public String getFrom() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ff9
+    public ShareItem G(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return TbConfig.getFrom();
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            ShareItem shareItem = this.z.get(1);
+            if (shareItem == null) {
+                shareItem = new ShareItem();
+            }
+            shareItem.r0 = false;
+            shareItem.q0 = false;
+            shareItem.w = "";
+            shareItem.k0 = 1;
+            shareItem.j(B0(this.O));
+            shareItem.h();
+            this.z.put(1, shareItem);
+            return super.G(i);
         }
-        return (String) invokeV.objValue;
+        return (ShareItem) invokeI.objValue;
     }
 
-    @Override // com.baidu.tieba.x00, com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
-    public String getSid() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ff9
+    public void p0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return TbSingleton.getInstance().getSampleId();
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.b.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0202));
+            if (this.N != null) {
+                D0(this.P);
+                this.T.setImageBitmap(this.N.a());
+                this.Q.setText(this.N.d());
+            }
+            WebPManager.setPureDrawable(this.W, R.drawable.obfuscated_res_0x7f080a3d, R.color.CAM_X0101, null);
+            r25.d(this.U).w(R.color.CAM_X0101);
+            r25.d(this.V).w(R.color.CAM_X0101);
+            r25 d = r25.d(this.Q);
+            d.C(R.string.F_X02);
+            d.w(R.color.CAM_X0102);
+            r25.d(this.R).w(R.color.CAM_X0103);
+            super.p0();
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.x00, com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
-    public String getZid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
-    public boolean hasPrivacyAuthority() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return PermissionUtil.isAgreePrivacyPolicy();
-        }
-        return invokeV.booleanValue;
     }
 }

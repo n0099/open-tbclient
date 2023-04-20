@@ -1,16 +1,11 @@
 package com.baidu.tieba;
-
-import com.baidu.tieba.io5;
-import com.baidu.tieba.jo5;
 /* loaded from: classes5.dex */
-public interface ko5<Q extends io5, P extends jo5> {
-    int a();
+public interface ko5<T> {
+    void a(int i, byte[] bArr) throws Exception;
 
-    Q b();
+    int getErrorCode();
 
-    String c();
+    String getErrorMsg();
 
-    P d();
-
-    int e();
+    eo5 getPageInfo();
 }

@@ -48,8 +48,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ao9;
 import com.baidu.tieba.ii;
+import com.baidu.tieba.io9;
 import com.baidu.tieba.ki;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -1650,7 +1650,7 @@ public class TbTabLayout extends HorizontalScrollView {
         this.c = eVar;
         super.addView(eVar, 0, new FrameLayout.LayoutParams(-2, -1));
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.google.android.material.R.styleable.TabLayout, i, R.style.obfuscated_res_0x7f10033f);
-        TypedArray obtainStyledAttributes2 = context.obtainStyledAttributes(attributeSet, ao9.TbTabLayout);
+        TypedArray obtainStyledAttributes2 = context.obtainStyledAttributes(attributeSet, io9.TbTabLayout);
         this.c.h(obtainStyledAttributes.getDimensionPixelSize(10, 0));
         this.c.i(obtainStyledAttributes2.getDimensionPixelSize(0, 0));
         this.c.g(obtainStyledAttributes.getColor(7, 0));

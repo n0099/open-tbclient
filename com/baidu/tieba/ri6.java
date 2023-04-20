@@ -1,18 +1,17 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import androidx.annotation.NonNull;
 import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
+import java.util.ArrayList;
+import java.util.List;
 @Service
 /* loaded from: classes6.dex */
-public class ri6 implements gz6 {
+public class ri6 implements tz6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,17 +29,17 @@ public class ri6 implements gz6 {
         }
     }
 
-    @Override // com.baidu.tieba.gz6
-    public void a(Context context, String str) {
-        TbPageContext<?> tbPageContext;
+    @Override // com.baidu.tieba.tz6
+    @NonNull
+    public List<b07<?, ?>> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, str) == null) {
-            if (g9.a(context) instanceof TbPageContext) {
-                tbPageContext = (TbPageContext) g9.a(context);
-            } else {
-                tbPageContext = null;
-            }
-            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{str});
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new ii6());
+            arrayList.add(new ji6());
+            return arrayList;
         }
+        return (List) invokeV.objValue;
     }
 }

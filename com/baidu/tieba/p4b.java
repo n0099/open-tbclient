@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,10 +9,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class p4b<E> extends c4b<E> {
+public abstract class p4b<E> extends r4b<E> {
     public static /* synthetic */ Interceptable $ic;
-    public static final Integer f;
+    public static final long g;
     public transient /* synthetic */ FieldHolder $fh;
+    public volatile long consumerIndex;
 
     static {
         InterceptResult invokeClinit;
@@ -26,7 +28,16 @@ public abstract class p4b<E> extends c4b<E> {
                 return;
             }
         }
-        f = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096);
+        g = k5b.a(p4b.class, "consumerIndex");
+    }
+
+    public final long k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.consumerIndex;
+        }
+        return invokeV.longValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -47,6 +58,14 @@ public abstract class p4b<E> extends c4b<E> {
                 return;
             }
         }
-        Math.min(i / 4, f.intValue());
+    }
+
+    public final boolean j(long j, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            return k5b.a.c(this, g, j, j2);
+        }
+        return invokeCommon.booleanValue;
     }
 }

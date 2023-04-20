@@ -14,7 +14,7 @@ import com.baidu.searchbox.afx.callback.OnVideoEndedListener;
 import com.baidu.tbadk.afx.TbAlphaVideo;
 import com.baidu.tbadk.widget.image.TbImage;
 import com.baidu.tieba.core.image.dynamic.DynamicAnimView;
-import com.baidu.tieba.pk6;
+import com.baidu.tieba.qk6;
 import com.baidu.tieba.tbadkcore.databinding.DynamicAnimAfxViewBinding;
 import com.baidu.tieba.tbadkcore.databinding.DynamicAnimViewBinding;
 import com.baidu.tieba.tbadkcore.databinding.DynamicAnimWebpViewBinding;
@@ -32,7 +32,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.text.StringsKt__StringsJVMKt;
 @Metadata(d1 = {"\u0000R\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0003\u0018\u00002\u00020\u0001B\u001b\b\u0007\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\n\b\u0002\u0010\u0004\u001a\u0004\u0018\u00010\u0005¢\u0006\u0002\u0010\u0006J\u0012\u0010\u0016\u001a\u00020\u00172\b\u0010\u0018\u001a\u0004\u0018\u00010\u0019H\u0002J\b\u0010\u001a\u001a\u00020\u000fH\u0002J\b\u0010\u001b\u001a\u00020\u000fH\u0002J\b\u0010\u001c\u001a\u00020\u000fH\u0002J\u0012\u0010\u001d\u001a\u00020\u000f2\b\u0010\u000b\u001a\u0004\u0018\u00010\fH\u0016J\u0010\u0010\u001e\u001a\u00020\u000f2\u0006\u0010\u001f\u001a\u00020 H\u0002J\u000e\u0010!\u001a\u00020\u000f2\u0006\u0010\u001f\u001a\u00020 J\u0010\u0010\"\u001a\u00020\u000f2\u0006\u0010\u001f\u001a\u00020 H\u0002R\u000e\u0010\u0007\u001a\u00020\bX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\nX\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\u000b\u001a\u0004\u0018\u00010\fX\u0082\u000e¢\u0006\u0002\n\u0000R\"\u0010\r\u001a\n\u0012\u0004\u0012\u00020\u000f\u0018\u00010\u000eX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0010\u0010\u0011\"\u0004\b\u0012\u0010\u0013R\u000e\u0010\u0014\u001a\u00020\u0015X\u0082.¢\u0006\u0002\n\u0000¨\u0006#"}, d2 = {"Lcom/baidu/tieba/core/image/dynamic/DynamicAnimView;", "Landroid/widget/FrameLayout;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "afxBinding", "Lcom/baidu/tieba/tbadkcore/databinding/DynamicAnimAfxViewBinding;", "binding", "Lcom/baidu/tieba/tbadkcore/databinding/DynamicAnimViewBinding;", "onClickListener", "Landroid/view/View$OnClickListener;", "onDynamicAnimEndListener", "Lkotlin/Function0;", "", "getOnDynamicAnimEndListener", "()Lkotlin/jvm/functions/Function0;", "setOnDynamicAnimEndListener", "(Lkotlin/jvm/functions/Function0;)V", "webpBinding", "Lcom/baidu/tieba/tbadkcore/databinding/DynamicAnimWebpViewBinding;", "isNotViewStubInflated", "", "viewStub", "Landroid/view/ViewStub;", "resetAfxView", "resetAllView", "resetWebpView", "setOnClickListener", "updateAfxView", "data", "Lcom/baidu/tieba/core/image/dynamic/DynamicAnimData;", "updateData", "updateWebpView", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class DynamicAnimView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -89,7 +89,7 @@ public final class DynamicAnimView extends FrameLayout {
         DynamicAnimViewBinding c = DynamicAnimViewBinding.c(LayoutInflater.from(context), this, true);
         Intrinsics.checkNotNullExpressionValue(c, "inflate(LayoutInflater.from(context), this, true)");
         this.a = c;
-        c.b.setOnInflateListener(new ViewStub.OnInflateListener() { // from class: com.baidu.tieba.nk6
+        c.b.setOnInflateListener(new ViewStub.OnInflateListener() { // from class: com.baidu.tieba.ok6
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -101,7 +101,7 @@ public final class DynamicAnimView extends FrameLayout {
                 }
             }
         });
-        this.a.c.setOnInflateListener(new ViewStub.OnInflateListener() { // from class: com.baidu.tieba.ok6
+        this.a.c.setOnInflateListener(new ViewStub.OnInflateListener() { // from class: com.baidu.tieba.pk6
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -236,9 +236,9 @@ public final class DynamicAnimView extends FrameLayout {
         return (Function0) invokeV.objValue;
     }
 
-    public final void g(pk6 pk6Var) {
+    public final void g(qk6 qk6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, pk6Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, qk6Var) == null) {
             if (c(this.a.b)) {
                 this.a.b.inflate();
             }
@@ -250,16 +250,16 @@ public final class DynamicAnimView extends FrameLayout {
             TbAlphaVideo tbAlphaVideo = dynamicAnimAfxViewBinding.b;
             tbAlphaVideo.setVisibility(0);
             tbAlphaVideo.setOnClickListener(this.d);
-            tbAlphaVideo.setKeepLastFrame(pk6Var.b());
-            tbAlphaVideo.setSourcePath(pk6Var.a());
-            if (pk6Var.b()) {
+            tbAlphaVideo.setKeepLastFrame(qk6Var.b());
+            tbAlphaVideo.setSourcePath(qk6Var.a());
+            if (qk6Var.b()) {
                 tbAlphaVideo.setKeepLastFrame(false);
                 tbAlphaVideo.setLooping(true);
                 tbAlphaVideo.setOnVideoEndedListener(null);
             } else {
                 tbAlphaVideo.setKeepLastFrame(true);
                 tbAlphaVideo.setLooping(false);
-                tbAlphaVideo.setOnVideoEndedListener(new OnVideoEndedListener() { // from class: com.baidu.tieba.mk6
+                tbAlphaVideo.setOnVideoEndedListener(new OnVideoEndedListener() { // from class: com.baidu.tieba.nk6
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -276,7 +276,7 @@ public final class DynamicAnimView extends FrameLayout {
         }
     }
 
-    public final void i(pk6 data) {
+    public final void i(qk6 data) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, data) == null) {
@@ -306,9 +306,9 @@ public final class DynamicAnimView extends FrameLayout {
         }
     }
 
-    public final void j(pk6 pk6Var) {
+    public final void j(qk6 qk6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, pk6Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, qk6Var) == null) {
             if (c(this.a.c)) {
                 this.a.c.inflate();
             }
@@ -320,8 +320,8 @@ public final class DynamicAnimView extends FrameLayout {
             TbImage tbImage = dynamicAnimWebpViewBinding.b;
             tbImage.setVisibility(0);
             tbImage.setOnClickListener(this.d);
-            tbImage.setImageURI(Uri.fromFile(new File(pk6Var.a())), (Object) null);
-            if (pk6Var.b()) {
+            tbImage.setImageURI(Uri.fromFile(new File(qk6Var.a())), (Object) null);
+            if (qk6Var.b()) {
                 tbImage.setLooping(true);
                 tbImage.setOnWebpEndedListener(null);
                 return;

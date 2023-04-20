@@ -31,8 +31,9 @@ import com.baidu.tbadk.live.message.MemoryClearUnreadCountMessage;
 import com.baidu.tbadk.util.ChatStatusManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ay7;
-import com.baidu.tieba.cz7;
-import com.baidu.tieba.f05;
+import com.baidu.tieba.by7;
+import com.baidu.tieba.dz7;
+import com.baidu.tieba.g05;
 import com.baidu.tieba.gg;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.MemoryChangedMessage;
@@ -40,11 +41,10 @@ import com.baidu.tieba.im.message.MemoryInitCompleteMessage;
 import com.baidu.tieba.im.message.RequestMemoryListMessage;
 import com.baidu.tieba.im.message.ResponsedMemoryListMessage;
 import com.baidu.tieba.im.model.IMUserListHttpResponseMsg;
-import com.baidu.tieba.l05;
-import com.baidu.tieba.m88;
-import com.baidu.tieba.n05;
+import com.baidu.tieba.m05;
+import com.baidu.tieba.o05;
+import com.baidu.tieba.u88;
 import com.baidu.tieba.view.BdTopToast;
-import com.baidu.tieba.zx7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -56,32 +56,32 @@ import java.util.List;
 public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public m88 a;
+    public u88 a;
     public StrangerListModel b;
     public StrangerListActivity c;
-    public f05 d;
+    public g05 d;
     public AlertDialog e;
     public boolean f;
     public final CustomMessageListener g;
-    public zx7 h;
-    public final ay7 i;
+    public ay7 h;
+    public final by7 i;
     public HttpMessageListener j;
 
     /* loaded from: classes5.dex */
-    public class a implements n05.f {
+    public class a implements o05.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ l05 a;
+        public final /* synthetic */ m05 a;
         public final /* synthetic */ int b;
         public final /* synthetic */ ImMessageCenterShowItemData c;
         public final /* synthetic */ StrangerListActivity d;
 
-        public a(StrangerListActivity strangerListActivity, l05 l05Var, int i, ImMessageCenterShowItemData imMessageCenterShowItemData) {
+        public a(StrangerListActivity strangerListActivity, m05 m05Var, int i, ImMessageCenterShowItemData imMessageCenterShowItemData) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {strangerListActivity, l05Var, Integer.valueOf(i), imMessageCenterShowItemData};
+                Object[] objArr = {strangerListActivity, m05Var, Integer.valueOf(i), imMessageCenterShowItemData};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -92,17 +92,17 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
                 }
             }
             this.d = strangerListActivity;
-            this.a = l05Var;
+            this.a = m05Var;
             this.b = i;
             this.c = imMessageCenterShowItemData;
         }
 
-        @Override // com.baidu.tieba.n05.f
-        public void M0(n05 n05Var, int i, View view2) {
+        @Override // com.baidu.tieba.o05.f
+        public void M0(o05 o05Var, int i, View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, n05Var, i, view2) == null) {
-                l05 l05Var = this.a;
-                if (l05Var != null && l05Var.isShowing()) {
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, o05Var, i, view2) == null) {
+                m05 m05Var = this.a;
+                if (m05Var != null && m05Var.isShowing()) {
                     this.a.dismiss();
                 }
                 if (this.b == 1) {
@@ -172,7 +172,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     }
 
     /* loaded from: classes5.dex */
-    public class c implements zx7 {
+    public class c implements ay7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ StrangerListActivity a;
@@ -195,7 +195,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
             this.a = strangerListActivity;
         }
 
-        @Override // com.baidu.tieba.zx7
+        @Override // com.baidu.tieba.ay7
         public void onComplete() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -205,7 +205,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     }
 
     /* loaded from: classes5.dex */
-    public class d implements ay7 {
+    public class d implements by7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ StrangerListActivity a;
@@ -228,7 +228,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
             this.a = strangerListActivity;
         }
 
-        @Override // com.baidu.tieba.ay7
+        @Override // com.baidu.tieba.by7
         public void onCanceled() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -237,7 +237,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
             }
         }
 
-        @Override // com.baidu.tieba.ay7
+        @Override // com.baidu.tieba.by7
         public void onPostExecute() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -247,7 +247,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
             }
         }
 
-        @Override // com.baidu.tieba.ay7
+        @Override // com.baidu.tieba.by7
         public void onPreExecute() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -255,7 +255,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
             }
         }
 
-        @Override // com.baidu.tieba.ay7
+        @Override // com.baidu.tieba.by7
         public void onProgressUpdate(int i, String str, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) {
@@ -433,7 +433,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             P1();
             if (this.d == null) {
-                this.d = cz7.l().o(getPageContext().getPageActivity());
+                this.d = dz7.l().o(getPageContext().getPageActivity());
             }
             this.d.show();
             this.d.b(0);
@@ -445,8 +445,8 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
             super.onResume();
-            m88 m88Var = this.a;
-            if (m88Var != null && m88Var.B() != null) {
+            u88 u88Var = this.a;
+            if (u88Var != null && u88Var.B() != null) {
                 this.a.B().notifyDataSetChanged();
             }
             MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new MemoryClearUnreadCountMessage.a(TbEnum.CustomGroupId.STRANGE_MERGE, -7)));
@@ -466,7 +466,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     public final void S1(StrangerListActivity strangerListActivity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, strangerListActivity) == null) {
-            this.a = new m88(strangerListActivity);
+            this.a = new u88(strangerListActivity);
         }
     }
 
@@ -500,10 +500,10 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        m88 m88Var;
+        u88 u88Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048593, this, i) == null) && (m88Var = this.a) != null) {
-            m88Var.onChangeSkinType(i);
+        if ((interceptable == null || interceptable.invokeI(1048593, this, i) == null) && (u88Var = this.a) != null) {
+            u88Var.onChangeSkinType(i);
         }
     }
 
@@ -538,8 +538,8 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     public final void P1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            f05 f05Var = this.d;
-            if (f05Var != null && f05Var.isShowing()) {
+            g05 g05Var = this.d;
+            if (g05Var != null && g05Var.isShowing()) {
                 this.d.dismiss();
                 this.d = null;
             }
@@ -579,9 +579,9 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     }
 
     public final void T1() {
-        m88 m88Var;
+        u88 u88Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (m88Var = this.a) != null && m88Var.B() != null) {
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (u88Var = this.a) != null && u88Var.B() != null) {
             this.a.B().notifyDataSetChanged();
         }
     }
@@ -630,10 +630,10 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     }
 
     public final void U1() {
-        m88 m88Var;
+        u88 u88Var;
         StrangerListModel strangerListModel;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (m88Var = this.a) != null && m88Var.B() != null && (strangerListModel = this.b) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (u88Var = this.a) != null && u88Var.B() != null && (strangerListModel = this.b) != null) {
             if (strangerListModel != null && strangerListModel.isEmpty()) {
                 showNoDataView();
             }
@@ -744,10 +744,10 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
-        m88 m88Var;
+        u88 u88Var;
         ImMessageCenterShowItemData item;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048597, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) != null) || (m88Var = this.a) == null || m88Var.B() == null || (item = this.a.B().getItem(i)) == null) {
+        if ((interceptable != null && interceptable.invokeCommon(1048597, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) != null) || (u88Var = this.a) == null || u88Var.B() == null || (item = this.a.B().getItem(i)) == null) {
             return;
         }
         int i2 = 1;
@@ -780,17 +780,17 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemLongClickListener
     public boolean onItemLongClick(AdapterView<?> adapterView, View view2, int i, long j) {
         InterceptResult invokeCommon;
-        m88 m88Var;
+        u88 u88Var;
         ImMessageCenterShowItemData item;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048598, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)})) == null) {
-            if (this.a.E() || (m88Var = this.a) == null || m88Var.B() == null || (item = this.a.B().getItem(i)) == null) {
+            if (this.a.E() || (u88Var = this.a) == null || u88Var.B() == null || (item = this.a.B().getItem(i)) == null) {
                 return false;
             }
             int size = this.b.getData().size();
-            l05 l05Var = new l05(getPageContext());
-            l05Var.i(null, new String[]{TbadkCoreApplication.getInst().getString(R.string.delete_user_chat)}, new a(this, l05Var, size, item));
-            l05Var.k();
+            m05 m05Var = new m05(getPageContext());
+            m05Var.i(null, new String[]{TbadkCoreApplication.getInst().getString(R.string.delete_user_chat)}, new a(this, m05Var, size, item));
+            m05Var.k();
             return true;
         }
         return invokeCommon.booleanValue;

@@ -1,81 +1,131 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.widget.BaseAdapter;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.faceshop.forumpackage.adapter.ForumEmotionEmptyViewHolder;
-import com.baidu.tieba.faceshop.forumpackage.view.ForumEmotionEmptyView;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.faceshop.forumpackage.data.ForumEmotionPackageData;
+import com.baidu.tieba.faceshop.forumpackage.model.ForumEmotionModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class ru6 extends um<su6, ForumEmotionEmptyViewHolder> {
+public class ru6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public ou6 b;
-    public tu6 c;
+    public BdTypeListView b;
+    public final List<vm> c;
+    public qu6 d;
+    public su6 e;
+    public final List<in> f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ru6(TbPageContext<?> tbPageContext, tu6 tu6Var, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public ru6(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView, ForumEmotionModel forumEmotionModel) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, tu6Var, bdUniqueId};
+            Object[] objArr = {tbPageContext, bdTypeListView, forumEmotionModel};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.c = new ArrayList();
+        this.f = new ArrayList();
         this.a = tbPageContext;
-        this.c = tu6Var;
+        this.b = bdTypeListView;
+        c(forumEmotionModel);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.um
-    /* renamed from: s */
-    public ForumEmotionEmptyViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public void a(List<in> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            ForumEmotionEmptyView forumEmotionEmptyView = new ForumEmotionEmptyView(this.a);
-            forumEmotionEmptyView.b(TbadkCoreApplication.getInst().getSkinType());
-            return new ForumEmotionEmptyViewHolder(this.a, forumEmotionEmptyView);
+        if ((interceptable != null && interceptable.invokeL(1048576, this, list) != null) || ListUtils.isEmpty(list)) {
+            return;
         }
-        return (ForumEmotionEmptyViewHolder) invokeL.objValue;
+        if (this.b != null) {
+            this.f.addAll(list);
+            this.b.setData(this.f);
+        }
+        d();
     }
 
-    public void u(ou6 ou6Var) {
+    public void f(pu6 pu6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ou6Var) == null) {
-            this.b = ou6Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, pu6Var) == null) {
+            this.d.u(pu6Var);
+            this.e.u(pu6Var);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.um
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, su6 su6Var, ForumEmotionEmptyViewHolder forumEmotionEmptyViewHolder) {
-        InterceptResult invokeCommon;
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, su6Var, forumEmotionEmptyViewHolder})) == null) {
-            forumEmotionEmptyViewHolder.b(su6Var, i, this.c, this.b);
-            return forumEmotionEmptyViewHolder.getView();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.f.size();
         }
-        return (View) invokeCommon.objValue;
+        return invokeV.intValue;
+    }
+
+    public void d() {
+        BdTypeListView bdTypeListView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (bdTypeListView = this.b) != null && bdTypeListView.getAdapter2() != null && (this.b.getAdapter2() instanceof BaseAdapter)) {
+            this.b.getAdapter2().notifyDataSetChanged();
+        }
+    }
+
+    public final void c(ForumEmotionModel forumEmotionModel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, forumEmotionModel) == null) {
+            qu6 qu6Var = new qu6(this.a, forumEmotionModel.S(), vu6.b);
+            this.d = qu6Var;
+            this.c.add(qu6Var);
+            su6 su6Var = new su6(this.a, forumEmotionModel.S(), tu6.a);
+            this.e = su6Var;
+            this.c.add(su6Var);
+            this.b.addAdapters(this.c);
+        }
+    }
+
+    public void e(List<in> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, list) != null) || ListUtils.isEmpty(list)) {
+            return;
+        }
+        if (!ListUtils.isEmpty(this.f)) {
+            this.f.clear();
+        }
+        BdTypeListView bdTypeListView = this.b;
+        if (bdTypeListView != null) {
+            bdTypeListView.setData(list);
+            this.f.addAll(list);
+        }
+        d();
+    }
+
+    public void g(ForumEmotionPackageData forumEmotionPackageData) {
+        ForumEmotionPackageData forumEmotionPackageData2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, forumEmotionPackageData) != null) || forumEmotionPackageData == null || ListUtils.isEmpty(this.f)) {
+            return;
+        }
+        for (in inVar : this.f) {
+            if (inVar != null && (inVar instanceof vu6) && (forumEmotionPackageData2 = ((vu6) inVar).a) != null && forumEmotionPackageData2.id == forumEmotionPackageData.id) {
+                forumEmotionPackageData2.download = forumEmotionPackageData.download;
+                forumEmotionPackageData2.share = forumEmotionPackageData.share;
+                d();
+                return;
+            }
+        }
     }
 }

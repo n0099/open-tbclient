@@ -1,21 +1,16 @@
 package com.baidu.tieba;
 
-import android.app.Application;
+import android.content.Context;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Service
 /* loaded from: classes6.dex */
-public class st3 implements ut3 {
+public class st3 implements zs1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.ut3
-    public void a(Application application, boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{application, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-        }
-    }
 
     public st3() {
         Interceptable interceptable = $ic;
@@ -28,6 +23,14 @@ public class st3 implements ut3 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
+        }
+    }
+
+    @Override // com.baidu.tieba.zs1
+    public void a(String str, wx2 wx2Var, Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, wx2Var, context) == null) {
+            e03.e().a(str, wx2Var, context);
         }
     }
 }

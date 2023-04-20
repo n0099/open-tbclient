@@ -1,47 +1,150 @@
 package com.baidu.tieba;
 
-import android.webkit.WebChromeClient;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.net.http.SslError;
+import android.webkit.SslErrorHandler;
+import android.webkit.WebResourceError;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class tf6 extends pf6 {
+public class tf6 extends rf6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final vb6<wb6> b;
+    public final wb6<ve6> b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tf6(vb6<wb6> vb6Var) {
-        super(null);
+    public tf6(rf6 rf6Var, wb6<ve6> wb6Var) {
+        super(rf6Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vb6Var};
+            Object[] objArr = {rf6Var, wb6Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((WebChromeClient) newInitContext.callArgs[0]);
+                super((WebViewClient) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = vb6Var;
+        this.b = wb6Var;
     }
 
-    @Override // com.baidu.tieba.pf6, android.webkit.WebChromeClient
-    public void onProgressChanged(WebView webView, int i) {
+    @Override // com.baidu.tieba.rf6, android.webkit.WebViewClient
+    public void onLoadResource(WebView webView, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, webView, i) == null) {
-            super.onProgressChanged(webView, i);
-            wb6 call = this.b.call();
+        if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
+            super.onLoadResource(webView, str);
+            ve6 call = this.b.call();
             if (call != null) {
-                call.b(webView, i);
+                call.e(webView, str);
             }
         }
+    }
+
+    @Override // com.baidu.tieba.rf6, android.webkit.WebViewClient
+    public void onPageFinished(WebView webView, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str) == null) {
+            super.onPageFinished(webView, str);
+            ve6 call = this.b.call();
+            if (call != null) {
+                call.onPageFinished(webView, str);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.rf6, android.webkit.WebViewClient
+    @RequiresApi(24)
+    public boolean shouldOverrideUrlLoading(@NonNull WebView webView, @NonNull WebResourceRequest webResourceRequest) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, webView, webResourceRequest)) == null) {
+            ve6 call = this.b.call();
+            Uri url = webResourceRequest.getUrl();
+            if (call != null && url != null && call.shouldOverrideUrlLoading(webView, url.toString())) {
+                return true;
+            }
+            return super.shouldOverrideUrlLoading(webView, webResourceRequest);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.rf6, android.webkit.WebViewClient
+    public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, bitmap) == null) {
+            super.onPageStarted(webView, str, bitmap);
+            ve6 call = this.b.call();
+            if (call != null) {
+                call.d(webView, str);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.rf6, android.webkit.WebViewClient
+    @RequiresApi(23)
+    public void onReceivedError(WebView webView, WebResourceRequest webResourceRequest, WebResourceError webResourceError) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, webView, webResourceRequest, webResourceError) == null) {
+            super.onReceivedError(webView, webResourceRequest, webResourceError);
+            ve6 call = this.b.call();
+            if (call != null) {
+                call.c(webView, webResourceRequest, webResourceError.getErrorCode(), webResourceError.getDescription());
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.rf6, android.webkit.WebViewClient
+    @RequiresApi(23)
+    public void onReceivedHttpError(WebView webView, WebResourceRequest webResourceRequest, WebResourceResponse webResourceResponse) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, webView, webResourceRequest, webResourceResponse) == null) {
+            super.onReceivedHttpError(webView, webResourceRequest, webResourceResponse);
+            ve6 call = this.b.call();
+            if (call != null) {
+                call.c(webView, webResourceRequest, webResourceResponse.getStatusCode(), webResourceResponse.getReasonPhrase());
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.rf6, android.webkit.WebViewClient
+    public void onReceivedSslError(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048581, this, webView, sslErrorHandler, sslError) == null) {
+            super.onReceivedSslError(webView, sslErrorHandler, sslError);
+            ve6 call = this.b.call();
+            if (call != null) {
+                call.a(webView, sslErrorHandler, sslError);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.rf6, android.webkit.WebViewClient
+    public boolean shouldOverrideUrlLoading(WebView webView, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, webView, str)) == null) {
+            ve6 call = this.b.call();
+            if (call != null && call.shouldOverrideUrlLoading(webView, str)) {
+                return true;
+            }
+            return super.shouldOverrideUrlLoading(webView, str);
+        }
+        return invokeLL.booleanValue;
     }
 }

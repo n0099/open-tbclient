@@ -48,7 +48,7 @@ public final class a extends com.kwad.components.ad.reward.presenter.a implement
             com.kwad.components.core.page.c cVar = new com.kwad.components.core.page.c(getContext(), this.mAdTemplate, 4, false);
             this.landingPageViewHelper = cVar;
             cVar.a(this);
-            this.landingPageViewHelper.a(new c.C0602c().at(false).as(true).aq("").ar(com.kwad.sdk.core.response.a.b.bf(this.mAdTemplate)).nI());
+            this.landingPageViewHelper.a(new c.C0601c().at(false).as(true).aq("").ar(com.kwad.sdk.core.response.a.b.bf(this.mAdTemplate)).nI());
             this.sr.addView(this.landingPageViewHelper.getRootView());
         }
         this.ss = 0L;

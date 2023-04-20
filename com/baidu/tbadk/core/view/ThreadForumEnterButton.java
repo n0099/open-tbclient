@@ -28,7 +28,7 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.util.YYLiveUtil;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.q25;
+import com.baidu.tieba.r25;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -245,7 +245,7 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
         }
         this.i = skinType;
         if (this.e) {
-            q25 d = q25.d(this.f);
+            r25 d = r25.d(this.f);
             d.C(R.string.F_X01);
             d.B(R.dimen.T_X09);
             d.w(R.color.CAM_X0304);
@@ -254,7 +254,7 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
             d.m(R.dimen.L_X01);
             d.l(R.color.CAM_X0304);
         } else {
-            q25 d2 = q25.d(this.f);
+            r25 d2 = r25.d(this.f);
             d2.C(R.string.F_X01);
             d2.B(R.dimen.T_X09);
             d2.w(R.color.CAM_X0304);

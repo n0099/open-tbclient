@@ -1,11 +1,11 @@
 package com.baidu.tieba;
 
-import java.io.File;
-/* loaded from: classes3.dex */
+import java.net.MalformedURLException;
+/* loaded from: classes4.dex */
 public interface cp1 {
-    File a(String str, String str2);
+    String a();
 
-    File b();
+    boolean b();
 
-    String c();
+    String c(String str) throws MalformedURLException;
 }

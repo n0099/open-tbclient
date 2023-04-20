@@ -13,8 +13,8 @@ import com.baidu.live.business.model.data.LiveTabEntity;
 import com.baidu.live.business.view.expandtab.LiveExpandTabAdapter;
 import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.j90;
-import com.baidu.tieba.p90;
+import com.baidu.tieba.k90;
+import com.baidu.tieba.q90;
 import com.google.android.gms.common.internal.ServiceSpecificExtraArgs;
 import java.util.List;
 import kotlin.Metadata;
@@ -125,10 +125,10 @@ public final class LiveExpandTabView extends ConstraintLayout {
     public final void e(String str) {
         RecyclerView recyclerView = this.a;
         if (recyclerView != null) {
-            p90 p90Var = p90.a;
+            q90 q90Var = q90.a;
             Context context = getContext();
             Intrinsics.checkExpressionValueIsNotNull(context, "context");
-            recyclerView.setBackgroundDrawable(p90Var.c(context, this.d));
+            recyclerView.setBackgroundDrawable(q90Var.c(context, this.d));
         }
     }
 
@@ -155,12 +155,12 @@ public final class LiveExpandTabView extends ConstraintLayout {
         this.d = str;
         RecyclerView recyclerView = this.a;
         if (recyclerView != null) {
-            p90 p90Var = p90.a;
+            q90 q90Var = q90.a;
             Context context = recyclerView.getContext();
             Intrinsics.checkExpressionValueIsNotNull(context, "context");
-            recyclerView.setBackgroundDrawable(p90Var.c(context, str));
+            recyclerView.setBackgroundDrawable(q90Var.c(context, str));
             recyclerView.setLayoutManager(new GridLayoutManager(recyclerView.getContext(), 4));
-            recyclerView.addItemDecoration(new LiveExpandTabItemDecoration(j90.b(recyclerView.getContext(), 14.0f)));
+            recyclerView.addItemDecoration(new LiveExpandTabItemDecoration(k90.b(recyclerView.getContext(), 14.0f)));
             LiveExpandTabAdapter liveExpandTabAdapter = new LiveExpandTabAdapter(str);
             liveExpandTabAdapter.p(new c(str));
             this.b = liveExpandTabAdapter;

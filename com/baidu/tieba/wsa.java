@@ -1,30 +1,23 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.RemoteException;
-import android.util.Log;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collections;
-import java.util.concurrent.atomic.AtomicBoolean;
+import com.google.ar.core.InstallActivity;
 /* loaded from: classes6.dex */
-public final class wsa implements Runnable {
+public final class wsa implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ Activity a;
-    public final /* synthetic */ ssa b;
-    public final /* synthetic */ rsa c;
+    public final /* synthetic */ InstallActivity a;
 
-    public wsa(rsa rsaVar, Activity activity, ssa ssaVar) {
+    public wsa(InstallActivity installActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {rsaVar, activity, ssaVar};
+            Object[] objArr = {installActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,30 +27,16 @@ public final class wsa implements Runnable {
                 return;
             }
         }
-        this.c = rsaVar;
-        this.a = activity;
-        this.b = ssaVar;
+        this.a = installActivity;
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
-        com.google.a.b.a.a.a.a aVar;
-        Bundle l;
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-                aVar = this.c.d;
-                String str = this.a.getApplicationInfo().packageName;
-                rsa rsaVar = this.c;
-                l = rsa.l();
-                aVar.a(str, Collections.singletonList(l), new Bundle(), new com.google.ar.core.x(this, atomicBoolean));
-                new Handler().postDelayed(new xsa(this, atomicBoolean), 3000L);
-            } catch (RemoteException e) {
-                Log.w("ARCore-InstallService", "requestInstall threw, launching fullscreen.", e);
-                rsa rsaVar2 = this.c;
-                rsa.n(this.a, this.b);
-            }
+        if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
+            return;
         }
+        this.a.h();
+        this.a.n();
     }
 }

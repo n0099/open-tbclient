@@ -1,37 +1,20 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import java.util.concurrent.FutureTask;
 /* loaded from: classes7.dex */
-public class zf5 extends ag5 {
+public class zf5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.ag5
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "filter" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ag5
-    public Bitmap b(Bitmap bitmap, boolean z) throws Exception {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, z)) == null) ? bitmap : (Bitmap) invokeLZ.objValue;
-    }
-
-    @Override // com.baidu.tieba.ag5
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || str == null) {
-        }
-    }
+    public List<FutureTask<Boolean>> a;
+    public List<yf5> b;
+    public ErrorData c;
 
     public zf5() {
         Interceptable interceptable = $ic;
@@ -44,6 +27,34 @@ public class zf5 extends ag5 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
+        }
+    }
+
+    public void a(ErrorData errorData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, errorData) != null) || this.c != null) {
+            return;
+        }
+        this.c = errorData;
+        for (FutureTask<Boolean> futureTask : this.a) {
+            futureTask.cancel(true);
+        }
+        for (yf5 yf5Var : this.b) {
+            yf5Var.a();
+        }
+    }
+
+    public void b(List<yf5> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            this.b = list;
+        }
+    }
+
+    public void c(List<FutureTask<Boolean>> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.a = list;
         }
     }
 }

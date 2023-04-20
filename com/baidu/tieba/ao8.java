@@ -1,38 +1,126 @@
 package com.baidu.tieba;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import androidx.core.app.NotificationCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.framework.task.SocketMessageTask;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
-import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.myCollection.CollectUpdateReceiver;
+import com.baidu.tieba.myCollection.message.GetStoreRemindTimeHttpResponseMessage;
+import com.baidu.tieba.myCollection.message.GetStoreRemindTimeRequestMessage;
+import com.baidu.tieba.myCollection.message.GetStoreRemindTimeSocketResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.huawei.hms.framework.common.hianalytics.CrashHianalyticsData;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class ao8 implements hk5 {
+public class ao8 {
     public static /* synthetic */ Interceptable $ic;
+    public static ao8 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public long d;
-    public String e;
-    public boolean f;
-    public boolean g;
-    public int h;
-    public boolean i;
-    public long j;
-    public int k;
-    public boolean l;
-    public String m;
-    public String n;
-    public String o;
-    public boolean p;
+    public volatile boolean a;
+
+    /* loaded from: classes3.dex */
+    public class a extends za {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(ao8 ao8Var, int i, int i2) {
+            super(i, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ao8Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.za
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
+                List<String> list = Collections.EMPTY_LIST;
+                if (responsedMessage instanceof GetStoreRemindTimeHttpResponseMessage) {
+                    list = ((GetStoreRemindTimeHttpResponseMessage) responsedMessage).getTimeList();
+                } else if (responsedMessage instanceof GetStoreRemindTimeSocketResponseMessage) {
+                    list = ((GetStoreRemindTimeSocketResponseMessage) responsedMessage).getTimeList();
+                }
+                if (!list.isEmpty()) {
+                    q45.m().B("collect_update_time_key", new JSONArray((Collection) list).toString());
+                    ao8.b().g();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class b implements Comparator<Calendar> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(ao8 ao8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ao8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(Calendar calendar, Calendar calendar2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, calendar, calendar2)) == null) {
+                if (calendar.before(calendar2)) {
+                    return -1;
+                }
+                return 1;
+            }
+            return invokeLL.intValue;
+        }
+    }
 
     public ao8() {
         Interceptable interceptable = $ic;
@@ -47,443 +135,148 @@ public class ao8 implements hk5 {
                 return;
             }
         }
-        this.a = "";
-        this.b = "";
-        this.c = "";
-        this.d = System.currentTimeMillis();
-        this.e = "";
-        this.f = false;
-        this.g = false;
-        this.h = 0;
-        this.i = false;
-        this.m = "";
-        this.n = "";
-        this.o = "";
-        this.p = true;
+        this.a = false;
+        MessageManager.getInstance().registerListener(new a(this, CmdConfigHttp.CMD_GET_STORE_REMIND_TIME, 309117));
+        il9.g(309117, GetStoreRemindTimeSocketResponseMessage.class, false, SocketMessageTask.DupLicateMode.REMOVE_ME, true);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_STORE_REMIND_TIME, il9.a("c/f/livegroup/getStoreRemindTime", 309117));
+        tbHttpMessageTask.setIsNeedLogin(true);
+        tbHttpMessageTask.setIsNeedAddCommenParam(true);
+        tbHttpMessageTask.setResponsedClass(GetStoreRemindTimeHttpResponseMessage.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void A(boolean z) {
+    public void g() {
+        Calendar c;
+        Context context;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.p = z;
+        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || (c = c()) == null || (context = TbadkCoreApplication.getInst().getContext()) == null) {
+            return;
         }
-    }
-
-    public void B(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.m = str;
+        AlarmManager alarmManager = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
+        Intent intent = new Intent(CollectUpdateReceiver.ACTION_NAME);
+        intent.setPackage(context.getPackageName());
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(14, 0);
+        if (c.before(calendar)) {
+            c.set(6, calendar.get(6) + 1);
         }
+        alarmManager.set(1, c.getTimeInMillis(), PendingIntent.getBroadcast(context, 0, intent, 134217728));
     }
 
-    @Override // com.baidu.tieba.hk5
-    public boolean C(String str) {
-        InterceptResult invokeL;
+    public static ao8 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (str != null) {
-                try {
-                    return s(new JSONObject(str));
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (ao8.class) {
+                    if (b == null) {
+                        b = new ao8();
+                    }
                 }
+            }
+            return b;
+        }
+        return (ao8) invokeV.objValue;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && a()) {
+            MessageManager.getInstance().sendMessage(new GetStoreRemindTimeRequestMessage());
+            h();
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            q45.m().A("collect_request_time_key", System.currentTimeMillis());
+        }
+    }
+
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            long o = q45.m().o("collect_request_time_key", -1L);
+            if (o == -1) {
+                return true;
+            }
+            long currentTimeMillis = System.currentTimeMillis() - o;
+            if (currentTimeMillis > 0 && TimeUnit.MILLISECONDS.toDays(currentTimeMillis) >= 1) {
+                return true;
             }
             return false;
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public void D(boolean z) {
+    public final Calendar c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            String s = q45.m().s("collect_update_time_key", null);
+            if (TextUtils.isEmpty(s)) {
+                return null;
+            }
+            ArrayList arrayList = new ArrayList();
+            Calendar calendar = Calendar.getInstance();
+            try {
+                JSONArray jSONArray = new JSONArray(s);
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    String optString = jSONArray.optString(i);
+                    if (!TextUtils.isEmpty(optString)) {
+                        Calendar calendar2 = (Calendar) calendar.clone();
+                        calendar2.setTime(simpleDateFormat.parse(optString));
+                        calendar2.set(calendar.get(1), calendar.get(2), calendar.get(5));
+                        arrayList.add(calendar2);
+                    }
+                }
+            } catch (ParseException e) {
+                BdLog.e(e.getMessage());
+                e.printStackTrace();
+                return null;
+            } catch (JSONException e2) {
+                BdLog.e(e2.getMessage());
+                return null;
+            } catch (Exception e3) {
+                BdLog.e(e3.getMessage());
+            }
+            if (arrayList.isEmpty()) {
+                return null;
+            }
+            Collections.sort(arrayList, new b(this));
+            Calendar calendar3 = (Calendar) arrayList.get(0);
+            Calendar calendar4 = (Calendar) arrayList.get(arrayList.size() - 1);
+            if (arrayList.size() != 1 && !calendar3.after(calendar) && !calendar4.before(calendar)) {
+                for (int i2 = 1; i2 < arrayList.size(); i2++) {
+                    Calendar calendar5 = (Calendar) arrayList.get(i2);
+                    if (!calendar5.before(calendar)) {
+                        return calendar5;
+                    }
+                }
+                return null;
+            }
+            return calendar3;
+        }
+        return (Calendar) invokeV.objValue;
+    }
+
+    public void e(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.i = z;
-        }
-    }
-
-    public void E(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.e = str;
-        }
-    }
-
-    public void F(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.g = z;
-        }
-    }
-
-    public void G(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.a = str;
-        }
-    }
-
-    public void H(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public void I(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.h = i;
-        }
-    }
-
-    public void J(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.n = str;
-        }
-    }
-
-    public void t(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048608, this, j) == null) {
-            this.j = j;
-        }
-    }
-
-    public void u(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048609, this, i) == null) {
-            this.k = i;
-        }
-    }
-
-    public void v(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048610, this, str) == null) {
-            this.o = str;
-        }
-    }
-
-    public void w(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048611, this, str) == null) {
-            this.c = str;
-        }
-    }
-
-    public void x(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048612, this, z) == null) {
-            this.f = z;
-        }
-    }
-
-    public void y(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048613, this, z) == null) {
-            this.l = z;
-        }
-    }
-
-    public JSONObject L() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("forum_name", this.c);
-                jSONObject.put("thread_id", this.a);
-                jSONObject.put("thread_time", this.d);
-                jSONObject.put(CrashHianalyticsData.THREAD_NAME, this.b);
-                jSONObject.put("post_id", this.e);
-                jSONObject.put("host_only", this.f);
-                jSONObject.put("squence", this.g);
-                jSONObject.put("thread_type", this.h);
-                jSONObject.put("is_manga", this.i);
-                jSONObject.put(MangaBrowserActivityConfig.CARTOON_ID, this.j);
-                jSONObject.put(MangaBrowserActivityConfig.CHAPTER_ID, this.k);
-                jSONObject.put(VideoPlayActivityConfig.IS_SHARE_THREAD, this.l);
-                jSONObject.put("live_id", this.m);
-                jSONObject.put("user_name", this.n);
-                jSONObject.put("live_description", this.o);
-            } catch (JSONException unused) {
+            if (this.a) {
+                z = false;
             }
-            return jSONObject;
+            q45.m().w("collect_update_flag_key" + TbadkCoreApplication.getCurrentAccount(), z);
         }
-        return (JSONObject) invokeV.objValue;
     }
 
-    public long a() {
-        InterceptResult invokeV;
+    public void f(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.j;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.a = z;
         }
-        return invokeV.longValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.k;
-        }
-        return invokeV.intValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.o;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return this.m;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.fk5
-    public String getCacheKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            if (this.h == 49) {
-                return this.m + "_ala";
-            }
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            return this.h;
-        }
-        return invokeV.intValue;
-    }
-
-    public long j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            return this.d;
-        }
-        return invokeV.longValue;
-    }
-
-    public String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            return this.n;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            return this.f;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            return this.p;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-            return this.i;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
-            return this.l;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
-            return this.g;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.hk5
-    public String r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
-            return L().toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        String str;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, obj)) == null) {
-            if (obj != null && (obj instanceof ao8)) {
-                ao8 ao8Var = (ao8) obj;
-                if (this.h == 49) {
-                    String str3 = this.m;
-                    if (str3 != null && (str2 = ao8Var.m) != null && str3.equals(str2)) {
-                        return true;
-                    }
-                } else {
-                    String str4 = this.a;
-                    if (str4 != null && (str = ao8Var.a) != null && str4.equals(str)) {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        int hashCode;
-        int hashCode2;
-        int hashCode3;
-        int hashCode4;
-        int hashCode5;
-        int hashCode6;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            if (TextUtils.isEmpty(this.a)) {
-                hashCode = 120;
-            } else {
-                hashCode = 119 + this.a.hashCode();
-            }
-            if (TextUtils.isEmpty(this.b)) {
-                hashCode2 = (hashCode * 7) + 1;
-            } else {
-                hashCode2 = (hashCode * 7) + this.b.hashCode();
-            }
-            if (TextUtils.isEmpty(this.c)) {
-                hashCode3 = (hashCode2 * 7) + 1;
-            } else {
-                hashCode3 = (hashCode2 * 7) + this.c.hashCode();
-            }
-            int i = (hashCode3 * 7) + ((int) this.d);
-            if (TextUtils.isEmpty(this.e)) {
-                hashCode4 = (i * 7) + 1;
-            } else {
-                hashCode4 = (i * 7) + this.e.hashCode();
-            }
-            if (TextUtils.isEmpty(this.m)) {
-                hashCode5 = (hashCode4 * 7) + 1;
-            } else {
-                hashCode5 = (hashCode4 * 7) + this.m.hashCode();
-            }
-            if (TextUtils.isEmpty(this.o)) {
-                hashCode6 = (hashCode5 * 7) + 1;
-            } else {
-                hashCode6 = (hashCode5 * 7) + this.o.hashCode();
-            }
-            return (((hashCode6 * 7) + (this.f ? 1 : 0)) * 7) + (this.g ? 1 : 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean s(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048607, this, jSONObject)) == null) {
-            String optString = jSONObject.optString("forum_name");
-            String optString2 = jSONObject.optString("thread_id");
-            String optString3 = jSONObject.optString(CrashHianalyticsData.THREAD_NAME);
-            long optLong = jSONObject.optLong("thread_time");
-            this.e = jSONObject.optString("post_id");
-            this.f = jSONObject.optBoolean("host_only");
-            this.g = jSONObject.optBoolean("squence");
-            this.i = jSONObject.optBoolean("is_manga");
-            this.j = jSONObject.optLong(MangaBrowserActivityConfig.CARTOON_ID);
-            this.k = jSONObject.optInt(MangaBrowserActivityConfig.CHAPTER_ID);
-            this.l = jSONObject.optBoolean(VideoPlayActivityConfig.IS_SHARE_THREAD, false);
-            if (!TextUtils.isEmpty(optString)) {
-                this.c = optString;
-            }
-            if (!TextUtils.isEmpty(optString2)) {
-                this.a = optString2;
-            }
-            if (!TextUtils.isEmpty(optString3)) {
-                this.b = optString3;
-            }
-            if (optLong > 2000) {
-                this.d = optLong;
-            }
-            this.h = jSONObject.optInt("thread_type");
-            this.m = jSONObject.optString("live_id", "");
-            this.n = jSONObject.optString("user_name", "");
-            this.o = jSONObject.optString("live_description", "");
-            return true;
-        }
-        return invokeL.booleanValue;
     }
 }

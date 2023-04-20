@@ -3,7 +3,6 @@ package com.baidu.tieba;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.card.ThreadCardViewHolder;
@@ -12,26 +11,26 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.dy;
-import com.baidu.tieba.oy;
+import com.baidu.tieba.ey;
+import com.baidu.tieba.py;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class jt7 extends um<oz4, ThreadCardViewHolder<ThreadData>> {
+public class jt7 extends vm<pz4, ThreadCardViewHolder<ThreadData>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId a;
     public String b;
     public TbPageContext<?> c;
     public boolean d;
-    public nn e;
-    public xg6<ThreadData> f;
+    public on e;
+    public yg6<ThreadData> f;
 
     /* loaded from: classes5.dex */
-    public class a extends xg6<ThreadData> {
+    public class a extends yg6<ThreadData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ jt7 b;
@@ -55,19 +54,19 @@ public class jt7 extends um<oz4, ThreadCardViewHolder<ThreadData>> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.xg6
+        @Override // com.baidu.tieba.yg6
         /* renamed from: d */
         public void a(View view2, ThreadData threadData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) {
-                qg6.b().d(true);
-                ys7.k(view2, threadData, this.b.b);
+                rg6.b().d(true);
+                zs7.k(view2, threadData, this.b.b);
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements rn {
+    public class b implements sn {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ jt7 a;
@@ -90,18 +89,18 @@ public class jt7 extends um<oz4, ThreadCardViewHolder<ThreadData>> {
             this.a = jt7Var;
         }
 
-        @Override // com.baidu.tieba.rn
-        public void b(View view2, hn hnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+        @Override // com.baidu.tieba.sn
+        public void b(View view2, in inVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, hnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (hnVar instanceof oz4) && (view2.getTag() instanceof ThreadCardViewHolder)) {
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, inVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (inVar instanceof pz4) && (view2.getTag() instanceof ThreadCardViewHolder)) {
                 ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
-                ThreadData threadData = ((oz4) hnVar).t;
+                ThreadData threadData = ((pz4) inVar).t;
                 threadData.objType = 1;
                 if (this.a.f != null) {
                     this.a.f.a(threadCardViewHolder.getView(), threadData);
                 }
-                ThreadCardUtils.jumpToPB((jw4) threadData, view2.getContext(), 0, false);
-                threadCardViewHolder.a().p(new oy.a(1));
+                ThreadCardUtils.jumpToPB((kw4) threadData, view2.getContext(), 0, false);
+                threadCardViewHolder.a().p(new py.a(1));
             }
         }
     }
@@ -132,26 +131,26 @@ public class jt7 extends um<oz4, ThreadCardViewHolder<ThreadData>> {
         this.b = str;
     }
 
-    public void y(nn nnVar) {
+    public void y(on onVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, nnVar) == null) {
-            this.e = nnVar;
+        if (interceptable == null || interceptable.invokeL(1048580, this, onVar) == null) {
+            this.e = onVar;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.um
+    @Override // com.baidu.tieba.vm
     /* renamed from: u */
     public ThreadCardViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            dy.b bVar = new dy.b(this.c.getPageActivity(), false);
-            qx qxVar = new qx(this.c.getPageActivity());
-            qxVar.u("index");
-            qxVar.v(this.d);
-            bVar.n(qxVar);
-            dy k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.e);
+            ey.b bVar = new ey.b(this.c.getPageActivity(), false);
+            ox oxVar = new ox(this.c.getPageActivity());
+            oxVar.w("index");
+            oxVar.x(this.d);
+            bVar.n(oxVar);
+            ey k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.e);
             k.s(2);
             ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
             threadCardViewHolder.i(this.a);
@@ -162,27 +161,20 @@ public class jt7 extends um<oz4, ThreadCardViewHolder<ThreadData>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.um
+    @Override // com.baidu.tieba.vm
     /* renamed from: x */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, oz4 oz4Var, ThreadCardViewHolder<ThreadData> threadCardViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, pz4 pz4Var, ThreadCardViewHolder<ThreadData> threadCardViewHolder) {
         InterceptResult invokeCommon;
         ThreadData threadData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, oz4Var, threadCardViewHolder})) == null) {
-            if (oz4Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null && (threadData = oz4Var.t) != null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, pz4Var, threadCardViewHolder})) == null) {
+            if (pz4Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null && (threadData = pz4Var.t) != null) {
                 threadData.statFloor = getPositionByType(i) + 1;
                 threadCardViewHolder.a().r(i);
-                threadCardViewHolder.e(oz4Var.t);
+                threadCardViewHolder.e(pz4Var.t);
                 threadCardViewHolder.a().onChangeSkinType(this.c, TbadkCoreApplication.getInst().getSkinType());
                 threadCardViewHolder.a().q(this.f);
-                ys7.r(oz4Var, this.b);
-                qx qxVar = (qx) threadCardViewHolder.a().g();
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) qxVar.f.d.getLayoutParams();
-                layoutParams.width = oz4Var.u;
-                layoutParams.height = oz4Var.v;
-                if (qxVar.f.d.getVisibility() != 8) {
-                    qxVar.f.d.setLayoutParams(layoutParams);
-                }
+                zs7.r(pz4Var, this.b);
                 return threadCardViewHolder.getView();
             }
             return null;

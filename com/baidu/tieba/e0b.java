@@ -1,26 +1,34 @@
 package com.baidu.tieba;
 
-import org.java_websocket.exceptions.InvalidDataException;
-import org.java_websocket.framing.Framedata;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
-public interface e0b {
-    e0b a();
+public final class e0b {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean b(String str);
+    public static int a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
+            if (i >= 12) {
+                return (i - 12) + 1;
+            }
+            return 0;
+        }
+        return invokeI.intValue;
+    }
 
-    void c(Framedata framedata);
-
-    String d();
-
-    boolean e(String str);
-
-    void f(Framedata framedata) throws InvalidDataException;
-
-    String g();
-
-    void h(Framedata framedata) throws InvalidDataException;
-
-    void reset();
-
-    String toString();
+    public static int b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            if (i <= 9) {
+                return (i - 1) + 1;
+            }
+            return 0;
+        }
+        return invokeI.intValue;
+    }
 }

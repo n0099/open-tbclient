@@ -17,10 +17,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a66;
-import com.baidu.tieba.t66;
+import com.baidu.tieba.b66;
 import com.baidu.tieba.u66;
 import com.baidu.tieba.v66;
+import com.baidu.tieba.w66;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,20 +38,20 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
     public int f;
     public long g;
     public boolean h;
-    public v66 i;
-    public u66 j;
-    public t66 k;
+    public w66 i;
+    public v66 j;
+    public u66 k;
     public Runnable l;
     public RecyclerView.OnScrollListener m;
 
     /* loaded from: classes3.dex */
-    public class c implements t66 {
+    public class c implements u66 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaBannerAutoScrollView a;
 
         /* loaded from: classes3.dex */
-        public class a extends AlaBannerViewHolder<a66> {
+        public class a extends AlaBannerViewHolder<b66> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public TbImageView a;
@@ -86,10 +86,10 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerViewHolder
             /* renamed from: d */
-            public void a(int i, a66 a66Var) {
+            public void a(int i, b66 b66Var) {
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeIL(1048579, this, i, a66Var) == null) && a66Var != null && this.a != null && !StringUtils.isNull(a66Var.a)) {
-                    this.a.N(a66Var.a, 10, false);
+                if ((interceptable == null || interceptable.invokeIL(1048579, this, i, b66Var) == null) && b66Var != null && this.a != null && !StringUtils.isNull(b66Var.a)) {
+                    this.a.N(b66Var.a, 10, false);
                 }
             }
 
@@ -120,7 +120,7 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
             this.a = alaBannerAutoScrollView;
         }
 
-        @Override // com.baidu.tieba.t66
+        @Override // com.baidu.tieba.u66
         public AlaBannerViewHolder a(ViewGroup viewGroup, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
@@ -415,28 +415,28 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
         }
     }
 
-    public void setOnBannerClickListener(u66 u66Var) {
+    public void setOnBannerClickListener(v66 v66Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, u66Var) == null) {
-            this.j = u66Var;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, v66Var) == null) {
+            this.j = v66Var;
             AlaBannerRecyclerAdapter alaBannerRecyclerAdapter = this.d;
             if (alaBannerRecyclerAdapter != null) {
-                alaBannerRecyclerAdapter.p(u66Var);
+                alaBannerRecyclerAdapter.p(v66Var);
             }
         }
     }
 
-    public void setOnBannerScrollListener(v66 v66Var) {
+    public void setOnBannerScrollListener(w66 w66Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, v66Var) == null) {
-            this.i = v66Var;
+        if (interceptable == null || interceptable.invokeL(1048585, this, w66Var) == null) {
+            this.i = w66Var;
         }
     }
 
-    public void setViewHolderAdapter(t66 t66Var) {
+    public void setViewHolderAdapter(u66 u66Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, t66Var) == null) {
-            this.d.q(t66Var);
+        if (interceptable == null || interceptable.invokeL(1048586, this, u66Var) == null) {
+            this.d.q(u66Var);
         }
     }
 

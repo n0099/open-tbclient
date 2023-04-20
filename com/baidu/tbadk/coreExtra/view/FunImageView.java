@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dk7;
+import com.baidu.tieba.ek7;
 import com.baidu.tieba.ii;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -93,7 +93,7 @@ public class FunImageView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             removeAllViews();
-            ViewGroup l = dk7.m().l(context);
+            ViewGroup l = ek7.m().l(context);
             this.a = l;
             if (l != null) {
                 SkinManager.setBackgroundColor(l, R.color.CAM_X0101, 0);

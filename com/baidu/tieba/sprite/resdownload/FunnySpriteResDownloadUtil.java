@@ -8,10 +8,10 @@ import com.baidu.searchbox.pms.bean.PackageInfo;
 import com.baidu.searchbox.pms.callback.DefaultDownloadCallback;
 import com.baidu.searchbox.pms.init.PmsManager;
 import com.baidu.searchbox.pms.init.RequestParams;
-import com.baidu.tieba.ng8;
-import com.baidu.tieba.ul;
+import com.baidu.tieba.vg8;
 import com.baidu.tieba.vl;
-import com.baidu.tieba.x35;
+import com.baidu.tieba.wl;
+import com.baidu.tieba.y35;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -74,7 +74,7 @@ public final class FunnySpriteResDownloadUtil {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, packageInfo, errorInfo) == null) {
                 super.onDownloadError(packageInfo, errorInfo);
-                ng8 defaultLog = DefaultLog.getInstance();
+                vg8 defaultLog = DefaultLog.getInstance();
                 StringBuilder sb = new StringBuilder();
                 sb.append("Sprite Res Download Fail! Error Msg: ");
                 if (errorInfo != null) {
@@ -100,10 +100,10 @@ public final class FunnySpriteResDownloadUtil {
                     String resZip = packageInfo.name;
                     Intrinsics.checkNotNullExpressionValue(resZip, "resZip");
                     String replace$default = StringsKt__StringsJVMKt.replace$default(resZip, ".zip", "", false, 4, (Object) null);
-                    ng8 defaultLog = DefaultLog.getInstance();
+                    vg8 defaultLog = DefaultLog.getInstance();
                     defaultLog.c("SpriteResDownload", "Sprite Res Download Success! Res Name: " + resZip + ". Duration: " + (System.currentTimeMillis() - j));
                     boolean j2 = FunnySpriteResDownloadUtil.j(replace$default, resZip);
-                    ng8 defaultLog2 = DefaultLog.getInstance();
+                    vg8 defaultLog2 = DefaultLog.getInstance();
                     StringBuilder sb = new StringBuilder();
                     sb.append("Sprite Res UnZip ");
                     if (j2) {
@@ -230,11 +230,11 @@ public final class FunnySpriteResDownloadUtil {
             });
             String str = "com.baidu.tieba.resloader." + ((String) objectRef.element) + ".zip";
             DefaultLog.getInstance().c("SpriteResDownload", "Sprite Res download start. Res : " + str);
-            ul ulVar = new ul(str, new a(System.currentTimeMillis()));
+            vl vlVar = new vl(str, new a(System.currentTimeMillis()));
             RequestParams requestParams = new RequestParams();
-            requestParams.setRunType(vl.a);
+            requestParams.setRunType(wl.a);
             requestParams.setRunNode("aps");
-            requestParams.addChannel(ulVar);
+            requestParams.addChannel(vlVar);
             PmsManager.getInstance().execute(requestParams);
         }
     }
@@ -379,7 +379,7 @@ public final class FunnySpriteResDownloadUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, str, str2)) == null) {
             String str3 = a + File.separator + str;
-            boolean b2 = x35.b(a + File.separator + str2, str3 + "_temp");
+            boolean b2 = y35.b(a + File.separator + str2, str3 + "_temp");
             if (b2) {
                 File file = new File(str3);
                 f(file);

@@ -20,9 +20,9 @@ import com.baidu.tbadk.core.atomData.PersonalCardDetailActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
-import com.baidu.tieba.al9;
 import com.baidu.tieba.gg;
-import com.baidu.tieba.p45;
+import com.baidu.tieba.il9;
+import com.baidu.tieba.q45;
 import com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantActivity;
 import com.baidu.tieba.themeCenter.background.BackgroundGroupActivity;
 import com.baidu.tieba.themeCenter.background.BackgroundListActivity;
@@ -124,7 +124,7 @@ public class ThemeStatic {
                             indexOf = substring.length();
                         }
                         int e = gg.e(substring.substring(0, indexOf), 0);
-                        p45 m = p45.m();
+                        q45 m = q45.m();
                         if (e == m.n("current_used_personal_background_" + TbadkCoreApplication.getCurrentAccount(), 0)) {
                             i = 1;
                         } else {
@@ -277,8 +277,8 @@ public class ThemeStatic {
         TbadkCoreApplication.getInst().RegisterIntent(PersonalCardCategoryActivityConfig.class, PersonalCardCategoryActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(PersonalCardDetailActivityConfig.class, PersonalCardDetailActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(AvatarPendantActivityConfig.class, AvatarPendantActivity.class);
-        al9.h(309022, BackgroundSetSocketResponseMessage.class, false, false);
-        al9.c(309022, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, TbConfig.PERSONAL_BACKGROUND_SET, BackgroundSetHttpResponseMessage.class, false, false, false, false);
+        il9.h(309022, BackgroundSetSocketResponseMessage.class, false, false);
+        il9.c(309022, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, TbConfig.PERSONAL_BACKGROUND_SET, BackgroundSetHttpResponseMessage.class, false, false, false, false);
     }
 
     public ThemeStatic() {

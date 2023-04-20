@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e23;
+import com.baidu.tieba.f23;
 /* loaded from: classes3.dex */
 public class FooterLoadingLayout extends LoadingLayout {
     public LoadingAnimView e;
@@ -44,7 +44,7 @@ public class FooterLoadingLayout extends LoadingLayout {
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public View a(Context context, ViewGroup viewGroup, AttributeSet attributeSet) {
-        View b = e23.a().b(R.layout.obfuscated_res_0x7f0d00c6, viewGroup, false);
+        View b = f23.a().b(R.layout.obfuscated_res_0x7f0d00c6, viewGroup, false);
         b.setBackgroundColor(context.getResources().getColor(R.color.obfuscated_res_0x7f060336));
         return b;
     }

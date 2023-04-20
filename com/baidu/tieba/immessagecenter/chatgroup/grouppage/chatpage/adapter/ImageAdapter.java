@@ -18,8 +18,8 @@ import com.baidu.tieba.im.chat.view.ChatImageWithTailView;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.BaseImageMsg;
-import com.baidu.tieba.ox7;
-import com.baidu.tieba.w48;
+import com.baidu.tieba.px7;
+import com.baidu.tieba.x48;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,7 +30,7 @@ import java.util.List;
 public class ImageAdapter extends BaseChatAdapter<BaseImageMsg<?>, Holder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public w48 i;
+    public x48 i;
     public String j;
 
     /* loaded from: classes4.dex */
@@ -116,7 +116,7 @@ public class ImageAdapter extends BaseChatAdapter<BaseImageMsg<?>, Holder> {
                 if (StringUtils.isNull(this.b.j)) {
                     return;
                 }
-                this.b.i = new w48(this.b.mContext, this.b.j, 0L, null, 0L);
+                this.b.i = new x48(this.b.mContext, this.b.j, 0L, null, 0L);
                 this.b.i.execute(new String[0]);
             }
         }
@@ -189,7 +189,7 @@ public class ImageAdapter extends BaseChatAdapter<BaseImageMsg<?>, Holder> {
             String thumbUrl = baseImageMsg.getThumbUrl();
             String a0 = a0(baseImageMsg.getThumbSize());
             if (!StringUtils.isNull(thumbUrl)) {
-                baseImageMsg.setThumbSize(ox7.d(chatImageWithTailView, thumbUrl, a0, R.drawable.icon_pic_im_image_default));
+                baseImageMsg.setThumbSize(px7.d(chatImageWithTailView, thumbUrl, a0, R.drawable.icon_pic_im_image_default));
             }
         }
     }

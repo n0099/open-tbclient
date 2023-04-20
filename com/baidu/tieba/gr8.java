@@ -1,382 +1,173 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.PassportSDK;
-import com.baidu.sapi2.SapiAccount;
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.sapi2.shell.listener.WebAuthListener;
-import com.baidu.sapi2.shell.result.WebAuthResult;
-import com.baidu.sapi2.utils.enums.SocialType;
-import com.baidu.searchbox.live.interfaces.DI;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.util.DialogLoginHelper;
-import com.baidu.tieba.tbadkCore.message.CancelDownloadMessage;
-import com.baidu.tieba.wv4;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.RecommendForumInfo;
 /* loaded from: classes4.dex */
-public abstract class gr8 {
+public class gr8 {
     public static /* synthetic */ Interceptable $ic;
+    public static int a;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public BaseActivity b;
-    public hr8 c;
-    public BdAsyncTask<?, ?, ?> d;
-    public ir8 e;
-    public String f;
-    public View.OnClickListener g;
-    public final wv4.a h;
 
-    public abstract void j(ir8 ir8Var);
-
-    /* loaded from: classes4.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gr8 a;
-
-        public a(gr8 gr8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gr8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gr8Var;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947803644, "Lcom/baidu/tieba/gr8;")) == null) {
+            return;
         }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.n(view2);
-            }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947803644, "Lcom/baidu/tieba/gr8;");
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class b extends WebAuthListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SocialType a;
-        public final /* synthetic */ gr8 b;
-
-        public b(gr8 gr8Var, SocialType socialType) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gr8Var, socialType};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = gr8Var;
-            this.a = socialType;
-        }
-
-        @Override // com.baidu.sapi2.shell.listener.WebAuthListener
-        public void beforeSuccess(SapiAccount sapiAccount) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, sapiAccount) == null) {
-                this.b.l();
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onFailure(WebAuthResult webAuthResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webAuthResult) == null) {
-                this.b.b.closeLoadingDialog();
-                BaseActivity baseActivity = this.b.b;
-                baseActivity.showToast(String.format(baseActivity.getString(R.string.obfuscated_res_0x7f0f14b2), Integer.valueOf(webAuthResult.getResultCode()), webAuthResult.getResultMsg()));
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onSuccess(WebAuthResult webAuthResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, webAuthResult) == null) {
-                this.b.f();
-                DialogLoginHelper.addLoginDialogSuccessLog(DialogLoginHelper.getOneKeyLoginActivityLocate(), this.b.f, this.a.name().toLowerCase());
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class c implements wv4.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gr8 a;
-
-        public c(gr8 gr8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gr8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gr8Var;
-        }
-
-        @Override // com.baidu.tieba.wv4.a
-        public void b(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                this.a.l();
-            }
-        }
-
-        @Override // com.baidu.tieba.wv4.a
-        public void c(AccountData accountData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
-                this.a.b.closeLoadingDialog();
-                this.a.e(accountData);
-            }
-        }
-
-        @Override // com.baidu.tieba.wv4.a
-        public void a(String str, int i, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i, str2) == null) {
-                this.a.b.closeLoadingDialog();
-                this.a.b.showToast(str2);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AccountData a;
-
-        public d(gr8 gr8Var, AccountData accountData) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gr8Var, accountData};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = accountData;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                uv4.g(this.a);
-                e45.a(DI.ACCOUNT, -1L, 0, "login_activity_save_account_to_db", 0, "", new Object[0]);
-            }
-        }
-    }
-
-    public gr8(TbPageContext tbPageContext, hr8 hr8Var, String str) {
+    public gr8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, hr8Var, str};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.g = new a(this);
-        this.h = new c(this);
-        this.a = tbPageContext;
-        if (tbPageContext.getPageActivity() instanceof BaseActivity) {
-            this.b = (BaseActivity) tbPageContext.getPageActivity();
-        }
-        this.c = hr8Var;
-        this.f = str;
-        hr8Var.d(this.g);
     }
 
-    public void c(int i) {
+    public void a(int i, br8 br8Var, int i2, List<in> list, BdTypeRecyclerView bdTypeRecyclerView) {
+        List<zq8> list2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.b.setResult(i, new Intent());
-            this.b.finish();
-        }
-    }
-
-    public void i(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.c.b(z);
-        }
-    }
-
-    public void k(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.c.e(z);
-        }
-    }
-
-    public final void m(SocialType socialType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, socialType) == null) {
-            PassportSDK.getInstance().loadThirdPartyLogin(new b(this, socialType), socialType);
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            new LoginActivityConfig(this.b, true, 25061).start();
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            m(SocialType.QQ_SSO);
-        }
-    }
-
-    public final void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            m(SocialType.WEIXIN);
-        }
-    }
-
-    public final void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            m(SocialType.SINA_WEIBO_SSO);
-        }
-    }
-
-    public final void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            m(SocialType.YY);
-        }
-    }
-
-    public final void e(AccountData accountData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
-            h(accountData);
-            e45.a(DI.ACCOUNT, -1L, 0, "login_pass_cslogin_goMainTab", 0, "", new Object[0]);
-            TbadkCoreApplication.getInst().onUserChanged(this.b.getIntent());
-            c(-1);
-            TbadkCoreApplication.getInst().onDeviceFirstLoginChanged(accountData);
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(Boolean.TRUE));
-            SapiAccount session = SapiAccountManager.getInstance().getSession();
-            if (session != null) {
-                BdAsyncTask<?, ?, ?> bdAsyncTask = this.d;
-                if (bdAsyncTask != null) {
-                    bdAsyncTask.cancel();
+        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), br8Var, Integer.valueOf(i2), list, bdTypeRecyclerView}) == null) && br8Var != null && (list2 = br8Var.a) != null && !ListUtils.isEmpty(list2)) {
+            ArrayList arrayList = new ArrayList();
+            c(i, arrayList, list);
+            List<zq8> list3 = br8Var.a;
+            if (list3 != null && list3.size() > 0) {
+                int i3 = 0;
+                for (zq8 zq8Var : list3) {
+                    if (zq8Var != null && i == zq8Var.b.intValue()) {
+                        List<fr8> list4 = zq8Var.a;
+                        if (list4 != null && list4.size() > 0) {
+                            for (int i4 = 0; i4 < list4.size(); i4++) {
+                                if (list4.get(i4) != null) {
+                                    if (arrayList.size() >= 20) {
+                                        d(list.get(i2));
+                                        bdTypeRecyclerView.setData(list);
+                                        return;
+                                    } else if (i3 >= 4) {
+                                        bdTypeRecyclerView.setData(list);
+                                        return;
+                                    } else {
+                                        if (i4 == list4.size() - 1) {
+                                            d(list.get(i2));
+                                        }
+                                        RecommendForumInfo recommendForumInfo = list4.get(i4).a;
+                                        if (!arrayList.contains(recommendForumInfo.forum_id)) {
+                                            cr8 cr8Var = new cr8();
+                                            cr8Var.l(zq8Var.b.intValue());
+                                            cr8Var.k(recommendForumInfo.avatar);
+                                            cr8Var.n(recommendForumInfo.forum_id.longValue());
+                                            cr8Var.o(recommendForumInfo.forum_name);
+                                            cr8Var.q(recommendForumInfo.member_count.intValue());
+                                            cr8Var.u(recommendForumInfo.thread_count.intValue());
+                                            cr8Var.s(recommendForumInfo.slogan);
+                                            cr8Var.r(false);
+                                            list.add(i2, cr8Var);
+                                            arrayList.add(recommendForumInfo.forum_id);
+                                            i2++;
+                                            i3++;
+                                        }
+                                    }
+                                }
+                            }
+                            bdTypeRecyclerView.setData(list);
+                        } else {
+                            return;
+                        }
+                    }
                 }
-                this.d = wv4.b().a(session.username, session.bduss, "", null, this.h);
-                return;
-            }
-            this.b.closeLoadingDialog();
-            c(0);
-        }
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            if (this.b.getLoadingDialog() != null && this.b.getLoadingDialog().c()) {
-                return;
-            }
-            this.b.showLoadingDialog(this.a.getString(R.string.sapi_logining));
-            if (this.b.getLoadingDialog() != null) {
-                this.b.getLoadingDialog().f(false);
-                this.b.getLoadingDialog().g(false);
             }
         }
     }
 
-    public final void h(AccountData accountData) {
+    public List<in> b(List<zq8> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, accountData) == null) {
-            mg.a().c(new d(this, accountData));
-            e45.a(DI.ACCOUNT, -1L, 0, "login_activity_save_account_to_application", 0, "", new Object[0]);
-            TbadkCoreApplication.setCurrentAccount(accountData, this.a.getPageActivity());
-            it4.j(TbadkCoreApplication.getInst());
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921024, Boolean.TRUE));
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
+            if (list != null && list.size() > 0) {
+                ArrayList arrayList = new ArrayList();
+                for (zq8 zq8Var : list) {
+                    if (zq8Var != null) {
+                        er8 er8Var = new er8();
+                        er8Var.d(zq8Var.b.intValue());
+                        er8Var.c(zq8Var.d);
+                        er8Var.e(zq8Var.c);
+                        arrayList.add(er8Var);
+                        List<fr8> list2 = zq8Var.a;
+                        if (list2 != null && list2.size() > 0) {
+                            a = 0;
+                            for (fr8 fr8Var : list2) {
+                                if (fr8Var != null) {
+                                    if (a >= 4) {
+                                        break;
+                                    }
+                                    cr8 cr8Var = new cr8();
+                                    RecommendForumInfo recommendForumInfo = fr8Var.a;
+                                    cr8Var.l(zq8Var.b.intValue());
+                                    cr8Var.m(zq8Var.c);
+                                    cr8Var.k(recommendForumInfo.avatar);
+                                    cr8Var.n(recommendForumInfo.forum_id.longValue());
+                                    cr8Var.o(recommendForumInfo.forum_name);
+                                    cr8Var.q(recommendForumInfo.member_count.intValue());
+                                    cr8Var.u(recommendForumInfo.thread_count.intValue());
+                                    cr8Var.s(recommendForumInfo.slogan);
+                                    arrayList.add(cr8Var);
+                                    a++;
+                                }
+                            }
+                            dr8 dr8Var = new dr8();
+                            dr8Var.d(zq8Var.b.intValue());
+                            dr8Var.e(zq8Var.c);
+                            arrayList.add(dr8Var);
+                        }
+                    }
+                }
+                return arrayList;
+            }
+            return null;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public final void c(int i, List<Long> list, List<in> list2) {
+        cr8 cr8Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, list, list2) == null) {
+            for (in inVar : list2) {
+                if ((inVar instanceof cr8) && (cr8Var = (cr8) inVar) != null && cr8Var.b() == i) {
+                    list.add(Long.valueOf(cr8Var.c()));
+                }
+            }
         }
     }
 
-    public void n(View view2) {
+    public final void d(in inVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, view2) == null) {
-            if (view2.getId() == R.id.btn_close) {
-                this.b.finish();
-            } else if (view2.getId() == R.id.btn_skip) {
-                this.b.finish();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091cb0) {
-                g();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f092874) {
-                o();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f092877) {
-                p();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f0928ef) {
-                q();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f0916e1) {
-                d();
-            }
+        if ((interceptable == null || interceptable.invokeL(1048579, this, inVar) == null) && (inVar instanceof dr8)) {
+            ((dr8) inVar).f(false);
         }
     }
 }

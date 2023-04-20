@@ -1,12 +1,9 @@
 package com.baidu.tieba;
 
-import android.util.JsonWriter;
-import java.io.IOException;
-import org.json.JSONException;
-import org.json.JSONObject;
+import android.os.IBinder;
 /* loaded from: classes4.dex */
 public interface hba {
-    JSONObject a() throws JSONException;
+    IBinder a(String str);
 
-    void b(JsonWriter jsonWriter) throws IOException;
+    void b();
 }

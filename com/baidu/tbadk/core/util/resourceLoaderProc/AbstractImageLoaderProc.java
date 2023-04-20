@@ -28,9 +28,9 @@ import com.baidu.tieba.dg;
 import com.baidu.tieba.fg;
 import com.baidu.tieba.hi;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.jq5;
-import com.baidu.tieba.rv4;
-import com.baidu.tieba.sm;
+import com.baidu.tieba.kq5;
+import com.baidu.tieba.sv4;
+import com.baidu.tieba.tm;
 import com.baidu.tieba.ub;
 import com.baidu.tieba.vf;
 import com.baidu.tieba.yb;
@@ -42,7 +42,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.InputStream;
 /* loaded from: classes3.dex */
-public abstract class AbstractImageLoaderProc implements dg<sm> {
+public abstract class AbstractImageLoaderProc implements dg<tm> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -99,7 +99,7 @@ public abstract class AbstractImageLoaderProc implements dg<sm> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return rv4.c().g();
+            return sv4.c().g();
         }
         return invokeV.booleanValue;
     }
@@ -122,7 +122,7 @@ public abstract class AbstractImageLoaderProc implements dg<sm> {
         return invokeLI.booleanValue;
     }
 
-    public static sm loadBdImageFromLocal(String str, int i) {
+    public static tm loadBdImageFromLocal(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
@@ -148,9 +148,9 @@ public abstract class AbstractImageLoaderProc implements dg<sm> {
             if (bitmap == null) {
                 return null;
             }
-            return new sm(bitmap, ybVar.isGif(), g);
+            return new tm(bitmap, ybVar.isGif(), g);
         }
-        return (sm) invokeLI.objValue;
+        return (tm) invokeLI.objValue;
     }
 
     public Bitmap checkBitmapSize(Bitmap bitmap, int i, int i2) {
@@ -162,7 +162,7 @@ public abstract class AbstractImageLoaderProc implements dg<sm> {
         return (Bitmap) invokeLII.objValue;
     }
 
-    public sm decodeToResourceWithWH(byte[] bArr, int i, int i2) {
+    public tm decodeToResourceWithWH(byte[] bArr, int i, int i2) {
         InterceptResult invokeLII;
         boolean z;
         Interceptable interceptable = $ic;
@@ -175,9 +175,9 @@ public abstract class AbstractImageLoaderProc implements dg<sm> {
                 z = false;
             }
             zf.c(z, System.currentTimeMillis() - currentTimeMillis);
-            return new sm(decodeByteArray);
+            return new tm(decodeByteArray);
         }
-        return (sm) invokeLII.objValue;
+        return (tm) invokeLII.objValue;
     }
 
     public yb createDiskPicOperate(String str) {
@@ -189,7 +189,7 @@ public abstract class AbstractImageLoaderProc implements dg<sm> {
         return (yb) invokeL.objValue;
     }
 
-    public sm createImageFromDiskPicOperate(yb ybVar, String str, int i, int i2) {
+    public tm createImageFromDiskPicOperate(yb ybVar, String str, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048579, this, ybVar, str, i, i2)) == null) {
@@ -201,27 +201,27 @@ public abstract class AbstractImageLoaderProc implements dg<sm> {
             if (checkBitmapSize == null) {
                 return null;
             }
-            return new sm(checkBitmapSize, ybVar.isGif(), str);
+            return new tm(checkBitmapSize, ybVar.isGif(), str);
         }
-        return (sm) invokeLLII.objValue;
+        return (tm) invokeLLII.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // 
     /* renamed from: decodeToResource */
-    public sm mo46decodeToResource(byte[] bArr, Object... objArr) {
+    public tm mo46decodeToResource(byte[] bArr, Object... objArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, bArr, objArr)) == null) {
             return decodeToResourceWithWH(bArr, ii.l(TbadkCoreApplication.getInst()), ii.j(TbadkCoreApplication.getInst()));
         }
-        return (sm) invokeLL.objValue;
+        return (tm) invokeLL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.baidu.tieba.dg
-    public sm getFromLocal(String str, String str2, int i, int i2, ag agVar, Object... objArr) {
+    public tm getFromLocal(String str, String str2, int i, int i2, ag agVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), agVar, objArr})) == null) {
@@ -229,7 +229,7 @@ public abstract class AbstractImageLoaderProc implements dg<sm> {
             boolean z = false;
             byte[] bArr = new byte[0];
             yb createDiskPicOperate = createDiskPicOperate(TbMd5.getNameMd5FromUrl(str2));
-            sm smVar = null;
+            tm tmVar = null;
             if (createDiskPicOperate == null) {
                 return null;
             }
@@ -271,27 +271,27 @@ public abstract class AbstractImageLoaderProc implements dg<sm> {
                 i2 = ii.d(TbadkCoreApplication.getInst().getApp(), 105.0f);
             }
             if (createDiskPicOperate.isSuccess()) {
-                smVar = createImageFromDiskPicOperate(createDiskPicOperate, str2, i, i2);
+                tmVar = createImageFromDiskPicOperate(createDiskPicOperate, str2, i, i2);
             }
-            if (smVar != null) {
+            if (tmVar != null) {
                 z = true;
             }
             zf.f(z, System.currentTimeMillis() - currentTimeMillis);
-            return smVar;
+            return tmVar;
         }
-        return (sm) invokeCommon.objValue;
+        return (tm) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.baidu.tieba.dg
-    public sm getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
+    public tm getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            sm w = TbImageMemoryCache.s().w(str);
+            tm w = TbImageMemoryCache.s().w(str);
             if (z) {
                 if (w != null) {
                     z2 = true;
@@ -302,7 +302,7 @@ public abstract class AbstractImageLoaderProc implements dg<sm> {
             }
             return w;
         }
-        return (sm) invokeCommon.objValue;
+        return (tm) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -313,7 +313,7 @@ public abstract class AbstractImageLoaderProc implements dg<sm> {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public sm getFromRemote(String str, String str2, int i, int i2, ag agVar, Object... objArr) {
+    public tm getFromRemote(String str, String str2, int i, int i2, ag agVar, Object... objArr) {
         InterceptResult invokeCommon;
         int i3;
         int i4;
@@ -339,7 +339,7 @@ public abstract class AbstractImageLoaderProc implements dg<sm> {
         boolean z8;
         WebClient webClient2;
         boolean z9;
-        sm smVar;
+        tm tmVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), agVar, objArr})) == null) {
             if (StringUtils.isNull(str)) {
@@ -370,8 +370,8 @@ public abstract class AbstractImageLoaderProc implements dg<sm> {
             } else {
                 urlbyClientServerAddr = getUrlbyClientServerAddr(str, i9, i10);
             }
-            jq5.e(isFromCDN, urlbyClientServerAddr, str);
-            Pair<Boolean, String> d = jq5.d(urlbyClientServerAddr);
+            kq5.e(isFromCDN, urlbyClientServerAddr, str);
+            Pair<Boolean, String> d = kq5.d(urlbyClientServerAddr);
             if (((Boolean) d.first).booleanValue()) {
                 str3 = (String) d.second;
                 z = true;
@@ -405,21 +405,21 @@ public abstract class AbstractImageLoaderProc implements dg<sm> {
                         if (!webClient4.isGif && !ii.D(d2)) {
                             z9 = false;
                             if (!checkBitmapValid(Bytes2NineBitmap)) {
-                                smVar = new sm(Bytes2NineBitmap, z9, str, rect);
+                                tmVar = new tm(Bytes2NineBitmap, z9, str, rect);
                                 boolean z10 = z8;
-                                smVar.y(z10);
+                                tmVar.y(z10);
                                 storeLocal(str2, d2, Boolean.valueOf(z10), Boolean.valueOf(webClient4.isCrackPic), Boolean.valueOf(z9), agVar, Bytes2NineBitmap);
                             } else {
-                                smVar = null;
+                                tmVar = null;
                             }
                             fg.c(openRawResource);
-                            return smVar;
+                            return tmVar;
                         }
                         z9 = true;
                         if (!checkBitmapValid(Bytes2NineBitmap)) {
                         }
                         fg.c(openRawResource);
-                        return smVar;
+                        return tmVar;
                     } catch (Throwable th) {
                         BdLog.e(th);
                         return null;
@@ -484,7 +484,7 @@ public abstract class AbstractImageLoaderProc implements dg<sm> {
                 p = decodeToResourceWithWH(bArr3, i7, i6).p();
             }
             if (z && p == null) {
-                jq5.b(str4);
+                kq5.b(str4);
                 byte[] downloadImageBytes2 = webClient.downloadImageBytes(str5, !z5);
                 boolean needCache2 = webClient.needCache();
                 if (downloadImageBytes2 != null && webClient.IsRequestSuccess()) {
@@ -510,8 +510,8 @@ public abstract class AbstractImageLoaderProc implements dg<sm> {
                 }
                 Bitmap resizeBitmapSize = resizeBitmapSize(p, i7, i6);
                 if (resizeBitmapSize != null && checkBitmapValid(resizeBitmapSize)) {
-                    sm smVar2 = new sm(resizeBitmapSize, z7, str, rect);
-                    smVar2.y(z6);
+                    tm tmVar2 = new tm(resizeBitmapSize, z7, str, rect);
+                    tmVar2.y(z6);
                     Object[] objArr3 = new Object[5];
                     objArr3[0] = Boolean.valueOf(z6);
                     objArr3[i8] = Boolean.valueOf(webClient.isCrackPic);
@@ -519,13 +519,13 @@ public abstract class AbstractImageLoaderProc implements dg<sm> {
                     objArr3[3] = agVar;
                     objArr3[4] = resizeBitmapSize;
                     storeLocal(str2, bArr2, objArr3);
-                    return smVar2;
+                    return tmVar2;
                 }
                 return null;
             }
             return null;
         }
-        return (sm) invokeCommon.objValue;
+        return (tm) invokeCommon.objValue;
     }
 
     public String getUrlbyClientServerAddr(String str, int i, int i2) {
@@ -598,12 +598,12 @@ public abstract class AbstractImageLoaderProc implements dg<sm> {
     @Override // com.baidu.tieba.dg
     public void updateMemory(String str, Object obj, int i, int i2, Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) && (obj instanceof sm)) {
+        if ((interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) && (obj instanceof tm)) {
             long currentTimeMillis = System.currentTimeMillis();
-            sm smVar = (sm) obj;
-            smVar.A(i);
-            smVar.z(i2);
-            TbImageMemoryCache.s().k(str, smVar);
+            tm tmVar = (tm) obj;
+            tmVar.A(i);
+            tmVar.z(i2);
+            TbImageMemoryCache.s().k(str, tmVar);
             zf.l(true, System.currentTimeMillis() - currentTimeMillis);
         }
     }

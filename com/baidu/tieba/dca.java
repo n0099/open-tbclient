@@ -11,7 +11,7 @@ import java.util.List;
 public final class dca {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public cca a;
+    public eca a;
 
     public dca() {
         Interceptable interceptable = $ic;
@@ -26,10 +26,10 @@ public final class dca {
                 return;
             }
         }
-        this.a = new cca();
+        this.a = new eca();
     }
 
-    public final List<com.baidu.ubs.analytics.a.l> a() {
+    public final List<com.baidu.ubs.analytics.a.a> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -45,10 +45,10 @@ public final class dca {
         }
     }
 
-    public final void c(com.baidu.ubs.analytics.a.l lVar) {
+    public final void c(com.baidu.ubs.analytics.a.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lVar) == null) {
-            this.a.c(lVar);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            this.a.c(aVar);
         }
     }
 }

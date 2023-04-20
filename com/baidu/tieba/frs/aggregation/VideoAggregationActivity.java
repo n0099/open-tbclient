@@ -10,8 +10,8 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.VideoAggregationActivityConfig;
 import com.baidu.tieba.R;
 import com.baidu.tieba.gg;
-import com.baidu.tieba.hv4;
-import com.baidu.tieba.ol5;
+import com.baidu.tieba.iv4;
+import com.baidu.tieba.pl5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,7 +39,7 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.ll5
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.ml5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -53,17 +53,17 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public ol5 getPageStayDurationItem() {
+    public pl5 getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ol5 pageStayDurationItem = super.getPageStayDurationItem();
+            pl5 pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null && StringUtils.isNull(this.b) && VideoAggregationActivityConfig.TYPE_FROM_VIDEO_CARD.equals(this.c)) {
                 pageStayDurationItem.C(gg.g(this.b, 0L));
             }
             return pageStayDurationItem;
         }
-        return (ol5) invokeV.objValue;
+        return (pl5) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
@@ -71,7 +71,7 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
         boolean z;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && this.a != null) {
-            hv4 layoutMode = getLayoutMode();
+            iv4 layoutMode = getLayoutMode();
             if (i == 4) {
                 z = true;
             } else {

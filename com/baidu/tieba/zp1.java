@@ -1,25 +1,17 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
 /* loaded from: classes7.dex */
 public class zp1 implements ds1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.ds1
-    public float a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0.0f;
-        }
-        return invokeV.floatValue;
-    }
 
     public zp1() {
         Interceptable interceptable = $ic;
@@ -36,12 +28,28 @@ public class zp1 implements ds1 {
     }
 
     @Override // com.baidu.tieba.ds1
-    public String processUrl(String str) {
+    public long a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return q42.w(str, true);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            return q42.b().a;
         }
-        return (String) invokeL.objValue;
+        return invokeL.longValue;
+    }
+
+    @Override // com.baidu.tieba.ds1
+    public void b(Context context, String str, om3<String> om3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, om3Var) == null) {
+            vu1.d(str, om3Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.ds1
+    public void c(Context context, JSONArray jSONArray, om3<String> om3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, jSONArray, om3Var) == null) {
+            vu1.e(jSONArray, om3Var);
+        }
     }
 }

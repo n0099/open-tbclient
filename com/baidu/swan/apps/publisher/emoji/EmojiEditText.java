@@ -13,8 +13,8 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import android.view.inputmethod.InputConnectionWrapper;
 import androidx.appcompat.widget.AppCompatEditText;
-import com.baidu.tieba.h53;
-import com.baidu.tieba.pl3;
+import com.baidu.tieba.i53;
+import com.baidu.tieba.ql3;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
@@ -22,7 +22,7 @@ public class EmojiEditText extends AppCompatEditText {
     public e a;
     public f b;
     public String c;
-    public pl3 d;
+    public ql3 d;
     public Runnable e;
     public int f;
 
@@ -203,7 +203,7 @@ public class EmojiEditText extends AppCompatEditText {
     }
 
     public final void init() {
-        this.d = pl3.b(getContext());
+        this.d = ql3.b(getContext());
         setText(getText());
         setOnTouchListener(new a());
         addTextChangedListener(new d(this, null));
@@ -214,7 +214,7 @@ public class EmojiEditText extends AppCompatEditText {
         if (TextUtils.isEmpty(editableText) || !Pattern.compile("\\[([一-龥\\w])+\\]").matcher(editableText).find()) {
             return;
         }
-        getEditableText().replace(0, editableText.length(), h53.c().g(getContext(), editableText, this));
+        getEditableText().replace(0, editableText.length(), i53.c().g(getContext(), editableText, this));
     }
 
     @Override // android.widget.TextView
@@ -250,7 +250,7 @@ public class EmojiEditText extends AppCompatEditText {
             }
             this.c = a2.toString();
             this.d.c(" ");
-            SpannableString g = h53.c().g(getContext(), this.c, this);
+            SpannableString g = i53.c().g(getContext(), this.c, this);
             int selectionStart = getSelectionStart();
             Editable editableText = getEditableText();
             editableText.insert(selectionStart, g);

@@ -1,137 +1,112 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 /* loaded from: classes6.dex */
-public abstract class s78 implements r78 {
+public class s78 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<q78> a;
-    public u78 b;
-    public r78 c;
-    public int d;
 
-    public void b() {
+    public static void a(@NonNull String str, int i, long j, long j2, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2), str2}) == null) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("obj_type", i);
+            statisticItem.param("fid", j);
+            statisticItem.param("room_id", j2);
+            statisticItem.param("uid", str2);
+            TiebaStatic.log(statisticItem);
         }
     }
 
-    public void c() {
+    public static void b(@NonNull String str, String str2, long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("uid", str2);
+            statisticItem.param("fid", j);
+            statisticItem.param("room_id", j2);
+            TiebaStatic.log(statisticItem);
         }
     }
 
-    public abstract List<q78> j(List list);
-
-    public s78() {
+    public static void c(@NonNull String str, int i, @Nullable AbilityItem abilityItem, @Nullable BaseMsg baseMsg) {
+        String str2;
+        long j;
+        long j2;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLILL(65538, null, str, i, abilityItem, baseMsg) == null) {
+            String str3 = "";
+            if (abilityItem == null || abilityItem.getStyleConf() == null) {
+                str2 = "";
+            } else {
+                str2 = abilityItem.getStyleConf().getContent();
             }
-        }
-        this.a = new ArrayList();
-        this.d = -1;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.a.size() > 0) {
-                return this.a.size();
+            StatisticItem param = new StatisticItem(str).param("obj_type", i).param("obj_name", str2);
+            if (abilityItem != null) {
+                str3 = abilityItem.getType();
             }
-            return -1;
-        }
-        return invokeV.intValue;
-    }
-
-    public List<q78> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return Collections.unmodifiableList(this.a);
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public q78 d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            if (i >= 0 && i < e()) {
-                return f().get(i);
+            StatisticItem param2 = param.param("obj_source", str3);
+            long j3 = 0;
+            if (baseMsg != null) {
+                j = baseMsg.getCommonMsgField().getForumId();
+            } else {
+                j = 0;
             }
-            return null;
-        }
-        return (q78) invokeI.objValue;
-    }
-
-    public void i(int i) {
-        u78 u78Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048583, this, i) == null) && i >= 0 && (u78Var = this.b) != null) {
-            u78Var.c(i, 1);
-        }
-    }
-
-    public void k(r78 r78Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, r78Var) == null) {
-            this.c = r78Var;
-        }
-    }
-
-    public void l(u78 u78Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, u78Var) == null) {
-            this.b = u78Var;
-        }
-    }
-
-    public void m(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.d = i;
-        }
-    }
-
-    public void g(List list) {
-        List<q78> j;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, list) == null) && list != null && !list.isEmpty() && (j = j(list)) != null && !j.isEmpty()) {
-            this.a.addAll(j);
-            u78 u78Var = this.b;
-            if (u78Var != null) {
-                u78Var.a(0, e());
+            StatisticItem param3 = param2.param("fid", j);
+            if (baseMsg != null) {
+                j2 = baseMsg.getCommonMsgField().getRoomId();
+            } else {
+                j2 = 0;
             }
+            StatisticItem param4 = param3.param("room_id", j2);
+            if (baseMsg != null) {
+                j3 = baseMsg.getCommonMsgField().getMsgId();
+            }
+            TiebaStatic.log(param4.param("obj_id", j3).param("uid", TbadkCoreApplication.getCurrentAccount()));
         }
     }
 
-    public void h(List list) {
-        List<q78> j;
+    public static void d(@NonNull String str, int i, long j, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, list) == null) && list != null && !list.isEmpty() && (j = j(list)) != null && !j.isEmpty() && this.b != null) {
-            int e = e();
-            this.a.clear();
-            this.b.b(0, e);
-            this.a.addAll(j);
-            this.b.c(0, e());
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{str, Integer.valueOf(i), Long.valueOf(j), Boolean.valueOf(z)}) == null) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("obj_id", i);
+            statisticItem.param("obj_locate", j);
+            statisticItem.param("obj_type", !z ? 1 : 0);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public static void f(@NonNull String str, String str2, long j, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{str, str2, Long.valueOf(j), Boolean.valueOf(z)}) == null) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+            statisticItem.param("obj_id", str2);
+            statisticItem.param("obj_source", j);
+            statisticItem.param("obj_type", !z ? 1 : 0);
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public static void e(@NonNull String str, String str2, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, Long.valueOf(j)}) == null) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+            statisticItem.param("obj_source", str2);
+            statisticItem.param("obj_locate", j);
+            TiebaStatic.log(statisticItem);
         }
     }
 }

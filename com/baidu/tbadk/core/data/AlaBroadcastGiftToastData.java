@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.zw4;
+import com.baidu.tieba.ax4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.open.SocialConstants;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class AlaBroadcastGiftToastData extends zw4 implements Parcelable {
+public class AlaBroadcastGiftToastData extends ax4 implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<AlaBroadcastGiftToastData> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
@@ -136,7 +136,7 @@ public class AlaBroadcastGiftToastData extends zw4 implements Parcelable {
         this.thumbnail_url = parcel.readString();
     }
 
-    @Override // com.baidu.tieba.zw4
+    @Override // com.baidu.tieba.ax4
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {

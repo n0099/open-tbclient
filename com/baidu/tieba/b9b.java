@@ -1,117 +1,193 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.payapi.PayType;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import tv.athena.revenue.api.pay.params.PayFlowType;
+import tv.athena.revenue.payui.view.dialog.PayDialogType;
 /* loaded from: classes3.dex */
 public class b9b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public PayType a;
-    public String b;
-    public String c;
-    public double d;
-    public boolean e;
-    public double f;
+    public y7b a;
+    public j7b b;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public b9b(PayType payType, String str, String str2) {
-        this(payType, str, str2, 0.0d, false);
+    /* loaded from: classes3.dex */
+    public class a implements y7b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b9b a;
+
+        public a(b9b b9bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {b9bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = b9bVar;
+        }
+
+        @Override // com.baidu.tieba.y7b
+        public void a(PayFlowType payFlowType) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(1048576, this, payFlowType) != null) {
+                return;
+            }
+            this.a.g(payFlowType);
+        }
+
+        @Override // com.baidu.tieba.y7b
+        public void b(PayFlowType payFlowType, PayDialogType payDialogType) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, payFlowType, payDialogType) != null) {
+                return;
+            }
+            this.a.f(payFlowType, payDialogType);
+        }
+
+        @Override // com.baidu.tieba.y7b
+        public void c(String str, PayFlowType payFlowType) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, payFlowType) != null) {
+                return;
+            }
+            this.a.i(str, payFlowType);
+        }
+
+        @Override // com.baidu.tieba.y7b
+        public void d(String str, PayFlowType payFlowType) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeLL(1048579, this, str, payFlowType) != null) {
+                return;
+            }
+            this.a.h(str, payFlowType);
+        }
+    }
+
+    public b9b(j7b j7bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {payType, str, str2};
+            Object[] objArr = {j7bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((PayType) objArr2[0], (String) objArr2[1], (String) objArr2[2], ((Double) objArr2[3]).doubleValue(), ((Boolean) objArr2[4]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.b = j7bVar;
+        j();
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public b9b(PayType payType, String str, String str2, double d) {
-        this(payType, str, str2, 0.0d, false, d);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {payType, str, str2, Double.valueOf(d)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((PayType) objArr2[0], (String) objArr2[1], (String) objArr2[2], ((Double) objArr2[3]).doubleValue(), ((Boolean) objArr2[4]).booleanValue(), ((Double) objArr2[5]).doubleValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public b9b(PayType payType, String str, String str2, double d, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {payType, str, str2, Double.valueOf(d), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.b = "";
-        this.a = payType;
-        this.b = str;
-        this.c = str2;
-        this.d = d;
-        this.e = z;
-    }
-
-    public b9b(PayType payType, String str, String str2, double d, boolean z, double d2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {payType, str, str2, Double.valueOf(d), Boolean.valueOf(z), Double.valueOf(d2)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        this.b = "";
-        this.a = payType;
-        this.b = str;
-        this.c = str2;
-        this.d = d;
-        this.e = z;
-        this.f = d2;
-    }
-
-    public String a() {
+    public y7b e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+            return this.a;
         }
-        return (String) invokeV.objValue;
+        return (y7b) invokeV.objValue;
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            RLog.info("ViewLifecycleManager", "preparePayFlowLifecycle");
+            this.a = new a(this);
+        }
+    }
+
+    public final void f(PayFlowType payFlowType, PayDialogType payDialogType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, payFlowType, payDialogType) == null) {
+            RLog.info("ViewLifecycleManager", "notifyPayDialogTypeChange payFlowType:" + payFlowType.name() + " payDialogType:" + payDialogType + " mYYPayController:" + this.b.getCurPayController());
+            if (payDialogType == PayDialogType.PAY_NONE_DIALOG) {
+                l(payFlowType);
+            }
+        }
+    }
+
+    public final synchronized void h(String str, PayFlowType payFlowType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, payFlowType) == null) {
+            synchronized (this) {
+                RLog.info("ViewLifecycleManager", "payActivityDestroyRecord name:" + str + " payFlowType:" + payFlowType.name() + " mYYPayController:" + this.b.getCurPayController());
+                if (this.b.getCurPayController() != null) {
+                    this.b.getCurPayController().j(str, payFlowType);
+                }
+                l(payFlowType);
+            }
+        }
+    }
+
+    public final synchronized void i(String str, PayFlowType payFlowType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, payFlowType) == null) {
+            synchronized (this) {
+                RLog.info("ViewLifecycleManager", "payActivityVisitRecord name:" + str + " payFlowType:" + payFlowType.name() + " mYYPayController:" + this.b.getCurPayController());
+                if (this.b.getCurPayController() != null) {
+                    this.b.getCurPayController().d(str, payFlowType);
+                }
+            }
+        }
+    }
+
+    public final void g(PayFlowType payFlowType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, payFlowType) == null) {
+            RLog.info("ViewLifecycleManager", "notifyPayFlowWork payFlowType:" + payFlowType.name() + " mYYPayController:" + this.b.getCurPayController());
+        }
+    }
+
+    public final void k(PayFlowType payFlowType) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, payFlowType) == null) {
+            if (this.b.getCurPayController() != null && this.b.getCurPayController().e()) {
+                z = true;
+            } else {
+                z = false;
+            }
+            RLog.info("ViewLifecycleManager", "tryReleasePayController payFlowType:" + payFlowType.name() + " release:" + z + " mYYPayController:" + this.b.getCurPayController());
+            if (z) {
+                this.b.releasePayController();
+                this.b.cancelAllRequest();
+            }
+        }
+    }
+
+    public final synchronized void l(PayFlowType payFlowType) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, payFlowType) == null) {
+            synchronized (this) {
+                if (this.b.getCurPayController() != null && this.b.getCurPayController().i(payFlowType)) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                RLog.info("ViewLifecycleManager", "tryReleasePayFlow payFlowType:" + payFlowType.name() + " release:" + z + " mYYPayController:" + this.b.getCurPayController());
+                if (z) {
+                    this.b.getCurPayController().a(payFlowType);
+                }
+                k(payFlowType);
+            }
+        }
     }
 }

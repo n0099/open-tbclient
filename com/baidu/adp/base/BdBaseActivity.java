@@ -23,7 +23,7 @@ import com.baidu.tieba.cg;
 import com.baidu.tieba.e9;
 import com.baidu.tieba.f9;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.ln;
+import com.baidu.tieba.mn;
 import com.baidu.tieba.qk;
 import com.baidu.tieba.v8;
 import com.baidu.tieba.w8;
@@ -77,13 +77,13 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
         }
     }
 
-    public ln onGetPreLoadListView() {
+    public mn onGetPreLoadListView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return null;
         }
-        return (ln) invokeV.objValue;
+        return (mn) invokeV.objValue;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -114,9 +114,9 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
     }
 
     @Override // com.baidu.tieba.f9
-    public void onPreLoad(ln lnVar) {
+    public void onPreLoad(mn mnVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, lnVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, mnVar) == null) {
         }
     }
 
@@ -292,7 +292,7 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             super.onStop();
-            ln onGetPreLoadListView = onGetPreLoadListView();
+            mn onGetPreLoadListView = onGetPreLoadListView();
             if (onGetPreLoadListView != null) {
                 onGetPreLoadListView.cancelRefresh();
             }

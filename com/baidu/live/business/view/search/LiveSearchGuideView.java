@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.tieba.R;
-import com.baidu.tieba.wb0;
+import com.baidu.tieba.xb0;
 /* loaded from: classes2.dex */
 public class LiveSearchGuideView extends FrameLayout {
     public ImageView a;
@@ -39,7 +39,7 @@ public class LiveSearchGuideView extends FrameLayout {
     public void c() {
         TextView textView = this.b;
         if (textView != null) {
-            wb0.h(textView, 1, 12.0f);
+            xb0.h(textView, 1, 12.0f);
         }
     }
 

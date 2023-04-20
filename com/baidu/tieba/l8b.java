@@ -1,37 +1,57 @@
 package com.baidu.tieba;
 
+import android.content.DialogInterface;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUIEventType;
 import tv.athena.revenue.payui.view.dialog.CancelType;
 /* loaded from: classes5.dex */
-public class l8b {
+public class l8b implements yab {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
 
-    public static void a(int i, int i2, CancelType cancelType) {
+    @Override // com.baidu.tieba.yab
+    public boolean b(DialogInterface dialogInterface, CancelType cancelType) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(65536, null, i, i2, cancelType) == null) {
-            if (cancelType == CancelType.BUTTOM_AREA_CLICK) {
-                e9b.b(i, i2, PayUIEventType.purchaseclose_bt);
-                RLog.info("PayDialogStatistic", PayUIEventType.purchaseclose_bt);
-            } else if (cancelType == CancelType.EMPTY_AREA_CLICK) {
-                e9b.b(i, i2, PayUIEventType.purchaseclose_transparent);
-                RLog.info("PayDialogStatistic", PayUIEventType.purchaseclose_transparent);
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface, cancelType)) == null) {
+            return false;
         }
+        return invokeLL.booleanValue;
     }
 
-    public static void b(int i, int i2, CancelType cancelType) {
+    public l8b(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(65537, null, i, i2, cancelType) == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = i;
+        this.b = i2;
+    }
+
+    @Override // com.baidu.tieba.yab
+    public void a(CancelType cancelType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
+            RLog.info("PaySignDialogListener", "PaySignDialogListener cancel clickArea:" + cancelType);
             if (cancelType == CancelType.BUTTOM_AREA_CLICK) {
-                e9b.b(i, i2, PayUIEventType.paypageclose_bt);
-                RLog.info("PayDialogStatistic", PayUIEventType.paypageclose_bt);
-            } else if (cancelType == CancelType.EMPTY_AREA_CLICK) {
-                e9b.b(i, i2, PayUIEventType.paypageclose_transparent);
-                RLog.info("PayDialogStatistic", PayUIEventType.paypageclose_transparent);
+                m9b.d(this.a, this.b, "64", "", "", "");
             }
         }
     }

@@ -1,7 +1,11 @@
 package com.baidu.tieba;
-
-import com.baidu.swan.apps.performance.HybridUbcFlow;
 /* loaded from: classes6.dex */
 public interface tt1 {
-    void a(HybridUbcFlow hybridUbcFlow);
+    uk4 a();
+
+    void b(zd2 zd2Var, xd2 xd2Var);
+
+    boolean c();
+
+    boolean d();
 }

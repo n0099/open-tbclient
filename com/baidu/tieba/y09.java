@@ -1,195 +1,137 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.AbsListView;
+import android.widget.BaseAdapter;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.dialog.RoundLinearLayout;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.pbextra.praise.PraiseListActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class y09 extends y8 {
+public class y09 extends BaseAdapter implements AbsListView.OnScrollListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public RoundLinearLayout a;
-    public TextView b;
-    public TextView c;
-    public TextView d;
-    public TextView e;
-    public TbPageContext f;
-    public TextView g;
-    public TextView h;
-    public TextView i;
+    public PraiseListActivity a;
+    public List<w09> b;
+    public volatile boolean c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public y09(TbPageContext tbPageContext, View.OnClickListener onClickListener) {
-        super(tbPageContext);
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? i : invokeI.longValue;
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIII(1048583, this, absListView, i, i2, i3) == null) {
+        }
+    }
+
+    public y09(PraiseListActivity praiseListActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, onClickListener};
+            Object[] objArr = {praiseListActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((a9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = tbPageContext;
-        C(tbPageContext, onClickListener);
+        this.a = null;
+        this.b = null;
+        this.a = praiseListActivity;
     }
 
-    public View A() {
-        InterceptResult invokeV;
+    public final View a(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        String b;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public View B() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public View u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.d;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public View x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.b;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public View y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.e;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public View z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.i;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public final void C(TbPageContext tbPageContext, View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, onClickListener) == null) {
-            RoundLinearLayout roundLinearLayout = (RoundLinearLayout) LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0768, (ViewGroup) null);
-            this.a = roundLinearLayout;
-            roundLinearLayout.setRadius(TbadkApplication.getInst().getResources().getDimension(R.dimen.tbds31));
-            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091ae1);
-            this.b = textView;
-            textView.setOnClickListener(onClickListener);
-            TextView textView2 = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091ae3);
-            this.c = textView2;
-            textView2.setOnClickListener(onClickListener);
-            TextView textView3 = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091adf);
-            this.d = textView3;
-            textView3.setOnClickListener(onClickListener);
-            TextView textView4 = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091ae2);
-            this.e = textView4;
-            textView4.setOnClickListener(onClickListener);
-            TextView textView5 = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091ae0);
-            this.g = textView5;
-            textView5.setOnClickListener(onClickListener);
-            this.h = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091ae4);
-            TextView textView6 = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091add);
-            this.i = textView6;
-            textView6.setOnClickListener(onClickListener);
-        }
-    }
-
-    public void D(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.e.setVisibility(0);
-            if (i == 0) {
-                this.e.setText(this.f.getResources().getString(R.string.obfuscated_res_0x7f0f0bf8));
-            } else if (i == 1) {
-                this.e.setText(this.f.getResources().getString(R.string.un_mute));
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i, view2, viewGroup)) == null) {
+            x09 b2 = x09.b(this.a.getPageContext().getPageActivity(), view2);
+            w09 item = getItem(i);
+            if (StringUtils.isNull(item.b())) {
+                b = item.d();
+            } else {
+                b = item.b();
             }
+            b2.c(b, item.a(), item.e(), this.c);
+            this.a.changSkinType(b2.a());
+            return b2.a();
+        }
+        return (View) invokeILL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: b */
+    public w09 getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            List<w09> list = this.b;
+            if (list != null) {
+                return list.get(i);
+            }
+            return null;
+        }
+        return (w09) invokeI.objValue;
+    }
+
+    public void c(List<w09> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.b = list;
         }
     }
 
-    public void F(String str) {
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            if (TextUtils.isEmpty(str)) {
-                this.h.setVisibility(8);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            List<w09> list = this.b;
+            if (list == null) {
+                return 0;
+            }
+            return list.size();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
+            return a(i, view2, viewGroup);
+        }
+        return (View) invokeILL.objValue;
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, absListView, i) == null) {
+            if (i == 0) {
+                this.c = false;
+                notifyDataSetChanged();
                 return;
             }
-            this.h.setVisibility(0);
-            this.h.setText(String.format(this.f.getResources().getString(R.string.obfuscated_res_0x7f0f0bb3), str));
-        }
-    }
-
-    public void E(boolean z, boolean z2, boolean z3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
-            if (z) {
-                this.b.setText(R.string.obfuscated_res_0x7f0f10af);
-            } else {
-                this.b.setText(R.string.frs_recommend_friend_item_add);
-            }
-            if (z2) {
-                this.d.setText(R.string.obfuscated_res_0x7f0f10a9);
-            } else {
-                this.d.setText(R.string.obfuscated_res_0x7f0f0328);
-            }
-            if (z3) {
-                this.i.setVisibility(0);
-            } else {
-                this.i.setVisibility(8);
-            }
-        }
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            SkinManager.setBackgroundResource(this.a, R.color.CAM_X0211);
-            SkinManager.setViewTextColorSelector(this.d, R.color.CAM_X0105);
-            SkinManager.setViewTextColorSelector(this.b, R.color.CAM_X0105);
-            SkinManager.setViewTextColorSelector(this.c, R.color.CAM_X0105);
-            SkinManager.setViewTextColorSelector(this.e, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.h, R.color.CAM_X0109, 1);
-            SkinManager.setViewTextColorSelector(this.i, R.color.CAM_X0105);
-            SkinManager.setViewTextColorSelector(this.g, R.color.CAM_X0107);
+            this.c = true;
         }
     }
 }

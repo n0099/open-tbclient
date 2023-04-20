@@ -1,13 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.live.interfaces.service.ext.ExtLiveLogService;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.searchbox.live.interfaces.service.ext.ExtLiveJumpPageService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
 /* loaded from: classes7.dex */
-public class yi8 implements ExtLiveLogService {
+public class yi8 extends rj1<ExtLiveJumpPageService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,11 +26,15 @@ public class yi8 implements ExtLiveLogService {
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.ext.ExtLiveLogService
-    public void onLivePluginEvent(String str, Map<String, ?> map) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.rj1
+    /* renamed from: a */
+    public ExtLiveJumpPageService createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, map) == null) {
-            dg8.b(map);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new zi8();
         }
+        return (ExtLiveJumpPageService) invokeV.objValue;
     }
 }

@@ -1,50 +1,81 @@
 package com.baidu.tieba;
 
+import android.database.Cursor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.CharArrayWriter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
+import java.io.Closeable;
+import java.util.zip.ZipFile;
 /* loaded from: classes5.dex */
 public class j40 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(InputStream inputStream, OutputStream outputStream, int i) throws IOException {
+    public static boolean a(Cursor cursor) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65536, null, inputStream, outputStream, i) == null) {
-            byte[] bArr = new byte[i];
-            while (true) {
-                int read = inputStream.read(bArr);
-                if (read > 0) {
-                    outputStream.write(bArr, 0, read);
-                } else {
-                    return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, cursor)) == null) {
+            if (cursor != null) {
+                try {
+                    cursor.close();
+                    return true;
+                } catch (Throwable unused) {
+                    return false;
                 }
             }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    public static String b(InputStream inputStream, String str) throws IOException {
-        InterceptResult invokeLL;
+    public static boolean b(Closeable closeable) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, inputStream, str)) == null) {
-            CharArrayWriter charArrayWriter = new CharArrayWriter();
-            InputStreamReader inputStreamReader = new InputStreamReader(inputStream, str);
-            char[] cArr = new char[8192];
-            while (true) {
-                int read = inputStreamReader.read(cArr);
-                if (read > 0) {
-                    charArrayWriter.write(cArr, 0, read);
-                } else {
-                    return charArrayWriter.toString();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, closeable)) == null) {
+            if (closeable != null) {
+                try {
+                    closeable.close();
+                    return true;
+                } catch (Throwable unused) {
+                    return false;
                 }
             }
-        } else {
-            return (String) invokeLL.objValue;
+            return false;
         }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean c(Closeable closeable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, closeable)) == null) {
+            if (closeable != null) {
+                try {
+                    closeable.close();
+                    return true;
+                } catch (Throwable unused) {
+                    return false;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean d(ZipFile zipFile) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, zipFile)) == null) {
+            if (zipFile != null) {
+                try {
+                    zipFile.close();
+                    return true;
+                } catch (Throwable unused) {
+                    return false;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

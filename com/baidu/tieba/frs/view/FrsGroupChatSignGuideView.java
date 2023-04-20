@@ -9,7 +9,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.q25;
+import com.baidu.tieba.r25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -207,7 +207,7 @@ public final class FrsGroupChatSignGuideView extends RelativeLayout {
             } else {
                 textView = textView3;
             }
-            q25 d = q25.d(textView);
+            r25 d = r25.d(textView);
             d.w(R.color.CAM_X0101);
             d.B(R.dimen.T_X09);
             d.C(R.string.F_X01);

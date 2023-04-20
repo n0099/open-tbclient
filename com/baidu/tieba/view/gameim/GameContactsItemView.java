@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.MessageRedDotView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.py7;
-import com.baidu.tieba.q25;
+import com.baidu.tieba.qy7;
+import com.baidu.tieba.r25;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +29,7 @@ public class GameContactsItemView extends RelativeLayout {
     public CircleStrokeHeadImageView a;
     public MessageRedDotView b;
     public View c;
-    public py7 d;
+    public qy7 d;
 
     static {
         InterceptResult invokeClinit;
@@ -71,13 +71,13 @@ public class GameContactsItemView extends RelativeLayout {
         }
     }
 
-    public py7 getGameMatchUser() {
+    public qy7 getGameMatchUser() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.d;
         }
-        return (py7) invokeV.objValue;
+        return (qy7) invokeV.objValue;
     }
 
     public void h() {
@@ -183,7 +183,7 @@ public class GameContactsItemView extends RelativeLayout {
             layoutParams.addRule(15);
             this.c.setLayoutParams(layoutParams);
             this.c.setVisibility(8);
-            q25 d = q25.d(this.c);
+            r25 d = r25.d(this.c);
             d.o(R.string.J_X12);
             d.f(R.color.CAM_X0302);
             addView(this.c);
@@ -215,12 +215,12 @@ public class GameContactsItemView extends RelativeLayout {
         }
     }
 
-    public void setGameMatchUser(@NonNull py7 py7Var) {
+    public void setGameMatchUser(@NonNull qy7 qy7Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048586, this, py7Var) != null) || py7Var.equals(this.d)) {
+        if ((interceptable != null && interceptable.invokeL(1048586, this, qy7Var) != null) || qy7Var.equals(this.d)) {
             return;
         }
-        this.d = py7Var;
+        this.d = qy7Var;
         i();
     }
 }

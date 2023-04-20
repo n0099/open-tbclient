@@ -2,11 +2,11 @@ package com.baidu.tieba.sprite.statemachine;
 
 import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ai9;
-import com.baidu.tieba.bi9;
-import com.baidu.tieba.ci9;
-import com.baidu.tieba.ng8;
-import com.baidu.tieba.zh9;
+import com.baidu.tieba.hi9;
+import com.baidu.tieba.ii9;
+import com.baidu.tieba.ji9;
+import com.baidu.tieba.ki9;
+import com.baidu.tieba.vg8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,12 +23,12 @@ import kotlin.jvm.internal.Intrinsics;
 public class BaseStateMachine {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ai9 a;
-    public ci9 b;
-    public Function1<? super ci9, Unit> c;
-    public final Function1<List<zh9>, Unit> d;
+    public final ii9 a;
+    public ki9 b;
+    public Function1<? super ki9, Unit> c;
+    public final Function1<List<hi9>, Unit> d;
 
-    public BaseStateMachine(ai9 baseStateMap) {
+    public BaseStateMachine(ii9 baseStateMap) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -49,37 +49,37 @@ public class BaseStateMachine {
         this.d = BaseStateMachine$doAction$1.INSTANCE;
     }
 
-    public final ci9 a() {
+    public final ki9 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.b;
         }
-        return (ci9) invokeV.objValue;
+        return (ki9) invokeV.objValue;
     }
 
-    public final void b(bi9 event) {
+    public final void b(ji9 event) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
             Intrinsics.checkNotNullParameter(event, "event");
-            HashMap<bi9, ci9> hashMap = this.a.getMap().get(this.b);
+            HashMap<ji9, ki9> hashMap = this.a.getMap().get(this.b);
             if (hashMap == null) {
                 DefaultLog.getInstance().b("State Machine", "Illegal state!");
                 return;
             }
-            ci9 ci9Var = hashMap.get(event);
-            if (ci9Var == null) {
+            ki9 ki9Var = hashMap.get(event);
+            if (ki9Var == null) {
                 DefaultLog.getInstance().b("State Machine", "Illegal event!");
                 return;
             }
-            ng8 defaultLog = DefaultLog.getInstance();
+            vg8 defaultLog = DefaultLog.getInstance();
             defaultLog.b("State Machine", "Current State: " + this.b.getClass().getSimpleName() + "  Current Event: " + event.getClass().getSimpleName());
             this.d.invoke(event.a());
-            this.b = ci9Var;
-            ng8 defaultLog2 = DefaultLog.getInstance();
+            this.b = ki9Var;
+            vg8 defaultLog2 = DefaultLog.getInstance();
             defaultLog2.b("State Machine", "Next State: " + this.b.getClass().getSimpleName());
             this.d.invoke(this.b.b());
-            Function1<? super ci9, Unit> function1 = this.c;
+            Function1<? super ki9, Unit> function1 = this.c;
             if (function1 != null) {
                 function1.invoke(this.b);
             }
@@ -90,11 +90,11 @@ public class BaseStateMachine {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.d.invoke(this.b.b());
-            Function1<? super ci9, Unit> function1 = this.c;
+            Function1<? super ki9, Unit> function1 = this.c;
             if (function1 != null) {
                 function1.invoke(this.b);
             }
-            ng8 defaultLog = DefaultLog.getInstance();
+            vg8 defaultLog = DefaultLog.getInstance();
             defaultLog.b("State Machine", "Start State: " + this.b.getClass().getSimpleName());
         }
     }

@@ -23,12 +23,12 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.bg;
 import com.baidu.tieba.cg;
 import com.baidu.tieba.homepage.concern.adapter.ContentCollectListAdapter;
+import com.baidu.tieba.hu9;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.in7;
-import com.baidu.tieba.ix;
-import com.baidu.tieba.q25;
-import com.baidu.tieba.sm;
-import com.baidu.tieba.zt9;
+import com.baidu.tieba.jn7;
+import com.baidu.tieba.jx;
+import com.baidu.tieba.r25;
+import com.baidu.tieba.tm;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -38,7 +38,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @SuppressLint({"ViewConstructor"})
 /* loaded from: classes4.dex */
-public class RecommendCollectLayout extends RelativeLayout implements ix {
+public class RecommendCollectLayout extends RelativeLayout implements jx {
     public static /* synthetic */ Interceptable $ic;
     public static final Integer k;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,14 +47,14 @@ public class RecommendCollectLayout extends RelativeLayout implements ix {
     public BdRecyclerView c;
     public EMTextView d;
     public int e;
-    public in7 f;
+    public jn7 f;
     public int g;
     public BdUniqueId h;
     public Boolean i;
-    public final bg<sm> j;
+    public final bg<tm> j;
 
     /* loaded from: classes4.dex */
-    public class a extends bg<sm> {
+    public class a extends bg<tm> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ RecommendCollectLayout a;
@@ -79,11 +79,11 @@ public class RecommendCollectLayout extends RelativeLayout implements ix {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.bg
-        public void onLoaded(sm smVar, String str, int i) {
+        public void onLoaded(tm tmVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, smVar, str, i) == null) {
-                if (smVar != null && smVar.j() != null) {
-                    this.a.setBackground(smVar.j());
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, tmVar, str, i) == null) {
+                if (tmVar != null && tmVar.j() != null) {
+                    this.a.setBackground(tmVar.j());
                 } else {
                     this.a.c(true);
                 }
@@ -134,15 +134,15 @@ public class RecommendCollectLayout extends RelativeLayout implements ix {
     }
 
     public final void c(boolean z) {
-        in7 in7Var;
+        jn7 jn7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) != null) || (in7Var = this.f) == null) {
+        if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) != null) || (jn7Var = this.f) == null) {
             return;
         }
-        if (!z && in7Var.d() != null && !TextUtils.isEmpty(zt9.f(this.f.d()))) {
-            sm smVar = (sm) cg.h().m(zt9.f(this.f.d()), 45, this.j, this.h);
-            if (smVar != null) {
-                setBackground(smVar.j());
+        if (!z && jn7Var.d() != null && !TextUtils.isEmpty(hu9.f(this.f.d()))) {
+            tm tmVar = (tm) cg.h().m(hu9.f(this.f.d()), 45, this.j, this.h);
+            if (tmVar != null) {
+                setBackground(tmVar.j());
                 return;
             }
             return;
@@ -152,11 +152,11 @@ public class RecommendCollectLayout extends RelativeLayout implements ix {
 
     private int getDefaultIdByNumber() {
         InterceptResult invokeV;
-        in7 in7Var;
+        jn7 jn7Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            in7 in7Var2 = this.f;
-            if ((in7Var2 != null && in7Var2.e()) || (in7Var = this.f) == null || ListUtils.getCount(in7Var.getDataList()) <= k.intValue()) {
+            jn7 jn7Var2 = this.f;
+            if ((jn7Var2 != null && jn7Var2.e()) || (jn7Var = this.f) == null || ListUtils.getCount(jn7Var.getDataList()) <= k.intValue()) {
                 return R.drawable.bg_home_card_heji_two;
             }
             return R.drawable.bg_home_card_heji;
@@ -179,14 +179,14 @@ public class RecommendCollectLayout extends RelativeLayout implements ix {
         }
     }
 
-    @Override // com.baidu.tieba.ix
+    @Override // com.baidu.tieba.jx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         int i2;
         int i3;
         int i4;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) && this.g != i) {
-            q25 d = q25.d(this.d);
+            r25 d = r25.d(this.d);
             d.C(R.string.F_X02);
             d.B(R.dimen.T_X07);
             d.w(R.color.CAM_X0105);
@@ -225,19 +225,19 @@ public class RecommendCollectLayout extends RelativeLayout implements ix {
         }
     }
 
-    public void setData(in7 in7Var) {
+    public void setData(jn7 jn7Var) {
         int i;
         int i2;
         int i3;
         int i4;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, in7Var) != null) || in7Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048579, this, jn7Var) != null) || jn7Var == null) {
             return;
         }
-        this.f = in7Var;
+        this.f = jn7Var;
         if (getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) getLayoutParams();
-            if (in7Var.c() > 0) {
+            if (jn7Var.c() > 0) {
                 marginLayoutParams.topMargin = ii.g(getContext(), R.dimen.M_H_X001);
             } else {
                 marginLayoutParams.topMargin = 0;
@@ -248,12 +248,12 @@ public class RecommendCollectLayout extends RelativeLayout implements ix {
         pureDrawable.setBounds(0, 0, ii.g(getContext(), R.dimen.tbds96), ii.g(getContext(), R.dimen.T_X07));
         this.d.setCompoundDrawables(pureDrawable, null, null, null);
         this.d.setCompoundDrawablePadding(ii.g(getContext(), R.dimen.M_W_X001));
-        this.d.setText(in7Var.getTitle());
-        this.b.q(in7Var.getDataList());
+        this.d.setText(jn7Var.getTitle());
+        this.b.q(jn7Var.getDataList());
         this.b.r(this.e);
         Boolean bool = this.i;
-        if (bool == null || bool.booleanValue() != in7Var.e()) {
-            boolean e = in7Var.e();
+        if (bool == null || bool.booleanValue() != jn7Var.e()) {
+            boolean e = jn7Var.e();
             if (e) {
                 this.b.p(ContentCollectListAdapter.CornerType.FULL);
             } else {

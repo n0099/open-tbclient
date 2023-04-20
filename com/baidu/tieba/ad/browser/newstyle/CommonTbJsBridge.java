@@ -12,9 +12,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.xiuba.JSResultData;
-import com.baidu.tieba.gm9;
-import com.baidu.tieba.km9;
+import com.baidu.tieba.om9;
 import com.baidu.tieba.pi;
+import com.baidu.tieba.sm9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class CommonTbJsBridge implements gm9 {
+public class CommonTbJsBridge implements om9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String GET_SUPPLEMENT_INFO = "getSupplementInfo";
     public static final String INTERFACE_NAME = "CommonJSBridge";
@@ -63,7 +63,7 @@ public class CommonTbJsBridge implements gm9 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.gm9
+    @Override // com.baidu.tieba.om9
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -90,11 +90,11 @@ public class CommonTbJsBridge implements gm9 {
         return invokeLLLL.booleanValue;
     }
 
-    public km9 getSupplementInfo() {
+    public sm9 getSupplementInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            km9 km9Var = new km9();
+            sm9 sm9Var = new sm9();
             StringBuilder sb = new StringBuilder(1024);
             String imei = TbadkCoreApplication.getInst().getImei();
             sb.append("imei=");
@@ -128,14 +128,14 @@ public class CommonTbJsBridge implements gm9 {
                 jSONObject.put("client_version", version);
                 jSONObject.put("zid", zid);
                 jSONObject.put("sign", c);
-                km9Var.o(jSONObject.toString());
-                return km9Var;
+                sm9Var.o(jSONObject.toString());
+                return sm9Var;
             } catch (JSONException e) {
                 BdLog.e(e);
-                km9Var.o("");
-                return km9Var;
+                sm9Var.o("");
+                return sm9Var;
             }
         }
-        return (km9) invokeV.objValue;
+        return (sm9) invokeV.objValue;
     }
 }

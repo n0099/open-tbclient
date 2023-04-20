@@ -1,9 +1,6 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.webkit.MimeTypeMap;
-import androidx.annotation.NonNull;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -12,72 +9,55 @@ public class jf6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @NonNull
-    public static String a(String str) {
-        InterceptResult invokeL;
-        int lastIndexOf;
+    public static boolean a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            String c = c(str);
-            if (!TextUtils.isEmpty(c)) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
+            ye6.b("lt-log", "基础版本：" + str + ",当前版本：" + str2);
+            if (TextUtils.equals(str, str2)) {
+                return true;
+            }
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
                 try {
-                    int lastIndexOf2 = c.lastIndexOf(47);
-                    if (lastIndexOf2 >= 0) {
-                        c = c.substring(lastIndexOf2 + 1);
+                    String[] split = str.split("[._]");
+                    String[] split2 = str2.split("[._]");
+                    int min = Math.min(split.length, split2.length);
+                    long j = 0;
+                    for (int i = 0; i < min; i++) {
+                        j = b(split2[i]).longValue() - b(split[i]).longValue();
+                        if (j != 0) {
+                            break;
+                        }
                     }
-                    if (!TextUtils.isEmpty(c) && (lastIndexOf = c.lastIndexOf(46)) >= 0) {
-                        return c.substring(lastIndexOf + 1);
+                    int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+                    if (i2 == 0) {
+                        if (split2.length > split.length) {
+                            return true;
+                        }
+                        return false;
+                    } else if (i2 > 0) {
+                        return true;
+                    } else {
+                        return false;
                     }
-                    return "";
                 } catch (Exception unused) {
-                    return "";
                 }
             }
-            return "";
+            return false;
         }
-        return (String) invokeL.objValue;
+        return invokeLL.booleanValue;
     }
 
-    public static String b(String str) {
+    public static Long b(String str) {
         InterceptResult invokeL;
-        String mimeTypeFromExtension;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            String str2 = null;
             try {
-                String fileExtensionFromUrl = MimeTypeMap.getFileExtensionFromUrl(str);
-                if (!TextUtils.isEmpty(fileExtensionFromUrl) && !TextUtils.equals(fileExtensionFromUrl, StringUtil.NULL_STRING)) {
-                    if (TextUtils.equals(fileExtensionFromUrl, "json")) {
-                        mimeTypeFromExtension = "application/json";
-                    } else {
-                        mimeTypeFromExtension = MimeTypeMap.getSingleton().getMimeTypeFromExtension(fileExtensionFromUrl);
-                    }
-                    str2 = mimeTypeFromExtension;
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
+                return Long.valueOf(Long.parseLong(str));
+            } catch (NumberFormatException unused) {
+                return 0L;
             }
-            if (TextUtils.isEmpty(str2)) {
-                return "*/*";
-            }
-            return str2;
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
-            }
-            int indexOf = str.indexOf("?");
-            if (indexOf > 0) {
-                return str.substring(0, indexOf);
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
+        return (Long) invokeL.objValue;
     }
 }

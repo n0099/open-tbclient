@@ -13,17 +13,17 @@ import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a9;
-import com.baidu.tieba.b05;
+import com.baidu.tieba.c05;
 import com.baidu.tieba.gg;
-import com.baidu.tieba.lf5;
+import com.baidu.tieba.hm9;
 import com.baidu.tieba.me;
+import com.baidu.tieba.mf5;
 import com.baidu.tieba.person.ProfileHttpResponseMessage;
 import com.baidu.tieba.person.ProfileRequestMessage;
 import com.baidu.tieba.person.ProfileSocketResponseMessage;
 import com.baidu.tieba.setting.more.MoreActivity;
 import com.baidu.tieba.setting.person.PersonPostListData;
 import com.baidu.tieba.za;
-import com.baidu.tieba.zl9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -44,7 +44,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
     public NicknameInfo b;
     public final Context c;
     public Handler d;
-    public zl9 e;
+    public hm9 e;
     public boolean f;
     public za g;
 
@@ -240,7 +240,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
         this.a = null;
         this.c = moreActivity.getPageContext().getContext();
         this.d = new Handler(Looper.getMainLooper());
-        this.e = new zl9("profileStat");
+        this.e = new hm9("profileStat");
         registerListener(this.g);
     }
 
@@ -301,8 +301,8 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            b05.d();
-            return b05.c("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
+            c05.d();
+            return c05.c("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
         }
         return (me) invokeV.objValue;
     }
@@ -326,9 +326,9 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
     public final void g0() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && this.e == null) {
-            zl9 zl9Var = new zl9("profileStat");
-            this.e = zl9Var;
-            zl9Var.f();
+            hm9 hm9Var = new hm9("profileStat");
+            this.e = hm9Var;
+            hm9Var.f();
         }
     }
 
@@ -376,7 +376,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
                 if (user != null) {
                     setUser(user);
                 }
-                lf5.d().i(getUser());
+                mf5.d().i(getUser());
                 this.mLoadDataMode = 1;
                 this.mLoadDataCallBack.c(Boolean.TRUE);
                 return;

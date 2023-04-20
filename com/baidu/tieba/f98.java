@@ -1,109 +1,114 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.immessagecenter.mention.FeedData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.squareup.wire.Message;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import tbclient.ReplyMe.DataRes;
+import tbclient.ReplyMe.ReplyList;
+import tbclient.ReplyMe.ReplyMeResIdl;
 /* loaded from: classes4.dex */
-public class f98 extends um<e98, CardViewHolder<j98>> {
+public class f98 implements lk5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public xg6 b;
-    public String c;
+    public ArrayList<FeedData> a;
+    public my4 b;
+    public d98 c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f98(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getContext(), bdUniqueId);
+    public f98() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
+        this.a = new ArrayList<>();
+        this.b = new my4();
+        this.c = new d98();
     }
 
-    @Override // com.baidu.tieba.um
-    public rn getOnAdapterItemClickListener() {
+    public ArrayList<FeedData> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return super.getOnAdapterItemClickListener();
+            return this.a;
         }
-        return (rn) invokeV.objValue;
+        return (ArrayList) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.um
-    /* renamed from: s */
-    public CardViewHolder<j98> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public my4 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            j98 j98Var = new j98(this.a, viewGroup);
-            xg6 xg6Var = this.b;
-            if (xg6Var != null) {
-                j98Var.n(xg6Var);
-            }
-            return new CardViewHolder<>(j98Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-        return (CardViewHolder) invokeL.objValue;
+        return (my4) invokeV.objValue;
     }
 
-    public void u(String str) {
+    @Override // com.baidu.tieba.lk5
+    public void initByJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.c = str;
-        }
-    }
-
-    public void x(xg6 xg6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, xg6Var) == null) {
-            this.b = xg6Var;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.um
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, e98 e98Var, CardViewHolder<j98> cardViewHolder) {
-        InterceptResult invokeCommon;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, e98Var, cardViewHolder})) == null) {
-            if (e98Var != null && cardViewHolder != null && cardViewHolder.a() != null) {
-                cardViewHolder.a().z(this.c);
-                j98 a = cardViewHolder.a();
-                if (i == 0) {
-                    z = true;
-                } else {
-                    z = false;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+            try {
+                JSONArray optJSONArray = jSONObject.optJSONArray("reply_list");
+                if (optJSONArray == null) {
+                    optJSONArray = jSONObject.optJSONArray("at_list");
                 }
-                a.A(z);
-                cardViewHolder.a().l(e98Var);
-                return cardViewHolder.getView();
+                if (optJSONArray != null) {
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        FeedData feedData = new FeedData();
+                        feedData.parserJson(optJSONArray.optJSONObject(i));
+                        this.a.add(feedData);
+                        if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && ListUtils.getCount(feedData.getPraiseList()) == 0) {
+                            this.a.remove(feedData);
+                        }
+                    }
+                }
+                this.c.f(jSONObject.optJSONObject("message"));
+                this.b.i(jSONObject.optJSONObject("page"));
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
-            return null;
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.tieba.lk5
+    public void initByProtobuf(Message message) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, message) == null) && (message instanceof ReplyMeResIdl)) {
+            DataRes dataRes = ((ReplyMeResIdl) message).data;
+            try {
+                List<ReplyList> list = dataRes.reply_list;
+                if (list != null) {
+                    for (int i = 0; i < list.size(); i++) {
+                        FeedData feedData = new FeedData();
+                        feedData.parserProtoBuf(list.get(i));
+                        this.a.add(feedData);
+                        if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && ListUtils.getCount(feedData.getPraiseList()) == 0) {
+                            this.a.remove(feedData);
+                        }
+                    }
+                }
+                this.b.j(dataRes.page);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
     }
 }

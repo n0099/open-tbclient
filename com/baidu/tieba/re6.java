@@ -1,12 +1,28 @@
 package com.baidu.tieba;
 
-import android.webkit.JsPromptResult;
+import android.util.Log;
 import android.webkit.WebView;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
+/* compiled from: JsPromptInterface.java */
 /* loaded from: classes6.dex */
-public interface re6 {
-    void a(WebView webView, String str, JSONObject jSONObject);
+public final /* synthetic */ class re6 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    @Deprecated
-    boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult);
+    public static void a(se6 se6Var, WebView webView, String str, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLLL(65536, null, se6Var, webView, str, jSONObject) != null) || webView == null) {
+            return;
+        }
+        long currentTimeMillis = System.currentTimeMillis();
+        webView.evaluateJavascript("javascript:" + str + "&&" + str + "('" + jSONObject.toString() + "')", null);
+        StringBuilder sb = new StringBuilder();
+        sb.append("javascript 执行成功:");
+        sb.append(str);
+        sb.append(" 耗时：");
+        sb.append(System.currentTimeMillis() - currentTimeMillis);
+        Log.i("lt-log", sb.toString());
+    }
 }

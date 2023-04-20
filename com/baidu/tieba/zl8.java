@@ -1,6 +1,8 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.SmallTailThemeData;
+import com.baidu.tieba.memberCenter.tail.data.TailData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -8,19 +10,27 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
+import tbclient.GetTails.ColorInfo;
+import tbclient.GetTails.ResData;
+import tbclient.GetTails.TailInfo;
 /* loaded from: classes7.dex */
 public class zl8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<String> a;
-    public String b;
+    public List<TailData> a;
+    public List<String> b;
+    public SmallTailThemeData c;
 
-    public zl8(a9<?> a9Var) {
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+        }
+    }
+
+    public zl8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {a9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,42 +40,79 @@ public class zl8 {
                 return;
             }
         }
-        this.b = "7a7c80";
-        ArrayList arrayList = new ArrayList();
-        this.a = arrayList;
-        arrayList.add("7a7c80");
-        this.a.add("f55925");
-        this.a.add("ff5460");
-        this.a.add("cc3314");
-        this.a.add("26bf85");
-        this.a.add("33aaff");
-        this.a.add("3385ff");
-        this.a.add("3668b2");
-        this.a.add("673699");
+        this.a = new ArrayList();
+        this.b = new ArrayList();
     }
 
     public List<String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public SmallTailThemeData b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (SmallTailThemeData) invokeV.objValue;
+    }
+
+    public List<TailData> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.a;
         }
         return (List) invokeV.objValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    public void d(ResData resData) {
+        List<TailInfo> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, resData) != null) || resData == null || (list = resData.tailList) == null) {
+            return;
         }
-        return (String) invokeV.objValue;
+        for (TailInfo tailInfo : list) {
+            if (f(tailInfo)) {
+                TailData tailData = new TailData();
+                tailData.setContent(tailInfo.tailContent);
+                tailData.setFontColor(tailInfo.fontColor);
+                tailData.setFontType(tailInfo.fontKeyName);
+                tailData.setId(tailInfo.tailId.intValue());
+                boolean z = true;
+                if (tailInfo.is_selected.intValue() != 1) {
+                    z = false;
+                }
+                tailData.setSelected(z);
+                c().add(tailData);
+            }
+        }
+        e(resData.default_color);
+        for (ColorInfo colorInfo : resData.colorList) {
+            a().add(colorInfo.fontColor);
+        }
+        if (resData.tail_style != null) {
+            this.c = new SmallTailThemeData(resData.tail_style);
+        } else {
+            this.c = SmallTailThemeData.DEFAULT;
+        }
     }
 
-    public void c(String str) {
+    public final boolean f(TailInfo tailInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.b = str;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, tailInfo)) == null) {
+            Integer num = tailInfo.tailId;
+            if (num == null || num.intValue() == 0 || tailInfo.fontColor == null) {
+                return false;
+            }
+            return true;
         }
+        return invokeL.booleanValue;
     }
 }

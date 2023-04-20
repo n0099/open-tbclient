@@ -12,9 +12,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.searchbox.unitedscheme.SchemeRouter;
 import com.baidu.swan.games.view.recommend.model.RecommendItemModel;
 import com.baidu.tieba.R;
-import com.baidu.tieba.db4;
-import com.baidu.tieba.fb4;
-import com.baidu.tieba.qb4;
+import com.baidu.tieba.eb4;
+import com.baidu.tieba.gb4;
+import com.baidu.tieba.rb4;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.view.SimpleDraweeView;
 import java.util.List;
@@ -22,7 +22,7 @@ import java.util.List;
 public class GameGuideAdapter extends RecyclerView.Adapter<a> implements View.OnClickListener {
     public Context a;
     public List<RecommendItemModel> b;
-    public db4 c = new db4();
+    public eb4 c = new eb4();
 
     /* loaded from: classes3.dex */
     public class a extends RecyclerView.ViewHolder {
@@ -48,7 +48,7 @@ public class GameGuideAdapter extends RecyclerView.Adapter<a> implements View.On
     public a onCreateViewHolder(ViewGroup viewGroup, int i) {
         a aVar = new a(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d08a9, (ViewGroup) null));
         aVar.itemView.setOnClickListener(this);
-        qb4.a(aVar.itemView);
+        rb4.a(aVar.itemView);
         return aVar;
     }
 
@@ -79,7 +79,7 @@ public class GameGuideAdapter extends RecyclerView.Adapter<a> implements View.On
         RecommendItemModel recommendItemModel = this.b.get(intValue);
         if (!TextUtils.isEmpty(recommendItemModel.getScheme()) && !TextUtils.isEmpty(recommendItemModel.getAppKey())) {
             SchemeRouter.invokeSchemeForInner(this.a, Uri.parse(recommendItemModel.getScheme()));
-            fb4.d(4, recommendItemModel.getAppKey());
+            gb4.d(4, recommendItemModel.getAppKey());
             this.c.b(3, "popview", recommendItemModel.getAppKey(), String.valueOf(intValue + 1));
         }
     }

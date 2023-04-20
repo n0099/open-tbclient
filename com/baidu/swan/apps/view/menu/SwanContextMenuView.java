@@ -16,11 +16,11 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e73;
 import com.baidu.tieba.f73;
+import com.baidu.tieba.g73;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class SwanContextMenuView extends FrameLayout implements e73.g {
+public class SwanContextMenuView extends FrameLayout implements f73.g {
     public final Context a;
     public boolean b;
     public ListView c;
@@ -30,7 +30,7 @@ public class SwanContextMenuView extends FrameLayout implements e73.g {
     /* loaded from: classes3.dex */
     public class b extends BaseAdapter {
         public final Context a;
-        public List<f73> b;
+        public List<g73> b;
 
         @Override // android.widget.Adapter
         public long getItemId(int i) {
@@ -46,20 +46,20 @@ public class SwanContextMenuView extends FrameLayout implements e73.g {
             }
         }
 
-        public b(Context context, List<f73> list) {
+        public b(Context context, List<g73> list) {
             this.b = list;
             this.a = context;
         }
 
         public void a(int i) {
-            f73 f73Var = this.b.get(i);
-            f73.a d = f73Var.d();
+            g73 g73Var = this.b.get(i);
+            g73.a d = g73Var.d();
             if (d != null) {
-                d.a(f73Var);
+                d.a(g73Var);
             }
         }
 
-        public void c(List<f73> list) {
+        public void c(List<g73> list) {
             this.b = list;
             notifyDataSetChanged();
         }
@@ -100,13 +100,13 @@ public class SwanContextMenuView extends FrameLayout implements e73.g {
             } else {
                 aVar = (a) view2.getTag();
             }
-            f73 f73Var = this.b.get(i);
-            aVar.b.setText(f73Var.e());
+            g73 g73Var = this.b.get(i);
+            aVar.b.setText(g73Var.e());
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar.b.getLayoutParams();
             LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) aVar.a.getLayoutParams();
-            if (f73Var.b() != null) {
+            if (g73Var.b() != null) {
                 aVar.a.setVisibility(0);
-                aVar.a.setImageDrawable(f73Var.b());
+                aVar.a.setImageDrawable(g73Var.b());
                 layoutParams.setMarginStart(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070679));
             } else {
                 aVar.a.setVisibility(8);
@@ -116,7 +116,7 @@ public class SwanContextMenuView extends FrameLayout implements e73.g {
             if (SwanContextMenuView.this.e) {
                 ((LinearLayout) view2).setGravity(17);
                 layoutParams.width = -2;
-                if (f73Var.b() != null) {
+                if (g73Var.b() != null) {
                     layoutParams2.setMarginStart(0);
                     aVar.a.setLayoutParams(layoutParams2);
                 } else {
@@ -146,7 +146,7 @@ public class SwanContextMenuView extends FrameLayout implements e73.g {
         b();
     }
 
-    public void c(List<f73> list) {
+    public void c(List<g73> list) {
         if (!this.b) {
             b bVar = this.d;
             if (bVar == null) {

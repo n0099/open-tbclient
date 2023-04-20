@@ -36,10 +36,10 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.frs.tab.FrsTabItemCustomeView;
 import com.baidu.tieba.homepage.HomePageStatic;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.k85;
-import com.baidu.tieba.p45;
-import com.baidu.tieba.q25;
-import com.baidu.tieba.yn7;
+import com.baidu.tieba.l85;
+import com.baidu.tieba.q45;
+import com.baidu.tieba.r25;
+import com.baidu.tieba.zn7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -207,7 +207,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
             this.currentPosition = parcel.readInt();
         }
 
-        public /* synthetic */ SavedState(Parcel parcel, yn7 yn7Var) {
+        public /* synthetic */ SavedState(Parcel parcel, zn7 zn7Var) {
             this(parcel);
         }
 
@@ -362,7 +362,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
             this.a = pagerSlidingTabStrip;
         }
 
-        public /* synthetic */ e(PagerSlidingTabStrip pagerSlidingTabStrip, yn7 yn7Var) {
+        public /* synthetic */ e(PagerSlidingTabStrip pagerSlidingTabStrip, zn7 zn7Var) {
             this(pagerSlidingTabStrip);
         }
 
@@ -957,14 +957,14 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
                             }
                             if (i2 >= 0) {
                                 if (i == this.j) {
-                                    q25.d(textView).C(R.string.F_X02);
+                                    r25.d(textView).C(R.string.F_X02);
                                 } else {
-                                    q25.d(textView).C(R.string.F_X01);
+                                    r25.d(textView).C(R.string.F_X01);
                                 }
                             } else if (i == this.h) {
-                                q25.d(textView).C(R.string.F_X02);
+                                r25.d(textView).C(R.string.F_X02);
                             } else {
-                                q25.d(textView).C(R.string.F_X01);
+                                r25.d(textView).C(R.string.F_X01);
                             }
                         }
                     }
@@ -1049,7 +1049,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
         String string;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048589, this, i, str) == null) {
-            k85 b2 = k85.b(str);
+            l85 b2 = l85.b(str);
             if (b2 != null && !this.W) {
                 int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds47);
                 FrsTabItemCustomeView frsTabItemCustomeView = new FrsTabItemCustomeView(getContext());
@@ -1066,7 +1066,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
                 LinearLayout linearLayout = new LinearLayout(getContext());
                 linearLayout.setOrientation(0);
                 TextView textView = new TextView(getContext());
-                if (TbadkCoreApplication.isLogin() && p45.m().n("key_home_concern_all_status", 0) == 1) {
+                if (TbadkCoreApplication.isLogin() && q45.m().n("key_home_concern_all_status", 0) == 1) {
                     string = getResources().getString(R.string.attention_person);
                 } else {
                     string = getResources().getString(R.string.tab_name_concern);
@@ -1091,7 +1091,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
                     str = b2.d();
                 }
                 if (i == 0 && !this.W) {
-                    if (UbsABTestHelper.isConcernForumCardShow() && TbadkCoreApplication.isLogin() && p45.m().n("key_home_concern_all_status", 0) == 1) {
+                    if (UbsABTestHelper.isConcernForumCardShow() && TbadkCoreApplication.isLogin() && q45.m().n("key_home_concern_all_status", 0) == 1) {
                         str = getResources().getString(R.string.attention_person);
                     } else {
                         str = getResources().getString(R.string.tab_name_concern);

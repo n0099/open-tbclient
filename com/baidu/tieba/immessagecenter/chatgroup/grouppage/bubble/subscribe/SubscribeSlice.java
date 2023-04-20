@@ -22,9 +22,9 @@ import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.GroupChatRepo;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
 import com.baidu.tieba.immessagecenter.slice.Slice;
 import com.baidu.tieba.jg;
-import com.baidu.tieba.jt9;
 import com.baidu.tieba.ng;
-import com.baidu.tieba.p45;
+import com.baidu.tieba.q45;
+import com.baidu.tieba.rt9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -120,7 +120,7 @@ public class SubscribeSlice extends Slice {
             }
             this.a.k = true;
             this.a.o.k2().l0();
-            this.a.o.G2();
+            this.a.o.H2();
         }
 
         @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.GroupChatRepo.Counter.d
@@ -131,7 +131,7 @@ public class SubscribeSlice extends Slice {
             }
             this.a.l = true;
             this.a.o.k2().l0();
-            this.a.o.G2();
+            this.a.o.H2();
         }
     }
 
@@ -290,7 +290,7 @@ public class SubscribeSlice extends Slice {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             e0(8);
             f0(true);
-            jt9.b(this.m.b, 600);
+            rt9.b(this.m.b, 600);
             this.m.b.a();
         }
     }
@@ -340,8 +340,8 @@ public class SubscribeSlice extends Slice {
                 long id = this.n.getBasicInfo().getId();
                 int isSubscription = this.n.getUserInfo().getIsSubscription();
                 if (id > 0 && isSubscription != 1) {
-                    p45 m = p45.m();
-                    String q = p45.q("key_show_subscribe_guide" + id);
+                    q45 m = q45.m();
+                    String q = q45.q("key_show_subscribe_guide" + id);
                     long o = m.o(q, 0L);
                     if (o > 0 && TimeHelper.isSameDay(o, System.currentTimeMillis())) {
                         return false;

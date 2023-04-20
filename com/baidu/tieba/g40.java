@@ -1,72 +1,43 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.math.BigInteger;
 /* loaded from: classes4.dex */
 public class g40 {
     public static /* synthetic */ Interceptable $ic;
-    public static final char[] a;
-    public static final char[] b;
-    public static final byte[] c;
+    public static byte[] a;
+    public static byte[] b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947743814, "Lcom/baidu/tieba/g40;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static byte[] a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            byte[] bArr = b;
+            if (bArr != null) {
+                return bArr;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947743814, "Lcom/baidu/tieba/g40;");
-                return;
-            }
+            byte[] byteArray = new BigInteger(f40.c).modPow(new BigInteger(f40.d), new BigInteger(f40.e)).toByteArray();
+            b = byteArray;
+            return byteArray;
         }
-        a = "0123456789ABCDEF".toCharArray();
-        b = "0123456789abcdef".toCharArray();
-        c = new byte[128];
-        for (int i = 0; i < 10; i++) {
-            byte[] bArr = c;
-            bArr[i + 48] = (byte) i;
-            byte b2 = (byte) (i + 10);
-            bArr[i + 65] = b2;
-            bArr[i + 97] = b2;
-        }
+        return (byte[]) invokeV.objValue;
     }
 
-    public static char[] a(byte[] bArr, boolean z) {
-        InterceptResult invokeLZ;
-        char[] cArr;
+    public static byte[] b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, bArr, z)) == null) {
-            if (z) {
-                cArr = a;
-            } else {
-                cArr = b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            byte[] bArr = a;
+            if (bArr != null) {
+                return bArr;
             }
-            char[] cArr2 = new char[bArr.length * 2];
-            int i = 0;
-            for (byte b2 : bArr) {
-                int i2 = i + 1;
-                cArr2[i] = cArr[(b2 & 240) >>> 4];
-                i = i2 + 1;
-                cArr2[i2] = cArr[b2 & 15];
-            }
-            return cArr2;
+            byte[] byteArray = new BigInteger(f40.a).modPow(new BigInteger(f40.b), new BigInteger(f40.e)).toByteArray();
+            a = byteArray;
+            return byteArray;
         }
-        return (char[]) invokeLZ.objValue;
-    }
-
-    public static String b(byte[] bArr, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, bArr, z)) == null) {
-            return new String(a(bArr, z));
-        }
-        return (String) invokeLZ.objValue;
+        return (byte[]) invokeV.objValue;
     }
 }

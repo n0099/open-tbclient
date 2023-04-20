@@ -12,7 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
-import com.baidu.tieba.sh3;
+import com.baidu.tieba.th3;
 /* loaded from: classes3.dex */
 public final class MediaBrightness extends FrameLayout {
     public View a;
@@ -36,7 +36,7 @@ public final class MediaBrightness extends FrameLayout {
         } else if (f <= 0.0f) {
             f = 0.0f;
         }
-        sh3.c().e((Activity) getContext(), f);
+        th3.c().e((Activity) getContext(), f);
     }
 
     public void g(int i) {
@@ -66,7 +66,7 @@ public final class MediaBrightness extends FrameLayout {
     }
 
     public void d() {
-        this.f = sh3.c().a((Activity) getContext());
+        this.f = th3.c().a((Activity) getContext());
     }
 
     public void e() {

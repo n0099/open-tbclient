@@ -14,10 +14,10 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.a9;
 import com.baidu.tieba.ala.alasquare.subtablist.message.AlaNewSquareSubListRequestMessage;
 import com.baidu.tieba.ala.alasquare.subtablist.message.AlaNewSquareSubListResponseMessage;
-import com.baidu.tieba.hn;
-import com.baidu.tieba.j66;
+import com.baidu.tieba.in;
 import com.baidu.tieba.k66;
-import com.baidu.tieba.t36;
+import com.baidu.tieba.l66;
+import com.baidu.tieba.u36;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -50,7 +50,7 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
     public int k;
     public List<String> l;
     public List<ThreadData> m;
-    public List<hn> n;
+    public List<in> n;
     public boolean o;
     public b p;
     public BdUniqueId q;
@@ -171,7 +171,7 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
         u = new HashMap<>();
     }
 
-    public List<hn> e0() {
+    public List<in> e0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -386,41 +386,41 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
             int size = list.size();
             for (int i = 0; i < size; i += 2) {
                 if (this.o) {
-                    j66 j66Var = new j66();
-                    t36 t36Var = new t36();
-                    t36Var.e = this.i;
-                    t36Var.b = this.e;
-                    t36Var.c = this.d;
-                    t36Var.d = list.get(i);
-                    j66Var.a = t36Var;
+                    k66 k66Var = new k66();
+                    u36 u36Var = new u36();
+                    u36Var.e = this.i;
+                    u36Var.b = this.e;
+                    u36Var.c = this.d;
+                    u36Var.d = list.get(i);
+                    k66Var.a = u36Var;
                     int i2 = i + 1;
                     if (i2 < size) {
-                        t36 t36Var2 = new t36();
-                        t36Var2.e = this.i;
-                        t36Var2.b = this.e;
-                        t36Var2.c = this.d;
-                        t36Var2.d = list.get(i2);
-                        j66Var.b = t36Var2;
-                    }
-                    this.n.add(j66Var);
-                } else {
-                    k66 k66Var = new k66();
-                    t36 t36Var3 = new t36();
-                    t36Var3.e = this.i;
-                    t36Var3.b = this.e;
-                    t36Var3.c = this.d;
-                    t36Var3.d = list.get(i);
-                    k66Var.a = t36Var3;
-                    int i3 = i + 1;
-                    if (i3 < size) {
-                        t36 t36Var4 = new t36();
-                        t36Var4.e = this.i;
-                        t36Var4.b = this.e;
-                        t36Var4.c = this.d;
-                        t36Var4.d = list.get(i3);
-                        k66Var.b = t36Var4;
+                        u36 u36Var2 = new u36();
+                        u36Var2.e = this.i;
+                        u36Var2.b = this.e;
+                        u36Var2.c = this.d;
+                        u36Var2.d = list.get(i2);
+                        k66Var.b = u36Var2;
                     }
                     this.n.add(k66Var);
+                } else {
+                    l66 l66Var = new l66();
+                    u36 u36Var3 = new u36();
+                    u36Var3.e = this.i;
+                    u36Var3.b = this.e;
+                    u36Var3.c = this.d;
+                    u36Var3.d = list.get(i);
+                    l66Var.a = u36Var3;
+                    int i3 = i + 1;
+                    if (i3 < size) {
+                        u36 u36Var4 = new u36();
+                        u36Var4.e = this.i;
+                        u36Var4.b = this.e;
+                        u36Var4.c = this.d;
+                        u36Var4.d = list.get(i3);
+                        l66Var.b = u36Var4;
+                    }
+                    this.n.add(l66Var);
                 }
             }
         }

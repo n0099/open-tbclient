@@ -1,6 +1,15 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeAbsDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeStatisticUtil;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,13 +17,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import org.json.JSONObject;
 @Service
-/* loaded from: classes5.dex */
-public class q83 extends r83 {
+/* loaded from: classes6.dex */
+public class q83 extends UnitedSchemeBaseDispatcher {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher
+    public String getDispatcherName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "BDWallet" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher
+    public Class<? extends UnitedSchemeAbsDispatcher> getSubDispatcher(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return null;
+        }
+        return (Class) invokeL.objValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -29,7 +54,7 @@ public class q83 extends r83 {
                 return;
             }
         }
-        b = eo1.a;
+        boolean z = fo1.a;
     }
 
     public q83() {
@@ -46,47 +71,73 @@ public class q83 extends r83 {
         }
     }
 
-    @Override // com.baidu.tieba.r83
-    public void a() {
-        List<r93> b2;
-        List<r93> a;
+    @Override // com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher
+    public boolean invoke(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.clear();
-            b(new ks2(this));
-            b(new h52(this));
-            b(new m52(this));
-            b(new a52(this));
-            b(new n93(this));
-            b(new y83(this));
-            b(new za3(this));
-            b(new oi2(this));
-            b(new xi2(this));
-            b(new pi2(this));
-            b(new ti2(this));
-            b(new ui2(this));
-            b(new si2(this));
-            b(new yi2(this));
-            b(new ri2(this));
-            b(new wi2(this));
-            b(new ln3(this));
-            b(new vi2(this));
-            b(new qi2(this));
-            zo1 d = cr2.d();
-            if (d != null && (a = d.a(this)) != null && !a.isEmpty()) {
-                for (r93 r93Var : a) {
-                    b(r93Var);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, callbackHandler)) == null) {
+            v42.b("SwanWalletDispatcher", "entity uri = ", unitedSchemeEntity.getUri());
+            v42.i("SwanWalletDispatcher", "start UnitedSchemeWalletDispatcher");
+            String path = unitedSchemeEntity.getPath(false);
+            if (TextUtils.isEmpty(path)) {
+                if (!unitedSchemeEntity.isOnlyVerify()) {
+                    UnitedSchemeStatisticUtil.doUBCForInvalidScheme(unitedSchemeEntity.getUri(), "no action");
                 }
-            }
-            if (b) {
-                b(new zi2(this));
-                b(new s83(this));
-                if (d != null && (b2 = d.b(this)) != null && !b2.isEmpty()) {
-                    for (r93 r93Var2 : b2) {
-                        b(r93Var2);
+                v42.k("SwanWalletDispatcher", "Error: uri action is null.");
+                unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(201));
+                return false;
+            } else if (unitedSchemeEntity.isOnlyVerify()) {
+                v42.k("SwanWalletDispatcher", "Error: is only verify.");
+                return true;
+            } else {
+                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+                if (optParamsAsJo == null) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                    v42.k("SwanWalletDispatcher", "Error: params is null.");
+                    return false;
+                }
+                String optString = optParamsAsJo.optString("orderInfo");
+                String optString2 = optParamsAsJo.optString("version");
+                String optString3 = optParamsAsJo.optString("cb");
+                v73 M = v73.M();
+                if (M == null) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                    v42.k("SwanWalletDispatcher", "Error: swan app is null.");
+                    return false;
+                } else if (M.w() == null) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                    v42.k("SwanWalletDispatcher", "Error: swan activity is null.");
+                    return false;
+                } else {
+                    String optString4 = optParamsAsJo.optString("from");
+                    if (TextUtils.isEmpty(optString4)) {
+                        optString4 = "api";
+                    }
+                    String str = optString4;
+                    k03 k03Var = new k03(M, unitedSchemeEntity, callbackHandler, optString2, M.O(), optString3);
+                    if ("requestPayment".equals(path)) {
+                        v42.i("SwanWalletDispatcher", "start PAYMENT");
+                        oe3.K("baiduqianbao", "create", 0);
+                        return k03Var.C("mapp_request_duxiaoman", optString, str);
+                    } else if ("requestAliPayment".equals(path)) {
+                        v42.i("SwanWalletDispatcher", "start ALI PAYMENT");
+                        oe3.K("alipay", "create", 0);
+                        return k03Var.C("mapp_request_alipayment", optString, str);
+                    } else if ("requestPolymerPayment".equals(path)) {
+                        v42.i("SwanWalletDispatcher", "start POLYMER PAYMENT");
+                        oe3.K("nuomi", "create", 0);
+                        return k03Var.K(optString, optParamsAsJo);
+                    } else if (TextUtils.equals("requestWeChatPayment", path)) {
+                        v42.i("SwanWalletDispatcher", "start WECHAT HTML5 PAYMENT");
+                        oe3.K("wechatH5Action", "create", 0);
+                        return k03Var.C("mapp_request_wechatpayment", optString, str);
+                    } else {
+                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                        return false;
                     }
                 }
             }
         }
+        return invokeLLL.booleanValue;
     }
 }

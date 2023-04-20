@@ -23,10 +23,10 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.ThreadForumEnterButton;
 import com.baidu.tbadk.core.view.ThreadForumEnterGoodsButton;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ak9;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.jw4;
-import com.baidu.tieba.q25;
-import com.baidu.tieba.sj9;
+import com.baidu.tieba.kw4;
+import com.baidu.tieba.r25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,7 +41,7 @@ public class ForumEnterLayout extends RelativeLayout {
     public ThreadForumEnterGoodsButton c;
     public TextView d;
     public EMTextView e;
-    public jw4 f;
+    public kw4 f;
     public Drawable g;
     public final int h;
     public final int i;
@@ -116,11 +116,11 @@ public class ForumEnterLayout extends RelativeLayout {
         i(context);
     }
 
-    public final boolean m(jw4 jw4Var) {
+    public final boolean m(kw4 kw4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, jw4Var)) == null) {
-            if (jw4Var != null && jw4Var.getThreadData() != null && jw4Var.getThreadData().getPollData() != null && jw4Var.getThreadData().getPollData().getOptions() != null && jw4Var.getThreadData().getPollData().getOptions().size() > 0) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, kw4Var)) == null) {
+            if (kw4Var != null && kw4Var.getThreadData() != null && kw4Var.getThreadData().getPollData() != null && kw4Var.getThreadData().getPollData().getOptions() != null && kw4Var.getThreadData().getPollData().getOptions().size() > 0) {
                 return true;
             }
             return false;
@@ -192,11 +192,11 @@ public class ForumEnterLayout extends RelativeLayout {
         return invokeL.booleanValue;
     }
 
-    public final boolean l(jw4 jw4Var) {
+    public final boolean l(kw4 kw4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, jw4Var)) == null) {
-            if (jw4Var != null && jw4Var.getThreadData() != null && jw4Var.getThreadData().isVideoThreadType() && jw4Var.getThreadData().getThreadVideoInfo() != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, kw4Var)) == null) {
+            if (kw4Var != null && kw4Var.getThreadData() != null && kw4Var.getThreadData().isVideoThreadType() && kw4Var.getThreadData().getThreadVideoInfo() != null) {
                 return true;
             }
             return false;
@@ -270,7 +270,7 @@ public class ForumEnterLayout extends RelativeLayout {
             i = 2;
         }
         if (str != null && i > 0) {
-            TiebaStatic.log(sj9.k(str, threadData, i));
+            TiebaStatic.log(ak9.k(str, threadData, i));
         }
     }
 
@@ -309,21 +309,21 @@ public class ForumEnterLayout extends RelativeLayout {
             this.b.e();
             this.c.e();
             this.g = getArrowRight();
-            q25 d = q25.d(this.e);
+            r25 d = r25.d(this.e);
             d.w(R.color.CAM_X0109);
             d.C(R.string.F_X01);
         }
     }
 
-    public void setData(jw4 jw4Var) {
+    public void setData(kw4 kw4Var) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jw4Var) == null) {
-            this.f = jw4Var;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, kw4Var) == null) {
+            this.f = kw4Var;
             g();
-            ThreadData threadData = jw4Var.getThreadData();
+            ThreadData threadData = kw4Var.getThreadData();
             int i = 8;
-            if (!k(threadData) && ((jw4Var.showCardEnterFourm() || !threadData.isFromHomPage) && !StringUtils.isNull(threadData.getForum_name()) && !j(threadData))) {
+            if (!k(threadData) && ((kw4Var.showCardEnterFourm() || !threadData.isFromHomPage) && !StringUtils.isNull(threadData.getForum_name()) && !j(threadData))) {
                 this.b.setVisibility(0);
                 this.b.b(threadData, this.j);
                 z = true;
@@ -331,7 +331,7 @@ public class ForumEnterLayout extends RelativeLayout {
                 this.b.setVisibility(8);
                 z = false;
             }
-            if (!m(jw4Var) && !l(jw4Var) && jw4Var.showCardGoodsFourm() && jw4Var.getThreadData().isGoods()) {
+            if (!m(kw4Var) && !l(kw4Var) && kw4Var.showCardGoodsFourm() && kw4Var.getThreadData().isGoods()) {
                 this.c.setVisibility(0);
                 this.c.a(threadData);
                 z = true;

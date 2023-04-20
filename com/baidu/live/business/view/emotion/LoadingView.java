@@ -9,8 +9,8 @@ import android.widget.LinearLayout;
 import com.airbnb.lottie.LottieAnimationView;
 import com.baidu.live.business.refresh.LoadAnimStrategy;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ac0;
-import com.baidu.tieba.j90;
+import com.baidu.tieba.bc0;
+import com.baidu.tieba.k90;
 /* loaded from: classes2.dex */
 public class LoadingView extends LinearLayout {
     public boolean a;
@@ -80,13 +80,13 @@ public class LoadingView extends LinearLayout {
 
     public void c(String str) {
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.b.getLayoutParams();
-        layoutParams.width = j90.b(getContext(), LoadAnimStrategy.getInstance().loadingLottieWidth);
-        layoutParams.height = j90.b(getContext(), LoadAnimStrategy.getInstance().loadingLottieHeight);
+        layoutParams.width = k90.b(getContext(), LoadAnimStrategy.getInstance().loadingLottieWidth);
+        layoutParams.height = k90.b(getContext(), LoadAnimStrategy.getInstance().loadingLottieHeight);
         this.b.setLayoutParams(layoutParams);
         this.b.setImageAssetsFolder(LoadAnimStrategy.getInstance().loadingLottieImgRes);
-        String j = ac0.f().j(str);
+        String j = bc0.f().j(str);
         if (TextUtils.isEmpty(j)) {
-            int k = ac0.f().k(str);
+            int k = bc0.f().k(str);
             if (k != 0) {
                 this.b.setAnimation(k);
                 return;

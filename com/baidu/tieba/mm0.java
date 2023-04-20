@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
+import android.app.Application;
+import androidx.annotation.NonNull;
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.pyramid.annotation.Singleton;
@@ -9,26 +10,24 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
 public interface mm0 {
+    void a();
 
-    /* loaded from: classes5.dex */
-    public interface a {
-    }
-
-    void a(@Nullable String str, @Nullable String str2, @Nullable a aVar);
+    void b(@NonNull Application application);
 
     @Autowired
     /* loaded from: classes5.dex */
-    public static class b {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
+        @NonNull
         @Singleton
         @Inject(force = false)
         public static mm0 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-                return ow0.a();
+                return lw0.a();
             }
             return (mm0) invokeV.objValue;
         }

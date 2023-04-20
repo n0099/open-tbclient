@@ -3,11 +3,11 @@ package com.baidu.tieba.themeCenter.dressCenter;
 import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tieba.es9;
-import com.baidu.tieba.gs9;
-import com.baidu.tieba.hs9;
-import com.baidu.tieba.is9;
-import com.baidu.tieba.ol5;
+import com.baidu.tieba.ms9;
+import com.baidu.tieba.os9;
+import com.baidu.tieba.pl5;
+import com.baidu.tieba.ps9;
+import com.baidu.tieba.qs9;
 import com.baidu.tieba.themeCenter.dressCenter.DressupCenterModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -19,11 +19,11 @@ import java.util.List;
 public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gs9 a;
+    public os9 a;
     public DressupCenterModel b;
     public DressupCenterModel.b c;
 
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.ll5
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.ml5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -55,9 +55,9 @@ public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
         }
 
         @Override // com.baidu.tieba.themeCenter.dressCenter.DressupCenterModel.b
-        public void a(int i, String str, List<es9> list, is9 is9Var, List<hs9> list2) {
+        public void a(int i, String str, List<ms9> list, qs9 qs9Var, List<ps9> list2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, list, is9Var, list2}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, list, qs9Var, list2}) == null) {
                 DressupCenterActivity dressupCenterActivity = this.a;
                 dressupCenterActivity.hideLoadingView(dressupCenterActivity.a.e());
                 if (i != 0) {
@@ -65,7 +65,7 @@ public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
                     this.a.a.n();
                     return;
                 }
-                this.a.a.o(list, is9Var, list2, this.a.b.X());
+                this.a.a.o(list, qs9Var, list2, this.a.b.X());
             }
         }
     }
@@ -87,17 +87,17 @@ public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public ol5 getPageStayDurationItem() {
+    public pl5 getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ol5 pageStayDurationItem = super.getPageStayDurationItem();
+            pl5 pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
                 pageStayDurationItem.a = true;
             }
             return pageStayDurationItem;
         }
-        return (ol5) invokeV.objValue;
+        return (pl5) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -114,10 +114,10 @@ public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        gs9 gs9Var;
+        os9 os9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.b != null && (gs9Var = this.a) != null) {
-            hideNetRefreshView(gs9Var.e());
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.b != null && (os9Var = this.a) != null) {
+            hideNetRefreshView(os9Var.e());
             showLoadingView(this.a.e());
             this.b.loadData();
         }
@@ -128,9 +128,9 @@ public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onPause();
-            gs9 gs9Var = this.a;
-            if (gs9Var != null) {
-                gs9Var.g();
+            os9 os9Var = this.a;
+            if (os9Var != null) {
+                os9Var.g();
             }
         }
     }
@@ -140,9 +140,9 @@ public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onResume();
-            gs9 gs9Var = this.a;
-            if (gs9Var != null) {
-                gs9Var.h();
+            os9 os9Var = this.a;
+            if (os9Var != null) {
+                os9Var.h();
             }
         }
     }
@@ -152,9 +152,9 @@ public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            gs9 gs9Var = this.a;
-            if (gs9Var != null) {
-                gs9Var.f();
+            os9 os9Var = this.a;
+            if (os9Var != null) {
+                os9Var.f();
             }
         }
     }
@@ -167,9 +167,9 @@ public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
             DressupCenterModel dressupCenterModel = new DressupCenterModel(this);
             this.b = dressupCenterModel;
             dressupCenterModel.Y(this.c);
-            gs9 gs9Var = new gs9(this);
-            this.a = gs9Var;
-            showLoadingView(gs9Var.e());
+            os9 os9Var = new os9(this);
+            this.a = os9Var;
+            showLoadingView(os9Var.e());
             this.b.loadData();
         }
     }

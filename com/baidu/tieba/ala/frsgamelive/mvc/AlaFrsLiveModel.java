@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.a9;
 import com.baidu.tieba.ala.frsgamelive.message.AlaGameFrsLiveThreadsRequestMessage;
 import com.baidu.tieba.ala.frsgamelive.message.AlaGameFrsLiveThreadsRespMessage;
-import com.baidu.tieba.h76;
-import com.baidu.tieba.hn;
+import com.baidu.tieba.i76;
+import com.baidu.tieba.in;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,7 +38,7 @@ public class AlaFrsLiveModel extends BdBaseModel {
     public int f;
     public boolean g;
     public int h;
-    public List<hn> i;
+    public List<in> i;
     public boolean j;
     public b k;
     public HttpMessageListener l;
@@ -117,12 +117,12 @@ public class AlaFrsLiveModel extends BdBaseModel {
                 }
                 return;
             }
-            List<hn> liveList = alaGameFrsLiveThreadsRespMessage.getLiveList();
+            List<in> liveList = alaGameFrsLiveThreadsRespMessage.getLiveList();
             if (this.a.i == null) {
                 this.a.i = new ArrayList();
             }
             if (this.a.b == 1 && ListUtils.getCount(liveList) == 0 && this.a.f == 2) {
-                List<hn> recommandList = alaGameFrsLiveThreadsRespMessage.getRecommandList();
+                List<in> recommandList = alaGameFrsLiveThreadsRespMessage.getRecommandList();
                 this.a.g = false;
                 this.a.b = alaGameFrsLiveThreadsRequestMessage.getPn();
                 this.a.h = 0;
@@ -234,7 +234,7 @@ public class AlaFrsLiveModel extends BdBaseModel {
     }
 
     public void clearData() {
-        List<hn> list;
+        List<in> list;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (list = this.i) != null) {
             list.clear();
@@ -250,7 +250,7 @@ public class AlaFrsLiveModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public List<hn> getData() {
+    public List<in> getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
@@ -268,7 +268,7 @@ public class AlaFrsLiveModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public final List<hn> e0(List<hn> list, List<hn> list2) {
+    public final List<in> e0(List<in> list, List<in> list2) {
         InterceptResult invokeLL;
         ThreadData threadData;
         ThreadData threadData2;
@@ -276,24 +276,24 @@ public class AlaFrsLiveModel extends BdBaseModel {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, list, list2)) == null) {
             LinkedList linkedList = new LinkedList();
             linkedList.addAll(list);
-            for (hn hnVar : list2) {
-                if (hnVar != null && (hnVar instanceof h76) && (threadData = ((h76) hnVar).a) != null && (threadData.getThreadType() == 49 || threadData.getThreadType() == 69)) {
+            for (in inVar : list2) {
+                if (inVar != null && (inVar instanceof i76) && (threadData = ((i76) inVar).a) != null && (threadData.getThreadType() == 49 || threadData.getThreadType() == 69)) {
                     String tid = threadData.getTid();
                     if (!TextUtils.isEmpty(tid)) {
                         boolean z = false;
-                        Iterator<hn> it = list.iterator();
+                        Iterator<in> it = list.iterator();
                         while (true) {
                             if (!it.hasNext()) {
                                 break;
                             }
-                            hn next = it.next();
-                            if (next != null && (next instanceof h76) && (threadData2 = ((h76) next).a) != null && tid.equals(threadData2.getTid())) {
+                            in next = it.next();
+                            if (next != null && (next instanceof i76) && (threadData2 = ((i76) next).a) != null && tid.equals(threadData2.getTid())) {
                                 z = true;
                                 break;
                             }
                         }
                         if (!z) {
-                            linkedList.add(hnVar);
+                            linkedList.add(inVar);
                         }
                     }
                 }

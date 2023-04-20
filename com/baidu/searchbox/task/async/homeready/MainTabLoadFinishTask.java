@@ -16,13 +16,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.cs5;
-import com.baidu.tieba.h40;
+import com.baidu.tieba.a15;
+import com.baidu.tieba.ds5;
+import com.baidu.tieba.i40;
 import com.baidu.tieba.ik;
 import com.baidu.tieba.ki;
-import com.baidu.tieba.ng8;
-import com.baidu.tieba.p45;
-import com.baidu.tieba.y05;
+import com.baidu.tieba.q45;
+import com.baidu.tieba.vg8;
 import com.baidu.tieba.z05;
 import java.io.UnsupportedEncodingException;
 import org.json.JSONArray;
@@ -51,7 +51,7 @@ public class MainTabLoadFinishTask extends LaunchTask {
             return "";
         }
         String str2 = split[1];
-        if (StringUtils.isNull(str2) || (b = new h40("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).b(str2)) == null) {
+        if (StringUtils.isNull(str2) || (b = new i40("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).b(str2)) == null) {
             return "";
         }
         try {
@@ -71,21 +71,21 @@ public class MainTabLoadFinishTask extends LaunchTask {
                 try {
                     Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
                     if (currentActivity != null) {
-                        z05.n(currentActivity, y05.q);
+                        a15.n(currentActivity, z05.q);
                     }
                     if (Build.VERSION.SDK_INT >= 17) {
-                        p45.m().B("key_default_useragent", WebSettings.getDefaultUserAgent(TbadkCoreApplication.getInst()));
+                        q45.m().B("key_default_useragent", WebSettings.getDefaultUserAgent(TbadkCoreApplication.getInst()));
                     }
                     String lastCachedOid = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst().getContext());
-                    String s = p45.m().s("key_last_cached_oid", "");
+                    String s = q45.m().s("key_last_cached_oid", "");
                     if (StringUtils.isNull(s) || !s.equals(lastCachedOid)) {
-                        p45.m().B("key_last_cached_oid", lastCachedOid);
-                        p45.m().B("key_last_cached_real_oid", MainTabLoadFinishTask.this.getRealOaid(lastCachedOid));
+                        q45.m().B("key_last_cached_oid", lastCachedOid);
+                        q45.m().B("key_last_cached_real_oid", MainTabLoadFinishTask.this.getRealOaid(lastCachedOid));
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                boolean i = p45.m().i("key_splash_shake_ad_open", true);
+                boolean i = q45.m().i("key_splash_shake_ad_open", true);
                 StatisticItem statisticItem = new StatisticItem("c15178");
                 if (i) {
                     str = "0";
@@ -93,21 +93,21 @@ public class MainTabLoadFinishTask extends LaunchTask {
                     str = "1";
                 }
                 TiebaStatic.log(statisticItem.param("obj_param1", str));
-                ng8 a = ik.a();
+                vg8 a = ik.a();
                 a.c(Config.DEVICE_PART, "Device Info: cuid: " + TbadkCoreApplication.getInst().getCuid() + " from: " + TbadkCoreApplication.getFrom() + " client_version: " + TbConfig.getVersion() + " os_version: " + ki.k());
                 return false;
             }
         });
         try {
-            String s = p45.m().s("key_cache_url_list", null);
+            String s = q45.m().s("key_cache_url_list", null);
             if (!TextUtils.isEmpty(s)) {
                 JSONArray jSONArray = new JSONArray(s);
-                ng8 defaultLog = DefaultLog.getInstance();
+                vg8 defaultLog = DefaultLog.getInstance();
                 defaultLog.c("WebPreheat", "冷启动预热H5:" + jSONArray);
-                cs5.e(jSONArray);
+                ds5.e(jSONArray);
             }
         } catch (Throwable th) {
-            ng8 defaultLog2 = DefaultLog.getInstance();
+            vg8 defaultLog2 = DefaultLog.getInstance();
             defaultLog2.b("WebPreheat", "exception:" + th);
         }
     }

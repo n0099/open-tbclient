@@ -1,78 +1,44 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.database.Cursor;
-import android.net.Uri;
+import android.database.ContentObserver;
+import android.os.Handler;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class wn1 {
+public class wn1 extends ContentObserver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
+    public yn1 a;
 
-    public wn1(Context context) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wn1(yn1 yn1Var) {
+        super(null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {yn1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Handler) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = context;
+        this.a = yn1Var;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:18:0x0040  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public String a(int i, String str) {
-        InterceptResult invokeIL;
-        String str2;
-        Uri parse;
-        Cursor query;
-        StringBuilder sb;
-        String str3;
+    @Override // android.database.ContentObserver
+    public void onChange(boolean z) {
+        yn1 yn1Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, str)) == null) {
-            if (i != 0) {
-                if (i == 1) {
-                    sb = new StringBuilder();
-                    str3 = "content://com.vivo.vms.IdProvider/IdentifierId/VAID_";
-                } else if (i != 2) {
-                    parse = null;
-                    query = this.a.getContentResolver().query(parse, null, null, null, null);
-                    if (query != null) {
-                        r0 = query.moveToNext() ? query.getString(query.getColumnIndex("value")) : null;
-                        query.close();
-                    }
-                    return r0;
-                } else {
-                    sb = new StringBuilder();
-                    str3 = "content://com.vivo.vms.IdProvider/IdentifierId/AAID_";
-                }
-                sb.append(str3);
-                sb.append(str);
-                str2 = sb.toString();
-            } else {
-                str2 = "content://com.vivo.vms.IdProvider/IdentifierId/OAID";
-            }
-            parse = Uri.parse(str2);
-            query = this.a.getContentResolver().query(parse, null, null, null, null);
-            if (query != null) {
-            }
-            return r0;
+        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && (yn1Var = this.a) != null) {
+            yn1Var.b = yn1Var.a.a(0, null);
         }
-        return (String) invokeIL.objValue;
     }
 }

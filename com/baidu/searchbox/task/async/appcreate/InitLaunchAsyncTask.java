@@ -15,20 +15,20 @@ import com.baidu.tbadk.core.util.ICDNProblemUploader;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.httpNet.ICDNIPDirectConnect;
 import com.baidu.tbadk.switchs.UseHttpdnsSdkSwitch;
-import com.baidu.tieba.f75;
-import com.baidu.tieba.fc5;
+import com.baidu.tieba.ba9;
+import com.baidu.tieba.bn9;
+import com.baidu.tieba.cn9;
+import com.baidu.tieba.g75;
+import com.baidu.tieba.ga9;
+import com.baidu.tieba.gc5;
 import com.baidu.tieba.hf;
 import com.baidu.tieba.jg;
-import com.baidu.tieba.lm5;
+import com.baidu.tieba.mm5;
 import com.baidu.tieba.na;
-import com.baidu.tieba.rp5;
-import com.baidu.tieba.t99;
-import com.baidu.tieba.tm9;
-import com.baidu.tieba.tv4;
-import com.baidu.tieba.um9;
+import com.baidu.tieba.sp5;
+import com.baidu.tieba.uv4;
 import com.baidu.tieba.w8;
-import com.baidu.tieba.y99;
-import com.baidu.tieba.yp5;
+import com.baidu.tieba.zp5;
 /* loaded from: classes2.dex */
 public class InitLaunchAsyncTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
@@ -43,7 +43,7 @@ public class InitLaunchAsyncTask extends LaunchTask {
 
     private void initQuickWebViewManager() {
         if (TbadkCoreApplication.getInst().isMainProcess(true)) {
-            t99.n().r();
+            ba9.n().r();
         }
     }
 
@@ -51,8 +51,8 @@ public class InitLaunchAsyncTask extends LaunchTask {
         BdBaseService.setServiceOnCreateCallBack(new na() { // from class: com.baidu.searchbox.task.async.appcreate.InitLaunchAsyncTask.2
             @Override // com.baidu.tieba.na
             public void onServiceCreate() {
-                yp5.e().c(new yp5.b() { // from class: com.baidu.searchbox.task.async.appcreate.InitLaunchAsyncTask.2.1
-                    @Override // com.baidu.tieba.yp5.b
+                zp5.e().c(new zp5.b() { // from class: com.baidu.searchbox.task.async.appcreate.InitLaunchAsyncTask.2.1
+                    @Override // com.baidu.tieba.zp5.b
                     public void onResult(boolean z) {
                         if (z) {
                             BdBaseService.serviceStartFlag = 2;
@@ -67,8 +67,8 @@ public class InitLaunchAsyncTask extends LaunchTask {
 
     public void intReadThreadHistory() {
         if (TbadkCoreApplication.getInst().isMainProcess(true)) {
-            TbadkApplication.getInst().mReadThreadHistory = new um9(300);
-            TbadkApplication.getInst().mPhotoLiveReadHistory = new tm9(300);
+            TbadkApplication.getInst().mReadThreadHistory = new cn9(300);
+            TbadkApplication.getInst().mPhotoLiveReadHistory = new bn9(300);
             w8.f().s(TbadkApplication.getInst());
         }
     }
@@ -102,18 +102,18 @@ public class InitLaunchAsyncTask extends LaunchTask {
         if (TbadkCoreApplication.getInst().isMainProcess(true) && ICDNIPDirectConnect.getInstance() != null) {
             ICDNIPDirectConnect.getInstance().init();
         }
-        lm5.b().n(System.currentTimeMillis() - currentTimeMillis);
+        mm5.b().n(System.currentTimeMillis() - currentTimeMillis);
     }
 
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public void execute() {
         setServiceOnCreateCallBack();
-        y99.g().j();
-        fc5.j().m(TbadkCoreApplication.getInst().isMainProcess(false));
+        ga9.g().j();
+        gc5.j().m(TbadkCoreApplication.getInst().isMainProcess(false));
         intReadThreadHistory();
-        f75.c();
-        tv4.t().B();
-        rp5.m().s(TbadkCoreApplication.getInst());
+        g75.c();
+        uv4.t().B();
+        sp5.m().s(TbadkCoreApplication.getInst());
         initICDN();
         initQuickWebViewManager();
         if (TbadkCoreApplication.getInst().isMainProcess(false)) {
@@ -128,13 +128,13 @@ public class InitLaunchAsyncTask extends LaunchTask {
                         UrlManager.getInstance().dealOneLink(null, new String[]{str2});
                     }
                 });
-                lm5.b().q(System.currentTimeMillis() - currentTimeMillis);
+                mm5.b().q(System.currentTimeMillis() - currentTimeMillis);
             }
         }
         EmotionUtil.statisticsEmotionGroupNums();
         ColdStartStatsUtil.startUBCStats(TbadkCoreApplication.getInst().isMainProcess(false));
         if (TbadkCoreApplication.getInst().isRemoteProcess()) {
-            lm5.b().g(System.currentTimeMillis() - TbadkCoreApplication.getInst().processCreateTime);
+            mm5.b().g(System.currentTimeMillis() - TbadkCoreApplication.getInst().processCreateTime);
         }
     }
 }

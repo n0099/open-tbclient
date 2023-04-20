@@ -1,7 +1,15 @@
 package com.baidu.tieba;
 /* loaded from: classes5.dex */
 public interface j92 {
-    void a(du1 du1Var);
+    boolean a(String str);
 
-    void b(du1 du1Var);
+    void b(int i);
+
+    void c(int i, String str, String str2);
+
+    void d(String str);
+
+    void e(String str);
+
+    void goBack();
 }

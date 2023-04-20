@@ -14,8 +14,8 @@ public final class b extends com.kwad.components.ad.draw.kwai.a {
     public DrawCardApp bC;
     public DrawCardH5 bD;
     public ViewGroup bh;
-    public a.InterfaceC0545a bz = new a.InterfaceC0545a() { // from class: com.kwad.components.ad.draw.a.a.b.1
-        @Override // com.kwad.components.ad.draw.a.a.a.InterfaceC0545a
+    public a.InterfaceC0544a bz = new a.InterfaceC0544a() { // from class: com.kwad.components.ad.draw.a.a.b.1
+        @Override // com.kwad.components.ad.draw.a.a.a.InterfaceC0544a
         public final void ax() {
             b.this.ax();
         }
@@ -99,6 +99,6 @@ public final class b extends com.kwad.components.ad.draw.kwai.a {
         super.onUnbind();
         this.bC.release();
         this.bD.release();
-        this.aK.ba.a((a.InterfaceC0545a) null);
+        this.aK.ba.a((a.InterfaceC0544a) null);
     }
 }

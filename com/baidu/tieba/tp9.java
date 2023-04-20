@@ -2,8 +2,6 @@ package com.baidu.tieba;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tieba.interest.InterestPanelShowManager;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,15 +12,16 @@ public class tp9 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
+    public final ro9 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tp9(MainTabActivity mainTabActivity, jo9 jo9Var) {
-        super(2921673);
+    public tp9(MainTabActivity mainTabActivity, ro9 ro9Var) {
+        super(2921348);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, jo9Var};
+            Object[] objArr = {mainTabActivity, ro9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,16 +33,20 @@ public class tp9 extends CustomMessageListener {
             }
         }
         this.a = mainTabActivity;
+        this.b = ro9Var;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        ro9 ro9Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-            InterestPanelShowManager.a().e(this.a, true);
-            TbSingleton.getInstance();
-            TbSingleton.setExceptInsertAdDiaShow(true);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean) && (ro9Var = this.b) != null && ro9Var.y() != null) {
+            if (!((Boolean) customResponsedMessage.getData()).booleanValue()) {
+                this.b.y().getTabWrapper().animate().translationY(this.b.y().getTabWrapper().getHeight()).setDuration(200L).start();
+            } else {
+                this.b.y().getTabWrapper().animate().translationY(0.0f).setDuration(400L).start();
+            }
         }
     }
 }

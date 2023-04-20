@@ -4,7 +4,7 @@ import android.content.Context;
 import com.xiaomi.push.hh;
 import com.xiaomi.push.ig;
 import com.xiaomi.push.ir;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class ch implements Runnable {
     public final /* synthetic */ ig a;
 

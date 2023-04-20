@@ -19,12 +19,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h85;
 import com.baidu.tieba.homepage.framework.indicator.PagerSlidingTabStrip;
 import com.baidu.tieba.homepage.personalize.view.NewHotTipLabelView;
+import com.baidu.tieba.i85;
 import com.baidu.tieba.ii;
 import com.baidu.tieba.jg;
-import com.baidu.tieba.qo7;
+import com.baidu.tieba.ro7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -326,15 +326,15 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
         }
     }
 
-    public void setHotLabelData(h85 h85Var) {
+    public void setHotLabelData(i85 i85Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, h85Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048595, this, i85Var) == null) {
             if (this.c == null) {
                 y();
             }
             NewHotTipLabelView newHotTipLabelView = this.c;
             if (newHotTipLabelView != null) {
-                newHotTipLabelView.setData(h85Var);
+                newHotTipLabelView.setData(i85Var);
             }
         }
     }
@@ -625,7 +625,7 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
             if (newHotTipLabelView != null) {
                 newHotTipLabelView.setVisibility(8);
                 this.d.setVisibility(8);
-                qo7.c("key_new_hot_tip_dismiss_time", System.currentTimeMillis());
+                ro7.c("key_new_hot_tip_dismiss_time", System.currentTimeMillis());
                 this.c.c();
             }
             ViewTreeObserver viewTreeObserver = getViewTreeObserver();

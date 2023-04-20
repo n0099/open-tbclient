@@ -1,85 +1,90 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import android.app.Activity;
+import android.content.Context;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.dialog.TBAlertBuilder;
+import com.baidu.tbadk.core.dialog.TBAlertConfig;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.concurrent.ConcurrentHashMap;
+import tbclient.Anti;
 /* loaded from: classes6.dex */
 public class wz7 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public ConcurrentHashMap<String, ImMessageCenterPojo> a;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a(Iterator<ImMessageCenterPojo> it);
-    }
-
-    public wz7() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new ConcurrentHashMap<>();
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.clear();
-        }
-    }
-
-    public void a(ImMessageCenterPojo imMessageCenterPojo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, imMessageCenterPojo) != null) || imMessageCenterPojo == null) {
-            return;
-        }
-        this.a.put(imMessageCenterPojo.getGid(), imMessageCenterPojo);
-    }
-
-    public ImMessageCenterPojo c(String str) {
+    public static boolean a(@Nullable Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            if (c()) {
+                if (!bq5.a()) {
+                    d(context);
+                    return true;
+                }
+                return true;
             }
-            return this.a.get(str);
-        }
-        return (ImMessageCenterPojo) invokeL.objValue;
-    }
-
-    public void d(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            aVar.a(this.a.values().iterator());
-        }
-    }
-
-    public boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (TextUtils.isEmpty(str) || this.a.remove(str) == null) {
-                return false;
-            }
-            return true;
+            return false;
         }
         return invokeL.booleanValue;
+    }
+
+    public static void b(boolean z, Anti anti) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZL(65537, null, z, anti) == null) && z && anti != null) {
+            if (anti.user_chat_block.intValue() == 1) {
+                e();
+            } else {
+                f();
+            }
+        }
+    }
+
+    public static boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void e() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) && !c()) {
+            a = true;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921720, Boolean.TRUE));
+        }
+    }
+
+    public static void f() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65541, null) == null) && c()) {
+            a = false;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921720, Boolean.FALSE));
+        }
+    }
+
+    public static void d(@Nullable Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65539, null, context) == null) && (context instanceof Activity)) {
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_IM_MESSAGE_BLOCK_DIALOG_SHOW).addParam("uid", TbadkCoreApplication.getCurrentAccount()));
+            TBAlertBuilder tBAlertBuilder = new TBAlertBuilder((Activity) context);
+            tBAlertBuilder.w(R.string.chat_block_dialog_title);
+            tBAlertBuilder.m(R.string.chat_block_dialog_desc);
+            tBAlertBuilder.u(new TBAlertConfig.a((int) R.string.chat_block_dialog_btn, TBAlertConfig.OperateBtnStyle.MAIN));
+            tBAlertBuilder.j(false);
+            tBAlertBuilder.i();
+            tBAlertBuilder.z();
+        }
     }
 }

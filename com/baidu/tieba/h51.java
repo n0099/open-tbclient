@@ -1,7 +1,5 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,9 +14,9 @@ public abstract class h51 {
     public static final h51 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract void a(Context context, ly0 ly0Var, boolean z);
+    public abstract String a(String str);
 
-    public abstract void b(@Nullable String str, @Nullable String str2);
+    public abstract void b(boolean z);
 
     /* loaded from: classes4.dex */
     public static class a extends h51 {
@@ -26,16 +24,19 @@ public abstract class h51 {
         public transient /* synthetic */ FieldHolder $fh;
 
         @Override // com.baidu.tieba.h51
-        public void a(Context context, ly0 ly0Var, boolean z) {
+        public String a(String str) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLZ(1048576, this, context, ly0Var, z) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                return null;
             }
+            return (String) invokeL.objValue;
         }
 
         @Override // com.baidu.tieba.h51
-        public void b(@Nullable String str, @Nullable String str2) {
+        public void b(boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
+            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
             }
         }
 

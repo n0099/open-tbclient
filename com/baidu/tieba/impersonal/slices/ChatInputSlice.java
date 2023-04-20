@@ -7,11 +7,11 @@ import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.tbadk.core.atomData.WriteMulitImageActivityConfig;
-import com.baidu.tieba.ba8;
+import com.baidu.tieba.bc8;
 import com.baidu.tieba.immessagecenter.slice.Slice;
 import com.baidu.tieba.impersonal.components.inputview.ImPersonInputView;
 import com.baidu.tieba.impersonal.databinding.SlicePersonalInputBinding;
-import com.baidu.tieba.tb8;
+import com.baidu.tieba.ja8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,11 +24,11 @@ import kotlin.jvm.internal.Intrinsics;
 public final class ChatInputSlice extends Slice {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final tb8 j;
+    public final bc8 j;
     public ImPersonInputView k;
     public SlicePersonalInputBinding l;
 
-    public ChatInputSlice(tb8 repo) {
+    public ChatInputSlice(bc8 repo) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -87,7 +87,7 @@ public final class ChatInputSlice extends Slice {
             ImPersonInputView imPersonInputView = slicePersonalInputBinding.b;
             this.k = imPersonInputView;
             if (imPersonInputView != null) {
-                new ba8(z().getPageContext(), imPersonInputView, this.j);
+                new ja8(z().getPageContext(), imPersonInputView, this.j);
             }
         }
     }

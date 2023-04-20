@@ -9,17 +9,17 @@ import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.a07;
 import com.baidu.tieba.b07;
-import com.baidu.tieba.i17;
-import com.baidu.tieba.nz6;
-import com.baidu.tieba.pz6;
+import com.baidu.tieba.c07;
+import com.baidu.tieba.j17;
+import com.baidu.tieba.oz6;
 import com.baidu.tieba.qz6;
 import com.baidu.tieba.rz6;
 import com.baidu.tieba.sz6;
-import com.baidu.tieba.uz6;
-import com.baidu.tieba.wz6;
+import com.baidu.tieba.tz6;
+import com.baidu.tieba.vz6;
 import com.baidu.tieba.xz6;
+import com.baidu.tieba.yz6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,30 +29,30 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes4.dex */
-public class TemplateAdapter extends RecyclerView.Adapter<d> implements rz6 {
+public class TemplateAdapter extends RecyclerView.Adapter<d> implements sz6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<? extends b07<?>> a;
-    public final Map<String, a07<?, ?>> b;
+    public List<? extends c07<?>> a;
+    public final Map<String, b07<?, ?>> b;
     public final Map<String, Integer> c;
-    public final Map<Integer, a07<?, ?>> d;
+    public final Map<Integer, b07<?, ?>> d;
     public RecyclerView e;
     public boolean f;
-    public pz6.a g;
-    public pz6.d h;
-    public pz6.c i;
-    public pz6.b j;
+    public qz6.a g;
+    public qz6.d h;
+    public qz6.c i;
+    public qz6.b j;
     public final RecyclerView.OnScrollListener k;
 
     /* loaded from: classes4.dex */
     public static class d extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final a07<?, ?> a;
+        public final b07<?, ?> a;
         public final View b;
-        public b07<?> c;
-        public pz6.a d;
-        public pz6.d e;
+        public c07<?> c;
+        public qz6.a d;
+        public qz6.d e;
 
         /* loaded from: classes4.dex */
         public class a implements View.OnTouchListener {
@@ -84,7 +84,7 @@ public class TemplateAdapter extends RecyclerView.Adapter<d> implements rz6 {
                 InterceptResult invokeLL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
-                    i17.o(this.a, motionEvent);
+                    j17.o(this.a, motionEvent);
                     return false;
                 }
                 return invokeLL.booleanValue;
@@ -92,13 +92,13 @@ public class TemplateAdapter extends RecyclerView.Adapter<d> implements rz6 {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(@NonNull a07<?, ?> a07Var, @NonNull View view2) {
+        public d(@NonNull b07<?, ?> b07Var, @NonNull View view2) {
             super(view2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {a07Var, view2};
+                Object[] objArr = {b07Var, view2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -110,7 +110,7 @@ public class TemplateAdapter extends RecyclerView.Adapter<d> implements rz6 {
                 }
             }
             this.b = view2;
-            this.a = a07Var;
+            this.a = b07Var;
         }
 
         public void a(@NonNull ViewGroup viewGroup) {
@@ -121,22 +121,22 @@ public class TemplateAdapter extends RecyclerView.Adapter<d> implements rz6 {
             }
         }
 
-        public void b(b07<?> b07Var) {
+        public void b(c07<?> c07Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b07Var) == null) {
-                this.c = b07Var;
-                this.a.b(this.b, b07Var.b());
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c07Var) == null) {
+                this.c = c07Var;
+                this.a.b(this.b, c07Var.b());
             }
         }
 
-        public void c(pz6.a aVar) {
+        public void c(qz6.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
                 this.d = aVar;
             }
         }
 
-        public void d(pz6.d dVar) {
+        public void d(qz6.d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, dVar) == null) {
                 this.e = dVar;
@@ -145,7 +145,7 @@ public class TemplateAdapter extends RecyclerView.Adapter<d> implements rz6 {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            pz6.a aVar;
+            qz6.a aVar;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && (aVar = this.d) != null) {
                 aVar.a(view2, this.c, this.a);
@@ -157,7 +157,7 @@ public class TemplateAdapter extends RecyclerView.Adapter<d> implements rz6 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, view2)) == null) {
-                pz6.d dVar = this.e;
+                qz6.d dVar = this.e;
                 if (dVar != null) {
                     return dVar.a(view2, this.c, this.a);
                 }
@@ -197,8 +197,8 @@ public class TemplateAdapter extends RecyclerView.Adapter<d> implements rz6 {
             if ((interceptable == null || interceptable.invokeLI(1048576, this, recyclerView, i) == null) && i == 0) {
                 for (int i2 = 0; i2 < recyclerView.getChildCount(); i2++) {
                     View childAt = recyclerView.getChildAt(i2);
-                    if (childAt instanceof wz6) {
-                        ((wz6) childAt).d();
+                    if (childAt instanceof xz6) {
+                        ((xz6) childAt).d();
                     }
                 }
                 if (this.a.i != null) {
@@ -212,15 +212,15 @@ public class TemplateAdapter extends RecyclerView.Adapter<d> implements rz6 {
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b07 a;
+        public final /* synthetic */ c07 a;
         public final /* synthetic */ TemplateAdapter b;
 
-        public b(TemplateAdapter templateAdapter, b07 b07Var) {
+        public b(TemplateAdapter templateAdapter, c07 c07Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {templateAdapter, b07Var};
+                Object[] objArr = {templateAdapter, c07Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -231,7 +231,7 @@ public class TemplateAdapter extends RecyclerView.Adapter<d> implements rz6 {
                 }
             }
             this.b = templateAdapter;
-            this.a = b07Var;
+            this.a = c07Var;
         }
 
         @Override // java.lang.Runnable
@@ -245,18 +245,18 @@ public class TemplateAdapter extends RecyclerView.Adapter<d> implements rz6 {
     }
 
     /* loaded from: classes4.dex */
-    public class c implements xz6 {
+    public class c implements yz6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b07 a;
+        public final /* synthetic */ c07 a;
         public final /* synthetic */ TemplateAdapter b;
 
-        public c(TemplateAdapter templateAdapter, b07 b07Var) {
+        public c(TemplateAdapter templateAdapter, c07 c07Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {templateAdapter, b07Var};
+                Object[] objArr = {templateAdapter, c07Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -267,10 +267,10 @@ public class TemplateAdapter extends RecyclerView.Adapter<d> implements rz6 {
                 }
             }
             this.b = templateAdapter;
-            this.a = b07Var;
+            this.a = c07Var;
         }
 
-        @Override // com.baidu.tieba.xz6
+        @Override // com.baidu.tieba.yz6
         public void a() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.j != null) {
@@ -299,23 +299,23 @@ public class TemplateAdapter extends RecyclerView.Adapter<d> implements rz6 {
         this.k = new a(this);
     }
 
-    @Override // com.baidu.tieba.pz6
-    public final void c(pz6.b bVar) {
+    @Override // com.baidu.tieba.qz6
+    public final void c(qz6.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
             this.j = bVar;
         }
     }
 
-    @Override // com.baidu.tieba.pz6
-    public void e(pz6.c cVar) {
+    @Override // com.baidu.tieba.qz6
+    public void e(qz6.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
             this.i = cVar;
         }
     }
 
-    @Override // com.baidu.tieba.oz6
+    @Override // com.baidu.tieba.pz6
     public final void f(@NonNull RecyclerView recyclerView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, recyclerView) == null) {
@@ -333,34 +333,34 @@ public class TemplateAdapter extends RecyclerView.Adapter<d> implements rz6 {
         return invokeI.intValue;
     }
 
-    @Override // com.baidu.tieba.pz6
-    public void i(pz6.a aVar) {
+    @Override // com.baidu.tieba.qz6
+    public void i(qz6.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
             this.g = aVar;
         }
     }
 
-    @Override // com.baidu.tieba.oz6
-    public final void j(sz6 sz6Var) {
+    @Override // com.baidu.tieba.pz6
+    public final void j(tz6 tz6Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, sz6Var) == null) && sz6Var != null) {
-            n(sz6Var.a());
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, tz6Var) == null) && tz6Var != null) {
+            n(tz6Var.a());
         }
     }
 
-    public final void n(List<a07<?, ?>> list) {
+    public final void n(List<b07<?, ?>> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048586, this, list) == null) && list != null) {
-            for (a07<?, ?> a07Var : list) {
-                m(a07Var);
+            for (b07<?, ?> b07Var : list) {
+                m(b07Var);
             }
         }
     }
 
-    @Override // com.baidu.tieba.oz6
+    @Override // com.baidu.tieba.pz6
     @SuppressLint({"NotifyDataSetChanged"})
-    public void setList(List<? extends b07<?>> list) {
+    public void setList(List<? extends c07<?>> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, list) == null) {
             this.a = list;
@@ -368,14 +368,14 @@ public class TemplateAdapter extends RecyclerView.Adapter<d> implements rz6 {
         }
     }
 
-    @Override // com.baidu.tieba.uz6
+    @Override // com.baidu.tieba.vz6
     public final void b() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.e != null) {
             for (int i = 0; i < this.e.getChildCount(); i++) {
                 View childAt = this.e.getChildAt(i);
-                if (childAt instanceof uz6) {
-                    ((uz6) childAt).b();
+                if (childAt instanceof vz6) {
+                    ((vz6) childAt).b();
                 }
             }
         }
@@ -386,7 +386,7 @@ public class TemplateAdapter extends RecyclerView.Adapter<d> implements rz6 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            List<? extends b07<?>> list = this.a;
+            List<? extends c07<?>> list = this.a;
             if (list == null) {
                 return 0;
             }
@@ -395,7 +395,7 @@ public class TemplateAdapter extends RecyclerView.Adapter<d> implements rz6 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.oz6
+    @Override // com.baidu.tieba.pz6
     public final void d(@NonNull RecyclerView recyclerView, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, recyclerView, z) == null) {
@@ -419,21 +419,21 @@ public class TemplateAdapter extends RecyclerView.Adapter<d> implements rz6 {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048590, this, viewGroup, i)) == null) {
-            a07<?, ?> a07Var = this.d.get(Integer.valueOf(i));
-            return new d(a07Var, a07Var.a(viewGroup));
+            b07<?, ?> b07Var = this.d.get(Integer.valueOf(i));
+            return new d(b07Var, b07Var.a(viewGroup));
         }
         return (d) invokeLI.objValue;
     }
 
-    public final void m(a07<?, ?> a07Var) {
+    public final void m(b07<?, ?> b07Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, a07Var) == null) {
-            String c2 = a07Var.c();
+        if (interceptable == null || interceptable.invokeL(1048585, this, b07Var) == null) {
+            String c2 = b07Var.c();
             if (!this.b.containsKey(c2) && !TextUtils.isEmpty(c2)) {
                 int size = this.b.size();
-                this.b.put(a07Var.c(), a07Var);
-                this.c.put(a07Var.c(), Integer.valueOf(size));
-                this.d.put(Integer.valueOf(size), a07Var);
+                this.b.put(b07Var.c(), b07Var);
+                this.c.put(b07Var.c(), Integer.valueOf(size));
+                this.d.put(Integer.valueOf(size), b07Var);
                 return;
             }
             throw new IllegalStateException("template name is unique，please check it！+【" + c2 + "】");
@@ -446,23 +446,23 @@ public class TemplateAdapter extends RecyclerView.Adapter<d> implements rz6 {
     public final void onBindViewHolder(@NonNull d dVar, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048587, this, dVar, i) == null) {
-            b07<?> b07Var = this.a.get(i);
+            c07<?> c07Var = this.a.get(i);
             dVar.c(this.g);
             dVar.d(this.h);
             if (this.f) {
                 dVar.a(this.e);
             }
-            if (b07Var.b() instanceof nz6) {
-                ((nz6) b07Var.b()).a(new b(this, b07Var));
+            if (c07Var.b() instanceof oz6) {
+                ((oz6) c07Var.b()).a(new b(this, c07Var));
             }
-            dVar.b(b07Var);
-            pz6.c cVar = this.i;
+            dVar.b(c07Var);
+            qz6.c cVar = this.i;
             if (cVar != null) {
-                cVar.a(b07Var, this.b.get(b07Var.a()), i);
+                cVar.a(c07Var, this.b.get(c07Var.a()), i);
             }
             View view2 = dVar.itemView;
-            if (view2 instanceof qz6) {
-                ((qz6) view2).setOnTemplateClickListener(new c(this, b07Var));
+            if (view2 instanceof rz6) {
+                ((rz6) view2).setOnTemplateClickListener(new c(this, c07Var));
             }
         }
     }

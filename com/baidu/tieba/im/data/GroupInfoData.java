@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.util.AbstractImageProvider;
 import com.baidu.tbadk.core.util.PreLoadImageInfo;
 import com.baidu.tbadk.core.util.PreLoadImageProvider;
 import com.baidu.tieba.gg;
-import com.baidu.tieba.hn;
 import com.baidu.tieba.im.db.pojo.GroupChatRoomPojo;
+import com.baidu.tieba.in;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +25,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class GroupInfoData extends AbstractImageProvider implements hn, Parcelable, Serializable, PreLoadImageProvider {
+public class GroupInfoData extends AbstractImageProvider implements in, Parcelable, Serializable, PreLoadImageProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<GroupInfoData> CREATOR;
     public static final String SHARE_KEY_FID = "fid";
@@ -318,7 +318,7 @@ public class GroupInfoData extends AbstractImageProvider implements hn, Parcelab
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.hn
+    @Override // com.baidu.tieba.in
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

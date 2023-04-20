@@ -1,130 +1,74 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.text.StaticLayout;
-import android.text.TextPaint;
+import android.os.Build;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import kotlin.jvm.functions.Function2;
-import kotlin.jvm.functions.Function4;
 /* loaded from: classes7.dex */
-public final class xxa {
+public class xxa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, Boolean> a;
-    public HashMap<String, Bitmap> b;
-    public HashMap<String, String> c;
-    public HashMap<String, TextPaint> d;
-    public HashMap<String, StaticLayout> e;
-    public HashMap<String, Function2<Canvas, Integer, Boolean>> f;
-    public HashMap<String, Function4<Canvas, Integer, Integer, Integer, Boolean>> g;
-    public boolean h;
 
-    public xxa() {
+    public static void a(WebSettings webSettings) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeL(65536, null, webSettings) == null) && Build.VERSION.SDK_INT >= 11) {
+            webSettings.setAllowContentAccess(false);
+        }
+    }
+
+    public static void b(WebSettings webSettings) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, webSettings) == null) {
+            webSettings.setAllowFileAccess(false);
+            if (Build.VERSION.SDK_INT >= 16) {
+                webSettings.setAllowFileAccessFromFileURLs(false);
+                webSettings.setAllowUniversalAccessFromFileURLs(false);
             }
         }
-        this.a = new HashMap<>();
-        this.b = new HashMap<>();
-        this.c = new HashMap<>();
-        this.d = new HashMap<>();
-        this.e = new HashMap<>();
-        this.f = new HashMap<>();
-        this.g = new HashMap<>();
     }
 
-    public final HashMap<String, Function2<Canvas, Integer, Boolean>> a() {
-        InterceptResult invokeV;
+    public static void c(WebSettings webSettings) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f;
+        if (interceptable == null || interceptable.invokeL(65538, null, webSettings) == null) {
+            webSettings.setGeolocationEnabled(false);
         }
-        return (HashMap) invokeV.objValue;
     }
 
-    public final HashMap<String, Function4<Canvas, Integer, Integer, Integer, Boolean>> b() {
-        InterceptResult invokeV;
+    public static void d(WebSettings webSettings) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.g;
+        if ((interceptable == null || interceptable.invokeL(65539, null, webSettings) == null) && Build.VERSION.SDK_INT >= 21) {
+            webSettings.setMixedContentMode(1);
         }
-        return (HashMap) invokeV.objValue;
     }
 
-    public final HashMap<String, Boolean> c() {
-        InterceptResult invokeV;
+    public static void e(WebSettings webSettings) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, webSettings) == null) && Build.VERSION.SDK_INT <= 18) {
+            webSettings.setSavePassword(false);
         }
-        return (HashMap) invokeV.objValue;
     }
 
-    public final HashMap<String, Bitmap> d() {
-        InterceptResult invokeV;
+    public static void f(WebView webView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeL(65541, null, webView) == null) {
+            WebSettings settings = webView.getSettings();
+            b(settings);
+            g(webView);
+            e(settings);
+            c(settings);
+            d(settings);
+            a(settings);
         }
-        return (HashMap) invokeV.objValue;
     }
 
-    public final HashMap<String, StaticLayout> e() {
-        InterceptResult invokeV;
+    public static void g(WebView webView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.e;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    public final HashMap<String, String> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.c;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    public final HashMap<String, TextPaint> g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.d;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    public final boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.h;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void i(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.h = z;
+        if ((interceptable == null || interceptable.invokeL(65542, null, webView) == null) && Build.VERSION.SDK_INT >= 11) {
+            webView.removeJavascriptInterface("searchBoxJavaBridge_");
+            webView.removeJavascriptInterface("accessibility");
+            webView.removeJavascriptInterface("accessibilityTraversal");
         }
     }
 }

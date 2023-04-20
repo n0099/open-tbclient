@@ -4,8 +4,8 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.jk5;
-import com.baidu.tieba.qq5;
+import com.baidu.tieba.kk5;
+import com.baidu.tieba.rq5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,12 +15,12 @@ import java.util.HashMap;
 import tbclient.ItemPage.DataReq;
 import tbclient.ItemPage.ItemPageReqIdl;
 /* loaded from: classes4.dex */
-public class FrsItemTabRequestData extends OrmObject implements jk5 {
+public class FrsItemTabRequestData extends OrmObject implements kk5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int itemId;
 
-    @Override // com.baidu.tieba.ik5
+    @Override // com.baidu.tieba.jk5
     public HashMap<String, Object> K() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class FrsItemTabRequestData extends OrmObject implements jk5 {
         return (HashMap) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ik5
+    @Override // com.baidu.tieba.jk5
     public HashMap<String, String> O() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -54,7 +54,7 @@ public class FrsItemTabRequestData extends OrmObject implements jk5 {
         }
     }
 
-    @Override // com.baidu.tieba.lk5
+    @Override // com.baidu.tieba.mk5
     public Object n(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
@@ -64,7 +64,7 @@ public class FrsItemTabRequestData extends OrmObject implements jk5 {
             builder.scr_h = Integer.valueOf(ii.j(TbadkCoreApplication.getInst()));
             builder.scr_w = Integer.valueOf(ii.l(TbadkCoreApplication.getInst()));
             builder.scr_dip = Integer.valueOf((int) ii.i(TbadkCoreApplication.getInst()));
-            qq5.c(builder, true, false, true);
+            rq5.c(builder, true, false, true);
             ItemPageReqIdl.Builder builder2 = new ItemPageReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);

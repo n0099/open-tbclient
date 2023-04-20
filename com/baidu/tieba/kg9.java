@@ -1,40 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.http.statistics.NetworkStatRecord;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class kg9 implements lg9 {
+public class kg9 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile jg9 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public kg9() {
+    public static synchronized jg9 a() {
+        InterceptResult invokeV;
+        jg9 jg9Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (kg9.class) {
+                if (a == null) {
+                    a = new jg9();
+                }
+                jg9Var = a;
             }
+            return jg9Var;
         }
-    }
-
-    @Override // com.baidu.tieba.lg9
-    public boolean a(NetworkStatRecord networkStatRecord) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, networkStatRecord)) == null) {
-            if ((networkStatRecord != null && networkStatRecord.from == 3 && jv4.e()) || networkStatRecord == null || networkStatRecord.exception == null) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
+        return (jg9) invokeV.objValue;
     }
 }

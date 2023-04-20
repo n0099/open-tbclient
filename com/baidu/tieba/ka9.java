@@ -1,27 +1,33 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.Drawable;
-import com.baidu.tieba.jb9;
-import com.baidu.tieba.video.VideoItemModel;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes5.dex */
-public interface ka9 {
-    void onDestroy();
+public class ka9 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final long a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void onPause();
-
-    void onPrimary(boolean z);
-
-    void onUserVisibleHint(boolean z);
-
-    void onViewClick();
-
-    void onViewDoubleClick();
-
-    void onViewDragToRight();
-
-    void setDrawables(Drawable drawable, Drawable drawable2, Drawable drawable3, Drawable drawable4, Drawable drawable5, Drawable drawable6);
-
-    void setPageChangeHandler(jb9.a aVar, int i);
-
-    void updateTiebaData(int i, VideoItemModel videoItemModel);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947906502, "Lcom/baidu/tieba/ka9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947906502, "Lcom/baidu/tieba/ka9;");
+                return;
+            }
+        }
+        TimeUnit.DAYS.toMillis(1L);
+        TimeUnit.HOURS.toMillis(1L);
+        TimeUnit.MINUTES.toMillis(1L);
+        a = TimeUnit.SECONDS.toMillis(1L);
+    }
 }

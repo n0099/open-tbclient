@@ -1,114 +1,119 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.bdeventbus.BdEventBus;
-import com.baidu.tieba.kk6;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.interestlabel.view.LabelItemView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class cd8 extends qj1<kk6.a> {
+public class cd8 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
-    public static final Object a;
-    public static final Map<BdUniqueId, ConcurrentLinkedQueue<hk6>> b;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public List<dd8> b;
+    public View.OnClickListener c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947671026, "Lcom/baidu/tieba/cd8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947671026, "Lcom/baidu/tieba/cd8;");
-                return;
-            }
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            return null;
         }
-        a = new Object();
-        b = new HashMap();
+        return invokeI.objValue;
     }
 
-    public cd8() {
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
+
+    public cd8(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.b = new ArrayList();
+        this.a = context;
+    }
+
+    public void a(List<dd8> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, list) != null) || ListUtils.isEmpty(list)) {
+            return;
+        }
+        this.b = list;
+        notifyDataSetChanged();
+    }
+
+    public void b(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
+            this.c = onClickListener;
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qj1
-    /* renamed from: c */
-    public kk6.a createService() throws ServiceNotFoundException {
+    @Override // android.widget.Adapter
+    public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new kk6.a() { // from class: com.baidu.tieba.ad8
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // com.baidu.tieba.kk6.a
-                public final void a(BdUniqueId bdUniqueId) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, bdUniqueId) == null) {
-                        cd8.b(bdUniqueId);
-                    }
-                }
-            };
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            int size = this.b.size();
+            int i = size % 3;
+            int i2 = size / 3;
+            if (i != 0) {
+                return i2 + 1;
+            }
+            return i2;
         }
-        return (kk6.a) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public static void a(@NonNull hk6 hk6Var) {
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        LabelItemView labelItemView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, hk6Var) == null) {
-            BdUniqueId b2 = hk6Var.b();
-            ConcurrentLinkedQueue<hk6> concurrentLinkedQueue = b.get(b2);
-            if (concurrentLinkedQueue == null) {
-                synchronized (a) {
-                    concurrentLinkedQueue = b.get(b2);
-                    if (concurrentLinkedQueue == null) {
-                        concurrentLinkedQueue = new ConcurrentLinkedQueue<>();
-                        b.put(b2, concurrentLinkedQueue);
-                    }
-                }
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                labelItemView = new LabelItemView(this.a);
+            } else {
+                labelItemView = (LabelItemView) view2;
             }
-            synchronized (a) {
-                concurrentLinkedQueue.add(hk6Var);
+            int i2 = i * 3;
+            int min = Math.min(this.b.size(), i2 + 3);
+            boolean z = true;
+            if (i != getCount() - 1) {
+                z = false;
             }
+            labelItemView.setData(this.b.subList(i2, min), z);
+            labelItemView.setOnClickListener(this.c);
+            return labelItemView;
         }
-    }
-
-    public static void b(BdUniqueId bdUniqueId) {
-        ConcurrentLinkedQueue<hk6> concurrentLinkedQueue;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, bdUniqueId) == null) && (concurrentLinkedQueue = b.get(bdUniqueId)) != null) {
-            synchronized (a) {
-                Iterator<hk6> it = concurrentLinkedQueue.iterator();
-                while (it.hasNext()) {
-                    BdEventBus.Companion.getDefault().unregister(it.next());
-                }
-                concurrentLinkedQueue.clear();
-                b.remove(bdUniqueId);
-            }
-        }
+        return (View) invokeILL.objValue;
     }
 }

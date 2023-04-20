@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TbMd5;
 import com.baidu.tieba.ag;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.sm;
+import com.baidu.tieba.tm;
 import com.baidu.tieba.ub;
 import com.baidu.tieba.yb;
 import com.baidu.tieba.zf;
@@ -48,7 +48,7 @@ public class SimpleForeverLoaderProc extends AbstractImageLoaderProc {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.dg
-    public sm getFromLocal(String str, String str2, int i, int i2, ag agVar, Object... objArr) {
+    public tm getFromLocal(String str, String str2, int i, int i2, ag agVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), agVar, objArr})) == null) {
@@ -56,7 +56,7 @@ public class SimpleForeverLoaderProc extends AbstractImageLoaderProc {
             boolean z = false;
             byte[] bArr = new byte[0];
             yb createDiskPicOperate = createDiskPicOperate(TbMd5.getNameMd5FromUrl(str2));
-            sm smVar = null;
+            tm tmVar = null;
             if (createDiskPicOperate == null) {
                 return null;
             }
@@ -85,15 +85,15 @@ public class SimpleForeverLoaderProc extends AbstractImageLoaderProc {
                 }
             }
             if (createDiskPicOperate.isSuccess()) {
-                smVar = createImageFromDiskPicOperate(createDiskPicOperate, str2, i, i2);
+                tmVar = createImageFromDiskPicOperate(createDiskPicOperate, str2, i, i2);
             }
-            if (smVar != null) {
+            if (tmVar != null) {
                 z = true;
             }
             zf.f(z, System.currentTimeMillis() - currentTimeMillis);
-            return smVar;
+            return tmVar;
         }
-        return (sm) invokeCommon.objValue;
+        return (tm) invokeCommon.objValue;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc

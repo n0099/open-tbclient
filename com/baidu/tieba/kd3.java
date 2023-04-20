@@ -1,16 +1,17 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public final class kd3 implements ld3 {
+public final class kd3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public FrameLayout a;
 
     public kd3() {
         Interceptable interceptable = $ic;
@@ -22,34 +23,41 @@ public final class kd3 implements ld3 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = null;
     }
 
-    public static kd3 a() {
-        InterceptResult invokeV;
+    public void a(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new kd3();
+        if ((interceptable != null && interceptable.invokeL(1048576, this, viewGroup) != null) || viewGroup == null) {
+            return;
         }
-        return (kd3) invokeV.objValue;
+        if (this.a == null) {
+            FrameLayout frameLayout = new FrameLayout(viewGroup.getContext());
+            this.a = frameLayout;
+            frameLayout.setBackgroundResource(R.color.obfuscated_res_0x7f06032c);
+        }
+        viewGroup.removeView(this.a);
+        viewGroup.addView(this.a, new FrameLayout.LayoutParams(-1, -1));
     }
 
-    @Override // com.baidu.tieba.ld3
-    @SuppressLint({"BDSoLoader", "UnsafeDynamicallyLoadedCode"})
-    public void load(String str) {
+    public void b(ViewGroup viewGroup) {
+        FrameLayout frameLayout;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            System.load(str);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) == null) && viewGroup != null && (frameLayout = this.a) != null) {
+            viewGroup.removeView(frameLayout);
+            this.a = null;
         }
     }
 
-    @Override // com.baidu.tieba.ld3
-    @SuppressLint({"BDSoLoader"})
-    public void loadLibrary(String str) {
+    public void c(int i) {
+        FrameLayout frameLayout;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            System.loadLibrary(str);
+        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) != null) || (frameLayout = this.a) == null) {
+            return;
         }
+        frameLayout.setVisibility(i);
     }
 }

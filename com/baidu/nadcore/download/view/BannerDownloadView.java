@@ -12,7 +12,7 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import androidx.appcompat.widget.AppCompatTextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.p31;
+import com.baidu.tieba.q31;
 /* loaded from: classes2.dex */
 public class BannerDownloadView extends AppCompatTextView {
     public float a;
@@ -104,7 +104,7 @@ public class BannerDownloadView extends AppCompatTextView {
     }
 
     public final void e(Context context, AttributeSet attributeSet) {
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, p31.nad_progress);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, q31.nad_progress);
         int color = getResources().getColor(R.color.nad_download_button_text_color);
         int color2 = getResources().getColor(R.color.nad_download_button_fg_start);
         int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.nad_progress_button_radian);

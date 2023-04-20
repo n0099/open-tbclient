@@ -1,27 +1,37 @@
 package com.baidu.tieba;
 
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
-public class x94 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
+/* loaded from: classes7.dex */
+public class x94 implements np1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile w94 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized w94 a() {
-        InterceptResult invokeV;
-        w94 w94Var;
+    public x94() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (x94.class) {
-                if (a == null) {
-                    a = new w94();
-                }
-                w94Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return w94Var;
         }
-        return (w94) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.np1
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            z94.c.f();
+        }
     }
 }

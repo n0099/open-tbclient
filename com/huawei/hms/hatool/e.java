@@ -2,7 +2,7 @@ package com.huawei.hms.hatool;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.security.RSAUtil;
-import com.baidu.tieba.uwa;
+import com.baidu.tieba.cxa;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -65,7 +65,7 @@ public class e {
                 return "";
             }
             try {
-                return uwa.a(a(bArr, a(uwa.b(str))));
+                return cxa.a(a(bArr, a(cxa.b(str))));
             } catch (NoSuchAlgorithmException unused) {
                 str2 = "encrypt(): getInstance - No such algorithm,transformation";
                 y.f("hmsSdk", str2);

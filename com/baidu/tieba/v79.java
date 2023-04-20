@@ -1,57 +1,19 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.net.Uri;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.play.cyberPlayer.CyberRemotePlayerService;
-import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class v79 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public HashMap<String, Integer> c;
-
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(v79 v79Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v79Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                TbadkCoreApplication.getInst().getContext().stopService(new Intent(TbadkCoreApplication.getInst().getContext(), CyberRemotePlayerService.class));
-            }
-        }
-    }
+    public int a;
+    public int b;
+    public boolean c;
+    public boolean d;
 
     public v79() {
         Interceptable interceptable = $ic;
@@ -63,82 +25,64 @@ public class v79 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = 0;
+        this.b = 0;
+        this.c = false;
+        this.d = true;
     }
 
-    public boolean b() {
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.b;
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
     }
 
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.a) {
-                y79.f();
-            }
-            return this.a;
+            return this.d;
         }
         return invokeV.booleanValue;
     }
 
-    public boolean a(Uri uri) {
-        InterceptResult invokeL;
+    public boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, uri)) == null) {
-            HashMap<String, Integer> hashMap = this.c;
-            if (hashMap != null && uri != null) {
-                return hashMap.containsKey(uri.getHost());
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public void d(JSONObject jSONObject) {
-        boolean z;
-        boolean z2;
+    public void e(int i, int i2, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+            this.a = i;
+            this.b = i2;
+            this.c = z;
         }
-        boolean z3 = this.a;
-        if (jSONObject.optInt(SetImageWatermarkTypeReqMsg.SWITCH, 0) == 1) {
-            z = true;
-        } else {
-            z = false;
-        }
-        this.a = z;
-        if (jSONObject.optInt("p2p_config", 0) == 1) {
-            z2 = true;
-        } else {
-            z2 = false;
-        }
-        this.b = z2;
-        JSONArray optJSONArray = jSONObject.optJSONArray("domain_list");
-        if (optJSONArray != null) {
-            this.c = new HashMap<>();
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                String optString = optJSONArray.optString(i);
-                if (!StringUtils.isNull(optString)) {
-                    this.c.put(optString, 0);
-                }
-            }
-        }
-        if (this.a) {
-            y79.f();
-            if (!z3) {
-                Intent intent = new Intent(TbadkCoreApplication.getInst().getContext(), CyberRemotePlayerService.class);
-                intent.putExtra("pcdn", true);
-                TbadkCoreApplication.getInst().getContext().startService(intent);
-                jg.a().postDelayed(new a(this), 3000L);
-            }
+    }
+
+    public void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.d = z;
         }
     }
 }

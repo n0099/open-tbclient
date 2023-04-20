@@ -28,12 +28,12 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.commonGroupChatCard.TbGroupChatCardLinkLayout;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fh6;
+import com.baidu.tieba.gh6;
 import com.baidu.tieba.hi;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.mt4;
-import com.baidu.tieba.q25;
-import com.baidu.tieba.t45;
+import com.baidu.tieba.nt4;
+import com.baidu.tieba.r25;
+import com.baidu.tieba.u45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -50,7 +50,7 @@ public class SingleLinkCardView extends RelativeLayout implements View.OnClickLi
     public TextView f;
     public ImageView g;
     public ImageView h;
-    public fh6 i;
+    public gh6 i;
     public View.OnClickListener j;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -144,14 +144,14 @@ public class SingleLinkCardView extends RelativeLayout implements View.OnClickLi
         d();
     }
 
-    public void a(fh6 fh6Var) {
+    public void a(gh6 gh6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, fh6Var) == null) {
-            this.i = fh6Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, gh6Var) == null) {
+            this.i = gh6Var;
             this.a.setPlaceHolder(2);
             this.a.setUseNightOrDarkMask(false);
-            if (fh6Var instanceof PbLinkData) {
-                PbLinkData pbLinkData = (PbLinkData) fh6Var;
+            if (gh6Var instanceof PbLinkData) {
+                PbLinkData pbLinkData = (PbLinkData) gh6Var;
                 this.a.setPlaceHolder(2);
                 this.a.N(pbLinkData.picUrl, 10, false);
                 SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
@@ -163,11 +163,11 @@ public class SingleLinkCardView extends RelativeLayout implements View.OnClickLi
                     int g4 = ii.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
                     int g5 = ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds2);
                     int g6 = ii.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X003);
-                    t45 t45Var = new t45(g, -1, R.color.CAM_X0305, g3, R.color.CAM_X0305, g4, ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds38));
-                    t45Var.b(g2);
-                    t45Var.h(g5);
-                    t45Var.i(g6);
-                    spannableStringBuilder.setSpan(t45Var, 0, pbLinkData.linkFrom.length(), 17);
+                    u45 u45Var = new u45(g, -1, R.color.CAM_X0305, g3, R.color.CAM_X0305, g4, ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds38));
+                    u45Var.b(g2);
+                    u45Var.h(g5);
+                    u45Var.i(g6);
+                    spannableStringBuilder.setSpan(u45Var, 0, pbLinkData.linkFrom.length(), 17);
                 }
                 if (TextUtils.isEmpty(pbLinkData.title) && !TextUtils.isEmpty(pbLinkData.linkUrl)) {
                     spannableStringBuilder.append((CharSequence) pbLinkData.linkUrl);
@@ -215,8 +215,8 @@ public class SingleLinkCardView extends RelativeLayout implements View.OnClickLi
                 if (TextUtils.isEmpty(pbLinkData.title) && !TextUtils.isEmpty(pbLinkData.linkUrl) && TextUtils.isEmpty(pbLinkData.extTxt)) {
                     this.b.setMaxLines(1);
                 }
-            } else if (fh6Var instanceof PbGoodsData) {
-                PbGoodsData pbGoodsData = (PbGoodsData) fh6Var;
+            } else if (gh6Var instanceof PbGoodsData) {
+                PbGoodsData pbGoodsData = (PbGoodsData) gh6Var;
                 this.a.N(pbGoodsData.picUrl, 10, false);
                 SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder();
                 if (!TextUtils.isEmpty(pbGoodsData.linkFrom)) {
@@ -227,11 +227,11 @@ public class SingleLinkCardView extends RelativeLayout implements View.OnClickLi
                     int g10 = ii.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
                     int g11 = ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds2);
                     int g12 = ii.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X003);
-                    t45 t45Var2 = new t45(g7, -1, R.color.CAM_X0305, g9, R.color.CAM_X0305, g10, ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds38));
-                    t45Var2.b(g8);
-                    t45Var2.h(g11);
-                    t45Var2.i(g12);
-                    spannableStringBuilder2.setSpan(t45Var2, 0, pbGoodsData.linkFrom.length(), 17);
+                    u45 u45Var2 = new u45(g7, -1, R.color.CAM_X0305, g9, R.color.CAM_X0305, g10, ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds38));
+                    u45Var2.b(g8);
+                    u45Var2.h(g11);
+                    u45Var2.i(g12);
+                    spannableStringBuilder2.setSpan(u45Var2, 0, pbGoodsData.linkFrom.length(), 17);
                 }
                 if (TextUtils.isEmpty(pbGoodsData.title) && !TextUtils.isEmpty(pbGoodsData.linkUrl)) {
                     spannableStringBuilder2.append((CharSequence) pbGoodsData.linkUrl);
@@ -250,17 +250,17 @@ public class SingleLinkCardView extends RelativeLayout implements View.OnClickLi
                     this.b.setMaxLines(1);
                 }
             }
-            c(fh6Var);
+            c(gh6Var);
         }
     }
 
-    public final void c(@Nullable fh6 fh6Var) {
+    public final void c(@Nullable gh6 gh6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fh6Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gh6Var) == null) {
             View.OnClickListener onClickListener = this.j;
             if (onClickListener != null) {
                 setOnClickListener(onClickListener);
-            } else if ((fh6Var instanceof PbLinkData) && ((PbLinkData) fh6Var).urlType == 5) {
+            } else if ((gh6Var instanceof PbLinkData) && ((PbLinkData) gh6Var).urlType == 5) {
                 setOnClickListener(this);
             } else {
                 setClickable(false);
@@ -290,11 +290,11 @@ public class SingleLinkCardView extends RelativeLayout implements View.OnClickLi
             SkinManager.setBackgroundResource(this, R.drawable.bg_link_card);
             SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0107);
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0305);
-            q25 d = q25.d(this.e);
+            r25 d = r25.d(this.e);
             d.C(R.string.F_X01);
             d.B(R.dimen.T_X09);
             d.w(R.color.CAM_X0109);
-            q25 d2 = q25.d(this.f);
+            r25 d2 = r25.d(this.f);
             d2.C(R.string.F_X01);
             d2.B(R.dimen.T_X09);
             d2.w(R.color.CAM_X0109);
@@ -316,7 +316,7 @@ public class SingleLinkCardView extends RelativeLayout implements View.OnClickLi
             if (i != 1 && i != 5) {
                 UrlManager urlManager = UrlManager.getInstance();
                 TbPageContext<?> pageContext = tbPageContextSupport.getPageContext();
-                urlManager.dealOneLink(pageContext, new String[]{mt4.a + hi.getUrlEncode(pbLinkData.linkUrl)});
+                urlManager.dealOneLink(pageContext, new String[]{nt4.a + hi.getUrlEncode(pbLinkData.linkUrl)});
                 return;
             }
             UrlManager.getInstance().dealOneLink(tbPageContextSupport.getPageContext(), new String[]{pbLinkData.linkUrl});

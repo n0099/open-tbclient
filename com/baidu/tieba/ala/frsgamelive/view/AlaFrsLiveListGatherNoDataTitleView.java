@@ -8,15 +8,15 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.f76;
-import com.baidu.tieba.yf6;
+import com.baidu.tieba.g76;
+import com.baidu.tieba.zf6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class AlaFrsLiveListGatherNoDataTitleView extends yf6<f76> {
+public class AlaFrsLiveListGatherNoDataTitleView extends zf6<g76> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView i;
@@ -24,7 +24,7 @@ public class AlaFrsLiveListGatherNoDataTitleView extends yf6<f76> {
     public TbPageContext k;
     public int l;
 
-    @Override // com.baidu.tieba.yf6
+    @Override // com.baidu.tieba.zf6
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -91,16 +91,16 @@ public class AlaFrsLiveListGatherNoDataTitleView extends yf6<f76> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.yf6
+    @Override // com.baidu.tieba.zf6
     /* renamed from: r */
-    public void l(f76 f76Var) {
+    public void l(g76 g76Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, f76Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, g76Var) == null) {
             m(this.k, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    @Override // com.baidu.tieba.yf6
+    @Override // com.baidu.tieba.zf6
     public void m(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) && this.l != i) {

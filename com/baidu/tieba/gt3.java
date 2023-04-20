@@ -1,69 +1,227 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.swan.pms.PMSConstants;
-import com.baidu.tieba.dh4;
+import com.baidu.searchbox.download.center.clearcache.controller.ClearCacheUbcController;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.core.container.NgWebView;
+import com.baidu.tieba.g73;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import org.json.JSONObject;
-@Singleton
 @Service
 /* loaded from: classes4.dex */
-public class gt3 implements ei4 {
+public class gt3 implements ot1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public in3 a;
+
+    @Override // com.baidu.tieba.ot1
+    public void d(String str, Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, context) == null) {
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class a implements g73.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SwanAppActivity a;
+        public final /* synthetic */ String b;
+
+        public a(gt3 gt3Var, SwanAppActivity swanAppActivity, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gt3Var, swanAppActivity, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = swanAppActivity;
+            this.b = str;
+        }
+
+        @Override // com.baidu.tieba.g73.a
+        public void a(g73 g73Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, g73Var) == null) {
+                uv2.d(g73Var.c(), this.a, this.b);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b extends sk2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SwanAppActivity a;
+        public final /* synthetic */ gt3 b;
+
+        public b(gt3 gt3Var, SwanAppActivity swanAppActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gt3Var, swanAppActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = gt3Var;
+            this.a = swanAppActivity;
+        }
+
+        @Override // com.baidu.tieba.sk2, com.baidu.tieba.tk2
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.a.j();
+                this.a.H0(this);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947805411, "Lcom/baidu/tieba/gt3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947805411, "Lcom/baidu/tieba/gt3;");
+                return;
+            }
+        }
+        boolean z = fo1.a;
+    }
 
     public gt3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.dh4
-    public void b(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, dh4.a aVar) {
+    @Override // com.baidu.tieba.ot1
+    public void a(NgWebView ngWebView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048576, this, str, map, map2, jSONObject, aVar) == null) {
-            if (PMSConstants.a(ff4.b())) {
-                xg4.b(str, map, map2, jSONObject, new xq3(aVar));
-            } else {
-                xg4.b(str, map, map2, jSONObject, new eh4(aVar));
+        if (interceptable == null || interceptable.invokeL(1048576, this, ngWebView) == null) {
+            ngWebView.doSelectionCancel();
+        }
+    }
+
+    @Override // com.baidu.tieba.ot1
+    public void b(NgWebView ngWebView, String str) {
+        SwanAppActivity w;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ngWebView, str) == null) && (w = u73.K().w()) != null && !TextUtils.isEmpty(str)) {
+            this.a = new in3(ngWebView.covertToView());
+            int[] g = g(w);
+            int[] h = h(w);
+            for (int i = 0; i < g.length; i++) {
+                this.a.e(g[i], h[i]);
+            }
+            this.a.r(new a(this, w, str));
+            this.a.t();
+            w.v0(new b(this, w));
+        }
+    }
+
+    @Override // com.baidu.tieba.ot1
+    public void c(NgWebView ngWebView, int i, int i2, int i3, int i4, String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{ngWebView, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str, Boolean.valueOf(z)}) == null) {
+            ngWebView.updateAndShowPopupWindow(i3, i4, i, i2, str, true);
+            if (z) {
+                i("show", null, null);
             }
         }
     }
 
-    @Override // com.baidu.tieba.ei4
-    public qh4 c(String str, int i) throws Exception {
-        InterceptResult invokeLI;
+    @Override // com.baidu.tieba.ot1
+    public void e(String str, Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
-            return oh4.a(str, i);
+        if ((interceptable != null && interceptable.invokeLL(1048580, this, str, context) != null) || TextUtils.isEmpty(str)) {
+            return;
         }
-        return (qh4) invokeLI.objValue;
+        ql3.b(context).c(str);
+        i("click", "copy", null);
     }
 
-    @Override // com.baidu.tieba.dh4
-    public void z(String str, Map<String, String> map, Map<String, String> map2, dh4.a aVar) {
+    public int[] g(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, str, map, map2, aVar) == null) {
-            if (PMSConstants.a(ff4.b())) {
-                xg4.a(str, map, map2, new xq3(aVar));
-            } else {
-                xg4.a(str, map, map2, new eh4(aVar));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
+            int[] iArr = {7, 6, 8};
+            if (!xk3.a(context, "android.permission.SET_WALLPAPER")) {
+                int[] iArr2 = new int[2];
+                System.arraycopy(iArr, 0, iArr2, 0, 2);
+                return iArr2;
             }
+            return iArr;
+        }
+        return (int[]) invokeL.objValue;
+    }
+
+    public int[] h(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) {
+            int[] iArr = {R.string.obfuscated_res_0x7f0f132d, R.string.obfuscated_res_0x7f0f132f, R.string.obfuscated_res_0x7f0f1333};
+            if (!xk3.a(context, "android.permission.SET_WALLPAPER")) {
+                int[] iArr2 = new int[2];
+                System.arraycopy(iArr, 0, iArr2, 0, 2);
+                return iArr2;
+            }
+            return iArr;
+        }
+        return (int[]) invokeL.objValue;
+    }
+
+    public void i(@NonNull String str, @Nullable String str2, @Nullable String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048583, this, str, str2, str3) == null) {
+            xe3 xe3Var = new xe3();
+            xe3Var.a = ClearCacheUbcController.FROM_VALUE;
+            xe3Var.f = u73.K().getAppId();
+            xe3Var.c = "miniapp";
+            xe3Var.g = "text";
+            xe3Var.b = str;
+            xe3Var.e = str2;
+            if (!TextUtils.isEmpty(str3)) {
+                xe3Var.a("query", str3);
+            }
+            oe3.x("810", xe3Var);
         }
     }
 }

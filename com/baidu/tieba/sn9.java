@@ -1,28 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes6.dex */
-public class sn9 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public boolean b;
-    public String c;
+public interface sn9 {
+    void a(TbPageContext<?> tbPageContext);
 
-    public sn9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void b(String str);
+
+    boolean c(yi yiVar, int i);
+
+    void cancelRecord();
+
+    void d(int i);
+
+    void e(yi yiVar);
+
+    boolean f();
+
+    void release();
+
+    void stopRecord();
 }

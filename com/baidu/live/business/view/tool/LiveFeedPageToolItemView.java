@@ -12,9 +12,9 @@ import android.widget.TextView;
 import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.spswitch.emotion.view.CircleIndicator;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ac0;
-import com.baidu.tieba.j90;
-import com.baidu.tieba.wb0;
+import com.baidu.tieba.bc0;
+import com.baidu.tieba.k90;
+import com.baidu.tieba.xb0;
 import com.facebook.drawee.view.SimpleDraweeView;
 /* loaded from: classes2.dex */
 public class LiveFeedPageToolItemView extends FrameLayout {
@@ -56,8 +56,8 @@ public class LiveFeedPageToolItemView extends FrameLayout {
     }
 
     public void c() {
-        wb0.f(this.a, j90.c(getContext().getResources(), 19.0f), j90.c(getContext().getResources(), 19.0f));
-        wb0.h(this.b, 1, 9.0f);
+        xb0.f(this.a, k90.c(getContext().getResources(), 19.0f), k90.c(getContext().getResources(), 19.0f));
+        xb0.h(this.b, 1, 9.0f);
     }
 
     public void d() {
@@ -150,7 +150,7 @@ public class LiveFeedPageToolItemView extends FrameLayout {
             this.a.setImageResource(i);
         }
         setData(str);
-        b(ac0.f().r(), z);
+        b(bc0.f().r(), z);
     }
 
     public void setData(boolean z, String str, String str2) {
@@ -159,6 +159,6 @@ public class LiveFeedPageToolItemView extends FrameLayout {
             simpleDraweeView.setImageURI(str);
         }
         setData(str2);
-        b(ac0.f().r(), z);
+        b(bc0.f().r(), z);
     }
 }

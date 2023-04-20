@@ -9,8 +9,8 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.am;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.zl;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -93,7 +93,7 @@ public class AiAppGuideActivity extends BaseActivity {
             setContentView(R.layout.obfuscated_res_0x7f0d0029);
             GifView gifView = (GifView) findViewById(R.id.obfuscated_res_0x7f0927bf);
             this.a = gifView;
-            gifView.setGifFile(zl.b("aiapp_guide.gif"));
+            gifView.setGifFile(am.b("aiapp_guide.gif"));
             ImageView imageView = (ImageView) findViewById(R.id.img_close);
             this.b = imageView;
             imageView.setOnClickListener(this.c);

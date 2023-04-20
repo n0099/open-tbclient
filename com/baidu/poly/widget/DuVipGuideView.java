@@ -13,7 +13,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qf1;
+import com.baidu.tieba.rf1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -88,7 +88,7 @@ public class DuVipGuideView extends RelativeLayout {
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        qf1.b().a(this.a, jSONObject.optString("icon_url"));
+        rf1.b().a(this.a, jSONObject.optString("icon_url"));
         this.b.setText(jSONObject.optString("display_msg"));
         String optString = jSONObject.optString("redirect_display_msg");
         if (TextUtils.isEmpty(optString)) {

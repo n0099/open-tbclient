@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.imageManager.TbFaceManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.hi;
-import com.baidu.tieba.hv4;
+import com.baidu.tieba.iv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -88,7 +88,7 @@ public class ItemInfoView extends LinearLayout {
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumDetailActivity, i) == null) {
             boolean z = true;
             SkinManager.setViewTextColor(this.a, R.color.common_color_10177, 1);
-            hv4 layoutMode = forumDetailActivity.getLayoutMode();
+            iv4 layoutMode = forumDetailActivity.getLayoutMode();
             if (i != 4) {
                 z = false;
             }

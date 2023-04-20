@@ -8,14 +8,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ce4;
-import com.baidu.tieba.zn4;
+import com.baidu.tieba.ao4;
+import com.baidu.tieba.de4;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class MenuContentAdapter extends RecyclerView.Adapter<a> {
-    public List<ce4> a = new ArrayList();
-    public List<ce4> b = new ArrayList();
+    public List<de4> a = new ArrayList();
+    public List<de4> b = new ArrayList();
     public int c;
     public Context d;
 
@@ -105,11 +105,11 @@ public class MenuContentAdapter extends RecyclerView.Adapter<a> {
         return new a(inflate);
     }
 
-    public void n(List<List<ce4>> list, boolean z, int i) {
+    public void n(List<List<de4>> list, boolean z, int i) {
         int max;
         float f;
-        List<ce4> list2;
-        List<ce4> list3;
+        List<de4> list2;
+        List<de4> list3;
         this.a.clear();
         this.b.clear();
         if (list == null) {
@@ -132,10 +132,10 @@ public class MenuContentAdapter extends RecyclerView.Adapter<a> {
         } else {
             f = 5.0f;
         }
-        if (zn4.d()) {
+        if (ao4.d()) {
             Context context = this.d;
-            if ((context instanceof Activity) && zn4.e((Activity) context)) {
-                max = zn4.a((Activity) this.d);
+            if ((context instanceof Activity) && ao4.e((Activity) context)) {
+                max = ao4.a((Activity) this.d);
             }
         }
         this.c = (int) (max / f);

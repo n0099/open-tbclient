@@ -14,7 +14,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.bg;
 import com.baidu.tieba.cg;
-import com.baidu.tieba.sm;
+import com.baidu.tieba.tm;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,10 +26,10 @@ public class IrregularImageView extends AppCompatImageView {
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public int b;
-    public final bg<sm> c;
+    public final bg<tm> c;
 
     /* loaded from: classes6.dex */
-    public class a extends bg<sm> {
+    public class a extends bg<tm> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ IrregularImageView a;
@@ -54,10 +54,10 @@ public class IrregularImageView extends AppCompatImageView {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.bg
-        public void onLoaded(sm smVar, String str, int i) {
+        public void onLoaded(tm tmVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, smVar, str, i) == null) {
-                if (smVar == null) {
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, tmVar, str, i) == null) {
+                if (tmVar == null) {
                     if (this.a.b != 0) {
                         Bitmap bitmap = null;
                         try {
@@ -74,7 +74,7 @@ public class IrregularImageView extends AppCompatImageView {
                     }
                     return;
                 }
-                this.a.setImage(smVar.p(), this.a.a);
+                this.a.setImage(tmVar.p(), this.a.a);
             }
         }
     }

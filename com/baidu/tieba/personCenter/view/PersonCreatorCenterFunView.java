@@ -21,7 +21,7 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.it4;
+import com.baidu.tieba.jt4;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -139,7 +139,7 @@ public class PersonCreatorCenterFunView extends LinearLayout implements View.OnC
     public final void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            TbWebViewActivityConfig g = it4.g(getContext(), "", str, true);
+            TbWebViewActivityConfig g = jt4.g(getContext(), "", str, true);
             g.setFixTitle(true);
             g.start();
         }

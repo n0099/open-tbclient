@@ -1,118 +1,65 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.mainTab.FragmentTabIndicator;
-import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
-import com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsLiveFragment;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class i76 extends ug5 {
+public class i76 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId b;
+    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public AlaFrsLiveFragment c;
+    public ThreadData a;
 
-    @Override // com.baidu.tieba.ug5
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return true;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947806465, "Lcom/baidu/tieba/i76;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947806465, "Lcom/baidu/tieba/i76;");
+                return;
+            }
         }
-        return invokeV.booleanValue;
+        b = BdUniqueId.gen();
+        c = BdUniqueId.gen();
     }
 
-    public i76(boolean z) {
+    public i76() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        AlaFrsLiveFragment alaFrsLiveFragment = new AlaFrsLiveFragment();
-        this.c = alaFrsLiveFragment;
-        alaFrsLiveFragment.S1(z);
-        b().a = this.c;
     }
 
-    @Override // com.baidu.tieba.ug5
-    public vg5 a() {
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.in
+    public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            vg5 vg5Var = new vg5();
-            vg5Var.e = 2;
-            vg5Var.b = R.string.ala_live;
-            vg5Var.i = vg5.k;
-            return vg5Var;
+            ThreadData threadData = this.a;
+            if (threadData != null && threadData.getThreadAlaInfo() != null && this.a.getThreadAlaInfo().live_type == 1) {
+                return c;
+            }
+            return b;
         }
-        return (vg5) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ug5
-    public TbFragmentTabIndicator c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
-            this.b = fragmentTabIndicator;
-            fragmentTabIndicator.setTextSize(2.0f);
-            return this.b;
-        }
-        return (TbFragmentTabIndicator) invokeL.objValue;
-    }
-
-    public void g(String str) {
-        AlaFrsLiveFragment alaFrsLiveFragment;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && (alaFrsLiveFragment = this.c) != null) {
-            alaFrsLiveFragment.O1(str);
-        }
-    }
-
-    public void h(String str) {
-        AlaFrsLiveFragment alaFrsLiveFragment;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (alaFrsLiveFragment = this.c) != null) {
-            alaFrsLiveFragment.P1(str);
-        }
-    }
-
-    public void i(String str) {
-        AlaFrsLiveFragment alaFrsLiveFragment;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && (alaFrsLiveFragment = this.c) != null) {
-            alaFrsLiveFragment.Q1(str);
-        }
-    }
-
-    public void j(int i) {
-        AlaFrsLiveFragment alaFrsLiveFragment;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048582, this, i) == null) && (alaFrsLiveFragment = this.c) != null) {
-            alaFrsLiveFragment.R1(i);
-        }
-    }
-
-    public void k(boolean z) {
-        AlaFrsLiveFragment alaFrsLiveFragment;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048583, this, z) == null) && (alaFrsLiveFragment = this.c) != null) {
-            alaFrsLiveFragment.T1(z);
-        }
+        return (BdUniqueId) invokeV.objValue;
     }
 }

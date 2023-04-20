@@ -13,17 +13,17 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a9b;
-import com.baidu.tieba.e9b;
-import com.baidu.tieba.f6b;
+import com.baidu.tieba.bab;
+import com.baidu.tieba.g9b;
+import com.baidu.tieba.gab;
 import com.baidu.tieba.hab;
 import com.baidu.tieba.i9b;
-import com.baidu.tieba.j7b;
-import com.baidu.tieba.l9b;
+import com.baidu.tieba.m9b;
+import com.baidu.tieba.n6b;
+import com.baidu.tieba.pab;
+import com.baidu.tieba.q9b;
+import com.baidu.tieba.r7b;
 import com.baidu.tieba.t9b;
-import com.baidu.tieba.y8b;
-import com.baidu.tieba.y9b;
-import com.baidu.tieba.z9b;
 import com.yy.mobile.framework.revenuesdk.baseapi.IResult;
 import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
@@ -39,17 +39,17 @@ import tv.athena.revenue.payui.model.PayUIKitConfig;
 import tv.athena.revenue.payui.view.WindowParams;
 import tv.athena.revenue.payui.view.adapter.PaySplitOrderAdapter;
 /* loaded from: classes9.dex */
-public class YYPaySplitOrderView extends LinearLayout implements hab {
+public class YYPaySplitOrderView extends LinearLayout implements pab {
     public Activity a;
     public int b;
     public int c;
     public PayUIKitConfig d;
-    public hab.b e;
-    public hab.a f;
+    public pab.b e;
+    public pab.a f;
     public View g;
     public ImageView h;
-    public j7b i;
-    public y8b j;
+    public r7b i;
+    public g9b j;
     public RecyclerView k;
     public TextView l;
     public TextView m;
@@ -58,12 +58,12 @@ public class YYPaySplitOrderView extends LinearLayout implements hab {
     public List<SplitRecordItem> p;
     public PayFlowType q;
 
-    @Override // com.baidu.tieba.cab
+    @Override // com.baidu.tieba.kab
     public View getContentView() {
         return this;
     }
 
-    @Override // com.baidu.tieba.cab
+    @Override // com.baidu.tieba.kab
     public void refreshWindow(WindowParams windowParams) {
     }
 
@@ -77,7 +77,7 @@ public class YYPaySplitOrderView extends LinearLayout implements hab {
             long j;
             String str;
             RLog.info("YYPaySplitOrderView", "onLinkItemClick mPayAmount:" + YYPaySplitOrderView.this.j + " item:" + splitRecordItem);
-            t9b.a(YYPaySplitOrderView.this.a, splitRecordItem.value);
+            bab.a(YYPaySplitOrderView.this.a, splitRecordItem.value);
             if (YYPaySplitOrderView.this.j != null) {
                 j = (long) YYPaySplitOrderView.this.j.c();
             } else {
@@ -91,7 +91,7 @@ public class YYPaySplitOrderView extends LinearLayout implements hab {
             String str2 = str;
             int i = YYPaySplitOrderView.this.b;
             int i2 = YYPaySplitOrderView.this.c;
-            e9b.d(i, i2, str2, "", "", "" + j);
+            m9b.d(i, i2, str2, "", "", "" + j);
         }
 
         @Override // tv.athena.revenue.payui.view.adapter.PaySplitOrderAdapter.c
@@ -100,7 +100,7 @@ public class YYPaySplitOrderView extends LinearLayout implements hab {
             String str;
             RLog.info("YYPaySplitOrderView", "onPayAmoyntItemClick mPayAmount:" + YYPaySplitOrderView.this.j + " item:" + splitRecordItem);
             if (YYPaySplitOrderView.this.f != null) {
-                y8b a = i9b.a((int) (y9b.d(splitRecordItem.value) * 100.0d), YYPaySplitOrderView.this.d);
+                g9b a = q9b.a((int) (gab.d(splitRecordItem.value) * 100.0d), YYPaySplitOrderView.this.d);
                 a.d(splitRecordItem.id);
                 YYPaySplitOrderView.this.f.a(a);
             }
@@ -117,7 +117,7 @@ public class YYPaySplitOrderView extends LinearLayout implements hab {
             String str2 = str;
             int i = YYPaySplitOrderView.this.b;
             int i2 = YYPaySplitOrderView.this.c;
-            e9b.d(i, i2, str2, "", "", "" + j);
+            m9b.d(i, i2, str2, "", "", "" + j);
         }
     }
 
@@ -146,7 +146,7 @@ public class YYPaySplitOrderView extends LinearLayout implements hab {
             String str2 = str;
             int i = YYPaySplitOrderView.this.b;
             int i2 = YYPaySplitOrderView.this.c;
-            e9b.d(i, i2, str2, "", "", "" + j);
+            m9b.d(i, i2, str2, "", "", "" + j);
         }
     }
 
@@ -183,9 +183,9 @@ public class YYPaySplitOrderView extends LinearLayout implements hab {
         }
     }
 
-    public YYPaySplitOrderView(Activity activity, PayUIKitConfig payUIKitConfig, int i, int i2, hab.b bVar, j7b j7bVar) {
+    public YYPaySplitOrderView(Activity activity, PayUIKitConfig payUIKitConfig, int i, int i2, pab.b bVar, r7b r7bVar) {
         super(activity);
-        y8b y8bVar;
+        g9b g9bVar;
         long j;
         String str;
         this.p = new ArrayList();
@@ -194,19 +194,19 @@ public class YYPaySplitOrderView extends LinearLayout implements hab {
         this.e = bVar;
         this.b = i;
         this.c = i2;
-        this.i = j7bVar;
+        this.i = r7bVar;
         if (bVar != null) {
-            y8bVar = bVar.a;
+            g9bVar = bVar.a;
         } else {
-            y8bVar = null;
+            g9bVar = null;
         }
-        this.j = y8bVar;
-        hab.b bVar2 = this.e;
+        this.j = g9bVar;
+        pab.b bVar2 = this.e;
         this.q = bVar2 != null ? bVar2.c : null;
         o(activity);
-        y8b y8bVar2 = this.j;
-        if (y8bVar2 != null) {
-            j = (long) y8bVar2.c();
+        g9b g9bVar2 = this.j;
+        if (g9bVar2 != null) {
+            j = (long) g9bVar2.c();
         } else {
             j = -1;
         }
@@ -217,10 +217,10 @@ public class YYPaySplitOrderView extends LinearLayout implements hab {
         }
         String str2 = str;
         RLog.debug("YYPaySplitOrderView", "mPayFlowType:" + this.q + " event:" + str2);
-        e9b.d(this.b, this.c, str2, "", "", "" + j);
+        m9b.d(this.b, this.c, str2, "", "", "" + j);
     }
 
-    @Override // com.baidu.tieba.cab
+    @Override // com.baidu.tieba.kab
     public void attachWindow(Window window) {
         w(window);
     }
@@ -228,9 +228,9 @@ public class YYPaySplitOrderView extends LinearLayout implements hab {
     public final void r(SplitOrderConfigResult splitOrderConfigResult) {
         List<SplitRecordItem> list;
         if (splitOrderConfigResult != null && (list = splitOrderConfigResult.splitRecordItemList) != null && !list.isEmpty()) {
-            j7b j7bVar = this.i;
-            if (j7bVar != null) {
-                j7bVar.c(new a9b(splitOrderConfigResult, this.e));
+            r7b r7bVar = this.i;
+            if (r7bVar != null) {
+                r7bVar.c(new i9b(splitOrderConfigResult, this.e));
             }
             v(splitOrderConfigResult);
             return;
@@ -238,8 +238,8 @@ public class YYPaySplitOrderView extends LinearLayout implements hab {
         q(-1, "splitRecordItemList null");
     }
 
-    @Override // com.baidu.tieba.hab
-    public void setCallback(hab.a aVar) {
+    @Override // com.baidu.tieba.pab
+    public void setCallback(pab.a aVar) {
         this.f = aVar;
     }
 
@@ -258,19 +258,19 @@ public class YYPaySplitOrderView extends LinearLayout implements hab {
     }
 
     public final void q(int i, String str) {
-        hab.a aVar = this.f;
+        pab.a aVar = this.f;
         if (aVar != null) {
             aVar.onRefreshViewFail(i, str);
         }
     }
 
-    @Override // com.baidu.tieba.hab
+    @Override // com.baidu.tieba.pab
     public void a() {
         long j;
         String str;
-        y8b y8bVar = this.j;
-        if (y8bVar != null) {
-            j = (long) y8bVar.c();
+        g9b g9bVar = this.j;
+        if (g9bVar != null) {
+            j = (long) g9bVar.c();
         } else {
             j = -1;
         }
@@ -281,30 +281,30 @@ public class YYPaySplitOrderView extends LinearLayout implements hab {
         }
         int i = this.b;
         int i2 = this.c;
-        e9b.d(i, i2, str, "", "", "" + j);
+        m9b.d(i, i2, str, "", "", "" + j);
         RLog.info("YYPaySplitOrderView", "onBtnCloseClick mPayFlowType:" + this.q + " event:" + str);
     }
 
     public final void s() {
         RLog.info("YYPaySplitOrderView", "querySplitOrderConfig mPayAmount:" + this.j);
-        f6b yYPayMiddleService = RevenueManager.instance().getYYPayMiddleService(this.b, this.c);
+        n6b yYPayMiddleService = RevenueManager.instance().getYYPayMiddleService(this.b, this.c);
         if (yYPayMiddleService == null) {
             RLog.error("YYPaySplitOrderView", "querySplitOrderConfig error yyPayMiddleService null", new Object[0]);
             return;
         }
-        y8b y8bVar = this.j;
-        if (y8bVar == null) {
+        g9b g9bVar = this.j;
+        if (g9bVar == null) {
             RLog.error("YYPaySplitOrderView", "querySplitOrderConfig error mPayAmount null", new Object[0]);
         } else {
-            yYPayMiddleService.d(1, "", (long) y8bVar.c(), new c());
+            yYPayMiddleService.d(1, "", (long) g9bVar.c(), new c());
         }
     }
 
     public final void n() {
-        l9b.a(this.g, this.h);
+        t9b.a(this.g, this.h);
     }
 
-    @Override // com.baidu.tieba.cab
+    @Override // com.baidu.tieba.kab
     public void refreshView() {
         RLog.info("YYPaySplitOrderView", "refreshView");
         u();
@@ -312,11 +312,11 @@ public class YYPaySplitOrderView extends LinearLayout implements hab {
     }
 
     public final void u() {
-        l9b.b(this.g, this.h);
+        t9b.b(this.g, this.h);
     }
 
     public final void o(Activity activity) {
-        LayoutInflater.from(new ContextThemeWrapper(activity, z9b.a.a(this.d))).inflate(R.layout.pay_ui_layout_pay_split_order_view, (ViewGroup) this, true);
+        LayoutInflater.from(new ContextThemeWrapper(activity, hab.a.a(this.d))).inflate(R.layout.pay_ui_layout_pay_split_order_view, (ViewGroup) this, true);
         this.g = findViewById(R.id.root_loading);
         this.h = (ImageView) findViewById(R.id.iv_loading_circle);
         this.k = (RecyclerView) findViewById(R.id.grid_recharge_split_order);
@@ -357,13 +357,13 @@ public class YYPaySplitOrderView extends LinearLayout implements hab {
     public final void p() {
         long j;
         String str;
-        hab.a aVar = this.f;
+        pab.a aVar = this.f;
         if (aVar != null) {
             aVar.b();
         }
-        y8b y8bVar = this.j;
-        if (y8bVar != null) {
-            j = (long) y8bVar.c();
+        g9b g9bVar = this.j;
+        if (g9bVar != null) {
+            j = (long) g9bVar.c();
         } else {
             j = -1;
         }
@@ -375,16 +375,16 @@ public class YYPaySplitOrderView extends LinearLayout implements hab {
         String str2 = str;
         int i = this.b;
         int i2 = this.c;
-        e9b.d(i, i2, str2, "", "", "" + j);
+        m9b.d(i, i2, str2, "", "", "" + j);
     }
 
     public final void t() {
-        y8b y8bVar;
+        g9b g9bVar;
         boolean z;
         String format;
-        hab.b bVar = this.e;
-        if (bVar != null && (y8bVar = bVar.a) != null) {
-            double c2 = y8bVar.c();
+        pab.b bVar = this.e;
+        if (bVar != null && (g9bVar = bVar.a) != null) {
+            double c2 = g9bVar.c();
             if (c2 == ((long) c2)) {
                 z = true;
             } else {

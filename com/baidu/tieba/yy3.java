@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 
 import android.content.pm.PackageInfo;
+import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,11 +12,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
+import com.heytap.mcssdk.PushService;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class yy3 extends a04 {
+public class yy3 extends b04 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,12 +33,12 @@ public class yy3 extends a04 {
                 return;
             }
         }
-        c = eo1.a;
+        c = fo1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public yy3() {
-        super("getAppList");
+        super("checkAppInstalled");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -55,56 +54,39 @@ public class yy3 extends a04 {
         }
     }
 
-    @Override // com.baidu.tieba.a04
-    public uz1 a(@NonNull JSONObject jSONObject, @NonNull yk2 yk2Var) {
+    @Override // com.baidu.tieba.b04
+    public vz1 a(@NonNull JSONObject jSONObject, @NonNull zk2 zk2Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, yk2Var)) == null) {
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject2.put("data", c());
-                if (c) {
-                    Log.i("GetAppListAction", jSONObject2.toString());
-                }
-            } catch (JSONException e) {
-                if (c) {
-                    e.printStackTrace();
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, zk2Var)) == null) {
+            if (c) {
+                Log.d("checkAppInstalled", "handle: " + jSONObject);
             }
-            yk2Var.a(jSONObject2);
+            String optString = jSONObject.optString("packageName");
+            if (TextUtils.isEmpty(optString)) {
+                zk2Var.onFail(31010, "package name is empty");
+                return null;
+            }
+            try {
+                PackageInfo packageInfo = AppRuntime.getAppContext().getPackageManager().getPackageInfo(optString, 0);
+                if (c) {
+                    Log.d("checkAppInstalled", "packageInfo: " + packageInfo);
+                }
+                if (packageInfo != null) {
+                    JSONObject jSONObject2 = new JSONObject();
+                    JSONObject jSONObject3 = new JSONObject();
+                    jSONObject3.put(PushService.APP_VERSION_NAME, packageInfo.versionName);
+                    jSONObject3.put(PushService.APP_VERSION_CODE, packageInfo.versionCode);
+                    jSONObject2.put("data", jSONObject3);
+                    zk2Var.a(jSONObject2);
+                } else {
+                    zk2Var.onFail(31016, "no package info");
+                }
+            } catch (Exception unused) {
+                zk2Var.onFail(31011, "app is not installed");
+            }
             return null;
         }
-        return (uz1) invokeLL.objValue;
-    }
-
-    public final JSONObject b(PackageInfo packageInfo) throws JSONException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, packageInfo)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("appName", packageInfo.applicationInfo.name);
-            jSONObject.put("appPackageName", packageInfo.packageName);
-            jSONObject.put("appVersion", packageInfo.versionName);
-            boolean z = true;
-            if ((packageInfo.applicationInfo.flags & 1) == 0) {
-                z = false;
-            }
-            jSONObject.put("appIsSystemApp", z);
-            return jSONObject;
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public final JSONArray c() throws JSONException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            JSONArray jSONArray = new JSONArray();
-            for (PackageInfo packageInfo : AppRuntime.getAppContext().getPackageManager().getInstalledPackages(1)) {
-                jSONArray.put(b(packageInfo));
-            }
-            return jSONArray;
-        }
-        return (JSONArray) invokeV.objValue;
+        return (vz1) invokeLL.objValue;
     }
 }

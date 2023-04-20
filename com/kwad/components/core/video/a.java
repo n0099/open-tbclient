@@ -25,7 +25,7 @@ import com.kwad.sdk.widget.KSRelativeLayout;
 @Deprecated
 /* loaded from: classes8.dex */
 public class a extends com.kwad.sdk.core.video.videoview.b implements View.OnClickListener {
-    public InterfaceC0605a JA;
+    public InterfaceC0604a JA;
     public final com.kwad.sdk.core.download.kwai.a JB;
     public boolean Jk;
     public boolean Jl;
@@ -56,7 +56,7 @@ public class a extends com.kwad.sdk.core.video.videoview.b implements View.OnCli
 
     /* renamed from: com.kwad.components.core.video.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public interface InterfaceC0605a {
+    public interface InterfaceC0604a {
         void a(int i, aa.a aVar);
     }
 
@@ -120,9 +120,9 @@ public class a extends com.kwad.sdk.core.video.videoview.b implements View.OnCli
     }
 
     private void aq(int i) {
-        InterfaceC0605a interfaceC0605a = this.JA;
-        if (interfaceC0605a != null) {
-            interfaceC0605a.a(i, this.Jp.getTouchCoords());
+        InterfaceC0604a interfaceC0604a = this.JA;
+        if (interfaceC0604a != null) {
+            interfaceC0604a.a(i, this.Jp.getTouchCoords());
         }
     }
 
@@ -368,8 +368,8 @@ public class a extends com.kwad.sdk.core.video.videoview.b implements View.OnCli
         oJ();
     }
 
-    public void setAdClickListener(InterfaceC0605a interfaceC0605a) {
-        this.JA = interfaceC0605a;
+    public void setAdClickListener(InterfaceC0604a interfaceC0604a) {
+        this.JA = interfaceC0604a;
     }
 
     public void setCanControlPlay(boolean z) {

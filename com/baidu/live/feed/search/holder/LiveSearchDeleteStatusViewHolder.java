@@ -6,7 +6,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ac0;
+import com.baidu.tieba.bc0;
 /* loaded from: classes2.dex */
 public class LiveSearchDeleteStatusViewHolder extends RecyclerView.ViewHolder {
     public View a;
@@ -25,8 +25,8 @@ public class LiveSearchDeleteStatusViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void a(int i) {
-        this.c.setTextColor(ac0.f().a(this.a.getContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_1F1F1F"));
-        String r = ac0.f().r();
+        this.c.setTextColor(bc0.f().a(this.a.getContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_1F1F1F"));
+        String r = bc0.f().r();
         if (r == "day") {
             this.d.setImageResource(R.drawable.obfuscated_res_0x7f080d98);
             this.e.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d86);

@@ -1,23 +1,16 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-import tbclient.ForumGuide.LikeForum;
 /* loaded from: classes6.dex */
-public class vp6 {
+public class vp6 extends jx4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<tp6> a;
+    public tp6 d;
+    public List<up6> e;
 
     public vp6() {
         Interceptable interceptable = $ic;
@@ -32,55 +25,6 @@ public class vp6 {
                 return;
             }
         }
-        this.a = new ArrayList<>();
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Iterator<tp6> it = this.a.iterator();
-            while (it.hasNext()) {
-                it.next().E(0);
-            }
-        }
-    }
-
-    public ArrayList<tp6> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public void c(List<?> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) != null) || list == null) {
-            return;
-        }
-        d(list, null);
-    }
-
-    public void d(List<?> list, Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048579, this, list, context) != null) || list == null) {
-            return;
-        }
-        try {
-            int size = list.size();
-            for (int i = 0; i < size; i++) {
-                if (!(list.get(i) instanceof LikeForum)) {
-                    return;
-                }
-                tp6 tp6Var = new tp6();
-                tp6Var.y((LikeForum) list.get(i));
-                if (!TextUtils.isEmpty(tp6Var.k())) {
-                    this.a.add(tp6Var);
-                }
-            }
-        } catch (Exception e) {
-            BdLog.detailException(e);
-        }
+        d(12);
     }
 }

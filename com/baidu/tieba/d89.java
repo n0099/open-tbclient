@@ -1,133 +1,144 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.MotionEvent;
-import android.view.View;
+import android.content.Intent;
+import android.net.Uri;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.play.cyberPlayer.CyberRemotePlayerService;
+import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class d89 extends c89 {
+public class d89 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int S0;
-    public int T0;
+    public boolean a;
+    public boolean b;
+    public HashMap<String, Integer> c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d89(Context context, View view2) {
-        super(context, view2);
+    /* loaded from: classes4.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(d89 d89Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {d89Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                TbadkCoreApplication.getInst().getContext().stopService(new Intent(TbadkCoreApplication.getInst().getContext(), CyberRemotePlayerService.class));
+            }
+        }
+    }
+
+    public d89() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (View) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        q0(false);
-        this.S0 = ii.l(this.R) / 10;
     }
 
-    public void C0(String str, String str2) {
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            this.X = str2;
-            S();
-            T();
-            t0(this.b);
-            this.F.setPlayer(this.t.getControl());
-            this.B.setVisibility(8);
-            this.u.setPlaceHolder(3);
-            this.u.N(str, 10, false);
-            this.H.setShareData(null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.c89
-    public void Y(boolean z) {
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            Context context = this.R;
-            if (context instanceof BaseFragmentActivity) {
-                ((BaseFragmentActivity) context).setSwipeBackEnabled(this.b0);
-            } else if (context instanceof BaseActivity) {
-                ((BaseActivity) context).setSwipeBackEnabled(this.b0);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.a) {
+                g89.f();
             }
-            super.Y(z);
-            if (this.b0) {
-                this.T.getLayoutParams().height = -1;
-                return;
-            }
-            this.T.getLayoutParams().height = this.T0;
+            return this.a;
         }
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.c89
-    public void g0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.t.getControl().setVolume(1.0f, 1.0f);
-        }
-    }
-
-    @Override // com.baidu.tieba.c89
-    public boolean h0(MotionEvent motionEvent) {
+    public boolean a(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
-            if (!this.b0 && motionEvent.getX() <= this.S0) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, uri)) == null) {
+            HashMap<String, Integer> hashMap = this.c;
+            if (hashMap != null && uri != null) {
+                return hashMap.containsKey(uri.getHost());
             }
-            return true;
+            return false;
         }
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.c89
-    public void t0(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            super.t0(i);
-            this.J.setVisibility(8);
-            this.D.setVisibility(8);
-        }
-    }
-
-    @Override // com.baidu.tieba.c89, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
-    public void onPrepared() {
+    public void d(JSONObject jSONObject) {
         boolean z;
+        boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.onPrepared();
-            if (this.t.getControl().getPlayerWidth() == 0) {
-                return;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        boolean z3 = this.a;
+        if (jSONObject.optInt(SetImageWatermarkTypeReqMsg.SWITCH, 0) == 1) {
+            z = true;
+        } else {
+            z = false;
+        }
+        this.a = z;
+        if (jSONObject.optInt("p2p_config", 0) == 1) {
+            z2 = true;
+        } else {
+            z2 = false;
+        }
+        this.b = z2;
+        JSONArray optJSONArray = jSONObject.optJSONArray("domain_list");
+        if (optJSONArray != null) {
+            this.c = new HashMap<>();
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                String optString = optJSONArray.optString(i);
+                if (!StringUtils.isNull(optString)) {
+                    this.c.put(optString, 0);
+                }
             }
-            if (this.t.getControl().getPlayerHeight() > this.t.getControl().getPlayerWidth()) {
-                z = true;
-            } else {
-                z = false;
+        }
+        if (this.a) {
+            g89.f();
+            if (!z3) {
+                Intent intent = new Intent(TbadkCoreApplication.getInst().getContext(), CyberRemotePlayerService.class);
+                intent.putExtra("pcdn", true);
+                TbadkCoreApplication.getInst().getContext().startService(intent);
+                jg.a().postDelayed(new a(this), 3000L);
             }
-            this.W = z;
-            int playerHeight = (int) ((this.t.getControl().getPlayerHeight() / this.t.getControl().getPlayerWidth()) * ii.l(this.R));
-            this.T0 = playerHeight;
-            if (playerHeight > ii.j(this.R)) {
-                this.T0 = ii.j(this.R);
-            }
-            this.T.getLayoutParams().height = this.T0;
-            this.T.requestLayout();
         }
     }
 }

@@ -8,7 +8,7 @@ import com.xiaomi.push.id;
 import com.xiaomi.push.ii;
 import com.xiaomi.push.ir;
 import com.xiaomi.push.ix;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class n {
     public static ii a(id idVar) {
         byte[] m551a = idVar.m551a();

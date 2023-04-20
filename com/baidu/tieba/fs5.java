@@ -1,125 +1,258 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
-import android.text.style.ImageSpan;
+import android.content.Context;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class fs5 extends ImageSpan {
+public class fs5 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<Drawable> a;
+    public Context a;
     public int b;
-    public int c;
+    public List<String> c;
+    public List<String> d;
+    public List<String> e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fs5(Drawable drawable, int i) {
-        super(drawable);
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            return null;
+        }
+        return invokeI.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
+
+    /* loaded from: classes4.dex */
+    public class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TbImageView a;
+        public TextView b;
+        public TextView c;
+
+        public a(fs5 fs5Var, View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fs5Var, view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.bar_select_rule_head_view);
+            this.a = tbImageView;
+            tbImageView.setDefaultBgResource(R.color.CAM_X0206);
+            this.b = (TextView) view2.findViewById(R.id.bar_select_rule_title);
+            this.c = (TextView) view2.findViewById(R.id.bar_select_rule_content);
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TextView a;
+        public TextView b;
+
+        public b(fs5 fs5Var, View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fs5Var, view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = (TextView) view2.findViewById(R.id.pb_vote_select_rule_title);
+            this.b = (TextView) view2.findViewById(R.id.pb_vote_select_rule_content);
+        }
+    }
+
+    public fs5(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {drawable, Integer.valueOf(i)};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super((Drawable) newInitContext.callArgs[0]);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.b = 0;
-        this.c = 1;
-        this.c = i;
+        this.a = context;
+        this.c = new ArrayList();
+        this.d = new ArrayList();
+        this.e = new ArrayList();
     }
 
-    public final Drawable a() {
-        InterceptResult invokeV;
-        Drawable drawable;
+    public void a(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            WeakReference<Drawable> weakReference = this.a;
-            if (weakReference != null) {
-                drawable = weakReference.get();
-            } else {
-                drawable = null;
-            }
-            if (drawable == null) {
-                Drawable drawable2 = getDrawable();
-                this.a = new WeakReference<>(drawable2);
-                return drawable2;
-            }
-            return drawable;
-        }
-        return (Drawable) invokeV.objValue;
-    }
-
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-        Drawable a;
-        float f2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) != null) || (a = a()) == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, aVar) != null) || aVar == null) {
             return;
         }
-        int i6 = this.c;
-        float f3 = 0.0f;
-        if (i6 != 0) {
-            if (i6 != 1) {
-                if (i6 != 2) {
-                    f2 = 0.0f;
-                } else {
-                    f2 = 0.2f;
-                }
-            } else {
-                f2 = 0.15f;
-            }
-        } else {
-            f2 = 0.1f;
-        }
-        if (f2 != 0.0f) {
-            f3 = ((i4 - i5) + (a.getBounds().height() * f2)) - this.b;
-        }
-        canvas.save();
-        canvas.translate(a.getBounds().width() * 0.15f, f3);
-        super.draw(canvas, charSequence, i, i2, f, i3, i4, i5, paint);
-        canvas.restore();
+        SkinManager.setViewTextColor(aVar.b, R.color.CAM_X0105, 1);
+        SkinManager.setViewTextColor(aVar.c, R.color.CAM_X0109, 1);
     }
 
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        InterceptResult invokeCommon;
+    public void b(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
-            Drawable a = a();
-            if (a == null) {
-                return super.getSize(paint, charSequence, i, i2, fontMetricsInt);
-            }
-            Rect bounds = a.getBounds();
-            if (fontMetricsInt != null) {
-                Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
-                int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
-                int i4 = (bounds.bottom - bounds.top) / 2;
-                int i5 = i3 / 4;
-                int i6 = i4 - i5;
-                int i7 = -(i4 + i5);
-                fontMetricsInt.ascent = i7;
-                fontMetricsInt.top = i7;
-                fontMetricsInt.bottom = i6;
-                fontMetricsInt.descent = i6;
-            }
-            return bounds.right;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) != null) || bVar == null) {
+            return;
         }
-        return invokeCommon.intValue;
+        SkinManager.setViewTextColor(bVar.a, (int) R.color.CAM_X0105);
+        SkinManager.setViewTextColor(bVar.b, (int) R.color.CAM_X0109);
+    }
+
+    public void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.b = i;
+        }
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getItemViewType(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+            return super.getItemViewType(i);
+        }
+        return invokeI.intValue;
+    }
+
+    public void c(List<String> list, List<String> list2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, list, list2) == null) {
+            this.d.clear();
+            this.e.clear();
+            if (!ListUtils.isEmpty(list) && !ListUtils.isEmpty(list2)) {
+                this.d.addAll(list);
+                this.e.addAll(list2);
+            }
+            notifyDataSetChanged();
+        }
+    }
+
+    public void d(List<String> list, List<String> list2, List<String> list3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, list, list2, list3) == null) {
+            this.c.clear();
+            if (!ListUtils.isEmpty(list)) {
+                this.c.addAll(list);
+            }
+            c(list2, list3);
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (ListUtils.isEmpty(this.d)) {
+                return 0;
+            }
+            return this.d.size();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048585, this, i, view2, viewGroup)) == null) {
+            int i2 = this.b;
+            if (i2 == 0) {
+                view2 = LayoutInflater.from(this.a).inflate(R.layout.pb_vote_select_rule_item, (ViewGroup) null, false);
+                b bVar = new b(this, view2);
+                if (!ListUtils.isEmpty(this.d) && this.d.size() > i && !TextUtils.isEmpty(this.d.get(i))) {
+                    bVar.a.setText(this.d.get(i));
+                    bVar.a.setVisibility(0);
+                } else {
+                    bVar.a.setVisibility(8);
+                }
+                if (!ListUtils.isEmpty(this.e) && this.e.size() > i && !TextUtils.isEmpty(this.e.get(i))) {
+                    bVar.b.setText(this.e.get(i));
+                    bVar.b.setVisibility(0);
+                } else {
+                    bVar.b.setVisibility(8);
+                }
+                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -2);
+                layoutParams.weight = 1.0f;
+                view2.setLayoutParams(layoutParams);
+                b(bVar);
+            } else if (i2 == 1) {
+                view2 = LayoutInflater.from(this.a).inflate(R.layout.bar_select_rule_item, (ViewGroup) null, false);
+                a aVar = new a(this, view2);
+                if (!ListUtils.isEmpty(this.c) && this.c.size() > i && !TextUtils.isEmpty(this.c.get(i))) {
+                    aVar.a.setDefaultResource(R.drawable.transparent_bg);
+                    aVar.a.N(this.c.get(i), 10, false);
+                }
+                if (!ListUtils.isEmpty(this.d) && this.d.size() > i && !TextUtils.isEmpty(this.d.get(i))) {
+                    aVar.b.setText(this.d.get(i));
+                    aVar.b.setVisibility(0);
+                } else {
+                    aVar.b.setVisibility(8);
+                }
+                if (!ListUtils.isEmpty(this.e) && this.e.size() > i && !TextUtils.isEmpty(this.e.get(i))) {
+                    aVar.c.setText(this.e.get(i));
+                    aVar.c.setVisibility(0);
+                } else {
+                    aVar.c.setVisibility(8);
+                }
+                LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(0, -2);
+                layoutParams2.weight = 1.0f;
+                view2.setLayoutParams(layoutParams2);
+                a(aVar);
+            }
+            return view2;
+        }
+        return (View) invokeILL.objValue;
     }
 }

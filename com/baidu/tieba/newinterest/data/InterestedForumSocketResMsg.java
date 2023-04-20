@@ -3,7 +3,7 @@ package com.baidu.tieba.newinterest.data;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tq8;
+import com.baidu.tieba.br8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import tbclient.GetVerticalForumList.GetVerticalForumListResIdl;
 public class InterestedForumSocketResMsg extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public tq8 pageData;
+    public br8 pageData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public InterestedForumSocketResMsg() {
@@ -36,13 +36,13 @@ public class InterestedForumSocketResMsg extends SocketResponsedMessage {
         }
     }
 
-    public tq8 getPageData() {
+    public br8 getPageData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.pageData;
         }
-        return (tq8) invokeV.objValue;
+        return (br8) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
@@ -63,9 +63,9 @@ public class InterestedForumSocketResMsg extends SocketResponsedMessage {
                 }
                 setErrorString(getVerticalForumListResIdl.error.usermsg);
             }
-            tq8 tq8Var = new tq8();
-            this.pageData = tq8Var;
-            tq8Var.a(getVerticalForumListResIdl.data);
+            br8 br8Var = new br8();
+            this.pageData = br8Var;
+            br8Var.a(getVerticalForumListResIdl.data);
             return getVerticalForumListResIdl;
         }
         return invokeIL.objValue;

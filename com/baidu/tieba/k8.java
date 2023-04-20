@@ -24,7 +24,7 @@ public class k8 {
     public static /* synthetic */ Interceptable $ic;
     public static volatile k8 h;
     public transient /* synthetic */ FieldHolder $fh;
-    public l10 a;
+    public m10 a;
     public Context b;
     public volatile int c;
     public AtomicReference<HashMap<String, r8>>[] d;
@@ -73,7 +73,7 @@ public class k8 {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 HashMap[] hashMapArr = new HashMap[this.c.c];
                 for (r8 r8Var : this.a) {
-                    int a = t10.a(r8Var.a(), this.c.c);
+                    int a = u10.a(r8Var.a(), this.c.c);
                     if (hashMapArr[a] == null) {
                         hashMapArr[a] = new HashMap();
                     }
@@ -154,7 +154,7 @@ public class k8 {
         }
         this.b = context.getApplicationContext();
         this.c = t8.b().a();
-        this.a = new l10(this.b);
+        this.a = new m10(this.b);
         w();
     }
 
@@ -262,7 +262,7 @@ public class k8 {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, z)) == null) {
-            return s10.a(t(str), z);
+            return t10.a(t(str), z);
         }
         return invokeLZ.booleanValue;
     }
@@ -271,7 +271,7 @@ public class k8 {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, Double.valueOf(d)})) == null) {
-            return s10.b(t(str), d);
+            return t10.b(t(str), d);
         }
         return invokeCommon.doubleValue;
     }
@@ -280,7 +280,7 @@ public class k8 {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048588, this, str, i)) == null) {
-            return s10.c(t(str), i);
+            return t10.c(t(str), i);
         }
         return invokeLI.intValue;
     }
@@ -289,7 +289,7 @@ public class k8 {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048589, this, str, j)) == null) {
-            return s10.e(t(str), j);
+            return t10.e(t(str), j);
         }
         return invokeLJ.longValue;
     }
@@ -298,7 +298,7 @@ public class k8 {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, str, str2)) == null) {
-            return s10.f(t(str), str2);
+            return t10.f(t(str), str2);
         }
         return (String) invokeLL.objValue;
     }

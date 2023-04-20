@@ -8,10 +8,10 @@ import androidx.lifecycle.OnLifecycleEvent;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tieba.a48;
 import com.baidu.tieba.immessagecenter.chatgroup.chatbox.flowdialog.ResponsesPanelController;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
-import com.baidu.tieba.u38;
 import com.baidu.tieba.v38;
 import com.baidu.tieba.w38;
 import com.baidu.tieba.x38;
@@ -26,8 +26,8 @@ import java.util.Map;
 public class ResponsesPanelControllerImpl implements ResponsesPanelController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final x38 a;
-    public final w38 b;
+    public final y38 a;
+    public final x38 b;
 
     public ResponsesPanelControllerImpl(@NonNull TbPageContext<BaseFragmentActivity> tbPageContext) {
         Interceptable interceptable = $ic;
@@ -44,8 +44,8 @@ public class ResponsesPanelControllerImpl implements ResponsesPanelController {
                 return;
             }
         }
-        this.b = new y38(tbPageContext);
-        this.a = new z38(tbPageContext, this);
+        this.b = new z38(tbPageContext);
+        this.a = new a48(tbPageContext, this);
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
@@ -96,17 +96,17 @@ public class ResponsesPanelControllerImpl implements ResponsesPanelController {
     }
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.chatbox.flowdialog.ResponsesPanelController
-    public void c(@NonNull v38 v38Var) {
+    public void c(@NonNull w38 w38Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, v38Var) == null) {
-            this.a.c(v38Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, w38Var) == null) {
+            this.a.c(w38Var);
         }
     }
 
-    public void l(@NonNull u38 u38Var) {
+    public void l(@NonNull v38 v38Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, u38Var) == null) {
-            this.b.n(u38Var);
+        if (interceptable == null || interceptable.invokeL(1048587, this, v38Var) == null) {
+            this.b.n(v38Var);
         }
     }
 

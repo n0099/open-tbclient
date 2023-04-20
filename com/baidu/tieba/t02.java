@@ -14,24 +14,23 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class t02 extends r02 {
+public class t02 extends s02 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    public class a implements CanvasView.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ t22 a;
-        public final /* synthetic */ CanvasView b;
-        public final /* synthetic */ CallbackHandler c;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ CallbackHandler b;
 
-        public a(t02 t02Var, t22 t22Var, CanvasView canvasView, CallbackHandler callbackHandler) {
+        public a(t02 t02Var, String str, CallbackHandler callbackHandler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {t02Var, t22Var, canvasView, callbackHandler};
+                Object[] objArr = {t02Var, str, callbackHandler};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -41,38 +40,34 @@ public class t02 extends r02 {
                     return;
                 }
             }
-            this.a = t22Var;
-            this.b = canvasView;
-            this.c = callbackHandler;
+            this.a = str;
+            this.b = callbackHandler;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.swan.apps.canvas.view.CanvasView.c
+        public void a() {
+            String str;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                JSONObject i = this.a.i(this.b);
-                String str = this.a.e;
-                if (!TextUtils.isEmpty(str)) {
-                    this.c.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(i, 0).toString());
-                }
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (str = this.a) != null) {
+                this.b.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(0, "draw complete").toString());
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public t02(r83 r83Var) {
-        super(r83Var, "/swanAPI/canvas/getImageData");
+    public t02(s83 s83Var) {
+        super(s83Var, "/swanAPI/canvas/drawCanvas");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {r83Var};
+            Object[] objArr = {s83Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((r83) objArr2[0], (String) objArr2[1]);
+                super((s83) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -80,35 +75,43 @@ public class t02 extends r02 {
         }
     }
 
-    @Override // com.baidu.tieba.r93
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, u73 u73Var) {
+    @Override // com.baidu.tieba.s93
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, v73 v73Var) {
         InterceptResult invokeLLLL;
-        c72 H;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, u73Var)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, v73Var)) == null) {
             t22 m = m(unitedSchemeEntity);
             if (m == null) {
-                u42.c("SwanAppCanvas", "CanvasGetImageData action parse model is null");
+                v42.c("SwanAppCanvas", "draw model is null");
                 unitedSchemeEntity.result = l(201);
                 return false;
             }
-            if (TextUtils.isEmpty(m.c) && (H = ht2.U().H()) != null) {
-                m.c = H.w3();
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "the params is empty");
+                return false;
             }
-            if (!TextUtils.isEmpty(m.c) && !TextUtils.isEmpty(m.b)) {
-                CanvasView a2 = v32.a(m);
-                if (a2 == null) {
-                    u42.c("SwanAppCanvas", "CanvasGetImageData canvas view is null");
-                    unitedSchemeEntity.result = l(201);
-                    return false;
+            String optString = optParamsAsJo.optString("cb");
+            if (TextUtils.isEmpty(m.b)) {
+                o42.a("SwanAppAction", "canvasId is empty ");
+                unitedSchemeEntity.result = l(201);
+                return false;
+            }
+            if (TextUtils.isEmpty(m.c)) {
+                o42.a("SwanAppAction", "drawCanvas slaveId is empty");
+                d72 H = it2.U().H();
+                if (H != null) {
+                    m.c = H.w3();
                 }
-                ok3.k(new a(this, m, a2, callbackHandler), "CanvasGetImageDataAction");
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                return true;
             }
-            u42.c("SwanAppCanvas", "CanvasGetImageData slave id = " + m.c + " ; canvas id = " + m.b);
-            unitedSchemeEntity.result = l(201);
-            return false;
+            v32 v32Var = (v32) i42.a(m);
+            if (v32Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "the component is null");
+                return false;
+            }
+            boolean F = v32Var.F(m, new a(this, optString, callbackHandler));
+            j(unitedSchemeEntity, callbackHandler, F);
+            return F;
         }
         return invokeLLLL.booleanValue;
     }
@@ -117,11 +120,7 @@ public class t02 extends r02 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity)) == null) {
-            String str = unitedSchemeEntity.getParams().get("params");
-            if (!TextUtils.isEmpty(str)) {
-                return new t22(str);
-            }
-            return null;
+            return new t22(unitedSchemeEntity.getParams().get("params"));
         }
         return (t22) invokeL.objValue;
     }

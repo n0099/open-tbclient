@@ -2,7 +2,7 @@ package com.baidu.tieba.personExtra;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.m39;
+import com.baidu.tieba.u39;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ResponsePersonBarByUidLocalMessage extends CustomResponsedMessage<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public m39 mData;
+    public u39 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponsePersonBarByUidLocalMessage() {
@@ -32,13 +32,13 @@ public class ResponsePersonBarByUidLocalMessage extends CustomResponsedMessage<S
         }
     }
 
-    public m39 getPersonBarData() {
+    public u39 getPersonBarData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.mData;
         }
-        return (m39) invokeV.objValue;
+        return (u39) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -66,16 +66,16 @@ public class ResponsePersonBarByUidLocalMessage extends CustomResponsedMessage<S
     public void decodeInBackGround(int i, String str) throws Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-            m39 m39Var = new m39();
-            this.mData = m39Var;
-            m39Var.n(str);
+            u39 u39Var = new u39();
+            this.mData = u39Var;
+            u39Var.n(str);
         }
     }
 
-    public void setPersonBarData(m39 m39Var) {
+    public void setPersonBarData(u39 u39Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, m39Var) == null) {
-            this.mData = m39Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, u39Var) == null) {
+            this.mData = u39Var;
         }
     }
 }

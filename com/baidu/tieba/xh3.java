@@ -1,12 +1,10 @@
 package com.baidu.tieba;
 
-import android.os.FileObserver;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import androidx.media2.session.SessionCommand;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ce3;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.tieba.de3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,28 +13,34 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Date;
+import java.util.Stack;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class xh3 extends FileObserver {
+public class xh3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
+    public static final boolean a;
+    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public int b;
-    public int c;
 
     /* loaded from: classes7.dex */
-    public class a implements Runnable {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
-        public final /* synthetic */ xh3 b;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ String c;
 
-        public a(xh3 xh3Var, String str) {
+        public a(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {xh3Var, str};
+                Object[] objArr = {str, str2, str3};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -46,18 +50,79 @@ public final class xh3 extends FileObserver {
                     return;
                 }
             }
-            this.b = xh3Var;
             this.a = str;
+            this.b = str2;
+            this.c = str3;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ce3.b bVar = new ce3.b(SessionCommand.COMMAND_CODE_PLAYER_MOVE_PLAYLIST_ITEM);
-                bVar.l(String.valueOf(this.b.c));
-                bVar.j(this.a);
-                bVar.h(t73.K().getAppId());
+                JSONObject jSONObject = new JSONObject();
+                File file = new File(this.a);
+                try {
+                    jSONObject.put("file_name", this.b);
+                    jSONObject.put("file_tree", xh3.d(file));
+                    jSONObject.put("file_stack_info", this.c);
+                    jSONObject.put("file_free_space", file.getFreeSpace());
+                    jSONObject.put("file_total_space", file.getTotalSpace());
+                } catch (JSONException e) {
+                    if (xh3.a) {
+                        e.printStackTrace();
+                    }
+                }
+                de3.b bVar = new de3.b(SessionCommand.COMMAND_CODE_PLAYER_SET_MEDIA_ITEM);
+                bVar.j(this.b);
+                bVar.h(u73.K().getAppId());
+                bVar.i(jSONObject.toString());
+                bVar.m();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ String b;
+
+        public b(String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = str2;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put(PrefetchEvent.EVENT_KEY_APP_PATH, this.a);
+                    jSONObject.put("pagePath", this.b);
+                } catch (JSONException e) {
+                    if (xh3.a) {
+                        e.printStackTrace();
+                    }
+                }
+                de3.b bVar = new de3.b(SessionCommand.COMMAND_CODE_PLAYER_SET_MEDIA_ITEM);
+                bVar.i(jSONObject.toString());
+                bVar.h(u73.K().getAppId());
                 bVar.m();
             }
         }
@@ -76,57 +141,83 @@ public final class xh3 extends FileObserver {
                 return;
             }
         }
-        d = eo1.a;
+        a = fo1.a;
+        b = -1;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xh3(@NonNull String str) {
-        super(str, 1792);
+    public static int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (b < 0) {
+                cr2.g0().getSwitch("swan_app_file_analysis_switch", 0);
+                b = 0;
+            }
+            return b;
+        }
+        return invokeV.intValue;
+    }
+
+    public static void b(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65538, null, str, str2) != null) || c() <= 0) {
+            return;
+        }
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+            String f = nl3.f(str2);
+            if (!new File(str, f + ".swan.js").exists()) {
+                f(str, f);
                 return;
             }
+            return;
         }
-        this.c = 0;
-        this.b = 0;
-        this.a = str;
+        e(str, str2);
     }
 
-    public void b(@Nullable String str) {
+    public static String d(File file) {
+        InterceptResult invokeL;
+        File[] listFiles;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            ok3.f().execute(new a(this, this.a + File.separator + str));
-        }
-    }
-
-    @Override // android.os.FileObserver
-    public void onEvent(int i, @Nullable String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-            if ((i & 256) == 256) {
-                this.b++;
-                if (d) {
-                    Log.i("SwanPkgFileObserver", "onEvent: create " + this.b + " " + str);
-                    return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file)) == null) {
+            if (file != null && file.exists() && file.isDirectory()) {
+                ArrayList arrayList = new ArrayList();
+                ArrayList arrayList2 = new ArrayList();
+                Stack stack = new Stack();
+                stack.push(file);
+                while (!stack.isEmpty()) {
+                    File file2 = (File) stack.pop();
+                    if (file2 != null) {
+                        if (file2.isFile()) {
+                            arrayList.add(file2);
+                        } else if (file2.isDirectory() && (listFiles = file2.listFiles()) != null && listFiles.length > 0) {
+                            Collections.addAll(stack, listFiles);
+                        }
+                    }
                 }
-                return;
+                if (arrayList.size() > 0) {
+                    for (int i = 0; i < arrayList.size(); i++) {
+                        File file3 = (File) arrayList.get(i);
+                        arrayList2.add(file3.getAbsolutePath() + "|" + new Date(file3.lastModified()));
+                    }
+                }
+                return Arrays.toString(arrayList2.toArray());
             }
-            this.c++;
-            if (d) {
-                Log.i("SwanPkgFileObserver", "onEvent: delete " + this.b + " " + str);
-            }
-            b(str);
+            return "";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void e(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
+            pk3.f().execute(new b(str, str2));
+        }
+    }
+
+    public static void f(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) {
+            pk3.f().execute(new a(str, str2, Arrays.toString(new Exception().getStackTrace())));
         }
     }
 }

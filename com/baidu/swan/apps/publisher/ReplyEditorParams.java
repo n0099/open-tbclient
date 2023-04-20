@@ -7,9 +7,9 @@ import android.text.TextUtils;
 import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.br2;
-import com.baidu.tieba.eo1;
-import com.baidu.tieba.x43;
+import com.baidu.tieba.cr2;
+import com.baidu.tieba.fo1;
+import com.baidu.tieba.y43;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -112,31 +112,31 @@ public class ReplyEditorParams implements Parcelable {
                 }
             }
         }
-        String c = x43.c(jSONObject, "sendText", "发表");
+        String c = y43.c(jSONObject, "sendText", "发表");
         if (c.length() > 2) {
             c = c.substring(0, 2);
         }
         String str = c;
         try {
-            i = SwanAppConfigData.t(x43.c(jSONObject, "sendTextColor", "#FFFFFF"));
+            i = SwanAppConfigData.t(y43.c(jSONObject, "sendTextColor", "#FFFFFF"));
         } catch (Exception e) {
-            if (eo1.a) {
+            if (fo1.a) {
                 e.printStackTrace();
             }
             i = -1;
         }
-        Application c2 = br2.c();
-        String c3 = x43.c(jSONObject, "sendBackgroundColor", "#3388FF");
+        Application c2 = cr2.c();
+        String c3 = y43.c(jSONObject, "sendBackgroundColor", "#3388FF");
         int color = c2.getResources().getColor(R.color.obfuscated_res_0x7f060966);
         try {
             i2 = SwanAppConfigData.t(c3);
         } catch (Exception e2) {
-            if (eo1.a) {
+            if (fo1.a) {
                 e2.printStackTrace();
             }
             i2 = color;
         }
-        String d = x43.d(jSONObject.optString("contentPlaceholder", c2.getResources().getString(R.string.obfuscated_res_0x7f0f13da)), 20, StringHelper.STRING_MORE);
+        String d = y43.d(jSONObject.optString("contentPlaceholder", c2.getResources().getString(R.string.obfuscated_res_0x7f0f13da)), 20, StringHelper.STRING_MORE);
         String optString2 = jSONObject.optString("emojiPath");
         if (TextUtils.isEmpty(optString2)) {
             arrayList.remove("emoji");

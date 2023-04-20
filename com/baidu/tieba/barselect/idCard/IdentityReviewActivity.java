@@ -23,13 +23,13 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.barselect.data.CommitCardInfoReqMsg;
 import com.baidu.tieba.bg;
 import com.baidu.tieba.cg;
-import com.baidu.tieba.fb6;
+import com.baidu.tieba.gb6;
 import com.baidu.tieba.ii;
 import com.baidu.tieba.lg;
-import com.baidu.tieba.ra6;
 import com.baidu.tieba.sa6;
-import com.baidu.tieba.sm;
-import com.baidu.tieba.wa6;
+import com.baidu.tieba.ta6;
+import com.baidu.tieba.tm;
+import com.baidu.tieba.xa6;
 import com.baidu.tieba.za;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -40,8 +40,8 @@ import java.io.File;
 public class IdentityReviewActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public sa6 a;
-    public ra6 b;
+    public ta6 a;
+    public sa6 b;
     public long c;
     public boolean d;
     public String e;
@@ -56,11 +56,11 @@ public class IdentityReviewActivity extends BaseActivity {
     public TbImageView n;
     public TextView o;
     public TextView p;
-    public fb6 q;
+    public gb6 q;
     public int r;
     public int s;
     public View.OnClickListener t;
-    public bg<sm> u;
+    public bg<tm> u;
     public za v;
     public HttpMessageListener w;
 
@@ -100,9 +100,9 @@ public class IdentityReviewActivity extends BaseActivity {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2921412, new CameraActivityConfig(identityReviewActivity2, identityReviewActivity2.f, CameraActivityConfig.CONTENT_TYPE_ID_CARD_BACK, 102)));
                 } else if (view2.getId() == R.id.obfuscated_res_0x7f09044e) {
                     IdentityReviewActivity identityReviewActivity3 = this.a;
-                    new wa6(identityReviewActivity3.e, 1, identityReviewActivity3.a).execute(new Void[0]);
+                    new xa6(identityReviewActivity3.e, 1, identityReviewActivity3.a).execute(new Void[0]);
                     this.a.d = true;
-                    this.a.q = new fb6(this.a);
+                    this.a.q = new gb6(this.a);
                     this.a.q.setCancelable(true);
                     this.a.q.setCanceledOnTouchOutside(false);
                     this.a.q.setMessage(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f03da));
@@ -113,7 +113,7 @@ public class IdentityReviewActivity extends BaseActivity {
     }
 
     /* loaded from: classes3.dex */
-    public class b extends bg<sm> {
+    public class b extends bg<tm> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ IdentityReviewActivity a;
@@ -138,16 +138,16 @@ public class IdentityReviewActivity extends BaseActivity {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.bg
-        public void onLoaded(sm smVar, String str, int i) {
+        public void onLoaded(tm tmVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, smVar, str, i) == null) {
-                super.onLoaded((b) smVar, str, i);
-                if (str != null && smVar != null) {
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, tmVar, str, i) == null) {
+                super.onLoaded((b) tmVar, str, i);
+                if (str != null && tmVar != null) {
                     if (str.equals(this.a.e)) {
-                        smVar.h(this.a.m);
+                        tmVar.h(this.a.m);
                         this.a.o.setVisibility(0);
                     } else if (str.equals(this.a.f)) {
-                        smVar.h(this.a.n);
+                        tmVar.h(this.a.n);
                         this.a.p.setVisibility(0);
                     }
                 }
@@ -212,7 +212,7 @@ public class IdentityReviewActivity extends BaseActivity {
                         } else if (this.a.s == 1) {
                             if (this.a.a != null) {
                                 IdentityReviewActivity identityReviewActivity = this.a;
-                                new wa6(identityReviewActivity.f, 2, identityReviewActivity.a).execute(new Void[0]);
+                                new xa6(identityReviewActivity.f, 2, identityReviewActivity.a).execute(new Void[0]);
                             } else if (this.a.q != null) {
                                 lg.a(this.a.q, this.a);
                             }
@@ -232,7 +232,7 @@ public class IdentityReviewActivity extends BaseActivity {
                         }
                         this.a.d = false;
                         IdentityReviewActivity identityReviewActivity2 = this.a;
-                        new wa6(identityReviewActivity2.e, 1, identityReviewActivity2.a).execute(new Void[0]);
+                        new xa6(identityReviewActivity2.e, 1, identityReviewActivity2.a).execute(new Void[0]);
                     }
                 }
             }
@@ -371,8 +371,8 @@ public class IdentityReviewActivity extends BaseActivity {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d03ea);
             this.c = getIntent().getLongExtra("fid", 0L);
-            this.a = new sa6(getPageContext());
-            this.b = new ra6(getPageContext());
+            this.a = new ta6(getPageContext());
+            this.b = new sa6(getPageContext());
             this.e = new File(TbadkCoreApplication.getInst().getFilesDir(), "positive.jpg").getAbsolutePath();
             this.f = new File(TbadkCoreApplication.getInst().getFilesDir(), "negative.jpg").getAbsolutePath();
             this.g = findViewById(R.id.obfuscated_res_0x7f090f84);
@@ -405,8 +405,8 @@ public class IdentityReviewActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             MessageManager.getInstance().unRegisterListener(this.v);
             MessageManager.getInstance().unRegisterListener(this.w);
-            fb6 fb6Var = this.q;
-            if (fb6Var != null && fb6Var.isShowing()) {
+            gb6 gb6Var = this.q;
+            if (gb6Var != null && gb6Var.isShowing()) {
                 lg.a(this.q, this);
             }
             super.onDestroy();

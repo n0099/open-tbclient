@@ -2,7 +2,6 @@ package com.baidu.tieba;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,16 +12,15 @@ public class iq9 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
-    public final jo9 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public iq9(MainTabActivity mainTabActivity, jo9 jo9Var) {
-        super(2001374);
+    public iq9(MainTabActivity mainTabActivity, ro9 ro9Var) {
+        super(2921414);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, jo9Var};
+            Object[] objArr = {mainTabActivity, ro9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,16 +32,15 @@ public class iq9 extends CustomMessageListener {
             }
         }
         this.a = mainTabActivity;
-        this.b = jo9Var;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        q1a q1aVar;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof PostWriteCallBackData) || ((PostWriteCallBackData) customResponsedMessage.getData()).isDyamicCallback()) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (q1aVar = this.a.q) != null) {
+            q1aVar.g();
         }
-        this.b.P((PostWriteCallBackData) customResponsedMessage.getData());
     }
 }

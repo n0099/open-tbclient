@@ -1,104 +1,53 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.pm.ComponentInfo;
+import android.content.pm.ResolveInfo;
+import android.os.Build;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class vg1 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = null;
-    public static String b = null;
-    public static int c = 0;
-    public static boolean d = true;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948239721, "Lcom/baidu/tieba/vg1;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948239721, "Lcom/baidu/tieba/vg1;");
-        }
-    }
-
-    public static String a(String str) {
+    public static Intent a(Context context) {
         InterceptResult invokeL;
+        List<ResolveInfo> queryIntentActivities;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return Thread.currentThread().getName() + PreferencesUtil.LEFT_MOUNT + a + ":" + b + ":" + c + PreferencesUtil.RIGHT_MOUNT + str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void b(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, str) != null) || !d) {
-            return;
-        }
-        Log.d("CashierSdk", str);
-    }
-
-    public static void d(Object... objArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, objArr) != null) || !d) {
-            return;
-        }
-        e(new Throwable().getStackTrace());
-        Log.e("CashierSdk", f(objArr));
-    }
-
-    public static void e(StackTraceElement[] stackTraceElementArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, stackTraceElementArr) == null) {
-            a = stackTraceElementArr[1].getFileName();
-            b = stackTraceElementArr[1].getMethodName();
-            c = stackTraceElementArr[1].getLineNumber();
-        }
-    }
-
-    public static void g(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65543, null, str) != null) || !d) {
-            return;
-        }
-        Log.i("CashierSdk", str);
-    }
-
-    public static void c(String str, Throwable th) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65539, null, str, th) != null) || !d) {
-            return;
-        }
-        e(new Throwable().getStackTrace());
-        Log.e("CashierSdk", f(str), th);
-    }
-
-    public static String f(Object... objArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, objArr)) == null) {
-            if (objArr == null) {
-                return "";
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            if (context == null) {
+                return null;
             }
-            StringBuilder sb = new StringBuilder();
-            for (Object obj : objArr) {
-                if (obj != null) {
-                    sb.append(obj.toString());
+            try {
+                queryIntentActivities = context.getPackageManager().queryIntentActivities(new Intent("baidu.intent.action.account.AUTH_WIDGET_FOR_CASHIER"), 32);
+            } catch (Throwable th) {
+                wg1.d(th);
+            }
+            if (queryIntentActivities != null && queryIntentActivities.size() != 0) {
+                for (ResolveInfo resolveInfo : queryIntentActivities) {
+                    String str = resolveInfo.activityInfo.permission;
+                    ActivityInfo activityInfo = resolveInfo.activityInfo;
+                    Intent intent = new Intent("baidu.intent.action.account.AUTH_WIDGET_FOR_CASHIER");
+                    intent.setClassName(((ComponentInfo) activityInfo).packageName, ((ComponentInfo) activityInfo).name);
+                    if (Build.VERSION.SDK_INT > 11) {
+                        intent.addFlags(32);
+                    }
+                    if (TextUtils.isEmpty(str) || context.checkCallingOrSelfPermission(str) == 0) {
+                        if (intent.getComponent() != null && context.getPackageName().equals(intent.getComponent().getPackageName())) {
+                            return intent;
+                        }
+                    }
                 }
+                return null;
             }
-            return a(sb.toString());
+            return null;
         }
-        return (String) invokeL.objValue;
+        return (Intent) invokeL.objValue;
     }
 }

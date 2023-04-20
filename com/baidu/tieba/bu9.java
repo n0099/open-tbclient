@@ -1,24 +1,39 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.content.Context;
+import android.hardware.SensorManager;
+import android.os.Build;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes3.dex */
-public final class bu9 {
+public class bu9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final Application a() {
+    public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            TbadkCoreApplication inst = TbadkCoreApplication.getInst();
-            Intrinsics.checkNotNullExpressionValue(inst, "getInst()");
-            return inst;
+            try {
+                return Integer.valueOf(Build.VERSION.SDK).intValue();
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
+                return 0;
+            }
         }
-        return (Application) invokeV.objValue;
+        return invokeV.intValue;
+    }
+
+    public static boolean b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (((SensorManager) context.getSystemService("sensor")).getDefaultSensor(4) != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

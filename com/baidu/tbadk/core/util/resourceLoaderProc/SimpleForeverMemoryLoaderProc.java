@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.util.resourceLoaderProc;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.imageManager.TbImageMemoryCache;
-import com.baidu.tieba.sm;
+import com.baidu.tieba.tm;
 import com.baidu.tieba.zf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -38,13 +38,13 @@ public class SimpleForeverMemoryLoaderProc extends SimpleLoaderProc {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.dg
-    public sm getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
+    public tm getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            sm B = TbImageMemoryCache.s().B(str);
+            tm B = TbImageMemoryCache.s().B(str);
             if (z) {
                 if (B != null) {
                     z2 = true;
@@ -55,19 +55,19 @@ public class SimpleForeverMemoryLoaderProc extends SimpleLoaderProc {
             }
             return B;
         }
-        return (sm) invokeCommon.objValue;
+        return (tm) invokeCommon.objValue;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.dg
     public void updateMemory(String str, Object obj, int i, int i2, Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) && (obj instanceof sm)) {
-            sm smVar = (sm) obj;
-            if (smVar.u()) {
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) && (obj instanceof tm)) {
+            tm tmVar = (tm) obj;
+            if (tmVar.u()) {
                 long currentTimeMillis = System.currentTimeMillis();
-                smVar.A(i);
-                smVar.z(i2);
-                TbImageMemoryCache.s().l(str, smVar);
+                tmVar.A(i);
+                tmVar.z(i2);
+                TbImageMemoryCache.s().l(str, tmVar);
                 zf.l(true, System.currentTimeMillis() - currentTimeMillis);
             }
         }

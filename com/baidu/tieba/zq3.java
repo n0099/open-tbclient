@@ -1,6 +1,9 @@
 package com.baidu.tieba;
 
-import com.google.protobuf.MessageLiteOrBuilder;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public interface zq3 extends MessageLiteOrBuilder {
+public /* synthetic */ class zq3 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 }

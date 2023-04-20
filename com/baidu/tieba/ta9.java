@@ -1,36 +1,27 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
-import java.util.HashMap;
-import java.util.List;
+import android.view.View;
 /* loaded from: classes6.dex */
 public interface ta9 {
-    um<?, ?> a(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId);
+    void autoPlay(int i);
 
-    oa9 b();
+    boolean canPlay();
 
-    ja9 c();
+    long getCurrentPosition();
 
-    um<?, ?> d(sa9 sa9Var, BdUniqueId bdUniqueId);
+    int getPlayStatus();
 
-    void e();
+    String getPlayUrl();
 
-    List<AdvertAppInfo> f();
+    View getVideoContainer();
 
-    um<?, ?> g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, String str);
+    boolean isPlayStarted();
 
-    IAdBaseAsyncController h(@NonNull IAdBaseAsyncController.Type type, @Nullable IAdBaseAsyncController.a aVar);
+    boolean isPlaying();
 
-    qa9 i();
+    void release();
 
-    void j(AdvertAppInfo advertAppInfo);
+    void startPlay();
 
-    void k(HashMap<String, String> hashMap, Context context);
+    void stopPlay();
 }

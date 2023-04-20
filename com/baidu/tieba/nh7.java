@@ -1,27 +1,71 @@
 package com.baidu.tieba;
 
 import android.content.Intent;
+import android.widget.RelativeLayout;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class nh7 {
+public abstract class nh7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public sh7 a;
+    public Intent b;
+    public int c;
+    public a d;
 
-    public static mh7 a(rh7 rh7Var, Intent intent) {
-        InterceptResult invokeLL;
+    /* loaded from: classes5.dex */
+    public interface a {
+        void onStateChanged(int i);
+    }
+
+    public abstract void c();
+
+    public abstract void d();
+
+    public nh7(sh7 sh7Var, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, rh7Var, intent)) == null) {
-            int intExtra = intent.getIntExtra("transition_type", 0);
-            if (intExtra == 1) {
-                return new sh7(rh7Var, intent);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {sh7Var, intent};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (intExtra == 2) {
-                return new lh7(rh7Var, intent);
-            }
-            return null;
         }
-        return (mh7) invokeLL.objValue;
+        this.c = 0;
+        this.a = sh7Var;
+        this.b = intent;
+        qh7 c = ph7.d().c(this.b.getStringExtra("info_forum_name_text"));
+        c.b();
+        c.a();
+        if (c.c()) {
+            ((RelativeLayout.LayoutParams) this.a.g.getLayoutParams()).topMargin = ii.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds_104);
+        }
+    }
+
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public void b(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            this.d = aVar;
+        }
     }
 }

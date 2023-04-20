@@ -82,7 +82,7 @@ public final class TbChannelJsInterface {
     private void addDelayReportRunnable(final String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65537, this, str) == null) && !this.isAlreadyReport && this.delayReportRunnable == null) {
-            this.delayReportRunnable = new Runnable() { // from class: com.baidu.tieba.ht4
+            this.delayReportRunnable = new Runnable() { // from class: com.baidu.tieba.it4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

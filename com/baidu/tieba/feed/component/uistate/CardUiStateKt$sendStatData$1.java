@@ -1,8 +1,8 @@
 package com.baidu.tieba.feed.component.uistate;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.f07;
-import com.baidu.tieba.ux6;
+import com.baidu.tieba.g07;
+import com.baidu.tieba.vx6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -13,13 +13,13 @@ import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.FunctionReferenceImpl;
 @Metadata(k = 3, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes4.dex */
-public /* synthetic */ class CardUiStateKt$sendStatData$1 extends FunctionReferenceImpl implements Function1<ux6, Unit> {
+public /* synthetic */ class CardUiStateKt$sendStatData$1 extends FunctionReferenceImpl implements Function1<vx6, Unit> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CardUiStateKt$sendStatData$1(Object obj) {
-        super(1, obj, f07.a.class, "log", "log(Lcom/baidu/tieba/feed/data/StatData;)V", 0);
+        super(1, obj, g07.a.class, "log", "log(Lcom/baidu/tieba/feed/data/StatData;)V", 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -41,16 +41,16 @@ public /* synthetic */ class CardUiStateKt$sendStatData$1 extends FunctionRefere
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // kotlin.jvm.functions.Function1
-    public /* bridge */ /* synthetic */ Unit invoke(ux6 ux6Var) {
-        invoke2(ux6Var);
+    public /* bridge */ /* synthetic */ Unit invoke(vx6 vx6Var) {
+        invoke2(vx6Var);
         return Unit.INSTANCE;
     }
 
     /* renamed from: invoke  reason: avoid collision after fix types in other method */
-    public final void invoke2(ux6 ux6Var) {
+    public final void invoke2(vx6 vx6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ux6Var) == null) {
-            ((f07.a) this.receiver).a(ux6Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vx6Var) == null) {
+            ((g07.a) this.receiver).a(vx6Var);
         }
     }
 }

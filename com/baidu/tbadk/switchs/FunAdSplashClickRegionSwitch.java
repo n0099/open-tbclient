@@ -3,7 +3,7 @@ package com.baidu.tbadk.switchs;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.debugtool.annotation.Modify;
 import com.baidu.tieba.debugtool.annotation.ModifyClass;
-import com.baidu.tieba.p45;
+import com.baidu.tieba.q45;
 import com.baidu.tieba.te;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -93,7 +93,7 @@ public class FunAdSplashClickRegionSwitch extends te {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (p45.m().n("pref_key_fun_ad_splash_click_enable", 0) != 1) {
+            if (q45.m().n("pref_key_fun_ad_splash_click_enable", 0) != 1) {
                 return false;
             }
             return true;

@@ -1,5 +1,7 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,13 +14,105 @@ import org.json.JSONObject;
 public class ah5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public BdUniqueId a;
     public String b;
-    public String c;
+    public boolean c;
     public String d;
-    public String e;
-    public String f;
-    public String g;
+    public boolean e;
+    public boolean f;
+    public boolean g;
+    public boolean h;
+    public boolean i;
+    public bh5 j;
+    public ch5 k;
+    public bg<tm> l;
+
+    public int s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 45;
+        }
+        return invokeV.intValue;
+    }
+
+    /* loaded from: classes3.dex */
+    public class a extends bg<tm> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ah5 a;
+
+        public a(ah5 ah5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ah5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ah5Var;
+        }
+
+        @Override // com.baidu.tieba.bg
+        public void onCancelled(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                super.onCancelled(str);
+            }
+        }
+
+        @Override // com.baidu.tieba.bg
+        public void onProgressUpdate(Object... objArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, objArr) == null) {
+                super.onProgressUpdate(objArr);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.bg
+        public void onLoaded(tm tmVar, String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tmVar, str, i) == null) {
+                if (tmVar != null && str != null) {
+                    if (this.a.w()) {
+                        if (str.equals(this.a.j.b())) {
+                            this.a.f = true;
+                        }
+                        if (str.equals(this.a.j.c())) {
+                            this.a.g = true;
+                        }
+                        if (str.equals(this.a.j.a())) {
+                            this.a.h = true;
+                        }
+                        if (this.a.f && this.a.g && this.a.h) {
+                            this.a.i = true;
+                        }
+                    } else {
+                        if (str.equals(this.a.b)) {
+                            this.a.c = true;
+                        }
+                        if (str.equals(this.a.d)) {
+                            this.a.e = true;
+                        }
+                        if (this.a.c && this.a.e) {
+                            this.a.i = true;
+                        }
+                    }
+                }
+                if (this.a.k != null && this.a.i) {
+                    this.a.k.a();
+                }
+            }
+        }
+    }
 
     public ah5() {
         Interceptable interceptable = $ic;
@@ -30,50 +124,31 @@ public class ah5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.l = new a(this);
     }
 
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String b() {
+    public bh5 r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+            return this.j;
         }
-        return (String) invokeV.objValue;
+        return (bh5) invokeV.objValue;
     }
 
-    public String c() {
+    public String t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.b;
         }
         return (String) invokeV.objValue;
     }
 
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (StringUtils.isNull(this.e)) {
-                return this.d;
-            }
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String e() {
+    public String u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -82,35 +157,69 @@ public class ah5 {
         return (String) invokeV.objValue;
     }
 
-    public String f() {
+    public boolean v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.f;
+            return this.i;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public String g() {
+    public void A(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bdUniqueId) == null) {
+            this.a = bdUniqueId;
+        }
+    }
+
+    public void y(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject) == null) {
+            this.b = jSONObject.optString("pic_before");
+            this.d = jSONObject.optString("pic_after");
+            bh5 bh5Var = new bh5();
+            this.j = bh5Var;
+            bh5Var.h(jSONObject);
+        }
+    }
+
+    public void z(ch5 ch5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, ch5Var) == null) {
+            this.k = ch5Var;
+        }
+    }
+
+    public final boolean w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.g;
+            bh5 bh5Var = this.j;
+            if (bh5Var != null && StringUtils.isNotNull(bh5Var.b()) && StringUtils.isNotNull(this.j.c()) && StringUtils.isNotNull(this.j.a())) {
+                return true;
+            }
+            return false;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public void h(JSONObject jSONObject) {
+    public void x() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, jSONObject) == null) && jSONObject != null) {
-            this.a = jSONObject.optString("background_day_img");
-            this.b = jSONObject.optString("background_night_img");
-            this.c = jSONObject.optString("background_dark_img");
-            this.d = jSONObject.optString("nav_bar_day_color");
-            jSONObject.optString("nav_bar_night_color");
-            this.e = jSONObject.optString("nav_bar_dark_color");
-            this.f = jSONObject.optString("text_normal_color");
-            this.g = jSONObject.optString("text_selected_color");
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            String str = this.b;
+            if (str != null && !hi.isEmpty(str)) {
+                cg.h().k(this.b, s(), this.l, 0, 0, this.a, new Object[0]);
+            }
+            String str2 = this.d;
+            if (str2 != null && !hi.isEmpty(str2)) {
+                cg.h().k(this.d, s(), this.l, 0, 0, this.a, new Object[0]);
+            }
+            if (w()) {
+                cg.h().k(this.j.b(), s(), this.l, 0, 0, this.a, new Object[0]);
+                cg.h().k(this.j.c(), s(), this.l, 0, 0, this.a, new Object[0]);
+                cg.h().k(this.j.a(), s(), this.l, 0, 0, this.a, new Object[0]);
+            }
         }
     }
 }

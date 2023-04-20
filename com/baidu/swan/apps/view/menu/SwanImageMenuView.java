@@ -16,20 +16,20 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import com.baidu.swan.apps.view.SwanAppRoundCornerListView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.br2;
-import com.baidu.tieba.e73;
+import com.baidu.tieba.cr2;
 import com.baidu.tieba.f73;
-import com.baidu.tieba.h73;
-import com.baidu.tieba.hn3;
+import com.baidu.tieba.g73;
+import com.baidu.tieba.i73;
+import com.baidu.tieba.in3;
 import com.facebook.drawee.view.SimpleDraweeView;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class SwanImageMenuView extends FrameLayout implements e73.g {
+public class SwanImageMenuView extends FrameLayout implements f73.g {
     public boolean a;
     public c b;
     public Context c;
     public SwanAppRoundCornerListView d;
-    public hn3 e;
+    public in3 e;
     public View f;
     public int g;
 
@@ -59,7 +59,7 @@ public class SwanImageMenuView extends FrameLayout implements e73.g {
 
     /* loaded from: classes3.dex */
     public static class c extends BaseAdapter {
-        public List<f73> a;
+        public List<g73> a;
         public Context b;
 
         @Override // android.widget.Adapter
@@ -67,7 +67,7 @@ public class SwanImageMenuView extends FrameLayout implements e73.g {
             return i;
         }
 
-        public c(Context context, List<f73> list) {
+        public c(Context context, List<g73> list) {
             this.a = list;
             this.b = context;
         }
@@ -83,19 +83,19 @@ public class SwanImageMenuView extends FrameLayout implements e73.g {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.widget.Adapter
         /* renamed from: a */
-        public f73 getItem(int i) {
+        public g73 getItem(int i) {
             return this.a.get(i);
         }
 
         public void b(int i) {
-            f73 f73Var = this.a.get(i);
-            f73.a d = f73Var.d();
+            g73 g73Var = this.a.get(i);
+            g73.a d = g73Var.d();
             if (d != null) {
-                d.a(f73Var);
+                d.a(g73Var);
             }
         }
 
-        public void d(List<f73> list) {
+        public void d(List<g73> list) {
             this.a = list;
             notifyDataSetChanged();
         }
@@ -108,10 +108,10 @@ public class SwanImageMenuView extends FrameLayout implements e73.g {
         @Override // android.widget.Adapter
         public View getView(int i, View view2, ViewGroup viewGroup) {
             View inflate;
-            f73 item = getItem(i);
-            if (item instanceof h73) {
+            g73 item = getItem(i);
+            if (item instanceof i73) {
                 inflate = View.inflate(this.b, R.layout.obfuscated_res_0x7f0d087e, null);
-                String i2 = ((h73) item).i();
+                String i2 = ((i73) item).i();
                 if (!TextUtils.isEmpty(i2)) {
                     ((SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f090f68)).setImageURI(i2);
                 }
@@ -135,7 +135,7 @@ public class SwanImageMenuView extends FrameLayout implements e73.g {
         c();
     }
 
-    public void d(List<f73> list) {
+    public void d(List<g73> list) {
         if (this.a) {
             return;
         }
@@ -150,8 +150,8 @@ public class SwanImageMenuView extends FrameLayout implements e73.g {
         this.a = true;
     }
 
-    public void setMenu(hn3 hn3Var) {
-        this.e = hn3Var;
+    public void setMenu(in3 in3Var) {
+        this.e = in3Var;
     }
 
     public SwanImageMenuView(Context context, AttributeSet attributeSet) {
@@ -178,7 +178,7 @@ public class SwanImageMenuView extends FrameLayout implements e73.g {
         this.d.setSelector(new ColorDrawable(0));
         ((TextView) linearLayout.findViewById(R.id.negative_button)).setOnClickListener(new b());
         addView(linearLayout);
-        if (br2.M().a()) {
+        if (cr2.M().a()) {
             View view2 = new View(this.c);
             this.f = view2;
             view2.setBackgroundResource(R.drawable.obfuscated_res_0x7f0811fe);

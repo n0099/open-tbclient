@@ -1,108 +1,87 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.UnsupportedEncodingException;
-import java.security.GeneralSecurityException;
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import javax.crypto.SecretKey;
+import java.util.HashMap;
+import java.util.Map;
+@Deprecated
 /* loaded from: classes5.dex */
-public class nva implements pva {
+public abstract class nva implements kva {
     public static /* synthetic */ Interceptable $ic;
+    public static final Map<String, nva> a;
+    public static final Object b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final mva a;
-    public SecretKey b;
 
-    public nva(mva mvaVar) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948017296, "Lcom/baidu/tieba/nva;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948017296, "Lcom/baidu/tieba/nva;");
+                return;
+            }
+        }
+        a = new HashMap();
+        b = new Object();
+    }
+
+    public nva() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mvaVar};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = mvaVar;
-        b();
     }
 
-    public static boolean c(String str) {
+    public static nva c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? !TextUtils.isEmpty(str) && Pattern.matches("^\\[!([A-Fa-f0-9]*)]", str) : invokeL.booleanValue;
-    }
-
-    public static String d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            try {
-                Matcher matcher = Pattern.compile("^\\[!([A-Fa-f0-9]*)]").matcher(str);
-                return matcher.find() ? matcher.group(1) : "";
-            } catch (IllegalStateException | IndexOutOfBoundsException unused) {
-                Log.e("ExclamationMark", "getRawString exception");
-                return "";
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            Context applicationContext = context.getApplicationContext();
+            if (applicationContext != null) {
+                context = applicationContext;
             }
+            return d(context, context.getPackageName());
         }
-        return (String) invokeL.objValue;
+        return (nva) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.pva
-    public String a(String str, String str2) {
+    public static nva d(Context context, String str) {
         InterceptResult invokeLL;
-        String str3;
+        nva nvaVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (this.b == null) {
-                str3 = "mKey is null, return default value";
-            } else if (!c(str)) {
-                return str2;
-            } else {
-                try {
-                    return new String(rva.b(this.b, hva.b(d(str))), "UTF-8");
-                } catch (UnsupportedEncodingException | IllegalArgumentException | GeneralSecurityException unused) {
-                    str3 = "UnsupportedEncodingException||GeneralSecurityException||IllegalArgumentException";
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
+            synchronized (b) {
+                nvaVar = a.get(str);
+                if (nvaVar == null) {
+                    nvaVar = new tva(context, str);
+                    a.put(str, nvaVar);
                 }
             }
-            Log.e("ExclamationMark", str3);
-            return str2;
+            return nvaVar;
         }
-        return (String) invokeLL.objValue;
+        return (nva) invokeLL.objValue;
     }
 
-    public final SecretKey b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            try {
-                String a = this.a.a("/code/code1", null);
-                String a2 = this.a.a("/code/code2", null);
-                String a3 = this.a.a("/code/code3", null);
-                String a4 = this.a.a("/code/code4", null);
-                if (a != null && a2 != null && a3 != null && a4 != null) {
-                    this.b = rva.a(hva.b(a), hva.b(a2), hva.b(a3), hva.b(a4), 10000);
-                }
-            } catch (IllegalArgumentException | NoSuchAlgorithmException | InvalidKeySpecException unused) {
-                Log.e("ExclamationMark", "Exception when reading the 'K&I' for 'Config'.");
-                this.b = null;
-            }
-            return this.b;
-        }
-        return (SecretKey) invokeV.objValue;
-    }
+    @Override // com.baidu.tieba.kva
+    public abstract /* synthetic */ Context getContext();
+
+    @Override // com.baidu.tieba.kva
+    public abstract /* synthetic */ String getIdentifier();
 }

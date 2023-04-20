@@ -11,14 +11,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qk0;
-import com.baidu.tieba.xj0;
+import com.baidu.tieba.rk0;
+import com.baidu.tieba.yj0;
 /* loaded from: classes2.dex */
-public class DefaultDownloadViewLP extends FrameLayout implements qk0<DefaultDownloadViewLP> {
+public class DefaultDownloadViewLP extends FrameLayout implements rk0<DefaultDownloadViewLP> {
     public BannerDownloadView a;
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qk0
+    @Override // com.baidu.tieba.rk0
     @NonNull
     public DefaultDownloadViewLP getRealView() {
         return this;
@@ -45,7 +45,7 @@ public class DefaultDownloadViewLP extends FrameLayout implements qk0<DefaultDow
         }
     }
 
-    @Override // com.baidu.tieba.qk0
+    @Override // com.baidu.tieba.rk0
     public void b(@NonNull ViewGroup viewGroup) {
         if (!(viewGroup instanceof RelativeLayout)) {
             return;
@@ -81,11 +81,11 @@ public class DefaultDownloadViewLP extends FrameLayout implements qk0<DefaultDow
         this(context, attributeSet, 0);
     }
 
-    @Override // com.baidu.tieba.qk0
-    public void update(String str, @NonNull xj0 xj0Var) {
-        if (xj0Var.c == AdDownloadStatus.DOWNLOADING) {
+    @Override // com.baidu.tieba.rk0
+    public void update(String str, @NonNull yj0 yj0Var) {
+        if (yj0Var.c == AdDownloadStatus.DOWNLOADING) {
             str = getResources().getString(R.string.nad_download_progress_text) + str;
-            setProgress(xj0Var.i);
+            setProgress(yj0Var.i);
         } else {
             setProgress(0.0f);
         }

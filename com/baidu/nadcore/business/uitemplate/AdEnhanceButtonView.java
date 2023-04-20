@@ -20,32 +20,32 @@ import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.nadcore.widget.uiwidget.SimpleAdInfoView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a41;
-import com.baidu.tieba.dh0;
-import com.baidu.tieba.fh0;
-import com.baidu.tieba.fi0;
-import com.baidu.tieba.ii0;
-import com.baidu.tieba.kg0;
-import com.baidu.tieba.kk0;
-import com.baidu.tieba.kp0;
-import com.baidu.tieba.l11;
-import com.baidu.tieba.mc1;
-import com.baidu.tieba.nl0;
-import com.baidu.tieba.np0;
-import com.baidu.tieba.oc1;
-import com.baidu.tieba.ra1;
-import com.baidu.tieba.rl0;
-import com.baidu.tieba.up0;
-import com.baidu.tieba.v01;
-import com.baidu.tieba.w31;
-import com.baidu.tieba.wh0;
-import com.baidu.tieba.xf0;
-import com.baidu.tieba.xj0;
-import com.baidu.tieba.zp0;
+import com.baidu.tieba.aq0;
+import com.baidu.tieba.b41;
+import com.baidu.tieba.eh0;
+import com.baidu.tieba.gh0;
+import com.baidu.tieba.gi0;
+import com.baidu.tieba.ji0;
+import com.baidu.tieba.lg0;
+import com.baidu.tieba.lk0;
+import com.baidu.tieba.lp0;
+import com.baidu.tieba.m11;
+import com.baidu.tieba.nc1;
+import com.baidu.tieba.ol0;
+import com.baidu.tieba.op0;
+import com.baidu.tieba.pc1;
+import com.baidu.tieba.sa1;
+import com.baidu.tieba.sl0;
+import com.baidu.tieba.vp0;
+import com.baidu.tieba.w01;
+import com.baidu.tieba.x31;
+import com.baidu.tieba.xh0;
+import com.baidu.tieba.yf0;
+import com.baidu.tieba.yj0;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
-public class AdEnhanceButtonView extends FrameLayout implements oc1<View> {
+public class AdEnhanceButtonView extends FrameLayout implements pc1<View> {
     public static final int q;
     public static final int r;
     public static final int s;
@@ -57,25 +57,25 @@ public class AdEnhanceButtonView extends FrameLayout implements oc1<View> {
     public LinearLayout c;
     public TextView d;
     public AdImageView e;
-    public kk0 f;
-    public List<ra1> g;
+    public lk0 f;
+    public List<sa1> g;
     public int h;
     public int i;
     public View j;
-    public mc1 k;
+    public nc1 k;
     public SimpleAdInfoView l;
     public boolean m;
     public int n;
     public int o;
     public int p;
 
-    @Override // com.baidu.tieba.oc1
+    @Override // com.baidu.tieba.pc1
     public void setBtnIconNightModeEnable(boolean z) {
     }
 
     /* loaded from: classes2.dex */
-    public class a extends ra1 {
-        @Override // com.baidu.tieba.ra1
+    public class a extends sa1 {
+        @Override // com.baidu.tieba.sa1
         public void c() {
         }
 
@@ -83,7 +83,7 @@ public class AdEnhanceButtonView extends FrameLayout implements oc1<View> {
             super(j, j2);
         }
 
-        @Override // com.baidu.tieba.ra1
+        @Override // com.baidu.tieba.sa1
         public void d() {
             if (AdEnhanceButtonView.this.k != null) {
                 AdEnhanceButtonView.this.k.e();
@@ -125,7 +125,7 @@ public class AdEnhanceButtonView extends FrameLayout implements oc1<View> {
     }
 
     /* loaded from: classes2.dex */
-    public class c extends ra1 {
+    public class c extends sa1 {
         public final /* synthetic */ ValueAnimator c;
         public final /* synthetic */ Animation d;
         public final /* synthetic */ View e;
@@ -138,14 +138,14 @@ public class AdEnhanceButtonView extends FrameLayout implements oc1<View> {
             this.e = view2;
         }
 
-        @Override // com.baidu.tieba.ra1
+        @Override // com.baidu.tieba.sa1
         public void c() {
             this.c.cancel();
             this.d.cancel();
             AdEnhanceButtonView.this.E();
         }
 
-        @Override // com.baidu.tieba.ra1
+        @Override // com.baidu.tieba.sa1
         public void d() {
             if (this.c.isRunning()) {
                 return;
@@ -171,14 +171,14 @@ public class AdEnhanceButtonView extends FrameLayout implements oc1<View> {
             View view2 = AdEnhanceButtonView.this.B() ? AdEnhanceButtonView.this.b : AdEnhanceButtonView.this.c;
             if (view2.getBackground() instanceof GradientDrawable) {
                 GradientDrawable gradientDrawable = (GradientDrawable) view2.getBackground();
-                gradientDrawable.setColor(fh0.d(animatedFraction, AdEnhanceButtonView.this.o, AdEnhanceButtonView.this.getBtnFinalColor()));
+                gradientDrawable.setColor(gh0.d(animatedFraction, AdEnhanceButtonView.this.o, AdEnhanceButtonView.this.getBtnFinalColor()));
                 gradientDrawable.setCornerRadius(AdEnhanceButtonView.this.n);
             }
         }
     }
 
     /* loaded from: classes2.dex */
-    public class e extends ra1 {
+    public class e extends sa1 {
         public final /* synthetic */ ValueAnimator c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -187,12 +187,12 @@ public class AdEnhanceButtonView extends FrameLayout implements oc1<View> {
             this.c = valueAnimator;
         }
 
-        @Override // com.baidu.tieba.ra1
+        @Override // com.baidu.tieba.sa1
         public void c() {
             this.c.cancel();
         }
 
-        @Override // com.baidu.tieba.ra1
+        @Override // com.baidu.tieba.sa1
         public void d() {
             if (this.c.isRunning()) {
                 return;
@@ -219,86 +219,86 @@ public class AdEnhanceButtonView extends FrameLayout implements oc1<View> {
 
     /* loaded from: classes2.dex */
     public class g implements View.OnClickListener {
-        public final /* synthetic */ kp0 a;
+        public final /* synthetic */ lp0 a;
 
-        public g(kp0 kp0Var) {
-            this.a = kp0Var;
+        public g(lp0 lp0Var) {
+            this.a = lp0Var;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             AdEnhanceButtonView.this.f.m();
-            fh0.b(this.a.h);
+            gh0.b(this.a.h);
         }
     }
 
     /* loaded from: classes2.dex */
     public class h implements View.OnClickListener {
-        public final /* synthetic */ kp0 a;
+        public final /* synthetic */ lp0 a;
 
-        public h(kp0 kp0Var) {
-            this.a = kp0Var;
+        public h(lp0 lp0Var) {
+            this.a = lp0Var;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             if (AdEnhanceButtonView.this.k != null) {
-                up0 up0Var = new up0();
-                up0Var.c = true;
-                kp0 kp0Var = this.a;
-                String str = kp0Var.t;
-                up0Var.a = str;
-                if (kp0Var.a == 0 && AdEnhanceButtonView.this.q(str).booleanValue()) {
-                    up0Var.a = "";
+                vp0 vp0Var = new vp0();
+                vp0Var.c = true;
+                lp0 lp0Var = this.a;
+                String str = lp0Var.t;
+                vp0Var.a = str;
+                if (lp0Var.a == 0 && AdEnhanceButtonView.this.q(str).booleanValue()) {
+                    vp0Var.a = "";
                 }
-                AdEnhanceButtonView.this.k.b(up0Var);
+                AdEnhanceButtonView.this.k.b(vp0Var);
             }
         }
     }
 
     /* loaded from: classes2.dex */
-    public class i extends rl0<kg0> {
-        public final /* synthetic */ kp0 b;
+    public class i extends sl0<lg0> {
+        public final /* synthetic */ lp0 b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public i(Class cls, kp0 kp0Var) {
+        public i(Class cls, lp0 lp0Var) {
             super(cls);
-            this.b = kp0Var;
+            this.b = lp0Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rl0
-        public void onEvent(@NonNull kg0 kg0Var) {
+        @Override // com.baidu.tieba.sl0
+        public void onEvent(@NonNull lg0 lg0Var) {
             GradientDrawable gradientDrawable;
-            if ("4".equals(kg0Var.a)) {
-                if (kg0Var.h) {
+            if ("4".equals(lg0Var.a)) {
+                if (lg0Var.h) {
                     AdEnhanceButtonView.this.x(this.b);
                     return;
                 }
-                if (kg0Var.f != null) {
-                    AdEnhanceButtonView.this.e.o(kg0Var.f);
+                if (lg0Var.f != null) {
+                    AdEnhanceButtonView.this.e.o(lg0Var.f);
                 }
-                if (kg0Var.g != null) {
-                    AdEnhanceButtonView.this.d.setText(kg0Var.g);
+                if (lg0Var.g != null) {
+                    AdEnhanceButtonView.this.d.setText(lg0Var.g);
                 }
-                if (kg0Var.d != null && kg0Var.e != null && (gradientDrawable = (GradientDrawable) AdEnhanceButtonView.this.c.getBackground()) != null) {
+                if (lg0Var.d != null && lg0Var.e != null && (gradientDrawable = (GradientDrawable) AdEnhanceButtonView.this.c.getBackground()) != null) {
                     gradientDrawable.setOrientation(GradientDrawable.Orientation.LEFT_RIGHT);
-                    gradientDrawable.setColors(new int[]{w31.a(kg0Var.d, R.color.nad_reward_full_tail_btn_color), w31.a(kg0Var.e, R.color.nad_reward_full_tail_btn_color)});
+                    gradientDrawable.setColors(new int[]{x31.a(lg0Var.d, R.color.nad_reward_full_tail_btn_color), x31.a(lg0Var.e, R.color.nad_reward_full_tail_btn_color)});
                     AdEnhanceButtonView.this.c.setBackground(gradientDrawable);
                 }
-                l11.b(new ClogBuilder().y(ClogBuilder.LogType.REWARD_SHOW_TASK).u(ClogBuilder.Page.WELFARETAIL).p(kg0Var.i).k("4").l(kg0Var.c));
+                m11.b(new ClogBuilder().y(ClogBuilder.LogType.REWARD_SHOW_TASK).u(ClogBuilder.Page.WELFARETAIL).p(lg0Var.i).k("4").l(lg0Var.c));
             }
         }
     }
 
     static {
-        a41.c.a(ii0.b(), 8.0f);
-        q = a41.c.a(ii0.b(), 12.0f);
-        r = a41.c.a(ii0.b(), 33.0f);
-        s = a41.c.a(ii0.b(), 9.0f);
-        t = a41.c.a(ii0.b(), 28.0f);
-        u = a41.c.a(ii0.b(), 11.0f);
-        v = a41.c.a(ii0.b(), 7.0f);
+        b41.c.a(ji0.b(), 8.0f);
+        q = b41.c.a(ji0.b(), 12.0f);
+        r = b41.c.a(ji0.b(), 33.0f);
+        s = b41.c.a(ji0.b(), 9.0f);
+        t = b41.c.a(ji0.b(), 28.0f);
+        u = b41.c.a(ji0.b(), 11.0f);
+        v = b41.c.a(ji0.b(), 7.0f);
     }
 
     public final void z() {
@@ -336,7 +336,7 @@ public class AdEnhanceButtonView extends FrameLayout implements oc1<View> {
         this.i = 0;
         this.k = null;
         this.m = false;
-        this.n = a41.c.a(ii0.b(), 17.0f);
+        this.n = b41.c.a(ji0.b(), 17.0f);
         this.o = getResources().getColor(R.color.nad_enhancement_btn_first_bg_color);
         this.p = getResources().getColor(R.color.nad_enhancement_btn_bg_color);
         r(context);
@@ -349,50 +349,50 @@ public class AdEnhanceButtonView extends FrameLayout implements oc1<View> {
         setBtnPlaceholder(view2);
     }
 
-    public final void A(@NonNull np0 np0Var) {
-        int i2 = np0Var.a;
+    public final void A(@NonNull op0 op0Var) {
+        int i2 = op0Var.a;
         if (i2 != 0) {
             if (i2 != 1) {
                 if (i2 == 2) {
-                    w(np0Var);
+                    w(op0Var);
                     return;
                 }
                 return;
             }
-            v(np0Var);
+            v(op0Var);
             return;
         }
-        v01.b(this.g, new a(np0Var.b, np0Var.c));
+        w01.b(this.g, new a(op0Var.b, op0Var.c));
     }
 
-    public final void D(@NonNull kp0 kp0Var) {
-        nl0.a().b(this, new i(kg0.class, kp0Var));
+    public final void D(@NonNull lp0 lp0Var) {
+        ol0.a().b(this, new i(lg0.class, lp0Var));
     }
 
     public Boolean q(@Nullable String str) {
         if (TextUtils.isEmpty(str)) {
             return Boolean.FALSE;
         }
-        if (!fi0.o(str)) {
+        if (!gi0.o(str)) {
             return Boolean.FALSE;
         }
-        return Boolean.valueOf("rewardWebPanel".equals(new wh0(str).a()));
+        return Boolean.valueOf("rewardWebPanel".equals(new xh0(str).a()));
     }
 
-    public final void s(@NonNull kp0 kp0Var) {
-        List<np0> list = kp0Var.o;
+    public final void s(@NonNull lp0 lp0Var) {
+        List<op0> list = lp0Var.o;
         if (list != null && list.size() > 0) {
             this.g = new ArrayList();
-            for (np0 np0Var : list) {
-                if (np0Var != null) {
-                    A(np0Var);
+            for (op0 op0Var : list) {
+                if (op0Var != null) {
+                    A(op0Var);
                 }
             }
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.oc1
+    @Override // com.baidu.tieba.pc1
     public void setBtnPlaceholder(View view2) {
         this.j = view2;
         E();
@@ -406,45 +406,45 @@ public class AdEnhanceButtonView extends FrameLayout implements oc1<View> {
         viewGroup.addView(this);
     }
 
-    @Override // com.baidu.tieba.oc1
-    public void setData(@NonNull kp0 kp0Var) {
-        if (!kp0Var.b()) {
+    @Override // com.baidu.tieba.pc1
+    public void setData(@NonNull lp0 lp0Var) {
+        if (!lp0Var.b()) {
             setVisibility(8);
             return;
         }
-        setTag(kp0Var);
+        setTag(lp0Var);
         setVisibility(0);
-        t(kp0Var.s);
-        if (!y(kp0Var)) {
-            x(kp0Var);
+        t(lp0Var.s);
+        if (!y(lp0Var)) {
+            x(lp0Var);
         }
         z();
         u(false);
-        s(kp0Var);
-        D(kp0Var);
+        s(lp0Var);
+        D(lp0Var);
     }
 
-    @Override // com.baidu.tieba.oc1
-    public void setEnhanceBtnListener(@NonNull mc1 mc1Var) {
-        this.k = mc1Var;
+    @Override // com.baidu.tieba.pc1
+    public void setEnhanceBtnListener(@NonNull nc1 nc1Var) {
+        this.k = nc1Var;
     }
 
-    @Override // com.baidu.tieba.oc1
+    @Override // com.baidu.tieba.pc1
     public void setVisible(int i2) {
         setVisibility(i2);
     }
 
     public final boolean B() {
-        kp0 kp0Var;
-        if (!(getTag() instanceof kp0) || (kp0Var = (kp0) getTag()) == null) {
+        lp0 lp0Var;
+        if (!(getTag() instanceof lp0) || (lp0Var = (lp0) getTag()) == null) {
             return false;
         }
-        if (kp0Var.e) {
-            if (kp0Var.p == null || kp0Var.a != 2) {
+        if (lp0Var.e) {
+            if (lp0Var.p == null || lp0Var.a != 2) {
                 return false;
             }
             return true;
-        } else if (kp0Var.s == null || kp0Var.p == null || kp0Var.a != 2) {
+        } else if (lp0Var.s == null || lp0Var.p == null || lp0Var.a != 2) {
             return false;
         } else {
             return true;
@@ -462,12 +462,12 @@ public class AdEnhanceButtonView extends FrameLayout implements oc1<View> {
         }
     }
 
-    @Override // com.baidu.tieba.oc1
+    @Override // com.baidu.tieba.pc1
     public void a() {
-        List<ra1> list = this.g;
+        List<sa1> list = this.g;
         if (list != null) {
-            for (ra1 ra1Var : list) {
-                ra1Var.c();
+            for (sa1 sa1Var : list) {
+                sa1Var.c();
             }
         }
         this.h = 0;
@@ -475,20 +475,20 @@ public class AdEnhanceButtonView extends FrameLayout implements oc1<View> {
     }
 
     public int getBtnFinalColor() {
-        if ((getTag() instanceof kp0) && !TextUtils.isEmpty(((kp0) getTag()).r)) {
-            return fh0.f(((kp0) getTag()).r, R.color.nad_enhancement_btn_bg_color);
+        if ((getTag() instanceof lp0) && !TextUtils.isEmpty(((lp0) getTag()).r)) {
+            return gh0.f(((lp0) getTag()).r, R.color.nad_enhancement_btn_bg_color);
         }
         return this.p;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.oc1
+    @Override // com.baidu.tieba.pc1
     public View getRealView() {
-        if (!(getTag() instanceof kp0)) {
+        if (!(getTag() instanceof lp0)) {
             return this.c;
         }
-        if (((kp0) getTag()).a != 2) {
+        if (((lp0) getTag()).a != 2) {
             return this.c;
         }
         return this.b;
@@ -498,8 +498,8 @@ public class AdEnhanceButtonView extends FrameLayout implements oc1<View> {
         if (attributeSet == null) {
             return;
         }
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, xf0.NadEnhanceButtonView);
-        this.n = obtainStyledAttributes.getDimensionPixelSize(2, a41.c.a(ii0.b(), 8.0f));
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, yf0.NadEnhanceButtonView);
+        this.n = obtainStyledAttributes.getDimensionPixelSize(2, b41.c.a(ji0.b(), 8.0f));
         this.o = obtainStyledAttributes.getColor(1, getResources().getColor(R.color.nad_enhancement_btn_first_bg_color));
         this.p = obtainStyledAttributes.getColor(0, getResources().getColor(R.color.nad_enhancement_btn_bg_color));
         obtainStyledAttributes.recycle();
@@ -514,15 +514,15 @@ public class AdEnhanceButtonView extends FrameLayout implements oc1<View> {
         this.l = (SimpleAdInfoView) findViewById(R.id.app_info_container);
     }
 
-    public final void t(@Nullable zp0 zp0Var) {
-        if (!fh0.a(zp0Var)) {
+    public final void t(@Nullable aq0 aq0Var) {
+        if (!gh0.a(aq0Var)) {
             this.m = false;
             this.l.setVisibility(8);
             return;
         }
         this.m = true;
         this.l.setVisibility(0);
-        this.l.setAdInfo(zp0Var);
+        this.l.setAdInfo(aq0Var);
         this.l.setAfterListener(new f());
         this.a = this.l.getHeight();
         this.l.measure(-2, -2);
@@ -551,41 +551,41 @@ public class AdEnhanceButtonView extends FrameLayout implements oc1<View> {
         }
     }
 
-    @Override // com.baidu.tieba.oc1
+    @Override // com.baidu.tieba.pc1
     public void update(int i2) {
-        List<ra1> list = this.g;
-        if (list != null && this.h < v01.l(list)) {
-            ra1 ra1Var = (ra1) v01.d(this.g, this.h);
-            if (ra1Var != null && i2 * 1000 >= this.i) {
-                ra1Var.d();
-                this.i = (int) (this.i + ra1Var.b() + ra1Var.a());
+        List<sa1> list = this.g;
+        if (list != null && this.h < w01.l(list)) {
+            sa1 sa1Var = (sa1) w01.d(this.g, this.h);
+            if (sa1Var != null && i2 * 1000 >= this.i) {
+                sa1Var.d();
+                this.i = (int) (this.i + sa1Var.b() + sa1Var.a());
                 this.h++;
                 return;
             }
             return;
         }
-        mc1 mc1Var = this.k;
-        if (mc1Var != null) {
-            mc1Var.d();
+        nc1 nc1Var = this.k;
+        if (nc1Var != null) {
+            nc1Var.d();
         }
     }
 
-    public final void w(@NonNull np0 np0Var) {
-        if (np0Var.c <= 0) {
+    public final void w(@NonNull op0 op0Var) {
+        if (op0Var.c <= 0) {
             return;
         }
         u(true);
-        ValueAnimator duration = ValueAnimator.ofFloat(1.0f).setDuration(np0Var.c);
+        ValueAnimator duration = ValueAnimator.ofFloat(1.0f).setDuration(op0Var.c);
         duration.addUpdateListener(new d());
-        v01.b(this.g, new e(np0Var.b, np0Var.c, duration));
+        w01.b(this.g, new e(op0Var.b, op0Var.c, duration));
     }
 
-    public final void v(@NonNull np0 np0Var) {
+    public final void v(@NonNull op0 op0Var) {
         E();
-        if (np0Var.c <= 0) {
+        if (op0Var.c <= 0) {
             return;
         }
-        ValueAnimator duration = ValueAnimator.ofFloat(0.0f, 1.0f).setDuration(np0Var.c);
+        ValueAnimator duration = ValueAnimator.ofFloat(0.0f, 1.0f).setDuration(op0Var.c);
         ViewGroup.LayoutParams layoutParams = this.j.getLayoutParams();
         ViewGroup.LayoutParams layoutParams2 = this.l.getLayoutParams();
         if (this.j != null && (layoutParams instanceof ViewGroup.MarginLayoutParams) && (layoutParams2 instanceof ViewGroup.MarginLayoutParams)) {
@@ -608,51 +608,51 @@ public class AdEnhanceButtonView extends FrameLayout implements oc1<View> {
         }
         View realView = getRealView();
         Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.nad_max_pop_view_fade_in);
-        loadAnimation.setDuration(np0Var.c);
+        loadAnimation.setDuration(op0Var.c);
         realView.setVisibility(8);
         realView.setAnimation(loadAnimation);
-        v01.b(this.g, new c(np0Var.b, np0Var.c, duration, loadAnimation, realView));
+        w01.b(this.g, new c(op0Var.b, op0Var.c, duration, loadAnimation, realView));
     }
 
-    public final void x(@NonNull kp0 kp0Var) {
-        if (!TextUtils.isEmpty(kp0Var.c)) {
-            this.e.o(kp0Var.c);
+    public final void x(@NonNull lp0 lp0Var) {
+        if (!TextUtils.isEmpty(lp0Var.c)) {
+            this.e.o(lp0Var.c);
         } else {
             this.e.setImageDrawable(getContext().getResources().getDrawable(R.drawable.nad_ebtn_icon));
         }
-        if (!TextUtils.isEmpty(kp0Var.b)) {
-            this.d.setText(kp0Var.b);
+        if (!TextUtils.isEmpty(lp0Var.b)) {
+            this.d.setText(lp0Var.b);
         } else {
             this.d.setText(getResources().getText(R.string.nad_command_btn_text));
         }
-        this.d.setTextColor(fh0.f("", R.color.nad_white));
-        this.c.setOnClickListener(new h(kp0Var));
+        this.d.setTextColor(gh0.f("", R.color.nad_white));
+        this.c.setOnClickListener(new h(lp0Var));
         this.b.setVisibility(8);
-        if (kp0Var.f) {
+        if (lp0Var.f) {
             this.e.setVisibility(8);
         } else {
             this.e.setVisibility(0);
         }
-        if (kp0Var.g) {
+        if (lp0Var.g) {
             this.d.setText(R.string.nad_button_open);
-            if (kp0Var.q != null) {
-                l11.b(new ClogBuilder().j("openbtn").y(ClogBuilder.LogType.FREE_SHOW).u(ClogBuilder.Page.WELFAREMAXLP).p(kp0Var.q.d));
+            if (lp0Var.q != null) {
+                m11.b(new ClogBuilder().j("openbtn").y(ClogBuilder.LogType.FREE_SHOW).u(ClogBuilder.Page.WELFAREMAXLP).p(lp0Var.q.d));
             }
         }
     }
 
-    public final boolean y(@NonNull kp0 kp0Var) {
-        if (B() && kp0Var.p != null && kp0Var.q != null) {
-            this.b.setIconArrowSwitch(kp0Var.f);
-            kp0Var.a = 2;
-            if (kp0Var.d) {
-                xj0 d2 = xj0.d(kp0Var.p, kp0Var.q.d, kp0Var.t);
+    public final boolean y(@NonNull lp0 lp0Var) {
+        if (B() && lp0Var.p != null && lp0Var.q != null) {
+            this.b.setIconArrowSwitch(lp0Var.f);
+            lp0Var.a = 2;
+            if (lp0Var.d) {
+                yj0 d2 = yj0.d(lp0Var.p, lp0Var.q.d, lp0Var.t);
                 d2.q.a = ClogBuilder.Page.WELFAREMAXLP.type;
-                dh0 dh0Var = new dh0(d2, this.b);
-                this.f = dh0Var;
-                dh0Var.A();
+                eh0 eh0Var = new eh0(d2, this.b);
+                this.f = eh0Var;
+                eh0Var.A();
             } else {
-                this.f = new kk0(xj0.d(kp0Var.p, kp0Var.q.d, kp0Var.t), this.b);
+                this.f = new lk0(yj0.d(lp0Var.p, lp0Var.q.d, lp0Var.t), this.b);
             }
             this.b.setCornerRadius(this.n);
             this.b.setTextSize(12.0f);
@@ -661,9 +661,9 @@ public class AdEnhanceButtonView extends FrameLayout implements oc1<View> {
             nadEnhanceButtonDownloadView.setImageViewLayout(new FrameLayout.LayoutParams(i2, i2));
             this.c.setVisibility(8);
             this.b.setVisibility(0);
-            this.b.setOnClickListener(new g(kp0Var));
-            if (!TextUtils.isEmpty(kp0Var.c)) {
-                this.b.setStateImageIcon(kp0Var.c);
+            this.b.setOnClickListener(new g(lp0Var));
+            if (!TextUtils.isEmpty(lp0Var.c)) {
+                this.b.setStateImageIcon(lp0Var.c);
                 return true;
             }
             this.b.setStateImageRes(R.drawable.nad_ebtn_icon);

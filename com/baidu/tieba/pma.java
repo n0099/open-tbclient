@@ -1,97 +1,60 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.fra;
+import com.baidu.tieba.ima;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Calendar;
-import java.util.HashSet;
-import java.util.Set;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class pma {
+public class pma implements fra.a<hma> {
     public static /* synthetic */ Interceptable $ic;
-    public static final Handler a;
-    public static final Set<String> b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ fra a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948068229, "Lcom/baidu/tieba/pma;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948068229, "Lcom/baidu/tieba/pma;");
+    public pma(fra fraVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {fraVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        b = new HashSet();
-        a = new a(Looper.getMainLooper());
+        this.a = fraVar;
     }
 
-    public static long a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.baidu.tieba.fra.a
+    public void a(hma hmaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            Calendar calendar = Calendar.getInstance();
-            long timeInMillis = calendar.getTimeInMillis();
-            calendar.add(6, 1);
-            calendar.set(11, 0);
-            calendar.set(12, 0);
-            calendar.set(13, 0);
-            long timeInMillis2 = calendar.getTimeInMillis() - timeInMillis;
-            if (timeInMillis2 < 0) {
-                return 0L;
-            }
-            return timeInMillis2;
+        if (interceptable == null || interceptable.invokeL(1048576, this, hmaVar) == null) {
+            LogPrinter.v("SlotId:%s is totally same with oldOne", hmaVar.a);
         }
-        return invokeV.longValue;
     }
 
-    /* loaded from: classes5.dex */
-    public static class a extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(@NonNull Message message) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 101) {
-                SharedPreferences sharedPreferences = zna.a;
-                sharedPreferences.edit().clear().apply();
-                sharedPreferences.edit().putLong("req_id_update_time", System.currentTimeMillis()).apply();
-                pma.b.clear();
-                sendEmptyMessageDelayed(101, pma.a());
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.baidu.tieba.fra.a
+    public void b(hma hmaVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hmaVar) == null) {
+            hma hmaVar2 = hmaVar;
+            LogPrinter.v("Update SlotId:%s", hmaVar2.a);
+            HashMap<String, kma> hashMap = this.a.c;
+            String str = hmaVar2.a;
+            hashMap.put(str, new kma(str, new nma(this, hmaVar2)));
+            ima imaVar = this.a.b;
+            synchronized (imaVar.a) {
+                imaVar.a(hmaVar2.a).add(new ima.a(hmaVar2));
             }
         }
     }

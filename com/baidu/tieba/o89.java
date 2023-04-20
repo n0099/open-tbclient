@@ -1,168 +1,64 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.AbsListView;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.view.NavigationBarShadowView;
-import com.baidu.tbadk.core.view.NoDataView;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tieba.n89;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class o89 {
+public class o89 extends n89.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public View b;
-    public BdTypeListView c;
-    public NoDataView d;
-    public pg5 e;
-    public NavigationBarShadowView f;
-    public k89 g;
-    public View.OnClickListener h;
-    public AbsListView.OnScrollListener i;
+    public final int d;
+    public final String e;
 
-    /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ o89 a;
-
-        public a(o89 o89Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {o89Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = o89Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                if (this.a.e != null) {
-                    this.a.e.dettachView(this.a.b);
-                    this.a.e = null;
-                }
-                if (this.a.g != null) {
-                    this.a.g.B();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements AbsListView.OnScrollListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ o89 a;
-
-        public b(o89 o89Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {o89Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = o89Var;
-        }
-
-        @Override // android.widget.AbsListView.OnScrollListener
-        public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-            View childAt;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLIII(1048576, this, absListView, i, i2, i3) == null) && i == 0 && (childAt = absListView.getChildAt(0)) != null && childAt.getTop() == 0) {
-                this.a.f.a();
-            }
-        }
-
-        @Override // android.widget.AbsListView.OnScrollListener
-        public void onScrollStateChanged(AbsListView absListView, int i) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absListView, i) == null) && i == 1) {
-                this.a.f.c();
-            }
-        }
-    }
-
-    public o89(Context context, View view2) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public o89(int i, String str, int i2, String str2) {
+        super(i, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, view2};
+            Object[] objArr = {Integer.valueOf(i), str, Integer.valueOf(i2), str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = null;
-        this.h = new a(this);
-        this.i = new b(this);
-        this.a = context;
-        this.b = view2;
-        this.c = (BdTypeListView) view2.findViewById(R.id.obfuscated_res_0x7f091493);
-        this.f = (NavigationBarShadowView) view2.findViewById(R.id.obfuscated_res_0x7f0917d0);
-        this.c.setOnScrollListener(this.i);
+        this.d = i2;
+        this.e = str2;
     }
 
-    public void h(k89 k89Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, k89Var) == null) {
-            this.g = k89Var;
-        }
-    }
-
-    public void i(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048579, this, str, z) == null) {
-            m89.b(this.e, this.h, this.a, this.b, str, z);
-            this.c.setVisibility(8);
-        }
-    }
-
-    public BdTypeListView f() {
+    @Override // com.baidu.tieba.n89.b, com.baidu.tieba.n89
+    public JSONObject a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+            JSONObject a = super.a();
+            try {
+                JSONObject jSONObject = new JSONObject();
+                if (this.d != -4399) {
+                    jSONObject.put("code", this.d);
+                }
+                if (!StringUtils.isNull(this.e)) {
+                    jSONObject.put("msg", this.e);
+                }
+                a.put("ext", jSONObject);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return a;
         }
-        return (BdTypeListView) invokeV.objValue;
-    }
-
-    public k89 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.g;
-        }
-        return (k89) invokeV.objValue;
+        return (JSONObject) invokeV.objValue;
     }
 }

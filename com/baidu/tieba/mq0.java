@@ -3,59 +3,37 @@ package com.baidu.tieba;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public final class mq0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a h;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947981181, "Lcom/baidu/tieba/mq0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947981181, "Lcom/baidu/tieba/mq0;");
-                return;
-            }
-        }
-        h = new a(null);
-    }
+    public boolean a;
+    public boolean b;
+    public int c;
+    public boolean d;
+    public boolean e;
+    public boolean f;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public mq0() {
-        this(null, null, null, null, null, null, null, 127, null);
+        this(false, false, 0, false, false, false, 63, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
-                this((String) objArr[0], (String) objArr[1], (String) objArr[2], (String) objArr[3], (String) objArr[4], (String) objArr[5], (String) objArr[6], ((Integer) objArr[7]).intValue(), (DefaultConstructorMarker) objArr[8]);
+                this(((Boolean) objArr[0]).booleanValue(), ((Boolean) objArr[1]).booleanValue(), ((Integer) objArr[2]).intValue(), ((Boolean) objArr[3]).booleanValue(), ((Boolean) objArr[4]).booleanValue(), ((Boolean) objArr[5]).booleanValue(), ((Integer) objArr[6]).intValue(), (DefaultConstructorMarker) objArr[7]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
@@ -68,7 +46,7 @@ public final class mq0 {
             if (this != obj) {
                 if (obj instanceof mq0) {
                     mq0 mq0Var = (mq0) obj;
-                    return Intrinsics.areEqual(this.a, mq0Var.a) && Intrinsics.areEqual(this.b, mq0Var.b) && Intrinsics.areEqual(this.c, mq0Var.c) && Intrinsics.areEqual(this.d, mq0Var.d) && Intrinsics.areEqual(this.e, mq0Var.e) && Intrinsics.areEqual(this.f, mq0Var.f) && Intrinsics.areEqual(this.g, mq0Var.g);
+                    return this.a == mq0Var.a && this.b == mq0Var.b && this.c == mq0Var.c && this.d == mq0Var.d && this.e == mq0Var.e && this.f == mq0Var.f;
                 }
                 return false;
             }
@@ -77,24 +55,43 @@ public final class mq0 {
         return invokeL.booleanValue;
     }
 
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r0v14 */
+    /* JADX WARN: Type inference failed for: r0v15 */
+    /* JADX WARN: Type inference failed for: r0v3, types: [int] */
+    /* JADX WARN: Type inference failed for: r2v1, types: [boolean] */
+    /* JADX WARN: Type inference failed for: r2v4, types: [boolean] */
+    /* JADX WARN: Type inference failed for: r2v6, types: [boolean] */
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            String str = this.a;
-            int hashCode = (str != null ? str.hashCode() : 0) * 31;
-            String str2 = this.b;
-            int hashCode2 = (hashCode + (str2 != null ? str2.hashCode() : 0)) * 31;
-            String str3 = this.c;
-            int hashCode3 = (hashCode2 + (str3 != null ? str3.hashCode() : 0)) * 31;
-            String str4 = this.d;
-            int hashCode4 = (hashCode3 + (str4 != null ? str4.hashCode() : 0)) * 31;
-            String str5 = this.e;
-            int hashCode5 = (hashCode4 + (str5 != null ? str5.hashCode() : 0)) * 31;
-            String str6 = this.f;
-            int hashCode6 = (hashCode5 + (str6 != null ? str6.hashCode() : 0)) * 31;
-            String str7 = this.g;
-            return hashCode6 + (str7 != null ? str7.hashCode() : 0);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            boolean z = this.a;
+            ?? r0 = z;
+            if (z) {
+                r0 = 1;
+            }
+            int i = r0 * 31;
+            ?? r2 = this.b;
+            int i2 = r2;
+            if (r2 != 0) {
+                i2 = 1;
+            }
+            int i3 = (((i + i2) * 31) + this.c) * 31;
+            ?? r22 = this.d;
+            int i4 = r22;
+            if (r22 != 0) {
+                i4 = 1;
+            }
+            int i5 = (i3 + i4) * 31;
+            ?? r23 = this.e;
+            int i6 = r23;
+            if (r23 != 0) {
+                i6 = 1;
+            }
+            int i7 = (i5 + i6) * 31;
+            boolean z2 = this.f;
+            return i7 + (z2 ? 1 : z2 ? 1 : 0);
         }
         return invokeV.intValue;
     }
@@ -102,182 +99,154 @@ public final class mq0 {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return "SuspendData(dialogShowMoment=" + this.a + ", dialogShowTime=" + this.b + ", dialogShowDuration=" + this.c + ", reduceRewardTime=" + this.d + ", rightAnswerToast=" + this.e + ", wrongAnswerToast=" + this.f + ", suspendCmd=" + this.g + SmallTailInfo.EMOTION_SUFFIX;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return "RewardRuntimeData(isPanelPopShown=" + this.a + ", isTailFrameShown=" + this.b + ", rewardShownIndex=" + this.c + ", clickUserInfoContainer=" + this.d + ", upperLimit=" + this.e + ", lottieDialogBtnClick=" + this.f + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }
 
-    /* loaded from: classes5.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public final mq0 a(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-                if (jSONObject != null) {
-                    return new mq0(jSONObject.optString("dialog_show_moment"), jSONObject.optString("dialog_show_time"), jSONObject.optString("dialog_show_duration"), jSONObject.optString("reduce_reward_time"), jSONObject.optString("right_answer_toast"), jSONObject.optString("wrong_answer_toast"), jSONObject.optString("cmd"));
-                }
-                return null;
-            }
-            return (mq0) invokeL.objValue;
-        }
-    }
-
-    public mq0(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
+    public mq0(boolean z, boolean z2, int i, boolean z3, boolean z4, boolean z5) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, str4, str5, str6, str7};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i), Boolean.valueOf(z3), Boolean.valueOf(z4), Boolean.valueOf(z5)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = str;
-        this.b = str2;
-        this.c = str3;
-        this.d = str4;
-        this.e = str5;
-        this.f = str6;
-        this.g = str7;
+        this.a = z;
+        this.b = z2;
+        this.c = i;
+        this.d = z3;
+        this.e = z4;
+        this.f = z5;
     }
 
     /* JADX WARN: Illegal instructions before constructor call */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public /* synthetic */ mq0(String str, String str2, String str3, String str4, String str5, String str6, String str7, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(r15, r1, r2, r3, r4, r5, r14);
-        String str8;
-        String str9;
-        String str10;
-        String str11;
-        String str12;
-        String str13;
-        String str14;
-        if ((i & 1) != 0) {
-            str8 = null;
+    public /* synthetic */ mq0(boolean z, boolean z2, int i, boolean z3, boolean z4, boolean z5, int i2, DefaultConstructorMarker defaultConstructorMarker) {
+        this(r13, r1, r2, r3, r4, r12);
+        boolean z6;
+        boolean z7;
+        int i3;
+        boolean z8;
+        boolean z9;
+        boolean z10;
+        if ((i2 & 1) != 0) {
+            z6 = false;
         } else {
-            str8 = str;
+            z6 = z;
         }
-        if ((i & 2) != 0) {
-            str9 = null;
+        if ((i2 & 2) != 0) {
+            z7 = false;
         } else {
-            str9 = str2;
+            z7 = z2;
         }
-        if ((i & 4) != 0) {
-            str10 = null;
+        if ((i2 & 4) != 0) {
+            i3 = 1;
         } else {
-            str10 = str3;
+            i3 = i;
         }
-        if ((i & 8) != 0) {
-            str11 = null;
+        if ((i2 & 8) != 0) {
+            z8 = false;
         } else {
-            str11 = str4;
+            z8 = z3;
         }
-        if ((i & 16) != 0) {
-            str12 = null;
+        if ((i2 & 16) != 0) {
+            z9 = false;
         } else {
-            str12 = str5;
+            z9 = z4;
         }
-        if ((i & 32) != 0) {
-            str13 = null;
+        if ((i2 & 32) != 0) {
+            z10 = false;
         } else {
-            str13 = str6;
-        }
-        if ((i & 64) != 0) {
-            str14 = null;
-        } else {
-            str14 = str7;
+            z10 = z5;
         }
     }
 
-    public final String a() {
+    public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+            return this.d;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final String b() {
+    public final boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+            return this.f;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final String c() {
+    public final int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+            return this.c;
         }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public final String d() {
+    public final boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.e;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final String f() {
-        InterceptResult invokeV;
+    public final void e(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.g;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.d = z;
         }
-        return (String) invokeV.objValue;
     }
 
-    public final String g() {
-        InterceptResult invokeV;
+    public final void f(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.f;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.f = z;
         }
-        return (String) invokeV.objValue;
+    }
+
+    public final void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.a = z;
+        }
+    }
+
+    public final void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.c = i;
+        }
+    }
+
+    public final void i(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.b = z;
+        }
+    }
+
+    public final void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.e = z;
+        }
     }
 }

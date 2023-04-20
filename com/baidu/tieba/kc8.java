@@ -1,72 +1,68 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.chatmessage.messages.ImageMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsKt;
 /* loaded from: classes5.dex */
-public final class kc8 {
+public final class kc8 extends jc8<ImageMsg, ra8> {
     public static /* synthetic */ Interceptable $ic;
-    public static final kc8 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947908393, "Lcom/baidu/tieba/kc8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947908393, "Lcom/baidu/tieba/kc8;");
-                return;
-            }
+    @Override // com.baidu.tieba.jc8
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 2;
         }
-        a = new kc8();
+        return invokeV.intValue;
     }
 
     public kc8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public final List<String> a(String content) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.jc8
+    /* renamed from: h */
+    public ImageMsg e(ra8 ra8Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, content)) == null) {
-            Intrinsics.checkNotNullParameter(content, "content");
-            ArrayList arrayList = new ArrayList();
-            int codePointCount = content.codePointCount(0, content.length());
-            int i = 1;
-            if (1 <= codePointCount) {
-                while (true) {
-                    String substring = content.substring(content.offsetByCodePoints(0, i - 1), content.offsetByCodePoints(0, i));
-                    Intrinsics.checkNotNullExpressionValue(substring, "this as java.lang.String…ing(startIndex, endIndex)");
-                    arrayList.add(substring);
-                    if (i == codePointCount) {
-                        break;
-                    }
-                    i++;
-                }
-            }
-            return arrayList;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, ra8Var)) == null) {
+            return new ImageMsg();
         }
-        return (List) invokeL.objValue;
+        return (ImageMsg) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.jc8
+    /* renamed from: i */
+    public ra8 g(ImageMsg sdkMsg) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, sdkMsg)) == null) {
+            Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
+            ra8 ra8Var = new ra8();
+            ra8Var.e(sdkMsg.getRemoteUrl());
+            ra8Var.g(sdkMsg.getThumbUrl());
+            ra8Var.d(StringsKt__StringsKt.trim((CharSequence) sdkMsg.getMsgContent().toString()).toString());
+            return ra8Var;
+        }
+        return (ra8) invokeL.objValue;
     }
 }

@@ -1,32 +1,18 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
+import android.app.Application;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebChromeClient;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONObject;
 @Service
 /* loaded from: classes3.dex */
-public class ah0 extends sh0 {
+public final class ah0 implements qm0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.sh0
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "loadCache" : (String) invokeV.objValue;
-    }
 
     public ah0() {
         Interceptable interceptable = $ic;
@@ -42,28 +28,26 @@ public class ah0 extends sh0 {
         }
     }
 
-    @Override // com.baidu.tieba.sh0
-    public boolean b(@NonNull Context context, @NonNull wh0 wh0Var, @Nullable Map<String, Object> map, @Nullable ai0 ai0Var) {
-        InterceptResult invokeLLLL;
+    @Override // com.baidu.tieba.qm0
+    public void a(@NonNull Application application) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, wh0Var, map, ai0Var)) == null) {
-            super.b(context, wh0Var, map, ai0Var);
-            HashMap<String, String> d = wh0Var.d();
-            String str = d.get("key");
-            String str2 = d.get(WebChromeClient.KEY_ARG_CALLBACK);
-            String str3 = d.get("ext");
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                String b = bh0.a().b(str);
-                JSONObject jSONObject = new JSONObject();
-                w01.f(jSONObject, "key", str);
-                w01.f(jSONObject, "message", b);
-                w01.f(jSONObject, "ext", str3);
-                d(ai0Var, wh0Var, jSONObject.toString(), 0, true);
-                return true;
-            }
-            c(ai0Var, wh0Var, 202, false);
-            return true;
+        if (interceptable == null || interceptable.invokeL(1048576, this, application) == null) {
+            yg0.a().b(zg0.e());
+            application.registerActivityLifecycleCallbacks(yg0.a());
+            zg0.e().b(new ug0());
+            zg0.e().h(new vg0());
+            vm0.c(zg0.e());
         }
-        return invokeLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.qm0
+    public void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || !m41.b()) {
+            return;
+        }
+        zg0.e().b(new wg0());
+        dm0.b().request().a(false);
+        tm0.a().request();
     }
 }

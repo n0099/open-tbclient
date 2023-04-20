@@ -34,10 +34,10 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a9;
-import com.baidu.tieba.ao9;
-import com.baidu.tieba.hv4;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.q25;
+import com.baidu.tieba.io9;
+import com.baidu.tieba.iv4;
+import com.baidu.tieba.r25;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -545,7 +545,7 @@ public class NavigationBar extends RelativeLayout {
         if (interceptable == null || interceptable.invokeLI(1048611, this, a9Var, i) == null) {
             boolean z = true;
             if (this.mIsCorner) {
-                q25 d2 = q25.d(this);
+                r25 d2 = r25.d(this);
                 d2.n(1);
                 d2.o(R.string.J_X14);
                 d2.f(this.mBackGroundColor);
@@ -567,7 +567,7 @@ public class NavigationBar extends RelativeLayout {
             initPadding();
             if (a9Var instanceof TbPageContext) {
                 TbPageContext tbPageContext = (TbPageContext) a9Var;
-                hv4 layoutMode = tbPageContext.getLayoutMode();
+                iv4 layoutMode = tbPageContext.getLayoutMode();
                 if (i != 4) {
                     z = false;
                 }
@@ -901,7 +901,7 @@ public class NavigationBar extends RelativeLayout {
             findViewById.setBackgroundDrawable(SkinManager.getDrawable(0, (int) R.drawable.navigation_cover_top_bg));
             this.barBgView = this.mRootView.findViewById(R.id.navigation_bar_view_bg);
             if (attributeSet != null) {
-                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ao9.NavigationBar);
+                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, io9.NavigationBar);
                 z = obtainStyledAttributes.getBoolean(0, true);
                 obtainStyledAttributes.recycle();
             } else {

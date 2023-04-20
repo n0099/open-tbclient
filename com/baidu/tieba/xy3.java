@@ -1,10 +1,18 @@
 package com.baidu.tieba;
 
-import android.content.pm.PackageInfo;
+import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.process.ipc.delegate.DelegateListener;
+import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
+import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.gamecenter.appmanager.download.AppDownloadNetworkStateReceiver;
+import com.baidu.swan.gamecenter.appmanager.install.InstallPluginDelegateActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,13 +20,192 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.heytap.mcssdk.PushService;
+import java.lang.ref.WeakReference;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class xy3 extends a04 {
+public class xy3 extends b04 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean c;
+    public static ExecutorService d;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes7.dex */
+    public class a implements DelegateListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ zk2 c;
+
+        public a(xy3 xy3Var, String str, String str2, zk2 zk2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xy3Var, str, str2, zk2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = str2;
+            this.c = zk2Var;
+        }
+
+        @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
+        public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, delegateResult) == null) {
+                if (xy3.c) {
+                    Log.d("appManagerAction", "InstallAppDelegation onDelegateCallBack isOk:" + delegateResult.isOk() + ",packageName：" + this.a + ",result:" + delegateResult.mResult);
+                }
+                String string = delegateResult.mResult.getString("packageName");
+                if (!TextUtils.isEmpty(this.a) && !TextUtils.equals(this.a, string)) {
+                    if (kz3.h(AppRuntime.getAppContext(), this.a)) {
+                        if (!TextUtils.isEmpty(this.b)) {
+                            wz3.a(this.a, this.b, "success", "", null);
+                        }
+                        this.c.a(new JSONObject());
+                        return;
+                    }
+                    if (!TextUtils.isEmpty(this.b)) {
+                        wz3.a(this.a, this.b, com.baidu.pass.biometrics.face.liveness.b.a.g0, "", null);
+                    }
+                    this.c.onFail(31003, "apk install cancel");
+                } else if (!delegateResult.isOk()) {
+                    if (!TextUtils.isEmpty(this.b)) {
+                        wz3.a(this.a, this.b, com.baidu.pass.biometrics.face.liveness.b.a.g0, "", null);
+                    }
+                    this.c.onFail(31003, "apk install cancel");
+                } else {
+                    uy3.n().t(this.a);
+                    xy3.g(delegateResult.mResult, this.c);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b extends c43 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String c;
+        public String d;
+        public zk2 e;
+
+        @Override // com.baidu.tieba.a43
+        public long a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return 0L;
+            }
+            return invokeV.longValue;
+        }
+
+        @Override // com.baidu.tieba.a43
+        public boolean c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public b(String str, String str2, zk2 zk2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, str2, zk2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = str;
+            this.c = str2;
+            this.e = zk2Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.c43, com.baidu.tieba.a43
+        public void onEvent(@NonNull y33 y33Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, y33Var) == null) {
+                Bundle a = y33Var.a();
+                zk2 zk2Var = this.e;
+                if (zk2Var == null) {
+                    return;
+                }
+                if (a != null) {
+                    xy3.g(a, zk2Var);
+                } else {
+                    zk2Var.onFail(1001, "");
+                }
+            }
+        }
+
+        public final void e() {
+            zk2 zk2Var;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (zk2Var = this.e) != null) {
+                zk2Var.onFail(31018, "download process is killed");
+                xy3.e(this.d, this.c, 31018);
+                this.e = null;
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public WeakReference<b> a;
+
+        public c(b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new WeakReference<>(bVar);
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (xy3.c) {
+                    Log.d("appManagerAction", "onConnectionDown");
+                }
+                if (this.a.get() != null) {
+                    this.a.get().e();
+                }
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -33,12 +220,13 @@ public class xy3 extends a04 {
                 return;
             }
         }
-        c = eo1.a;
+        c = fo1.a;
+        d = Executors.newSingleThreadExecutor();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public xy3() {
-        super("checkAppInstalled");
+        super("appDownloadManager");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -54,39 +242,107 @@ public class xy3 extends a04 {
         }
     }
 
-    @Override // com.baidu.tieba.a04
-    public uz1 a(@NonNull JSONObject jSONObject, @NonNull yk2 yk2Var) {
-        InterceptResult invokeLL;
+    public static void e(String str, String str2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, yk2Var)) == null) {
-            if (c) {
-                Log.d("checkAppInstalled", "handle: " + jSONObject);
+        if (interceptable == null || interceptable.invokeLLI(65541, null, str, str2, i) == null) {
+            wz3.a(str, str2, com.baidu.pass.biometrics.face.liveness.b.a.g0, String.valueOf(i), null);
+        }
+    }
+
+    public static void g(@NonNull Bundle bundle, @NonNull zk2 zk2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65542, null, bundle, zk2Var) == null) {
+            String string = bundle.getString("functionType");
+            if (string == null) {
+                zk2Var.onFail(1001, "");
+                return;
             }
-            String optString = jSONObject.optString("packageName");
-            if (TextUtils.isEmpty(optString)) {
-                yk2Var.onFail(31010, "package name is empty");
+            String string2 = bundle.getString("resultData", "");
+            int i = bundle.getInt("resultStatus", 1001);
+            if (c) {
+                Log.d("appManagerAction", "handleResult:function = " + string + ",result = " + string2);
+            }
+            char c2 = 65535;
+            int hashCode = string.hashCode();
+            if (hashCode != -1013362275) {
+                if (hashCode == -530890460 && string.equals("onSuccess")) {
+                    c2 = 0;
+                }
+            } else if (string.equals("onFail")) {
+                c2 = 1;
+            }
+            if (c2 != 0) {
+                if (c2 == 1) {
+                    zk2Var.onFail(i, string2);
+                    return;
+                }
+                return;
+            }
+            zk2Var.a(vk3.d(string2));
+        }
+    }
+
+    @Override // com.baidu.tieba.b04
+    public vz1 a(@NonNull JSONObject jSONObject, @NonNull zk2 zk2Var) {
+        InterceptResult invokeLL;
+        String str;
+        String str2;
+        String jSONObject2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, zk2Var)) == null) {
+            if (c) {
+                Log.d("appManagerAction", "handle: " + jSONObject);
+            }
+            String optString = jSONObject.optString(AppDownloadNetworkStateReceiver.KEY_OPERATION);
+            JSONObject optJSONObject = jSONObject.optJSONObject("data");
+            if (optJSONObject != null) {
+                str = optJSONObject.optString("packageName");
+                str2 = optJSONObject.optString("installSource");
+            } else {
+                str = null;
+                str2 = null;
+            }
+            Bundle bundle = new Bundle();
+            bundle.putString(AppDownloadNetworkStateReceiver.KEY_OPERATION, optString);
+            if (optJSONObject == null) {
+                jSONObject2 = "";
+            } else {
+                jSONObject2 = optJSONObject.toString();
+            }
+            bundle.putString("data", jSONObject2);
+            bundle.putString("ubc_params", new uz3().a());
+            if (TextUtils.equals(optString, "installApp")) {
+                if (!TextUtils.isEmpty(str2)) {
+                    wz3.a(str, str2, "start", "", null);
+                }
+                f(bundle, str, str2, zk2Var);
                 return null;
             }
-            try {
-                PackageInfo packageInfo = AppRuntime.getAppContext().getPackageManager().getPackageInfo(optString, 0);
-                if (c) {
-                    Log.d("checkAppInstalled", "packageInfo: " + packageInfo);
-                }
-                if (packageInfo != null) {
-                    JSONObject jSONObject2 = new JSONObject();
-                    JSONObject jSONObject3 = new JSONObject();
-                    jSONObject3.put(PushService.APP_VERSION_NAME, packageInfo.versionName);
-                    jSONObject3.put(PushService.APP_VERSION_CODE, packageInfo.versionCode);
-                    jSONObject2.put("data", jSONObject3);
-                    yk2Var.a(jSONObject2);
-                } else {
-                    yk2Var.onFail(31016, "no package info");
-                }
-            } catch (Exception unused) {
-                yk2Var.onFail(31011, "app is not installed");
+            q43 y = u73.K().y();
+            if (y != null) {
+                b bVar = new b(str, optString, zk2Var);
+                y.X(bundle, iz3.class, bVar);
+                y.V(new c(bVar));
             }
             return null;
         }
-        return (uz1) invokeLL.objValue;
+        return (vz1) invokeLL.objValue;
+    }
+
+    public final void f(@NonNull Bundle bundle, @Nullable String str, String str2, @NonNull zk2 zk2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle, str, str2, zk2Var) == null) {
+            SwanAppActivity w = u73.K().w();
+            if (w == null) {
+                zk2Var.onFail(1001, "");
+            } else if (kz3.h(AppRuntime.getAppContext(), str)) {
+                zk2Var.a(new JSONObject());
+            } else {
+                if (c) {
+                    Log.d("appManagerAction", "InstallAppDelegation handleInstall");
+                }
+                DelegateUtils.callOnMainWithActivity(w, InstallPluginDelegateActivity.class, lz3.class, bundle, new a(this, str, str2, zk2Var));
+            }
+        }
     }
 }

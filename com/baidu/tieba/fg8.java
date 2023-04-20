@@ -1,21 +1,18 @@
 package com.baidu.tieba;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.location.Address;
-import android.os.Bundle;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.util.Log;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import com.baidu.android.imrtc.BIMRtcClient;
+import com.baidu.android.imsdk.BIMManager;
+import com.baidu.android.imsdk.account.ILoginListener;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.location.BDLocation;
-import com.baidu.location.BDLocationListener;
-import com.baidu.location.LocationClient;
-import com.baidu.location.LocationClientOption;
-import com.baidu.permissionhelper.ApiUtil;
+import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.cf;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,72 +20,90 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Locale;
 /* loaded from: classes4.dex */
-public class fg8 implements df {
-    public static /* synthetic */ Interceptable $ic;
-    public static fg8 k;
+public class fg8 implements ILoginListener {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static volatile fg8 d = null;
+    public static boolean e = true;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public boolean b;
-    public String c;
-    public cf.d d;
-    public b e;
-    public LocationClient f;
-    public LocationClientOption g;
-    public Address h;
-    public long i;
-    public boolean j;
+    public boolean a;
+    public b b;
+    public BroadcastReceiver c;
 
     /* loaded from: classes4.dex */
-    public static class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public interface b {
+        void a(int i, String str);
+    }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947763282, "Lcom/baidu/tieba/fg8;")) == null) {
+            return;
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001330) {
-                if ((ApiUtil.shouldCheckPermission() && !PermissionUtil.checkLocationForBaiduLocation(TbadkCoreApplication.getInst())) || !(customResponsedMessage.getData() instanceof Boolean)) {
-                    return;
-                }
-                if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                    cf.n().r(fg8.j());
-                } else {
-                    cf.n().v(fg8.j());
-                }
-            }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947763282, "Lcom/baidu/tieba/fg8;");
         }
     }
 
+    public static boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     /* loaded from: classes4.dex */
-    public class b implements BDLocationListener {
+    public class a extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fg8 a;
+        public final /* synthetic */ fg8 this$0;
 
-        public b(fg8 fg8Var) {
+        /* renamed from: com.baidu.tieba.fg8$a$a  reason: collision with other inner class name */
+        /* loaded from: classes4.dex */
+        public class C0258a extends dr5<Object> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public C0258a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            @Override // com.baidu.tieba.dr5
+            public Object doInBackground() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                    Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.iConnectListener -> onReceive doInBackground");
+                    this.a.this$0.d(null);
+                    return null;
+                }
+                return invokeV.objValue;
+            }
+        }
+
+        public a(fg8 fg8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,105 +118,31 @@ public class fg8 implements df {
                     return;
                 }
             }
-            this.a = fg8Var;
+            this.this$0 = fg8Var;
         }
 
-        public /* synthetic */ b(fg8 fg8Var, a aVar) {
-            this(fg8Var);
-        }
-
-        @Override // com.baidu.location.BDLocationListener
-        public void onReceiveLocation(BDLocation bDLocation) {
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            boolean z;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, bDLocation) == null) {
-                if ((!ApiUtil.shouldCheckPermission() || PermissionUtil.checkLocationForBaiduLocation(TbadkCoreApplication.getInst())) && bDLocation != null && bDLocation.getLocType() != 62 && bDLocation.getLocType() != 63 && bDLocation.getLocType() != 67 && bDLocation.getLocType() != 68 && bDLocation.getLocType() <= 161) {
-                    this.a.c();
-                    this.a.h = new Address(Locale.getDefault());
-                    this.a.h.setLatitude(bDLocation.getLatitude());
-                    this.a.h.setLongitude(bDLocation.getLongitude());
-                    p45 m = p45.m();
-                    m.B("key_last_receive_location_latitude_and_longitude", bDLocation.getLatitude() + "," + bDLocation.getLongitude());
-                    this.a.h.setLocality(bDLocation.getCity());
-                    Bundle bundle = new Bundle();
-                    bundle.putFloat("radius", bDLocation.getRadius());
-                    bundle.putDouble("altitude", bDLocation.getAltitude());
-                    bundle.putFloat("speed", bDLocation.getSpeed());
-                    bundle.putString("cityCode", bDLocation.getCityCode());
-                    bundle.putString("street", bDLocation.getStreet());
-                    bundle.putString("streetNumber", bDLocation.getStreetNumber());
-                    bundle.putString("province", bDLocation.getProvince());
-                    this.a.h.setExtras(bundle);
-                    this.a.i = System.currentTimeMillis();
-                    StringBuffer stringBuffer = new StringBuffer();
-                    if (bDLocation.getDistrict() == null || bDLocation.getStreet() == null) {
-                        stringBuffer.append(bDLocation.getCity());
+            if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
+                Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.iConnectListener -> onReceive context=" + context + ", intent=" + intent);
+                if (intent != null && "com.baidu.lcp.sdk.broadcast".equals(intent.getAction())) {
+                    if (intent.getIntExtra("com.baidu.lcp.sdk.connect.state", -1) == 0) {
+                        z = true;
+                    } else {
+                        z = false;
                     }
-                    stringBuffer.append(bDLocation.getDistrict());
-                    stringBuffer.append(bDLocation.getStreet());
-                    if (bDLocation.getAddrStr() != null) {
-                        this.a.h.setAddressLine(0, stringBuffer.toString());
-                    }
-                    if (this.a.d != null) {
-                        this.a.d.a(0, "", this.a.h, this.a.i, this.a.j);
-                        fc9.e().i(String.valueOf(this.a.h.getLatitude()));
-                        fc9.e().j(String.valueOf(this.a.h.getLongitude()));
-                        fc9.e().k(System.currentTimeMillis());
+                    Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.iConnectListener -> onReceive connect=" + z);
+                    Log.d("ImSdkManager", "registerConnectListener connect ：" + intent.getIntExtra("com.baidu.lcp.sdk.connect.state", -1));
+                    kg8.i(z);
+                    if (z) {
+                        kg8.j("login_lcp");
+                        kg8.c("login_lcp");
+                        hr5.b(new C0258a(this), null);
                     }
                 }
             }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947763282, "Lcom/baidu/tieba/fg8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947763282, "Lcom/baidu/tieba/fg8;");
-                return;
-            }
-        }
-        MessageManager.getInstance().registerListener(new a(2001330));
-    }
-
-    public static fg8 j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            if (k == null) {
-                synchronized (fg8.class) {
-                    if (k == null) {
-                        k = new fg8();
-                    }
-                }
-            }
-            return k;
-        }
-        return (fg8) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.df
-    public void c() {
-        LocationClient locationClient;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (locationClient = this.f) != null && locationClient.isStarted()) {
-            try {
-                this.f.stop();
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.df
-    public void destroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            c();
         }
     }
 
@@ -218,63 +159,120 @@ public class fg8 implements df {
                 return;
             }
         }
-        this.b = true;
-        this.c = "";
-        this.d = null;
-        this.i = 0L;
-        this.j = false;
+        this.c = new a(this);
     }
 
-    @Override // com.baidu.tieba.df
-    public void a(boolean z) {
+    public static fg8 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            if ((!ApiUtil.shouldCheckPermission() || PermissionUtil.checkLocationForBaiduLocation(TbadkCoreApplication.getInst())) && this.b && this.f != null) {
-                try {
-                    this.j = z;
-                    if (z) {
-                        this.g.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy);
-                    }
-                    this.f.setLocOption(this.g);
-                    if (!this.f.isStarted()) {
-                        this.f.start();
-                    }
-                    this.f.requestLocation();
-                } catch (Exception e) {
-                    BdLog.e(e.getMessage());
-                    c();
-                    cf.d dVar = this.d;
-                    if (dVar != null) {
-                        dVar.a(5, "", this.h, this.i, this.j);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (d == null) {
+                synchronized (fg8.class) {
+                    if (d == null) {
+                        d = new fg8();
                     }
                 }
+            }
+            return d;
+        }
+        return (fg8) invokeV.objValue;
+    }
+
+    public void b(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            kg8.c("login_lcp");
+            kg8.c("login_im");
+            Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.init context=" + context);
+            int i = 0;
+            this.a = false;
+            String version = TbConfig.getVersion();
+            IntentFilter intentFilter = new IntentFilter();
+            intentFilter.addAction("com.baidu.lcp.sdk.broadcast");
+            LocalBroadcastManager.getInstance(context).registerReceiver(this.c, intentFilter);
+            String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
+            if (c()) {
+                Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.init debug");
+                BIMManager.init(context, 10773430L, 1, cuidGalaxy2);
+                BIMManager.enableDebugMode(true);
+                BIMRtcClient.setRtcDebugAndLogEnable(context, true, true);
+                r80.d(context, 1);
+                r80.c(context, true);
+                i = 1;
+            } else {
+                Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.init online");
+                BIMManager.init(context, 10773430L, 0, cuidGalaxy2);
+                BIMRtcClient.setRtcDebugAndLogEnable(context, false, false);
+            }
+            BIMManager.setProductLine(context, 3, version);
+            LogUtils.d("imlog", "BIMManager init env:" + i);
+            e(context, cuidGalaxy2);
+        }
+    }
+
+    public void d(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+            Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.loginToIM listener=" + bVar);
+            this.b = bVar;
+            String from = TbConfig.getFrom();
+            String currentFrom = TbConfig.getCurrentFrom();
+            if (TbadkCoreApplication.isLogin()) {
+                Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.loginToIM login");
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                String currentBduss = TbadkCoreApplication.getCurrentBduss();
+                BIMManager.login(currentAccount, currentBduss, 1, from, currentFrom, this);
+                LogUtils.d("imlog", "IMSdkManager PassIsLogin loginToIM uid = " + currentAccount + ", bduss = " + currentBduss + ", from = " + from + ", cfrom = " + currentFrom);
+                return;
+            }
+            Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.loginToIM cuid");
+            String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
+            BIMManager.login(null, cuidGalaxy2, 6, from, currentFrom, this);
+            LogUtils.d("imlog", "IMSdkManager 匿名使用cuid登录 loginToIM , cuid = " + cuidGalaxy2 + ", from = " + from + ", cfrom = " + currentFrom);
+        }
+    }
+
+    public final void e(Context context, String str) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str) == null) {
+            Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.loginToLCP context=" + context);
+            if (e) {
+                i = 1;
+            } else {
+                i = 2;
+            }
+            e = false;
+            r70.a(context, "10773430", str, i);
+            Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.loginToLCP connect end");
+        }
+    }
+
+    @Override // com.baidu.android.imsdk.account.ILoginListener
+    public void onLoginResult(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) {
+            kg8.h(0L, i, str);
+            if (i == 0) {
+                kg8.j("login_im");
+                kg8.c("login_im");
+            }
+            Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.onLoginResult errno=" + i + ", errMsg=" + str);
+            b bVar = this.b;
+            if (bVar != null) {
+                bVar.a(i, str);
+                this.b = null;
             }
         }
     }
 
-    @Override // com.baidu.tieba.df
-    public void b(cf.d dVar) {
+    @Override // com.baidu.android.imsdk.account.ILoginListener
+    public void onLogoutResult(int i, String str, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) {
-            this.a = TbadkCoreApplication.getInst().getContext();
-            this.d = dVar;
-            this.c = "baidu";
-            if (this.b) {
-                try {
-                    this.f = new LocationClient(this.a);
-                    LocationClientOption locationClientOption = new LocationClientOption();
-                    this.g = locationClientOption;
-                    locationClientOption.setOpenGps(true);
-                    this.g.setIgnoreKillProcess(true);
-                    this.g.setProdName(this.c);
-                    this.g.setAddrType("all");
-                    this.g.setCoorType("bd09ll");
-                    b bVar = new b(this, null);
-                    this.e = bVar;
-                    this.f.registerLocationListener(bVar);
-                } catch (Exception e) {
-                    BdLog.e(e.getMessage());
-                }
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) {
+            Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.onLogoutResult errno=" + i + ", errMsg=" + str + ", type=" + i2);
+            if (!this.a) {
+                d(null);
             }
         }
     }

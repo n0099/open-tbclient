@@ -1,36 +1,31 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class xz3 implements pt1 {
+public class xz3 extends b04 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, Boolean> a;
-    public wz3 b;
 
     /* loaded from: classes7.dex */
-    public class a implements yk2 {
+    public class a implements om3<vc3> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yk2 a;
-        public final /* synthetic */ xz3 b;
+        public final /* synthetic */ zk2 a;
 
-        public a(xz3 xz3Var, yk2 yk2Var) {
+        public a(xz3 xz3Var, zk2 zk2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {xz3Var, yk2Var};
+                Object[] objArr = {xz3Var, zk2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -40,30 +35,28 @@ public class xz3 implements pt1 {
                     return;
                 }
             }
-            this.b = xz3Var;
-            this.a = yk2Var;
+            this.a = zk2Var;
         }
 
-        @Override // com.baidu.tieba.yk2
-        public void a(@Nullable JSONObject jSONObject) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.om3
+        /* renamed from: b */
+        public void a(vc3 vc3Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-                this.b.g(true);
-                this.a.a(jSONObject);
-            }
-        }
-
-        @Override // com.baidu.tieba.yk2
-        public void onFail(int i, @Nullable String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-                this.b.g(false);
-                this.a.onFail(i, str);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vc3Var) == null) {
+                boolean z = true;
+                if ((vc3Var == null || vc3Var.d || vc3Var.j != 1) ? false : false) {
+                    this.a.a(null);
+                } else {
+                    this.a.onFail(10001, "authorize fail.");
+                }
             }
         }
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public xz3() {
+        super("authorize");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -71,83 +64,32 @@ public class xz3 implements pt1 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap<>();
-        this.b = new wz3();
     }
 
-    public final String d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.b04
+    public vz1 a(@NonNull JSONObject jSONObject, @NonNull zk2 zk2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            u73 b0 = u73.b0();
-            if (b0 != null) {
-                return b0.O();
-            }
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Boolean bool;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            String d = d();
-            if (TextUtils.isEmpty(d) || (bool = this.a.get(d)) == null) {
-                return false;
-            }
-            return bool.booleanValue();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.pt1
-    @Nullable
-    public uz1 a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull yk2 yk2Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, jSONObject, yk2Var)) == null) {
-            if (f()) {
-                yk2Var.a(null);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, zk2Var)) == null) {
+            if (b04.b && jSONObject.optBoolean("debug", false)) {
+                Log.i("authorize", "debug mode: true.");
+                zk2Var.a(null);
                 return null;
             }
-            return this.b.a(jSONObject, c(yk2Var));
-        }
-        return (uz1) invokeLLL.objValue;
-    }
-
-    public final yk2 c(@NonNull yk2 yk2Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yk2Var)) == null) {
-            return new a(this, yk2Var);
-        }
-        return (yk2) invokeL.objValue;
-    }
-
-    public boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return TextUtils.equals(this.b.a, str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void g(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            String d = d();
-            if (TextUtils.isEmpty(d)) {
-                return;
+            v73 b0 = v73.b0();
+            if (b0 == null) {
+                zk2Var.onFail(10001, "authorize fail.");
+                return null;
             }
-            this.a.put(d, Boolean.valueOf(z));
+            b0.e0().e("mapp_gamecenter_private_api", new a(this, zk2Var));
+            return null;
         }
+        return (vz1) invokeLL.objValue;
     }
 }

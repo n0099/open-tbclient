@@ -33,11 +33,11 @@ import java.lang.ref.WeakReference;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class c extends com.tencent.open.b implements a.InterfaceC0731a {
+public class c extends com.tencent.open.b implements a.InterfaceC0730a {
     public static Toast c;
     public String d;
     public IUiListener e;
-    public C0732c f;
+    public C0731c f;
     public Handler g;
     public com.tencent.open.b.a h;
     public com.tencent.open.b.b i;
@@ -99,14 +99,14 @@ public class c extends com.tencent.open.b implements a.InterfaceC0731a {
 
     /* renamed from: com.tencent.open.c$c  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C0732c extends DefaultUiListener {
+    public static class C0731c extends DefaultUiListener {
         public String a;
         public String b;
         public WeakReference<Context> c;
         public String d;
         public IUiListener e;
 
-        public C0732c(Context context, String str, String str2, String str3, IUiListener iUiListener) {
+        public C0731c(Context context, String str, String str2, String str3, IUiListener iUiListener) {
             this.c = new WeakReference<>(context);
             this.d = str;
             this.a = str2;
@@ -165,11 +165,11 @@ public class c extends com.tencent.open.b implements a.InterfaceC0731a {
 
     /* loaded from: classes8.dex */
     public class d extends Handler {
-        public C0732c b;
+        public C0731c b;
 
-        public d(C0732c c0732c, Looper looper) {
+        public d(C0731c c0731c, Looper looper) {
             super(looper);
-            this.b = c0732c;
+            this.b = c0731c;
         }
 
         @Override // android.os.Handler
@@ -198,7 +198,7 @@ public class c extends com.tencent.open.b implements a.InterfaceC0731a {
         super(context, 16973840);
         this.j = new WeakReference<>(context);
         this.d = str2;
-        this.f = new C0732c(context, str, str2, qQToken.getAppId(), iUiListener);
+        this.f = new C0731c(context, str, str2, qQToken.getAppId(), iUiListener);
         this.g = new d(this.f, context.getMainLooper());
         this.e = iUiListener;
         this.k = Math.round(context.getResources().getDisplayMetrics().density * 185.0f);
@@ -311,7 +311,7 @@ public class c extends com.tencent.open.b implements a.InterfaceC0731a {
         }
     }
 
-    @Override // com.tencent.open.b.a.InterfaceC0731a
+    @Override // com.tencent.open.b.a.InterfaceC0730a
     public void a() {
         this.i.getLayoutParams().height = this.k;
         SLog.e("openSDK_LOG.PKDialog", "onKeyboardHidden keyboard hide");
@@ -322,7 +322,7 @@ public class c extends com.tencent.open.b implements a.InterfaceC0731a {
         super.onBackPressed();
     }
 
-    @Override // com.tencent.open.b.a.InterfaceC0731a
+    @Override // com.tencent.open.b.a.InterfaceC0730a
     public void a(int i) {
         WeakReference<Context> weakReference = this.j;
         if (weakReference != null && weakReference.get() != null) {

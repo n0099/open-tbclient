@@ -1,69 +1,82 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.pb.pb.main.PbModel;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class rw8 {
+public class rw8 extends am9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId d1;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public boolean b;
-    public qy4 c;
+    public py4 a1;
+    public py4 b1;
+    public py4 c1;
 
-    public rw8(TbPageContext tbPageContext) {
-        Uri uri;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948136150, "Lcom/baidu/tieba/rw8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948136150, "Lcom/baidu/tieba/rw8;");
+                return;
+            }
+        }
+        d1 = BdUniqueId.gen();
+    }
+
+    public rw8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = false;
-        this.a = tbPageContext;
-        if (tbPageContext.getPageActivity() != null && this.a.getPageActivity().getIntent() != null && (uri = (Uri) this.a.getPageActivity().getIntent().getParcelableExtra(IntentConfig.KEY_URI)) != null) {
-            String queryParameter = uri.getQueryParameter("tid");
-            qy4 qy4Var = new qy4();
-            this.c = qy4Var;
-            qy4Var.a = uri.getQueryParameter("tid");
-            this.c.b = uri.getQueryParameter(TiebaStatic.Params.EQID);
-            if (!TextUtils.isEmpty(queryParameter) && w8.f().g() <= 3) {
-                this.b = true;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public void a(PbModel pbModel) {
+    @Override // com.baidu.tieba.am9, com.baidu.tieba.in
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, pbModel) == null) && this.b && this.c != null && pbModel != null && pbModel.u1() != null && pbModel.u1().k() != null) {
-            ForumData k = pbModel.u1().k();
-            this.c.c = k.getFirst_class();
-            this.c.d = k.getSecond_class();
-            TbSingleton.getInstance().setPbToHomeUpdateData(this.c);
-            if (w8.f().h("MainTabActivity")) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921455));
-            } else {
-                TbSingleton.getInstance().setForceRefreshHomeRecommend(true);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return d1;
         }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public boolean q1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            py4 py4Var = this.a1;
+            if (py4Var != null && !StringUtils.isNull(py4Var.b)) {
+                return true;
+            }
+            py4 py4Var2 = this.b1;
+            if (py4Var2 != null && !StringUtils.isNull(py4Var2.b)) {
+                return true;
+            }
+            py4 py4Var3 = this.c1;
+            if (py4Var3 != null) {
+                return !StringUtils.isNull(py4Var3.b);
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

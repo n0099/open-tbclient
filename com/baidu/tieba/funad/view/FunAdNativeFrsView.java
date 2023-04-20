@@ -25,20 +25,20 @@ import com.baidu.tbadk.core.view.RoundTbImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.ad.VipAdFreeGuideLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a55;
-import com.baidu.tieba.dk7;
-import com.baidu.tieba.ds8;
+import com.baidu.tieba.b55;
+import com.baidu.tieba.ek7;
+import com.baidu.tieba.fk9;
 import com.baidu.tieba.funad.view.FunAdAgreeView;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.lk7;
-import com.baidu.tieba.mc5;
-import com.baidu.tieba.oc5;
-import com.baidu.tieba.q25;
-import com.baidu.tieba.qk7;
-import com.baidu.tieba.ql9;
-import com.baidu.tieba.sv7;
+import com.baidu.tieba.ls8;
+import com.baidu.tieba.mk7;
+import com.baidu.tieba.nc5;
+import com.baidu.tieba.pc5;
+import com.baidu.tieba.r25;
+import com.baidu.tieba.rk7;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
-import com.baidu.tieba.xj9;
+import com.baidu.tieba.tv7;
+import com.baidu.tieba.yl9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -91,12 +91,12 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
     public class b implements FunAdAgreeView.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qk7 a;
+        public final /* synthetic */ rk7 a;
         public final /* synthetic */ Activity b;
         public final /* synthetic */ FunAdNativeFrsView c;
 
         /* loaded from: classes4.dex */
-        public class a implements mc5 {
+        public class a implements nc5 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
@@ -119,7 +119,7 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
                 this.a = bVar;
             }
 
-            @Override // com.baidu.tieba.mc5
+            @Override // com.baidu.tieba.nc5
             public void a(List<Bitmap> list) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
@@ -133,12 +133,12 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
             }
         }
 
-        public b(FunAdNativeFrsView funAdNativeFrsView, qk7 qk7Var, Activity activity) {
+        public b(FunAdNativeFrsView funAdNativeFrsView, rk7 rk7Var, Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {funAdNativeFrsView, qk7Var, activity};
+                Object[] objArr = {funAdNativeFrsView, rk7Var, activity};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -149,7 +149,7 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
                 }
             }
             this.c = funAdNativeFrsView;
-            this.a = qk7Var;
+            this.a = rk7Var;
             this.b = activity;
         }
 
@@ -158,7 +158,7 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.a.k(this.c.t, this.c.x);
-                oc5.g().c(new a(this));
+                pc5.g().c(new a(this));
             }
         }
 
@@ -177,15 +177,15 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ql9 a;
+        public final /* synthetic */ yl9 a;
         public final /* synthetic */ FunAdNativeFrsView b;
 
-        public a(FunAdNativeFrsView funAdNativeFrsView, ql9 ql9Var) {
+        public a(FunAdNativeFrsView funAdNativeFrsView, yl9 yl9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {funAdNativeFrsView, ql9Var};
+                Object[] objArr = {funAdNativeFrsView, yl9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -196,7 +196,7 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
                 }
             }
             this.b = funAdNativeFrsView;
-            this.a = ql9Var;
+            this.a = yl9Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -288,7 +288,7 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
     private void setTextGrayAndUnClickable(TextView textView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, this, textView) == null) {
-            textView.setTextColor(xj9.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE));
+            textView.setTextColor(fk9.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE));
         }
     }
 
@@ -350,27 +350,27 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
     }
 
     @Override // com.baidu.tieba.funad.view.FunAdNativePbView, com.baidu.tieba.funad.view.FunAbsAdView
-    public void f(@NonNull ql9 ql9Var, @NonNull Activity activity) {
+    public void f(@NonNull yl9 yl9Var, @NonNull Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, ql9Var, activity) == null) {
-            super.f(ql9Var, activity);
-            if (ql9Var.e() == null) {
+        if (interceptable == null || interceptable.invokeLL(1048579, this, yl9Var, activity) == null) {
+            super.f(yl9Var, activity);
+            if (yl9Var.e() == null) {
                 return;
             }
-            FunNativeAd2 funNativeAd2 = (FunNativeAd2) ql9Var.e();
-            if (ql9Var.b() == null) {
+            FunNativeAd2 funNativeAd2 = (FunNativeAd2) yl9Var.e();
+            if (yl9Var.b() == null) {
                 AgreeData agreeData = new AgreeData();
-                agreeData.agreeNum = sv7.a(25, 1000);
-                ql9Var.k(agreeData);
+                agreeData.agreeNum = tv7.a(25, 1000);
+                yl9Var.k(agreeData);
             }
             this.w.setText(this.c);
-            AgreeData b2 = ql9Var.b();
+            AgreeData b2 = yl9Var.b();
             this.x.setAgreeAlone(true);
             this.x.setData(b2);
-            this.x.setAfterClickListener(new a(this, ql9Var));
-            this.x.setUseDynamicLikeRes(ql9Var.d(), "/feed", "frs".equals(this.G));
-            this.x.setAgreeLongClickListener(new b(this, new qk7(activity), activity));
-            this.u.N(lk7.j(funNativeAd2), 10, false);
+            this.x.setAfterClickListener(new a(this, yl9Var));
+            this.x.setUseDynamicLikeRes(yl9Var.d(), "/feed", "frs".equals(this.G));
+            this.x.setAgreeLongClickListener(new b(this, new rk7(activity), activity));
+            this.u.N(mk7.j(funNativeAd2), 10, false);
         }
     }
 
@@ -441,7 +441,7 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
     }
 
     @Override // com.baidu.tieba.funad.view.FunAdNativePbView, com.baidu.tieba.funad.view.FunAbsAdView
-    public dk7.g getLogItem() {
+    public ek7.g getLogItem() {
         InterceptResult invokeV;
         String str;
         Interceptable interceptable = $ic;
@@ -451,9 +451,9 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
             } else {
                 str = "0";
             }
-            return dk7.b("frs", str);
+            return ek7.b("frs", str);
         }
-        return (dk7.g) invokeV.objValue;
+        return (ek7.g) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.funad.view.FunAdNativePbView, com.baidu.tieba.funad.view.FunAbsAdView
@@ -471,17 +471,17 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.h();
-            q25.d(this).f(R.color.CAM_X0205);
-            q25 d = q25.d(this);
+            r25.d(this).f(R.color.CAM_X0205);
+            r25 d = r25.d(this);
             d.o(R.string.J_X06);
             d.j(R.color.CAM_X0205, R.color.CAM_X0206);
-            q25.d(this.v).w(R.color.CAM_X0109);
-            q25.d(this.w).w(R.color.CAM_X0105);
+            r25.d(this.v).w(R.color.CAM_X0109);
+            r25.d(this.w).w(R.color.CAM_X0105);
             WebPManager.setPureDrawable(this.F, R.drawable.icon_pure_card_close22, R.color.CAM_X0111, null);
-            a55.a(this.z, R.drawable.icon_pure_card_share20);
-            a55.a(this.C, R.drawable.icon_pure_card_comment20);
-            a55.e(this.A);
-            a55.e(this.D);
+            b55.a(this.z, R.drawable.icon_pure_card_share20);
+            b55.a(this.C, R.drawable.icon_pure_card_comment20);
+            b55.e(this.A);
+            b55.e(this.D);
             r(this.z, R.drawable.icon_pure_card_share20);
             r(this.C, R.drawable.icon_pure_card_comment20);
             setTextGrayAndUnClickable(this.A);
@@ -491,12 +491,12 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
         }
     }
 
-    public final void p(ql9 ql9Var, View view2) {
+    public final void p(yl9 yl9Var, View view2) {
         Activity currentActivity;
         int width;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048590, this, ql9Var, view2) == null) && this.x.getData() != null && this.x.getData().hasAgree && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null && !currentActivity.isFinishing()) {
-            ds8 ds8Var = new ds8(getContext());
+        if ((interceptable == null || interceptable.invokeLL(1048590, this, yl9Var, view2) == null) && this.x.getData() != null && this.x.getData().hasAgree && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null && !currentActivity.isFinishing()) {
+            ls8 ls8Var = new ls8(getContext());
             int[] iArr = new int[2];
             view2.getLocationInWindow(iArr);
             int i = iArr[0];
@@ -512,17 +512,17 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(g2, g);
             layoutParams.leftMargin = width;
             layoutParams.topMargin = ii.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X008);
-            ds8Var.k(g);
-            ds8Var.j(layoutParams);
-            ds8Var.i(false);
-            ds8Var.n("frs".equals(this.G), TbadkCoreApplication.getInst().getCurrentActivity().findViewById(16908290), 0, i2 - 10, ql9Var.g(), ql9Var.d());
+            ls8Var.k(g);
+            ls8Var.j(layoutParams);
+            ls8Var.i(false);
+            ls8Var.n("frs".equals(this.G), TbadkCoreApplication.getInst().getCurrentActivity().findViewById(16908290), 0, i2 - 10, yl9Var.g(), yl9Var.d());
         }
     }
 
     public final void r(ImageView imageView, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048592, this, imageView, i) == null) {
-            imageView.setImageDrawable(WebPManager.getPureDrawable(i, xj9.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE), WebPManager.ResourceStateType.NORMAL_DISABLE));
+            imageView.setImageDrawable(WebPManager.getPureDrawable(i, fk9.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE), WebPManager.ResourceStateType.NORMAL_DISABLE));
         }
     }
 }

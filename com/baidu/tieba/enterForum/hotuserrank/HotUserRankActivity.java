@@ -14,9 +14,9 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.gg;
 import com.baidu.tieba.jg;
-import com.baidu.tieba.lq6;
 import com.baidu.tieba.mq6;
 import com.baidu.tieba.nq6;
+import com.baidu.tieba.oq6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,18 +30,18 @@ public class HotUserRankActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HotUserRankView a;
-    public nq6 b;
+    public oq6 b;
     public String c;
     public long d;
-    public List<mq6> e;
+    public List<nq6> e;
     public String f;
     public int g;
     public boolean h;
     public Runnable i;
     public Runnable j;
-    public nq6.b k;
+    public oq6.b k;
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.ll5
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.ml5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -115,7 +115,7 @@ public class HotUserRankActivity extends BaseFragmentActivity {
     }
 
     /* loaded from: classes4.dex */
-    public class c implements nq6.b {
+    public class c implements oq6.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HotUserRankActivity a;
@@ -138,31 +138,31 @@ public class HotUserRankActivity extends BaseFragmentActivity {
             this.a = hotUserRankActivity;
         }
 
-        @Override // com.baidu.tieba.nq6.b
-        public void a(lq6 lq6Var) {
+        @Override // com.baidu.tieba.oq6.b
+        public void a(mq6 mq6Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, lq6Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, mq6Var) == null) {
                 HotUserRankActivity hotUserRankActivity = this.a;
                 hotUserRankActivity.hideLoadingView(hotUserRankActivity.a.i());
-                if (lq6Var != null && lq6Var.a != null) {
-                    this.a.f = lq6Var.d;
+                if (mq6Var != null && mq6Var.a != null) {
+                    this.a.f = mq6Var.d;
                     if (this.a.d > 0) {
                         jg.a().post(this.a.i);
                         return;
                     }
-                    TiebaFieldsInfo tiebaFieldsInfo = lq6Var.a.f;
+                    TiebaFieldsInfo tiebaFieldsInfo = mq6Var.a.f;
                     if (tiebaFieldsInfo != null && !ListUtils.isEmpty(tiebaFieldsInfo.tieba_fields)) {
-                        List<String> list = lq6Var.a.f.tieba_fields;
+                        List<String> list = mq6Var.a.f.tieba_fields;
                         this.a.e.clear();
                         for (int i = 0; i < list.size(); i++) {
                             String str = list.get(i);
                             if (str != null && str.equals(this.a.c)) {
                                 this.a.g = i;
                             }
-                            mq6 mq6Var = new mq6();
-                            mq6Var.b = str;
-                            mq6Var.a = str;
-                            this.a.e.add(mq6Var);
+                            nq6 nq6Var = new nq6();
+                            nq6Var.b = str;
+                            nq6Var.a = str;
+                            this.a.e.add(nq6Var);
                         }
                         jg.a().post(this.a.i);
                         return;
@@ -173,7 +173,7 @@ public class HotUserRankActivity extends BaseFragmentActivity {
             }
         }
 
-        @Override // com.baidu.tieba.nq6.b
+        @Override // com.baidu.tieba.oq6.b
         public void onError(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
@@ -238,9 +238,9 @@ public class HotUserRankActivity extends BaseFragmentActivity {
             HotUserRankView hotUserRankView = new HotUserRankView(this);
             this.a = hotUserRankView;
             setContentView(hotUserRankView.i());
-            nq6 nq6Var = new nq6(getUniqueId());
-            this.b = nq6Var;
-            nq6Var.n(this.k);
+            oq6 oq6Var = new oq6(getUniqueId());
+            this.b = oq6Var;
+            oq6Var.n(this.k);
             B1();
             if (!TextUtils.isEmpty(this.c)) {
                 this.b.i(this.c);

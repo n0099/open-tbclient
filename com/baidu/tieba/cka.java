@@ -1,92 +1,85 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.android.imsdk.retrieve.util.FileMetaUtil;
 import com.baidu.searchbox.config.AppConfig;
-import com.baidu.searchbox.ubcprocessor.UBCCloudConfigObserver;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-@Service
 /* loaded from: classes3.dex */
-public class cka implements UBCCloudConfigObserver {
+public class cka {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947679024, "Lcom/baidu/tieba/cka;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static JSONObject a(JSONObject jSONObject, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, jSONObject, str)) == null) {
+            try {
+                jSONObject.put("bosMessage", str);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947679024, "Lcom/baidu/tieba/cka;");
-                return;
-            }
+            return jSONObject;
         }
-        a = AppConfig.isDebug();
+        return (JSONObject) invokeLL.objValue;
     }
 
-    public cka() {
+    public static JSONObject b(File file, String str, String str2, String str3, boolean z) {
+        InterceptResult invokeCommon;
+        String str4;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.searchbox.ubcprocessor.UBCCloudConfigObserver
-    public void onReceiveUbcCloudConfig(String str, JSONObject jSONObject) {
-        String optString;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, jSONObject) == null) {
-            if (a) {
-                Log.d("YaLogConfigObserver", "receive YaLog ID config data: " + str);
-            }
-            if (TextUtils.isEmpty(str)) {
-                if (a) {
-                    Log.d("YaLogConfigObserver", "YaLog ID config data is null");
-                    return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{file, str, str2, str3, Boolean.valueOf(z)})) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("errno", str2);
+                jSONObject.put("errmsg", str3);
+                if (z) {
+                    str4 = "1";
+                } else {
+                    str4 = "0";
                 }
-                return;
+                jSONObject.put(FileMetaUtil.IS_FILE, str4);
+                if (file != null && file.exists() && file.isFile()) {
+                    jSONObject.put(FileMetaUtil.ZIP_PATH, str);
+                    jSONObject.put("size", String.valueOf(file.length()));
+                    jSONObject.put(FileMetaUtil.CREATE_TIME, file.lastModified());
+                    jSONObject.put(FileMetaUtil.MODIFY_TIME, file.lastModified());
+                }
+            } catch (Exception e) {
+                if (AppConfig.isDebug()) {
+                    e.printStackTrace();
+                }
             }
-            if (jSONObject == null) {
-                optString = "0";
-            } else {
+            return jSONObject;
+        }
+        return (JSONObject) invokeCommon.objValue;
+    }
+
+    public static JSONObject c(List<String> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            if (list != null) {
                 try {
-                    optString = jSONObject.optString("version_asc");
-                } catch (JSONException e) {
-                    if (a) {
-                        e.printStackTrace();
-                        return;
+                    if (list.size() > 0) {
+                        StringBuilder sb = new StringBuilder();
+                        for (String str : list) {
+                            sb.append(str);
+                            sb.append("&");
+                        }
+                        jSONObject.put("space", sb.toString());
                     }
-                    return;
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
             }
-            if (!"0".equals(optString)) {
-                z = true;
-            } else {
-                z = false;
-            }
-            ((aka) ServiceManager.getService(aka.a)).b(new JSONObject(str), z);
+            return jSONObject;
         }
+        return (JSONObject) invokeL.objValue;
     }
 }

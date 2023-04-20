@@ -16,10 +16,10 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.mv5;
-import com.baidu.tieba.ov5;
-import com.baidu.tieba.tv5;
-import com.baidu.tieba.yv5;
+import com.baidu.tieba.nv5;
+import com.baidu.tieba.pv5;
+import com.baidu.tieba.uv5;
+import com.baidu.tieba.zv5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -34,7 +34,7 @@ public class PersonConstellationActivity extends BaseActivity {
     public View c;
     public ImageView d;
     public BdSwitchView e;
-    public yv5 f;
+    public zv5 f;
     public RelativeLayout g;
     public RelativeLayout h;
     public TextView i;
@@ -46,10 +46,10 @@ public class PersonConstellationActivity extends BaseActivity {
     public int o;
     public BdSwitchView.b p;
     public View.OnClickListener q;
-    public tv5 r;
+    public uv5 r;
 
     /* loaded from: classes5.dex */
-    public class c implements ov5 {
+    public class c implements pv5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonConstellationActivity a;
@@ -139,7 +139,7 @@ public class PersonConstellationActivity extends BaseActivity {
             this.a = personConstellationActivity;
         }
 
-        @Override // com.baidu.tieba.ov5
+        @Override // com.baidu.tieba.pv5
         public void a(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
@@ -231,7 +231,7 @@ public class PersonConstellationActivity extends BaseActivity {
     }
 
     /* loaded from: classes5.dex */
-    public class d implements tv5 {
+    public class d implements uv5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonConstellationActivity a;
@@ -254,7 +254,7 @@ public class PersonConstellationActivity extends BaseActivity {
             this.a = personConstellationActivity;
         }
 
-        @Override // com.baidu.tieba.tv5
+        @Override // com.baidu.tieba.uv5
         public void a(Date date, View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeLL(1048576, this, date, view2) != null) || date == null) {
@@ -313,22 +313,22 @@ public class PersonConstellationActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (this.f == null) {
-                mv5 mv5Var = new mv5(getActivity(), this.r);
-                mv5Var.k(R.layout.person_birthday_select_layout, new c(this));
-                mv5Var.f(18);
-                mv5Var.p(new boolean[]{true, true, true, false, false, false});
-                mv5Var.j("年", "月", "日", "时", "分", "秒");
-                mv5Var.l(2.0f);
-                mv5Var.o(0, 0, 0, 0, 0, 0);
-                mv5Var.b(false);
-                mv5Var.i(SkinManager.getColor(R.color.CAM_X0206));
-                mv5Var.m(SkinManager.getColor(R.color.CAM_X0105));
-                mv5Var.n(SkinManager.getColor(R.color.CAM_X0109));
-                mv5Var.d(SkinManager.getColor(R.color.black_alpha30));
-                mv5Var.e(SkinManager.getColor(R.color.CAM_X0201));
-                mv5Var.c(false);
-                mv5Var.h(this.h);
-                this.f = mv5Var.a();
+                nv5 nv5Var = new nv5(getActivity(), this.r);
+                nv5Var.k(R.layout.person_birthday_select_layout, new c(this));
+                nv5Var.f(18);
+                nv5Var.p(new boolean[]{true, true, true, false, false, false});
+                nv5Var.j("年", "月", "日", "时", "分", "秒");
+                nv5Var.l(2.0f);
+                nv5Var.o(0, 0, 0, 0, 0, 0);
+                nv5Var.b(false);
+                nv5Var.i(SkinManager.getColor(R.color.CAM_X0206));
+                nv5Var.m(SkinManager.getColor(R.color.CAM_X0105));
+                nv5Var.n(SkinManager.getColor(R.color.CAM_X0109));
+                nv5Var.d(SkinManager.getColor(R.color.black_alpha30));
+                nv5Var.e(SkinManager.getColor(R.color.CAM_X0201));
+                nv5Var.c(false);
+                nv5Var.h(this.h);
+                this.f = nv5Var.a();
             }
             this.f.u();
         }

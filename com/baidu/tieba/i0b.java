@@ -1,54 +1,40 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.InetSocketAddress;
+import java.nio.ByteBuffer;
+import org.java_websocket.WebSocket;
+import org.java_websocket.drafts.Draft;
 import org.java_websocket.exceptions.InvalidDataException;
-import org.java_websocket.exceptions.InvalidFrameException;
 import org.java_websocket.framing.Framedata;
 /* loaded from: classes4.dex */
-public abstract class i0b extends k0b {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface i0b {
+    InetSocketAddress getLocalSocketAddress(WebSocket webSocket);
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i0b(Framedata.Opcode opcode) {
-        super(opcode);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {opcode};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Framedata.Opcode) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
+    InetSocketAddress getRemoteSocketAddress(WebSocket webSocket);
 
-    @Override // com.baidu.tieba.k0b
-    public void h() throws InvalidDataException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (f()) {
-                if (!b()) {
-                    if (!c()) {
-                        if (!e()) {
-                            return;
-                        }
-                        throw new InvalidFrameException("Control frame cant have rsv3==true set");
-                    }
-                    throw new InvalidFrameException("Control frame cant have rsv2==true set");
-                }
-                throw new InvalidFrameException("Control frame cant have rsv1==true set");
-            }
-            throw new InvalidFrameException("Control frame cant have fin==false set");
-        }
-    }
+    void onWebsocketClose(WebSocket webSocket, int i, String str, boolean z);
+
+    void onWebsocketCloseInitiated(WebSocket webSocket, int i, String str);
+
+    void onWebsocketClosing(WebSocket webSocket, int i, String str, boolean z);
+
+    void onWebsocketError(WebSocket webSocket, Exception exc);
+
+    void onWebsocketHandshakeReceivedAsClient(WebSocket webSocket, w0b w0bVar, d1b d1bVar) throws InvalidDataException;
+
+    e1b onWebsocketHandshakeReceivedAsServer(WebSocket webSocket, Draft draft, w0b w0bVar) throws InvalidDataException;
+
+    void onWebsocketHandshakeSentAsClient(WebSocket webSocket, w0b w0bVar) throws InvalidDataException;
+
+    void onWebsocketMessage(WebSocket webSocket, String str);
+
+    void onWebsocketMessage(WebSocket webSocket, ByteBuffer byteBuffer);
+
+    void onWebsocketOpen(WebSocket webSocket, b1b b1bVar);
+
+    void onWebsocketPing(WebSocket webSocket, Framedata framedata);
+
+    void onWebsocketPong(WebSocket webSocket, Framedata framedata);
+
+    void onWriteDemand(WebSocket webSocket);
 }

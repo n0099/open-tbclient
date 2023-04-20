@@ -1,85 +1,79 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.pm.PackageManager;
-import android.os.Build;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Application;
+import android.text.TextUtils;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.searchbox.retrieve.YaLogInitManager;
+import com.baidu.tieba.log.TbLogManager;
+import com.baidu.tieba.u8a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-import java.util.Locale;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class z8a {
+public class z8a {
     public static /* synthetic */ Interceptable $ic;
-    public static final Object a;
-    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948315206, "Lcom/baidu/tieba/z8a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public static class a implements u8a.d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948315206, "Lcom/baidu/tieba/z8a;");
+        }
+
+        @Override // com.baidu.tieba.u8a.d
+        public void onSuccess() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                YaLogInitManager.getInstance().initYaLog(true, true, true, String.valueOf(10773430L));
+                TbLogManager.initTbUbcLog(new y8a());
+                TbLogManager.reinitializeSdk();
+                z8a.c();
+            }
+        }
+    }
+
+    public static void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            u8a.c(new a());
+        }
+    }
+
+    public static void b(Application application) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, application) == null) {
+            YaLogInitManager.getInstance().initYaLogBaseContext(application);
+        }
+    }
+
+    public static void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            String s = q45.m().s("key_ubc_yalog_config", "");
+            if (TextUtils.isEmpty(s)) {
                 return;
             }
-        }
-        a = new Object();
-    }
-
-    public static String a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(context.getPackageName());
-            sb.append(WebvttCueParser.CHAR_SLASH);
-            sb.append(b(context));
-            sb.append(" (Linux; U; Android ");
-            sb.append(Build.VERSION.RELEASE);
-            sb.append("; ");
-            sb.append(Locale.getDefault().toString());
-            String str = Build.MODEL;
-            if (str.length() > 0) {
-                sb.append("; ");
-                sb.append(str);
+            try {
+                ((ika) ServiceManager.getService(ika.a)).a(new JSONObject(s));
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            String str2 = Build.ID;
-            if (str2.length() > 0) {
-                sb.append("; Build/");
-                sb.append(str2);
-            }
-            sb.append("; TurboNet/");
-            sb.append("53.0.2785.116");
-            sb.append(')');
-            return sb.toString();
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static int b(Context context) {
-        InterceptResult invokeL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            synchronized (a) {
-                if (b == 0) {
-                    try {
-                        b = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
-                    } catch (PackageManager.NameNotFoundException unused) {
-                        throw new IllegalStateException("Cannot determine package version");
-                    }
-                }
-                i = b;
-            }
-            return i;
-        }
-        return invokeL.intValue;
     }
 }

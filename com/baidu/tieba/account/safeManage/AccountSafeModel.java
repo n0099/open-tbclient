@@ -5,8 +5,8 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.a9;
-import com.baidu.tieba.pd9;
 import com.baidu.tieba.setting.im.more.PrivateInfoNetMessage;
+import com.baidu.tieba.xd9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +18,7 @@ public class AccountSafeModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-    public pd9 b;
+    public xd9 b;
     public String c;
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -61,21 +61,21 @@ public class AccountSafeModel extends BdBaseModel {
         return (PrivateInfoNetMessage) invokeV.objValue;
     }
 
-    public pd9 R() {
+    public xd9 R() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.b;
         }
-        return (pd9) invokeV.objValue;
+        return (xd9) invokeV.objValue;
     }
 
     public final SimpleUser S() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            pd9 pd9Var = this.b;
-            if (pd9Var != null && pd9Var.f() != null) {
+            xd9 xd9Var = this.b;
+            if (xd9Var != null && xd9Var.f() != null) {
                 return this.b.f();
             }
             return null;
@@ -136,10 +136,10 @@ public class AccountSafeModel extends BdBaseModel {
         return (String) invokeV.objValue;
     }
 
-    public void W(pd9 pd9Var) {
+    public void W(xd9 xd9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, pd9Var) == null) {
-            this.b = pd9Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, xd9Var) == null) {
+            this.b = xd9Var;
             U();
         }
     }

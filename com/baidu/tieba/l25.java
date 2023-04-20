@@ -1,9 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.yun.YunDialogDataManager;
-import com.baidu.tbadk.data.DialogStrategiesData;
-import com.baidu.tbadk.util.DataExt;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.log.YunDialogLog;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,12 +9,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import kotlin.jvm.JvmField;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
 public final class l25 {
     public static /* synthetic */ Interceptable $ic;
     public static final l25 a;
+    @JvmField
+    public static final q45 b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,6 +33,9 @@ public final class l25 {
             }
         }
         a = new l25();
+        q45 a2 = z15.a();
+        Intrinsics.checkNotNullExpressionValue(a2, "getKvCache()");
+        b = a2;
     }
 
     public l25() {
@@ -49,33 +52,33 @@ public final class l25 {
         }
     }
 
-    public final void a(String json) {
-        boolean z;
-        List entityList;
+    public final String a(String dialogName) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, json) == null) {
-            Intrinsics.checkNotNullParameter(json, "json");
-            String k = YunDialogDataManager.k();
-            me<String> g = b05.g("tb.dialog_strategies_data", TbadkCoreApplication.getCurrentAccount(), k);
-            if (g != null) {
-                String str = g.get(k);
-                if (str != null) {
-                    if (str.length() > 0) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    if (!z) {
-                        str = null;
-                    }
-                    if (str != null && (entityList = DataExt.toEntityList(str, DialogStrategiesData.class)) != null) {
-                        List entityList2 = DataExt.toEntityList(json, DialogStrategiesData.class);
-                        Intrinsics.checkNotNullExpressionValue(entityList2, "toEntityList(json, Dialo…rategiesData::class.java)");
-                        m25.b(entityList, entityList2);
-                    }
-                }
-                g.a(k, json);
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dialogName)) == null) {
+            Intrinsics.checkNotNullParameter(dialogName, "dialogName");
+            return q45.q("KEY_FREQUENCE_DIALOG_STRATEGY_COUNTER") + '_' + dialogName;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final void c(String dialogName) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dialogName) == null) {
+            Intrinsics.checkNotNullParameter(dialogName, "dialogName");
+            String a2 = a(dialogName);
+            q45 q45Var = b;
+            q45Var.z(a2, q45Var.n(a2, 0) + 1);
+        }
+    }
+
+    public final void b(String dialogName) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogName) == null) {
+            Intrinsics.checkNotNullParameter(dialogName, "dialogName");
+            vg8 yunDialogLog = YunDialogLog.getInstance();
+            yunDialogLog.c("YunDialogManager", "重置弹窗 " + dialogName + " 的本地频次记录");
+            b.z(a(dialogName), 0);
         }
     }
 }

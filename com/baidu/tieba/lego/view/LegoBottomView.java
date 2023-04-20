@@ -11,14 +11,14 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.tieba.lego.card.view.BaseCardView;
 import com.baidu.tieba.lego.card.view.ButtonCardView;
-import com.baidu.tieba.rd8;
+import com.baidu.tieba.zd8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class LegoBottomView extends RelativeLayout implements rd8 {
+public class LegoBottomView extends RelativeLayout implements zd8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ObjectAnimator a;
@@ -245,7 +245,7 @@ public class LegoBottomView extends RelativeLayout implements rd8 {
         }
     }
 
-    @Override // com.baidu.tieba.rd8
+    @Override // com.baidu.tieba.zd8
     public void onScrollStateChanged(AbsListView absListView, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, absListView, i) == null) {

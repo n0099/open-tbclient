@@ -27,10 +27,10 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsStoryLiveGatherModel;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.j76;
-import com.baidu.tieba.l76;
-import com.baidu.tieba.q36;
-import com.baidu.tieba.y45;
+import com.baidu.tieba.k76;
+import com.baidu.tieba.m76;
+import com.baidu.tieba.r36;
+import com.baidu.tieba.z45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -44,15 +44,15 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
     public View a;
     public NavigationBar b;
     public TextView c;
-    public j76 d;
+    public k76 d;
     public AlaFrsStoryLiveGatherModel e;
     public String f;
     public String g;
     public AlaFrsStoryLiveGatherModel.b h;
-    public q36 i;
-    public y45.g j;
+    public r36 i;
+    public z45.g j;
     public BdListView.p k;
-    public l76 l;
+    public m76 l;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -188,7 +188,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
     }
 
     /* loaded from: classes3.dex */
-    public class d implements q36 {
+    public class d implements r36 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaFrsStoryLiveGatherActivity a;
@@ -211,7 +211,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
             this.a = alaFrsStoryLiveGatherActivity;
         }
 
-        @Override // com.baidu.tieba.q36
+        @Override // com.baidu.tieba.r36
         public void a(ThreadData threadData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, threadData) == null) {
@@ -222,7 +222,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
     }
 
     /* loaded from: classes3.dex */
-    public class e implements y45.g {
+    public class e implements z45.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaFrsStoryLiveGatherActivity a;
@@ -245,7 +245,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
             this.a = alaFrsStoryLiveGatherActivity;
         }
 
-        @Override // com.baidu.tieba.y45.g
+        @Override // com.baidu.tieba.z45.g
         public void f(boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && this.a.e != null) {
@@ -300,7 +300,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
     }
 
     /* loaded from: classes3.dex */
-    public class g implements l76 {
+    public class g implements m76 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaFrsStoryLiveGatherActivity a;
@@ -323,7 +323,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
             this.a = alaFrsStoryLiveGatherActivity;
         }
 
-        @Override // com.baidu.tieba.l76
+        @Override // com.baidu.tieba.m76
         public void a(int i) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && this.a.e != null && this.a.e.h0() != i) {
@@ -431,9 +431,9 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
             this.b.setCenterTextTitle(string);
             linearLayout.addView(this.b, new LinearLayout.LayoutParams(-1, -2));
             SkinManager.setBackgroundColor(this.b.getBottomLine(), R.color.CAM_X0204);
-            j76 j76Var = new j76(getPageContext(), false, false, getUniqueId());
-            this.d = j76Var;
-            j76Var.j();
+            k76 k76Var = new k76(getPageContext(), false, false, getUniqueId());
+            this.d = k76Var;
+            k76Var.j();
             this.d.p(1);
             this.d.q(this.i);
             this.d.s(this.j);
@@ -464,9 +464,9 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
             if (textView != null) {
                 SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0106);
             }
-            j76 j76Var = this.d;
-            if (j76Var != null) {
-                j76Var.l(TbadkCoreApplication.getInst().getSkinType());
+            k76 k76Var = this.d;
+            if (k76Var != null) {
+                k76Var.l(TbadkCoreApplication.getInst().getSkinType());
             }
         }
     }

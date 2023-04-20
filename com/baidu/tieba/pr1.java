@@ -1,5 +1,9 @@
 package com.baidu.tieba;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public interface pr1 {
-    void a(String str, t43 t43Var);
+    String a(@NonNull String str, @Nullable JSONObject jSONObject);
 }

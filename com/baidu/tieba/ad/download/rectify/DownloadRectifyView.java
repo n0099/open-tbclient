@@ -14,10 +14,10 @@ import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.eb9;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.lw4;
-import com.baidu.tieba.lz5;
-import com.baidu.tieba.wa9;
+import com.baidu.tieba.mw4;
+import com.baidu.tieba.mz5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -41,10 +41,10 @@ public class DownloadRectifyView extends RelativeLayout {
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lw4.b a;
+        public final /* synthetic */ mw4.b a;
         public final /* synthetic */ DownloadRectifyView b;
 
-        public a(DownloadRectifyView downloadRectifyView, lw4.b bVar) {
+        public a(DownloadRectifyView downloadRectifyView, mw4.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -68,8 +68,8 @@ public class DownloadRectifyView extends RelativeLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 Context context = this.b.getContext();
-                lw4.b bVar = this.a;
-                wa9.a(context, bVar.b, null, null, bVar.c);
+                mw4.b bVar = this.a;
+                eb9.a(context, bVar.b, null, null, bVar.c);
             }
         }
     }
@@ -78,10 +78,10 @@ public class DownloadRectifyView extends RelativeLayout {
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lw4.a a;
+        public final /* synthetic */ mw4.a a;
         public final /* synthetic */ DownloadRectifyView b;
 
-        public b(DownloadRectifyView downloadRectifyView, lw4.a aVar) {
+        public b(DownloadRectifyView downloadRectifyView, mw4.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -105,8 +105,8 @@ public class DownloadRectifyView extends RelativeLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 Context context = this.b.getContext();
-                lw4.a aVar = this.a;
-                wa9.a(context, aVar.b, null, null, aVar.c);
+                mw4.a aVar = this.a;
+                eb9.a(context, aVar.b, null, null, aVar.c);
             }
         }
     }
@@ -154,29 +154,29 @@ public class DownloadRectifyView extends RelativeLayout {
         b(context);
     }
 
-    public void a(lz5 lz5Var) {
+    public void a(mz5 mz5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, lz5Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, mz5Var) == null) {
             int i = 8;
-            if (lz5Var != null && lz5Var.b != null) {
-                this.i.setText(lz5Var.c);
+            if (mz5Var != null && mz5Var.b != null) {
+                this.i.setText(mz5Var.c);
                 TextView textView = this.i;
-                if (lz5Var.a != 2) {
+                if (mz5Var.a != 2) {
                     i = 0;
                 }
                 textView.setVisibility(i);
-                lw4 lw4Var = lz5Var.b;
-                this.b.N(lw4Var.b, 30, false);
-                this.c.setText(lw4Var.c);
-                this.d.setText(lw4Var.i);
-                this.f.setText(lw4Var.d);
-                this.e.setText(lw4Var.f);
-                lw4.b bVar = lw4Var.g;
+                mw4 mw4Var = mz5Var.b;
+                this.b.N(mw4Var.b, 30, false);
+                this.c.setText(mw4Var.c);
+                this.d.setText(mw4Var.i);
+                this.f.setText(mw4Var.d);
+                this.e.setText(mw4Var.f);
+                mw4.b bVar = mw4Var.g;
                 if (bVar != null && !TextUtils.isEmpty(bVar.b) && !TextUtils.isEmpty(bVar.a)) {
                     this.g.setText(bVar.a);
                     this.g.setOnClickListener(new a(this, bVar));
                 }
-                lw4.a aVar = lw4Var.h;
+                mw4.a aVar = mw4Var.h;
                 if (aVar != null && !TextUtils.isEmpty(aVar.b) && !TextUtils.isEmpty(aVar.a)) {
                     this.h.setText(aVar.a);
                     this.h.setOnClickListener(new b(this, aVar));

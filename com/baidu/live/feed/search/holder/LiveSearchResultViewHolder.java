@@ -9,7 +9,7 @@ import com.airbnb.lottie.LottieAnimationView;
 import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ac0;
+import com.baidu.tieba.bc0;
 import com.facebook.drawee.drawable.ScalingUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
 import kotlin.Metadata;
@@ -66,18 +66,18 @@ public final class LiveSearchResultViewHolder extends RecyclerView.ViewHolder {
             this.a.setTypeface(Typeface.DEFAULT_BOLD);
             this.a.setTextSize(1, 16.0f);
         }
-        this.e.getHierarchy().setPlaceholderImage(ac0.f().l(this.j), ScalingUtils.ScaleType.FIT_XY);
+        this.e.getHierarchy().setPlaceholderImage(bc0.f().l(this.j), ScalingUtils.ScaleType.FIT_XY);
         TextView textView = this.a;
-        ac0 f = ac0.f();
+        bc0 f = bc0.f();
         View itemView = this.itemView;
         Intrinsics.checkExpressionValueIsNotNull(itemView, "itemView");
         textView.setTextColor(f.a(itemView.getContext(), this.j, "color_1F1F1F"));
         TextView textView2 = this.g;
-        ac0 f2 = ac0.f();
+        bc0 f2 = bc0.f();
         View itemView2 = this.itemView;
         Intrinsics.checkExpressionValueIsNotNull(itemView2, "itemView");
         textView2.setTextColor(f2.a(itemView2.getContext(), this.j, "color_white3"));
-        ac0 f3 = ac0.f();
+        bc0 f3 = bc0.f();
         Intrinsics.checkExpressionValueIsNotNull(f3, "UIModeUtils.getInstance()");
         String r = f3.r();
         if (Intrinsics.areEqual(r, "day")) {

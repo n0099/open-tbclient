@@ -1,73 +1,32 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.data.SelectForumData;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.AddLinkActivityConfig;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class w5a {
+public class w5a implements y5a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public b a;
-    public final CustomMessageListener b;
+    @NonNull
+    public final TbPageContext<?> a;
+    @NonNull
+    public final a5a b;
 
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(@NonNull SelectForumData selectForumData);
-    }
-
-    /* loaded from: classes6.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ w5a a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(w5a w5aVar, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {w5aVar, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = w5aVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            SelectForumData selectForumData;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof SelectForumData) && (selectForumData = (SelectForumData) customResponsedMessage.getData()) != null && !StringUtils.isNull(selectForumData.forumId) && !StringUtils.isNull(selectForumData.forumName) && this.a.a != null) {
-                this.a.a.a(selectForumData);
-            }
-        }
-    }
-
-    public w5a() {
+    public w5a(@NonNull TbPageContext<?> tbPageContext, @NonNull a5a a5aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, a5aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -77,29 +36,90 @@ public class w5a {
                 return;
             }
         }
-        this.b = new a(this, 2921505);
+        this.a = tbPageContext;
+        this.b = a5aVar;
     }
 
-    public void d() {
+    @Override // com.baidu.tieba.rc5
+    public void C(qc5 qc5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.b);
-        }
-    }
-
-    public void b(@NonNull BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bdUniqueId) == null) {
-            d();
-            this.b.setTag(bdUniqueId);
-            MessageManager.getInstance().registerListener(this.b);
-        }
-    }
-
-    public void c(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.a = bVar;
+        if (interceptable == null || interceptable.invokeL(1048576, this, qc5Var) == null) {
+            int i = qc5Var.a;
+            if (i != 14 && i != 48) {
+                if (i == 60) {
+                    this.b.u();
+                    return;
+                } else if (i != 12 && i != 13 && i != 46 && i != 49) {
+                    if (i == 21) {
+                        this.b.h();
+                        TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).param("obj_locate", 5));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AddLinkActivityConfig(this.a.getPageActivity(), 25049, "", true, null)));
+                        return;
+                    } else if (i == 24) {
+                        this.b.z(qc5Var);
+                        return;
+                    } else if (i == 3) {
+                        this.b.z(qc5Var);
+                        return;
+                    } else if (i == 16) {
+                        this.b.z(qc5Var);
+                        return;
+                    } else if (i == 43) {
+                        TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).param("obj_locate", 4));
+                        q45.m().w("hot_topic_has_click", true);
+                        this.b.D(new qc5(2, 26, null));
+                        this.b.p(true);
+                        this.b.m();
+                        return;
+                    } else if (i == 10) {
+                        this.b.z(qc5Var);
+                        return;
+                    } else if (i == 11) {
+                        this.b.z(qc5Var);
+                        return;
+                    } else if (i == 25) {
+                        this.b.z(qc5Var);
+                        return;
+                    } else if (i == 22) {
+                        this.b.z(qc5Var);
+                        return;
+                    } else if (i == 59) {
+                        this.b.z(qc5Var);
+                        return;
+                    } else if (i == 61) {
+                        this.b.z(qc5Var);
+                        return;
+                    } else if (i == 69) {
+                        this.b.v();
+                        return;
+                    } else if (i == 55) {
+                        Object obj = qc5Var.c;
+                        if (obj instanceof Boolean) {
+                            this.b.k(((Boolean) obj).booleanValue());
+                            return;
+                        }
+                        return;
+                    } else if (i == 66) {
+                        Object obj2 = qc5Var.c;
+                        if (obj2 instanceof Boolean) {
+                            this.b.y(((Boolean) obj2).booleanValue());
+                            return;
+                        }
+                        return;
+                    } else if (i == 74) {
+                        this.b.z(qc5Var);
+                        return;
+                    } else {
+                        return;
+                    }
+                } else {
+                    this.b.x(new int[]{10, 34});
+                    this.b.i();
+                    return;
+                }
+            }
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).param("obj_locate", 1));
+            this.b.r();
         }
     }
 }

@@ -70,8 +70,8 @@ public final class b {
             com.kwad.sdk.core.e.b.i(b.this.TAG, "onCompletion ——> STATE_COMPLETED");
         }
     };
-    public c.InterfaceC0635c JU = new c.InterfaceC0635c() { // from class: com.kwad.components.core.video.b.5
-        @Override // com.kwad.sdk.core.video.kwai.c.InterfaceC0635c
+    public c.InterfaceC0634c JU = new c.InterfaceC0634c() { // from class: com.kwad.components.core.video.b.5
+        @Override // com.kwad.sdk.core.video.kwai.c.InterfaceC0634c
         public final boolean j(int i, int i2) {
             if (i != -38) {
                 b.this.JF = -1;
@@ -281,7 +281,7 @@ public final class b {
         if (cVar == null) {
             return;
         }
-        cVar.a((c.InterfaceC0635c) null);
+        cVar.a((c.InterfaceC0634c) null);
         this.JG.a((c.b) null);
         this.JG.b(null);
         this.JG.a((c.h) null);

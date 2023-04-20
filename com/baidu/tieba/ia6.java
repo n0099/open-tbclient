@@ -1,46 +1,50 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.ProgressBar;
+import android.widget.ImageView;
 import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class ia6 extends yf6<d96> {
+public class ia6 extends zf6<a96> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextView i;
-    public ProgressBar j;
-    public FrameLayout k;
-    public TextView l;
-    public TextView m;
-    public TextView n;
+    public View i;
+    public TextView j;
+    public TextView k;
+    public HeadImageView l;
+    public HeadImageView m;
+    public HeadImageView n;
+    public ImageView o;
 
-    @Override // com.baidu.tieba.yf6
+    @Override // com.baidu.tieba.zf6
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0107 : invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.yf6
-    public void m(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0108 : invokeV.intValue;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.zf6
+    /* renamed from: t */
+    public void l(a96 a96Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, a96Var) == null) {
         }
     }
 
@@ -62,57 +66,79 @@ public class ia6 extends yf6<d96> {
                 return;
             }
         }
-        r(h());
+        s(h());
     }
 
-    public final void r(View view2) {
+    public void u(String str) {
+        TextView textView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09020e);
-            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091459);
-            this.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09145a);
-            this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090225);
-            this.j = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f09020f);
-            this.k = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f09145d);
-            h().setOnClickListener(this);
+        if ((interceptable == null || interceptable.invokeL(1048583, this, str) == null) && (textView = this.k) != null) {
+            textView.setText(str);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.yf6
-    /* renamed from: s */
-    public void l(d96 d96Var) {
-        a96 c;
+    public void x(int i) {
+        ImageView imageView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, d96Var) == null) && (c = d96Var.c()) != null && c.b() != null) {
-            String str = "LV." + c.b().yy_level_id;
-            if (!TextUtils.isEmpty(c.b().yy_level_name)) {
-                str = c.b().yy_level_name + str;
-                this.m.setText(c.b().yy_level_name);
+        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) && (imageView = this.o) != null) {
+            imageView.setVisibility(i);
+        }
+    }
+
+    public void y(int i) {
+        View view2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048585, this, i) == null) && (view2 = this.i) != null) {
+            view2.setVisibility(i);
+        }
+    }
+
+    public void z(String str) {
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048586, this, str) == null) && (textView = this.j) != null) {
+            textView.setText(str);
+        }
+    }
+
+    @Override // com.baidu.tieba.zf6
+    public void m(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            if (i == 1) {
+                this.o.setAlpha(0.7f);
+            } else {
+                this.o.setAlpha(1);
             }
-            this.i.setText(str);
-            if (c.b().yy_levelup_exp <= c.b().yy_level_exp) {
-                this.m.setVisibility(8);
-                this.n.setVisibility(8);
-                this.l.setVisibility(8);
-                this.j.setVisibility(8);
-                return;
+            this.i.setBackgroundColor(SkinManager.getColor(i, (int) R.color.CAM_X0204));
+            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0106);
+            SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0109);
+        }
+    }
+
+    public TextView r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            TextView textView = this.k;
+            if (textView != null) {
+                return textView;
             }
-            if (!TextUtils.isEmpty(c.b().yy_level_next_name)) {
-                this.n.setText(c.b().yy_level_next_name);
-            }
-            long j = c.b().yy_levelup_exp;
-            long j2 = c.b().yy_level_exp;
-            this.j.setMax((int) j);
-            this.j.setProgress((int) j2);
-            if (!TextUtils.isEmpty(c.b().yy_level_next_name) && c.b().yy_levelup_exp > c.b().yy_level_exp) {
-                String string = this.b.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0226);
-                int i = (int) ((((float) (c.b().yy_levelup_exp - c.b().yy_level_exp)) * 100.0f) / ((float) c.b().yy_levelup_exp));
-                if (i <= 0) {
-                    i = 1;
-                }
-                this.l.setText(String.format(string, c.b().yy_level_next_name, i + "%"));
-            }
+            return null;
+        }
+        return (TextView) invokeV.objValue;
+    }
+
+    public final void s(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, view2) == null) {
+            this.i = view2.findViewById(R.id.obfuscated_res_0x7f090215);
+            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090216);
+            this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090214);
+            this.o = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090210);
+            this.l = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090211);
+            this.m = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090212);
+            this.n = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090213);
         }
     }
 }

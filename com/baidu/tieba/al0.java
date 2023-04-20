@@ -1,24 +1,13 @@
 package com.baidu.tieba;
 
-import android.app.PendingIntent;
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffXfermode;
-import android.graphics.Rect;
-import android.graphics.RectF;
+import android.app.Activity;
+import android.content.DialogInterface;
 import android.os.Environment;
-import android.os.Process;
 import android.text.TextUtils;
-import android.widget.RemoteViews;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import android.view.KeyEvent;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.download.basic.AdAppStateManager;
-import com.baidu.nadcore.download.consts.AdDownloadAction;
-import com.baidu.nadcore.download.notification.NotificationReceiver;
+import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -28,83 +17,120 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 /* loaded from: classes3.dex */
 public class al0 {
     public static /* synthetic */ Interceptable $ic;
+    public static long b;
+    public static int c;
+    public static int d;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<xj0> a;
-    public HashMap<String, xj0> b;
-    public boolean c;
+    public final List<yj0> a;
 
     /* loaded from: classes3.dex */
-    public class a implements Comparator<xj0> {
+    public class a implements DialogInterface.OnKeyListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yj0 a;
+        public final /* synthetic */ Activity b;
+        public final /* synthetic */ yk0 c;
+        public final /* synthetic */ al0 d;
 
-        public a(al0 al0Var) {
+        public a(al0 al0Var, yj0 yj0Var, Activity activity, yk0 yk0Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {al0Var};
+                Object[] objArr = {al0Var, yj0Var, activity, yk0Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.d = al0Var;
+            this.a = yj0Var;
+            this.b = activity;
+            this.c = yk0Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(xj0 xj0Var, xj0 xj0Var2) {
-            InterceptResult invokeLL;
+        @Override // android.content.DialogInterface.OnKeyListener
+        public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
+            InterceptResult invokeLIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, xj0Var, xj0Var2)) == null) {
-                long j = xj0Var.m;
-                long j2 = xj0Var2.m;
-                if (j > j2) {
-                    return -1;
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, dialogInterface, i, keyEvent)) == null) {
+                al0.a();
+                this.d.j();
+                this.d.g(ClogBuilder.LogType.FREE_CLICK, ClogBuilder.Area.DIALOG_KEYBACK, this.a);
+                if (xj0.b().a(this.b)) {
+                    xj0.b().e(this.b, System.currentTimeMillis());
+                    this.c.a();
+                    return true;
                 }
-                if (j < j2) {
-                    return 1;
-                }
-                return 0;
+                this.c.b();
+                return true;
             }
-            return invokeLL.intValue;
+            return invokeLIL.booleanValue;
         }
     }
 
     /* loaded from: classes3.dex */
-    public class b implements cn0 {
+    public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xj0 a;
-        public final /* synthetic */ al0 b;
+        public final /* synthetic */ yk0 a;
+        public final /* synthetic */ yj0 b;
+        public final /* synthetic */ al0 c;
 
-        @Override // com.baidu.tieba.cn0
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            }
-        }
-
-        public b(al0 al0Var, xj0 xj0Var) {
+        public b(al0 al0Var, yk0 yk0Var, yj0 yj0Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {al0Var, xj0Var};
+                Object[] objArr = {al0Var, yk0Var, yj0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = al0Var;
+            this.a = yk0Var;
+            this.b = yj0Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.c.j();
+                xj0.b().d(false);
+                this.a.a();
+                this.c.g(ClogBuilder.LogType.FREE_CLICK, ClogBuilder.Area.DIALOG_NEGATIVE, this.b);
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yj0 a;
+        public final /* synthetic */ al0 b;
+
+        public c(al0 al0Var, yj0 yj0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {al0Var, yj0Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -115,89 +141,22 @@ public class al0 {
                 }
             }
             this.b = al0Var;
-            this.a = xj0Var;
+            this.a = yj0Var;
         }
 
-        @Override // com.baidu.tieba.cn0
-        public void b(Bitmap bitmap) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) != null) || bitmap == null) {
-                return;
-            }
-            PendingIntent e = gk0.f().e(NotificationReceiver.RECEIVER_ACTION_CLICK_ITEM, this.a);
-            PendingIntent e2 = gk0.f().e(NotificationReceiver.RECEIVER_ACTION_REMOVE_ITEM, this.a);
-            RemoteViews i = this.b.i(bitmap, gk0.f().e(NotificationReceiver.RECEIVER_ACTION_CLICK_BUTTON, this.a), this.a);
-            if (i == null) {
-                return;
-            }
-            gk0.f().j(bitmap, i, e, e2, this.a);
-            this.b.s(this.a);
-            HashMap hashMap = this.b.b;
-            xj0 xj0Var = this.a;
-            hashMap.put(xj0Var.d, xj0Var);
-            gk0 f = gk0.f();
-            String str = ClogBuilder.LogType.FREE_SHOW.type;
-            String str2 = ClogBuilder.Area.AD_NOTIFICATION_SHOW.type;
-            xj0 xj0Var2 = this.a;
-            f.h(str, str2, xj0Var2.p.a, xj0Var2.q.m);
-            if (!this.b.c) {
-                gk0.f().h(ClogBuilder.LogType.FREE_SHOW.type, ClogBuilder.Area.AD_NOTIFICATION_NOTIFY.type, "", String.valueOf(this.b.j() + 1));
-                this.b.u();
-                this.b.c = true;
-            }
-            this.b.t(this.a, false);
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class c implements pk0 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xj0 a;
-        public final /* synthetic */ al0 b;
-
-        public c(al0 al0Var, xj0 xj0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {al0Var, xj0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.b.j();
+                xj0.b().d(false);
+                this.b.g(ClogBuilder.LogType.FREE_CLICK, ClogBuilder.Area.DIALOG_POSITIVE, this.a);
+                if (TextUtils.equals(this.a.q.o, "reminded_type_unopen")) {
+                    cl0.g(this.a.d);
                     return;
                 }
+                cl0.e(this.a.h, this.a.a());
             }
-            this.b = al0Var;
-            this.a = xj0Var;
-        }
-
-        @Override // com.baidu.tieba.pk0
-        public void a(@NonNull AdDownloadAction adDownloadAction, @NonNull xj0 xj0Var) {
-            xj0 xj0Var2;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, adDownloadAction, xj0Var) == null) && adDownloadAction == AdDownloadAction.INSTALL_FINISH && !v01.h(this.b.b)) {
-                String str = xj0Var.d;
-                if (!TextUtils.isEmpty(str) && (xj0Var2 = (xj0) x01.b(this.b.b, str)) != null && xj0Var2.e() != null) {
-                    this.b.t(xj0Var2, true);
-                    gk0.f().a(xj0Var2.e().hashCode());
-                    gk0.f().h(ClogBuilder.LogType.INSTALL_COMPLETE.type, ClogBuilder.Area.AD_NOTIFICATION_NOTIFY.type, xj0Var2.p.a, xj0Var2.q.m);
-                    x01.g(this.b.b, str);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.pk0
-        public xj0 getData() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.a;
-            }
-            return (xj0) invokeV.objValue;
         }
     }
 
@@ -237,269 +196,173 @@ public class al0 {
                 return;
             }
         }
-        this.b = new HashMap<>();
-        this.c = false;
+        this.a = new ArrayList();
     }
 
-    public static al0 l() {
+    public static /* synthetic */ int a() {
+        int i = c;
+        c = i + 1;
+        return i;
+    }
+
+    public static long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return j11.a().b("nad_app_quick_config").getLong("key_last_alert_dialog_show_time", 0L);
+        }
+        return invokeV.longValue;
+    }
+
+    public static al0 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
             return d.a;
         }
         return (al0) invokeV.objValue;
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            b = currentTimeMillis;
+            h(currentTimeMillis);
+        }
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            c++;
+        }
     }
 
     public /* synthetic */ al0(a aVar) {
         this();
     }
 
-    public final void k(@NonNull xj0 xj0Var) {
+    public static void h(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, xj0Var) == null) {
-            bn0.a().c(xj0Var.p.g, new b(this, xj0Var));
+        if (interceptable == null || interceptable.invokeJ(65543, null, j) == null) {
+            j11.a().b("nad_app_quick_config").h("key_last_alert_dialog_show_time", j);
         }
     }
 
-    public final void s(xj0 xj0Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048586, this, xj0Var) != null) || xj0Var == null) {
-            return;
-        }
-        c cVar = new c(this, xj0Var);
-        AdAppStateManager.instance().register(xj0Var);
-        kj0.b().i(xj0Var.e(), cVar);
-    }
-
-    public final void h(@NonNull xj0 xj0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, xj0Var) == null) {
-            Context b2 = ii0.b();
-            String n = n(xj0Var.d);
-            xj0Var.q.m = n;
-            if (TextUtils.equals(n, "notify_type_unactivated")) {
-                xj0Var.q.n = b2.getString(R.string.nad_notification_active_text);
-                return;
-            }
-            xj0Var.q.n = b2.getString(R.string.nad_notification_text);
-        }
-    }
-
-    public final RemoteViews i(Bitmap bitmap, PendingIntent pendingIntent, xj0 xj0Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, pendingIntent, xj0Var)) == null) {
-            yk0 c2 = wj0.b().c();
-            if (c2 == null || c2.a <= 0) {
-                return null;
-            }
-            Context b2 = ii0.b();
-            RemoteViews remoteViews = new RemoteViews(b2.getPackageName(), c2.a);
-            int i = c2.c;
-            if (i > 0) {
-                remoteViews.setOnClickPendingIntent(i, pendingIntent);
-                if (TextUtils.equals("notify_type_unactivated", n(xj0Var.d))) {
-                    remoteViews.setTextViewText(c2.c, b2.getString(R.string.nad_notification_btn_active_text));
-                } else {
-                    remoteViews.setTextViewText(c2.c, b2.getString(R.string.nad_notification_btn_text));
-                }
-            }
-            int i2 = c2.b;
-            if (i2 > 0) {
-                remoteViews.setImageViewBitmap(i2, r(bitmap, 24.0f));
-            }
-            int i3 = c2.d;
-            if (i3 > 0) {
-                remoteViews.setTextViewText(i3, xj0Var.p.h);
-            }
-            int i4 = c2.e;
-            if (i4 > 0) {
-                remoteViews.setTextViewText(i4, xj0Var.q.n);
-            }
-            return remoteViews;
-        }
-        return (RemoteViews) invokeLLL.objValue;
-    }
-
-    public final int j() {
+    public final yj0 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String string = i11.a().b("nad_app_quick_config").getString("key_bar_notify_date", "");
-            String format = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
-            if (!format.equals(string)) {
-                i11.a().b("nad_app_quick_config").g("key_bar_notify_time_per_day", 0);
-                i11.a().b("nad_app_quick_config").i("key_bar_notify_date", format);
-            }
-            return i11.a().b("nad_app_quick_config").getInt("key_bar_notify_time_per_day", 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public final boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (j() >= 3) {
-                return false;
-            }
-            List<xj0> q = q();
-            this.a = q;
-            if (v01.g(q)) {
-                return false;
-            }
-            if (!gk0.f().g()) {
-                for (xj0 xj0Var : this.a) {
-                    if (xj0Var != null) {
-                        gk0.f().h(ClogBuilder.LogType.AD_NOTIFICATION_NOTIFY_FAILED.type, "", xj0Var.p.a, null);
-                    }
-                }
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final List<xj0> q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            HashMap<String, xj0> a2 = oj0.b().a();
-            if (v01.h(a2)) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            yj0 yj0Var = null;
+            if (w01.g(this.a)) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
-            for (Map.Entry<String, xj0> entry : a2.entrySet()) {
-                if (entry != null) {
-                    xj0 value = entry.getValue();
-                    if (m(value)) {
-                        h(value);
-                        v01.b(arrayList, value);
+            int l = w01.l(this.a) - 1;
+            yj0 yj0Var2 = null;
+            while (true) {
+                if (l < 0) {
+                    break;
+                }
+                yj0 yj0Var3 = (yj0) w01.d(this.a, l);
+                if (yj0Var3 != null) {
+                    String str = yj0Var3.d;
+                    boolean c2 = cl0.c(str);
+                    boolean exists = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/" + str).exists();
+                    if (c2) {
+                        if (exists) {
+                            w01.b(arrayList, yj0Var3);
+                        } else {
+                            yj0Var3.q.o = "reminded_type_unopen";
+                            w01.b(arrayList, yj0Var3);
+                            yj0Var = yj0Var3;
+                            break;
+                        }
+                    } else if (cl0.f(yj0Var3.h) && yj0Var3.c != AdDownloadStatus.NONE && TextUtils.equals(yj0Var3.q.o, "reminded_type_none") && yj0Var2 == null) {
+                        yj0Var3.q.o = "reminded_type_uninstall";
+                        yj0Var2 = yj0Var3;
                     }
                 }
+                l--;
             }
-            return arrayList;
+            w01.k(this.a, arrayList);
+            if (yj0Var != null) {
+                return yj0Var;
+            }
+            return yj0Var2;
         }
-        return (List) invokeV.objValue;
+        return (yj0) invokeV.objValue;
     }
 
-    public final void u() {
+    public final void g(ClogBuilder.LogType logType, ClogBuilder.Area area, yj0 yj0Var) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            int i = i11.a().b("nad_app_quick_config").getInt("key_bar_notify_time_per_day", 0);
-            if (new SimpleDateFormat("yyyy-MM-dd").format(new Date()).equals(i11.a().b("nad_app_quick_config").getString("key_bar_notify_date", ""))) {
-                i11.a().b("nad_app_quick_config").g("key_bar_notify_time_per_day", i + 1);
-            }
-        }
-    }
-
-    public final boolean m(xj0 xj0Var) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, xj0Var)) == null) {
-            if (xj0Var == null) {
-                return false;
-            }
-            String n = n(xj0Var.d);
-            if (TextUtils.equals("notify_type_activated", n) || TextUtils.equals("notify_type_no_permission", n)) {
-                return false;
-            }
-            if (TextUtils.equals("notify_type_uninstall", n) && !bl0.f(xj0Var.h)) {
-                return false;
-            }
-            bk0 bk0Var = xj0Var.p;
-            String str = bk0Var.h;
-            String str2 = bk0Var.g;
-            int i = xj0Var.q.k;
-            long j = xj0Var.m;
-            long currentTimeMillis = System.currentTimeMillis();
-            if (j <= currentTimeMillis && j >= currentTimeMillis - 604800000) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (i >= 3 || !z || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final String n(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            if (!bl0.c(str)) {
-                return "notify_type_uninstall";
-            }
-            if (ii0.b().checkPermission(com.kuaishou.weapon.p0.h.i, Process.myPid(), Process.myUid()) != 0) {
-                return "notify_type_no_permission";
-            }
-            try {
-                if (!new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/" + str).exists()) {
-                    return "notify_type_unactivated";
-                }
-                return "notify_type_activated";
-            } catch (Exception e) {
-                e.printStackTrace();
-                return "notify_type_no_permission";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void p() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || !o()) {
+        if ((interceptable != null && interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, logType, area, yj0Var) != null) || yj0Var == null) {
             return;
         }
-        v01.m(this.a, new a(this));
-        int min = Math.min(v01.l(this.a), 5);
-        for (int i = 0; i < min; i++) {
-            xj0 xj0Var = (xj0) v01.d(this.a, i);
-            if (xj0Var != null) {
-                k(xj0Var);
+        ClogBuilder clogBuilder = new ClogBuilder();
+        clogBuilder.u(ClogBuilder.Page.POPUP);
+        if (logType != null) {
+            clogBuilder.y(logType);
+        }
+        if (area != null) {
+            clogBuilder.i(area);
+        }
+        if (!TextUtils.isEmpty(yj0Var.p.a)) {
+            clogBuilder.p(yj0Var.p.a);
+        }
+        clogBuilder.k(String.valueOf(c));
+        clogBuilder.l(String.valueOf(d));
+        if (TextUtils.equals(yj0Var.q.o, "reminded_type_uninstall")) {
+            str = "1";
+        } else {
+            str = "2";
+        }
+        clogBuilder.m(str);
+        m11.b(clogBuilder);
+    }
+
+    public void i(Activity activity, yk0 yk0Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, activity, yk0Var) == null) && xj0.b().isMainActivity(activity) && yk0Var != null) {
+            if (b == 0) {
+                b = e();
             }
+            if (System.currentTimeMillis() - b < 600000) {
+                yk0Var.a();
+                return;
+            }
+            yj0 d2 = d();
+            if (d2 == null) {
+                yk0Var.a();
+                return;
+            }
+            fl0 fl0Var = new fl0(activity);
+            fl0Var.d();
+            fl0Var.e(false);
+            fl0Var.f(false);
+            fl0Var.g(d2);
+            fl0Var.j(new c(this, d2));
+            fl0Var.h(new b(this, yk0Var, d2));
+            fl0Var.i(new a(this, d2, activity, yk0Var));
+            fl0Var.k();
+            d++;
+            xj0.b().d(true);
+            g(ClogBuilder.LogType.FREE_SHOW, ClogBuilder.Area.DIALOG, d2);
         }
     }
 
-    public Bitmap r(Bitmap bitmap, float f) {
-        InterceptResult invokeLF;
+    public void k(yj0 yj0Var) {
+        File file;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048585, this, bitmap, f)) == null) {
-            Bitmap createBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_4444);
-            Canvas canvas = new Canvas(createBitmap);
-            Paint paint = new Paint();
-            paint.setAntiAlias(true);
-            Rect rect = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
-            RectF rectF = new RectF(rect);
-            canvas.drawARGB(0, 0, 0, 0);
-            canvas.drawRoundRect(rectF, f, f, paint);
-            paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
-            canvas.drawBitmap(bitmap, rect, rect, paint);
-            return createBitmap;
-        }
-        return (Bitmap) invokeLF.objValue;
-    }
-
-    public void t(xj0 xj0Var, boolean z) {
-        yj0 yj0Var;
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048587, this, xj0Var, z) == null) && xj0Var != null && (yj0Var = xj0Var.q) != null) {
-            if (z) {
-                i = 0;
-            } else {
-                i = yj0Var.k + 1;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, yj0Var) == null) && yj0Var != null && (file = yj0Var.h) != null && file.exists()) {
+            String str = yj0Var.p.h;
+            String absolutePath = yj0Var.h.getAbsolutePath();
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(absolutePath)) {
+                yj0Var.q.o = "reminded_type_none";
+                w01.b(this.a, yj0Var);
             }
-            yj0Var.k = i;
-            j11 j11Var = new j11();
-            j11Var.o(xj0Var.e());
-            j11Var.k(yj0.b(xj0Var.q));
-            oj0.b().f(j11Var);
         }
     }
 }

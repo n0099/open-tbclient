@@ -12,15 +12,15 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.cr5;
-import com.baidu.tieba.fq5;
-import com.baidu.tieba.gm9;
-import com.baidu.tieba.go;
-import com.baidu.tieba.gr5;
+import com.baidu.tieba.dr5;
+import com.baidu.tieba.gq5;
+import com.baidu.tieba.ho;
+import com.baidu.tieba.hr5;
 import com.baidu.tieba.ki;
-import com.baidu.tieba.km9;
-import com.baidu.tieba.rm9;
+import com.baidu.tieba.om9;
+import com.baidu.tieba.sm9;
 import com.baidu.tieba.tbadkCore.util.MercatorModel;
+import com.baidu.tieba.zm9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,9 +32,9 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-@go
+@ho
 /* loaded from: classes3.dex */
-public class SearchJsBridge implements gm9 {
+public class SearchJsBridge implements om9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BAIDUID = "baiduid";
     public static final String CLIENT_VERSION = "_client_version";
@@ -65,7 +65,7 @@ public class SearchJsBridge implements gm9 {
     public List<String> mHistoryDatas;
 
     /* loaded from: classes3.dex */
-    public class a extends cr5<String> {
+    public class a extends dr5<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -89,12 +89,12 @@ public class SearchJsBridge implements gm9 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.cr5
+        @Override // com.baidu.tieba.dr5
         public String doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                rm9.h(this.a);
+                zm9.h(this.a);
                 return this.a;
             }
             return (String) invokeV.objValue;
@@ -102,7 +102,7 @@ public class SearchJsBridge implements gm9 {
     }
 
     /* loaded from: classes3.dex */
-    public class b implements fq5<String> {
+    public class b implements gq5<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -123,7 +123,7 @@ public class SearchJsBridge implements gm9 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.fq5
+        @Override // com.baidu.tieba.gq5
         /* renamed from: a */
         public void onReturnDataInUI(String str) {
             Interceptable interceptable = $ic;
@@ -134,7 +134,7 @@ public class SearchJsBridge implements gm9 {
     }
 
     /* loaded from: classes3.dex */
-    public class c extends cr5 {
+    public class c extends dr5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -154,12 +154,12 @@ public class SearchJsBridge implements gm9 {
             }
         }
 
-        @Override // com.baidu.tieba.cr5
+        @Override // com.baidu.tieba.dr5
         public Object doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                rm9.b();
+                zm9.b();
                 return null;
             }
             return invokeV.objValue;
@@ -167,7 +167,7 @@ public class SearchJsBridge implements gm9 {
     }
 
     /* loaded from: classes3.dex */
-    public class d implements fq5 {
+    public class d implements gq5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SearchJsBridge a;
@@ -190,7 +190,7 @@ public class SearchJsBridge implements gm9 {
             this.a = searchJsBridge;
         }
 
-        @Override // com.baidu.tieba.fq5
+        @Override // com.baidu.tieba.gq5
         public void onReturnDataInUI(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
@@ -218,26 +218,26 @@ public class SearchJsBridge implements gm9 {
         this.mHistoryDatas = new ArrayList();
     }
 
-    public km9 deleteAllSearchHistory() {
+    public sm9 deleteAllSearchHistory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            km9 km9Var = new km9();
-            gr5.b(new c(this), new d(this));
-            return km9Var;
+            sm9 sm9Var = new sm9();
+            hr5.b(new c(this), new d(this));
+            return sm9Var;
         }
-        return (km9) invokeV.objValue;
+        return (sm9) invokeV.objValue;
     }
 
-    public km9 getSearchAdCookie() {
+    public sm9 getSearchAdCookie() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            km9 km9Var = new km9();
-            km9Var.o(initCookies());
-            return km9Var;
+            sm9 sm9Var = new sm9();
+            sm9Var.o(initCookies());
+            return sm9Var;
         }
-        return (km9) invokeV.objValue;
+        return (sm9) invokeV.objValue;
     }
 
     public SearchJsBridge(List<String> list) {
@@ -259,15 +259,15 @@ public class SearchJsBridge implements gm9 {
         this.mHistoryDatas = list;
     }
 
-    public km9 deleteSearchHistory(String str) {
+    public sm9 deleteSearchHistory(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            km9 km9Var = new km9();
-            gr5.b(new a(this, str), new b(this));
-            return km9Var;
+            sm9 sm9Var = new sm9();
+            hr5.b(new a(this, str), new b(this));
+            return sm9Var;
         }
-        return (km9) invokeL.objValue;
+        return (sm9) invokeL.objValue;
     }
 
     public void setHistoryDatas(List<String> list) {
@@ -321,7 +321,7 @@ public class SearchJsBridge implements gm9 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.gm9
+    @Override // com.baidu.tieba.om9
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -361,31 +361,31 @@ public class SearchJsBridge implements gm9 {
         return invokeLLLL.booleanValue;
     }
 
-    public km9 getSearchHistoryJson() {
+    public sm9 getSearchHistoryJson() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            km9 km9Var = new km9();
+            sm9 sm9Var = new sm9();
             int count = ListUtils.getCount(this.mHistoryDatas);
             if (count == 0) {
-                km9Var.o("");
+                sm9Var.o("");
             }
             JSONArray jSONArray = new JSONArray();
             for (int i = 0; i < count; i++) {
                 jSONArray.put(this.mHistoryDatas.get(i));
             }
-            km9Var.o(jSONArray.toString());
+            sm9Var.o(jSONArray.toString());
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921556, Boolean.TRUE));
-            return km9Var;
+            return sm9Var;
         }
-        return (km9) invokeV.objValue;
+        return (sm9) invokeV.objValue;
     }
 
-    public km9 openSearchPage(String str, int i) {
+    public sm9 openSearchPage(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, str, i)) == null) {
-            km9 km9Var = new km9();
+            sm9 sm9Var = new sm9();
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("query", str);
@@ -394,8 +394,8 @@ public class SearchJsBridge implements gm9 {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            return km9Var;
+            return sm9Var;
         }
-        return (km9) invokeLI.objValue;
+        return (sm9) invokeLI.objValue;
     }
 }

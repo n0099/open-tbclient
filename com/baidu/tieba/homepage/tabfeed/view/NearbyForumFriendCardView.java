@@ -17,20 +17,20 @@ import com.baidu.tbadk.abtest.helper.HomeGroupUbsUIHelper;
 import com.baidu.tbadk.core.atomData.NearbyFriendsActivityConfig;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.do8;
-import com.baidu.tieba.eo8;
-import com.baidu.tieba.hx;
 import com.baidu.tieba.ix;
-import com.baidu.tieba.q25;
-import com.baidu.tieba.ub5;
-import com.baidu.tieba.ys7;
+import com.baidu.tieba.jx;
+import com.baidu.tieba.lo8;
+import com.baidu.tieba.mo8;
+import com.baidu.tieba.r25;
+import com.baidu.tieba.vb5;
+import com.baidu.tieba.zs7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
 /* loaded from: classes4.dex */
-public class NearbyForumFriendCardView extends LinearLayout implements ix, hx<eo8>, View.OnClickListener {
+public class NearbyForumFriendCardView extends LinearLayout implements jx, ix<mo8>, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -42,8 +42,8 @@ public class NearbyForumFriendCardView extends LinearLayout implements ix, hx<eo
     public View g;
     public LinearLayout h;
     public BdTypeRecyclerView i;
-    public do8 j;
-    public eo8 k;
+    public lo8 j;
+    public mo8 k;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public NearbyForumFriendCardView(Context context) {
@@ -67,20 +67,20 @@ public class NearbyForumFriendCardView extends LinearLayout implements ix, hx<eo
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.hx
+    @Override // com.baidu.tieba.ix
     /* renamed from: d */
-    public void a(eo8 eo8Var) {
+    public void a(mo8 mo8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, eo8Var) == null) {
-            this.k = eo8Var;
-            do8 do8Var = this.j;
-            if (do8Var != null) {
-                do8Var.D(eo8Var.a);
+        if (interceptable == null || interceptable.invokeL(1048579, this, mo8Var) == null) {
+            this.k = mo8Var;
+            lo8 lo8Var = this.j;
+            if (lo8Var != null) {
+                lo8Var.D(mo8Var.a);
             }
-            this.i.setData(eo8Var.b);
-            if (eo8Var.c) {
+            this.i.setData(mo8Var.b);
+            if (mo8Var.c) {
                 this.d.setVisibility(0);
-                ys7.q();
+                zs7.q();
                 return;
             }
             this.d.setVisibility(4);
@@ -92,7 +92,7 @@ public class NearbyForumFriendCardView extends LinearLayout implements ix, hx<eo
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048581, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f0917f7 && getContext() != null && this.k != null) {
             new NearbyFriendsActivityConfig(getContext(), this.k.a).start();
-            ys7.j();
+            zs7.j();
         }
     }
 
@@ -143,7 +143,7 @@ public class NearbyForumFriendCardView extends LinearLayout implements ix, hx<eo
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            this.j = new do8(context, ub5.l, 1);
+            this.j = new lo8(context, vb5.l, 1);
             LinkedList linkedList = new LinkedList();
             linkedList.add(this.j);
             this.i.addAdapters(linkedList);
@@ -153,13 +153,13 @@ public class NearbyForumFriendCardView extends LinearLayout implements ix, hx<eo
     public void setNeedCompleteProfile(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            eo8 eo8Var = this.k;
-            if (eo8Var != null) {
-                eo8Var.a = z;
+            mo8 mo8Var = this.k;
+            if (mo8Var != null) {
+                mo8Var.a = z;
             }
-            do8 do8Var = this.j;
-            if (do8Var != null) {
-                do8Var.D(z);
+            lo8 lo8Var = this.j;
+            if (lo8Var != null) {
+                lo8Var.D(z);
             }
         }
     }
@@ -185,22 +185,22 @@ public class NearbyForumFriendCardView extends LinearLayout implements ix, hx<eo
         }
     }
 
-    @Override // com.baidu.tieba.ix
+    @Override // com.baidu.tieba.jx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) && this.a != i) {
             HomeGroupUbsUIHelper.handleLineColor(this.g);
-            q25 d = q25.d(this.c);
+            r25 d = r25.d(this.c);
             d.w(R.color.CAM_X0105);
             d.B(R.dimen.T_X07);
             d.C(R.string.F_X02);
-            q25 d2 = q25.d(this.e);
+            r25 d2 = r25.d(this.e);
             d2.w(R.color.CAM_X0109);
             d2.B(R.dimen.T_X08);
             d2.C(R.string.F_X01);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.icon_pure_list_arrow12_right_n_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
             this.a = i;
-            q25 d3 = q25.d(this.h);
+            r25 d3 = r25.d(this.h);
             d3.o(R.string.J_X06);
             d3.f(R.color.CAM_X0205);
         }

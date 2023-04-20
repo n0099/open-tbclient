@@ -11,7 +11,7 @@ import com.xiaomi.push.aj;
 import com.xiaomi.push.ep;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class cc {
     public static int a(Map<String, String> map) {
         return Math.max(0, com.xiaomi.push.t.a(map.get("notification_top_period"), 0));

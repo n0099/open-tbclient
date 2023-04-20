@@ -18,7 +18,7 @@ import com.baidu.tieba.ii;
 import com.baidu.tieba.ki;
 import com.baidu.tieba.pk;
 import com.baidu.tieba.sk;
-import com.baidu.tieba.sm;
+import com.baidu.tieba.tm;
 import com.baidu.tieba.vk;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -216,13 +216,13 @@ public class ChatClipImageItemView extends GifView implements sk.a {
     }
 
     @Override // com.baidu.tbadk.gif.GifView, com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView
-    public sm getBdImage() {
+    public tm getBdImage() {
         InterceptResult invokeV;
         boolean z;
         boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            sm bdImage = super.getBdImage();
+            tm bdImage = super.getBdImage();
             boolean z3 = true;
             if (getDrawable() != null && (getDrawable() instanceof BitmapDrawable) && ((BitmapDrawable) getDrawable()).getBitmap() != null) {
                 z = true;
@@ -241,18 +241,18 @@ public class ChatClipImageItemView extends GifView implements sk.a {
             skVar.u(z3);
             return bdImage;
         }
-        return (sm) invokeV.objValue;
+        return (tm) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView
-    public sm getDefaultBdImage() {
+    public tm getDefaultBdImage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             this.k1.u(false);
             return super.getDefaultBdImage();
         }
-        return (sm) invokeV.objValue;
+        return (tm) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.gif.GifView, com.baidu.tbadk.widget.TbImageView, android.view.View

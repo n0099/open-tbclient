@@ -1,11 +1,17 @@
 package com.baidu.tieba;
 
-import android.view.ViewGroup;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.BaseItemViewHolder;
-/* loaded from: classes5.dex */
+import java.util.List;
+/* loaded from: classes6.dex */
 public interface q38 {
-    @Nullable
-    BaseItemViewHolder a(@NonNull ViewGroup viewGroup, int i);
+    int a();
+
+    void d(@NonNull s38 s38Var);
+
+    void detach();
+
+    @NonNull
+    List<o38> e();
+
+    void f();
 }

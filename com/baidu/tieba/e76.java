@@ -1,76 +1,86 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.ala.frsgamelive.view.AlaGameFrsLiveNormalCardView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class e76 extends um<h76, AlaGameFrsLiveNormalCardView.AlaGameFrsNormalViewHolder> {
+public class e76 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public q36 b;
+    public a9 a;
+    public BdTypeListView b;
+    public final List<vm> c;
+    public d76 d;
+    public a76 e;
+    public y66 f;
+    public z66 g;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e76(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public e76(a9 a9Var, BdTypeListView bdTypeListView, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {a9Var, bdTypeListView, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
+        this.c = new ArrayList();
+        this.a = a9Var;
+        this.b = bdTypeListView;
+        a(z);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.um
-    /* renamed from: s */
-    public AlaGameFrsLiveNormalCardView.AlaGameFrsNormalViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public final void a(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new AlaGameFrsLiveNormalCardView.AlaGameFrsNormalViewHolder(new AlaGameFrsLiveNormalCardView(this.a));
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            if (z) {
+                a76 a76Var = new a76((TbPageContext) this.a, u76.c);
+                this.e = a76Var;
+                this.c.add(a76Var);
+            } else {
+                d76 d76Var = new d76((TbPageContext) this.a, u76.c);
+                this.d = d76Var;
+                this.c.add(d76Var);
+            }
+            this.f = new y66((TbPageContext) this.a, g76.a);
+            this.g = new z66((TbPageContext) this.a, h76.a);
+            this.c.add(this.f);
+            this.c.add(this.g);
+            this.b.addAdapters(this.c);
         }
-        return (AlaGameFrsLiveNormalCardView.AlaGameFrsNormalViewHolder) invokeL.objValue;
     }
 
-    public void u(q36 q36Var) {
+    public void b(r36 r36Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, q36Var) == null) {
-            this.b = q36Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, r36Var) == null) {
+            d76 d76Var = this.d;
+            if (d76Var != null) {
+                d76Var.u(r36Var);
+            }
+            a76 a76Var = this.e;
+            if (a76Var != null) {
+                a76Var.u(r36Var);
+            }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.um
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, h76 h76Var, AlaGameFrsLiveNormalCardView.AlaGameFrsNormalViewHolder alaGameFrsNormalViewHolder) {
-        InterceptResult invokeCommon;
+    public void c(List<in> list) {
+        BdTypeListView bdTypeListView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, h76Var, alaGameFrsNormalViewHolder})) == null) {
-            alaGameFrsNormalViewHolder.a.l(h76Var);
-            alaGameFrsNormalViewHolder.a.t(this.b);
-            return alaGameFrsNormalViewHolder.getView();
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) && (bdTypeListView = this.b) != null) {
+            bdTypeListView.setData(list);
         }
-        return (View) invokeCommon.objValue;
     }
 }

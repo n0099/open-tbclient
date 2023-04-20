@@ -21,9 +21,9 @@ import com.baidu.live.business.model.data.ThirdLabelInfo;
 import com.baidu.live.business.util.LiveBaseLottieView;
 import com.baidu.live.business.view.LiveStatusAnimView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ac0;
-import com.baidu.tieba.j90;
-import com.baidu.tieba.wb0;
+import com.baidu.tieba.bc0;
+import com.baidu.tieba.k90;
+import com.baidu.tieba.xb0;
 import com.facebook.drawee.drawable.ScalingUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
 /* loaded from: classes2.dex */
@@ -122,38 +122,38 @@ public class Live4Ratio5ItemView extends LiveBaseItemView {
 
     public void e(String str) {
         GradientDrawable gradientDrawable = new GradientDrawable();
-        gradientDrawable.setColor(ac0.f().a(getContext(), this.c, "color_white2"));
-        gradientDrawable.setCornerRadius(j90.b(getContext(), 10.0f));
+        gradientDrawable.setColor(bc0.f().a(getContext(), this.c, "color_white2"));
+        gradientDrawable.setCornerRadius(k90.b(getContext(), 10.0f));
         setBackgroundDrawable(gradientDrawable);
         SimpleDraweeView simpleDraweeView = this.h;
         if (simpleDraweeView != null) {
-            simpleDraweeView.getHierarchy().setPlaceholderImage(ac0.f().l(this.c), ScalingUtils.ScaleType.FIT_XY);
-            this.h.getHierarchy().setFailureImage(ac0.f().l(this.c), ScalingUtils.ScaleType.FIT_XY);
+            simpleDraweeView.getHierarchy().setPlaceholderImage(bc0.f().l(this.c), ScalingUtils.ScaleType.FIT_XY);
+            this.h.getHierarchy().setFailureImage(bc0.f().l(this.c), ScalingUtils.ScaleType.FIT_XY);
         }
         SimpleDraweeView simpleDraweeView2 = this.i;
         if (simpleDraweeView2 != null) {
-            simpleDraweeView2.getHierarchy().setPlaceholderImage(ac0.f().l(this.c), ScalingUtils.ScaleType.FIT_XY);
-            this.i.getHierarchy().setFailureImage(ac0.f().l(this.c), ScalingUtils.ScaleType.FIT_XY);
+            simpleDraweeView2.getHierarchy().setPlaceholderImage(bc0.f().l(this.c), ScalingUtils.ScaleType.FIT_XY);
+            this.i.getHierarchy().setFailureImage(bc0.f().l(this.c), ScalingUtils.ScaleType.FIT_XY);
         }
         TextView textView = this.k;
         if (textView != null) {
-            textView.setTextColor(ac0.f().a(getContext(), this.c, "color_white3"));
+            textView.setTextColor(bc0.f().a(getContext(), this.c, "color_white3"));
         }
         TextView textView2 = this.n;
         if (textView2 != null) {
-            textView2.setTextColor(ac0.f().a(getContext(), this.c, "color_white3"));
+            textView2.setTextColor(bc0.f().a(getContext(), this.c, "color_white3"));
         }
         TextView textView3 = this.l;
         if (textView3 != null) {
-            textView3.setTextColor(ac0.f().a(getContext(), this.c, "color_white3"));
+            textView3.setTextColor(bc0.f().a(getContext(), this.c, "color_white3"));
         }
         TextView textView4 = this.m;
         if (textView4 != null) {
-            textView4.setTextColor(ac0.f().a(getContext(), this.c, "color_white3"));
+            textView4.setTextColor(bc0.f().a(getContext(), this.c, "color_white3"));
         }
         TextView textView5 = this.v;
         if (textView5 != null) {
-            textView5.setTextColor(ac0.f().a(getContext(), this.c, "color_white3"));
+            textView5.setTextColor(bc0.f().a(getContext(), this.c, "color_white3"));
         }
     }
 
@@ -183,26 +183,26 @@ public class Live4Ratio5ItemView extends LiveBaseItemView {
                     }
                 }
             }
-            wb0.h(this.k, 1, 14.0f);
+            xb0.h(this.k, 1, 14.0f);
             this.k.setText(liveRoomEntity.title);
-            wb0.h(this.n, 1, 14.0f);
+            xb0.h(this.n, 1, 14.0f);
             LiveHostInfo liveHostInfo = liveRoomEntity.hostInfo;
             if (liveHostInfo != null) {
                 this.n.setText(liveHostInfo.name);
                 this.i.setImageURI(liveRoomEntity.hostInfo.avatar);
             }
-            wb0.h(this.l, 1, 10.0f);
-            wb0.h(this.m, 1, 10.0f);
+            xb0.h(this.l, 1, 10.0f);
+            xb0.h(this.m, 1, 10.0f);
             if (liveRoomEntity.liveStatus == 0) {
                 this.l.setVisibility(8);
                 this.m.setVisibility(0);
                 this.m.setText(liveRoomEntity.formatReserveStartTime());
             } else {
-                this.l.setText(j90.a(this.y, liveRoomEntity.audienceCount));
+                this.l.setText(k90.a(this.y, liveRoomEntity.audienceCount));
                 this.l.setVisibility(0);
                 this.m.setVisibility(8);
             }
-            this.t.getLayoutParams().height = j90.b(getContext(), 61.0f);
+            this.t.getLayoutParams().height = k90.b(getContext(), 61.0f);
             this.t.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080d64));
             LiveFeedConfig liveFeedConfig = this.d;
             if (liveFeedConfig != null && (abSwitchConfig = liveFeedConfig.abSwitchConfig) != null && abSwitchConfig.otherNewStyle) {
@@ -220,7 +220,7 @@ public class Live4Ratio5ItemView extends LiveBaseItemView {
                 this.i.setVisibility(8);
                 this.k.setVisibility(8);
                 this.n.setTypeface(Typeface.defaultFromStyle(1));
-                this.t.getLayoutParams().height = j90.b(getContext(), 35.0f);
+                this.t.getLayoutParams().height = k90.b(getContext(), 35.0f);
                 this.t.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080d5e));
             }
             RightLableInfo rightLableInfo = liveRoomEntity.rightLabel;

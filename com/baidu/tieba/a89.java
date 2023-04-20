@@ -1,203 +1,260 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Rect;
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tieba.play.monitor.VideoSerializeVideoThreadInfo;
-import com.baidu.tieba.video.VideoItemData;
+import com.baidu.searchbox.player.constants.PlayerConstant;
+import com.baidu.tbadk.core.atomData.FrsVideoTabPlayActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes3.dex */
-public class a89 extends c89 {
+public class a89 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public VideoItemData S0;
-    public VideoSerializeVideoThreadInfo T0;
-    public ThreadData U0;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public int f;
 
-    @Override // com.baidu.tieba.c89
-    public void T() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.c89, com.baidu.tieba.z79
-    public boolean onBackPress() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a89(Context context, View view2) {
-        super(context, view2);
+    public a89() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (View) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = 5000;
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public a89(Context context, View view2, boolean z) {
-        this(context, view2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, view2, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (View) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        q0(z);
-    }
-
-    public final void C0(Rect rect) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, rect) != null) || this.U0 == null) {
-            return;
-        }
-        if (this.S0 == null) {
-            this.S0 = new VideoItemData();
-        }
-        ArrayList arrayList = new ArrayList();
-        this.S0.buildWithThreadData(this.U0);
-        arrayList.add(this.S0);
-        String str = null;
-        ThreadData threadData = this.U0;
-        if (threadData != null && threadData.getBaijiahaoData() != null) {
-            str = this.U0.getBaijiahaoData().oriUgcNid;
-        }
-        String str2 = str;
-        Context context = this.R;
-        boolean z = this.W;
-        String str3 = this.e0;
-        ThreadData threadData2 = this.U0;
-        lq5.e(context, arrayList, str2, z, 0, rect, "from_nani_video", "personalize_page", "", str3, str3, false, threadData2.isJumpToFrsVideoTabPlay, true, threadData2.getFid());
-    }
-
-    @Override // com.baidu.tieba.c89, android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, view2) != null) || view2 == null) {
-            return;
-        }
-        int id = view2.getId();
-        if (id == R.id.video_mute) {
-            Z();
-        } else if (id == R.id.obfuscated_res_0x7f091da3) {
-            t0(this.b);
-            startPlay();
-        } else {
-            if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                ii.P(this.R, R.string.no_network_guide);
-            } else {
-                C0(ThreadCardUtils.computeViewArea(this.T));
-            }
-            View.OnClickListener onClickListener = this.E0;
-            if (onClickListener != null) {
-                onClickListener.onClick(getMainView());
             }
         }
     }
 
-    public void D0() {
+    public String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            t0(this.f);
-        }
-    }
-
-    @Override // com.baidu.tieba.c89
-    public void R() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            int i = this.p;
-            if (i == this.e || i == this.n) {
-                D0();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "Unknown";
+            }
+            char c = 65535;
+            switch (str.hashCode()) {
+                case -1679289728:
+                    if (str.equals("Concern")) {
+                        c = '\t';
+                        break;
+                    }
+                    break;
+                case -1152667590:
+                    if (str.equals("ad_feed")) {
+                        c = 1;
+                        break;
+                    }
+                    break;
+                case -654725321:
+                    if (str.equals("ad_video_landing")) {
+                        c = 0;
+                        break;
+                    }
+                    break;
+                case -421681106:
+                    if (str.equals("HomePage")) {
+                        c = 7;
+                        break;
+                    }
+                    break;
+                case -181435716:
+                    if (str.equals("HomeVideo")) {
+                        c = '\b';
+                        break;
+                    }
+                    break;
+                case 2546:
+                    if (str.equals("PB")) {
+                        c = 5;
+                        break;
+                    }
+                    break;
+                case 70919:
+                    if (str.equals("Frs")) {
+                        c = 6;
+                        break;
+                    }
+                    break;
+                case 175967569:
+                    if (str.equals(FrsVideoTabPlayActivityConfig.KEY_FPS_MIDDLE_VIDEO_PAGE)) {
+                        c = 4;
+                        break;
+                    }
+                    break;
+                case 671041499:
+                    if (str.equals("ad_paster")) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case 1974553171:
+                    if (str.equals(PlayerConstant.PAGE_VIDEO_LANDING)) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+            }
+            switch (c) {
+                case 0:
+                case 1:
+                case 2:
+                    return "ad";
+                case 3:
+                case 4:
+                case 5:
+                case 6:
+                case 7:
+                case '\b':
+                case '\t':
+                    return "tbc";
+                default:
+                    return "Unknown";
             }
         }
+        return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.c89
-    public void S() {
+    public String b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f = 32;
-        }
-    }
-
-    @Override // com.baidu.tieba.c89
-    public void f0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            super.f0();
-            this.T.setOnTouchListener(null);
-            this.T.setOnClickListener(this);
-        }
-    }
-
-    @Override // com.baidu.tieba.c89, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
-    public void onCompletion() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            startPlay();
-        }
-    }
-
-    @Override // com.baidu.tieba.c89, com.baidu.tieba.z79
-    public void setData(ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, threadData) == null) {
-            super.setData(threadData);
-            this.U0 = threadData;
-            if (this.W) {
-                VideoItemData videoItemData = new VideoItemData();
-                this.S0 = videoItemData;
-                videoItemData.buildWithThreadData(threadData);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "Unknown";
             }
-            VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo = new VideoSerializeVideoThreadInfo();
-            this.T0 = videoSerializeVideoThreadInfo;
-            videoSerializeVideoThreadInfo.copyFromThreadInfo(threadData);
-            VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo2 = this.T0;
-            videoSerializeVideoThreadInfo2.source = threadData.mRecomSource;
-            videoSerializeVideoThreadInfo2.extra = threadData.mRecomExtra;
-            videoSerializeVideoThreadInfo2.ab_tag = threadData.mRecomAbTag;
-            videoSerializeVideoThreadInfo2.weight = threadData.mRecomWeight;
+            char c = 65535;
+            int hashCode = str.hashCode();
+            if (hashCode != 1567) {
+                if (hashCode != 1568) {
+                    if (hashCode != 1570) {
+                        if (hashCode != 1576) {
+                            if (hashCode != 1599) {
+                                switch (hashCode) {
+                                    case 49:
+                                        if (str.equals("1")) {
+                                            c = 0;
+                                            break;
+                                        }
+                                        break;
+                                    case 50:
+                                        if (str.equals("2")) {
+                                            c = 2;
+                                            break;
+                                        }
+                                        break;
+                                    case 51:
+                                        if (str.equals("3")) {
+                                            c = 4;
+                                            break;
+                                        }
+                                        break;
+                                    case 52:
+                                        if (str.equals("4")) {
+                                            c = 3;
+                                            break;
+                                        }
+                                        break;
+                                    default:
+                                        switch (hashCode) {
+                                            case 54:
+                                                if (str.equals("6")) {
+                                                    c = 7;
+                                                    break;
+                                                }
+                                                break;
+                                            case 55:
+                                                if (str.equals("7")) {
+                                                    c = 1;
+                                                    break;
+                                                }
+                                                break;
+                                            case 56:
+                                                if (str.equals("8")) {
+                                                    c = '\b';
+                                                    break;
+                                                }
+                                                break;
+                                            case 57:
+                                                if (str.equals("9")) {
+                                                    c = '\t';
+                                                    break;
+                                                }
+                                                break;
+                                        }
+                                }
+                            } else if (str.equals("21")) {
+                                c = '\f';
+                            }
+                        } else if (str.equals("19")) {
+                            c = '\n';
+                        }
+                    } else if (str.equals("13")) {
+                        c = 11;
+                    }
+                } else if (str.equals("11")) {
+                    c = 6;
+                }
+            } else if (str.equals("10")) {
+                c = 5;
+            }
+            switch (c) {
+                case 0:
+                    return "HomePage";
+                case 1:
+                    return "Concern";
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 6:
+                    return "Frs";
+                case 7:
+                    return "PB";
+                case '\b':
+                case '\t':
+                case '\n':
+                    return "HomeVideo";
+                case 11:
+                    return FrsVideoTabPlayActivityConfig.KEY_FPS_MIDDLE_VIDEO_PAGE;
+                case '\f':
+                    return PlayerConstant.PAGE_VIDEO_LANDING;
+                default:
+                    return "Unknown";
+            }
         }
+        return (String) invokeL.objValue;
+    }
+
+    public int c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return 1;
+            }
+            char c = 65535;
+            int hashCode = str.hashCode();
+            if (hashCode != 49) {
+                if (hashCode == 50 && str.equals("2")) {
+                    c = 1;
+                }
+            } else if (str.equals("1")) {
+                c = 0;
+            }
+            if (c == 0 || c != 1) {
+                return 1;
+            }
+            return 0;
+        }
+        return invokeL.intValue;
     }
 }

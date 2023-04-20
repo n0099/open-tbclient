@@ -40,12 +40,12 @@ import com.baidu.tbadk.coreExtra.floatCardView.AlaLiveTipView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.gg;
-import com.baidu.tieba.h95;
 import com.baidu.tieba.homepage.personalize.view.HomeTabBarView;
+import com.baidu.tieba.i95;
 import com.baidu.tieba.ii;
 import com.baidu.tieba.jg;
-import com.baidu.tieba.jv4;
-import com.baidu.tieba.p45;
+import com.baidu.tieba.kv4;
+import com.baidu.tieba.q45;
 import com.baidu.tieba.qb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -547,7 +547,7 @@ public class FixedAppBarLayout extends AppBarLayout {
             } else {
                 AlaLiveTipView alaLiveTipView2 = new AlaLiveTipView(getContext());
                 viewGroup.addView(alaLiveTipView2);
-                h95.f();
+                i95.f();
                 alaLiveTipView = alaLiveTipView2;
             }
             if (alaLiveTipView != null) {
@@ -562,7 +562,7 @@ public class FixedAppBarLayout extends AppBarLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             View view2 = this.a.c;
-            if (jv4.h()) {
+            if (kv4.h()) {
                 i = 0;
             } else {
                 i = 8;
@@ -667,10 +667,10 @@ public class FixedAppBarLayout extends AppBarLayout {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            String[] split = p45.m().s("key_home_page_seacher_anim_show_number", "").split(",");
+            String[] split = q45.m().s("key_home_page_seacher_anim_show_number", "").split(",");
             long currentTimeMillis = System.currentTimeMillis();
             if (split.length < 7 && !TimeHelper.isSameDay(gg.g(split[split.length - 1], 0L), currentTimeMillis)) {
-                p45 m = p45.m();
+                q45 m = q45.m();
                 if (split.length == 6) {
                     str = String.valueOf(currentTimeMillis);
                 } else {

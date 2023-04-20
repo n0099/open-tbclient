@@ -1,11 +1,15 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 /* loaded from: classes3.dex */
-public interface b07<T> {
+public interface b07<V extends View, M> {
     @NonNull
-    String a();
+    View a(@NonNull ViewGroup viewGroup);
+
+    void b(@NonNull V v, @NonNull M m);
 
     @NonNull
-    T b();
+    String c();
 }

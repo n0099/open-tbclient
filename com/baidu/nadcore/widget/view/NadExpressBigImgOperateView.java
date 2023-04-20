@@ -9,9 +9,9 @@ import androidx.annotation.Nullable;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a41;
-import com.baidu.tieba.ep0;
-import com.baidu.tieba.yp0;
+import com.baidu.tieba.b41;
+import com.baidu.tieba.fp0;
+import com.baidu.tieba.zp0;
 /* loaded from: classes2.dex */
 public class NadExpressBigImgOperateView extends NadExpressNaBaseView {
     @Nullable
@@ -41,12 +41,12 @@ public class NadExpressBigImgOperateView extends NadExpressNaBaseView {
 
     @Override // com.baidu.nadcore.widget.view.NadExpressNaBaseView
     public void n(AdBaseModel adBaseModel) {
-        if (adBaseModel instanceof ep0) {
-            ep0 ep0Var = (ep0) adBaseModel;
+        if (adBaseModel instanceof fp0) {
+            fp0 fp0Var = (fp0) adBaseModel;
             setMaxTitleLine(2);
             AdImageView adImageView = this.m;
             if (adImageView != null) {
-                adImageView.o(ep0Var.r.a);
+                adImageView.o(fp0Var.r.a);
             }
         }
     }
@@ -56,10 +56,10 @@ public class NadExpressBigImgOperateView extends NadExpressNaBaseView {
     }
 
     @Override // com.baidu.nadcore.widget.view.NadExpressNaBaseView
-    public void j(LayoutInflater layoutInflater, yp0 yp0Var) {
+    public void j(LayoutInflater layoutInflater, zp0 zp0Var) {
         int i;
-        if (yp0Var != null && yp0Var.a(AdBaseModel.STYLE.BIG_IMAGE) != 0) {
-            i = yp0Var.a(AdBaseModel.STYLE.BIG_IMAGE);
+        if (zp0Var != null && zp0Var.a(AdBaseModel.STYLE.BIG_IMAGE) != 0) {
+            i = zp0Var.a(AdBaseModel.STYLE.BIG_IMAGE);
         } else {
             i = R.layout.nad_feed_big_image;
         }
@@ -70,8 +70,8 @@ public class NadExpressBigImgOperateView extends NadExpressNaBaseView {
         this(context, attributeSet, i, null);
     }
 
-    public NadExpressBigImgOperateView(Context context, AttributeSet attributeSet, int i, yp0 yp0Var) {
-        super(context, attributeSet, i, yp0Var);
+    public NadExpressBigImgOperateView(Context context, AttributeSet attributeSet, int i, zp0 zp0Var) {
+        super(context, attributeSet, i, zp0Var);
     }
 
     public final void p() {
@@ -79,7 +79,7 @@ public class NadExpressBigImgOperateView extends NadExpressNaBaseView {
             return;
         }
         Resources resources = getContext().getResources();
-        int e = a41.c.e(getContext()) - (resources.getDimensionPixelSize(R.dimen.NAD_F_M_W_X001) * 2);
+        int e = b41.c.e(getContext()) - (resources.getDimensionPixelSize(R.dimen.NAD_F_M_W_X001) * 2);
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.m.getLayoutParams();
         layoutParams.width = e;
         layoutParams.height = Math.round((e / resources.getInteger(R.integer.nad_list_big_image_width)) * resources.getInteger(R.integer.nad_list_big_image_height));

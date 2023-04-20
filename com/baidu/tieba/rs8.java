@@ -1,50 +1,46 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewStub;
-import android.widget.ImageView;
-import android.widget.TextView;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
-import com.baidu.tieba.ss8;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tieba.pb.account.forbid.ForbidTplData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.PbContent;
-import tbclient.Post;
-import tbclient.User;
 /* loaded from: classes6.dex */
 public class rs8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
-    public HeadImageView a;
-    public TextView b;
-    public TbRichTextView c;
-    public ViewStub d;
-    public View e;
-    public ImageView f;
-    public View g;
-    public ss8.a h;
 
     /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
+    public interface b {
+        void a(ForbidTplData forbidTplData);
+
+        void b(ForbidTplData forbidTplData);
+    }
+
+    /* loaded from: classes6.dex */
+    public static class a extends BdAsyncTask<String, Object, ForbidTplData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Post a;
-        public final /* synthetic */ rs8 b;
+        public String a;
+        public String b;
+        public b c;
 
-        public a(rs8 rs8Var, Post post) {
+        public a(String str, String str2, b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {rs8Var, post};
+                Object[] objArr = {str, str2, bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -54,99 +50,80 @@ public class rs8 {
                     return;
                 }
             }
-            this.b = rs8Var;
-            this.a = post;
+            this.a = str;
+            this.b = str2;
+            this.c = bVar;
+            setPriority(3);
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Post post;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public ForbidTplData doInBackground(String... strArr) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (post = this.a) != null && post.id != null && this.b.h != null) {
-                this.b.h.a(String.valueOf(this.a.id));
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
+                NetWork netWork = new NetWork(rs8.a);
+                netWork.addPostData("forum_id", this.a);
+                netWork.addPostData("user_id", this.b);
+                String postNetData = netWork.postNetData();
+                if (netWork.getNetContext().getResponse().isRequestSuccess()) {
+                    try {
+                        return (ForbidTplData) OrmObject.objectWithJsonStr(postNetData, ForbidTplData.class);
+                    } catch (Exception e) {
+                        BdLog.detailException(e);
+                        ForbidTplData forbidTplData = new ForbidTplData();
+                        forbidTplData.error.errno = -1000;
+                        return forbidTplData;
+                    }
+                }
+                ForbidTplData forbidTplData2 = new ForbidTplData();
+                forbidTplData2.error.errno = netWork.getServerErrorCode();
+                forbidTplData2.error.errMsg = netWork.getErrorString();
+                return forbidTplData2;
+            }
+            return (ForbidTplData) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public void onPostExecute(ForbidTplData forbidTplData) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forbidTplData) == null) {
+                super.onPostExecute(forbidTplData);
+                if (this.c != null) {
+                    ForbidTplData.ErrorInfo errorInfo = forbidTplData.error;
+                    if (errorInfo.errno == 0 && hi.isEmpty(errorInfo.errMsg)) {
+                        this.c.b(forbidTplData);
+                    } else {
+                        this.c.a(forbidTplData);
+                    }
+                }
             }
         }
     }
 
-    public rs8(ViewStub viewStub, ss8.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {viewStub, aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948132306, "Lcom/baidu/tieba/rs8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948132306, "Lcom/baidu/tieba/rs8;");
                 return;
             }
         }
-        this.d = viewStub;
-        this.h = aVar;
+        a = TbConfig.SERVER_ADDRESS + "c/u/bawu/listreason";
     }
 
-    public void d(boolean z) {
-        View view2;
-        int i;
+    public static void b(String str, String str2, b bVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && (view2 = this.e) != null) {
-            if (z) {
-                i = 0;
-            } else {
-                i = 8;
-            }
-            view2.setVisibility(i);
+        if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, bVar) == null) {
+            new a(str, str2, bVar).execute(new String[0]);
         }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.e == null) {
-            View inflate = this.d.inflate();
-            this.e = inflate;
-            this.a = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0906c7);
-            this.b = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f0906c9);
-            this.c = (TbRichTextView) this.e.findViewById(R.id.obfuscated_res_0x7f0906c6);
-            this.f = (ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f0906ca);
-            this.g = this.e.findViewById(R.id.obfuscated_res_0x7f0906c8);
-            this.c.setTextSize(TbConfig.getContentSize());
-            c();
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SkinManager.setViewTextColor(this.b, R.color.CAM_X0106, 1);
-            SkinManager.setImageResource(this.f, R.drawable.btn_comment_list);
-            SkinManager.setBackgroundColor(this.g, R.color.CAM_X0204);
-            TbRichTextView tbRichTextView = this.c;
-            if (tbRichTextView != null) {
-                tbRichTextView.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-            }
-        }
-    }
-
-    public boolean update(Post post, User user) {
-        InterceptResult invokeLL;
-        List<PbContent> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, post, user)) == null) {
-            if (post != null && user != null && (list = post.content) != null && !list.isEmpty()) {
-                b();
-                d(true);
-                this.b.setText(user.name_show);
-                this.f.setOnClickListener(new a(this, post));
-                this.a.N(user.portrait, 12, false);
-                this.c.setVisibility(0);
-                this.c.setText(TbRichTextView.c0(post.content, false));
-                return true;
-            }
-            d(false);
-            return false;
-        }
-        return invokeLL.booleanValue;
     }
 }

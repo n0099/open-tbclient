@@ -1,7 +1,8 @@
 package com.baidu.tieba;
+
+import android.graphics.Bitmap;
+import java.util.List;
 /* loaded from: classes5.dex */
 public interface nc5 {
-    void a(int i, String str);
-
-    void b(String str);
+    void a(List<Bitmap> list);
 }

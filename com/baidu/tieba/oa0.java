@@ -1,116 +1,106 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.live.LiveFeedPageSdk;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
 import kotlin.jvm.JvmOverloads;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
+import kotlin.jvm.JvmStatic;
 /* loaded from: classes5.dex */
 public final class oa0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final ConcurrentHashMap<String, List<na0>> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public HashMap<Integer, String> c;
-    public HashMap<String, Object> d;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    @JvmStatic
     @JvmOverloads
-    public oa0() {
-        this(null, 0, null, null, 15, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                this((String) objArr[0], ((Integer) objArr[1]).intValue(), (HashMap) objArr[2], (HashMap) objArr[3], ((Integer) objArr[4]).intValue(), (DefaultConstructorMarker) objArr[5]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public boolean equals(Object obj) {
+    public static final na0 a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            if (this != obj) {
-                if (obj instanceof oa0) {
-                    oa0 oa0Var = (oa0) obj;
-                    return Intrinsics.areEqual(this.a, oa0Var.a) && this.b == oa0Var.b && Intrinsics.areEqual(this.c, oa0Var.c) && Intrinsics.areEqual(this.d, oa0Var.d);
-                }
-                return false;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? c(null, str, 1, null) : (na0) invokeL.objValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948025387, "Lcom/baidu/tieba/oa0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String str = this.a;
-            int hashCode = (((str != null ? str.hashCode() : 0) * 31) + this.b) * 31;
-            HashMap<Integer, String> hashMap = this.c;
-            int hashCode2 = (hashCode + (hashMap != null ? hashMap.hashCode() : 0)) * 31;
-            HashMap<String, Object> hashMap2 = this.d;
-            return hashCode2 + (hashMap2 != null ? hashMap2.hashCode() : 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "MediaSource(roomId=" + this.a + ", mediaSourceType=" + this.b + ", videoInfo=" + this.c + ", launchInfo=" + this.d + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @JvmOverloads
-    public oa0(String str, int i, HashMap<Integer, String> hashMap, HashMap<String, Object> hashMap2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), hashMap, hashMap2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948025387, "Lcom/baidu/tieba/oa0;");
                 return;
             }
         }
-        this.a = str;
-        this.b = i;
-        this.c = hashMap;
-        this.d = hashMap2;
+        a = new ConcurrentHashMap<>();
     }
 
-    public /* synthetic */ oa0(String str, int i, HashMap hashMap, HashMap hashMap2, int i2, DefaultConstructorMarker defaultConstructorMarker) {
-        this((i2 & 1) != 0 ? null : str, (i2 & 2) != 0 ? 0 : i, (i2 & 4) != 0 ? null : hashMap, (i2 & 8) != 0 ? null : hashMap2);
-    }
-
-    public final String a() {
-        InterceptResult invokeV;
+    @JvmStatic
+    @JvmOverloads
+    public static final na0 b(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            LiveFeedPageSdk.liveLog("LiveFeedPlayerPool", "getPlayer pageId= " + str2 + WebvttCueParser.CHAR_SPACE + a.size());
+            List<na0> list = a.get(str2);
+            if (list == null) {
+                list = new ArrayList<>();
+            }
+            if (!list.isEmpty() && list.size() >= 2) {
+                na0 na0Var = list.get(0);
+                Collections.swap(list, 0, 1);
+                if (na0Var.isPlaying()) {
+                    na0Var.detachFromContainer();
+                    na0Var.stop();
+                }
+                LiveFeedPageSdk.liveLog("LiveFeedPlayerPool", "getPlayer " + na0Var);
+                return na0Var;
+            }
+            na0 na0Var2 = new na0(new pa0(str, 0, null, null, 14, null));
+            list.add(na0Var2);
+            a.put(str2, list);
+            return na0Var2;
         }
-        return (String) invokeV.objValue;
+        return (na0) invokeLL.objValue;
+    }
+
+    public static /* synthetic */ na0 c(String str, String str2, int i, Object obj) {
+        if ((i & 1) != 0) {
+            str = "";
+        }
+        return b(str, str2);
+    }
+
+    @JvmStatic
+    public static final void d(String str) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
+            LiveFeedPageSdk.liveLog("LiveFeedPlayerPool", "release playerMap= " + a.size());
+            List<na0> list = a.get(str);
+            if (list != null && !list.isEmpty()) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (z) {
+                return;
+            }
+            for (na0 na0Var : list) {
+                na0Var.detachFromContainer();
+                na0Var.release();
+            }
+            list.clear();
+            a.remove(str);
+        }
     }
 }

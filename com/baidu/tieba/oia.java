@@ -10,11 +10,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class oia extends lia {
+public class oia {
     public static /* synthetic */ Interceptable $ic = null;
-    public static String h = "XMUnionID";
-    public static boolean i;
+    public static String b = "UnionIDFactory";
+    public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    public sia a;
 
     static {
         InterceptResult invokeClinit;
@@ -29,52 +30,49 @@ public class oia extends lia {
                 return;
             }
         }
-        i = dia.e();
+        c = lia.e();
     }
 
-    @Override // com.baidu.tieba.kia
-    public kia d() {
+    public sia a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                this.c = uxa.b();
-                this.d = uxa.a(this.a);
-                this.g = 0;
-            } catch (Exception e) {
-                if (i) {
-                    Log.e(h, "xiaomi init4UnionId error", e);
-                }
-            }
-            return this;
+            return this.a;
         }
-        return (kia) invokeV.objValue;
+        return (sia) invokeV.objValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public oia(Context context) {
-        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super((Context) newInitContext.callArgs[0]);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        if (i) {
-            Log.e(h, "xiaomi XMUnionID !!");
+        int a = mia.a();
+        if (c) {
+            String str = b;
+            Log.e(str, "UnionIDFactory manufacturer:" + a);
         }
-        this.d = "";
-        this.b = false;
-        this.c = false;
-        this.g = -200;
+        if (a != 10001) {
+            if (a != 10002) {
+                this.a = new via(context);
+                return;
+            }
+            if (c) {
+                Log.e(b, "UnionIDFactory XMUnionID");
+            }
+            this.a = new wia(context);
+            return;
+        }
+        this.a = new uia(context);
     }
 }

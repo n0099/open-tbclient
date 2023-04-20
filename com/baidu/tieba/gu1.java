@@ -1,7 +1,8 @@
 package com.baidu.tieba;
+
+import android.app.Activity;
+import android.content.Intent;
 /* loaded from: classes4.dex */
 public interface gu1 {
-    void a(w62 w62Var);
-
-    void b(w62 w62Var);
+    void onActivityResult(Activity activity, int i, int i2, Intent intent);
 }

@@ -4,14 +4,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.CardHeadView;
+import com.baidu.tieba.feed.component.CardForumEnterView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class n07 extends lz6<CardHeadView, xv6> {
+public class n07 extends mz6<CardForumEnterView, xv6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,26 +35,26 @@ public class n07 extends lz6<CardHeadView, xv6> {
         }
     }
 
-    @Override // com.baidu.tieba.lz6, com.baidu.tieba.a07
+    @Override // com.baidu.tieba.mz6, com.baidu.tieba.b07
     @NonNull
     public View a(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             View a = super.a(viewGroup);
-            i17.k(a, 0);
+            j17.n(a, null, null, null, -2);
             return a;
         }
         return (View) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.a07
+    @Override // com.baidu.tieba.b07
     /* renamed from: e */
-    public void b(@NonNull CardHeadView cardHeadView, @NonNull xv6 xv6Var) {
+    public void b(@NonNull CardForumEnterView cardForumEnterView, @NonNull xv6 xv6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardHeadView, xv6Var) == null) {
-            cardHeadView.e(xv6Var);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardForumEnterView, xv6Var) == null) {
+            cardForumEnterView.update(xv6Var);
         }
     }
 }

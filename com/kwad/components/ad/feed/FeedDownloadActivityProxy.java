@@ -29,7 +29,7 @@ public class FeedDownloadActivityProxy extends com.kwad.components.core.i.a impl
     public static final boolean DEBUG = false;
     public static final String KEY_AD_DATA = "key_template_json";
     public static final String TAG = "FeedDownloadActivity";
-    public static b.InterfaceC0618b sInnerAdInteractionListener;
+    public static b.InterfaceC0617b sInnerAdInteractionListener;
     public KsAdContainer mAdContainer;
     public AdInfo mAdInfo;
     public AdTemplate mAdTemplate;
@@ -111,21 +111,21 @@ public class FeedDownloadActivityProxy extends com.kwad.components.core.i.a impl
         bindDownloadListener();
     }
 
-    public static void launch(Context context, @NonNull AdTemplate adTemplate, b.InterfaceC0618b interfaceC0618b) {
+    public static void launch(Context context, @NonNull AdTemplate adTemplate, b.InterfaceC0617b interfaceC0617b) {
         KsAdSDKImpl.putComponentProxy(FeedDownloadActivity.class, FeedDownloadActivityProxy.class);
         Intent intent = new Intent(context, FeedDownloadActivity.class);
         intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
         intent.putExtra("key_template_json", adTemplate.toJson().toString());
-        sInnerAdInteractionListener = interfaceC0618b;
+        sInnerAdInteractionListener = interfaceC0617b;
         context.startActivity(intent);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void notifyAdClick() {
         com.kwad.sdk.core.report.a.a(this.mAdTemplate, new com.kwad.sdk.core.report.f().b(this.mAdContainer.getTouchCoords()), (JSONObject) null);
-        b.InterfaceC0618b interfaceC0618b = sInnerAdInteractionListener;
-        if (interfaceC0618b != null) {
-            interfaceC0618b.onAdClicked();
+        b.InterfaceC0617b interfaceC0617b = sInnerAdInteractionListener;
+        if (interfaceC0617b != null) {
+            interfaceC0617b.onAdClicked();
         }
     }
 
@@ -149,7 +149,7 @@ public class FeedDownloadActivityProxy extends com.kwad.components.core.i.a impl
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        com.kwad.components.core.c.a.a.a(new a.C0594a(view2.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(view2 == this.mProgressBarTv ? 1 : 2).aj(view2 == this.mProgressBarTv).a(new a.b() { // from class: com.kwad.components.ad.feed.FeedDownloadActivityProxy.2
+        com.kwad.components.core.c.a.a.a(new a.C0593a(view2.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(view2 == this.mProgressBarTv ? 1 : 2).aj(view2 == this.mProgressBarTv).a(new a.b() { // from class: com.kwad.components.ad.feed.FeedDownloadActivityProxy.2
             @Override // com.kwad.components.core.c.a.a.b
             public final void onAdClicked() {
                 FeedDownloadActivityProxy.this.notifyAdClick();

@@ -1,76 +1,64 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes4.dex */
 public class i11 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile i11 b;
+    public static f11 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ConcurrentHashMap<String, f11> a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947800544, "Lcom/baidu/tieba/i11;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947800544, "Lcom/baidu/tieba/i11;");
+        }
+    }
 
     public i11() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = new ConcurrentHashMap<>();
     }
 
-    public static i11 a() {
+    public static f11 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
                 synchronized (i11.class) {
-                    if (b == null) {
-                        b = new i11();
+                    if (a == null) {
+                        a = (f11) ServiceManager.getService(f11.a);
+                    }
+                    if (a == null) {
+                        a = f11.b;
                     }
                 }
             }
-            return b;
+            return a;
         }
-        return (i11) invokeV.objValue;
-    }
-
-    @NonNull
-    public f11 b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (str == null) {
-                str = "";
-            }
-            f11 f11Var = (f11) x01.b(this.a, str);
-            if (f11Var == null) {
-                synchronized (i11.class) {
-                    f11Var = (f11) x01.b(this.a, str);
-                    if (f11Var == null) {
-                        if (TextUtils.isEmpty(str)) {
-                            f11Var = h11.a().a();
-                        } else {
-                            f11Var = h11.a().b(str);
-                        }
-                        x01.e(this.a, str, f11Var);
-                    }
-                }
-            }
-            return f11Var;
-        }
-        return (f11) invokeL.objValue;
+        return (f11) invokeV.objValue;
     }
 }

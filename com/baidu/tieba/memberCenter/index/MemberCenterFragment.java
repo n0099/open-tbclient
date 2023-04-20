@@ -25,9 +25,9 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.it4;
-import com.baidu.tieba.qg8;
+import com.baidu.tieba.jt4;
 import com.baidu.tieba.quickWebView.QuickWebView;
+import com.baidu.tieba.yg8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -85,7 +85,7 @@ public class MemberCenterFragment extends BaseFragment {
                     return false;
                 }
                 if (!StringUtils.isNull(str) && str.contains(UrlSchemaHelper.JUMP_TO_NEW_PAGE)) {
-                    it4.z(this.a.getPageContext().getContext(), null, str, false, true, false, false, false);
+                    jt4.z(this.a.getPageContext().getContext(), null, str, false, true, false, false, false);
                     return true;
                 }
                 UrlManager.getInstance().dealOneLink((TbPageContext<?>) this.a.getPageContext(), new String[]{str}, true);
@@ -319,7 +319,7 @@ public class MemberCenterFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
             super.onCreate(bundle);
-            new qg8("my_tab_vip_banner_bubble").i();
+            new yg8("my_tab_vip_banner_bubble").i();
         }
     }
 

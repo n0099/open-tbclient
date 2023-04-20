@@ -34,12 +34,12 @@ import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.core.view.HeadPendantClickableView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.av5;
+import com.baidu.tieba.bv5;
 import com.baidu.tieba.ii;
 import com.baidu.tieba.im.data.ShareForumMsgData;
 import com.baidu.tieba.im.data.ShareThreadMsgData;
 import com.baidu.tieba.im.db.pojo.MediaPojo;
-import com.baidu.tieba.q25;
+import com.baidu.tieba.r25;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -425,14 +425,14 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
             } else if (!StringUtils.isNull(str) && str.endsWith("MsgrightView")) {
                 SkinManager.setBackgroundResource(this, R.drawable.icon_pic_im_bubble_share_right);
             }
-            q25 d = q25.d(this.d);
+            r25 d = r25.d(this.d);
             d.C(R.string.F_X02);
             d.w(R.color.CAM_X0105);
-            q25.d(this.e).w(R.color.CAM_X0107);
-            q25.d(this.f).w(R.color.CAM_X0109);
-            q25.d(this.j).w(R.color.CAM_X0107);
-            q25.d(this.R).w(R.color.CAM_X0109);
-            q25 d2 = q25.d(this.z);
+            r25.d(this.e).w(R.color.CAM_X0107);
+            r25.d(this.f).w(R.color.CAM_X0109);
+            r25.d(this.j).w(R.color.CAM_X0107);
+            r25.d(this.R).w(R.color.CAM_X0109);
+            r25 d2 = r25.d(this.z);
             d2.o(R.string.J_X06);
             d2.f(R.color.CAM_X0204);
         }
@@ -597,7 +597,7 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
                 threadData.threadType = 40;
                 threadData.setRichTitleList(ShareThreadMsgData.parseContent(shareThreadMsgData.getRich_title()));
                 threadData.setTitle(shareThreadMsgData.title);
-            } else if (!StringUtils.isNull(av5.H(ShareThreadMsgData.parseContent(shareThreadMsgData.getRich_abstract())).toString())) {
+            } else if (!StringUtils.isNull(bv5.H(ShareThreadMsgData.parseContent(shareThreadMsgData.getRich_abstract())).toString())) {
                 threadData.setRichAbstractList(ShareThreadMsgData.parseContent(shareThreadMsgData.getRich_abstract()));
             } else if (!ListUtils.isEmpty(shareThreadMsgData.getRich_title())) {
                 threadData.setRichTitleList(ShareThreadMsgData.parseContent(shareThreadMsgData.getRich_title()));

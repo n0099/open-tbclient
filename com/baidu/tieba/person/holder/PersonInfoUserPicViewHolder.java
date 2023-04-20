@@ -9,8 +9,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cc5;
-import com.baidu.tieba.hn;
+import com.baidu.tieba.dc5;
+import com.baidu.tieba.in;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ public class PersonInfoUserPicViewHolder extends TypeAdapter.ViewHolder {
     public TbImageView a;
     public TextView b;
     public View c;
-    public hn d;
+    public in d;
     public int e;
     public View.OnClickListener f;
 
@@ -53,15 +53,15 @@ public class PersonInfoUserPicViewHolder extends TypeAdapter.ViewHolder {
         this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923d5);
     }
 
-    public void a(hn hnVar) {
+    public void a(in inVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, hnVar) != null) || !(hnVar instanceof cc5)) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, inVar) != null) || !(inVar instanceof dc5)) {
             return;
         }
-        this.d = hnVar;
-        cc5 cc5Var = (cc5) hnVar;
-        if (cc5Var.c()) {
-            String b = cc5Var.b();
+        this.d = inVar;
+        dc5 dc5Var = (dc5) inVar;
+        if (dc5Var.c()) {
+            String b = dc5Var.b();
             this.b.setVisibility(0);
             if (StringUtils.isNull(b)) {
                 this.a.setDefaultResource(R.drawable.pic_mycenter_avatar_def_i);
@@ -71,19 +71,19 @@ public class PersonInfoUserPicViewHolder extends TypeAdapter.ViewHolder {
         } else {
             this.a.setDefaultResource(R.drawable.img_default_100);
             this.b.setVisibility(8);
-            this.a.N(cc5Var.b(), 10, false);
+            this.a.N(dc5Var.b(), 10, false);
         }
         getView().setOnClickListener(this.f);
         c(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public hn b() {
+    public in b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.d;
         }
-        return (hn) invokeV.objValue;
+        return (in) invokeV.objValue;
     }
 
     public void c(int i) {

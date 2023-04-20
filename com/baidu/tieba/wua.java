@@ -5,16 +5,27 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.hihonor.push.framework.aidl.IMessageEntity;
+import com.hihonor.push.framework.aidl.entity.RequestHeader;
+import com.hihonor.push.sdk.common.data.ApiException;
 /* loaded from: classes6.dex */
-public class wua<TResult> {
+public abstract class wua<TResult> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final eua<TResult> a;
+    public final String a;
+    public final IMessageEntity b;
+    public final gua c;
+    public RequestHeader d;
+    public eva<TResult> e;
 
-    public wua() {
+    public abstract void a(ApiException apiException, Object obj);
+
+    public wua(String str, IMessageEntity iMessageEntity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, iMessageEntity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -24,36 +35,20 @@ public class wua<TResult> {
                 return;
             }
         }
-        this.a = new eua<>();
+        getClass().getSimpleName();
+        this.a = str;
+        this.b = iMessageEntity;
+        this.c = gua.b(str);
     }
 
-    public void a(Exception exc) {
+    public final void b(ApiException apiException, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-            eua<TResult> euaVar = this.a;
-            synchronized (euaVar.a) {
-                if (!euaVar.b) {
-                    euaVar.b = true;
-                    euaVar.d = exc;
-                    euaVar.a.notifyAll();
-                    euaVar.b();
-                }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, apiException, obj) == null) {
+            if (this.e != null) {
+                a(apiException, obj);
+                return;
             }
-        }
-    }
-
-    public void b(TResult tresult) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tresult) == null) {
-            eua<TResult> euaVar = this.a;
-            synchronized (euaVar.a) {
-                if (!euaVar.b) {
-                    euaVar.b = true;
-                    euaVar.c = tresult;
-                    euaVar.a.notifyAll();
-                    euaVar.b();
-                }
-            }
+            String str = "This Task has been canceled, uri:" + this.a;
         }
     }
 }

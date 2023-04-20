@@ -9,9 +9,9 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatTextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ac0;
-import com.baidu.tieba.j90;
-import com.baidu.tieba.r90;
+import com.baidu.tieba.bc0;
+import com.baidu.tieba.k90;
+import com.baidu.tieba.s90;
 import com.facebook.drawee.view.SimpleDraweeView;
 /* loaded from: classes2.dex */
 public class MinorView extends LinearLayout {
@@ -19,7 +19,7 @@ public class MinorView extends LinearLayout {
     public AppCompatTextView b;
     public AppCompatTextView c;
     public AppCompatTextView d;
-    public r90 e;
+    public s90 e;
 
     /* loaded from: classes2.dex */
     public class a implements View.OnClickListener {
@@ -28,7 +28,7 @@ public class MinorView extends LinearLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            if (!j90.f(MinorView.this.getContext())) {
+            if (!k90.f(MinorView.this.getContext())) {
                 Toast.makeText(MinorView.this.getContext(), (int) R.string.obfuscated_res_0x7f0f0ab7, 1).show();
             } else if (MinorView.this.e != null) {
                 MinorView.this.e.a(view2);
@@ -40,8 +40,8 @@ public class MinorView extends LinearLayout {
         this(context, null);
     }
 
-    public void setActionCallback(r90 r90Var) {
-        this.e = r90Var;
+    public void setActionCallback(s90 s90Var) {
+        this.e = s90Var;
     }
 
     public void setImageResource(int i) {
@@ -76,13 +76,13 @@ public class MinorView extends LinearLayout {
 
     public void c(String str) {
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.a.getLayoutParams();
-        layoutParams.width = j90.b(getContext(), EmotionStrategy.getInstance().minorWidth);
-        layoutParams.height = j90.b(getContext(), EmotionStrategy.getInstance().minorHeight);
+        layoutParams.width = k90.b(getContext(), EmotionStrategy.getInstance().minorWidth);
+        layoutParams.height = k90.b(getContext(), EmotionStrategy.getInstance().minorHeight);
         this.a.setLayoutParams(layoutParams);
-        setImageResource(ac0.f().i(str));
-        this.b.setTextColor(ac0.f().a(getContext(), str, "color_8585853"));
-        this.c.setTextColor(ac0.f().a(getContext(), str, "color_B8B8B8"));
-        this.d.setTextColor(ac0.f().a(getContext(), str, "color_4367B4"));
+        setImageResource(bc0.f().i(str));
+        this.b.setTextColor(bc0.f().a(getContext(), str, "color_8585853"));
+        this.c.setTextColor(bc0.f().a(getContext(), str, "color_B8B8B8"));
+        this.d.setTextColor(bc0.f().a(getContext(), str, "color_4367B4"));
     }
 
     public void setText(CharSequence charSequence) {

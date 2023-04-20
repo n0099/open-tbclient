@@ -27,7 +27,7 @@ public class pb implements mb {
     }
 
     @Override // com.baidu.tieba.mb
-    public sm a(byte[] bArr, int i, int i2) {
+    public tm a(byte[] bArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i, i2)) == null) {
@@ -35,13 +35,13 @@ public class pb implements mb {
             if (f == null) {
                 return null;
             }
-            return new sm(f);
+            return new tm(f);
         }
-        return (sm) invokeLII.objValue;
+        return (tm) invokeLII.objValue;
     }
 
     @Override // com.baidu.tieba.mb
-    public sm get(String str) {
+    public tm get(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
@@ -49,8 +49,8 @@ public class pb implements mb {
             if (e == null) {
                 return null;
             }
-            return new sm(e);
+            return new tm(e);
         }
-        return (sm) invokeL.objValue;
+        return (tm) invokeL.objValue;
     }
 }

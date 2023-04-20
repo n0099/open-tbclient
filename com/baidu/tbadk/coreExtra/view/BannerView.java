@@ -18,9 +18,9 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.eb9;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.rx4;
-import com.baidu.tieba.wa9;
+import com.baidu.tieba.sx4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,7 +41,7 @@ public class BannerView extends RelativeLayout {
     public float i;
     public String j;
     public boolean k;
-    public rx4 l;
+    public sx4 l;
     public String m;
     public b n;
     public View.OnClickListener o;
@@ -166,11 +166,11 @@ public class BannerView extends RelativeLayout {
         h(context);
     }
 
-    public void setBannerData(rx4 rx4Var) {
+    public void setBannerData(sx4 sx4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, rx4Var) == null) {
-            this.l = rx4Var;
-            wa9.f(rx4Var.g, this.f, rx4Var.h, ii.g(getContext(), R.dimen.obfuscated_res_0x7f0701f0));
+        if (interceptable == null || interceptable.invokeL(1048581, this, sx4Var) == null) {
+            this.l = sx4Var;
+            eb9.f(sx4Var.g, this.f, sx4Var.h, ii.g(getContext(), R.dimen.obfuscated_res_0x7f0701f0));
         }
     }
 

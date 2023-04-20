@@ -1,81 +1,52 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.database.ContentObserver;
+import android.os.Handler;
+import android.os.Looper;
+import android.provider.MediaStore;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes7.dex */
 public class z1a {
     public static /* synthetic */ Interceptable $ic;
+    public static z1a g;
     public transient /* synthetic */ FieldHolder $fh;
+    public Handler a;
+    public BroadcastReceiver b;
+    public ContentObserver c;
+    public ArrayList<d> d;
+    public Handler e;
+    public Runnable f;
 
     /* loaded from: classes7.dex */
-    public interface c {
-        void a(int i);
+    public interface d {
+        void B(boolean z);
     }
 
     /* loaded from: classes7.dex */
-    public static class a extends cr5<Integer> {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
+        public final /* synthetic */ z1a a;
 
-        public a(int i, String str, String str2) {
+        public a(z1a z1aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = i;
-            this.b = str;
-            this.c = str2;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.cr5
-        /* renamed from: a */
-        public Integer doInBackground() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                int i = this.a;
-                b05.d();
-                me<String> e = b05.e("tb.write_privacy_state_space" + this.b);
-                if (e != null) {
-                    i = gg.e(e.get(this.c), this.a);
-                }
-                return Integer.valueOf(i);
-            }
-            return (Integer) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b implements fq5<Integer> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c a;
-
-        public b(c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cVar};
+                Object[] objArr = {z1aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -85,45 +56,194 @@ public class z1a {
                     return;
                 }
             }
-            this.a = cVar;
+            this.a = z1aVar;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.fq5
-        /* renamed from: a */
-        public void onReturnDataInUI(Integer num) {
-            c cVar;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, num) == null) && (cVar = this.a) != null) {
-                cVar.a(num.intValue());
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.h(false);
             }
         }
     }
 
-    public static void a(String str, int i, c cVar) {
+    /* loaded from: classes7.dex */
+    public class b extends BroadcastReceiver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ z1a this$0;
+
+        public b(z1a z1aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {z1aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = z1aVar;
+        }
+
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
+                this.this$0.i(intent);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c extends ContentObserver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ z1a a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(z1a z1aVar, Handler handler) {
+            super(handler);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {z1aVar, handler};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Handler) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = z1aVar;
+        }
+
+        @Override // android.database.ContentObserver
+        public void onChange(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                this.a.e.removeCallbacks(this.a.f);
+                this.a.e.postDelayed(this.a.f, 2000L);
+            }
+        }
+    }
+
+    public z1a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLIL(65536, null, str, i, cVar) == null) && !StringUtils.isNull(str) && cVar != null) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (StringUtils.isNull(currentAccount)) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            gr5.b(new a(i, currentAccount, str), new b(cVar));
+        }
+        this.a = new Handler(Looper.getMainLooper());
+        this.d = new ArrayList<>();
+        this.e = new Handler();
+        this.f = new a(this);
+    }
+
+    public static z1a f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (g == null) {
+                synchronized (z1a.class) {
+                    if (g == null) {
+                        z1a z1aVar = new z1a();
+                        g = z1aVar;
+                        z1aVar.g(TbadkCoreApplication.getInst());
+                    }
+                }
+            }
+            return g;
+        }
+        return (z1a) invokeV.objValue;
+    }
+
+    public void d(d dVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) && dVar != null && !this.d.contains(dVar)) {
+            this.d.add(dVar);
         }
     }
 
-    public static void b(String str, int i) {
+    public void h(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(65537, null, str, i) != null) || StringUtils.isNull(str)) {
-            return;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            Iterator<d> it = this.d.iterator();
+            while (it.hasNext()) {
+                it.next().B(z);
+            }
         }
-        String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (StringUtils.isNull(currentAccount)) {
-            return;
+    }
+
+    public final void i(Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, intent) == null) {
+            if (intent.getAction().equals("android.intent.action.MEDIA_UNMOUNTED")) {
+                h(true);
+                return;
+            }
+            this.e.removeCallbacks(this.f);
+            this.e.postDelayed(this.f, 2000L);
         }
-        b05.d();
-        me<String> e = b05.e("tb.write_privacy_state_space" + currentAccount);
-        if (e != null) {
-            e.a(str, String.valueOf(i));
+    }
+
+    public void k(d dVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, dVar) == null) && this.d.contains(dVar)) {
+            this.d.remove(dVar);
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            j();
+            TbadkCoreApplication inst = TbadkCoreApplication.getInst();
+            inst.unregisterReceiver(this.b);
+            inst.getContentResolver().unregisterContentObserver(this.c);
+            this.e.removeCallbacks(this.f);
+            g = null;
+        }
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.d.clear();
+        }
+    }
+
+    public final void g(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
+            this.b = new b(this);
+            this.c = new c(this, this.a);
+            IntentFilter intentFilter = new IntentFilter();
+            intentFilter.addAction("android.intent.action.MEDIA_MOUNTED");
+            intentFilter.addAction("android.intent.action.MEDIA_UNMOUNTED");
+            intentFilter.addAction("android.intent.action.MEDIA_SCANNER_STARTED");
+            intentFilter.addAction("android.intent.action.MEDIA_SCANNER_FINISHED");
+            intentFilter.addAction("android.intent.action.MEDIA_EJECT");
+            intentFilter.addDataScheme("file");
+            context.registerReceiver(this.b, intentFilter);
+            context.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.c);
         }
     }
 }

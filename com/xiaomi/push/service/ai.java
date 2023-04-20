@@ -7,7 +7,7 @@ import com.xiaomi.push.ig;
 import com.xiaomi.push.ir;
 import com.xiaomi.push.service.bx;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class ai extends bx.a {
     public final /* synthetic */ XMPushService a;
 

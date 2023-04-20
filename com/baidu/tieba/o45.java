@@ -1,26 +1,159 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.NetMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.BdToken.activeConfig.ActiveCenterData;
+import com.baidu.tbadk.BdToken.completeTask.CompleteTaskReqMsg;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.UserTropicGiftBagActivityConfig;
+import com.baidu.tbadk.core.data.NewUserRedPackageData;
+import com.baidu.tbadk.mutiprocess.share.ShareEvent;
+import com.baidu.tieba.hr4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
+import tbclient.MissionInfo;
 /* loaded from: classes5.dex */
 public class o45 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "com.baidu.tieba";
-    public static String b = "com.baidu.tieba:remote";
-    public static String c = "com.baidu.tieba:bdservice_v1";
-    public static String d = "com.baidu.tieba:pluginInstaller";
-    public static String e = "com.baidu.tieba:daemon";
-    public static String f = "com.baidu.tieba:cdnTachometer";
-    public static String g = "plugininstaller_settings";
-    public static String h = "daemon_settings";
-    public static String i = "cdnTachometer_settings";
-    public static String j = "download_product_info";
-    public static final String[] k;
-    public static final String[] l;
+    public static /* synthetic */ Interceptable $ic;
+    public static o45 i;
+    public static CustomMessageListener j;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
+    public NewUserRedPackageData f;
+    public CustomMessageListener g;
+    public final bg<tm> h;
+
+    /* loaded from: classes5.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ o45 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(o45 o45Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {o45Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = o45Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof ShareEvent) && ((ShareEvent) customResponsedMessage.getData()).status == 1) {
+                ia5.d(((ShareEvent) customResponsedMessage.getData()).channel);
+                this.a.k();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
+                TbSingleton.getInstance().setCanWebViewActivityShowProgress(((Boolean) customResponsedMessage.getData()).booleanValue());
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c extends bg<tm> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ o45 a;
+
+        public c(o45 o45Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {o45Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = o45Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.bg
+        public void onLoaded(tm tmVar, String str, int i) {
+            Activity currentActivity;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeLLI(1048576, this, tmVar, str, i) != null) || tmVar == null || this.a.f == null || (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) == null || this.a.d(currentActivity) == null) {
+                return;
+            }
+            TbSingleton.getInstance().setNewUserRedPackageData(this.a.f);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921532));
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -35,7 +168,150 @@ public class o45 {
                 return;
             }
         }
-        k = new String[]{"skin_", "from_id", "bd_loc_crash_count", "webview_crash_count", "bd_loc_switcher", "install_other_app_file_name", "cuid", "new_cuid", "new_cuid_galaxy2", "gpu_open", "client_id", "keepalive_wifi", "keepalive_nonwifi", "networkcore_type", "socket_reconn_strategy", "image_quality", "capable_of_webp_format", "webp_failure_count", "log_stat_upload_time ", "log_stat_debug_time", "log_stat_switch_data", "log_stat_error_time", "is_motu_forbidden", "cdn_iplist_cache_key_three", "report_user_info_time_key", "image_viewer_tip", "location_lat", "location_lng", "location_pos", "location_on", "xiaoying_crash_count", "plugin_patch_hook_failed_count", "page_stay_duration_switch", "page_stay_max_cost", "applist_intalled_apk_ids", "applist_intalled_apk_ids_timestamp", "KEY_UPLOAD_LOG_INTERVAL", "KEY_LOG_REAL_TIME_UPLOAD_SWITCH", "smart_app_tid", "smart_app_id", "smart_app_name", "key_ai_app_guide_display", "AD_SNIFF_RESULT_KEY", "key_baiduid_for_anti", "key_secret_is_show_new", "key_qq_share_h5_enable", "key_wechat_small_app_to_h5", "key_launch_up_speed", "fun_ad_big_image_floor", "fun_ad_big_image_density", "fun_ad_big_image_size", "fun_ad_big_image_switch", "key_post_thread_has_request_location", "key_sync_extra_field", "key_member_auto_ban_renewal_show", "key_server_picpage_bear_sid", "key_live_bubble_remind_show_count", "key_live_top_float_remind_show_count", "key_hot_event_tip_show_time", "switch_immersive_sticky_status", "key_live_bubble_icon_cache_key", "key_live_gif_load_library_key", "key_big_imagecache_optimize_scale", "key_big_image_pre_page_limit"};
-        l = new String[0];
+        j = new b(2921440);
+    }
+
+    public static o45 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (i == null) {
+                synchronized (o45.class) {
+                    if (i == null) {
+                        i = new o45();
+                    }
+                }
+            }
+            return i;
+        }
+        return (o45) invokeV.objValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            MessageManager.getInstance().registerListener(this.g);
+            MessageManager.getInstance().registerListener(j);
+        }
+    }
+
+    public o45() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.g = new a(this, 2921406);
+        this.h = new c(this);
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            q45.m().H("task_share_thread_success_data_total_limit");
+            q45.m().H("task_share_thread_success_data_mission_id");
+            q45.m().H("task_share_thread_success_data_action_id");
+            q45.m().H("task_share_thread_success_data_specific_clear_time");
+        }
+    }
+
+    public void i() {
+        Activity currentActivity;
+        TbPageContext d;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null && (d = d(currentActivity)) != null && w8.f().h("MainTabActivity")) {
+            d.sendMessage(new CustomMessage(2002001, new UserTropicGiftBagActivityConfig(d.getPageActivity())));
+        }
+    }
+
+    public final TbPageContext d(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity)) == null) {
+            if (activity instanceof BaseActivity) {
+                return ((BaseActivity) activity).getPageContext();
+            }
+            if (activity instanceof BaseFragmentActivity) {
+                return ((BaseFragmentActivity) activity).getPageContext();
+            }
+            return null;
+        }
+        return (TbPageContext) invokeL.objValue;
+    }
+
+    public final void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            CompleteTaskReqMsg completeTaskReqMsg = new CompleteTaskReqMsg(5);
+            completeTaskReqMsg.completeId = str;
+            completeTaskReqMsg.setNetType(NetMessage.NetType.HTTP);
+            completeTaskReqMsg.extra = new hr4.g();
+            MessageManager.getInstance().sendMessage(completeTaskReqMsg);
+        }
+    }
+
+    public void g(MissionInfo missionInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, missionInfo) == null) && missionInfo != null && missionInfo.activityid.intValue() != 0 && missionInfo.missionid.intValue() != 0) {
+            this.c = missionInfo.activityid.intValue();
+            this.a = missionInfo.missionid.intValue();
+            this.b = missionInfo.total_limit.intValue();
+            this.e = missionInfo.cleartype.intValue();
+            this.d = missionInfo.cleartime.intValue();
+            aq4 aq4Var = new aq4();
+            aq4Var.Y(this.d);
+            aq4Var.Z(this.e);
+            q45.m().z("task_share_thread_success_data_total_limit", this.b);
+            q45.m().z("task_share_thread_success_data_mission_id", this.a);
+            q45.m().z("task_share_thread_success_data_action_id", this.c);
+            q45.m().A("task_share_thread_success_data_specific_clear_time", aq4Var.c());
+        }
+    }
+
+    public void j(ar4 ar4Var) {
+        Activity currentActivity;
+        TbPageContext d;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, ar4Var) != null) || ar4Var == null) {
+            return;
+        }
+        ActiveCenterData activeCenterData = ar4Var.g;
+        if ((activeCenterData != null && activeCenterData.is_new_window) || q45.m().n("app_restart_times", 0) <= 1 || !ar4Var.b || StringUtils.isNull(ar4Var.c) || TbSingleton.getInstance().isNewUserRedPackageShowed() || (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) == null || (d = d(currentActivity)) == null) {
+            return;
+        }
+        this.f = ar4Var.f;
+        cg.h().k(this.f.topPicUrl, 10, this.h, 0, 0, d.getUniqueId(), new Object[0]);
+    }
+
+    public void k() {
+        int n;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || !TbadkCoreApplication.isLogin()) {
+            return;
+        }
+        int n2 = q45.m().n("task_share_thread_success_data_mission_id", 0);
+        int n3 = q45.m().n("task_share_thread_success_data_action_id", 0);
+        long o = q45.m().o("task_share_thread_success_data_specific_clear_time", 0L);
+        aq4 aq4Var = new aq4();
+        aq4Var.e0(o);
+        if (aq4Var.N()) {
+            c();
+        } else if (n3 != 0 && n2 != 0 && (n = q45.m().n("task_share_thread_success_data_total_limit", 0)) > 0) {
+            q45.m().z("task_share_thread_success_data_total_limit", n - 1);
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(String.valueOf(n3), String.valueOf(n2));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            h(jSONObject.toString());
+        }
     }
 }

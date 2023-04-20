@@ -19,8 +19,8 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.cg;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.qq4;
-import com.baidu.tieba.sm;
+import com.baidu.tieba.rq4;
+import com.baidu.tieba.tm;
 import com.baidu.tieba.view.RoundRelativeLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -32,7 +32,7 @@ public class NewUserRedPackageActivity extends BaseActivity {
     public transient /* synthetic */ FieldHolder $fh;
     public RoundRelativeLayout a;
     public NewUserRedPackageData b;
-    public qq4 c;
+    public rq4 c;
     public ImageView d;
     public ImageView e;
     public View.OnClickListener f;
@@ -126,15 +126,15 @@ public class NewUserRedPackageActivity extends BaseActivity {
     }
 
     public final void B1() {
-        sm smVar;
+        tm tmVar;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || getIntent() == null) {
             return;
         }
         NewUserRedPackageData newUserRedPackageData = (NewUserRedPackageData) getIntent().getSerializableExtra(NewUserRedPackageActivityConfig.KEY_DATA);
         this.b = newUserRedPackageData;
-        if (newUserRedPackageData != null && (smVar = (sm) cg.h().n(this.b.topPicUrl, 10, new Object[0])) != null) {
-            this.d.setImageBitmap(smVar.p());
+        if (newUserRedPackageData != null && (tmVar = (tm) cg.h().n(this.b.topPicUrl, 10, new Object[0])) != null) {
+            this.d.setImageBitmap(tmVar.p());
         }
     }
 
@@ -167,7 +167,7 @@ public class NewUserRedPackageActivity extends BaseActivity {
             this.e.setOnClickListener(this.f);
             B1();
             TiebaStatic.log(new StatisticItem("c13684").param("obj_type", 1));
-            this.c = new qq4();
+            this.c = new rq4();
         }
     }
 }

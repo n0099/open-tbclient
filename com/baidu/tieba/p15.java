@@ -1,18 +1,15 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LcUpdateDialogActivityConfig;
+import com.baidu.tbadk.data.HotEventData;
+import com.baidu.tieba.ma5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class p15 extends k15 {
+public final class p15 extends l15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,16 +27,31 @@ public class p15 extends k15 {
         }
     }
 
-    @Override // com.baidu.tieba.k15
-    public void a(@NonNull Context context, @NonNull b15 b15Var) {
+    public static final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, b15Var) == null) {
-            ClientUpdateInfo clientUpdateInfo = new ClientUpdateInfo();
-            clientUpdateInfo.mIsForceUpdate = b15Var.a("is_force_update");
-            clientUpdateInfo.mStatus = b15Var.a("status");
-            clientUpdateInfo.mReverson = b15Var.a("reverson");
-            clientUpdateInfo.mContentUrl = b15Var.a("content_url");
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LcUpdateDialogActivityConfig(TbadkCoreApplication.getInst().getApp(), clientUpdateInfo, b15Var.a("apk_md5_rsa"))));
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            a15.r("sEventDialog");
+        }
+    }
+
+    @Override // com.baidu.tieba.l15
+    public void a(Context context, c15 data) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, data) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(data, "data");
+            ma5.h(HotEventData.getInstance(), new ma5.d() { // from class: com.baidu.tieba.j15
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // com.baidu.tieba.ma5.d
+                public final void onDismiss() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        p15.b();
+                    }
+                }
+            });
         }
     }
 }

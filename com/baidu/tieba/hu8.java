@@ -1,158 +1,129 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Intent;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.as8;
-import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class hu8 extends eu8<CustomDialogData> implements View.OnClickListener {
+public final class hu8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CustomDialogData c;
-    public iu8 d;
-    public TbImageView e;
-    public TextView f;
-    public TextView g;
-    public TextView h;
-    public TextView i;
-    public View j;
-    public View k;
-    public LinearLayout l;
+    @Inject
+    public final ej1<qi5> a;
 
-    @Override // com.baidu.tieba.ju8
-    public int a() {
-        InterceptResult invokeV;
+    public void f() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.custom_dailog_view : invokeV.intValue;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            cj1 b = cj1.b();
+            this.a = b;
+            b.a(new ri5());
+        }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hu8(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
+    public hu8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        f();
     }
 
-    @Override // com.baidu.tieba.ju8
-    public void b() {
+    public final qi5 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.e = (TbImageView) getViewGroup().findViewById(R.id.dialog_image);
-            this.f = (TextView) getViewGroup().findViewById(R.id.obfuscated_res_0x7f090884);
-            this.g = (TextView) getViewGroup().findViewById(R.id.dialog_body);
-            this.h = (TextView) getViewGroup().findViewById(R.id.obfuscated_res_0x7f0928db);
-            this.i = (TextView) getViewGroup().findViewById(R.id.obfuscated_res_0x7f091850);
-            this.j = getViewGroup().findViewById(R.id.bdDialog_divider_line);
-            this.k = getViewGroup().findViewById(R.id.divider_yes_no_button);
-            this.l = (LinearLayout) getViewGroup().findViewById(R.id.real_view);
-            this.h.setOnClickListener(this);
-            this.i.setOnClickListener(this);
-            SkinManager.setBackgroundResource(this.h, R.drawable.dialog_single_button_bg_selector);
-            SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0302);
-            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0302);
-            SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.g, (int) R.color.common_color_10122);
-            SkinManager.setBackgroundColor(this.j, R.color.CAM_X0204);
-            SkinManager.setBackgroundColor(this.k, R.color.CAM_X0204);
-            SkinManager.setBackgroundResource(this.l, R.drawable.dialog_background);
-        }
-    }
-
-    public void f(iu8 iu8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, iu8Var) == null) {
-            this.d = iu8Var;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ju8
-    /* renamed from: e */
-    public void c(CustomDialogData customDialogData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, customDialogData) != null) || customDialogData == null) {
-            return;
-        }
-        this.c = customDialogData;
-        CustomDialogData.Head head = customDialogData.head;
-        if (!TextUtils.isEmpty(head.imageUrl)) {
-            this.e.N(head.imageUrl, 10, false);
-        }
-        if (!TextUtils.isEmpty(head.text)) {
-            this.f.setText(head.text);
-        }
-        if (!TextUtils.isEmpty(customDialogData.body)) {
-            this.g.setText(customDialogData.body);
-        }
-        CustomDialogData.Button button = customDialogData.leftButton;
-        if (button != null && !StringUtils.isNull(button.text)) {
-            this.i.setText(customDialogData.leftButton.text);
-        }
-        CustomDialogData.Button button2 = customDialogData.rightButton;
-        if (button2 != null && !StringUtils.isNull(button2.text)) {
-            this.h.setText(customDialogData.rightButton.text);
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        CustomDialogData.Button button;
-        CustomDialogData.Button button2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, view2) == null) {
-            if (view2 == this.h) {
-                CustomDialogData customDialogData = this.c;
-                if (customDialogData != null && (button2 = customDialogData.rightButton) != null && !StringUtils.isNull(button2.action)) {
-                    UrlManager.getInstance().dealOneLink(d(), new String[]{this.c.rightButton.action});
-                }
-                iu8 iu8Var = this.d;
-                if (iu8Var != null) {
-                    iu8Var.dismiss();
-                }
-                StatisticItem statisticItem = new StatisticItem(as8.a.b);
-                statisticItem.param("obj_locate", 2);
-                TiebaStatic.log(statisticItem);
-            } else if (view2 == this.i) {
-                CustomDialogData customDialogData2 = this.c;
-                if (customDialogData2 != null && (button = customDialogData2.leftButton) != null && !StringUtils.isNull(button.action)) {
-                    it4.v(this.a.getPageActivity(), null, this.c.leftButton.action, true);
-                }
-                iu8 iu8Var2 = this.d;
-                if (iu8Var2 != null) {
-                    iu8Var2.dismiss();
-                }
-                StatisticItem statisticItem2 = new StatisticItem(as8.a.b);
-                statisticItem2.param("obj_locate", 1);
-                TiebaStatic.log(statisticItem2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ej1<qi5> ej1Var = this.a;
+            if (ej1Var != null) {
+                return ej1Var.get();
             }
+            return null;
+        }
+        return (qi5) invokeV.objValue;
+    }
+
+    public final BaseFragment b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            qi5 a = a();
+            if (a != null) {
+                return a.q();
+            }
+            return null;
+        }
+        return (BaseFragment) invokeV.objValue;
+    }
+
+    public final long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            qi5 a = a();
+            if (a != null) {
+                return a.k();
+            }
+            return 0L;
+        }
+        return invokeV.longValue;
+    }
+
+    public final boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            qi5 a = a();
+            if (a != null && a.p()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void d(int i, int i2, Intent intent) {
+        qi5 a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIIL(1048579, this, i, i2, intent) == null) && (a = a()) != null) {
+            a.m(i, i2, intent);
+        }
+    }
+
+    public final void g(boolean z) {
+        qi5 a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048582, this, z) == null) && (a = a()) != null) {
+            a.r(z);
+        }
+    }
+
+    public final void h(BdUniqueId bdUniqueId) {
+        qi5 a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, bdUniqueId) == null) && (a = a()) != null) {
+            a.setUniqueId(bdUniqueId);
+        }
+    }
+
+    public final void i(boolean z) {
+        qi5 a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) && (a = a()) != null) {
+            a.setUserVisibleHint(z);
         }
     }
 }

@@ -9,14 +9,15 @@ import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.data.ItemData;
 import com.baidu.tbadk.core.util.ItemClickJumpUtil;
 import com.baidu.tbadk.core.view.ItemCardView;
-import com.baidu.tieba.av6;
+import com.baidu.tieba.bv6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.ApkDetail;
 /* loaded from: classes5.dex */
-public class mi6 implements av6.f {
+public class mi6 implements bv6.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -24,15 +25,15 @@ public class mi6 implements av6.f {
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zv6 a;
+        public final /* synthetic */ wv6 a;
         public final /* synthetic */ ItemData b;
 
-        public a(mi6 mi6Var, zv6 zv6Var, ItemData itemData) {
+        public a(mi6 mi6Var, wv6 wv6Var, ItemData itemData) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {mi6Var, zv6Var, itemData};
+                Object[] objArr = {mi6Var, wv6Var, itemData};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -42,7 +43,7 @@ public class mi6 implements av6.f {
                     return;
                 }
             }
-            this.a = zv6Var;
+            this.a = wv6Var;
             this.b = itemData;
         }
 
@@ -77,7 +78,7 @@ public class mi6 implements av6.f {
         }
     }
 
-    @Override // com.baidu.tieba.av6.l
+    @Override // com.baidu.tieba.bv6.l
     public void a(@NonNull ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) && (viewGroup instanceof ItemCardView)) {
@@ -85,7 +86,7 @@ public class mi6 implements av6.f {
         }
     }
 
-    @Override // com.baidu.tieba.av6.f
+    @Override // com.baidu.tieba.bv6.e
     @NonNull
     public ViewGroup create(Context context) {
         InterceptResult invokeL;
@@ -96,38 +97,48 @@ public class mi6 implements av6.f {
         return (ViewGroup) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.av6.f
-    public void update(@NonNull ViewGroup viewGroup, @NonNull zv6 zv6Var) {
+    @Override // com.baidu.tieba.bv6.e
+    public void update(@NonNull ViewGroup viewGroup, @NonNull wv6 wv6Var) {
         String str;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, viewGroup, zv6Var) == null) && viewGroup != null && zv6Var != null && zv6Var.a() != null) {
-            nx6 a2 = zv6Var.a();
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, viewGroup, wv6Var) == null) && viewGroup != null && wv6Var != null && wv6Var.a() != null) {
+            qw6 a2 = wv6Var.a();
             ItemData itemData = new ItemData();
             itemData.itemId = a2.a;
             itemData.buttonName = a2.h;
-            itemData.buttonLink = a2.i;
-            itemData.buttonLinkType = 2;
+            itemData.buttonLink = a2.r;
+            itemData.buttonLinkType = 1;
+            itemData.pkgName = a2.n;
+            itemData.appId = a2.l;
             itemData.mIconUrl = a2.b;
-            itemData.mTitle = a2.d;
+            itemData.mTitle = a2.m;
             itemData.mTags = a2.g;
             itemData.mScore = a2.f;
             itemData.mStar = a2.e;
             itemData.mIconSize = a2.c;
             itemData.forumName = a2.k;
+            ApkDetail.Builder builder = new ApkDetail.Builder();
+            builder.developer = a2.s;
+            builder.publisher = a2.t;
+            builder.version = a2.o;
+            builder.version_code = Integer.valueOf(a2.p);
+            builder.size = String.valueOf(a2.q);
+            builder.authority_url = a2.u;
+            builder.privacy_url = a2.v;
+            builder.pkg_source = Integer.valueOf(a2.w);
+            itemData.apkDetail = builder.build(false);
             int i = a2.j;
             if (i != 0) {
                 ((ItemCardView) viewGroup).setBackGroundColor(i);
             }
-            if (zv6Var.c() != null) {
-                str = zv6Var.c().a;
+            if (wv6Var.c() != null) {
+                str = wv6Var.c().a;
             } else {
                 str = "";
             }
-            ItemCardView itemCardView = (ItemCardView) viewGroup;
-            itemCardView.setIsShowRightBtn(true);
-            itemCardView.setData(itemData, 13, str);
-            if (zv6Var.b()) {
-                viewGroup.setOnClickListener(new a(this, zv6Var, itemData));
+            ((ItemCardView) viewGroup).setData(itemData, 13, str);
+            if (wv6Var.b()) {
+                viewGroup.setOnClickListener(new a(this, wv6Var, itemData));
             } else {
                 viewGroup.setClickable(false);
             }

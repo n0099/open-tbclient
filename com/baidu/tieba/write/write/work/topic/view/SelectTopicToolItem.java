@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bx7;
-import com.baidu.tieba.q25;
+import com.baidu.tieba.cx7;
+import com.baidu.tieba.r25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -30,14 +30,14 @@ public class SelectTopicToolItem extends RelativeLayout {
     public EMTextView b;
     public ImageView c;
     public LinearLayout d;
-    public bx7 e;
+    public cx7 e;
     public b f;
     public boolean g;
     public boolean h;
 
     /* loaded from: classes6.dex */
     public interface b {
-        void a(@NonNull bx7 bx7Var);
+        void a(@NonNull cx7 cx7Var);
     }
 
     /* loaded from: classes6.dex */
@@ -159,11 +159,11 @@ public class SelectTopicToolItem extends RelativeLayout {
         }
     }
 
-    public void c(bx7 bx7Var) {
+    public void c(cx7 cx7Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, bx7Var) == null) && bx7Var != null) {
-            this.e = bx7Var;
-            if (bx7Var.j()) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, cx7Var) == null) && cx7Var != null) {
+            this.e = cx7Var;
+            if (cx7Var.j()) {
                 this.b.setText("#");
                 this.a.setText(this.e.e() + "#");
             } else {
@@ -174,12 +174,12 @@ public class SelectTopicToolItem extends RelativeLayout {
     }
 
     public void d() {
-        bx7 bx7Var;
-        bx7 bx7Var2;
+        cx7 cx7Var;
+        cx7 cx7Var2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (!this.g && (bx7Var2 = this.e) != null) {
-                if (bx7Var2.j()) {
+            if (!this.g && (cx7Var2 = this.e) != null) {
+                if (cx7Var2.j()) {
                     this.b.setVisibility(0);
                     this.c.setVisibility(0);
                 } else {
@@ -197,26 +197,26 @@ public class SelectTopicToolItem extends RelativeLayout {
                 this.a.setText(getContext().getString(R.string.obfuscated_res_0x7f0f00d9));
                 this.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.ic_icon_pure_post_topic12, SkinManager.getColor(R.color.CAM_X0109), null));
             }
-            if (!this.g && (bx7Var = this.e) != null && bx7Var.h()) {
-                q25.d(this.a).w(R.color.CAM_X0304);
-                q25.d(this.b).w(R.color.CAM_X0304);
-                q25 d = q25.d(this.d);
+            if (!this.g && (cx7Var = this.e) != null && cx7Var.h()) {
+                r25.d(this.a).w(R.color.CAM_X0304);
+                r25.d(this.b).w(R.color.CAM_X0304);
+                r25 d = r25.d(this.d);
                 d.o(R.string.J_X01);
                 d.m(R.dimen.L_X02);
                 d.l(R.color.CAM_X0304);
                 d.f(R.color.CAM_X0905);
             } else if (this.h && !this.g) {
-                q25.d(this.a).w(R.color.CAM_X0105);
-                q25.d(this.b).w(R.color.CAM_X0105);
-                q25 d2 = q25.d(this.d);
+                r25.d(this.a).w(R.color.CAM_X0105);
+                r25.d(this.b).w(R.color.CAM_X0105);
+                r25 d2 = r25.d(this.d);
                 d2.o(R.string.J_X01);
                 d2.m(R.dimen.L_X02);
                 d2.l(R.color.CAM_X0209);
                 d2.f(R.color.CAM_X0201);
             } else {
-                q25.d(this.a).w(R.color.CAM_X0105);
-                q25.d(this.b).w(R.color.CAM_X0105);
-                q25 d3 = q25.d(this.d);
+                r25.d(this.a).w(R.color.CAM_X0105);
+                r25.d(this.b).w(R.color.CAM_X0105);
+                r25 d3 = r25.d(this.d);
                 d3.o(R.string.J_X01);
                 d3.m(R.dimen.L_X02);
                 d3.l(R.color.CAM_X0209);

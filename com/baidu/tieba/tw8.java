@@ -1,113 +1,120 @@
 package com.baidu.tieba;
 
+import android.view.LayoutInflater;
 import android.view.View;
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.pb.pb.main.PbFragment;
+import com.baidu.tieba.pb.pb.main.PbPageNewsInfoHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class tw8 {
+public class tw8 extends xv8<rw8, PbPageNewsInfoHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public BdTypeListView b;
-    public boolean c;
-    public int d;
-    public int e;
-    public a f;
+    public ht8 g;
+    public PbPageNewsInfoHolder.b h;
 
     /* loaded from: classes6.dex */
-    public interface a {
-        void a();
+    public class a implements PbPageNewsInfoHolder.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ tw8 a;
+
+        public a(tw8 tw8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tw8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tw8Var;
+        }
+
+        @Override // com.baidu.tieba.pb.pb.main.PbPageNewsInfoHolder.b
+        public void a(rw8 rw8Var) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, rw8Var) == null) && rw8Var != null) {
+                c09.a(this.a.g, rw8Var, rw8Var.d0, 5);
+            }
+        }
     }
 
-    public tw8(BdTypeListView bdTypeListView) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public tw8(PbFragment pbFragment, BdUniqueId bdUniqueId) {
+        super(pbFragment, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bdTypeListView};
+            Object[] objArr = {pbFragment, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((g09) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = UtilHelper.getDimenPixelSize(R.dimen.tbds144);
-        this.d = -1;
-        this.e = -1;
-        this.b = bdTypeListView;
+        this.h = new a(this);
     }
 
-    public final int a(List<hn> list, boolean z) {
-        InterceptResult invokeLZ;
+    public void r(ht8 ht8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, list, z)) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return -1;
-            }
-            int i = 0;
-            for (int i2 = 0; i2 < list.size(); i2++) {
-                if ((list.get(i2) instanceof sl9) && ((sl9) list.get(i2)).getType() == sl9.R0 && (i = i + 1) == 5) {
-                    return i2;
-                }
-            }
-            if (z) {
-                return -1;
-            }
-            return list.size() - 1;
-        }
-        return invokeLZ.intValue;
-    }
-
-    public void c(int i, int i2) {
-        BdTypeListView bdTypeListView;
-        View childAt;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) != null) || (bdTypeListView = this.b) == null || this.c || this.e < 0 || (childAt = bdTypeListView.getChildAt(i2 - 1)) == null) {
-            return;
-        }
-        if (this.d <= 0) {
-            this.d = this.b.getHeight() - this.a;
-        }
-        if (this.d <= 0) {
-            return;
-        }
-        int headerViewsCount = this.e + this.b.getHeaderViewsCount();
-        int i3 = (i + i2) - 1;
-        if (i3 > headerViewsCount) {
-            if (i3 - 1 == headerViewsCount && childAt.getTop() > this.d) {
-                return;
-            }
-            a aVar = this.f;
-            if (aVar != null) {
-                aVar.a();
-            }
-            this.c = true;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ht8Var) == null) {
+            this.g = ht8Var;
         }
     }
 
-    public void b(boolean z, int i) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.vm
+    /* renamed from: x */
+    public PbPageNewsInfoHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) != null) || i == 3) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
+            return new PbPageNewsInfoHolder(this.b.getPageContext(), LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0733, viewGroup, false), this.h);
         }
-        this.e = a(this.b.getData(), z);
+        return (PbPageNewsInfoHolder) invokeL.objValue;
     }
 
-    public void d(a aVar) {
+    @Override // com.baidu.tieba.xv8, com.baidu.tieba.vm
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        y(i, view2, viewGroup, (rw8) obj, (PbPageNewsInfoHolder) viewHolder);
+        return view2;
+    }
+
+    public View y(int i, View view2, ViewGroup viewGroup, rw8 rw8Var, PbPageNewsInfoHolder pbPageNewsInfoHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f = aVar;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, rw8Var, pbPageNewsInfoHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) rw8Var, (rw8) pbPageNewsInfoHolder);
+            if (rw8Var == null) {
+                return view2;
+            }
+            rw8Var.d0 = i + 1;
+            c09.d(this.b.getUniqueId(), this.g, rw8Var, rw8Var.d0, 5);
+            pbPageNewsInfoHolder.g(rw8Var);
+            pbPageNewsInfoHolder.h(TbadkCoreApplication.getInst().getSkinType());
+            return view2;
         }
+        return (View) invokeCommon.objValue;
     }
 }

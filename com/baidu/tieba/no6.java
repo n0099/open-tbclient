@@ -1,39 +1,55 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.bdtask.ctrl.model.TaskProcess;
-import com.baidu.tbadk.core.data.ItemData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tieba.downloadmanager.ui.adapter.ItemCardViewWrapperAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import tbclient.ApkDetail;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class no6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public BaseFragment a;
+    public BdTypeRecyclerView b;
+    public ItemCardViewWrapperAdapter c;
+    public List<vm> d;
+    public int e;
+    public int f;
 
-    public static void a(co6 co6Var) {
-        ItemData itemData;
+    public no6(BaseFragment baseFragment, BdTypeRecyclerView bdTypeRecyclerView, int i, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, co6Var) == null) && co6Var != null && (itemData = co6Var.a) != null) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_UPLOAD_DOWNLOAD_INFO);
-            httpMessage.addParam("item_id", itemData.itemId);
-            httpMessage.addParam("app_name", itemData.mTitle);
-            httpMessage.addParam("source_type", co6Var.b);
-            httpMessage.addParam("icon_url", itemData.mIconUrl);
-            httpMessage.addParam("score", Double.valueOf(itemData.mScore));
-            httpMessage.addParam(TaskProcess.keyTags, itemData.mTags);
-            httpMessage.addParam("apk_name", itemData.pkgName);
-            ApkDetail apkDetail = itemData.apkDetail;
-            if (apkDetail != null) {
-                httpMessage.addParam("developer", apkDetail.developer);
-                httpMessage.addParam("privacy_url", itemData.apkDetail.privacy_url);
-                httpMessage.addParam("authority_url", itemData.apkDetail.authority_url);
-                httpMessage.addParam("version", itemData.apkDetail.version);
-                httpMessage.addParam("version_code", itemData.apkDetail.version_code);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseFragment, bdTypeRecyclerView, Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            MessageManager.getInstance().sendMessageFromBackground(httpMessage);
+        }
+        this.d = new ArrayList();
+        this.a = baseFragment;
+        this.b = bdTypeRecyclerView;
+        this.e = i;
+        this.f = i2;
+        a();
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ItemCardViewWrapperAdapter itemCardViewWrapperAdapter = new ItemCardViewWrapperAdapter(this.a.getContext(), do6.e, this.e, this.b, this.f);
+            this.c = itemCardViewWrapperAdapter;
+            this.d.add(itemCardViewWrapperAdapter);
+            this.b.addAdapters(this.d);
         }
     }
 }

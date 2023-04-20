@@ -16,15 +16,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class z76 extends y47<oz4, FrsPageAlaVideoHolder> implements vg6, py5 {
+public class z76 extends z47<ThreadData, FrsPageAlaVideoHolder> implements wg6, qy5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public j86 l;
+    public k86 l;
     public String m;
     public String n;
-    public xg6<ThreadData> o;
+    public yg6<ThreadData> o;
 
-    @Override // com.baidu.tieba.vg6
+    @Override // com.baidu.tieba.wg6
     public void p(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
@@ -32,7 +32,7 @@ public class z76 extends y47<oz4, FrsPageAlaVideoHolder> implements vg6, py5 {
     }
 
     /* loaded from: classes7.dex */
-    public class a extends xg6<ThreadData> {
+    public class a extends yg6<ThreadData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ z76 b;
@@ -56,7 +56,7 @@ public class z76 extends y47<oz4, FrsPageAlaVideoHolder> implements vg6, py5 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.xg6
+        @Override // com.baidu.tieba.yg6
         /* renamed from: d */
         public void a(View view2, ThreadData threadData) {
             CustomMessage customMessage;
@@ -64,7 +64,7 @@ public class z76 extends y47<oz4, FrsPageAlaVideoHolder> implements vg6, py5 {
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) {
                 if (view2.getId() == R.id.layout_root) {
                     customMessage = new CustomMessage(2921018);
-                } else if (view2.getId() != R.id.card_home_page_normal_thread_user_name && view2.getId() != R.id.card_home_page_normal_thread_user_header && view2.getId() != R.id.user_avatar) {
+                } else if (view2.getId() != R.id.card_home_page_normal_thread_user_name && view2.getId() != R.id.card_home_page_normal_thread_user_header) {
                     if (view2.getId() == R.id.video_container) {
                         customMessage = new CustomMessage(2921019);
                     } else {
@@ -103,7 +103,7 @@ public class z76 extends y47<oz4, FrsPageAlaVideoHolder> implements vg6, py5 {
         this.o = new a(this);
     }
 
-    @Override // com.baidu.tieba.vg6
+    @Override // com.baidu.tieba.wg6
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
@@ -111,7 +111,7 @@ public class z76 extends y47<oz4, FrsPageAlaVideoHolder> implements vg6, py5 {
         }
     }
 
-    @Override // com.baidu.tieba.py5
+    @Override // com.baidu.tieba.qy5
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
@@ -120,7 +120,7 @@ public class z76 extends y47<oz4, FrsPageAlaVideoHolder> implements vg6, py5 {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.um
+    @Override // com.baidu.tieba.vm
     /* renamed from: I */
     public FrsPageAlaVideoHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -130,9 +130,9 @@ public class z76 extends y47<oz4, FrsPageAlaVideoHolder> implements vg6, py5 {
             if (tbPageContext == null) {
                 return null;
             }
-            j86 j86Var = new j86(tbPageContext, this.mPageId);
-            this.l = j86Var;
-            j86Var.W(this.mPageId);
+            k86 k86Var = new k86(tbPageContext, this.mPageId);
+            this.l = k86Var;
+            k86Var.W(this.mPageId);
             this.l.a(this.m);
             this.l.n(this.o);
             return new FrsPageAlaVideoHolder(this.l);
@@ -141,13 +141,13 @@ public class z76 extends y47<oz4, FrsPageAlaVideoHolder> implements vg6, py5 {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.y47, com.baidu.tieba.um
+    @Override // com.baidu.tieba.z47, com.baidu.tieba.vm
     /* renamed from: J */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, oz4 oz4Var, FrsPageAlaVideoHolder frsPageAlaVideoHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ThreadData threadData, FrsPageAlaVideoHolder frsPageAlaVideoHolder) {
         InterceptResult invokeCommon;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, oz4Var, frsPageAlaVideoHolder})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, threadData, frsPageAlaVideoHolder})) == null) {
             TiebaStatic.log("c11842");
             CustomMessage customMessage = new CustomMessage(2921017);
             FrsViewData frsViewData = this.b;
@@ -156,27 +156,26 @@ public class z76 extends y47<oz4, FrsPageAlaVideoHolder> implements vg6, py5 {
             } else {
                 i2 = 0;
             }
-            ThreadData threadData = oz4Var.t;
             threadData.statFloor = (i + 1) - i2;
             customMessage.setData(threadData);
             this.c.sendMessage(customMessage);
-            if (oz4Var != null) {
-                j86 j86Var = frsPageAlaVideoHolder.b;
-                if (j86Var instanceof oy5) {
-                    j86Var.b(this.n);
+            if (threadData != null) {
+                k86 k86Var = frsPageAlaVideoHolder.b;
+                if (k86Var instanceof py5) {
+                    k86Var.b(this.n);
                 }
                 frsPageAlaVideoHolder.b.a(this.m);
                 frsPageAlaVideoHolder.b.X(u());
-                frsPageAlaVideoHolder.b.l(oz4Var.t);
-                oz4Var.t.updateShowStatus();
+                frsPageAlaVideoHolder.b.l(threadData);
+                threadData.updateShowStatus();
             }
-            this.e = (nn) viewGroup;
+            this.e = (on) viewGroup;
             return frsPageAlaVideoHolder.getView();
         }
         return (View) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.y47, com.baidu.tieba.ug6
+    @Override // com.baidu.tieba.z47
     public void m(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, tbPageContext, bdUniqueId) == null) {

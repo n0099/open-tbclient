@@ -11,10 +11,10 @@ import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.data.BdToastData;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tieba.R;
+import com.baidu.tieba.fk9;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.it4;
 import com.baidu.tieba.jg;
-import com.baidu.tieba.xj9;
+import com.baidu.tieba.jt4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -98,7 +98,7 @@ public class BdToastHelper {
                 if (contentBean2 != null) {
                     if (TbadkApplication.getInst().getSkinType() == 4) {
                         if (StringUtils.isNotNull(contentBean2.getTextColorDark())) {
-                            foregroundColorSpan = new ForegroundColorSpan(xj9.f(contentBean2.getTextColorDark()));
+                            foregroundColorSpan = new ForegroundColorSpan(fk9.f(contentBean2.getTextColorDark()));
                         } else {
                             if (contentBean2.getHasColor() == 1) {
                                 foregroundColorSpan = new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305));
@@ -113,7 +113,7 @@ public class BdToastHelper {
                         }
                     } else {
                         if (StringUtils.isNotNull(contentBean2.getTextColor())) {
-                            foregroundColorSpan = new ForegroundColorSpan(xj9.f(contentBean2.getTextColor()));
+                            foregroundColorSpan = new ForegroundColorSpan(fk9.f(contentBean2.getTextColor()));
                         } else {
                             if (contentBean2.getHasColor() == 1) {
                                 foregroundColorSpan = new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305));
@@ -177,7 +177,7 @@ public class BdToastHelper {
     public static void showToastByUrl(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, null, str) == null) {
-            TbWebViewActivityConfig g = it4.g(TbadkCoreApplication.getInst(), null, str, true);
+            TbWebViewActivityConfig g = jt4.g(TbadkCoreApplication.getInst(), null, str, true);
             g.setPageTranslucent(TbWebViewActivityConfig.PAGE_TYPE_BLACK_TRANSLUCENT);
             g.start();
             if (mBdToastData.getTaskIds() != null && mBdToastData.getTaskIds().length > 0) {
@@ -251,7 +251,7 @@ public class BdToastHelper {
             if (toastSpannableString != null) {
                 BdToast b = BdToast.b(TbadkCoreApplication.getInst().getContext(), toastSpannableString);
                 setToastIcon(b, bdToastData);
-                int f = xj9.f(bdToastData.getBackground());
+                int f = fk9.f(bdToastData.getBackground());
                 if (f != 0 && f != Integer.MAX_VALUE) {
                     b.c(f);
                 }

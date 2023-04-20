@@ -1,12 +1,7 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.graphics.Rect;
-import android.util.Log;
+import android.annotation.SuppressLint;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,14 +11,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class o53 {
+public class o53 implements x53 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public final View b;
-    public w53 c;
-    public Context d;
+    public final View a;
+    public boolean b;
+    public boolean c;
 
     static {
         InterceptResult invokeClinit;
@@ -38,7 +32,34 @@ public class o53 {
                 return;
             }
         }
-        e = eo1.a;
+        d = fo1.a;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.x53
+    public void handleHide() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.b = true;
+        }
+    }
+
+    @Override // com.baidu.tieba.x53
+    @SuppressLint({"BDThrowableCheck"})
+    public void handleShow() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || !d) {
+            return;
+        }
+        throw new IllegalAccessError("You can't invoke handle show in handler, please instead of handling in the panel layout, maybe just need invoke super.setVisibility(View.VISIBLE)");
     }
 
     public o53(View view2) {
@@ -56,117 +77,55 @@ public class o53 {
                 return;
             }
         }
-        this.a = -1;
-        this.b = view2;
-        this.d = view2.getContext();
+        this.b = false;
+        this.c = false;
+        this.a = view2;
     }
 
-    public final w53 a(View view2) {
-        InterceptResult invokeL;
+    public boolean a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-            w53 w53Var = this.c;
-            if (w53Var != null) {
-                return w53Var;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i == 0) {
+                this.b = false;
             }
-            if (view2 instanceof w53) {
-                w53 w53Var2 = (w53) view2;
-                this.c = w53Var2;
-                return w53Var2;
-            } else if (view2 instanceof ViewGroup) {
-                ViewGroup viewGroup = (ViewGroup) view2;
-                for (int i = 0; i < viewGroup.getChildCount(); i++) {
-                    w53 a = a(viewGroup.getChildAt(i));
-                    if (a != null) {
-                        this.c = a;
-                        return a;
-                    }
-                }
-                return null;
-            } else {
-                return null;
+            if (i == this.a.getVisibility()) {
+                return true;
             }
+            if (!b() || i != 0) {
+                return false;
+            }
+            return true;
         }
-        return (w53) invokeL.objValue;
+        return invokeI.booleanValue;
     }
 
-    public void b(int i, int i2) {
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
-            Context context = this.d;
-            if (context instanceof Activity) {
-                Activity activity = (Activity) context;
-                if (v53.f(activity) && this.b.getFitsSystemWindows()) {
-                    Rect rect = new Rect();
-                    this.b.getWindowVisibleDisplayFrame(rect);
-                    i2 = rect.bottom - rect.top;
-                    if (e) {
-                        Log.d("SPSwitchRootLayout", "TranslucentStatus && FitsSystemWindows = true, height: " + i2);
-                    }
-                }
-                if (v53.e(activity) && this.b.getFitsSystemWindows()) {
-                    Rect rect2 = new Rect();
-                    this.b.getWindowVisibleDisplayFrame(rect2);
-                    i2 = rect2.bottom - rect2.top;
-                    if (e) {
-                        Log.d("SPSwitchRootLayout", "systemUILayoutFullScreen && FitsSystemWindows = true, height: " + i2);
-                    }
-                }
-            }
-            if (e) {
-                Log.d("SPSwitchRootLayout", "onMeasure, width: " + i + " height: " + i2);
-            }
-            if (i2 < 0) {
-                return;
-            }
-            int i3 = this.a;
-            if (i3 < 0) {
-                if (e) {
-                    Log.d("SPSwitchRootLayout", "onMeasure, oldHeight < 0, oldHeight: " + this.a);
-                }
-                this.a = i2;
-                return;
-            }
-            int i4 = i3 - i2;
-            if (i4 == 0) {
-                if (e) {
-                    Log.d("SPSwitchRootLayout", "offset == 0, break;");
-                    return;
-                }
-                return;
-            }
-            this.a = i2;
-            w53 a = a(this.b);
-            if (a == null) {
-                if (e) {
-                    Log.d("SPSwitchRootLayout", "cannot find the valid panel layout, give up!");
-                    return;
-                }
-                return;
-            }
-            int visibility = ((LinearLayout) a).getVisibility();
-            if (e) {
-                Log.d("SPSwitchRootLayout", "panel visibility: " + visibility);
-            }
-            if (Math.abs(i4) < t53.g(this.b.getContext())) {
-                if (e) {
-                    Log.d("SPSwitchRootLayout", "layout change min, not caused by softinput/panel switch!");
-                }
-            } else if (Math.abs(i4) > t53.e(this.b.getContext())) {
-                if (e) {
-                    Log.d("SPSwitchRootLayout", "layout change max , but not caused by softinput/panel switch!");
-                }
-            } else if (i4 > 0) {
-                if (e) {
-                    Log.d("SPSwitchRootLayout", "offset > 0, offset : " + i4 + ", panel->handleHide...");
-                }
-                a.handleHide();
-            } else {
-                if (e) {
-                    Log.d("SPSwitchRootLayout", "offset < 0, offset : " + i4 + ", panel->handleShow...");
-                }
-                a.handleShow();
-            }
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            w53.g(this.a, i);
         }
+    }
+
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.c = z;
+        }
+    }
+
+    public int[] c(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2)) == null) {
+            if (this.b) {
+                this.a.setVisibility(8);
+                int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 1073741824);
+                i2 = View.MeasureSpec.makeMeasureSpec(0, 1073741824);
+                i = makeMeasureSpec;
+            }
+            return new int[]{i, i2};
+        }
+        return (int[]) invokeII.objValue;
     }
 }

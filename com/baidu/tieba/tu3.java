@@ -1,27 +1,41 @@
 package com.baidu.tieba;
 
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.unitedscheme.security.ISchemeHeadIoc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes6.dex */
-public class tu3 {
+public class tu3 implements ISchemeHeadIoc {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile su3 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized su3 a() {
-        InterceptResult invokeV;
-        su3 su3Var;
+    public tu3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (tu3.class) {
-                if (a == null) {
-                    a = new su3();
-                }
-                su3Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return su3Var;
         }
-        return (su3) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.unitedscheme.security.ISchemeHeadIoc
+    public String getSchemeHead() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return cr2.n().getSchemeHeader();
+        }
+        return (String) invokeV.objValue;
     }
 }

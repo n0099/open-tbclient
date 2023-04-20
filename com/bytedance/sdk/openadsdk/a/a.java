@@ -9,11 +9,11 @@ import androidx.annotation.Nullable;
 public class a implements Application.ActivityLifecycleCallbacks {
     public static volatile boolean a;
     public int b = 0;
-    public InterfaceC0523a c;
+    public InterfaceC0522a c;
 
     /* renamed from: com.bytedance.sdk.openadsdk.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public interface InterfaceC0523a {
+    public interface InterfaceC0522a {
         void a();
 
         void b();
@@ -43,17 +43,17 @@ public class a implements Application.ActivityLifecycleCallbacks {
         return Boolean.valueOf(a);
     }
 
-    public void a(InterfaceC0523a interfaceC0523a) {
-        this.c = interfaceC0523a;
+    public void a(InterfaceC0522a interfaceC0522a) {
+        this.c = interfaceC0522a;
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityStarted(@NonNull Activity activity) {
         this.b++;
         a = false;
-        InterfaceC0523a interfaceC0523a = this.c;
-        if (interfaceC0523a != null) {
-            interfaceC0523a.b();
+        InterfaceC0522a interfaceC0522a = this.c;
+        if (interfaceC0522a != null) {
+            interfaceC0522a.b();
         }
     }
 
@@ -63,9 +63,9 @@ public class a implements Application.ActivityLifecycleCallbacks {
         this.b = i;
         if (i == 0) {
             a = true;
-            InterfaceC0523a interfaceC0523a = this.c;
-            if (interfaceC0523a != null) {
-                interfaceC0523a.a();
+            InterfaceC0522a interfaceC0522a = this.c;
+            if (interfaceC0522a != null) {
+                interfaceC0522a.a();
             }
         }
     }

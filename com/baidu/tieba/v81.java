@@ -1,46 +1,33 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.net.http.SslError;
-import android.os.Message;
-import android.view.KeyEvent;
-import android.webkit.SslErrorHandler;
-import com.baidu.nadcore.webview.view.AbsNadBrowserView;
+import com.baidu.nadcore.webview.view.NadBrowserStateView;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface v81 extends b81 {
-    void F(AbsNadBrowserView absNadBrowserView, float f, float f2);
+public final /* synthetic */ class v81 {
+    public static final /* synthetic */ int[] $EnumSwitchMapping$0;
+    public static final /* synthetic */ int[] $EnumSwitchMapping$1;
+    public static final /* synthetic */ int[] $EnumSwitchMapping$2;
+    public static final /* synthetic */ int[] $EnumSwitchMapping$3;
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void F0(AbsNadBrowserView absNadBrowserView, String str, boolean z);
-
-    void G0(AbsNadBrowserView absNadBrowserView, SslErrorHandler sslErrorHandler, SslError sslError);
-
-    void L0(AbsNadBrowserView absNadBrowserView, KeyEvent keyEvent);
-
-    boolean P(AbsNadBrowserView absNadBrowserView, KeyEvent keyEvent);
-
-    boolean P0(AbsNadBrowserView absNadBrowserView, String str);
-
-    void U0(AbsNadBrowserView absNadBrowserView, String str, Bitmap bitmap);
-
-    void V(AbsNadBrowserView absNadBrowserView, String str);
-
-    void V0(AbsNadBrowserView absNadBrowserView, w81 w81Var, String str, String str2);
-
-    void a1();
-
-    void b(AbsNadBrowserView absNadBrowserView, int i, String str, String str2);
-
-    void i(AbsNadBrowserView absNadBrowserView, String str);
-
-    void j(AbsNadBrowserView absNadBrowserView);
-
-    void n0();
-
-    void o1(AbsNadBrowserView absNadBrowserView, int i);
-
-    y81 q0(AbsNadBrowserView absNadBrowserView, String str);
-
-    void u0(AbsNadBrowserView absNadBrowserView, Message message, Message message2);
-
-    void y(AbsNadBrowserView absNadBrowserView, String str);
+    static {
+        int[] iArr = new int[NadBrowserStateView.ViewState.values().length];
+        $EnumSwitchMapping$0 = iArr;
+        iArr[NadBrowserStateView.ViewState.LOADING.ordinal()] = 1;
+        $EnumSwitchMapping$0[NadBrowserStateView.ViewState.ERROR.ordinal()] = 2;
+        int[] iArr2 = new int[NadBrowserStateView.ViewState.values().length];
+        $EnumSwitchMapping$1 = iArr2;
+        iArr2[NadBrowserStateView.ViewState.LOADING.ordinal()] = 1;
+        $EnumSwitchMapping$1[NadBrowserStateView.ViewState.ERROR.ordinal()] = 2;
+        int[] iArr3 = new int[NadBrowserStateView.ViewState.values().length];
+        $EnumSwitchMapping$2 = iArr3;
+        iArr3[NadBrowserStateView.ViewState.LOADING.ordinal()] = 1;
+        $EnumSwitchMapping$2[NadBrowserStateView.ViewState.ERROR.ordinal()] = 2;
+        int[] iArr4 = new int[NadBrowserStateView.ViewState.values().length];
+        $EnumSwitchMapping$3 = iArr4;
+        iArr4[NadBrowserStateView.ViewState.LOADING.ordinal()] = 1;
+        $EnumSwitchMapping$3[NadBrowserStateView.ViewState.ERROR.ordinal()] = 2;
+    }
 }

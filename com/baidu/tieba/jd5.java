@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class jd5 extends ad5 {
+public class jd5 extends bd5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public jd5(Context context, int i) {
-        super(context, TbadkCoreApplication.getInst().getString(R.string.editor_gift_tab), 22, i);
+        super(context, TbadkCoreApplication.getInst().getString(R.string.editor_evaluate), 39, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -30,9 +30,11 @@ public class jd5 extends ad5 {
                 return;
             }
         }
-        this.d = R.drawable.icon_pure_post_vip24_pb;
+        this.d = R.drawable.icon_pure_post_evaluate64;
+        this.h = R.drawable.icon_pure_post_evaluate64;
         this.i = false;
         this.j = true;
-        this.p = new int[]{36};
+        this.k = false;
+        this.p = new int[]{69};
     }
 }

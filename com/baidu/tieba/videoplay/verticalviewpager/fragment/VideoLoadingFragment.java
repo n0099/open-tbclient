@@ -19,8 +19,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ay9;
-import com.baidu.tieba.pg5;
+import com.baidu.tieba.iy9;
+import com.baidu.tieba.qg5;
 import com.baidu.tieba.video.VideoItemModel;
 import com.baidu.tieba.videoplay.verticalviewpager.fragment.VideoLoadingFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,7 +32,7 @@ import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000R\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0006\u0018\u00002\u00020\u00012\u00020\u0002B\u0005¢\u0006\u0002\u0010\u0003J\n\u0010\u0010\u001a\u0004\u0018\u00010\u000fH\u0016J\b\u0010\u0011\u001a\u00020\u0007H\u0016J\b\u0010\u0012\u001a\u00020\u0013H\u0002J\u0012\u0010\u0014\u001a\u00020\u00132\b\u0010\u0015\u001a\u0004\u0018\u00010\u0016H\u0016J&\u0010\u0017\u001a\u0004\u0018\u00010\r2\u0006\u0010\u0018\u001a\u00020\u00192\b\u0010\u001a\u001a\u0004\u0018\u00010\u001b2\b\u0010\u0015\u001a\u0004\u0018\u00010\u0016H\u0016J\b\u0010\u001c\u001a\u00020\u0013H\u0016J\b\u0010\u001d\u001a\u00020\u0013H\u0016J\u0010\u0010\u001e\u001a\u00020\u00132\u0006\u0010\u001f\u001a\u00020\u0007H\u0016J\b\u0010 \u001a\u00020\u0013H\u0002R\u000e\u0010\u0004\u001a\u00020\u0005X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0006\u001a\u00020\u0007X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\b\u001a\u00020\u0007X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\t\u001a\u0004\u0018\u00010\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\u0005X\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\f\u001a\u0004\u0018\u00010\rX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u000e\u001a\u0004\u0018\u00010\u000fX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006!"}, d2 = {"Lcom/baidu/tieba/videoplay/verticalviewpager/fragment/VideoLoadingFragment;", "Lcom/baidu/tbadk/core/BaseFragment;", "Lcom/baidu/tieba/videoplay/verticalviewpager/transforms/IVideoFragment;", "()V", "mBackHomeAnimListener", "Lcom/baidu/adp/framework/listener/CustomMessageListener;", "mCurrentType", "", "mFragmentIndex", "mFromPage", "", "mNetworkChangedMessageListener", "mRootView", "Landroid/view/View;", "mVideoLoadingData", "Lcom/baidu/tieba/video/VideoItemModel;", "getCurrentData", "getFragmentIndex", "hideErrorView", "", "onActivityCreated", "savedInstanceState", "Landroid/os/Bundle;", "onCreateView", "inflater", "Landroid/view/LayoutInflater;", "container", "Landroid/view/ViewGroup;", "onDestroyView", "onPrimary", "setFragmentIndex", "index", "showErrorView", "VideoPlay_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class VideoLoadingFragment extends BaseFragment implements ay9 {
+public final class VideoLoadingFragment extends BaseFragment implements iy9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public VideoItemModel a;
@@ -214,7 +214,7 @@ public final class VideoLoadingFragment extends BaseFragment implements ay9 {
         }
     }
 
-    @Override // com.baidu.tieba.ay9
+    @Override // com.baidu.tieba.iy9
     public void u0(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
@@ -254,9 +254,9 @@ public final class VideoLoadingFragment extends BaseFragment implements ay9 {
             View view3 = this.c;
             if (view3 != null) {
                 FrameLayout frameLayout = (FrameLayout) view3;
-                pg5 pg5Var = this.mRefreshView;
-                if (pg5Var != null) {
-                    view2 = pg5Var.b();
+                qg5 qg5Var = this.mRefreshView;
+                if (qg5Var != null) {
+                    view2 = qg5Var.b();
                 } else {
                     view2 = null;
                 }
@@ -267,7 +267,7 @@ public final class VideoLoadingFragment extends BaseFragment implements ay9 {
         }
     }
 
-    @Override // com.baidu.tieba.ay9
+    @Override // com.baidu.tieba.iy9
     public VideoItemModel L0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -303,7 +303,7 @@ public final class VideoLoadingFragment extends BaseFragment implements ay9 {
         }
     }
 
-    @Override // com.baidu.tieba.ay9
+    @Override // com.baidu.tieba.iy9
     public int t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -316,7 +316,7 @@ public final class VideoLoadingFragment extends BaseFragment implements ay9 {
     public final void K1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            pg5 pg5Var = new pg5(getContext(), new View.OnClickListener() { // from class: com.baidu.tieba.zx9
+            qg5 qg5Var = new qg5(getContext(), new View.OnClickListener() { // from class: com.baidu.tieba.hy9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -328,8 +328,8 @@ public final class VideoLoadingFragment extends BaseFragment implements ay9 {
                     }
                 }
             });
-            this.mRefreshView = pg5Var;
-            pg5Var.p();
+            this.mRefreshView = qg5Var;
+            qg5Var.p();
             this.mRefreshView.m(null);
             String string = getResources().getString(R.string.refresh_view_title_text);
             Intrinsics.checkNotNullExpressionValue(string, "resources.getString(R.st….refresh_view_title_text)");
@@ -367,7 +367,7 @@ public final class VideoLoadingFragment extends BaseFragment implements ay9 {
             final GestureDetectorCompat gestureDetectorCompat = new GestureDetectorCompat(getContext(), new c(this));
             View view2 = this.c;
             if (view2 != null) {
-                view2.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.yx9
+                view2.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.gy9
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -381,7 +381,7 @@ public final class VideoLoadingFragment extends BaseFragment implements ay9 {
             }
             View view3 = this.c;
             if (view3 != null) {
-                view3.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.xx9
+                view3.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.fy9
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 

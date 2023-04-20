@@ -1,17 +1,18 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.searchbox.account.contants.LoginConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public abstract class z86 extends BaseCardInfo {
+public class z86 extends ax4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a96 a;
+    public String a;
 
     public z86() {
         Interceptable interceptable = $ic;
@@ -27,19 +28,20 @@ public abstract class z86 extends BaseCardInfo {
         }
     }
 
-    public a96 c() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return (a96) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public void d(a96 a96Var) {
+    @Override // com.baidu.tieba.ax4
+    public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, a96Var) == null) {
-            this.a = a96Var;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) && jSONObject != null) {
+            this.a = jSONObject.optString(LoginConstants.QQ_LOGIN, "");
         }
     }
 }

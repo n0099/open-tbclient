@@ -1,43 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.java_websocket.WebSocket;
-import org.java_websocket.drafts.Draft;
-import org.java_websocket.exceptions.InvalidDataException;
-import org.java_websocket.framing.Framedata;
 /* loaded from: classes7.dex */
-public abstract class yza implements a0b {
+public final class yza {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.a0b
-    public void onWebsocketHandshakeReceivedAsClient(WebSocket webSocket, o0b o0bVar, v0b v0bVar) throws InvalidDataException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, webSocket, o0bVar, v0bVar) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.a0b
-    public void onWebsocketHandshakeSentAsClient(WebSocket webSocket, o0b o0bVar) throws InvalidDataException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webSocket, o0bVar) == null) {
-        }
-    }
-
-    @Deprecated
-    public abstract void onWebsocketMessageFragment(WebSocket webSocket, Framedata framedata);
-
-    @Override // com.baidu.tieba.a0b
-    public void onWebsocketPong(WebSocket webSocket, Framedata framedata) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, webSocket, framedata) == null) {
-        }
-    }
+    public int a;
+    public int[] b;
+    public int[] c;
 
     public yza() {
         Interceptable interceptable = $ic;
@@ -53,21 +26,25 @@ public abstract class yza implements a0b {
         }
     }
 
-    @Override // com.baidu.tieba.a0b
-    public w0b onWebsocketHandshakeReceivedAsServer(WebSocket webSocket, Draft draft, o0b o0bVar) throws InvalidDataException {
-        InterceptResult invokeLLL;
+    public static void a(yza yzaVar, sza szaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webSocket, draft, o0bVar)) == null) {
-            return new s0b();
+        if (interceptable == null || interceptable.invokeLL(65537, null, yzaVar, szaVar) == null) {
+            int length = yzaVar.c.length;
+            int i = 0;
+            for (int i2 = 0; i2 < length; i2++) {
+                yzaVar.c[i2] = i;
+                vza.n(yzaVar.a, yzaVar.b, i, szaVar);
+                i += 1080;
+            }
         }
-        return (w0b) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.a0b
-    public void onWebsocketPing(WebSocket webSocket, Framedata framedata) {
+    public static void b(yza yzaVar, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, webSocket, framedata) == null) {
-            webSocket.sendFrame(new m0b((l0b) framedata));
+        if (interceptable == null || interceptable.invokeLII(65538, null, yzaVar, i, i2) == null) {
+            yzaVar.a = i;
+            yzaVar.b = new int[i2 * 1080];
+            yzaVar.c = new int[i2];
         }
     }
 }

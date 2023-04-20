@@ -10,7 +10,7 @@ import com.xiaomi.push.BuildConfig;
 import com.xiaomi.push.service.bg;
 import com.xiaomi.push.t;
 import java.util.Locale;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class t {
     public final int a;
 

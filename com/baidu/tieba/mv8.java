@@ -1,8 +1,15 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.switchs.PBCacheBlockSwitch;
-import com.baidu.tieba.me;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.abtest.UbsABTestDataManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.pb.pb.main.PbModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,15 +18,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class mv8 {
     public static /* synthetic */ Interceptable $ic;
-    public static mv8 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public me<byte[]> a;
-    public me<byte[]> b;
+    public TbPageContext a;
 
-    public mv8() {
+    public mv8(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,106 +36,80 @@ public class mv8 {
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        c();
+        this.a = tbPageContext;
     }
 
-    public static synchronized mv8 b() {
-        InterceptResult invokeV;
-        mv8 mv8Var;
+    public final void a(PbModel pbModel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (mv8.class) {
-                if (c == null) {
-                    c = new mv8();
+        if ((interceptable != null && interceptable.invokeLI(1048576, this, pbModel, i) != null) || pbModel == null) {
+            return;
+        }
+        StatisticItem statisticItem = new StatisticItem("c13719");
+        statisticItem.param("fid", pbModel.G.l());
+        statisticItem.param("tid", pbModel.G.O());
+        statisticItem.param("obj_type", i);
+        if (pbModel.t1() == 5) {
+            statisticItem.param("obj_source", 1);
+        } else if (pbModel.t1() == 7) {
+            statisticItem.param("obj_source", 2);
+        } else {
+            statisticItem.param("obj_source", 3);
+        }
+        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+        TiebaStatic.log(statisticItem);
+    }
+
+    public boolean b(PbModel pbModel) {
+        InterceptResult invokeL;
+        ht8 ht8Var;
+        String str;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pbModel)) == null) {
+            int i = 0;
+            if (this.a.getPageActivity() != null && pbModel != null && (ht8Var = pbModel.G) != null) {
+                if ("3".equals(ht8Var.e0)) {
+                    MainTabActivityConfig createNormalCfg = new MainTabActivityConfig(this.a.getPageActivity()).createNormalCfg(2);
+                    createNormalCfg.setSubTabName(this.a.getString(R.string.tab_name_topic_rank));
+                    this.a.sendMessage(new CustomMessage(2015002, createNormalCfg));
+                    return true;
                 }
-                mv8Var = c;
-            }
-            return mv8Var;
-        }
-        return (mv8) invokeV.objValue;
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.a == null) {
-                b05.d();
-                this.a = b05.b("tb.pb_mark");
-            }
-            if (this.b == null) {
-                b05.d();
-                this.b = b05.b("tb.pb_normal");
-            }
-        }
-    }
-
-    public byte[] a(String str, boolean z) {
-        InterceptResult invokeLZ;
-        me.b<byte[]> h;
-        byte[] bArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, str, z)) == null) {
-            if (PBCacheBlockSwitch.getIsOn()) {
-                return null;
-            }
-            if (z) {
-                me<byte[]> meVar = this.a;
-                if (meVar != null && str != null) {
-                    h = meVar.h(str);
+                String s = q45.m().s("key_pb_back_sid1", "");
+                String s2 = q45.m().s("key_pb_back_sid2", "");
+                if (!TextUtils.isEmpty(s) && UbsABTestDataManager.getInstance().getABTestSwitchData(s) != null) {
+                    str = "1";
+                } else if (!TextUtils.isEmpty(s2) && UbsABTestDataManager.getInstance().getABTestSwitchData(s2) != null) {
+                    str = "2";
+                } else {
+                    str = null;
                 }
-                h = null;
-            } else {
-                me<byte[]> meVar2 = this.b;
-                if (meVar2 != null && str != null) {
-                    h = meVar2.h(str);
+                if (str == null && (str2 = pbModel.G.d0) != null) {
+                    str = str2;
                 }
-                h = null;
-            }
-            if (h == null || (bArr = h.b) == null) {
-                return null;
-            }
-            return bArr;
-        }
-        return (byte[]) invokeLZ.objValue;
-    }
-
-    public void d(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z) == null) {
-            if (z) {
-                me<byte[]> meVar = this.a;
-                if (meVar != null && str != null) {
-                    meVar.i(str, new byte[0], 0L);
-                    return;
+                if (str == null) {
+                    return false;
                 }
-                return;
+                if (str.equals("1")) {
+                    MainTabActivityConfig createNormalCfg2 = new MainTabActivityConfig(this.a.getPageActivity()).createNormalCfg(2);
+                    createNormalCfg2.setSubTab(1, null);
+                    this.a.sendMessage(new CustomMessage(2015002, createNormalCfg2));
+                    a(pbModel, 1);
+                    return true;
+                } else if (str.equals("2")) {
+                    MainTabActivityConfig createNormalCfg3 = new MainTabActivityConfig(this.a.getPageActivity()).createNormalCfg(1);
+                    createNormalCfg3.setSubTab(0, pbModel.G.e0);
+                    this.a.sendMessage(new CustomMessage(2015002, createNormalCfg3));
+                    if ("游戏".equals(pbModel.G.e0)) {
+                        i = 2;
+                    } else if ("数码".equals(pbModel.G.e0)) {
+                        i = 3;
+                    }
+                    a(pbModel, i);
+                    return true;
+                }
             }
-            me<byte[]> meVar2 = this.b;
-            if (meVar2 != null && str != null) {
-                meVar2.i(str, new byte[0], 0L);
-            }
+            return false;
         }
-    }
-
-    public void f(String str, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, str, bArr) == null) && bArr != null && str != null) {
-            c();
-            this.a.e(str, bArr, 86400000L);
-        }
-    }
-
-    public void e(String str, boolean z, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, Boolean.valueOf(z), bArr}) == null) && str != null) {
-            c();
-            if (z) {
-                this.a.e(str, bArr, 86400000L);
-            } else {
-                this.b.e(str, bArr, 86400000L);
-            }
-        }
+        return invokeL.booleanValue;
     }
 }

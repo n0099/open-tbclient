@@ -15,19 +15,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.nio.ByteBuffer;
 /* loaded from: classes3.dex */
 public class cd0 {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final String h = "cd0";
+    public static final String f = "cd0";
     public transient /* synthetic */ FieldHolder $fh;
     public HandlerThread a;
     public Handler b;
-    public fc0 c;
-    public jd0 d;
-    public hd0 e;
-    public volatile boolean f;
-    public boolean g;
+    public ed0 c;
+    public id0 d;
+    public volatile boolean e;
 
     static {
         InterceptResult invokeClinit;
@@ -48,26 +46,28 @@ public class cd0 {
     public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public ArrayList<tc0> a;
-        public gd0 b;
+        public ByteBuffer a;
+        public int b;
+        public long c;
 
-        public a(cd0 cd0Var, ArrayList<tc0> arrayList, gd0 gd0Var) {
+        public a(cd0 cd0Var, ByteBuffer byteBuffer, int i, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {cd0Var, arrayList, gd0Var};
+                Object[] objArr = {cd0Var, byteBuffer, Integer.valueOf(i), Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = arrayList;
-            this.b = gd0Var;
+            this.a = byteBuffer;
+            this.b = i;
+            this.c = j;
         }
     }
 
@@ -104,29 +104,23 @@ public class cd0 {
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 switch (message.what) {
                     case 1001:
-                        a aVar = (a) message.obj;
-                        this.a.n(aVar.a, aVar.b);
+                        this.a.k((hd0) message.obj);
                         return;
                     case 1002:
-                        this.a.o();
+                        this.a.l();
                         return;
                     case 1003:
-                        this.a.r((ArrayList) message.obj);
+                        a aVar = (a) message.obj;
+                        this.a.h(aVar.a, aVar.b, aVar.c);
                         return;
                     case 1004:
-                        this.a.q((mc0) message.obj);
-                        return;
-                    case 1005:
-                        this.a.k((message.arg1 << 32) | (message.arg2 & 4294967295L));
-                        return;
-                    case 1006:
-                        this.a.p();
-                        return;
-                    case 1007:
                         this.a.m();
                         return;
-                    case 1008:
-                        this.a.l();
+                    case 1005:
+                        this.a.j();
+                        return;
+                    case 1006:
+                        this.a.i();
                         return;
                     default:
                         return;
@@ -148,26 +142,12 @@ public class cd0 {
                 return;
             }
         }
-        this.f = false;
-        this.g = false;
+        this.e = false;
     }
 
-    public long j() {
-        InterceptResult invokeV;
+    public final void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            jd0 jd0Var = this.d;
-            if (jd0Var != null) {
-                return jd0Var.d();
-            }
-            return 0L;
-        }
-        return invokeV.longValue;
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             Handler handler = this.b;
             if (handler != null) {
                 handler.removeCallbacksAndMessages(null);
@@ -181,42 +161,38 @@ public class cd0 {
         }
     }
 
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && Build.VERSION.SDK_INT >= 18) {
+            ed0 ed0Var = this.c;
+            if (ed0Var != null) {
+                ed0Var.i();
+                this.c.e();
+            }
+            this.c = null;
+            this.d = null;
+        }
+    }
+
+    public final void l() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && Build.VERSION.SDK_INT >= 18) {
+            this.c.h();
+        }
+    }
+
     public final void m() {
-        jd0 jd0Var;
+        ed0 ed0Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || Build.VERSION.SDK_INT < 18 || (jd0Var = this.d) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && Build.VERSION.SDK_INT >= 18 && (ed0Var = this.c) != null) {
+            ed0Var.a(true, null, 0, 0L);
         }
-        jd0Var.i();
-        this.d.e();
-        this.d = null;
-        this.e = null;
-        this.c.c();
-        this.c = null;
     }
 
-    public final void o() {
-        jd0 jd0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || Build.VERSION.SDK_INT < 18 || (jd0Var = this.d) == null) {
-            return;
-        }
-        jd0Var.h();
-    }
-
-    public final void p() {
-        jd0 jd0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || Build.VERSION.SDK_INT < 18 || (jd0Var = this.d) == null) {
-            return;
-        }
-        jd0Var.c(true);
-    }
-
-    public boolean t() {
+    public boolean o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             HandlerThread handlerThread = this.a;
             if (handlerThread != null && handlerThread.isAlive()) {
                 return true;
@@ -226,152 +202,97 @@ public class cd0 {
         return invokeV.booleanValue;
     }
 
-    public void u() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && this.b != null && this.f) {
-            this.b.removeMessages(1005);
-        }
-    }
-
-    public void v() {
+    public void p() {
         Handler handler;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (handler = this.b) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (handler = this.b) != null) {
             handler.removeCallbacksAndMessages(null);
             Handler handler2 = this.b;
-            handler2.sendMessage(handler2.obtainMessage(1007));
+            handler2.sendMessage(handler2.obtainMessage(1005));
             Handler handler3 = this.b;
-            handler3.sendMessage(handler3.obtainMessage(1008));
+            handler3.sendMessage(handler3.obtainMessage(1006));
         }
     }
 
-    public void x() {
+    public void r() {
         Handler handler;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048591, this) == null) && (handler = this.b) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && (handler = this.b) != null) {
             handler.sendMessage(handler.obtainMessage(1002));
         }
     }
 
-    public void y() {
+    public void s() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && this.b != null && this.f) {
-            this.f = false;
-            this.b.removeMessages(1005);
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && this.b != null && this.e) {
+            this.e = false;
             Handler handler = this.b;
-            handler.sendMessage(handler.obtainMessage(1006));
+            handler.sendMessage(handler.obtainMessage(1004));
         }
     }
 
-    public final void k(long j) {
-        jd0 jd0Var;
+    public final void k(hd0 hd0Var) {
+        ed0 ed0Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) != null) || Build.VERSION.SDK_INT < 18 || (jd0Var = this.d) == null) {
-            return;
-        }
-        jd0Var.c(false);
-        this.c.a(j);
-    }
-
-    public final void q(mc0 mc0Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, mc0Var) == null) && Build.VERSION.SDK_INT >= 18) {
-            this.c.d(mc0Var);
+        if ((interceptable == null || interceptable.invokeL(1048580, this, hd0Var) == null) && Build.VERSION.SDK_INT >= 18 && (ed0Var = this.c) != null) {
+            ed0Var.k(hd0Var, this.d);
         }
     }
 
-    public final void r(ArrayList<tc0> arrayList) {
+    public void g(ByteBuffer byteBuffer, int i, long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, arrayList) == null) && Build.VERSION.SDK_INT >= 18) {
-            this.c.e(arrayList);
-        }
-    }
-
-    public void z(ArrayList<tc0> arrayList) {
-        Handler handler;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048593, this, arrayList) == null) && (handler = this.b) != null) {
-            handler.sendMessage(handler.obtainMessage(1003, arrayList));
-        }
-    }
-
-    public final void n(ArrayList<tc0> arrayList, gd0 gd0Var) {
-        jd0 jd0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048581, this, arrayList, gd0Var) != null) || Build.VERSION.SDK_INT < 18 || (jd0Var = this.d) == null) {
-            return;
-        }
-        jd0Var.l(gd0Var, this.e);
-        if (this.c == null) {
-            this.c = new fc0(this.d.k(), arrayList);
-        }
-    }
-
-    public void i(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            int i = (int) (j >> 32);
-            int i2 = (int) j;
-            if (this.b != null && this.f) {
+        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{byteBuffer, Integer.valueOf(i), Long.valueOf(j)}) == null) && byteBuffer != null && i > 0) {
+            a aVar = new a(this, byteBuffer, i, j);
+            if (this.b != null && this.e) {
                 Handler handler = this.b;
-                handler.sendMessage(handler.obtainMessage(1005, i, i2));
-                synchronized (this.c) {
-                    try {
-                        if (this.g) {
-                            this.c.wait(12L);
-                        } else {
-                            this.c.wait(2L);
-                        }
-                    } catch (InterruptedException unused) {
-                        Thread.currentThread().interrupt();
-                    }
-                }
+                handler.sendMessage(handler.obtainMessage(1003, aVar));
             }
         }
     }
 
-    public final void s(hd0 hd0Var, fd0 fd0Var) {
+    public final void h(ByteBuffer byteBuffer, int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, hd0Var, fd0Var) == null) {
-            HandlerThread handlerThread = new HandlerThread("VideoRecorderThread");
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{byteBuffer, Integer.valueOf(i), Long.valueOf(j)}) == null) && Build.VERSION.SDK_INT >= 18) {
+            this.c.a(false, byteBuffer, i, j);
+        }
+    }
+
+    public final void n(id0 id0Var, gd0 gd0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, id0Var, gd0Var) == null) {
+            HandlerThread handlerThread = new HandlerThread("AudioRecorderThread");
             this.a = handlerThread;
             handlerThread.start();
             this.b = new b(this, this.a.getLooper());
-            if (Build.VERSION.SDK_INT >= 18) {
-                try {
-                    this.d = new jd0();
-                } catch (VerifyError unused) {
-                    Log.e(h, "initRecorder videorecorder verifyError");
-                    if (this.d == null) {
-                        return;
-                    }
+            try {
+                this.c = new ed0();
+            } catch (VerifyError unused) {
+                Log.e(f, "initRecorder verifyError");
+                if (this.c == null) {
+                    return;
                 }
-                this.d.f(fd0Var);
-                this.e = hd0Var;
             }
-            if (Build.HARDWARE.toLowerCase().startsWith("kirin")) {
-                this.g = true;
-            } else {
-                this.g = false;
+            this.d = id0Var;
+            if (Build.VERSION.SDK_INT >= 18) {
+                this.c.f(gd0Var);
             }
         }
     }
 
-    public boolean w(ArrayList<tc0> arrayList, gd0 gd0Var, hd0 hd0Var, fd0 fd0Var) {
-        InterceptResult invokeLLLL;
+    public boolean q(hd0 hd0Var, id0 id0Var, gd0 gd0Var) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048590, this, arrayList, gd0Var, hd0Var, fd0Var)) == null) {
-            if (t()) {
-                Log.e(h, "setupRecorder error! As last video recorder thread is alive!");
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048586, this, hd0Var, id0Var, gd0Var)) == null) {
+            if (o()) {
+                Log.e(f, "setupRecorder error! As last audio recorder thread is alive!");
                 return false;
             }
-            s(hd0Var, fd0Var);
-            a aVar = new a(this, arrayList, gd0Var);
+            n(id0Var, gd0Var);
             Handler handler = this.b;
-            handler.sendMessage(handler.obtainMessage(1001, aVar));
-            this.f = true;
+            handler.sendMessage(handler.obtainMessage(1001, hd0Var));
+            this.e = true;
             return true;
         }
-        return invokeLLLL.booleanValue;
+        return invokeLLL.booleanValue;
     }
 }

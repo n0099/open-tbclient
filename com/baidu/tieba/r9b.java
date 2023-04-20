@@ -1,48 +1,21 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.GridView;
+import android.content.res.Resources;
+import android.util.TypedValue;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
 public class r9b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(int i, View view2, GridView gridView) {
-        int i2;
+    public static int a(float f) {
+        InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeILL(65536, null, i, view2, gridView) == null) && i != 0 && gridView != null && view2 != null) {
-            if (i >= 3) {
-                i2 = 82;
-            } else {
-                i2 = 110;
-            }
-            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i != 4) {
-                            gridView.setNumColumns(3);
-                            layoutParams.width = j9b.a((i2 * 3) + 14);
-                        } else {
-                            gridView.setNumColumns(2);
-                            layoutParams.width = j9b.a((i2 * 2) + 7);
-                        }
-                    } else {
-                        gridView.setNumColumns(3);
-                        layoutParams.width = j9b.a((i2 * 3) + 14);
-                    }
-                } else {
-                    gridView.setNumColumns(2);
-                    layoutParams.width = j9b.a((i2 * 2) + 7);
-                }
-            } else {
-                gridView.setNumColumns(1);
-                layoutParams.width = j9b.a(i2);
-            }
-            view2.setLayoutParams(layoutParams);
+        if (interceptable == null || (invokeF = interceptable.invokeF(65536, null, f)) == null) {
+            return (int) TypedValue.applyDimension(1, f, Resources.getSystem().getDisplayMetrics());
         }
+        return invokeF.intValue;
     }
 }

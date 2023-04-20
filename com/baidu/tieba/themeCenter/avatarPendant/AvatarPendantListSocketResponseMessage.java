@@ -4,8 +4,8 @@ import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.gr9;
-import com.baidu.tieba.is9;
+import com.baidu.tieba.or9;
+import com.baidu.tieba.qs9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,8 +22,8 @@ import tbclient.GetPendantByCategory.ThemePendantInMain;
 public class AvatarPendantListSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<gr9> mAvatarPendantList;
-    public is9 mRecommand;
+    public List<or9> mAvatarPendantList;
+    public qs9 mRecommand;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AvatarPendantListSocketResponseMessage() {
@@ -43,7 +43,7 @@ public class AvatarPendantListSocketResponseMessage extends SocketResponsedMessa
         }
     }
 
-    public List<gr9> getAvatarPendantListList() {
+    public List<or9> getAvatarPendantListList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -52,13 +52,13 @@ public class AvatarPendantListSocketResponseMessage extends SocketResponsedMessa
         return (List) invokeV.objValue;
     }
 
-    public is9 getRecommand() {
+    public qs9 getRecommand() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.mRecommand;
         }
-        return (is9) invokeV.objValue;
+        return (qs9) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
@@ -81,17 +81,17 @@ public class AvatarPendantListSocketResponseMessage extends SocketResponsedMessa
                 return getPendantByCategoryResIdl;
             }
             if (dataRes.recommend != null) {
-                is9 is9Var = new is9();
-                this.mRecommand = is9Var;
-                is9Var.d(getPendantByCategoryResIdl.data.recommend);
+                qs9 qs9Var = new qs9();
+                this.mRecommand = qs9Var;
+                qs9Var.d(getPendantByCategoryResIdl.data.recommend);
             }
             if (getPendantByCategoryResIdl.data.pendant != null) {
                 this.mAvatarPendantList = new ArrayList();
                 for (ThemePendantInMain themePendantInMain : getPendantByCategoryResIdl.data.pendant) {
                     if (themePendantInMain != null && !StringUtils.isNull(themePendantInMain.pendant_category)) {
-                        gr9 gr9Var = new gr9();
-                        gr9Var.c(themePendantInMain);
-                        this.mAvatarPendantList.add(gr9Var);
+                        or9 or9Var = new or9();
+                        or9Var.c(themePendantInMain);
+                        this.mAvatarPendantList.add(or9Var);
                     }
                 }
             }

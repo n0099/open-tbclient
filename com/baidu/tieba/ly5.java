@@ -6,17 +6,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes5.dex */
 public class ly5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<Integer, Integer> a;
+    public HashMap<String, my5> a;
+    public ArrayList<Integer> b;
+    public ny5 c;
 
-    public ly5() {
+    public ly5(ny5 ny5Var, ArrayList<Integer> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ny5Var, arrayList};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -26,28 +31,43 @@ public class ly5 {
                 return;
             }
         }
+        this.b = arrayList;
+        this.c = ny5Var;
         this.a = new HashMap<>();
     }
 
-    public int a(int i) {
-        InterceptResult invokeI;
+    public int a(String str, int i) {
+        InterceptResult invokeLI;
+        ArrayList<Integer> arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            HashMap<Integer, Integer> hashMap = this.a;
-            if (hashMap == null || !hashMap.containsKey(Integer.valueOf(i))) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
+            if (this.a == null || hi.isEmpty(str) || (arrayList = this.b) == null || !arrayList.contains(Integer.valueOf(i))) {
                 return 0;
             }
-            return this.a.get(Integer.valueOf(i)).intValue();
+            if (!this.a.containsKey(str)) {
+                b(str);
+            }
+            my5 my5Var = this.a.get(str);
+            if (my5Var == null) {
+                return 0;
+            }
+            return my5Var.a(i);
         }
-        return invokeI.intValue;
+        return invokeLI.intValue;
     }
 
-    public void b(int i, int i2) {
-        HashMap<Integer, Integer> hashMap;
+    public void b(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) != null) || (hashMap = this.a) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && this.a != null && !hi.isEmpty(str) && this.c != null) {
+            if (this.a.containsKey(str)) {
+                my5 my5Var = this.a.get(str);
+                this.c.b(this.b, my5Var);
+                this.a.put(str, my5Var);
+                return;
+            }
+            my5 my5Var2 = new my5();
+            this.c.b(this.b, my5Var2);
+            this.a.put(str, my5Var2);
         }
-        hashMap.put(Integer.valueOf(i), Integer.valueOf(i2));
     }
 }

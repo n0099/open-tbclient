@@ -5,10 +5,10 @@ import android.webkit.WebResourceResponse;
 import androidx.core.util.Pair;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.searchbox.bddownload.core.Util;
-import com.baidu.tieba.ad6;
-import com.baidu.tieba.de6;
-import com.baidu.tieba.jf6;
-import com.baidu.tieba.wd6;
+import com.baidu.tieba.bd6;
+import com.baidu.tieba.ee6;
+import com.baidu.tieba.kf6;
+import com.baidu.tieba.xd6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +23,7 @@ import java.util.Map;
 /* loaded from: classes3.dex */
 public class ImageLoader {
     public static /* synthetic */ Interceptable $ic;
-    public static final ad6 a;
+    public static final bd6 a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,7 +39,7 @@ public class ImageLoader {
                 return;
             }
         }
-        a = new ad6();
+        a = new bd6();
     }
 
     public static WebResourceResponse a(String str, Map<String, String> map, Pair<InputStream, Long> pair) {
@@ -47,7 +47,7 @@ public class ImageLoader {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, map, pair)) == null) {
-            String b = jf6.b(str);
+            String b = kf6.b(str);
             HashMap<String, String> hashMap = new HashMap<String, String>() { // from class: com.baidu.tieba.browser.core.webview.flyweight.loader.ImageLoader.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -89,14 +89,14 @@ public class ImageLoader {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            de6 e = wd6.d().e(str);
+            ee6 e = xd6.d().e(str);
             if (e == null) {
-                e = wd6.d().e(jf6.c(str2));
+                e = xd6.d().e(kf6.c(str2));
             }
             if (e == null) {
                 return null;
             }
-            String c = jf6.c(str2);
+            String c = kf6.c(str2);
             String str3 = "";
             for (String str4 : e.f) {
                 if (c.endsWith(str4)) {

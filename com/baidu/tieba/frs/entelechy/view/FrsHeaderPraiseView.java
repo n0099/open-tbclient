@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.it4;
+import com.baidu.tieba.jt4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -65,7 +65,7 @@ public class FrsHeaderPraiseView extends RelativeLayout {
             if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || TextUtils.isEmpty(this.a.url)) {
                 return;
             }
-            it4.v(this.b.getContext(), null, this.a.url, true);
+            jt4.v(this.b.getContext(), null, this.a.url, true);
         }
     }
 

@@ -1,39 +1,45 @@
 package com.baidu.tieba;
 
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.ForumDetailActivityConfig;
+import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.view.BarImageView;
+import com.baidu.tbadk.widget.LinearGradientView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.frs.sportspage.FrsSportsRecommendFragment;
+import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.SportScheduleInfo;
+import tbclient.ThemeColorInfo;
+import tbclient.ThemeElement;
 /* loaded from: classes6.dex */
 public class uf7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public View b;
-    public TextView c;
-    public TbImageView d;
-    public TbImageView e;
-    public TextView f;
-    public TextView g;
-    public TextView h;
-    public TextView i;
-    public TextView j;
-    public String k;
-    public String l;
-    public final View.OnClickListener m;
+    public TbImageView b;
+    public LinearGradientView c;
+    public BarImageView d;
+    public TextView e;
+    public FrsViewData f;
+    public boolean g;
+    public String h;
+    public boolean i;
+    public final View.OnClickListener j;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
@@ -62,9 +68,21 @@ public class uf7 {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && !hi.isEmpty(this.a.k)) {
-                UrlManager.getInstance().dealOneLink(this.a.a, new String[]{this.a.k}, true);
-                TiebaStatic.log(new StatisticItem("c13418").param("fid", this.a.l));
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (view2 == this.a.b) {
+                    if (!hi.isEmpty(this.a.h) && this.a.f != null && this.a.f.getForum() != null) {
+                        int i = 1;
+                        UrlManager.getInstance().dealOneLink(this.a.a, new String[]{this.a.h}, true);
+                        StatisticItem param = new StatisticItem("c13415").param("fid", this.a.f.getForum().getId());
+                        if (this.a.i) {
+                            i = 2;
+                        }
+                        TiebaStatic.log(param.param("obj_type", i));
+                    }
+                } else if ((view2 == this.a.d || view2 == this.a.e) && this.a.f != null && this.a.f.getForum() != null) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumDetailActivityConfig(this.a.a.getPageActivity(), this.a.f.getForum().getId(), ForumDetailActivityConfig.FromType.FRS)));
+                    TiebaStatic.log(new StatisticItem("c13416").param("fid", this.a.f.getForum().getId()));
+                }
             }
         }
     }
@@ -84,67 +102,102 @@ public class uf7 {
                 return;
             }
         }
-        this.m = new a(this);
+        this.j = new a(this);
         if (frsSportsRecommendFragment != null && view2 != null) {
             this.a = frsSportsRecommendFragment.getPageContext();
-            BdUniqueId uniqueId = frsSportsRecommendFragment.getUniqueId();
-            this.b = view2.findViewById(R.id.obfuscated_res_0x7f090cfc);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d04);
-            this.d = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090cfd);
-            this.e = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090d02);
-            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090cfe);
-            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d03);
-            this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d01);
-            this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d00);
-            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090cff);
-            this.d.setPageId(uniqueId);
-            this.e.setPageId(uniqueId);
+            this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e89);
+            this.c = (LinearGradientView) view2.findViewById(R.id.obfuscated_res_0x7f090e8b);
+            this.d = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090c68);
+            this.e = (TextView) view2.findViewById(R.id.forum_name);
+            this.b.setPageId(frsSportsRecommendFragment.getUniqueId());
+            this.d.setPageId(frsSportsRecommendFragment.getUniqueId());
+            this.d.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.d.setContentDescription(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f02ef));
+            this.d.setStrokeWith(ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds4));
+            this.d.setShowOval(true);
         }
     }
 
-    public void d() {
+    public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SkinManager.setBackgroundResource(this.b, R.drawable.bg_sports_frs_schedule_card_shape);
-            SkinManager.setBackgroundResource(this.c, R.drawable.bg_sports_frs_schedule_card_shape);
-            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0108);
-            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0108);
+            i();
+            SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0101);
+            BarImageView barImageView = this.d;
+            if (barImageView != null) {
+                barImageView.setBorderWidth(ii.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds1));
+                this.d.setBorderColor(SkinManager.getColor(R.color.black_alpha15));
+                this.d.setStrokeColorResId(R.color.CAM_X0201);
+                this.d.invalidate();
+            }
         }
     }
 
-    public void e(SportScheduleInfo sportScheduleInfo, String str) {
+    public final void i() {
+        FrsViewData frsViewData;
+        ForumData forum;
+        ThemeColorInfo themeColorInfo;
+        ThemeElement themeElement;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sportScheduleInfo, str) == null) {
-            if (sportScheduleInfo == null) {
-                this.b.setVisibility(8);
-                this.c.setVisibility(0);
-                this.c.setText(R.string.obfuscated_res_0x7f0f07ae);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (frsViewData = this.f) != null && (forum = frsViewData.getForum()) != null && (themeColorInfo = forum.getThemeColorInfo()) != null && themeColorInfo.day != null && themeColorInfo.night != null && themeColorInfo.dark != null) {
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            if (skinType == 4) {
+                themeElement = themeColorInfo.dark;
+            } else {
+                themeElement = themeColorInfo.day;
+            }
+            if (!this.g) {
+                LinearGradientView linearGradientView = this.c;
+                if (linearGradientView != null) {
+                    ThemeElement themeElement2 = themeColorInfo.day;
+                    String str = themeElement2.light_color;
+                    String str2 = themeElement2.dark_color;
+                    ThemeElement themeElement3 = themeColorInfo.night;
+                    String str3 = themeElement3.light_color;
+                    String str4 = themeElement3.dark_color;
+                    ThemeElement themeElement4 = themeColorInfo.dark;
+                    linearGradientView.setGradientColor(str, str2, str3, str4, themeElement4.light_color, themeElement4.dark_color);
+                    this.c.a(skinType);
+                }
+                TbImageView tbImageView = this.b;
+                if (tbImageView != null) {
+                    tbImageView.N(themeElement.pattern_image, 10, false);
+                }
+            }
+        }
+    }
+
+    public void j(FrsViewData frsViewData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, frsViewData) == null) && frsViewData != null && frsViewData.getForum() != null) {
+            this.f = frsViewData;
+            this.g = false;
+            String name = frsViewData.getForum().getName();
+            if (StringHelper.getChineseAndEnglishLength(name) > 20) {
+                name = StringHelper.cutForumNameWithSuffix(name, 20, StringHelper.STRING_MORE);
+            }
+            this.e.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07aa), name));
+            this.d.N(this.f.getForum().getImage_url(), 10, false);
+            i();
+            this.d.setOnClickListener(this.j);
+            this.e.setOnClickListener(this.j);
+        }
+    }
+
+    public void k(String str, String str2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(1048579, this, str, str2, z) == null) {
+            this.d.refresh();
+            if (hi.isEmpty(str)) {
+                this.g = false;
+                i();
                 return;
             }
-            this.b.setVisibility(0);
-            this.c.setVisibility(8);
-            this.d.N(sportScheduleInfo.home_team_icon, 10, false);
-            this.e.N(sportScheduleInfo.guest_team_icon, 10, false);
-            String str2 = sportScheduleInfo.home_team_name;
-            if (StringHelper.getChineseAndEnglishLength(str2) > 14) {
-                str2 = StringHelper.cutForumNameWithSuffix(str2, 14, StringHelper.STRING_MORE);
-            }
-            String str3 = sportScheduleInfo.guest_team_name;
-            if (StringHelper.getChineseAndEnglishLength(str3) > 14) {
-                str3 = StringHelper.cutForumNameWithSuffix(str3, 14, StringHelper.STRING_MORE);
-            }
-            this.f.setText(str2);
-            this.g.setText(str3);
-            this.h.setText(sportScheduleInfo.match_top_info);
-            this.i.setText(sportScheduleInfo.match_middle_info);
-            this.j.setText(sportScheduleInfo.match_bottom_info);
-            this.k = sportScheduleInfo.msg_url;
-            this.l = str;
-            this.b.setOnClickListener(this.m);
+            this.g = true;
+            this.h = str2;
+            this.i = z;
+            this.b.N(str, 10, false);
+            this.b.setOnClickListener(this.j);
         }
     }
 }

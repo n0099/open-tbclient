@@ -1,27 +1,34 @@
 package com.baidu.tieba;
 
+import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.template.state.ViewType;
-import com.baidu.tieba.xo5;
+import com.baidu.tieba.jg5;
+import com.baidu.tieba.yo5;
+import com.baidu.tieba.yo5.e;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class uo5 extends to5<qo5, xo5.a> {
+public abstract class uo5<T extends jg5, D extends yo5.e> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> e;
+    public int a;
+    public ViewType b;
+    public T c;
+    public D d;
 
-    public uo5(TbPageContext<?> tbPageContext) {
+    public abstract void d(ViewType viewType, T t, D d);
+
+    public abstract T f(ViewType viewType, ViewGroup viewGroup);
+
+    public uo5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,28 +38,60 @@ public class uo5 extends to5<qo5, xo5.a> {
                 return;
             }
         }
-        this.e = tbPageContext;
+        this.a = 3;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.to5
-    /* renamed from: g */
-    public void d(ViewType viewType, qo5 qo5Var, xo5.a aVar) {
+    public final void a(View view2) {
+        T t;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, viewType, qo5Var, aVar) == null) {
-            qo5Var.b(aVar);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (t = this.c) != null) {
+            t.attachView(view2);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.to5
-    /* renamed from: h */
-    public qo5 f(ViewType viewType, ViewGroup viewGroup) {
-        InterceptResult invokeLL;
+    public final void b(View view2) {
+        T t;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, viewType, viewGroup)) == null) {
-            return new qo5(this.e.getPageActivity());
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) && (t = this.c) != null) {
+            t.dettachView(view2);
         }
-        return (qo5) invokeLL.objValue;
+    }
+
+    public void e(int i) {
+        ViewType viewType;
+        T t;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            if (this.a != i && (viewType = this.b) != null && (t = this.c) != null) {
+                d(viewType, t, this.d);
+            }
+            this.a = i;
+        }
+    }
+
+    public final View c(ViewType viewType, ViewGroup viewGroup, D d) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, viewType, viewGroup, d)) == null) {
+            this.b = viewType;
+            this.d = d;
+            if (this.c == null) {
+                this.c = f(viewType, viewGroup);
+            }
+            View view2 = this.c.getView();
+            if (viewGroup.indexOfChild(view2) < 0) {
+                ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+                if (layoutParams != null) {
+                    layoutParams.width = -1;
+                    layoutParams.height = -1;
+                }
+                a(viewGroup);
+            } else if (viewGroup.indexOfChild(view2) != viewGroup.getChildCount() - 1) {
+                view2.bringToFront();
+            }
+            d(viewType, this.c, d);
+            return view2;
+        }
+        return (View) invokeLLL.objValue;
     }
 }

@@ -1,60 +1,52 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.app.Activity;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
+import android.os.Handler;
+import android.os.Looper;
+import android.provider.Settings;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.q79;
+import com.baidu.tieba.u79;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedHashMap;
+import java.lang.ref.WeakReference;
 /* loaded from: classes6.dex */
 public class t79 {
     public static /* synthetic */ Interceptable $ic;
-    public static t79 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedHashMap<String, Integer> a;
-    public CustomMessageListener b;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948134259, "Lcom/baidu/tieba/t79;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948134259, "Lcom/baidu/tieba/t79;");
-        }
-    }
+    public WeakReference<Activity> a;
+    public SensorManager b;
+    public q79 c;
+    public Sensor d;
+    public boolean e;
+    public boolean f;
+    public u79 g;
+    public boolean h;
+    public boolean i;
+    public q79.a j;
+    public u79.a k;
 
     /* loaded from: classes6.dex */
-    public class a extends CustomMessageListener {
+    public class a implements q79.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ t79 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(t79 t79Var, int i) {
-            super(i);
+        public a(t79 t79Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {t79Var, Integer.valueOf(i)};
+                Object[] objArr = {t79Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -63,86 +55,163 @@ public class t79 {
             this.a = t79Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        @Override // com.baidu.tieba.q79.a
+        public void a(int i) {
+            Activity activity;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
+            if ((interceptable != null && interceptable.invokeI(1048576, this, i) != null) || this.a.a == null || (activity = (Activity) this.a.a.get()) == null || !this.a.i) {
                 return;
             }
-            this.a.a.clear();
+            int requestedOrientation = activity.getRequestedOrientation();
+            if (!this.a.h) {
+                if (i > 225 && i < 315) {
+                    if (requestedOrientation == 8) {
+                        activity.setRequestedOrientation(0);
+                    }
+                } else if (i > 45 && i < 135 && requestedOrientation == 0) {
+                    activity.setRequestedOrientation(8);
+                }
+            } else if ((i > 235 && i < 305) || (i > 55 && i < 125)) {
+                if (!this.a.f) {
+                    if (i > 55 && i < 125) {
+                        if (requestedOrientation != 8) {
+                            activity.setRequestedOrientation(8);
+                        }
+                    } else if (requestedOrientation != 0) {
+                        activity.setRequestedOrientation(0);
+                    }
+                }
+                this.a.e = false;
+            } else if ((i > 325 && i < 360) || (i >= 0 && i < 35)) {
+                if (!this.a.e && requestedOrientation != 1) {
+                    activity.setRequestedOrientation(1);
+                }
+                this.a.f = false;
+            }
         }
     }
 
-    public t79() {
+    /* loaded from: classes6.dex */
+    public class b implements u79.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ t79 a;
+
+        public b(t79 t79Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {t79Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = t79Var;
+        }
+
+        @Override // com.baidu.tieba.u79.a
+        public void a(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeZ(1048576, this, z) != null) {
+                return;
+            }
+            this.a.h = z;
+        }
+    }
+
+    public t79(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new LinkedHashMap<>(150, 0.75f, true);
-        this.b = new a(this, 2005016);
-        MessageManager.getInstance().registerListener(this.b);
-    }
-
-    public int c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            Integer num = this.a.get(str);
-            if (num != null) {
-                return num.intValue();
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || TextUtils.isEmpty(str)) {
+        this.e = false;
+        this.f = false;
+        this.h = false;
+        this.i = false;
+        this.j = new a(this);
+        this.k = new b(this);
+        if (activity == null) {
             return;
         }
-        this.a.remove(str);
+        this.a = new WeakReference<>(activity);
+        this.b = (SensorManager) activity.getApplicationContext().getSystemService("sensor");
+        this.d = TbadkCoreApplication.getInst().getDefaultSensor(1);
+        this.c = new q79(this.j);
+        if (activity.getClass().getName().contains("SwanAppActivity")) {
+            activity.setRequestedOrientation(1);
+        }
     }
 
-    public static t79 d() {
-        InterceptResult invokeV;
+    public void i(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (c == null) {
-                synchronized (t79.class) {
-                    if (c == null) {
-                        c = new t79();
-                    }
-                }
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            this.i = z;
+        }
+    }
+
+    public void j() {
+        Activity activity;
+        Sensor sensor;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            SensorManager sensorManager = this.b;
+            if (sensorManager != null && (sensor = this.d) != null) {
+                sensorManager.registerListener(this.c, sensor, 2);
             }
-            return c;
-        }
-        return (t79) invokeV.objValue;
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.clear();
-        }
-    }
-
-    public void update(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, str, i) == null) {
-            if (i == 0 && this.a.containsKey(str)) {
-                return;
+            WeakReference<Activity> weakReference = this.a;
+            if (weakReference != null && (activity = weakReference.get()) != null) {
+                u79 u79Var = new u79(activity.getApplicationContext(), new Handler(Looper.getMainLooper()));
+                this.g = u79Var;
+                u79Var.b(this.k);
+                activity.getContentResolver().registerContentObserver(Settings.System.getUriFor("accelerometer_rotation"), true, this.g);
             }
-            this.a.put(str, Integer.valueOf(i));
         }
+    }
+
+    public void k() {
+        Activity activity;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            SensorManager sensorManager = this.b;
+            if (sensorManager != null) {
+                sensorManager.unregisterListener(this.c);
+            }
+            WeakReference<Activity> weakReference = this.a;
+            if (weakReference != null && this.g != null && (activity = weakReference.get()) != null) {
+                activity.getContentResolver().unregisterContentObserver(this.g);
+            }
+        }
+    }
+
+    public void l() {
+        WeakReference<Activity> weakReference;
+        Activity activity;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || (weakReference = this.a) == null || (activity = weakReference.get()) == null) {
+            return;
+        }
+        if (activity.getRequestedOrientation() == 1) {
+            activity.setRequestedOrientation(0);
+            this.e = true;
+            return;
+        }
+        activity.setRequestedOrientation(1);
+        this.f = true;
     }
 }

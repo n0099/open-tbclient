@@ -1,22 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.nua;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.Callable;
 /* loaded from: classes5.dex */
-public class jua implements nua.a {
+public class jua implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ kua a;
+    public final /* synthetic */ eva a;
+    public final /* synthetic */ Callable b;
 
-    public jua(kua kuaVar) {
+    public jua(eva evaVar, Callable callable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {kuaVar};
+            Object[] objArr = {evaVar, callable};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -26,6 +27,19 @@ public class jua implements nua.a {
                 return;
             }
         }
-        this.a = kuaVar;
+        this.a = evaVar;
+        this.b = callable;
+    }
+
+    @Override // java.lang.Runnable
+    public final void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            try {
+                this.a.b(this.b.call());
+            } catch (Exception e) {
+                this.a.a(e);
+            }
+        }
     }
 }

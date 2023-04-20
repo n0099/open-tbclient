@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,11 +9,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class u4b<E> extends r4b<E> {
+public abstract class u4b<E> extends q4b<E> {
     public static /* synthetic */ Interceptable $ic;
-    public static final long g;
+    public static final long f;
     public transient /* synthetic */ FieldHolder $fh;
-    public long producerIndex;
+    public volatile long producerIndex;
 
     static {
         InterceptResult invokeClinit;
@@ -27,7 +28,16 @@ public abstract class u4b<E> extends r4b<E> {
                 return;
             }
         }
-        g = c5b.a(u4b.class, "producerIndex");
+        f = k5b.a(u4b.class, "producerIndex");
+    }
+
+    public final long h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.producerIndex;
+        }
+        return invokeV.longValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -47,6 +57,13 @@ public abstract class u4b<E> extends r4b<E> {
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
+        }
+    }
+
+    public final void i(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            k5b.a.i(this, f, j);
         }
     }
 }

@@ -1,75 +1,102 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.tieba.qo2;
+import android.content.Context;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.core.SwanAppWebViewManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class oo2 extends pl2<qo2> {
+public class oo2 extends s93 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final qo2.f h;
 
-    /* loaded from: classes5.dex */
-    public class a implements qo2.f {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ oo2 a;
-
-        public a(oo2 oo2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {oo2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public final int j(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            if (i != -90) {
+                if (i != 0) {
+                    return i != 90 ? -1 : 0;
                 }
+                return 1;
             }
-            this.a = oo2Var;
+            return 8;
         }
-
-        @Override // com.baidu.tieba.qo2.f
-        public void a() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.b != null) {
-                this.a.b.onCallback(this.a, "onConfirmBtnClick", null);
-            }
-        }
+        return invokeI.intValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public oo2(@NonNull qo2 qo2Var) {
-        super(qo2Var);
+    public oo2(s83 s83Var) {
+        super(s83Var, "/swanAPI/setFullscreenOrientationSync");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {qo2Var};
+            Object[] objArr = {s83Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((rl2) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a aVar = new a(this);
-        this.h = aVar;
-        qo2Var.D0(aVar);
-        this.a.a(new uo2());
-        this.a.a(new to2());
-        this.a.a(new vo2());
-        this.a.a(new ro2());
-        this.a.a(new so2());
+    }
+
+    @Override // com.baidu.tieba.s93
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, v73 v73Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, v73Var)) == null) {
+            if (v73Var == null) {
+                v42.c("setFullscreenOrientationSync", "none swanApp");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal runtime");
+                if (s93.b) {
+                    Log.e("SwanAppAction", "setFullscreenOrientationSync --- illegal runtime");
+                }
+                return false;
+            } else if (context == null) {
+                v42.c("setFullscreenOrientationSync", "none context");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
+                if (s93.b) {
+                    Log.e("SwanAppAction", "setFullscreenOrientationSync --- illegal context");
+                }
+                return false;
+            } else {
+                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+                if (optParamsAsJo == null) {
+                    v42.c("setFullscreenOrientationSync", "none params");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                    return false;
+                }
+                int optInt = optParamsAsJo.optInt("orientationType", -10000);
+                du1 A = it2.U().A(optParamsAsJo.optString("slaveId"));
+                if (!(A instanceof SwanAppWebViewManager)) {
+                    v42.c("setFullscreenOrientationSync", "no WebView with this slaveId");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                    return false;
+                }
+                int j = j(optInt);
+                ((SwanAppWebViewManager) A).a1(j);
+                if (s93.b) {
+                    Log.d("setFullscreenOrientationSync", "orientation set to : " + j);
+                }
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
+                return true;
+            }
+        }
+        return invokeLLLL.booleanValue;
     }
 }

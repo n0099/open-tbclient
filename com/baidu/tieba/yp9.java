@@ -12,16 +12,16 @@ public class yp9 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
-    public final jo9 b;
+    public final cp9 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yp9(MainTabActivity mainTabActivity, jo9 jo9Var) {
-        super(2007009);
+    public yp9(MainTabActivity mainTabActivity, ro9 ro9Var) {
+        super(2921543);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, jo9Var};
+            Object[] objArr = {mainTabActivity, ro9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,22 +33,16 @@ public class yp9 extends CustomMessageListener {
             }
         }
         this.a = mainTabActivity;
-        this.b = jo9Var;
+        this.b = mainTabActivity.e;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        cp9 cp9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof Integer)) {
-            Integer num = (Integer) customResponsedMessage.getData();
-            if (num.intValue() == 2) {
-                this.b.s(true);
-            } else if (num.intValue() == 1) {
-                this.b.s(false);
-            } else {
-                this.b.s(false);
-            }
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (cp9Var = this.b) != null && cp9Var.i() != null) {
+            this.b.i().a();
         }
     }
 }

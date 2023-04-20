@@ -3,7 +3,7 @@ package com.baidu.tbadk.template.message;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.jo5;
+import com.baidu.tieba.ko5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class TemplateHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public jo5 mIResp;
+    public ko5 mIResp;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TemplateHttpResponseMessage(int i) {
@@ -73,7 +73,7 @@ public class TemplateHttpResponseMessage extends TbHttpResponsedMessage {
             Log.i("Template", "TemplateHttpResponseMessage-->decodeInBackGround");
             TemplateNetMessage templateNetMessage = getTemplateNetMessage();
             if (templateNetMessage != null && templateNetMessage.getIResp() != null) {
-                jo5 iResp = templateNetMessage.getIResp();
+                ko5 iResp = templateNetMessage.getIResp();
                 this.mIResp = iResp;
                 iResp.a(i, bArr);
                 setError(this.mIResp.getErrorCode());
@@ -82,12 +82,12 @@ public class TemplateHttpResponseMessage extends TbHttpResponsedMessage {
         }
     }
 
-    public jo5 getIResp() {
+    public ko5 getIResp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.mIResp;
         }
-        return (jo5) invokeV.objValue;
+        return (ko5) invokeV.objValue;
     }
 }

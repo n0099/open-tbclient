@@ -1,8 +1,12 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import java.util.List;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
 /* loaded from: classes6.dex */
 public interface uh5 {
-    void onSendMessageResult(int i, @Nullable ChatMsg chatMsg);
+    void a(long j, List<? extends ChatMsg> list, Function1<? super List<? extends ChatMsg>, Unit> function1);
+
+    void onDestroy();
 }

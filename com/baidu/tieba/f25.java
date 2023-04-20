@@ -1,8 +1,7 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tbadk.core.liveremind.LiveRemindConfig;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.data.DialogStrategiesData;
 import com.baidu.tbadk.switchs.LooperBlockSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public final class f25 implements z15 {
+public final class f25 implements a25 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -32,7 +31,7 @@ public final class f25 implements z15 {
         }
     }
 
-    @Override // com.baidu.tieba.z15
+    @Override // com.baidu.tieba.a25
     public Map<String, Object> a(DialogStrategiesData dialogData, Map<String, Object> strategyData, Map<String, Object> extraData) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
@@ -41,7 +40,7 @@ public final class f25 implements z15 {
             Intrinsics.checkNotNullParameter(strategyData, "strategyData");
             Intrinsics.checkNotNullParameter(extraData, "extraData");
             HashMap hashMap = new HashMap();
-            hashMap.put("dialogName", "homeLiveRemind");
+            hashMap.put("dialogName", "newGod");
             hashMap.putAll(strategyData);
             hashMap.putAll(extraData);
             return hashMap;
@@ -49,13 +48,23 @@ public final class f25 implements z15 {
         return (Map) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.z15
+    @Override // com.baidu.tieba.a25
     public boolean b(Map<String, Object> map) {
         InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
             Intrinsics.checkNotNullParameter(map, "map");
-            if (!LooperBlockSwitch.getIsOn() || c45.a().c(0) == null || !d45.b().j(LiveRemindConfig.Scene.LIVE_FLOAT) || MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW || la5.e()) {
+            if (!LooperBlockSwitch.getIsOn()) {
+                return false;
+            }
+            boolean i = q45.m().i(q45.q("key_new_god_pop_is_show"), false);
+            if (TbSingleton.getInstance().getNewGodData() != null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (!i || !z) {
                 return false;
             }
             return true;

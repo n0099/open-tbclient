@@ -1,297 +1,204 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.media.MediaExtractor;
-import android.media.MediaFormat;
-import android.media.MediaMetadataRetriever;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.LinearGradient;
+import android.graphics.NinePatch;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.Shader;
+import android.text.TextPaint;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.ugc.editvideo.data.MediaInfo;
-import com.baidu.ugc.utils.FileUtils;
-import java.io.File;
+import com.baidu.ugc.editvideo.data.Div;
+import com.baidu.ugc.editvideo.data.TextWordsEntity;
+import com.baidu.ugc.editvideo.subtitle.ninepatchchunk.NinePatchChunk;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class oha {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static long a(String str) {
+    public static Bitmap a(TextWordsEntity.TextStyleEntity textStyleEntity) {
         InterceptResult invokeL;
+        TextWordsEntity.StyleBackgroudInfoEntity styleBackgroudInfoEntity;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
-            try {
-                mediaMetadataRetriever.setDataSource(str);
-                return Integer.parseInt(mediaMetadataRetriever.extractMetadata(9));
-            } catch (Exception e) {
-                e.printStackTrace();
-                return 0L;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, textStyleEntity)) == null) {
+            if (textStyleEntity == null || (styleBackgroudInfoEntity = textStyleEntity.mBackgroudInfoEntity) == null || !styleBackgroudInfoEntity.isLoaded()) {
+                return null;
             }
+            return mha.f(styleBackgroudInfoEntity.getSourceFile().getAbsolutePath());
         }
-        return invokeL.longValue;
+        return (Bitmap) invokeL.objValue;
     }
 
-    public static long b(String str) {
-        InterceptResult invokeL;
+    public static void b(Bitmap bitmap, NinePatchChunk ninePatchChunk, Canvas canvas, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return 0L;
+        if (!(interceptable == null || interceptable.invokeLLLI(65537, null, bitmap, ninePatchChunk, canvas, i) == null) || bitmap == null || ninePatchChunk == null || !NinePatch.isNinePatchChunk(ninePatchChunk.toBytes())) {
+            return;
+        }
+        new NinePatch(bitmap, ninePatchChunk.toBytes(), null).draw(canvas, new Rect(i, i, canvas.getWidth() - i, canvas.getHeight() - i));
+        bitmap.recycle();
+    }
+
+    public static void c(TextPaint textPaint, TextWordsEntity.TextStyleEntity textStyleEntity, TextWordsEntity.TextColorEntity textColorEntity) {
+        TextWordsEntity.StyleShadowInfoEntity styleShadowInfoEntity;
+        int i;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(65538, null, textPaint, textStyleEntity, textColorEntity) == null) || textStyleEntity == null) {
+            return;
+        }
+        List<TextWordsEntity.StyleShadowInfoEntity> list = textStyleEntity.mShadowInfoList;
+        if (qha.e(list) || (styleShadowInfoEntity = list.get(0)) == null) {
+            return;
+        }
+        int i2 = i(styleShadowInfoEntity.mShadowColor, styleShadowInfoEntity.mShadowAlpha);
+        if (textColorEntity != null && ((i = textStyleEntity.mTextStyleType) == 1 || i == 5)) {
+            i2 = textColorEntity.mColorInfo;
+        }
+        textPaint.setShadowLayer(eia.a(Integer.parseInt(styleShadowInfoEntity.mShadowBlur)), eia.a(Integer.parseInt(styleShadowInfoEntity.mShadowOffsetX)), eia.a(Integer.parseInt(styleShadowInfoEntity.mShadowOffsetY)), i2);
+    }
+
+    public static int[] d(TextPaint textPaint, TextPaint textPaint2, TextPaint textPaint3, TextWordsEntity.TextStyleEntity textStyleEntity, TextWordsEntity.TextColorEntity textColorEntity) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65539, null, textPaint, textPaint2, textPaint3, textStyleEntity, textColorEntity)) == null) {
+            int[] iArr = new int[2];
+            if (textStyleEntity == null) {
+                return iArr;
             }
-            MediaMetadataRetriever mediaMetadataRetriever = null;
-            try {
-                if (!new File(str).exists()) {
-                    return 0L;
-                }
-                MediaMetadataRetriever mediaMetadataRetriever2 = new MediaMetadataRetriever();
-                try {
-                    mediaMetadataRetriever2.setDataSource(str);
-                    long c = hha.c(mediaMetadataRetriever2.extractMetadata(9), 0L);
-                    try {
-                        mediaMetadataRetriever2.release();
-                    } catch (Exception unused) {
-                    }
-                    return c;
-                } catch (Exception unused2) {
-                    mediaMetadataRetriever = mediaMetadataRetriever2;
-                    if (mediaMetadataRetriever != null) {
-                        try {
-                            mediaMetadataRetriever.release();
-                        } catch (Exception unused3) {
-                        }
-                    }
-                    return 0L;
-                } catch (Throwable th) {
-                    th = th;
-                    mediaMetadataRetriever = mediaMetadataRetriever2;
-                    if (mediaMetadataRetriever != null) {
-                        try {
-                            mediaMetadataRetriever.release();
-                        } catch (Exception unused4) {
-                        }
-                    }
-                    throw th;
-                }
-            } catch (Exception unused5) {
-            } catch (Throwable th2) {
-                th = th2;
+            List<TextWordsEntity.StyleStrokeInfoEntity> list = textStyleEntity.mStrokeInfoList;
+            if (qha.e(list)) {
+                return iArr;
             }
-        } else {
-            return invokeL.longValue;
+            TextWordsEntity.StyleStrokeInfoEntity styleStrokeInfoEntity = list.get(0);
+            if (styleStrokeInfoEntity != null) {
+                textPaint2.setTextSize(textPaint.getTextSize());
+                textPaint2.setFlags(textPaint.getFlags());
+                textPaint2.setAlpha(textPaint.getAlpha());
+                textPaint2.setFakeBoldText(textPaint.isFakeBoldText());
+                textPaint2.setTextSkewX(textPaint.getTextSkewX());
+                int i = i(styleStrokeInfoEntity.mStrokeColor, styleStrokeInfoEntity.mStrokeAlpha);
+                if (textColorEntity != null && textStyleEntity.mTextStyleType == 2) {
+                    i = textColorEntity.mColorInfo;
+                }
+                textPaint2.setStyle(Paint.Style.STROKE);
+                textPaint2.setColor(i);
+                textPaint2.setStrokeWidth(eia.a(Integer.parseInt(styleStrokeInfoEntity.mStrokeWidth)));
+            }
+            iArr[0] = 1;
+            if (list.size() <= 1) {
+                return iArr;
+            }
+            TextWordsEntity.StyleStrokeInfoEntity styleStrokeInfoEntity2 = list.get(1);
+            if (styleStrokeInfoEntity2 != null) {
+                textPaint3.setTextSize(textPaint.getTextSize());
+                textPaint3.setFlags(textPaint.getFlags());
+                textPaint3.setAlpha(textPaint.getAlpha());
+                textPaint3.setFakeBoldText(textPaint.isFakeBoldText());
+                textPaint3.setTextSkewX(textPaint.getTextSkewX());
+                textPaint3.setStyle(Paint.Style.STROKE);
+                textPaint3.setColor(i(styleStrokeInfoEntity2.mStrokeColor, styleStrokeInfoEntity2.mStrokeAlpha));
+                textPaint3.setStrokeWidth(eia.a(Integer.parseInt(styleStrokeInfoEntity2.mStrokeWidth)));
+            }
+            iArr[1] = 1;
+            return iArr;
+        }
+        return (int[]) invokeLLLLL.objValue;
+    }
+
+    public static void e(Canvas canvas, TextPaint textPaint, int i, int i2, int i3, TextWordsEntity.TextStyleEntity textStyleEntity, TextWordsEntity.TextColorEntity textColorEntity) {
+        int i4;
+        LinearGradient linearGradient;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{canvas, textPaint, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), textStyleEntity, textColorEntity}) == null) || textStyleEntity == null) {
+            return;
+        }
+        List<TextWordsEntity.StyleTextInfoEntity> list = textStyleEntity.mTextInfoList;
+        if (qha.e(list)) {
+            return;
+        }
+        if (TextUtils.equals(textStyleEntity.mTextType, "0") || list.size() > 1) {
+            if (TextUtils.equals(textStyleEntity.mTextType, "1")) {
+                linearGradient = new LinearGradient(0.0f, i2, canvas.getWidth(), i3, new int[]{h(list.get(0)), h(list.get(1))}, (float[]) null, Shader.TileMode.CLAMP);
+            } else if (!TextUtils.equals(textStyleEntity.mTextType, "2")) {
+                int h = h(list.get(0));
+                if (textColorEntity != null && ((i4 = textStyleEntity.mTextStyleType) == 1 || i4 == 2 || i4 == 3)) {
+                    h = textColorEntity.mColorInfo;
+                }
+                textPaint.setColor(h);
+                return;
+            } else {
+                linearGradient = new LinearGradient(canvas.getWidth(), i2, canvas.getWidth(), i3, new int[]{h(list.get(0)), h(list.get(1))}, (float[]) null, Shader.TileMode.CLAMP);
+            }
+            textPaint.setShader(linearGradient);
         }
     }
 
-    public static int e(String str) {
+    public static NinePatchChunk f(Bitmap bitmap, TextWordsEntity.TextStyleEntity textStyleEntity) {
+        InterceptResult invokeLL;
+        TextWordsEntity.StyleBackgroudInfoEntity styleBackgroudInfoEntity;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, bitmap, textStyleEntity)) == null) {
+            if (bitmap == null || textStyleEntity == null || (styleBackgroudInfoEntity = textStyleEntity.mBackgroudInfoEntity) == null) {
+                return null;
+            }
+            NinePatchChunk ninePatchChunk = new NinePatchChunk();
+            ArrayList<Div> arrayList = styleBackgroudInfoEntity.mStretchableX;
+            ArrayList<Div> arrayList2 = styleBackgroudInfoEntity.mStretchableY;
+            ninePatchChunk.xDivs = arrayList;
+            ninePatchChunk.yDivs = arrayList2;
+            Rect rect = new Rect();
+            ninePatchChunk.padding = rect;
+            rect.left = styleBackgroudInfoEntity.mBackgroudLeft;
+            rect.top = styleBackgroudInfoEntity.mBackgroudTop;
+            rect.right = styleBackgroudInfoEntity.mBackgroudRight;
+            rect.bottom = styleBackgroudInfoEntity.mBackgroudBottom;
+            NinePatchChunk.createColors(bitmap, ninePatchChunk);
+            return ninePatchChunk;
+        }
+        return (NinePatchChunk) invokeLL.objValue;
+    }
+
+    public static int g(TextPaint textPaint) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
-            try {
-                try {
-                    mediaMetadataRetriever.setDataSource(str);
-                    int b = hha.b(mediaMetadataRetriever.extractMetadata(20), 0);
-                    try {
-                        mediaMetadataRetriever.release();
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    return b;
-                } catch (Throwable th) {
-                    try {
-                        mediaMetadataRetriever.release();
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
-                    }
-                    throw th;
-                }
-            } catch (Exception e3) {
-                e3.printStackTrace();
-                try {
-                    mediaMetadataRetriever.release();
-                } catch (Exception e4) {
-                    e4.printStackTrace();
-                }
-                return 0;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, textPaint)) == null) {
+            Paint.FontMetricsInt fontMetricsInt = textPaint.getFontMetricsInt();
+            return Math.abs(fontMetricsInt.ascent) + Math.abs(fontMetricsInt.descent);
         }
         return invokeL.intValue;
     }
 
-    public static int f(String str) {
+    public static int h(TextWordsEntity.StyleTextInfoEntity styleTextInfoEntity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, styleTextInfoEntity)) == null) {
+            if (styleTextInfoEntity == null) {
                 return 0;
             }
-            MediaMetadataRetriever mediaMetadataRetriever = null;
-            try {
-                if (!new File(str).exists()) {
-                    return 0;
-                }
-                MediaMetadataRetriever mediaMetadataRetriever2 = new MediaMetadataRetriever();
-                try {
-                    mediaMetadataRetriever2.setDataSource(str);
-                    int parseInt = Integer.parseInt(mediaMetadataRetriever2.extractMetadata(9));
-                    try {
-                        mediaMetadataRetriever2.release();
-                    } catch (Exception unused) {
-                    }
-                    return parseInt;
-                } catch (Exception unused2) {
-                    mediaMetadataRetriever = mediaMetadataRetriever2;
-                    if (mediaMetadataRetriever != null) {
-                        try {
-                            mediaMetadataRetriever.release();
-                        } catch (Exception unused3) {
-                        }
-                    }
-                    return 0;
-                } catch (Throwable th) {
-                    th = th;
-                    mediaMetadataRetriever = mediaMetadataRetriever2;
-                    if (mediaMetadataRetriever != null) {
-                        try {
-                            mediaMetadataRetriever.release();
-                        } catch (Exception unused4) {
-                        }
-                    }
-                    throw th;
-                }
-            } catch (Exception unused5) {
-            } catch (Throwable th2) {
-                th = th2;
-            }
-        } else {
-            return invokeL.intValue;
+            return i(styleTextInfoEntity.mTextColor, styleTextInfoEntity.mTextAlpha);
         }
+        return invokeL.intValue;
     }
 
-    public static long c(String str, int i) {
-        InterceptResult invokeLI;
-        String str2;
+    public static int i(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
-            long j = 0;
-            if (!FileUtils.isExists(str)) {
-                return 0L;
-            }
-            MediaExtractor mediaExtractor = new MediaExtractor();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, str2)) == null) {
             try {
-                try {
-                    mediaExtractor.setDataSource(str);
-                    MediaFormat mediaFormat = null;
-                    int i2 = 0;
-                    while (true) {
-                        if (i2 >= mediaExtractor.getTrackCount()) {
-                            break;
-                        }
-                        MediaFormat trackFormat = mediaExtractor.getTrackFormat(i2);
-                        String string = trackFormat.getString("mime");
-                        if (i == 0) {
-                            str2 = "audio/";
-                        } else {
-                            str2 = com.sina.weibo.sdk.utils.FileUtils.VIDEO_FILE_START;
-                        }
-                        if (string.startsWith(str2)) {
-                            mediaExtractor.selectTrack(i2);
-                            mediaFormat = trackFormat;
-                            break;
-                        }
-                        i2++;
-                    }
-                    if (mediaFormat != null) {
-                        j = mediaFormat.getLong("durationUs");
-                    }
-                } catch (Exception e) {
-                    dha.e("VideoMuxer", "getMediaDurationMs error:" + e.getMessage());
-                }
-                return j / 1000;
-            } finally {
-                mediaExtractor.release();
+                String hexString = Integer.toHexString((int) (Float.parseFloat(str2) * 255.0f));
+                return Color.parseColor("#" + hexString + str);
+            } catch (Exception e) {
+                e.printStackTrace();
+                return 0;
             }
         }
-        return invokeLI.longValue;
-    }
-
-    public static MediaInfo d(String str) {
-        InterceptResult invokeL;
-        MediaInfo mediaInfo;
-        File file;
-        MediaMetadataRetriever mediaMetadataRetriever;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            MediaMetadataRetriever mediaMetadataRetriever2 = null;
-            try {
-                try {
-                    file = new File(str);
-                } catch (Exception e) {
-                    e = e;
-                    mediaInfo = null;
-                }
-                if (file.exists() && file.isFile()) {
-                    mediaInfo = new MediaInfo();
-                    try {
-                        mediaInfo.setVideoPath(str);
-                        mediaInfo.setLastModified(file.lastModified());
-                        mediaMetadataRetriever = new MediaMetadataRetriever();
-                    } catch (Exception e2) {
-                        e = e2;
-                    }
-                    try {
-                        mediaMetadataRetriever.setDataSource(str);
-                        mediaInfo.setDuration(Integer.parseInt(mediaMetadataRetriever.extractMetadata(9)));
-                        mediaInfo.setMimeType(mediaMetadataRetriever.extractMetadata(12));
-                        mediaInfo.setVideoWidth(Integer.parseInt(mediaMetadataRetriever.extractMetadata(18)));
-                        mediaInfo.setVideoHeight(Integer.parseInt(mediaMetadataRetriever.extractMetadata(19)));
-                        mediaInfo.setRotation(hha.b(mediaMetadataRetriever.extractMetadata(24), 0));
-                        cha.a(mediaMetadataRetriever);
-                    } catch (Exception e3) {
-                        e = e3;
-                        mediaMetadataRetriever2 = mediaMetadataRetriever;
-                        dha.g(e);
-                        if (mediaMetadataRetriever2 != null) {
-                            cha.a(mediaMetadataRetriever2);
-                        }
-                        return mediaInfo;
-                    } catch (Throwable th) {
-                        th = th;
-                        mediaMetadataRetriever2 = mediaMetadataRetriever;
-                        if (mediaMetadataRetriever2 != null) {
-                            cha.a(mediaMetadataRetriever2);
-                        }
-                        throw th;
-                    }
-                    return mediaInfo;
-                }
-                return null;
-            } catch (Throwable th2) {
-                th = th2;
-            }
-        } else {
-            return (MediaInfo) invokeL.objValue;
-        }
-    }
-
-    @TargetApi(16)
-    public static boolean g(String str) throws Exception {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            MediaExtractor mediaExtractor = new MediaExtractor();
-            mediaExtractor.setDataSource(str);
-            for (int i = 0; i < mediaExtractor.getTrackCount(); i++) {
-                if (nha.j(mediaExtractor.getTrackFormat(i))) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
+        return invokeLL.intValue;
     }
 }

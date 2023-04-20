@@ -12,7 +12,7 @@ public class w54 extends JSEvent {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public w54() {
-        super("appMount");
+        super("appLoad");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

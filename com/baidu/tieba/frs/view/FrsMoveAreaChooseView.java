@@ -15,10 +15,10 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.nj7;
-import com.baidu.tieba.o47;
-import com.baidu.tieba.p45;
-import com.baidu.tieba.q25;
+import com.baidu.tieba.oj7;
+import com.baidu.tieba.p47;
+import com.baidu.tieba.q45;
+import com.baidu.tieba.r25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -99,7 +99,7 @@ public class FrsMoveAreaChooseView extends LinearLayout implements View.OnClickL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             SkinManager.setBackgroundColor(this, R.color.CAM_X0605);
-            q25 d = q25.d(this.b);
+            r25 d = r25.d(this.b);
             d.o(R.string.J_X14);
             d.f(R.color.CAM_X0204);
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0108);
@@ -118,15 +118,15 @@ public class FrsMoveAreaChooseView extends LinearLayout implements View.OnClickL
                 b();
             } else if (view2 == this.d) {
                 if (this.a != null && getParent() != null && this.f.l() >= 0) {
-                    boolean i = p45.m().i("key_frs_move_area_tip", true);
-                    List<FrsTabInfo> g = o47.h().g();
+                    boolean i = q45.m().i("key_frs_move_area_tip", true);
+                    List<FrsTabInfo> g = p47.h().g();
                     FrsTabInfo frsTabInfo = (FrsTabInfo) ListUtils.getItem(g, this.f.k());
                     FrsTabInfo frsTabInfo2 = (FrsTabInfo) ListUtils.getItem(g, this.f.l());
                     if (frsTabInfo != null && frsTabInfo2 != null) {
                         if (i) {
-                            nj7.a(this.a, frsTabInfo, frsTabInfo2);
+                            oj7.a(this.a, frsTabInfo, frsTabInfo2);
                         } else {
-                            o47.h().m(frsTabInfo.tab_id.intValue(), frsTabInfo2.tab_id.intValue());
+                            p47.h().m(frsTabInfo.tab_id.intValue(), frsTabInfo2.tab_id.intValue());
                         }
                         if (this.h != null) {
                             view2.setTag("choose_done");

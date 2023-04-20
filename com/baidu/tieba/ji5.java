@@ -1,18 +1,21 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* compiled from: GroupChatService.java */
 /* loaded from: classes5.dex */
-public interface ji5 {
-    @NonNull
-    public static final ServiceReference a = new ServiceReference("ImMessageCenter", "GroupChatService");
+public final /* synthetic */ class ji5 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void a(@NonNull Context context, long j, int i, String str);
-
-    void b(@NonNull Context context, long j);
-
-    void c(@NonNull Context context, long j, String str);
-
-    void d(@NonNull Context context, long j, int i, String str, String str2, long j2, boolean z);
+    public static ki5 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return (ki5) ServiceManager.getService(ki5.a);
+        }
+        return (ki5) invokeV.objValue;
+    }
 }

@@ -8,10 +8,10 @@ import android.widget.ScrollView;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.eo1;
+import com.baidu.tieba.fo1;
 /* loaded from: classes3.dex */
 public class SwanAppScrollView extends ScrollView {
-    public static final boolean b = eo1.a;
+    public static final boolean b = fo1.a;
     public int a;
 
     public SwanAppScrollView(Context context) {

@@ -7,12 +7,12 @@ import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.cg;
-import com.baidu.tieba.ie8;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.je8;
-import com.baidu.tieba.ke8;
 import com.baidu.tieba.lego.card.exception.CardParseException;
-import com.baidu.tieba.ne8;
+import com.baidu.tieba.qe8;
+import com.baidu.tieba.re8;
+import com.baidu.tieba.se8;
+import com.baidu.tieba.ve8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,7 +24,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class PlayPicInfoCard extends BaseCardInfo implements ie8<PlayPicInfoCard> {
+public class PlayPicInfoCard extends BaseCardInfo implements qe8<PlayPicInfoCard> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int descOnPic;
@@ -41,8 +41,8 @@ public class PlayPicInfoCard extends BaseCardInfo implements ie8<PlayPicInfoCard
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
         public String b;
-        public ke8 c;
-        public je8 d;
+        public se8 c;
+        public re8 d;
 
         public boolean b() {
             InterceptResult invokeV;
@@ -71,17 +71,17 @@ public class PlayPicInfoCard extends BaseCardInfo implements ie8<PlayPicInfoCard
             if (jSONObject != null) {
                 this.a = jSONObject.optString("lbText");
                 this.b = jSONObject.optString("lbScheme");
-                ke8 ke8Var = new ke8();
-                this.c = ke8Var;
-                ke8Var.d = jSONObject.optString("rText");
+                se8 se8Var = new se8();
+                this.c = se8Var;
+                se8Var.d = jSONObject.optString("rText");
                 this.c.c = jSONObject.optInt("rIconType");
                 this.c.a = jSONObject.optString("rIcon");
                 this.c.b = jSONObject.optString("rIconN");
                 JSONObject optJSONObject = jSONObject.optJSONObject("cb");
                 if (optJSONObject != null) {
-                    je8 je8Var = new je8(optJSONObject);
-                    this.d = je8Var;
-                    if (!je8Var.j()) {
+                    re8 re8Var = new re8(optJSONObject);
+                    this.d = re8Var;
+                    if (!re8Var.j()) {
                         this.d = null;
                     }
                 }
@@ -226,8 +226,8 @@ public class PlayPicInfoCard extends BaseCardInfo implements ie8<PlayPicInfoCard
                 bVar.b = optString;
                 bVar.c = optJSONObject.optString("scheme");
                 bVar.d = optJSONObject.optString("desc");
-                bVar.e = ne8.b(optJSONObject.optString("descColor", ""));
-                bVar.f = ne8.b(optJSONObject.optString("descColorNight", ""));
+                bVar.e = ve8.b(optJSONObject.optString("descColor", ""));
+                bVar.f = ve8.b(optJSONObject.optString("descColorNight", ""));
                 int optInt = optJSONObject.optInt("mLines");
                 bVar.h = optInt <= 1 ? 1 : optInt;
                 this.imageResList.add(bVar);
@@ -248,7 +248,7 @@ public class PlayPicInfoCard extends BaseCardInfo implements ie8<PlayPicInfoCard
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ie8
+    @Override // com.baidu.tieba.qe8
     public void doLoad(PlayPicInfoCard playPicInfoCard, TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, playPicInfoCard, tbPageContext) == null) && playPicInfoCard != null && tbPageContext != null) {

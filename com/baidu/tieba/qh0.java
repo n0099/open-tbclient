@@ -1,32 +1,27 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.io.File;
+import java.net.URISyntaxException;
+import java.net.URLDecoder;
 /* loaded from: classes6.dex */
 public class qh0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final List<sh0> d;
-    public static final List<uh0> e;
+    public static final String[] a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, sh0> a;
-    public final Map<String, uh0> b;
-    public final ArrayList<String> c;
 
     static {
         InterceptResult invokeClinit;
@@ -41,91 +36,174 @@ public class qh0 {
                 return;
             }
         }
-        bi0 bi0Var = new bi0();
-        d = bi0Var.a.getList();
-        e = bi0Var.b.getList();
+        a = new String[]{"tel:", UrlSchemaHelper.SCHEMA_TYPE_SMS, "smsto:", "mailto:", "file:"};
     }
 
-    public qh0() {
+    public static String a(String str) {
+        InterceptResult invokeL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            int indexOf = str.indexOf(63);
+            boolean z = false;
+            if (str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_SMS)) {
+                i = str.indexOf(UrlSchemaHelper.SCHEMA_TYPE_SMS) + 4;
+            } else if (str.startsWith("smsto:")) {
+                i = str.indexOf("smsto:") + 6;
+            } else {
+                i = 0;
             }
-        }
-        this.a = new HashMap();
-        this.b = Collections.synchronizedMap(new LinkedHashMap());
-        this.c = new ArrayList<>();
-        synchronized (qh0.class) {
-            if (d != null && this.a.isEmpty()) {
-                for (sh0 sh0Var : d) {
-                    if (sh0Var != null) {
-                        if (x01.b(this.a, sh0Var.a()) == null) {
-                            x01.e(this.a, sh0Var.a(), sh0Var);
-                        }
-                        if (!TextUtils.isEmpty(sh0Var.a())) {
-                            v01.b(this.c, sh0Var.a());
-                        }
-                    }
+            if (indexOf - i > 1) {
+                z = true;
+            }
+            if (indexOf > -1) {
+                if (z) {
+                    return str.substring(i, indexOf);
                 }
+                return "";
             }
-            if (e != null && this.b.isEmpty()) {
-                for (uh0 uh0Var : e) {
-                    this.b.put(uh0Var.b(), uh0Var);
-                }
-            }
+            return str.substring(i);
         }
+        return (String) invokeL.objValue;
     }
 
-    public boolean a(@NonNull Context context, @NonNull wh0 wh0Var, @Nullable Map<String, Object> map, @Nullable ai0 ai0Var) {
-        InterceptResult invokeLLLL;
+    public static boolean b(Context context, String str, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, wh0Var, map, ai0Var)) == null) {
-            if (b(context, wh0Var, map, ai0Var)) {
-                fi0.b(ai0Var, wh0Var, 0, true);
-                return true;
-            }
-            sh0 sh0Var = null;
-            if (fi0.f(wh0Var.a())) {
-                sh0Var = (sh0) x01.b(this.a, wh0Var.a());
-            }
-            if (fi0.g(wh0Var.c()) && sh0Var != null) {
-                wh0Var.f();
-                return sh0Var.b(context, wh0Var, map, ai0Var);
-            }
-            return xh0.a().a(context, wh0Var.b(), map, ai0Var);
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    public boolean b(Context context, wh0 wh0Var, @Nullable Map<String, Object> map, @Nullable ai0 ai0Var) {
-        InterceptResult invokeLLLL;
-        String a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, wh0Var, map, ai0Var)) == null) {
-            if (this.b.isEmpty()) {
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, context, str, z)) == null) {
+            if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            uh0 uh0Var = null;
-            try {
-                for (Map.Entry<String, uh0> entry : this.b.entrySet()) {
-                    String a2 = wh0Var.a();
-                    if (entry == null || ((uh0Var = entry.getValue()) != null && (a = uh0Var.a()) != null && TextUtils.equals(a2, a))) {
-                        if (uh0Var != null && uh0Var.d(context, wh0Var, map, ai0Var)) {
-                            return true;
-                        }
-                    }
+            String e = e(str);
+            if (!z && !c(e)) {
+                return false;
+            }
+            if (e.startsWith("tel:")) {
+                return h(context, e);
+            }
+            if (!e.startsWith(UrlSchemaHelper.SCHEMA_TYPE_SMS) && !e.startsWith("smsto:")) {
+                if (e.startsWith("mailto:")) {
+                    return f(context, e);
                 }
-            } catch (Exception unused) {
+                if (!e.startsWith("file:")) {
+                    return false;
+                }
+                return d(context, e);
+            }
+            return g(context, e);
+        }
+        return invokeLLZ.booleanValue;
+    }
+
+    public static boolean c(String str) {
+        InterceptResult invokeL;
+        String[] strArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            if (yh0.a().c() != null) {
+                strArr = yh0.a().c();
+            } else {
+                strArr = a;
+            }
+            for (String str2 : strArr) {
+                if (str.startsWith(str2)) {
+                    return true;
+                }
             }
             return false;
         }
-        return invokeLLLL.booleanValue;
+        return invokeL.booleanValue;
+    }
+
+    public static String e(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (str.startsWith("wtai://") && str.length() > 13) {
+                return "tel:" + str.substring(13);
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean d(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
+            try {
+                Intent parseUri = Intent.parseUri(str, 1);
+                if (Build.VERSION.SDK_INT >= 24) {
+                    String path = Uri.parse(str).getPath();
+                    if (path == null) {
+                        return false;
+                    }
+                    t31.a(context, new File(path), parseUri);
+                }
+                return t31.d(context, parseUri);
+            } catch (IllegalArgumentException | URISyntaxException unused) {
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean f(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) {
+            if (context != null && str != null) {
+                return t31.d(context, new Intent("android.intent.action.SENDTO", Uri.parse(str)));
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean h(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, context, str)) == null) {
+            Intent intent = new Intent("android.intent.action.DIAL", Uri.parse(str));
+            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+            return t31.d(context, intent);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean g(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, str)) == null) {
+            String str2 = UrlSchemaHelper.SCHEMA_TYPE_SMS;
+            try {
+                int indexOf = str.indexOf("body=");
+                String str3 = null;
+                if (!str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_SMS)) {
+                    if (str.startsWith("smsto:")) {
+                        str2 = "smsto:";
+                    } else {
+                        str2 = null;
+                    }
+                }
+                String a2 = a(str);
+                if (indexOf > -1) {
+                    str3 = str.substring(indexOf + 5);
+                    if (!TextUtils.isEmpty(str3)) {
+                        str3 = URLDecoder.decode(str3, "UTF-8");
+                    }
+                }
+                Intent intent = new Intent("android.intent.action.SENDTO", Uri.parse(str2 + a2));
+                intent.putExtra("sms_body", str3);
+                t31.d(context, intent);
+                return true;
+            } catch (Exception unused) {
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
     }
 }

@@ -1,135 +1,49 @@
 package com.baidu.tieba;
 
-import android.os.Binder;
-import android.os.IBinder;
-import android.os.Process;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.concurrent.ConcurrentHashMap;
+import com.bytedance.pangle.provider.ContentProviderManager;
+import com.huawei.hms.framework.common.hianalytics.CrashHianalyticsData;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public abstract class mj1 {
+public class mj1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final HashMap<String, mj1> a;
-    public static final ConcurrentHashMap<String, b> b;
+    public static jj1 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    public abstract IBinder c();
-
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public IBinder a;
-        public boolean b;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = false;
-        }
-
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947974485, "Lcom/baidu/tieba/mj1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947974485, "Lcom/baidu/tieba/mj1;");
-                return;
-            }
-        }
-        a = new HashMap<>();
-        b = new ConcurrentHashMap<>();
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || Binder.getCallingUid() == Process.myUid()) {
-            return;
-        }
-        throw new SecurityException();
-    }
-
-    public static void a(String str, IBinder iBinder, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65537, null, str, iBinder, z) == null) {
-            if (Binder.getCallingUid() == Process.myUid()) {
-                if (a.get(str) == null) {
-                    b bVar = new b(null);
-                    bVar.a = iBinder;
-                    bVar.b = z;
-                    b.put(str, bVar);
-                    return;
-                }
-                throw new IllegalArgumentException();
-            }
-            throw new SecurityException();
-        }
-    }
-
-    public static IBinder d(String str) {
+    public static JSONObject a(Exception exc) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            mj1 mj1Var = a.get(str);
-            if (mj1Var != null) {
-                mj1Var.b();
-                return mj1Var.c();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, exc)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(ContentProviderManager.PLUGIN_PROCESS_NAME, gj1.b());
+                jSONObject.put(CrashHianalyticsData.STACK_TRACE, Log.getStackTraceString(exc));
+                jSONObject.put("process_info", gj1.a());
+                jSONObject.put("report_time", System.currentTimeMillis());
+            } catch (JSONException unused) {
             }
-            b bVar = b.get(str);
-            if (bVar != null) {
-                if (!bVar.b && Binder.getCallingUid() != Process.myUid()) {
-                    throw new SecurityException();
-                }
-                return bVar.a;
-            }
-            return null;
+            return jSONObject;
         }
-        return (IBinder) invokeL.objValue;
+        return (JSONObject) invokeL.objValue;
     }
 
-    public static boolean e(String str) {
-        InterceptResult invokeL;
+    public static void b(Exception exc) {
+        jj1 jj1Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (Binder.getCallingUid() == Process.myUid()) {
-                if (b.remove(str) != null) {
-                    return true;
-                }
-                return false;
-            }
-            throw new SecurityException();
+        if ((interceptable == null || interceptable.invokeL(65537, null, exc) == null) && (jj1Var = a) != null) {
+            jj1Var.a(a(exc).toString());
         }
-        return invokeL.booleanValue;
+    }
+
+    public static void c(String str) {
+        jj1 jj1Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65538, null, str) == null) && (jj1Var = a) != null) {
+            jj1Var.a(str);
+        }
     }
 }

@@ -1,43 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.yalog.LoggerManager;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class xja {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile LoggerManager.c a;
-    public static yja b;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface xja {
+    String getBizType();
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948303674, "Lcom/baidu/tieba/xja;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948303674, "Lcom/baidu/tieba/xja;");
-                return;
-            }
-        }
-        b = new yja();
-    }
-
-    public static LoggerManager.c a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                a = b.a();
-            }
-            return a;
-        }
-        return (LoggerManager.c) invokeV.objValue;
-    }
+    void onReceiveResult(boolean z, String str, String str2, JSONObject jSONObject, JSONObject jSONObject2);
 }

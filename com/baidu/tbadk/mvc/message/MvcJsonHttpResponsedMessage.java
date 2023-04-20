@@ -7,11 +7,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.BdToastData;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b05;
-import com.baidu.tieba.gk5;
+import com.baidu.tieba.c05;
 import com.baidu.tieba.hk5;
+import com.baidu.tieba.ik5;
 import com.baidu.tieba.kf;
-import com.baidu.tieba.kk5;
+import com.baidu.tieba.lk5;
 import com.baidu.tieba.me;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.UnsupportedEncodingException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class MvcJsonHttpResponsedMessage<D extends kk5> extends MvcHttpResponsedMessage<D> {
+public class MvcJsonHttpResponsedMessage<D extends lk5> extends MvcHttpResponsedMessage<D> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -109,7 +109,7 @@ public class MvcJsonHttpResponsedMessage<D extends kk5> extends MvcHttpResponsed
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(1048580, this, i, jSONObject) == null) && (getOrginalMessage() instanceof MvcHttpMessage)) {
             Object createData = createData(((MvcHttpMessage) getOrginalMessage()).getResponseDataClass());
-            if (createData instanceof kk5) {
+            if (createData instanceof lk5) {
                 D d = (D) createData;
                 this.data = d;
                 d.initByJson(jSONObject);
@@ -134,26 +134,26 @@ public class MvcJsonHttpResponsedMessage<D extends kk5> extends MvcHttpResponsed
             super.afterDispatchInBackGround(i, (int) bArr);
             if (getError() == 0 && (getOrginalMessage() instanceof MvcHttpMessage) && bArr != null) {
                 MvcHttpMessage mvcHttpMessage = (MvcHttpMessage) getOrginalMessage();
-                if (mvcHttpMessage.isNeedCache() && (mvcHttpMessage.getRequestData() instanceof gk5)) {
-                    gk5 gk5Var = (gk5) mvcHttpMessage.getRequestData();
-                    String cacheKey = gk5Var.getCacheKey();
-                    String P = gk5Var.P();
-                    if (gk5Var.isNeedUid()) {
+                if (mvcHttpMessage.isNeedCache() && (mvcHttpMessage.getRequestData() instanceof hk5)) {
+                    hk5 hk5Var = (hk5) mvcHttpMessage.getRequestData();
+                    String cacheKey = hk5Var.getCacheKey();
+                    String P = hk5Var.P();
+                    if (hk5Var.isNeedUid()) {
                         str = TbadkCoreApplication.getCurrentAccount();
                     } else {
                         str = null;
                     }
                     if (cacheKey != null && !TextUtils.isEmpty(P) && bArr != null) {
-                        if (gk5Var.z()) {
-                            b05.d();
-                            me<byte[]> c = b05.c(P, str);
+                        if (hk5Var.z()) {
+                            c05.d();
+                            me<byte[]> c = c05.c(P, str);
                             if (c == null) {
                                 return;
                             }
                             c.g(cacheKey, bArr);
-                        } else if (mvcHttpMessage.getRequestData() instanceof hk5) {
-                            b05.d();
-                            me<String> f = b05.f(P, str);
+                        } else if (mvcHttpMessage.getRequestData() instanceof ik5) {
+                            c05.d();
+                            me<String> f = c05.f(P, str);
                             if (f == null) {
                                 return;
                             }

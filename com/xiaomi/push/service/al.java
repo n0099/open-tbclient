@@ -1,7 +1,7 @@
 package com.xiaomi.push.service;
 
 import com.xiaomi.push.aj;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class al extends aj.a {
     public final /* synthetic */ int a;
 

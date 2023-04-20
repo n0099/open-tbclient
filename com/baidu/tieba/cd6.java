@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,22 +8,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import com.bumptech.glide.util.LruCache;
 /* loaded from: classes3.dex */
-public class cd6 {
+public class cd6 extends LruCache<String, od6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, Object> a;
 
     /* loaded from: classes3.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes3.dex */
-    public static final class b {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final cd6 a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -31,96 +23,61 @@ public class cd6 {
         static {
             InterceptResult invokeClinit;
             ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-893963658, "Lcom/baidu/tieba/cd6$b;")) != null) {
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-893963689, "Lcom/baidu/tieba/cd6$a;")) != null) {
                 Interceptable interceptable = invokeClinit.interceptor;
                 if (interceptable != null) {
                     $ic = interceptable;
                 }
                 if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-893963658, "Lcom/baidu/tieba/cd6$b;");
+                    classClinitInterceptable.invokePostClinit(-893963689, "Lcom/baidu/tieba/cd6$a;");
                     return;
                 }
             }
-            a = new cd6(null);
+            a = new cd6(41943040L);
         }
     }
 
-    public cd6() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cd6(long j) {
+        super(j);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Long) newInitContext.callArgs[0]).longValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ConcurrentHashMap();
     }
 
-    public static cd6 b() {
+    public static cd6 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a.a;
         }
         return (cd6) invokeV.objValue;
     }
 
-    public /* synthetic */ cd6(a aVar) {
-        this();
-    }
-
-    public synchronized void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            synchronized (this) {
-                if (!this.a.containsKey(str)) {
-                    this.a.put(str, new Object());
-                }
-            }
-        }
-    }
-
-    public synchronized boolean c(String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.bumptech.glide.util.LruCache
+    /* renamed from: b */
+    public int getSize(@Nullable od6 od6Var) {
         InterceptResult invokeL;
-        boolean containsKey;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            synchronized (this) {
-                containsKey = this.a.containsKey(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, od6Var)) == null) {
+            if (od6Var == null) {
+                return super.getSize(null);
             }
-            return containsKey;
+            return od6Var.d();
         }
-        return invokeL.booleanValue;
-    }
-
-    public void e(String str) {
-        Object remove;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && (remove = this.a.remove(str)) != null) {
-            try {
-                synchronized (remove) {
-                    remove.notifyAll();
-                }
-            } catch (Exception unused) {
-            }
-        }
-    }
-
-    public void d(String str, long j) {
-        Object obj;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j) == null) && (obj = this.a.get(str)) != null) {
-            try {
-                synchronized (obj) {
-                    obj.wait(j);
-                }
-            } catch (InterruptedException unused) {
-            }
-        }
+        return invokeL.intValue;
     }
 }

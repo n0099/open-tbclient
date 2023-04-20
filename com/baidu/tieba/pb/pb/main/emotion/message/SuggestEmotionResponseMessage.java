@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.face.data.SingleBarEmotionRecommendData;
-import com.baidu.tieba.zx8;
+import com.baidu.tieba.hy8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import org.json.JSONObject;
 public class SuggestEmotionResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zx8 mData;
+    public hy8 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SuggestEmotionResponseMessage(int i) {
@@ -62,18 +62,18 @@ public class SuggestEmotionResponseMessage extends JsonHttpResponsedMessage {
             if (statusCode != 200 || error != 0 || jSONObject == null || jSONObject == null) {
                 return;
             }
-            zx8 zx8Var = new zx8();
-            this.mData = zx8Var;
-            zx8Var.b(parseSingleForumRecommend(jSONObject.optJSONObject("forum_pkg")));
+            hy8 hy8Var = new hy8();
+            this.mData = hy8Var;
+            hy8Var.b(parseSingleForumRecommend(jSONObject.optJSONObject("forum_pkg")));
         }
     }
 
-    public zx8 getData() {
+    public hy8 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mData;
         }
-        return (zx8) invokeV.objValue;
+        return (hy8) invokeV.objValue;
     }
 }

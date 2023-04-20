@@ -15,7 +15,7 @@ import com.xiaomi.push.io;
 import com.xiaomi.push.iq;
 import com.xiaomi.push.ir;
 import com.xiaomi.push.is;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ce {
     public static is a(Context context, id idVar) {
         if (idVar.m553b()) {

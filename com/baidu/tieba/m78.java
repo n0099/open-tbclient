@@ -1,134 +1,170 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.immessagecenter.chatgroup.data.ChatRoomInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 /* loaded from: classes5.dex */
 public class m78 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile m78 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public m78() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    /* loaded from: classes5.dex */
+    public static class a extends AnimatorListenerAdapter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ View a;
+        public final /* synthetic */ AnimatorListenerAdapter b;
 
-    public static m78 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (m78.class) {
-                    if (a == null) {
-                        a = new m78();
-                    }
-                }
-            }
-            return a;
-        }
-        return (m78) invokeV.objValue;
-    }
-
-    public void b(long j, String str, String str2, String str3, String str4, long j2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), str, str2, str3, str4, Long.valueOf(j2)}) == null) && j != 0 && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str3)) {
-            az7.f().l(TbadkCoreApplication.getCurrentAccount(), str, str2, str3, str4, j, 0L, j2, true);
-        }
-    }
-
-    public void c(@Nullable List<ChatRoomInfo> list, @Nullable List<ChatRoomInfo> list2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, list2) == null) {
-            HashMap hashMap = new HashMap();
-            HashMap hashMap2 = new HashMap();
-            if (list == null) {
-                list = new ArrayList<>();
-            }
-            if (list2 == null) {
-                list2 = new ArrayList<>();
-            }
-            for (ChatRoomInfo chatRoomInfo : list) {
-                if (chatRoomInfo != null) {
-                    hashMap.put(Long.valueOf(chatRoomInfo.getRoomId()), chatRoomInfo);
-                }
-            }
-            for (ChatRoomInfo chatRoomInfo2 : list2) {
-                if (chatRoomInfo2 != null) {
-                    hashMap2.put(Long.valueOf(chatRoomInfo2.getRoomId()), chatRoomInfo2);
-                }
-            }
-            if (x01.c(hashMap)) {
-                if (x01.c(hashMap2)) {
+        public a(View view2, AnimatorListenerAdapter animatorListenerAdapter) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {view2, animatorListenerAdapter};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                for (ChatRoomInfo chatRoomInfo3 : list2) {
-                    if (chatRoomInfo3 != null) {
-                        b(chatRoomInfo3.getRoomId(), chatRoomInfo3.getName(), chatRoomInfo3.getAvatar(), chatRoomInfo3.getForumId(), chatRoomInfo3.getForumName(), chatRoomInfo3.getTimestamp());
-                    }
-                }
-            } else if (x01.c(hashMap2)) {
-                if (x01.c(hashMap)) {
-                    return;
-                }
-                for (ChatRoomInfo chatRoomInfo4 : list) {
-                    if (chatRoomInfo4 != null) {
-                        d(chatRoomInfo4.getRoomId(), chatRoomInfo4.getName(), chatRoomInfo4.getAvatar(), false);
-                    }
-                }
-            } else {
-                if (!x01.c(hashMap2) && hashMap2.entrySet() != null && hashMap2.entrySet().iterator() != null) {
-                    for (Map.Entry entry : hashMap2.entrySet()) {
-                        if (entry != null && entry.getValue() != null) {
-                            if (hashMap.containsKey(entry.getKey())) {
-                                if (!((ChatRoomInfo) hashMap.get(entry.getKey())).isSubscribe()) {
-                                    d(((ChatRoomInfo) entry.getValue()).getRoomId(), ((ChatRoomInfo) entry.getValue()).getName(), ((ChatRoomInfo) entry.getValue()).getAvatar(), true);
-                                }
-                            } else {
-                                b(((ChatRoomInfo) entry.getValue()).getRoomId(), ((ChatRoomInfo) entry.getValue()).getName(), ((ChatRoomInfo) entry.getValue()).getAvatar(), ((ChatRoomInfo) entry.getValue()).getForumId(), ((ChatRoomInfo) entry.getValue()).getForumName(), ((ChatRoomInfo) entry.getValue()).getTimestamp());
-                            }
-                        }
-                    }
-                }
-                if (!x01.c(hashMap) && hashMap.entrySet() != null && hashMap.entrySet().iterator() != null) {
-                    for (Map.Entry entry2 : hashMap.entrySet()) {
-                        if (entry2 != null && entry2.getValue() != null) {
-                            if (!hashMap2.containsKey(entry2.getKey())) {
-                                d(((ChatRoomInfo) entry2.getValue()).getRoomId(), ((ChatRoomInfo) entry2.getValue()).getName(), ((ChatRoomInfo) entry2.getValue()).getAvatar(), false);
-                            } else if (((ChatRoomInfo) hashMap2.get(entry2.getKey())).getIsShow() == 0 && TextUtils.isEmpty(((ChatRoomInfo) hashMap2.get(entry2.getKey())).getName())) {
-                                d(((ChatRoomInfo) entry2.getValue()).getRoomId(), ((ChatRoomInfo) entry2.getValue()).getName(), ((ChatRoomInfo) entry2.getValue()).getAvatar(), false);
-                            }
-                        }
-                    }
+            }
+            this.a = view2;
+            this.b = animatorListenerAdapter;
+        }
+
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationCancel(Animator animator) {
+            AnimatorListenerAdapter animatorListenerAdapter;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, animator) == null) && (animatorListenerAdapter = this.b) != null) {
+                animatorListenerAdapter.onAnimationCancel(animator);
+            }
+        }
+
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
+            AnimatorListenerAdapter animatorListenerAdapter;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) && (animatorListenerAdapter = this.b) != null) {
+                animatorListenerAdapter.onAnimationEnd(animator);
+            }
+        }
+
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationStart(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
+                super.onAnimationStart(animator);
+                this.a.setVisibility(0);
+                AnimatorListenerAdapter animatorListenerAdapter = this.b;
+                if (animatorListenerAdapter != null) {
+                    animatorListenerAdapter.onAnimationStart(animator);
                 }
             }
         }
     }
 
-    public final void d(long j, String str, String str2, boolean z) {
+    /* loaded from: classes5.dex */
+    public static class b extends AnimatorListenerAdapter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ View a;
+        public final /* synthetic */ AnimatorListenerAdapter b;
+
+        public b(View view2, AnimatorListenerAdapter animatorListenerAdapter) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {view2, animatorListenerAdapter};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = view2;
+            this.b = animatorListenerAdapter;
+        }
+
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationCancel(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+                this.a.setVisibility(8);
+                this.a.setAlpha(0.0f);
+                AnimatorListenerAdapter animatorListenerAdapter = this.b;
+                if (animatorListenerAdapter != null) {
+                    animatorListenerAdapter.onAnimationCancel(animator);
+                }
+            }
+        }
+
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
+                this.a.setVisibility(8);
+                this.a.setAlpha(0.0f);
+                AnimatorListenerAdapter animatorListenerAdapter = this.b;
+                if (animatorListenerAdapter != null) {
+                    animatorListenerAdapter.onAnimationEnd(animator);
+                }
+            }
+        }
+    }
+
+    public static void a(View view2, AnimatorListenerAdapter animatorListenerAdapter) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), str, str2, Boolean.valueOf(z)}) == null) && j != 0 && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            az7.f().q(TbadkCoreApplication.getCurrentAccount(), j, str, str2, z);
+        if (interceptable == null || interceptable.invokeLL(65536, null, view2, animatorListenerAdapter) == null) {
+            b(view2, animatorListenerAdapter, 300L);
+        }
+    }
+
+    public static void c(View view2, AnimatorListenerAdapter animatorListenerAdapter) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, view2, animatorListenerAdapter) == null) {
+            d(view2, animatorListenerAdapter, 300L);
+        }
+    }
+
+    public static void b(View view2, AnimatorListenerAdapter animatorListenerAdapter, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{view2, animatorListenerAdapter, Long.valueOf(j)}) == null) {
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, View.ALPHA, 0.0f);
+            ofFloat.setDuration(j);
+            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(view2, View.TRANSLATION_Y, 0.0f, view2.getMeasuredHeight());
+            ofFloat2.setDuration(j);
+            AnimatorSet animatorSet = new AnimatorSet();
+            animatorSet.playTogether(ofFloat2, ofFloat);
+            animatorSet.addListener(new b(view2, animatorListenerAdapter));
+            animatorSet.start();
+        }
+    }
+
+    public static void d(View view2, AnimatorListenerAdapter animatorListenerAdapter, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{view2, animatorListenerAdapter, Long.valueOf(j)}) == null) {
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, View.ALPHA, 1.0f);
+            ofFloat.setDuration(j);
+            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(view2, View.TRANSLATION_Y, view2.getMeasuredHeight(), 0.0f);
+            ofFloat2.setDuration(j);
+            AnimatorSet animatorSet = new AnimatorSet();
+            animatorSet.playTogether(ofFloat2, ofFloat);
+            animatorSet.addListener(new a(view2, animatorListenerAdapter));
+            animatorSet.start();
         }
     }
 }

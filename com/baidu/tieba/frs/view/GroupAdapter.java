@@ -149,7 +149,7 @@ public final class GroupAdapter extends RecyclerView.Adapter<GroupItemHolder> {
             imageView.setPadding(0, ii.g(parent.getContext(), R.dimen.tbds1), 0, 0);
             imageView.setAlpha(0.6f);
             linearLayout.addView(imageView);
-            linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.jj7
+            linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.kj7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

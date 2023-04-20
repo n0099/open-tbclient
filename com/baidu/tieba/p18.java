@@ -11,7 +11,7 @@ public class p18 extends m18 {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public p18() {
-        super(x08.j(), 2001150);
+        super(y08.j(), 2001144);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -20,7 +20,7 @@ public class p18 extends m18 {
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
-                super((t08) objArr[0], ((Integer) objArr[1]).intValue());
+                super((u08) objArr[0], ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

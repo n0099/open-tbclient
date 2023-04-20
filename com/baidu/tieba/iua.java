@@ -1,21 +1,22 @@
 package com.baidu.tieba;
 
+import com.baidu.tieba.lua;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.CountDownLatch;
-/* JADX WARN: Incorrect class signature, class is equals to this class: <TResult:Ljava/lang/Object;>Ljava/lang/Object;Lcom/baidu/tieba/iua;Lcom/baidu/tieba/uua;Lcom/baidu/tieba/vua<TTResult;>; */
 /* loaded from: classes5.dex */
-public class iua<TResult> implements uua, uua {
+public class iua implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final CountDownLatch a;
+    public final /* synthetic */ lua.a a;
 
-    public iua() {
+    public iua(lua.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -25,6 +26,14 @@ public class iua<TResult> implements uua, uua {
                 return;
             }
         }
-        this.a = new CountDownLatch(1);
+        this.a = aVar;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.d();
+        }
     }
 }

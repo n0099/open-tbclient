@@ -3,8 +3,8 @@ package com.baidu.tbadk.core.flow.data;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
-import com.baidu.tieba.u25;
-import com.baidu.tieba.xj0;
+import com.baidu.tieba.v25;
+import com.baidu.tieba.yj0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,10 +13,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.Serializable;
 /* loaded from: classes3.dex */
-public class ApkDownloadInfoData implements u25, Serializable, Comparable<ApkDownloadInfoData> {
+public class ApkDownloadInfoData implements v25, Serializable, Comparable<ApkDownloadInfoData> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xj0 adDownloadBean;
+    public yj0 adDownloadBean;
     public String apkPackageName;
     public long finishDownloadTime;
     public String mApkImgUrl;
@@ -24,7 +24,7 @@ public class ApkDownloadInfoData implements u25, Serializable, Comparable<ApkDow
     public File mApkPath;
     public AdDownloadStatus status;
 
-    @Override // com.baidu.tieba.u25
+    @Override // com.baidu.tieba.v25
     public String getPicLinkUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class ApkDownloadInfoData implements u25, Serializable, Comparable<ApkDow
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.u25
+    @Override // com.baidu.tieba.v25
     public String getPicUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -44,12 +44,12 @@ public class ApkDownloadInfoData implements u25, Serializable, Comparable<ApkDow
         return (String) invokeV.objValue;
     }
 
-    public ApkDownloadInfoData(String str, File file, String str2, AdDownloadStatus adDownloadStatus, String str3, long j, xj0 xj0Var) {
+    public ApkDownloadInfoData(String str, File file, String str2, AdDownloadStatus adDownloadStatus, String str3, long j, yj0 yj0Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, file, str2, adDownloadStatus, str3, Long.valueOf(j), xj0Var};
+            Object[] objArr = {str, file, str2, adDownloadStatus, str3, Long.valueOf(j), yj0Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -66,7 +66,7 @@ public class ApkDownloadInfoData implements u25, Serializable, Comparable<ApkDow
         this.status = adDownloadStatus;
         this.apkPackageName = str3;
         this.finishDownloadTime = j;
-        this.adDownloadBean = xj0Var;
+        this.adDownloadBean = yj0Var;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -83,13 +83,13 @@ public class ApkDownloadInfoData implements u25, Serializable, Comparable<ApkDow
         return invokeL.intValue;
     }
 
-    public xj0 getAdDownloadBean() {
+    public yj0 getAdDownloadBean() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.adDownloadBean;
         }
-        return (xj0) invokeV.objValue;
+        return (yj0) invokeV.objValue;
     }
 
     public String getApkPackageName() {

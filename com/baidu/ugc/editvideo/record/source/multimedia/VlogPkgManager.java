@@ -6,9 +6,9 @@ import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrackConfig;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTransitionConfig;
-import com.baidu.tieba.iha;
-import com.baidu.tieba.sf0;
-import com.baidu.tieba.xha;
+import com.baidu.tieba.fia;
+import com.baidu.tieba.qha;
+import com.baidu.tieba.tf0;
 import com.baidu.ugc.editvideo.record.entity.TemplateInfo;
 import com.baidu.ugc.editvideo.record.source.multimedia.utils.MultiDataSourceUtil;
 import com.baidu.ugc.utils.FileUtils;
@@ -36,20 +36,20 @@ public class VlogPkgManager {
     }
 
     public TemplateInfo getTemplateInfoByKey(String str) {
-        if (xha.a(str) || this.mTemplateInfoMap.get(str) == null) {
+        if (fia.a(str) || this.mTemplateInfoMap.get(str) == null) {
             return null;
         }
         return this.mTemplateInfoMap.get(str);
     }
 
     public List<MediaSegment> getTrackConfigSegmentData(MediaTrackConfig mediaTrackConfig) {
-        if (mediaTrackConfig == null || iha.e(mediaTrackConfig.mediaTracks) || !TextUtils.equals(mediaTrackConfig.importType, MediaTrackConfig.AE_IMPORT_TEMPLATE)) {
+        if (mediaTrackConfig == null || qha.e(mediaTrackConfig.mediaTracks) || !TextUtils.equals(mediaTrackConfig.importType, MediaTrackConfig.AE_IMPORT_TEMPLATE)) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
         for (MediaTrack mediaTrack : mediaTrackConfig.mediaTracks) {
-            if (sf0.m(mediaTrack, "input") || sf0.m(mediaTrack, "multi_input")) {
-                if (iha.e(mediaTrack.mediaSegments)) {
+            if (tf0.m(mediaTrack, "input") || tf0.m(mediaTrack, "multi_input")) {
+                if (qha.e(mediaTrack.mediaSegments)) {
                     return null;
                 }
                 for (MediaSegment mediaSegment : mediaTrack.mediaSegments) {
@@ -57,7 +57,7 @@ public class VlogPkgManager {
                         arrayList.add(mediaSegment);
                     }
                 }
-            } else if (!iha.e(mediaTrack.mediaSegments)) {
+            } else if (!qha.e(mediaTrack.mediaSegments)) {
                 for (MediaSegment mediaSegment2 : mediaTrack.mediaSegments) {
                     if (mediaSegment2 != null && ("input".equals(mediaSegment2.type) || "multi_input".equals(mediaSegment2.type))) {
                         arrayList.add(mediaSegment2);

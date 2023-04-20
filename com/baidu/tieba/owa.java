@@ -1,360 +1,101 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.UnsupportedEncodingException;
-import java.security.InvalidAlgorithmParameterException;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
-import javax.crypto.BadPaddingException;
-import javax.crypto.Cipher;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
 /* loaded from: classes5.dex */
 public final class owa {
     public static /* synthetic */ Interceptable $ic;
+    public static final owa d;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Executor a;
+    public final ExecutorService b;
+    public final Executor c;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
-            }
-            try {
-                return str.substring(0, 6) + str.substring(12, 16) + str.substring(26, 32) + str.substring(48);
-            } catch (Exception e) {
-                xwa.c("CBC", "get encryptword exception : " + e.getMessage());
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
+    /* loaded from: classes5.dex */
+    public static final class a implements Executor {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public static String b(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                try {
-                    return str2.substring(0, 6) + str.substring(0, 6) + str2.substring(6, 10) + str.substring(6, 16) + str2.substring(10, 16) + str.substring(16) + str2.substring(16);
-                } catch (Exception e) {
-                    xwa.c("CBC", "mix exception: " + e.getMessage());
-                }
-            }
-            return "";
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static byte[] c(String str, byte[] bArr, byte[] bArr2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, bArr, bArr2)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                xwa.c("CBC", "encrypt 5 content is null");
-                return new byte[0];
-            } else if (bArr == null) {
-                xwa.c("CBC", "encrypt 5 key is null");
-                return new byte[0];
-            } else if (bArr.length < 16) {
-                xwa.c("CBC", "encrypt 5 key lengh is not right");
-                return new byte[0];
-            } else if (bArr2 == null) {
-                xwa.c("CBC", "encrypt 5 iv is null");
-                return new byte[0];
-            } else if (bArr2.length < 16) {
-                xwa.c("CBC", "encrypt 5 iv lengh is not right");
-                return new byte[0];
-            } else {
-                try {
-                    return m(str.getBytes("UTF-8"), bArr, bArr2);
-                } catch (UnsupportedEncodingException e) {
-                    xwa.c("CBC", " cbc encrypt data error" + e.getMessage());
-                    return new byte[0];
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
         }
-        return (byte[]) invokeLLL.objValue;
-    }
 
-    public static String h(String str, byte[] bArr, byte[] bArr2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, str, bArr, bArr2)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                xwa.c("CBC", "decrypt 4 content is null");
-                return "";
-            } else if (bArr == null) {
-                xwa.c("CBC", "decrypt 4 key is null");
-                return "";
-            } else if (bArr.length < 16) {
-                xwa.c("CBC", "decrypt 4 key lengh is not right");
-                return "";
-            } else if (bArr2 == null) {
-                xwa.c("CBC", "decrypt 4 iv is null");
-                return "";
-            } else if (bArr2.length < 16) {
-                xwa.c("CBC", "decrypt 4 iv lengh is not right");
-                return "";
-            } else {
-                try {
-                    return new String(i(uwa.b(str), bArr, bArr2), "UTF-8");
-                } catch (UnsupportedEncodingException e) {
-                    xwa.c("CBC", " cbc decrypt data error" + e.getMessage());
-                    return "";
-                }
+        @Override // java.util.concurrent.Executor
+        public final void execute(Runnable runnable) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
+                runnable.run();
             }
         }
-        return (String) invokeLLL.objValue;
     }
 
-    public static byte[] d(byte[] bArr, byte[] bArr2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, bArr, bArr2)) == null) {
-            byte[] bArr3 = new byte[bArr.length + bArr2.length];
-            System.arraycopy(bArr, 0, bArr3, 0, bArr.length);
-            System.arraycopy(bArr2, 0, bArr3, bArr.length, bArr2.length);
-            return bArr3;
-        }
-        return (byte[]) invokeLL.objValue;
-    }
-
-    public static byte[] l(byte[] bArr, byte[] bArr2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, bArr, bArr2)) == null) {
-            byte[] c = twa.c(16);
-            return d(c, m(bArr, bArr2, c));
-        }
-        return (byte[]) invokeLL.objValue;
-    }
-
-    public static String e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948048048, "Lcom/baidu/tieba/owa;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            try {
-                return str.substring(6, 12) + str.substring(16, 26) + str.substring(32, 48);
-            } catch (Exception e) {
-                xwa.c("CBC", "getIv exception : " + e.getMessage());
-                return "";
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948048048, "Lcom/baidu/tieba/owa;");
+                return;
             }
         }
-        return (String) invokeL.objValue;
+        d = new owa();
     }
 
-    public static String f(String str, String str2) {
-        InterceptResult invokeLL;
+    public owa() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                xwa.c("CBC", "decrypt 1 content is null");
-                return "";
-            } else if (TextUtils.isEmpty(str2)) {
-                xwa.c("CBC", "decrypt 1 key is null");
-                return "";
-            } else {
-                byte[] b = uwa.b(str2);
-                if (b.length < 16) {
-                    xwa.c("CBC", "decrypt 1 key length is not right");
-                    return "";
-                }
-                return g(str, b);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-        return (String) invokeLL.objValue;
+        this.b = qwa.a();
+        this.a = new a();
+        this.c = qwa.b();
     }
 
-    public static String j(String str, String str2) {
-        InterceptResult invokeLL;
+    public static ExecutorService a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, str, str2)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                xwa.c("CBC", "encrypt 1 content is null");
-                return "";
-            } else if (TextUtils.isEmpty(str2)) {
-                xwa.c("CBC", "encrypt 1 key is null");
-                return "";
-            } else {
-                byte[] b = uwa.b(str2);
-                if (b.length < 16) {
-                    xwa.c("CBC", "encrypt 1 key length is not right");
-                    return "";
-                }
-                return k(str, b);
-            }
-        }
-        return (String) invokeLL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? d.b : (ExecutorService) invokeV.objValue;
     }
 
-    public static String g(String str, byte[] bArr) {
-        InterceptResult invokeLL;
+    public static Executor b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, bArr)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                xwa.c("CBC", "decrypt 2 content is null");
-                return "";
-            } else if (bArr == null) {
-                xwa.c("CBC", "decrypt 2 key is null");
-                return "";
-            } else if (bArr.length < 16) {
-                xwa.c("CBC", "decrypt 2 key lengh is not right");
-                return "";
-            } else {
-                String e = e(str);
-                String a = a(str);
-                if (TextUtils.isEmpty(e)) {
-                    xwa.c("CBC", "decrypt 2 iv is null");
-                    return "";
-                } else if (TextUtils.isEmpty(a)) {
-                    xwa.c("CBC", "decrypt 2 encrypt content is null");
-                    return "";
-                } else {
-                    return h(a, bArr, uwa.b(e));
-                }
-            }
-        }
-        return (String) invokeLL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? d.a : (Executor) invokeV.objValue;
     }
 
-    public static String k(String str, byte[] bArr) {
-        InterceptResult invokeLL;
+    public static Executor c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, str, bArr)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                xwa.c("CBC", "encrypt 2 content is null");
-                return "";
-            } else if (bArr == null) {
-                xwa.c("CBC", "encrypt 2 key is null");
-                return "";
-            } else if (bArr.length < 16) {
-                xwa.c("CBC", "encrypt 2 key lengh is not right");
-                return "";
-            } else {
-                byte[] c = twa.c(16);
-                byte[] c2 = c(str, bArr, c);
-                if (c2 == null || c2.length == 0) {
-                    return "";
-                }
-                return b(uwa.a(c), uwa.a(c2));
-            }
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static byte[] i(byte[] bArr, byte[] bArr2, byte[] bArr3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, bArr, bArr2, bArr3)) == null) {
-            if (bArr == null) {
-                xwa.c("CBC", "decrypt 6 content is null");
-                return new byte[0];
-            } else if (bArr.length == 0) {
-                xwa.c("CBC", "decrypt 6 content length is 0");
-                return new byte[0];
-            } else if (bArr2 == null) {
-                xwa.c("CBC", "decrypt 6 key is null");
-                return new byte[0];
-            } else if (bArr2.length < 16) {
-                xwa.c("CBC", "decrypt 6 key length is error");
-                return new byte[0];
-            } else if (bArr3 == null) {
-                xwa.c("CBC", "decrypt 6 iv is null");
-                return new byte[0];
-            } else if (bArr3.length < 16) {
-                xwa.c("CBC", "decrypt 6 iv length is error");
-                return new byte[0];
-            } else {
-                SecretKeySpec secretKeySpec = new SecretKeySpec(bArr2, "AES");
-                try {
-                    Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-                    cipher.init(2, secretKeySpec, new IvParameterSpec(bArr3));
-                    return cipher.doFinal(bArr);
-                } catch (InvalidAlgorithmParameterException e) {
-                    xwa.c("CBC", "InvalidAlgorithmParameterException: " + e.getMessage());
-                    return new byte[0];
-                } catch (InvalidKeyException e2) {
-                    xwa.c("CBC", "InvalidKeyException: " + e2.getMessage());
-                    return new byte[0];
-                } catch (NoSuchAlgorithmException e3) {
-                    xwa.c("CBC", "NoSuchAlgorithmException: " + e3.getMessage());
-                    return new byte[0];
-                } catch (BadPaddingException e4) {
-                    xwa.c("CBC", "BadPaddingException: " + e4.getMessage());
-                    xwa.c("CBC", "key is not right");
-                    return new byte[0];
-                } catch (IllegalBlockSizeException e5) {
-                    xwa.c("CBC", "IllegalBlockSizeException: " + e5.getMessage());
-                    return new byte[0];
-                } catch (NoSuchPaddingException e6) {
-                    xwa.c("CBC", "NoSuchPaddingException: " + e6.getMessage());
-                    return new byte[0];
-                }
-            }
-        }
-        return (byte[]) invokeLLL.objValue;
-    }
-
-    public static byte[] m(byte[] bArr, byte[] bArr2, byte[] bArr3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65548, null, bArr, bArr2, bArr3)) == null) {
-            if (bArr == null) {
-                xwa.c("CBC", "encrypt 6 content is null");
-                return new byte[0];
-            } else if (bArr.length == 0) {
-                xwa.c("CBC", "encrypt 6 content length is 0");
-                return new byte[0];
-            } else if (bArr2 == null) {
-                xwa.c("CBC", "encrypt 6 key is null");
-                return new byte[0];
-            } else if (bArr2.length < 16) {
-                xwa.c("CBC", "encrypt 6 key length is error");
-                return new byte[0];
-            } else if (bArr3 == null) {
-                xwa.c("CBC", "encrypt 6 iv is null");
-                return new byte[0];
-            } else if (bArr3.length < 16) {
-                xwa.c("CBC", "encrypt 6 iv length is error");
-                return new byte[0];
-            } else {
-                SecretKeySpec secretKeySpec = new SecretKeySpec(bArr2, "AES");
-                try {
-                    Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-                    cipher.init(1, secretKeySpec, new IvParameterSpec(bArr3));
-                    return cipher.doFinal(bArr);
-                } catch (InvalidAlgorithmParameterException e) {
-                    xwa.c("CBC", "InvalidAlgorithmParameterException: " + e.getMessage());
-                    return new byte[0];
-                } catch (InvalidKeyException e2) {
-                    xwa.c("CBC", "InvalidKeyException: " + e2.getMessage());
-                    return new byte[0];
-                } catch (NoSuchAlgorithmException e3) {
-                    xwa.c("CBC", "NoSuchAlgorithmException: " + e3.getMessage());
-                    return new byte[0];
-                } catch (BadPaddingException e4) {
-                    xwa.c("CBC", "BadPaddingException: " + e4.getMessage());
-                    return new byte[0];
-                } catch (IllegalBlockSizeException e5) {
-                    xwa.c("CBC", "IllegalBlockSizeException: " + e5.getMessage());
-                    return new byte[0];
-                } catch (NoSuchPaddingException e6) {
-                    xwa.c("CBC", "NoSuchPaddingException: " + e6.getMessage());
-                    return new byte[0];
-                }
-            }
-        }
-        return (byte[]) invokeLLL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? d.c : (Executor) invokeV.objValue;
     }
 }

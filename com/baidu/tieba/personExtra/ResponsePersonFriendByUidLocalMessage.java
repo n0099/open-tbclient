@@ -2,7 +2,7 @@ package com.baidu.tieba.personExtra;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ry4;
+import com.baidu.tieba.sy4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ResponsePersonFriendByUidLocalMessage extends CustomResponsedMessage<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ry4 mData;
+    public sy4 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponsePersonFriendByUidLocalMessage() {
@@ -32,13 +32,13 @@ public class ResponsePersonFriendByUidLocalMessage extends CustomResponsedMessag
         }
     }
 
-    public ry4 getPersonFriendData() {
+    public sy4 getPersonFriendData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.mData;
         }
-        return (ry4) invokeV.objValue;
+        return (sy4) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -66,16 +66,16 @@ public class ResponsePersonFriendByUidLocalMessage extends CustomResponsedMessag
     public void decodeInBackGround(int i, String str) throws Exception {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) && str != null) {
-            ry4 ry4Var = new ry4();
-            this.mData = ry4Var;
-            ry4Var.a(str);
+            sy4 sy4Var = new sy4();
+            this.mData = sy4Var;
+            sy4Var.a(str);
         }
     }
 
-    public void setPersonFriendData(ry4 ry4Var) {
+    public void setPersonFriendData(sy4 sy4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, ry4Var) == null) {
-            this.mData = ry4Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, sy4Var) == null) {
+            this.mData = sy4Var;
         }
     }
 }

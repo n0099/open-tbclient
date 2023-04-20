@@ -9,7 +9,7 @@ import android.content.pm.ResolveInfo;
 import android.content.pm.ServiceInfo;
 import com.baidu.android.common.others.lang.StringUtil;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class l {
     public static ComponentName a(Context context, Intent intent) {
         if (intent != null) {

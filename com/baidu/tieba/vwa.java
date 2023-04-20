@@ -1,34 +1,95 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.os.Build;
+import android.os.Looper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.Callable;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Executor;
 /* loaded from: classes6.dex */
-public class vwa {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String b = "RootKeyUtil";
+public final class vwa {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public byte[] a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948256585, "Lcom/baidu/tieba/vwa;")) == null) {
-            return;
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ nwa a;
+        public final /* synthetic */ Callable b;
+
+        public a(vwa vwaVar, nwa nwaVar, Callable callable) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vwaVar, nwaVar, callable};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = nwaVar;
+            this.b = callable;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+
+        @Override // java.lang.Runnable
+        public final void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    this.a.setResult(this.b.call());
+                } catch (Exception e) {
+                    this.a.c(e);
+                }
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948256585, "Lcom/baidu/tieba/vwa;");
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b<TResult> implements Object, kwa {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final CountDownLatch a;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new CountDownLatch(1);
+        }
+
+        @Override // com.baidu.tieba.kwa
+        public final void onFailure(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+                this.a.countDown();
+            }
+        }
+
+        public final void onSuccess(TResult tresult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tresult) == null) {
+                this.a.countDown();
+            }
         }
     }
 
@@ -36,56 +97,47 @@ public class vwa {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = null;
     }
 
-    public byte[] c() {
-        InterceptResult invokeV;
+    public static <TResult> TResult b(mwa<TResult> mwaVar) throws ExecutionException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return (byte[]) this.a.clone();
-        }
-        return (byte[]) invokeV.objValue;
-    }
-
-    public static vwa d(String str, String str2, String str3, String str4) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, str, str2, str3, str4)) == null) {
-            vwa vwaVar = new vwa();
-            vwaVar.a(str, str2, str3, str4);
-            return vwaVar;
-        }
-        return (vwa) invokeLLLL.objValue;
-    }
-
-    public final void a(String str, String str2, String str3, String str4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, str, str2, str3, str4) == null) {
-            b(str, str2, str3, uwa.b(str4));
-        }
-    }
-
-    @SuppressLint({"NewApi"})
-    public final void b(String str, String str2, String str3, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3, bArr) == null) {
-            if (Build.VERSION.SDK_INT < 26) {
-                xwa.d(b, "initRootKey: sha1");
-                this.a = swa.h(str, str2, str3, bArr, false);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, mwaVar)) == null) {
+            if (mwaVar.h()) {
+                return mwaVar.e();
             }
-            xwa.d(b, "initRootKey: sha256");
-            this.a = swa.h(str, str2, str3, bArr, true);
+            throw new ExecutionException(mwaVar.d());
         }
+        return (TResult) invokeL.objValue;
+    }
+
+    public static void c(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65538, null, str) == null) && Looper.myLooper() == Looper.getMainLooper()) {
+            throw new IllegalStateException(str);
+        }
+    }
+
+    public final <TResult> mwa<TResult> a(Executor executor, Callable<TResult> callable) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, executor, callable)) == null) {
+            nwa nwaVar = new nwa();
+            try {
+                executor.execute(new a(this, nwaVar, callable));
+            } catch (Exception e) {
+                nwaVar.c(e);
+            }
+            return nwaVar.b();
+        }
+        return (mwa) invokeLL.objValue;
     }
 }

@@ -1,32 +1,25 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public final class di9 {
+public final class di9 extends ki9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final void a(boolean z) {
-        int i;
+    public di9() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65536, null, z) == null) {
-            StatisticItem param = new StatisticItem("c15224").param("uid", TbadkCoreApplication.getCurrentAccount());
-            if (z) {
-                i = 1;
-            } else {
-                i = 2;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            param.param("obj_type", i).eventStat();
-        }
-    }
-
-    public static final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            new StatisticItem("c15223").param("uid", TbadkCoreApplication.getCurrentAccount()).eventStat();
         }
     }
 }

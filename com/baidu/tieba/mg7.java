@@ -1,18 +1,24 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.log.YunDialogLog;
-import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Service
 /* loaded from: classes5.dex */
-public class mg7 extends k15 {
+public class mg7 implements c25 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.c25
+    public String name() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "NA_FRS_GUIDE_STRATEGY" : (String) invokeV.objValue;
+    }
 
     public mg7() {
         Interceptable interceptable = $ic;
@@ -28,21 +34,13 @@ public class mg7 extends k15 {
         }
     }
 
-    @Override // com.baidu.tieba.k15
-    public void a(@NonNull Context context, @NonNull b15 b15Var) {
+    @Override // com.baidu.tieba.c25
+    public a25 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, b15Var) == null) {
-            if (TbSingleton.getInstance().getFrsResponseData() == null) {
-                YunDialogLog.getInstance().b("YunDialogManager", "展示吧务管理弹窗失败：当前没有FRS吧数据");
-                z05.r("frsForumManage");
-            } else if (!(context instanceof FrsActivity)) {
-                YunDialogLog.getInstance().b("YunDialogManager", "展示吧务管理弹窗失败：当前Activity非FrsActivity");
-                z05.r("frsForumManage");
-            } else {
-                if (!xh7.a(TbSingleton.getInstance().getFrsResponseData(), ((FrsActivity) context).t1())) {
-                    z05.r("frsForumManage");
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new lg7();
         }
+        return (a25) invokeV.objValue;
     }
 }

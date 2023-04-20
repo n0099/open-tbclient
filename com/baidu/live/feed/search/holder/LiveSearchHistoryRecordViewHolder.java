@@ -5,7 +5,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ac0;
+import com.baidu.tieba.bc0;
 /* loaded from: classes2.dex */
 public class LiveSearchHistoryRecordViewHolder extends RecyclerView.ViewHolder {
     public View a;
@@ -18,6 +18,6 @@ public class LiveSearchHistoryRecordViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void a(int i) {
-        this.b.setTextColor(ac0.f().a(this.a.getContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_1F1F1F"));
+        this.b.setTextColor(bc0.f().a(this.a.getContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_1F1F1F"));
     }
 }

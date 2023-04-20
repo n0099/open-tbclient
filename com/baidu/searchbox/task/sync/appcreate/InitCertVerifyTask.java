@@ -4,9 +4,9 @@ import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.CertVerifyHelper;
-import com.baidu.tieba.cr5;
-import com.baidu.tieba.fq5;
-import com.baidu.tieba.gr5;
+import com.baidu.tieba.dr5;
+import com.baidu.tieba.gq5;
+import com.baidu.tieba.hr5;
 /* loaded from: classes2.dex */
 public class InitCertVerifyTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
@@ -22,16 +22,16 @@ public class InitCertVerifyTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public void execute() {
         if (!TbadkCoreApplication.getInst().isDebugMode() && TbConfig.IS_CHECK_OFFICAL_APPLICATION) {
-            gr5.b(new cr5<Boolean>() { // from class: com.baidu.searchbox.task.sync.appcreate.InitCertVerifyTask.1
+            hr5.b(new dr5<Boolean>() { // from class: com.baidu.searchbox.task.sync.appcreate.InitCertVerifyTask.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // com.baidu.tieba.cr5
+                @Override // com.baidu.tieba.dr5
                 public Boolean doInBackground() {
                     return Boolean.valueOf(CertVerifyHelper.isOfficial(TbadkCoreApplication.getInst()));
                 }
-            }, new fq5<Boolean>() { // from class: com.baidu.searchbox.task.sync.appcreate.InitCertVerifyTask.2
+            }, new gq5<Boolean>() { // from class: com.baidu.searchbox.task.sync.appcreate.InitCertVerifyTask.2
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.tieba.fq5
+                @Override // com.baidu.tieba.gq5
                 public void onReturnDataInUI(Boolean bool) {
                     if (bool != null) {
                         TbadkCoreApplication.getInst().mIsOfficial = bool.booleanValue();

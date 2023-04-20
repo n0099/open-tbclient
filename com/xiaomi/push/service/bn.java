@@ -5,7 +5,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.provider.Settings;
 import com.baidu.android.util.devices.RomUtils;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class bn {
     public static bn a;
 

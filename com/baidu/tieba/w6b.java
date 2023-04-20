@@ -1,51 +1,54 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.graphics.Rect;
-import android.os.Build;
-import android.view.View;
-import android.view.ViewTreeObserver;
-import android.view.Window;
-import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import com.yy.mobile.framework.revenuesdk.baseapi.IResult;
+import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import com.yy.mobile.framework.revenuesdk.payapi.IAppPayService;
+import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
+import com.yy.mobile.framework.revenuesdk.payapi.PayType;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
+import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.BannerConfigResult;
+import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.MyBalanceResult;
+import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.ProductListResult;
+import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.SplitOrderConfigResult;
+import com.yy.mobile.framework.revenuesdk.payapi.request.GetBannerConfigReqParams;
+import com.yy.mobile.framework.revenuesdk.payapi.request.GetSplitOrderConfigReqParams;
+import com.yy.mobile.framework.revenuesdk.payapi.request.QueryCurrencyReqParams;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
+import tv.athena.revenue.api.IMiddleRevenue;
+import tv.athena.revenue.api.MiddleRevenueConfig;
+import tv.athena.revenue.api.pay.IMiddlePayService;
+import tv.athena.revenue.api.pay.params.AppCustomExpand;
+import tv.athena.revenue.api.pay.params.PayFlowType;
 /* loaded from: classes6.dex */
-public class w6b {
+public final class w6b implements n6b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Activity a;
-    public Window b;
-    public View c;
-    public View d;
-    public View e;
-    public t6b f;
-    public int g;
-    public int h;
-    public int i;
-    public int j;
-    public int k;
-    public int l;
-    public int m;
-    public int n;
-    public boolean o;
-    public ViewTreeObserver.OnGlobalLayoutListener p;
+    public final String a;
+    public l6b b;
+    public final IMiddleRevenue c;
 
     /* loaded from: classes6.dex */
-    public class a implements ViewTreeObserver.OnGlobalLayoutListener {
+    public static final class a implements IResult<BannerConfigResult> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ w6b a;
+        public final /* synthetic */ IResult a;
 
-        public a(w6b w6bVar) {
+        public a(IResult iResult) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {w6bVar};
+                Object[] objArr = {iResult};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -55,114 +58,171 @@ public class w6b {
                     return;
                 }
             }
-            this.a = w6bVar;
+            this.a = iResult;
         }
 
-        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-        public void onGlobalLayout() {
-            int i;
-            int i2;
-            int i3;
-            int height;
-            int i4;
-            int i5;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
+        /* renamed from: a */
+        public void onSuccess(BannerConfigResult bannerConfigResult, PayCallBackBean payCallBackBean) {
+            IResult iResult;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !this.a.o) {
-                return;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, bannerConfigResult, payCallBackBean) == null) && (iResult = this.a) != null) {
+                iResult.onSuccess(bannerConfigResult, payCallBackBean);
             }
-            Rect rect = new Rect();
-            this.a.c.getWindowVisibleDisplayFrame(rect);
-            boolean z = true;
-            if (this.a.f.x) {
-                int height2 = (this.a.d.getHeight() - rect.bottom) - this.a.n;
-                if (this.a.f.z != null) {
-                    if (height2 <= this.a.n) {
-                        z = false;
-                    }
-                    this.a.f.z.a(z, height2);
-                }
-            } else if (this.a.e != null) {
-                if (this.a.f.s) {
-                    height = this.a.d.getHeight() + this.a.l + this.a.m;
-                    i4 = rect.bottom;
-                } else if (this.a.f.n) {
-                    height = this.a.d.getHeight() + this.a.l;
-                    i4 = rect.bottom;
-                } else {
-                    height = this.a.d.getHeight();
-                    i4 = rect.bottom;
-                }
-                int i6 = height - i4;
-                if (this.a.f.e) {
-                    i5 = i6 - this.a.n;
-                } else {
-                    i5 = i6;
-                }
-                if (this.a.f.e && i6 == this.a.n) {
-                    i6 -= this.a.n;
-                }
-                if (i5 != this.a.k) {
-                    this.a.d.setPadding(this.a.g, this.a.h, this.a.i, i6 + this.a.j);
-                    this.a.k = i5;
-                    if (this.a.f.z != null) {
-                        if (i5 <= this.a.n) {
-                            z = false;
-                        }
-                        this.a.f.z.a(z, i5);
-                    }
-                }
-            } else {
-                int height3 = this.a.d.getHeight() - rect.bottom;
-                if (this.a.f.v && this.a.f.w) {
-                    if (Build.VERSION.SDK_INT == 19 || x6b.i()) {
-                        i2 = this.a.n;
-                    } else if (this.a.f.e) {
-                        i2 = this.a.n;
-                    } else {
-                        i3 = height3;
-                        if (this.a.f.e && height3 == this.a.n) {
-                            height3 -= this.a.n;
-                        }
-                        int i7 = height3;
-                        height3 = i3;
-                        i = i7;
-                    }
-                    i3 = height3 - i2;
-                    if (this.a.f.e) {
-                        height3 -= this.a.n;
-                    }
-                    int i72 = height3;
-                    height3 = i3;
-                    i = i72;
-                } else {
-                    i = height3;
-                }
-                if (height3 != this.a.k) {
-                    if (this.a.f.s) {
-                        this.a.d.setPadding(0, this.a.l + this.a.m, 0, i);
-                    } else if (this.a.f.n) {
-                        this.a.d.setPadding(0, this.a.l, 0, i);
-                    } else {
-                        this.a.d.setPadding(0, 0, 0, i);
-                    }
-                    this.a.k = height3;
-                    if (this.a.f.z != null) {
-                        if (height3 <= this.a.n) {
-                            z = false;
-                        }
-                        this.a.f.z.a(z, height3);
-                    }
-                }
+        }
+
+        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
+        public void onFail(int i, String str, PayCallBackBean payCallBackBean) {
+            IResult iResult;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, payCallBackBean) == null) && (iResult = this.a) != null) {
+                iResult.onFail(i, str, payCallBackBean);
             }
         }
     }
 
-    public w6b(Activity activity, Window window) {
+    /* loaded from: classes6.dex */
+    public static final class b implements IResult<MyBalanceResult> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ IResult a;
+
+        public b(IResult iResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {iResult};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = iResult;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
+        /* renamed from: a */
+        public void onSuccess(MyBalanceResult myBalanceResult, PayCallBackBean payCallBackBean) {
+            IResult iResult;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, myBalanceResult, payCallBackBean) == null) && (iResult = this.a) != null) {
+                iResult.onSuccess(myBalanceResult, payCallBackBean);
+            }
+        }
+
+        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
+        public void onFail(int i, String str, PayCallBackBean payCallBackBean) {
+            IResult iResult;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, payCallBackBean) == null) && (iResult = this.a) != null) {
+                iResult.onFail(i, str, payCallBackBean);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class c implements IResult<ProductListResult> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ IResult a;
+
+        public c(IResult iResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {iResult};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = iResult;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
+        /* renamed from: a */
+        public void onSuccess(ProductListResult productListResult, PayCallBackBean payCallBackBean) {
+            IResult iResult;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, productListResult, payCallBackBean) == null) && (iResult = this.a) != null) {
+                iResult.onSuccess(productListResult, payCallBackBean);
+            }
+        }
+
+        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
+        public void onFail(int i, String str, PayCallBackBean payCallBackBean) {
+            IResult iResult;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, payCallBackBean) == null) && (iResult = this.a) != null) {
+                iResult.onFail(i, str, payCallBackBean);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class d implements IResult<SplitOrderConfigResult> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ IResult a;
+
+        public d(IResult iResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {iResult};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = iResult;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
+        /* renamed from: a */
+        public void onSuccess(SplitOrderConfigResult splitOrderConfigResult, PayCallBackBean payCallBackBean) {
+            IResult iResult;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, splitOrderConfigResult, payCallBackBean) == null) && (iResult = this.a) != null) {
+                iResult.onSuccess(splitOrderConfigResult, payCallBackBean);
+            }
+        }
+
+        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
+        public void onFail(int i, String str, PayCallBackBean payCallBackBean) {
+            IResult iResult;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, payCallBackBean) == null) && (iResult = this.a) != null) {
+                iResult.onFail(i, str, payCallBackBean);
+            }
+        }
+    }
+
+    public w6b(MiddleRevenueConfig middleRevenueConfig, IMiddleRevenue iMiddleRevenue) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity, window};
+            Object[] objArr = {middleRevenueConfig, iMiddleRevenue};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -172,62 +232,106 @@ public class w6b {
                 return;
             }
         }
-        this.p = new a(this);
-        this.a = activity;
-        this.b = window;
-        View decorView = window.getDecorView();
-        this.c = decorView;
-        FrameLayout frameLayout = (FrameLayout) decorView.findViewById(16908290);
-        if (frameLayout == null) {
-            return;
-        }
-        View childAt = frameLayout.getChildAt(0);
-        this.e = childAt;
-        frameLayout = childAt != null ? childAt : frameLayout;
-        this.d = frameLayout;
-        this.g = frameLayout.getPaddingLeft();
-        this.h = this.d.getPaddingTop();
-        this.i = this.d.getPaddingRight();
-        this.j = this.d.getPaddingBottom();
-        s6b s6bVar = new s6b(this.a);
-        this.l = s6bVar.i();
-        this.n = s6bVar.d();
-        this.m = s6bVar.a();
-        this.o = s6bVar.l();
+        this.c = iMiddleRevenue;
+        this.a = "YYPayMiddleService";
+        this.b = new v6b(middleRevenueConfig);
+        String str = this.a;
+        RLog.info(str, this + " queryParamsProvider:" + this.b + WebvttCueParser.CHAR_SPACE + "revenue:" + this.c + " config:" + middleRevenueConfig.hashCode() + WebvttCueParser.CHAR_SPACE);
     }
 
-    public void o(int i) {
+    @Override // com.baidu.tieba.n6b
+    public void a(int[] iArr, IResult<BannerConfigResult> iResult) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            if (Build.VERSION.SDK_INT >= 19) {
-                this.b.setSoftInputMode(i);
-                this.c.getViewTreeObserver().removeOnGlobalLayoutListener(this.p);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, iArr, iResult) == null) {
+            GetBannerConfigReqParams a2 = this.b.a();
+            Intrinsics.checkExpressionValueIsNotNull(a2, "queryParamsProvider.getBannerConfigReqParams()");
+            a2.setTypes(iArr);
+            IAppPayService appPayService = this.c.getAppPayService();
+            if (appPayService == null) {
+                RLog.error(this.a, "queryBannerConfig error appPayService null", new Object[0]);
+            } else {
+                appPayService.queryBannerConfigRequest(a2, new a(iResult));
             }
-            this.a = null;
         }
     }
 
-    public void p(int i) {
+    @Override // com.baidu.tieba.n6b
+    public void e(Map<String, String> map, IResult<ProductListResult> iResult) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && Build.VERSION.SDK_INT >= 19) {
-            this.b.setSoftInputMode(i);
-            this.c.getViewTreeObserver().addOnGlobalLayoutListener(this.p);
+        if (interceptable == null || interceptable.invokeLL(1048580, this, map, iResult) == null) {
+            QueryCurrencyReqParams e = this.b.e(map);
+            Intrinsics.checkExpressionValueIsNotNull(e, "queryParamsProvider.getQ…qParams(clinetInfoExpand)");
+            IMiddlePayService middlePayService = this.c.getMiddlePayService();
+            if (middlePayService == null) {
+                RLog.error(this.a, "queryProductList error middlePayService null", new Object[0]);
+            } else {
+                middlePayService.queryProductList(e, new c(iResult));
+            }
         }
     }
 
-    public void r(t6b t6bVar) {
+    @Override // com.baidu.tieba.n6b
+    public void b(Activity activity, PayFlowType payFlowType, PayType payType, ProductInfo productInfo, AppCustomExpand appCustomExpand, Map<String, String> map, IPayCallback<String> iPayCallback, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t6bVar) == null) {
-            this.f = t6bVar;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, payFlowType, payType, productInfo, appCustomExpand, map, iPayCallback, str, str2, str3}) == null) {
+            o6b c2 = this.b.c(payFlowType, map);
+            Intrinsics.checkExpressionValueIsNotNull(c2, "queryParamsProvider.getM…owType, clinetInfoExpand)");
+            c2.s(iPayCallback);
+            c2.q(activity);
+            c2.v(productInfo);
+            c2.x(payType);
+            c2.r(appCustomExpand);
+            c2.C(str);
+            c2.w(payFlowType.getTypeId());
+            c2.z(str3);
+            if (str2 != null) {
+                c2.y(str2);
+            }
+            IMiddlePayService middlePayService = this.c.getMiddlePayService();
+            if (middlePayService == null) {
+                RLog.error(this.a, "queryProductList error middlePayService null", new Object[0]);
+            } else {
+                middlePayService.a(c2);
+            }
         }
     }
 
-    public static w6b q(Activity activity, Window window) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.n6b
+    public void c(IResult<MyBalanceResult> iResult) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, activity, window)) == null) {
-            return new w6b(activity, window);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iResult) == null) {
+            QueryCurrencyReqParams b2 = this.b.b();
+            Intrinsics.checkExpressionValueIsNotNull(b2, "queryParamsProvider.getQueryMyBalanceReqParams()");
+            IAppPayService appPayService = this.c.getAppPayService();
+            if (appPayService == null) {
+                RLog.error(this.a, "queryMyBalance error appPayService null", new Object[0]);
+            } else {
+                appPayService.queryMyBalance(b2, new b(iResult));
+            }
         }
-        return (w6b) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.n6b
+    public void d(int i, String str, long j, IResult<SplitOrderConfigResult> iResult) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j), iResult}) == null) {
+            GetSplitOrderConfigReqParams d2 = this.b.d(i, str, j);
+            Intrinsics.checkExpressionValueIsNotNull(d2, "queryParamsProvider.getS…ms(type, orderId, amount)");
+            IAppPayService appPayService = this.c.getAppPayService();
+            if (appPayService == null) {
+                RLog.error(this.a, "querySplitOrderConfig error appPayService null", new Object[0]);
+            } else {
+                appPayService.querySplitOrderConfig(d2, new d(iResult));
+            }
+        }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.a + hashCode() + " :{revenue:" + this.c + '}';
+        }
+        return (String) invokeV.objValue;
     }
 }

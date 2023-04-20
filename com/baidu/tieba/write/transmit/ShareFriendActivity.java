@@ -40,21 +40,21 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b2a;
-import com.baidu.tieba.e18;
 import com.baidu.tieba.f18;
 import com.baidu.tieba.g18;
+import com.baidu.tieba.g2a;
 import com.baidu.tieba.h18;
 import com.baidu.tieba.hi;
 import com.baidu.tieba.i18;
 import com.baidu.tieba.ii;
 import com.baidu.tieba.im.data.GroupInfoData;
+import com.baidu.tieba.j18;
 import com.baidu.tieba.j2a;
-import com.baidu.tieba.q25;
-import com.baidu.tieba.vz7;
-import com.baidu.tieba.x18;
+import com.baidu.tieba.r25;
+import com.baidu.tieba.r2a;
+import com.baidu.tieba.wz7;
 import com.baidu.tieba.y18;
-import com.baidu.tieba.y1a;
+import com.baidu.tieba.z18;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -75,7 +75,7 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
     public ThreadData F;
     public ForumData G;
     public GroupInfoData H;
-    public final x18 I;
+    public final y18 I;
     public boolean J;
     public final Runnable K;
     public NavigationBar a;
@@ -84,8 +84,8 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
     public List<MetaData> d;
     public List<MetaData> e;
     public List<String> f;
-    public b2a g;
-    public j2a h;
+    public j2a g;
+    public r2a h;
     public View i;
     public FrameLayout j;
     public BdListView k;
@@ -373,14 +373,14 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
     }
 
     /* loaded from: classes6.dex */
-    public class h implements e18.b {
+    public class h implements f18.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ShareFriendActivity a;
 
-        @Override // com.baidu.tieba.e18.b
+        @Override // com.baidu.tieba.f18.b
         public /* synthetic */ void onCancel() {
-            f18.a(this);
+            g18.a(this);
         }
 
         public h(ShareFriendActivity shareFriendActivity) {
@@ -401,7 +401,7 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
             this.a = shareFriendActivity;
         }
 
-        @Override // com.baidu.tieba.e18.b
+        @Override // com.baidu.tieba.f18.b
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -411,14 +411,14 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
     }
 
     /* loaded from: classes6.dex */
-    public class i implements e18.b {
+    public class i implements f18.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ShareFriendActivity a;
 
-        @Override // com.baidu.tieba.e18.b
+        @Override // com.baidu.tieba.f18.b
         public /* synthetic */ void onCancel() {
-            f18.a(this);
+            g18.a(this);
         }
 
         public i(ShareFriendActivity shareFriendActivity) {
@@ -439,7 +439,7 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
             this.a = shareFriendActivity;
         }
 
-        @Override // com.baidu.tieba.e18.b
+        @Override // com.baidu.tieba.f18.b
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -449,14 +449,14 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
     }
 
     /* loaded from: classes6.dex */
-    public class j implements e18.b {
+    public class j implements f18.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ShareFriendActivity a;
 
-        @Override // com.baidu.tieba.e18.b
+        @Override // com.baidu.tieba.f18.b
         public /* synthetic */ void onCancel() {
-            f18.a(this);
+            g18.a(this);
         }
 
         public j(ShareFriendActivity shareFriendActivity) {
@@ -477,7 +477,7 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
             this.a = shareFriendActivity;
         }
 
-        @Override // com.baidu.tieba.e18.b
+        @Override // com.baidu.tieba.f18.b
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -585,7 +585,7 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
     }
 
     /* loaded from: classes6.dex */
-    public static class m extends BdAsyncTask<String, Integer, y1a> {
+    public static class m extends BdAsyncTask<String, Integer, g2a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final WeakReference<ShareFriendActivity> a;
@@ -613,7 +613,7 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public y1a doInBackground(String... strArr) {
+        public g2a doInBackground(String... strArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
@@ -635,37 +635,37 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
                 if (!this.b.getNetContext().getResponse().isRequestSuccess()) {
                     return null;
                 }
-                y1a y1aVar = new y1a();
-                y1aVar.d(postNetData);
-                return y1aVar;
+                g2a g2aVar = new g2a();
+                g2aVar.d(postNetData);
+                return g2aVar;
             }
-            return (y1a) invokeL.objValue;
+            return (g2a) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(y1a y1aVar) {
+        public void onPostExecute(g2a g2aVar) {
             ShareFriendActivity shareFriendActivity;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, y1aVar) == null) && (shareFriendActivity = this.a.get()) != null) {
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, g2aVar) == null) && (shareFriendActivity = this.a.get()) != null) {
                 shareFriendActivity.l = null;
                 shareFriendActivity.hideNetRefreshView(shareFriendActivity.j);
                 if (this.b.getNetContext().getResponse().isRequestSuccess()) {
                     shareFriendActivity.k.setVisibility(0);
-                    shareFriendActivity.g.b(y1aVar);
+                    shareFriendActivity.g.b(g2aVar);
                     if (shareFriendActivity.h == null) {
                         return;
                     }
-                    if (shareFriendActivity.z && y1aVar != null && y1aVar.c() != null && y1aVar.c().isEmpty()) {
+                    if (shareFriendActivity.z && g2aVar != null && g2aVar.c() != null && g2aVar.c().isEmpty()) {
                         shareFriendActivity.h2(2);
-                    } else if (!shareFriendActivity.y || y1aVar == null || y1aVar.c() == null || !y1aVar.c().isEmpty() || y18.a() == null || !y18.a().isEmpty()) {
+                    } else if (!shareFriendActivity.y || g2aVar == null || g2aVar.c() == null || !g2aVar.c().isEmpty() || z18.a() == null || !z18.a().isEmpty()) {
                         shareFriendActivity.h2(0);
                     } else {
                         shareFriendActivity.h2(2);
                     }
-                    if (y1aVar != null) {
-                        ArrayList<MetaData> c = y1aVar.c();
+                    if (g2aVar != null) {
+                        ArrayList<MetaData> c = g2aVar.c();
                         int size = c.size();
                         for (int i = 0; i < size; i++) {
                             c.get(i).setItemType(shareFriendActivity.D);
@@ -679,7 +679,7 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
                     shareFriendActivity.k.setVisibility(8);
                     shareFriendActivity.showNetRefreshView(shareFriendActivity.j, shareFriendActivity.getString(R.string.refresh_view_title_text), null, shareFriendActivity.getString(R.string.refresh_view_button_text), true, shareFriendActivity.getNetRefreshListener());
                 }
-                super.onPostExecute(y1aVar);
+                super.onPostExecute(g2aVar);
             }
         }
 
@@ -737,7 +737,7 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
         this.B = 2;
         this.C = 1;
         this.D = 3;
-        this.I = new x18();
+        this.I = new y18();
         this.J = false;
         this.K = new d(this);
     }
@@ -752,7 +752,7 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
             ArrayList<MetaData> c2 = this.g.a().c();
             if (!ListUtils.isEmpty(c2)) {
                 h2(0);
-            } else if (ListUtils.isEmpty(c2) && ListUtils.isEmpty(y18.a())) {
+            } else if (ListUtils.isEmpty(c2) && ListUtils.isEmpty(z18.a())) {
                 h2(1);
             }
             this.h.d(c2);
@@ -819,37 +819,37 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
     public final void i2(@NonNull ForumData forumData, @NonNull MetaData metaData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048587, this, forumData, metaData) == null) {
-            e18 e18Var = new e18(getActivity(), new g18(getActivity()));
-            e18Var.j(forumData, metaData);
-            e18Var.i(new i(this));
-            e18Var.k();
+            f18 f18Var = new f18(getActivity(), new h18(getActivity()));
+            f18Var.j(forumData, metaData);
+            f18Var.i(new i(this));
+            f18Var.k();
         }
     }
 
     public final void j2(@NonNull GroupInfoData groupInfoData, @NonNull MetaData metaData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048589, this, groupInfoData, metaData) == null) {
-            e18 e18Var = new e18(getActivity(), new h18(getActivity()));
-            e18Var.j(groupInfoData, metaData);
-            e18Var.i(new j(this));
-            e18Var.k();
+            f18 f18Var = new f18(getActivity(), new i18(getActivity()));
+            f18Var.j(groupInfoData, metaData);
+            f18Var.i(new j(this));
+            f18Var.k();
         }
     }
 
     public final void k2(@NonNull ThreadData threadData, @NonNull MetaData metaData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048590, this, threadData, metaData) == null) {
-            e18 e18Var = new e18(getActivity(), new i18(getActivity()));
-            e18Var.j(threadData, metaData);
-            e18Var.i(new h(this));
-            e18Var.k();
+            f18 f18Var = new f18(getActivity(), new j18(getActivity()));
+            f18Var.j(threadData, metaData);
+            f18Var.i(new h(this));
+            f18Var.k();
         }
     }
 
     public final void Z1(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
-            this.g = new b2a();
+            this.g = new j2a();
             if (bundle != null) {
                 this.z = bundle.getBoolean(ShareFriendActivityConfig.FROM_MESSAGE_TAB, false);
                 this.y = bundle.getBoolean(ShareFriendActivityConfig.FROM_SHARE_FRIEND, false);
@@ -946,7 +946,7 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
 
     public void d2(@NonNull MetaData metaData) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, metaData) != null) || vz7.a(getActivity())) {
+        if ((interceptable != null && interceptable.invokeL(1048582, this, metaData) != null) || wz7.a(getActivity())) {
             return;
         }
         ThreadData threadData = this.F;
@@ -1030,15 +1030,15 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
             WebPManager.setPureDrawable(this.x, R.drawable.icon_search_scan, R.color.CAM_X0109, null);
             SkinManager.setImageResource(this.q, R.drawable.icon_input_close_s);
             this.h.c(i2);
-            q25 d2 = q25.d(this.n);
+            r25 d2 = r25.d(this.n);
             d2.o(R.string.J_X07);
             d2.l(R.color.CAM_X0615);
             d2.f(R.color.CAM_X0209);
-            q25.d(this.u).w(R.color.CAM_X0109);
-            q25 d3 = q25.d(this.m);
+            r25.d(this.u).w(R.color.CAM_X0109);
+            r25 d3 = r25.d(this.m);
             d3.C(R.string.F_X01);
             d3.w(R.color.CAM_X0107);
-            q25.d(this.o).w(R.color.CAM_X0109);
+            r25.d(this.o).w(R.color.CAM_X0109);
         }
     }
 
@@ -1051,9 +1051,9 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
             this.n = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f092067);
             this.j = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f092043);
             this.k = (BdListView) findViewById(R.id.obfuscated_res_0x7f091493);
-            j2a j2aVar = new j2a(this);
-            this.h = j2aVar;
-            this.k.setAdapter((ListAdapter) j2aVar);
+            r2a r2aVar = new r2a(this);
+            this.h = r2aVar;
+            this.k.setAdapter((ListAdapter) r2aVar);
             this.h.b(this.e);
             this.k.setOnItemClickListener(new f(this));
             this.k.setOnScrollListener(new g(this));

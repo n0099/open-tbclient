@@ -5,8 +5,8 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.qq5;
-import com.baidu.tieba.ur5;
+import com.baidu.tieba.rq5;
+import com.baidu.tieba.vr5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -55,7 +55,7 @@ public class CompleteTaskReqMsg extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             if (z) {
                 try {
-                    getHttpMessage().setUserAgent(ur5.e());
+                    getHttpMessage().setUserAgent(vr5.e());
                 } catch (Exception unused) {
                     return null;
                 }
@@ -68,7 +68,7 @@ public class CompleteTaskReqMsg extends NetMessage {
             if (this.mToken != null) {
                 builder.token = Base64.encodeToString(this.mToken.getBytes(), 2);
             }
-            qq5.c(builder, true, true, false);
+            rq5.c(builder, true, true, false);
             CompleteTaskReqIdl.Builder builder2 = new CompleteTaskReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);

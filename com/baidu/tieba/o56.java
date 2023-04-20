@@ -1,104 +1,34 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
+import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ala.alasquare.livetab.SecondFloorFragment;
-import com.baidu.tieba.wh5;
+import com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.searchbox.live.interfaces.service.AccountManagerService;
+import com.baidu.searchbox.live.interfaces.service.AppInfoService;
+import com.baidu.searchbox.live.interfaces.service.RouterService;
+import com.baidu.searchbox.live.interfaces.service.ToastService;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class o56 implements rj1<wh5> {
+public class o56 implements ILiveFeedPageInvoke {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public AccountManagerService a;
+    public AppInfoService b;
+    public ToastService c;
+    public RouterService d;
 
-    /* loaded from: classes5.dex */
-    public class a implements wh5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        @Nullable
-        public SecondFloorFragment b;
-
-        public a(o56 o56Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {o56Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.wh5
-        public void d(@Nullable wh5.a aVar) {
-            SecondFloorFragment secondFloorFragment;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) && (secondFloorFragment = this.b) != null) {
-                secondFloorFragment.O1(aVar);
-            }
-        }
-
-        @Override // com.baidu.tieba.wh5
-        @NonNull
-        public Fragment f(@NonNull String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                if (this.b == null) {
-                    SecondFloorFragment secondFloorFragment = new SecondFloorFragment();
-                    this.b = secondFloorFragment;
-                    secondFloorFragment.P1(str);
-                }
-                return this.b;
-            }
-            return (Fragment) invokeL.objValue;
-        }
-
-        @Override // com.baidu.tieba.wh5
-        public void c() {
-            SecondFloorFragment secondFloorFragment;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (secondFloorFragment = this.b) != null) {
-                secondFloorFragment.J1();
-            }
-        }
-
-        @Override // com.baidu.tieba.wh5
-        public void e() {
-            SecondFloorFragment secondFloorFragment;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (secondFloorFragment = this.b) != null) {
-                secondFloorFragment.I1();
-            }
-        }
-
-        @Override // com.baidu.tieba.wh5
-        public void hide() {
-            SecondFloorFragment secondFloorFragment;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (secondFloorFragment = this.b) != null) {
-                secondFloorFragment.M1();
-            }
-        }
-
-        @Override // com.baidu.tieba.wh5
-        public void show() {
-            SecondFloorFragment secondFloorFragment;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (secondFloorFragment = this.b) != null) {
-                secondFloorFragment.Q1();
-            }
-        }
+    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke
+    public String getIID() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "" : (String) invokeV.objValue;
     }
 
     public o56() {
@@ -111,19 +41,70 @@ public class o56 implements rj1<wh5> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = (AccountManagerService) ServiceManager.getService(AccountManagerService.Companion.getSERVICE_REFERENCE());
+        this.b = (AppInfoService) ServiceManager.getService(AppInfoService.Companion.getSERVICE_REFERENCE());
+        this.c = (ToastService) ServiceManager.getService(ToastService.Companion.getSERVICE_REFERENCE());
+        this.d = (RouterService) ServiceManager.getService(RouterService.Companion.getSERVICE_REFERENCE());
+    }
+
+    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke
+    public String getCuid() {
+        InterceptResult invokeV;
+        AppInfoService appInfoService;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.a != null && (appInfoService = this.b) != null) {
+                return this.a.getSocialEncryption(appInfoService.getCuid(), "baiduuid_");
+            }
+            return "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke
+    public String getUIMode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (TbadkCoreApplication.getInst().getSkinType() == 4) {
+                return "dark";
+            }
+            return "day";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke
+    public String getUK() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            AccountManagerService accountManagerService = this.a;
+            if (accountManagerService != null) {
+                return accountManagerService.getAccount().getUk();
+            }
+            return "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke
+    public void invokeScheme(Context context, String str) {
+        RouterService routerService;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, context, str) == null) && context != null && !TextUtils.isEmpty(str) && (routerService = this.d) != null) {
+            routerService.invokeScheme(context, str);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rj1
-    /* renamed from: a */
-    public wh5 getService() {
-        InterceptResult invokeV;
+    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke
+    public void showToast(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a(this);
+        if ((interceptable == null || interceptable.invokeLL(1048581, this, context, str) == null) && this.c != null && context != null && !TextUtils.isEmpty(str)) {
+            this.c.showNormal(context, str, 0);
         }
-        return (wh5) invokeV.objValue;
     }
 }

@@ -21,16 +21,16 @@ import com.baidu.tbadk.core.atomData.LocalChannelTopicListActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ix;
 import com.baidu.tieba.jg;
-import com.baidu.tieba.q25;
-import com.baidu.tieba.ys7;
+import com.baidu.tieba.jx;
+import com.baidu.tieba.r25;
+import com.baidu.tieba.zs7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class PostAnimateFloatView extends FrameLayout implements ix {
+public class PostAnimateFloatView extends FrameLayout implements jx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout a;
@@ -104,7 +104,7 @@ public class PostAnimateFloatView extends FrameLayout implements ix {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                ys7.g();
+                zs7.g();
                 new LocalChannelTopicListActivityConfig(this.a.getContext()).start();
             }
         }
@@ -460,7 +460,7 @@ public class PostAnimateFloatView extends FrameLayout implements ix {
         }
     }
 
-    @Override // com.baidu.tieba.ix
+    @Override // com.baidu.tieba.jx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048582, this, tbPageContext, i) == null) {
@@ -474,7 +474,7 @@ public class PostAnimateFloatView extends FrameLayout implements ix {
             }
             LinearLayout linearLayout = this.a;
             if (linearLayout != null) {
-                q25 d2 = q25.d(linearLayout);
+                r25 d2 = r25.d(linearLayout);
                 d2.o(R.string.J_X01);
                 d2.i(R.color.CAM_X0302);
             }

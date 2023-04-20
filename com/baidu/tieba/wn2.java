@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,16 +10,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes6.dex */
-public class wn2 extends ol2<fo2> {
+public class wn2 extends pl2<go2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.ol2
+    @Override // com.baidu.tieba.pl2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "subscribeRemoteStream" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setSoundModel" : (String) invokeV.objValue;
     }
 
     public wn2() {
@@ -36,18 +37,20 @@ public class wn2 extends ol2<fo2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ol2
+    @Override // com.baidu.tieba.pl2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull fo2 fo2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull go2 go2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, fo2Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, go2Var) == null) {
             String str = command.what;
-            d(fo2Var, str, "" + command.obj, true);
+            d(go2Var, str, "" + command.obj, true);
             Object obj = command.obj;
-            if (obj instanceof Long) {
-                long longValue = ((Long) obj).longValue();
-                if (do2.a(longValue)) {
-                    fo2Var.k0(longValue);
+            if (obj instanceof String) {
+                String str2 = (String) obj;
+                if (TextUtils.equals(str2, "ear")) {
+                    go2Var.r(str2);
+                } else if (TextUtils.equals(str2, "speaker")) {
+                    go2Var.r(str2);
                 }
             }
         }

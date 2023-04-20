@@ -22,8 +22,8 @@ import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a41;
-import com.baidu.tieba.l11;
+import com.baidu.tieba.b41;
+import com.baidu.tieba.m11;
 import com.baidu.tieba.recapp.lego.view.AdCardBaseView;
 import com.baidu.tieba.recapp.lego.view.XfremodeRoundLayout;
 import com.baidu.tieba.recapp.view.NadOperateBar;
@@ -311,7 +311,7 @@ public final class NadOperateBar extends XfremodeRoundLayout {
             }
         });
         this.m = new Handler(Looper.getMainLooper());
-        this.n = new Runnable() { // from class: com.baidu.tieba.sc9
+        this.n = new Runnable() { // from class: com.baidu.tieba.ad9
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -392,11 +392,11 @@ public final class NadOperateBar extends XfremodeRoundLayout {
                     str = advertAppInfo2.g;
                 }
                 q.p(str);
-                l11.b(clogBuilder);
+                m11.b(clogBuilder);
                 AnimatorSet animatorSet = new AnimatorSet();
-                final ValueAnimator ofInt = ValueAnimator.ofInt(0, a41.c.a(this$0.getContext(), 34.6f));
+                final ValueAnimator ofInt = ValueAnimator.ofInt(0, b41.c.a(this$0.getContext(), 34.6f));
                 ofInt.setDuration(300L);
-                ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.rc9
+                ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.zc9
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 

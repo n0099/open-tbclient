@@ -3,7 +3,7 @@ package com.xiaomi.push.service;
 import com.xiaomi.push.hg;
 import com.xiaomi.push.hl;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class r implements hg {
     public final XMPushService a;
 

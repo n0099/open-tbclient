@@ -10,12 +10,12 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.novel.ReadRecordsData;
-import com.baidu.tieba.bl5;
-import com.baidu.tieba.gm9;
-import com.baidu.tieba.go;
-import com.baidu.tieba.km9;
-import com.baidu.tieba.t75;
-import com.baidu.tieba.us9;
+import com.baidu.tieba.cl5;
+import com.baidu.tieba.ct9;
+import com.baidu.tieba.ho;
+import com.baidu.tieba.om9;
+import com.baidu.tieba.sm9;
+import com.baidu.tieba.u75;
 import com.baidu.tieba.yh;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -25,9 +25,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.BlockPopInfo;
-@go
+@ho
 /* loaded from: classes3.dex */
-public class UegTbJsBridge implements gm9 {
+public class UegTbJsBridge implements om9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INTERFACE_NAME = "CommonJSBridge";
     public static final String METHOD_BIND_MOBILE_NUMBER = "bindMobileNumber";
@@ -70,17 +70,17 @@ public class UegTbJsBridge implements gm9 {
         }
     }
 
-    public km9 novelPayResultToClient(boolean z) {
+    public sm9 novelPayResultToClient(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-            km9 km9Var = new km9();
+            sm9 sm9Var = new sm9();
             if (z) {
-                bl5.d();
+                cl5.d();
             }
-            return km9Var;
+            return sm9Var;
         }
-        return (km9) invokeZ.objValue;
+        return (sm9) invokeZ.objValue;
     }
 
     public UegTbJsBridge(TbPageContext<?> tbPageContext) {
@@ -101,37 +101,37 @@ public class UegTbJsBridge implements gm9 {
         this.mTbPageContext = tbPageContext;
     }
 
-    public km9 bindingMobileNumber() {
+    public sm9 bindingMobileNumber() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            km9 km9Var = new km9();
+            sm9 sm9Var = new sm9();
             try {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2921372, t75.b()));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2921372, u75.b()));
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            return km9Var;
+            return sm9Var;
         }
-        return (km9) invokeV.objValue;
+        return (sm9) invokeV.objValue;
     }
 
-    public km9 callNativeSMS(String str, String str2) {
+    public sm9 callNativeSMS(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            km9 km9Var = new km9();
+            sm9 sm9Var = new sm9();
             Context pageActivity = this.mTbPageContext.getPageActivity();
             if (pageActivity == null) {
                 pageActivity = this.mContext;
             }
             UtilHelper.smsTo(pageActivity, str, str2);
-            return km9Var;
+            return sm9Var;
         }
-        return (km9) invokeLL.objValue;
+        return (sm9) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.gm9
+    @Override // com.baidu.tieba.om9
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -188,24 +188,24 @@ public class UegTbJsBridge implements gm9 {
         return invokeLLLL.booleanValue;
     }
 
-    public km9 recordNovelInfo(String str, String str2, String str3, String str4, String str5) {
+    public sm9 recordNovelInfo(String str, String str2, String str3, String str4, String str5) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048580, this, str, str2, str3, str4, str5)) == null) {
-            km9 km9Var = new km9();
+            sm9 sm9Var = new sm9();
             ReadRecordsData readRecordsData = new ReadRecordsData(str, str2, str3, str4, str5);
             readRecordsData.S(true);
-            bl5.e(str2, readRecordsData);
-            return km9Var;
+            cl5.e(str2, readRecordsData);
+            return sm9Var;
         }
-        return (km9) invokeLLLLL.objValue;
+        return (sm9) invokeLLLLL.objValue;
     }
 
-    public km9 setBlockPopInfo(int i, String str, String str2, String str3, String str4, int i2) {
+    public sm9 setBlockPopInfo(int i, String str, String str2, String str3, String str4, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), str, str2, str3, str4, Integer.valueOf(i2)})) == null) {
-            km9 km9Var = new km9();
+            sm9 sm9Var = new sm9();
             try {
                 BlockPopInfo.Builder builder = new BlockPopInfo.Builder();
                 builder.can_post = Integer.valueOf(i);
@@ -215,13 +215,13 @@ public class UegTbJsBridge implements gm9 {
                 builder.ok_info = str4;
                 builder.ahead_type = Integer.valueOf(i2);
                 BlockPopInfo build = builder.build(false);
-                us9.h(build);
-                us9.g(build);
+                ct9.h(build);
+                ct9.g(build);
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            return km9Var;
+            return sm9Var;
         }
-        return (km9) invokeCommon.objValue;
+        return (sm9) invokeCommon.objValue;
     }
 }

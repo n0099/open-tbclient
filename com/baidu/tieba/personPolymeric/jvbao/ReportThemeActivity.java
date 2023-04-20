@@ -27,13 +27,13 @@ import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b69;
-import com.baidu.tieba.h69;
-import com.baidu.tieba.hn;
+import com.baidu.tieba.d49;
+import com.baidu.tieba.d79;
 import com.baidu.tieba.ii;
+import com.baidu.tieba.in;
+import com.baidu.tieba.j69;
+import com.baidu.tieba.p69;
 import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
-import com.baidu.tieba.v39;
-import com.baidu.tieba.v69;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -49,13 +49,13 @@ public class ReportThemeActivity extends BaseFragmentActivity {
     public static boolean x = true;
     public static CustomMessageListener y;
     public transient /* synthetic */ FieldHolder $fh;
-    public v69 a;
+    public d79 a;
     public TextView b;
     public NavigationBar c;
     public View d;
     public TextView e;
     public BdListView f;
-    public b69 g;
+    public j69 g;
     public PersonPostModel h;
     public View i;
     public View j;
@@ -68,7 +68,7 @@ public class ReportThemeActivity extends BaseFragmentActivity {
     public int q;
     public ArrayList<String> r;
     public String s;
-    public ArrayList<hn> t;
+    public ArrayList<in> t;
     public Handler u;
     public PersonPostModel.d v;
     public PersonPostModel.c w;
@@ -459,7 +459,7 @@ public class ReportThemeActivity extends BaseFragmentActivity {
         }
     }
 
-    public void O1(ArrayList<hn> arrayList) {
+    public void O1(ArrayList<in> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, arrayList) == null) {
             P1(arrayList);
@@ -493,7 +493,7 @@ public class ReportThemeActivity extends BaseFragmentActivity {
                 if (z) {
                     personPostModel2.threadList.clear();
                 }
-                this.h.threadList.addAll(h69.c(personPostModel.threadList));
+                this.h.threadList.addAll(p69.c(personPostModel.threadList));
             }
             this.p = C1(personPostModel, z);
             PersonPostModel personPostModel3 = this.h;
@@ -510,8 +510,8 @@ public class ReportThemeActivity extends BaseFragmentActivity {
                     O1(this.h.threadList);
                 }
             }
-            v39.d().l(System.currentTimeMillis() - currentTimeMillis);
-            v39.d().p(System.currentTimeMillis() - v39.d().g());
+            d49.d().l(System.currentTimeMillis() - currentTimeMillis);
+            d49.d().p(System.currentTimeMillis() - d49.d().g());
         }
     }
 
@@ -535,7 +535,7 @@ public class ReportThemeActivity extends BaseFragmentActivity {
         }
     }
 
-    public void P1(ArrayList<hn> arrayList) {
+    public void P1(ArrayList<in> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, arrayList) == null) {
             if (ListUtils.isEmpty(arrayList)) {
@@ -619,9 +619,9 @@ public class ReportThemeActivity extends BaseFragmentActivity {
             this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f0906be);
             this.f = (BdListView) findViewById(R.id.obfuscated_res_0x7f091d9b);
             this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090768);
-            b69 b69Var = new b69(this, this.t);
-            this.g = b69Var;
-            this.f.setAdapter((ListAdapter) b69Var);
+            j69 j69Var = new j69(this, this.t);
+            this.g = j69Var;
+            this.f.setAdapter((ListAdapter) j69Var);
             this.f.setOnSrollToBottomListener(new c(this));
             MessageManager.getInstance().registerListener(y);
             PbListView pbListView = new PbListView(this);
@@ -641,9 +641,9 @@ public class ReportThemeActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048597, this, view2, str, z) == null) {
             if (this.a == null) {
-                v69 v69Var = new v69(getPageContext().getPageActivity(), getNetRefreshListener());
-                this.a = v69Var;
-                v69Var.e(getPageContext().getResources().getString(R.string.refresh_view_title_text));
+                d79 d79Var = new d79(getPageContext().getPageActivity(), getNetRefreshListener());
+                this.a = d79Var;
+                d79Var.e(getPageContext().getResources().getString(R.string.refresh_view_title_text));
                 this.a.d(null);
                 this.a.c(getPageContext().getResources().getString(R.string.refresh_view_button_text));
                 this.a.f();

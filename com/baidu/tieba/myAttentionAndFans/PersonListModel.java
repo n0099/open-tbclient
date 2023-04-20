@@ -23,8 +23,8 @@ import com.baidu.tieba.a9;
 import com.baidu.tieba.myAttentionAndFans.message.ResponseFollowListSwitchMsg;
 import com.baidu.tieba.myAttentionAndFans.message.ResponseLocalPersonListMessage;
 import com.baidu.tieba.myAttentionAndFans.message.ResponseNetPersonListMessage;
-import com.baidu.tieba.r95;
-import com.baidu.tieba.sy4;
+import com.baidu.tieba.s95;
+import com.baidu.tieba.ty4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -51,7 +51,7 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
     public d d;
     public int e;
     public PersonListActivity f;
-    public r95 g;
+    public s95 g;
     public int h;
     public HttpMessageListener httpListener;
     public int i;
@@ -61,7 +61,7 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
 
     /* loaded from: classes5.dex */
     public interface d {
-        sy4 a(sy4 sy4Var, boolean z);
+        ty4 a(ty4 ty4Var, boolean z);
 
         void b(String str, boolean z);
     }
@@ -173,7 +173,7 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
             int statusCode = httpResponsedMessage.getStatusCode();
             int error = httpResponsedMessage.getError();
             if (statusCode == 200 && error == 0) {
-                sy4 data = ((ResponseNetPersonListMessage) httpResponsedMessage).getData();
+                ty4 data = ((ResponseNetPersonListMessage) httpResponsedMessage).getData();
                 if (data != null) {
                     if (!StringUtils.isNull(data.g)) {
                         this.a.j = data.g;
@@ -230,7 +230,7 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage instanceof ResponseLocalPersonListMessage)) {
                 return;
             }
-            sy4 data2 = ((ResponseLocalPersonListMessage) customResponsedMessage).getData2();
+            ty4 data2 = ((ResponseLocalPersonListMessage) customResponsedMessage).getData2();
             if (data2 != null) {
                 if (!StringUtils.isNull(data2.g)) {
                     this.a.j = data2.g;
@@ -385,9 +385,9 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
         this.httpListener = new b(this, CmdConfigHttp.PIC_PERSONAL_LIST);
         this.customListener = new c(this, 2001188);
         this.f = personListActivity;
-        r95 r95Var = new r95(personListActivity.getPageContext());
-        this.g = r95Var;
-        r95Var.g(this.mLoadDataCallBack);
+        s95 s95Var = new s95(personListActivity.getPageContext());
+        this.g = s95Var;
+        s95Var.g(this.mLoadDataCallBack);
         this.a = true;
         this.b = null;
         this.d = dVar;

@@ -11,10 +11,10 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.recent_history.model.AlaRecentHistoryModel;
-import com.baidu.tieba.pg5;
-import com.baidu.tieba.x56;
-import com.baidu.tieba.y45;
+import com.baidu.tieba.qg5;
 import com.baidu.tieba.y56;
+import com.baidu.tieba.z45;
+import com.baidu.tieba.z56;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,15 +26,15 @@ public class AlaRecentHistoryFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AlaRecentHistoryModel a;
-    public y56 b;
+    public z56 b;
     public int c;
-    public pg5 d;
-    public y45.g e;
+    public qg5 d;
+    public z45.g e;
     public BdListView.p f;
     public AlaRecentHistoryModel.b g;
 
     /* loaded from: classes3.dex */
-    public class a implements y45.g {
+    public class a implements z45.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaRecentHistoryFragment a;
@@ -57,7 +57,7 @@ public class AlaRecentHistoryFragment extends BaseFragment {
             this.a = alaRecentHistoryFragment;
         }
 
-        @Override // com.baidu.tieba.y45.g
+        @Override // com.baidu.tieba.z45.g
         public void f(boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && this.a.a != null) {
@@ -124,7 +124,7 @@ public class AlaRecentHistoryFragment extends BaseFragment {
         }
 
         @Override // com.baidu.tieba.ala.alasquare.recent_history.model.AlaRecentHistoryModel.b
-        public void a(boolean z, List<x56> list) {
+        public void a(boolean z, List<y56> list) {
             String string;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZL(1048576, this, z, list) == null) {
@@ -212,9 +212,9 @@ public class AlaRecentHistoryFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            y56 y56Var = this.b;
-            if (y56Var != null) {
-                y56Var.k(i);
+            z56 z56Var = this.b;
+            if (z56Var != null) {
+                z56Var.k(i);
             }
         }
     }
@@ -223,7 +223,7 @@ public class AlaRecentHistoryFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), viewGroup, str}) == null) {
             if (this.d == null) {
-                this.d = new pg5(getPageContext().getPageActivity(), null);
+                this.d = new qg5(getPageContext().getPageActivity(), null);
             }
             if (z) {
                 this.d.attachView(viewGroup);
@@ -261,9 +261,9 @@ public class AlaRecentHistoryFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, layoutInflater, viewGroup, bundle)) == null) {
             this.a = new AlaRecentHistoryModel(getPageContext(), this.c, this.g);
-            y56 y56Var = new y56(getPageContext(), this.c);
-            this.b = y56Var;
-            y56Var.p(this.e);
+            z56 z56Var = new z56(getPageContext(), this.c);
+            this.b = z56Var;
+            z56Var.p(this.e);
             this.b.r(this.f);
             K1();
             if (this.c == 0) {
@@ -283,9 +283,9 @@ public class AlaRecentHistoryFragment extends BaseFragment {
             if (alaRecentHistoryModel != null) {
                 alaRecentHistoryModel.onDestroy();
             }
-            y56 y56Var = this.b;
-            if (y56Var != null) {
-                y56Var.l();
+            z56 z56Var = this.b;
+            if (z56Var != null) {
+                z56Var.l();
             }
         }
     }

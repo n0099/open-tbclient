@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.data.AtSelectData;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.c58;
+import com.baidu.tieba.d58;
 import com.baidu.tieba.hi;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.ChatPage;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
@@ -15,7 +15,7 @@ import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.CommonMsgField;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputtool.GroupInputViewController;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputtool.robotfloor.data.UserReplyInfoData;
-import com.baidu.tieba.q58;
+import com.baidu.tieba.y58;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,12 +28,12 @@ import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u00002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0002\u0018\u00002\u00020\u0001:\u0001\u000fB\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\u0010\u0010\u0005\u001a\u00020\u00062\b\u0010\u0007\u001a\u0004\u0018\u00010\bJ\u001a\u0010\t\u001a\u00020\n2\u0006\u0010\u000b\u001a\u00020\f2\b\u0010\u0007\u001a\u0004\u0018\u00010\bH\u0016J\b\u0010\r\u001a\u00020\u000eH\u0016R\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u0010"}, d2 = {"Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ability/InputBoxHandler;", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/base/BaseAbilityHandler;", "chatPage", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ChatPage;", "(Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ChatPage;)V", "buildReplayMessageData", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/inputtool/robotfloor/data/UserReplyInfoData;", "oriMsg", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/base/BaseMsg;", "doHandle", "", "abilityItem", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/base/AbilityItem;", "provideType", "", "Conf", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes4.dex */
-public final class InputBoxHandler extends c58 {
+public final class InputBoxHandler extends d58 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final ChatPage b;
 
-    @Override // com.baidu.tieba.c58
+    @Override // com.baidu.tieba.d58
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -192,7 +192,7 @@ public final class InputBoxHandler extends c58 {
         this.b = chatPage;
     }
 
-    @Override // com.baidu.tieba.c58
+    @Override // com.baidu.tieba.d58
     public void b(AbilityItem abilityItem, BaseMsg baseMsg) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, abilityItem, baseMsg) == null) {
@@ -205,7 +205,7 @@ public final class InputBoxHandler extends c58 {
             Intrinsics.checkNotNullExpressionValue(entity, "toEntity(abilityItem.confMap, Conf::class.java)");
             Conf conf = (Conf) entity;
             j2.c1("");
-            q58 l0 = j2.l0();
+            y58 l0 = j2.l0();
             if (l0 != null) {
                 l0.B();
             }
@@ -218,12 +218,12 @@ public final class InputBoxHandler extends c58 {
                 if (conf.isAt() == 1) {
                     AtSelectData atSelectData = new AtSelectData(baseMsg.getCommonMsgField().getPortrait(), baseMsg.getCommonMsgField().getUserName(), String.valueOf(baseMsg.getCommonMsgField().getUserId()), baseMsg.getCommonMsgField().isRobot());
                     if (conf.isReply() != 1 && hi.isEmpty(conf.getInputText())) {
-                        q58 l02 = j2.l0();
+                        y58 l02 = j2.l0();
                         if (l02 != null) {
                             l02.j(atSelectData, baseMsg.getCommonMsgField().isRobot());
                         }
                     } else {
-                        q58 l03 = j2.l0();
+                        y58 l03 = j2.l0();
                         if (l03 != null) {
                             l03.j(atSelectData, false);
                         }
@@ -233,7 +233,7 @@ public final class InputBoxHandler extends c58 {
             if (!hi.isEmpty(conf.getInputText())) {
                 j2.b1(conf.getInputText());
             }
-            q58 l04 = j2.l0();
+            y58 l04 = j2.l0();
             if (l04 != null) {
                 l04.z();
             }

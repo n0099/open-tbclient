@@ -1,39 +1,52 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.frs.aggregation.VideoAggregationModel;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
+import com.baidu.tieba.v77;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes6.dex */
 public class w77 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public r77 a;
-    public String b;
-    public VideoAggregationModel c;
-    public boolean d;
-    public VideoAggregationModel.c e;
+    public TbPageContext b;
+    public s95 c;
+    public BdUniqueId d;
+    public CustomMessageListener e;
 
     /* loaded from: classes6.dex */
-    public class a implements VideoAggregationModel.c {
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ w77 a;
 
-        public a(w77 w77Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(w77 w77Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {w77Var};
+                Object[] objArr = {w77Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -42,26 +55,20 @@ public class w77 {
             this.a = w77Var;
         }
 
-        @Override // com.baidu.tieba.frs.aggregation.VideoAggregationModel.c
-        public void a(String str) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            UpdateAttentionMessage updateAttentionMessage;
+            UpdateAttentionMessage.a data;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || this.a.a == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || !(customResponsedMessage instanceof UpdateAttentionMessage) || this.a.a == null || (data = (updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage).getData()) == null) {
                 return;
             }
-            this.a.a.n();
-            this.a.a.i(str);
-            this.a.a.onLoadFail();
-        }
-
-        @Override // com.baidu.tieba.frs.aggregation.VideoAggregationModel.c
-        public void b(List<u77> list, boolean z, boolean z2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{list, Boolean.valueOf(z), Boolean.valueOf(z2)}) != null) || this.a.a == null) {
-                return;
+            if (!data.a) {
+                this.a.a.i(updateAttentionMessage.getData().b);
+            } else {
+                this.a.a.k(data.d);
             }
-            this.a.a.n();
-            this.a.d = z2;
-            this.a.a.Y0(list, z, z2);
         }
     }
 
@@ -80,68 +87,62 @@ public class w77 {
                 return;
             }
         }
-        a aVar = new a(this);
-        this.e = aVar;
+        this.d = BdUniqueId.gen();
+        this.e = new a(this, 2001115);
+        this.b = tbPageContext;
         this.a = r77Var;
-        this.c = new VideoAggregationModel(tbPageContext, aVar);
+        this.c = new s95(tbPageContext);
+        this.e.setSelfListener(true);
+        this.e.setTag(this.d);
+        MessageManager.getInstance().registerListener(this.e);
     }
 
-    public void f(String str) {
-        VideoAggregationModel videoAggregationModel;
+    public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && (videoAggregationModel = this.c) != null) {
-            videoAggregationModel.setFrom(str);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            s95 s95Var = this.c;
+            if (s95Var != null) {
+                s95Var.e();
+            }
+            MessageManager.getInstance().unRegisterListener(this.e);
         }
     }
 
-    public void g(String str) {
+    public void c(v77 v77Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.b = str;
-            VideoAggregationModel videoAggregationModel = this.c;
-            if (videoAggregationModel != null) {
-                videoAggregationModel.V(str);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v77Var) == null) {
+            if (!BdNetTypeUtil.isNetWorkAvailable()) {
+                this.b.showToast(R.string.no_network);
+            } else if (v77Var == null || v77Var.m == null || this.c == null || !ViewHelper.checkUpIsLogin(this.b.getPageActivity())) {
+            } else {
+                s95 s95Var = this.c;
+                v77.b bVar = v77Var.m;
+                s95Var.h(!bVar.e, bVar.d, bVar.a, this.d);
             }
         }
     }
 
-    public void h(String str) {
-        VideoAggregationModel videoAggregationModel;
+    public void d(v77 v77Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && (videoAggregationModel = this.c) != null) {
-            videoAggregationModel.W(str);
-        }
-    }
-
-    public void i(String str) {
-        VideoAggregationModel videoAggregationModel;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && (videoAggregationModel = this.c) != null) {
-            videoAggregationModel.X(str);
-        }
-    }
-
-    public void c() {
-        VideoAggregationModel videoAggregationModel;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (videoAggregationModel = this.c) != null) {
-            videoAggregationModel.cancelLoadData();
-        }
-    }
-
-    public void d() {
-        VideoAggregationModel videoAggregationModel;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (videoAggregationModel = this.c) != null && this.d) {
-            videoAggregationModel.loadData();
-        }
-    }
-
-    public void e() {
-        VideoAggregationModel videoAggregationModel;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (videoAggregationModel = this.c) != null) {
-            videoAggregationModel.U();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, v77Var) == null) {
+            if (!BdNetTypeUtil.isNetWorkAvailable()) {
+                this.b.showToast(R.string.no_network);
+            } else if (v77Var == null || this.a == null || !ViewHelper.checkUpIsLogin(this.b.getPageActivity())) {
+            } else {
+                HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PB_FLOOR_AGREE);
+                httpMessage.addParam("thread_id", v77Var.b);
+                httpMessage.addParam("op_type", Boolean.valueOf(v77Var.h));
+                httpMessage.addParam("obj_type", 3);
+                httpMessage.addParam("agree_type", 2);
+                httpMessage.addParam("forum_id", v77Var.a);
+                httpMessage.addParam("z_id", TbadkCoreApplication.getInst().getZid());
+                if (!StringUtil.isEmpty(v77Var.i)) {
+                    httpMessage.addParam("obj_source", v77Var.i);
+                }
+                httpMessage.addHeader("needSig", "1");
+                MessageManager.getInstance().sendMessage(httpMessage);
+                this.a.j();
+            }
         }
     }
 }

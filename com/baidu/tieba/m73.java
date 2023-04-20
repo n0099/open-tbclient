@@ -1,21 +1,19 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
+import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
-import android.net.Uri;
+import android.os.Binder;
+import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
-import androidx.annotation.DrawableRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.StringRes;
+import android.view.WindowManager;
+import android.widget.Toast;
+import androidx.annotation.StyleRes;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.res.widget.toast.ToastLocation;
-import com.baidu.swan.apps.res.widget.toast.ToastRightAreaStyle;
-import com.baidu.swan.apps.res.widget.toast.ToastTemplate;
+import com.baidu.android.util.devices.RomUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,92 +21,56 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.util.regex.Pattern;
 /* loaded from: classes5.dex */
 public class m73 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean u;
+    public static boolean a;
+    public static String b;
+    public static String c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public CharSequence b;
-    public CharSequence c;
-    public CharSequence d;
-    public Drawable e;
-    public Drawable f;
-    public Uri g;
-    public int h;
-    public int i;
-    public c j;
-    public int k;
-    public b l;
-    public boolean m;
-    public View n;
-    public ToastRightAreaStyle o;
-    public CharSequence p;
-    public CharSequence q;
-    public ToastLocation r;
-    public ToastTemplate s;
-    public boolean t;
 
     /* loaded from: classes5.dex */
-    public interface b {
-        void onDismiss();
-    }
-
-    /* loaded from: classes5.dex */
-    public interface c {
-        void a();
-    }
-
-    @Deprecated
-    public m73 h(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) ? this : (m73) invokeI.objValue;
-    }
-
-    public m73 i(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) ? this : (m73) invokeI.objValue;
-    }
-
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
+    public static class a implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-649319997, "Lcom/baidu/tieba/m73$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-649319997, "Lcom/baidu/tieba/m73$a;");
-                    return;
+            }
+        }
+
+        @Override // android.view.View.OnTouchListener
+        public boolean onTouch(View view2, MotionEvent motionEvent) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
+                int action = motionEvent.getAction();
+                if (action != 0) {
+                    if (action != 2) {
+                        view2.setAlpha(1.0f);
+                        return false;
+                    }
+                    return false;
                 }
+                view2.setAlpha(0.2f);
+                return false;
             }
-            int[] iArr = new int[ToastTemplate.values().length];
-            a = iArr;
-            try {
-                iArr[ToastTemplate.T1.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[ToastTemplate.T2.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[ToastTemplate.T3.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                a[ToastTemplate.T4.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
-            }
+            return invokeLL.booleanValue;
         }
     }
 
@@ -125,22 +87,29 @@ public class m73 {
                 return;
             }
         }
-        u = eo1.a;
-    }
-
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            i73.d();
-            n73.h();
-        }
+        a = fo1.a;
+        String str = dm3.c;
+        b = null;
+        c = null;
     }
 
     public static boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (!i73.e() && !n73.k()) {
+            if (Build.VERSION.SDK_INT >= 25) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (!Build.FINGERPRINT.contains("Flyme") && !Pattern.compile("Flyme", 2).matcher(Build.DISPLAY).find()) {
                 return false;
             }
             return true;
@@ -148,482 +117,202 @@ public class m73 {
         return invokeV.booleanValue;
     }
 
-    public void B() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            C(false);
-        }
-    }
-
-    @Deprecated
-    public void D() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            E(false);
-        }
-    }
-
-    public void F() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || !b()) {
-            return;
-        }
-        a();
-        i73.h(this.a, this.b, this.h, false, this.i, this.m);
-    }
-
-    public void G() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            H(false);
-        }
-    }
-
-    public void I() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            J(false);
-        }
-    }
-
-    @Deprecated
-    public void w() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
-            x(false, false);
-        }
-    }
-
-    public void z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
-            A(false);
-        }
-    }
-
-    public m73(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.k = 2;
-        this.o = ToastRightAreaStyle.JUMP;
-        this.r = ToastLocation.MIDDLE;
-        this.s = ToastTemplate.T1;
-        this.t = false;
-        this.a = context;
-        this.h = 2;
-    }
-
-    public void A(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(1048576, this, z) != null) || !b()) {
-            return;
-        }
-        a();
-        if (!z) {
-            Context context = this.a;
-            if (context instanceof Activity) {
-                n73.m((Activity) context, this.b, this.h, this.m);
-                return;
-            }
-        }
-        i73.i(this.a, this.b, this.h, this.m);
-    }
-
-    public void C(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) != null) || !b()) {
-            return;
-        }
-        a();
-        if (!z) {
-            Context context = this.a;
-            if (context instanceof Activity) {
-                n73.n((Activity) context, this.b, this.e, this.n, this.h, this.m);
-                return;
-            }
-        }
-        i73.j(this.a, this.b, this.e, this.n, this.h, this.m);
-    }
-
-    public void J(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(1048585, this, z) != null) || !b()) {
-            return;
-        }
-        a();
-        if (!z) {
-            Context context = this.a;
-            if (context instanceof Activity) {
-                n73.o((Activity) context, null, null, null, this.b, null, this.h, ToastLocation.BOTTOM, this.j, this.m);
-                return;
-            }
-        }
-        y(this.a, this.b);
-    }
-
-    public static int c(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            return ll3.t() + ((int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070159));
-        }
-        return invokeL.intValue;
-    }
-
-    public static m73 e(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            return new m73(context);
-        }
-        return (m73) invokeL.objValue;
-    }
-
-    @Deprecated
-    public m73 j(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
-            this.k = i;
-            return this;
-        }
-        return (m73) invokeI.objValue;
-    }
-
-    public m73 k(@NonNull CharSequence charSequence) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, charSequence)) == null) {
-            this.d = charSequence;
-            return this;
-        }
-        return (m73) invokeL.objValue;
-    }
-
-    public m73 l(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i)) == null) {
-            this.h = Math.max(i, 1);
-            return this;
-        }
-        return (m73) invokeI.objValue;
-    }
-
-    public m73 m(@DrawableRes int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
-            Context context = this.a;
-            if (context != null && context.getResources() != null) {
-                this.e = this.a.getResources().getDrawable(i);
-            }
-            return this;
-        }
-        return (m73) invokeI.objValue;
-    }
-
-    public m73 n(@NonNull Drawable drawable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, drawable)) == null) {
-            this.e = drawable;
-            return this;
-        }
-        return (m73) invokeL.objValue;
-    }
-
-    public m73 o(@NonNull Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, uri)) == null) {
-            this.g = uri;
-            return this;
-        }
-        return (m73) invokeL.objValue;
-    }
-
-    public m73 p(ToastLocation toastLocation) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, toastLocation)) == null) {
-            this.r = toastLocation;
-            return this;
-        }
-        return (m73) invokeL.objValue;
-    }
-
-    public m73 q(@NonNull int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i)) == null) {
-            this.i = i;
-            return this;
-        }
-        return (m73) invokeI.objValue;
-    }
-
-    public m73 r(@NonNull CharSequence charSequence) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, charSequence)) == null) {
-            this.b = charSequence;
-            return this;
-        }
-        return (m73) invokeL.objValue;
-    }
-
-    public m73 s(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048598, this, z)) == null) {
-            this.m = z;
-            return this;
-        }
-        return (m73) invokeZ.objValue;
-    }
-
-    public m73 t(@NonNull CharSequence charSequence) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, charSequence)) == null) {
-            this.c = charSequence;
-            return this;
-        }
-        return (m73) invokeL.objValue;
-    }
-
-    public m73 u(c cVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, cVar)) == null) {
-            this.j = cVar;
-            return this;
-        }
-        return (m73) invokeL.objValue;
-    }
-
-    public static m73 f(@NonNull Context context, @StringRes int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, context, i)) == null) {
-            m73 m73Var = new m73(context);
-            m73Var.b = context.getText(i);
-            return m73Var;
-        }
-        return (m73) invokeLI.objValue;
-    }
-
-    public static m73 g(@NonNull Context context, @NonNull CharSequence charSequence) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, charSequence)) == null) {
-            m73 m73Var = new m73(context);
-            m73Var.b = charSequence;
-            return m73Var;
-        }
-        return (m73) invokeLL.objValue;
-    }
-
-    public final void y(Context context, CharSequence charSequence) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048604, this, context, charSequence) != null) || TextUtils.isEmpty(charSequence)) {
-            return;
-        }
-        i73.k(context, null, null, null, charSequence, null, this.h, this.r, null, this.m);
-    }
-
-    @Deprecated
-    public void E(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(1048580, this, z) != null) || !b()) {
-            return;
-        }
-        a();
-        if (z) {
-            y(this.a, this.c);
-        } else if (this.a instanceof Activity) {
-            b bVar = this.l;
-            if (bVar != null) {
-                n73.l(bVar);
-                this.l = null;
-            }
-            if (1 == this.k) {
-                this.o = ToastRightAreaStyle.JUMP;
-            } else {
-                this.o = ToastRightAreaStyle.BUTTON;
-            }
-            if (TextUtils.isEmpty(this.d)) {
-                n73.o((Activity) this.a, null, null, null, this.b, null, this.h, this.r, this.j, this.m);
-                return;
-            }
-            CharSequence charSequence = this.c;
-            CharSequence charSequence2 = this.b;
-            if (TextUtils.isEmpty(charSequence) && !TextUtils.isEmpty(this.b)) {
-                charSequence = this.b;
-                charSequence2 = "";
-            }
-            n73.p((Activity) this.a, this.g, null, null, charSequence, charSequence2, this.d, this.o, this.h, false, this.j);
-        } else {
-            b bVar2 = this.l;
-            if (bVar2 != null) {
-                i73.f(bVar2);
-                this.l = null;
-            }
-            y(this.a, this.c);
-        }
-    }
-
-    public void H(boolean z) {
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(1048583, this, z) != null) || !b()) {
-            return;
-        }
-        a();
-        if (!z && (this.a instanceof Activity)) {
-            if (u) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("给View set 的mOnDismissListener是不是空?");
-                if (this.l == null) {
-                    z2 = true;
-                } else {
-                    z2 = false;
-                }
-                sb.append(z2);
-                Log.w("UniversalToast", sb.toString());
-            }
-            b bVar = this.l;
-            if (bVar != null) {
-                n73.l(bVar);
-                this.l = null;
-            }
-            n73.o((Activity) this.a, null, null, null, this.b, null, this.h, this.r, this.j, this.m);
-            return;
-        }
-        b bVar2 = this.l;
-        if (bVar2 != null) {
-            i73.f(bVar2);
-            this.l = null;
-        }
-        y(this.a, this.b);
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public final boolean b() {
+    public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (this.a == null) {
-                if (!u) {
-                    return false;
-                }
-                throw new IllegalArgumentException("UniversalToast mContext is null!!!");
-            } else if (this.b == null) {
-                if (!u) {
-                    return false;
-                }
-                throw new IllegalArgumentException("UniversalToast toast text is null!!!");
-            } else {
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                b = f("ro.miui.ui.version.name");
             }
+            if (a) {
+                Log.d("ToastUtils", "OsName = " + b);
+            }
+            return !TextUtils.isEmpty(b);
         }
         return invokeV.booleanValue;
     }
 
-    public void v() {
-        CharSequence charSequence;
+    public static boolean c() {
+        InterceptResult invokeV;
+        String[] split;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-            if (this.a != null && (!TextUtils.isEmpty(this.b) || !TextUtils.isEmpty(this.c))) {
-                a();
-                if (this.a instanceof Activity) {
-                    int i = a.a[this.s.ordinal()];
-                    if (i != 2) {
-                        if (i != 3) {
-                            if (i != 4) {
-                                if (TextUtils.isEmpty(this.b)) {
-                                    return;
-                                }
-                                n73.o((Activity) this.a, null, null, null, this.b, null, this.h, this.r, null, this.m);
-                                return;
-                            } else if (TextUtils.isEmpty(this.b)) {
-                                return;
-                            } else {
-                                n73.n((Activity) this.a, this.b, this.e, this.n, this.h, this.m);
-                                return;
-                            }
-                        } else if (TextUtils.isEmpty(this.q) && !TextUtils.isEmpty(this.b)) {
-                            n73.o((Activity) this.a, this.g, this.f, this.n, this.b, this.q, this.h, this.r, this.j, this.m);
-                            return;
-                        } else if (TextUtils.isEmpty(this.c)) {
-                            return;
-                        } else {
-                            n73.p((Activity) this.a, this.g, this.f, this.n, this.c, this.p, this.q, this.o, this.h, this.t, this.j);
-                            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (c == null) {
+                c = f(RomUtils.PROP_RO_BUILD_VERSION_INCREMENTAL);
+            }
+            if (a) {
+                Log.d("ToastUtils", "sMiuiVersion = " + c);
+            }
+            if (!TextUtils.isEmpty(c) && (split = c.split(".")) != null && split.length >= 1 && split[0].length() >= 2) {
+                String substring = split[0].substring(1);
+                if (!TextUtils.isEmpty(substring)) {
+                    try {
+                        if (Integer.parseInt(substring) < 9) {
+                            return true;
                         }
-                    } else if (TextUtils.isEmpty(this.b)) {
-                        return;
-                    } else {
-                        n73.o((Activity) this.a, this.g, this.f, this.n, this.b, this.q, this.h, this.r, this.j, this.m);
-                        return;
+                    } catch (NumberFormatException unused) {
                     }
-                } else if (a.a[this.s.ordinal()] != 4) {
-                    Context context = this.a;
-                    if (TextUtils.isEmpty(this.b)) {
-                        charSequence = this.c;
-                    } else {
-                        charSequence = this.b;
-                    }
-                    y(context, charSequence);
-                    return;
-                } else if (TextUtils.isEmpty(this.b)) {
-                    return;
-                } else {
-                    i73.j(this.a, this.b, this.e, this.n, this.h, this.m);
-                    return;
                 }
             }
-            l73.h("has no mToastText or mTitleText");
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static Object e(Object obj, String str) throws NoSuchFieldException, IllegalAccessException {
+        InterceptResult invokeLL;
+        Field declaredField;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, obj, str)) == null) {
+            if (obj == null || (declaredField = obj.getClass().getDeclaredField(str)) == null) {
+                return null;
+            }
+            declaredField.setAccessible(true);
+            return declaredField.get(obj);
+        }
+        return invokeLL.objValue;
+    }
+
+    public static void k(Toast toast, @StyleRes int i) {
+        Object e;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65547, null, toast, i) == null) {
+            try {
+                Object e2 = e(toast, "mTN");
+                if (e2 != null && (e = e(e2, "mParams")) != null && (e instanceof WindowManager.LayoutParams)) {
+                    ((WindowManager.LayoutParams) e).windowAnimations = i;
+                }
+            } catch (Exception e3) {
+                e3.printStackTrace();
+            }
         }
     }
 
-    @Deprecated
-    public void x(boolean z, boolean z2) {
+    public static String f(String str) {
+        InterceptResult invokeL;
+        BufferedReader bufferedReader;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048603, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) != null) || !b()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            BufferedReader bufferedReader2 = null;
+            try {
+                try {
+                    Runtime runtime = Runtime.getRuntime();
+                    bufferedReader = new BufferedReader(new InputStreamReader(runtime.exec("getprop " + str).getInputStream()), 1024);
+                } catch (Throwable th) {
+                    th = th;
+                }
+            } catch (IOException unused) {
+            }
+            try {
+                String readLine = bufferedReader.readLine();
+                zn4.d(bufferedReader);
+                if (readLine == null) {
+                    return "";
+                }
+                return readLine;
+            } catch (IOException unused2) {
+                bufferedReader2 = bufferedReader;
+                zn4.d(bufferedReader2);
+                zn4.d(bufferedReader2);
+                return "";
+            } catch (Throwable th2) {
+                th = th2;
+                bufferedReader2 = bufferedReader;
+                zn4.d(bufferedReader2);
+                throw th;
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean g(Context context) {
+        InterceptResult invokeL;
+        Method method;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+            if (context != null && Build.VERSION.SDK_INT >= 19) {
+                try {
+                    Object systemService = context.getSystemService("appops");
+                    if (systemService == null || (method = systemService.getClass().getMethod("checkOp", Integer.TYPE, Integer.TYPE, String.class)) == null) {
+                        return false;
+                    }
+                    if (((Integer) method.invoke(systemService, 24, Integer.valueOf(Binder.getCallingUid()), context.getPackageName())).intValue() != 0) {
+                        return false;
+                    }
+                    return true;
+                } catch (Throwable th) {
+                    th.printStackTrace();
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void h(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65544, null, str) == null) && a) {
+            Log.d("ToastUtils", Log.getStackTraceString(new Throwable(str)));
+        }
+    }
+
+    public static void i(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65545, null, view2) == null) && view2 != null) {
+            view2.setOnTouchListener(new a());
+        }
+    }
+
+    public static void j(Drawable drawable) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65546, null, drawable) != null) || drawable == null) {
             return;
         }
-        a();
-        if (!z && (this.a instanceof Activity)) {
-            b bVar = this.l;
-            if (bVar != null) {
-                n73.l(bVar);
-                this.l = null;
+        drawable.setColorFilter(cr2.c().getResources().getColor(R.color.obfuscated_res_0x7f06034b), PorterDuff.Mode.SRC_ATOP);
+    }
+
+    public static boolean l(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
+            if (!a() || g(context) || Build.VERSION.SDK_INT < 23) {
+                return false;
             }
-            if (TextUtils.isEmpty(this.d)) {
-                this.d = br2.c().getResources().getText(R.string.obfuscated_res_0x7f0f0118);
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean m(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, context)) == null) {
+            if (!b()) {
+                return false;
             }
-            n73.o((Activity) this.a, null, null, null, this.b, this.d, this.h, ToastLocation.BOTTOM, this.j, this.m);
-            return;
+            if (c() && g(context)) {
+                return false;
+            }
+            return true;
         }
-        b bVar2 = this.l;
-        if (bVar2 != null) {
-            i73.f(bVar2);
-            this.l = null;
+        return invokeL.booleanValue;
+    }
+
+    public static boolean n(Context context) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) {
+            if (!m(context) && !d()) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (!z && !l(context)) {
+                return false;
+            }
+            return true;
         }
-        y(this.a, this.b);
+        return invokeL.booleanValue;
     }
 }

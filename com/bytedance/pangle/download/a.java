@@ -10,13 +10,13 @@ public final class a {
     public static volatile a a;
 
     @SuppressLint({"MissingPermission"})
-    public static EnumC0517a a(Context context) {
+    public static EnumC0516a a(Context context) {
         try {
             NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
             if (activeNetworkInfo != null && activeNetworkInfo.isAvailable()) {
                 int type = activeNetworkInfo.getType();
                 if (1 == type) {
-                    return EnumC0517a.WIFI;
+                    return EnumC0516a.WIFI;
                 }
                 if (type == 0) {
                     switch (((TelephonyManager) context.getSystemService("phone")).getNetworkType()) {
@@ -29,27 +29,27 @@ public final class a {
                         case 12:
                         case 14:
                         case 15:
-                            return EnumC0517a.MOBILE_3G;
+                            return EnumC0516a.MOBILE_3G;
                         case 4:
                         case 7:
                         case 11:
                         default:
-                            return EnumC0517a.MOBILE;
+                            return EnumC0516a.MOBILE;
                         case 13:
-                            return EnumC0517a.MOBILE_4G;
+                            return EnumC0516a.MOBILE_4G;
                     }
                 }
-                return EnumC0517a.MOBILE;
+                return EnumC0516a.MOBILE;
             }
-            return EnumC0517a.NONE;
+            return EnumC0516a.NONE;
         } catch (Throwable unused) {
-            return EnumC0517a.MOBILE;
+            return EnumC0516a.MOBILE;
         }
     }
 
     /* renamed from: com.bytedance.pangle.download.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public enum EnumC0517a {
+    public enum EnumC0516a {
         UNKNOWN(-1),
         NONE(0),
         MOBILE(1),
@@ -60,7 +60,7 @@ public final class a {
         
         public final int h;
 
-        EnumC0517a(int i2) {
+        EnumC0516a(int i2) {
             this.h = i2;
         }
     }

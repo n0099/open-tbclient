@@ -1,20 +1,29 @@
 package com.baidu.tieba;
-
-import android.os.Build;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public class sia {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface sia {
+    void a(int i);
 
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return Build.MANUFACTURER;
-        }
-        return (String) invokeV.objValue;
-    }
+    void b(String str);
+
+    boolean c();
+
+    sia d();
+
+    void e(boolean z);
+
+    void f(String str);
+
+    void g(String str);
+
+    String getAAID();
+
+    String getOAID();
+
+    int getStatusCode();
+
+    String getVAID();
+
+    void h(boolean z);
+
+    boolean isSupport();
 }

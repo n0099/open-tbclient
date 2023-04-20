@@ -40,7 +40,7 @@ public abstract class BaseSysMsg extends BaseMsg {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "" : (CharSequence) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.hn
+    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.in
     public abstract /* synthetic */ BdUniqueId getType();
 
     public boolean isConvertToNormalMsg() {

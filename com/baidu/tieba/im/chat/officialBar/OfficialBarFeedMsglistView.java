@@ -44,17 +44,17 @@ import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a9;
-import com.baidu.tieba.b08;
 import com.baidu.tieba.c08;
-import com.baidu.tieba.cr5;
-import com.baidu.tieba.dk5;
-import com.baidu.tieba.gr5;
-import com.baidu.tieba.gy7;
+import com.baidu.tieba.d08;
+import com.baidu.tieba.dr5;
+import com.baidu.tieba.ek5;
+import com.baidu.tieba.hr5;
+import com.baidu.tieba.hy7;
 import com.baidu.tieba.ii;
 import com.baidu.tieba.im.chat.officialBar.OfficialBarFeedMsglistAdapter;
-import com.baidu.tieba.jz7;
-import com.baidu.tieba.nz7;
-import com.baidu.tieba.qz7;
+import com.baidu.tieba.kz7;
+import com.baidu.tieba.oz7;
+import com.baidu.tieba.rz7;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.tieba.view.RoundRelativeLayout;
 import com.baidu.tieba.y8;
@@ -84,7 +84,7 @@ public class OfficialBarFeedMsglistView extends y8<OfficialBarFeedActivity> impl
     public View j;
     public View k;
     public ViewGroup l;
-    public gy7 m;
+    public hy7 m;
     public BdTypeListView n;
     public boolean o;
     public String p;
@@ -131,7 +131,7 @@ public class OfficialBarFeedMsglistView extends y8<OfficialBarFeedActivity> impl
     }
 
     /* loaded from: classes4.dex */
-    public class b extends cr5<Void> {
+    public class b extends dr5<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -157,14 +157,14 @@ public class OfficialBarFeedMsglistView extends y8<OfficialBarFeedActivity> impl
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.cr5
+        @Override // com.baidu.tieba.dr5
         /* renamed from: a */
         public Void doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 if (!StringUtils.isNull(this.a)) {
-                    jz7.w().z(Long.parseLong(this.a), this.b);
+                    kz7.w().z(Long.parseLong(this.a), this.b);
                     return null;
                 }
                 return null;
@@ -295,7 +295,7 @@ public class OfficialBarFeedMsglistView extends y8<OfficialBarFeedActivity> impl
         }
     }
 
-    public void F(LongSparseArray<qz7> longSparseArray) {
+    public void F(LongSparseArray<rz7> longSparseArray) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048581, this, longSparseArray) == null) && longSparseArray != null && longSparseArray.size() > 0) {
             this.m.e(longSparseArray);
@@ -367,9 +367,9 @@ public class OfficialBarFeedMsglistView extends y8<OfficialBarFeedActivity> impl
             if (this.c != null) {
                 SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f0809d0, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             }
-            gy7 gy7Var = this.m;
-            if (gy7Var != null) {
-                gy7Var.notifyDataSetChanged();
+            hy7 hy7Var = this.m;
+            if (hy7Var != null) {
+                hy7Var.notifyDataSetChanged();
             }
         }
     }
@@ -385,9 +385,9 @@ public class OfficialBarFeedMsglistView extends y8<OfficialBarFeedActivity> impl
                 layoutParams.topMargin = ii.g(this.mContext.getPageActivity(), R.dimen.tbds_7);
                 this.n.setLayoutParams(layoutParams);
             }
-            gy7 gy7Var = new gy7(this.b, this.n, this);
-            this.m = gy7Var;
-            gy7Var.d(this.o);
+            hy7 hy7Var = new hy7(this.b, this.n, this);
+            this.m = hy7Var;
+            hy7Var.d(this.o);
             ((ProgressBar) baseActivity.findViewById(R.id.msg_progress)).setVisibility(8);
             this.n.setItemsCanFocus(true);
             this.n.setFocusable(false);
@@ -411,7 +411,7 @@ public class OfficialBarFeedMsglistView extends y8<OfficialBarFeedActivity> impl
         }
     }
 
-    public void E(List<c08> list, List<nz7> list2) {
+    public void E(List<d08> list, List<oz7> list2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, list, list2) == null) {
             this.m.c(list);
@@ -432,25 +432,25 @@ public class OfficialBarFeedMsglistView extends y8<OfficialBarFeedActivity> impl
             }
             HashSet hashSet = new HashSet();
             if (list != null) {
-                for (c08 c08Var : list) {
-                    if (c08Var.c() != null) {
-                        hashSet.add(c08Var.c().b());
+                for (d08 d08Var : list) {
+                    if (d08Var.c() != null) {
+                        hashSet.add(d08Var.c().b());
                     }
                 }
             }
-            ArrayList<? extends dk5> arrayList = new ArrayList<>(10);
+            ArrayList<? extends ek5> arrayList = new ArrayList<>(10);
             for (int i = 0; i < 10 && i < list2.size(); i++) {
-                nz7 nz7Var = list2.get(i);
+                oz7 oz7Var = list2.get(i);
                 OfficialBarFeedMsglistAdapter.a aVar = new OfficialBarFeedMsglistAdapter.a();
-                aVar.f(nz7Var.c());
-                aVar.g(nz7Var.a());
-                aVar.i(nz7Var.d());
-                if (!hashSet.contains(nz7Var.b())) {
+                aVar.f(oz7Var.c());
+                aVar.g(oz7Var.a());
+                aVar.i(oz7Var.d());
+                if (!hashSet.contains(oz7Var.b())) {
                     aVar.i(0);
                 }
-                aVar.j(nz7Var.e());
-                aVar.h(Long.parseLong(nz7Var.b()));
-                aVar.k(nz7Var.f());
+                aVar.j(oz7Var.e());
+                aVar.h(Long.parseLong(oz7Var.b()));
+                aVar.k(oz7Var.f());
                 arrayList.add(aVar);
             }
             this.d.l(arrayList);
@@ -460,7 +460,7 @@ public class OfficialBarFeedMsglistView extends y8<OfficialBarFeedActivity> impl
         }
     }
 
-    public final void y(b08.a aVar, Context context) {
+    public final void y(c08.a aVar, Context context) {
         String str;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(1048587, this, aVar, context) != null) || aVar == null) {
@@ -540,7 +540,7 @@ public class OfficialBarFeedMsglistView extends y8<OfficialBarFeedActivity> impl
     public void I(String str, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, j) == null) {
-            gr5.c(new b(this, str, j), null);
+            hr5.c(new b(this, str, j), null);
         }
     }
 
@@ -557,8 +557,8 @@ public class OfficialBarFeedMsglistView extends y8<OfficialBarFeedActivity> impl
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
                 statisticItem.param("fid", aVar.c());
                 TiebaStatic.log(statisticItem);
-            } else if (obj instanceof b08.a) {
-                y((b08.a) obj, this.b.getPageActivity());
+            } else if (obj instanceof c08.a) {
+                y((c08.a) obj, this.b.getPageActivity());
             }
         }
     }

@@ -4,14 +4,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.CardVirtualHeadView;
+import com.baidu.tieba.feed.component.CardVideoView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class w07 extends lz6<CardVirtualHeadView, hw6> {
+public class w07 extends mz6<CardVideoView, hw6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,26 +35,26 @@ public class w07 extends lz6<CardVirtualHeadView, hw6> {
         }
     }
 
-    @Override // com.baidu.tieba.lz6, com.baidu.tieba.a07
+    @Override // com.baidu.tieba.mz6, com.baidu.tieba.b07
     @NonNull
     public View a(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             View a = super.a(viewGroup);
-            i17.k(a, 0);
+            j17.j(a);
             return a;
         }
         return (View) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.a07
+    @Override // com.baidu.tieba.b07
     /* renamed from: e */
-    public void b(@NonNull CardVirtualHeadView cardVirtualHeadView, @NonNull hw6 hw6Var) {
+    public void b(@NonNull CardVideoView cardVideoView, @NonNull hw6 hw6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardVirtualHeadView, hw6Var) == null) {
-            cardVirtualHeadView.q(hw6Var);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardVideoView, hw6Var) == null) {
+            cardVideoView.f(hw6Var);
         }
     }
 }

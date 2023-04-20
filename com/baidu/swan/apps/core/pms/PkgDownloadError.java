@@ -1,23 +1,23 @@
 package com.baidu.swan.apps.core.pms;
 
-import com.baidu.tieba.nj3;
-import com.baidu.tieba.sg4;
+import com.baidu.tieba.oj3;
+import com.baidu.tieba.tg4;
 /* loaded from: classes3.dex */
 public class PkgDownloadError extends Throwable {
-    public nj3 mErrCode;
-    public sg4 mPackage;
+    public oj3 mErrCode;
+    public tg4 mPackage;
 
-    public PkgDownloadError(sg4 sg4Var, nj3 nj3Var) {
-        super(nj3Var.e());
-        this.mPackage = sg4Var;
-        this.mErrCode = nj3Var;
+    public PkgDownloadError(tg4 tg4Var, oj3 oj3Var) {
+        super(oj3Var.e());
+        this.mPackage = tg4Var;
+        this.mErrCode = oj3Var;
     }
 
-    public nj3 getErrCode() {
+    public oj3 getErrCode() {
         return this.mErrCode;
     }
 
-    public sg4 getPackage() {
+    public tg4 getPackage() {
         return this.mPackage;
     }
 

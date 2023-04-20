@@ -1,130 +1,154 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.resourceLoaderProc.BigImageLoaderProc;
-import com.baidu.tbadk.coreExtra.view.ImageUrlData;
-import com.baidu.tbadk.widget.richText.TbRichTextData;
-import com.baidu.tbadk.widget.richText.TbRichTextImageInfo;
-import com.baidu.tieba.pb.pb.main.AbsPbActivity;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewStub;
+import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.concurrent.ConcurrentHashMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import tbclient.Post;
+import tbclient.User;
 /* loaded from: classes3.dex */
 public class at8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public View a;
+    public View b;
+    public TextView c;
+    public zs8 d;
+    public zs8 e;
+    public zs8 f;
+    public View g;
 
-    public static String a(TbRichTextData tbRichTextData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tbRichTextData)) == null) {
-            if (tbRichTextData == null) {
-                return null;
-            }
-            StringBuilder sb = new StringBuilder(150);
-            TbRichTextImageInfo Y = tbRichTextData.Y();
-            if (Y == null) {
-                return null;
-            }
-            if (!StringUtils.isNull(Y.Q())) {
-                return Y.Q();
-            }
-            if (Y.getHeight() * Y.getWidth() > TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) {
-                double sqrt = Math.sqrt((TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) / (Y.getHeight() * Y.getWidth()));
-                sb.append(BigImageLoaderProc.NCDN_PER);
-                sb.append(String.valueOf((int) (Y.getWidth() * sqrt)));
-                sb.append("&height=");
-                sb.append(String.valueOf((int) (Y.getHeight() * sqrt)));
-            } else {
-                double width = Y.getWidth() / Y.getHeight();
-                double sqrt2 = Math.sqrt((TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) / width);
-                sb.append(BigImageLoaderProc.NCDN_PER);
-                sb.append(String.valueOf((int) (width * sqrt2)));
-                sb.append("&height=");
-                sb.append(String.valueOf((int) sqrt2));
-            }
-            sb.append("&src=");
-            sb.append(hi.getUrlEncode(Y.getSrc()));
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
+    /* loaded from: classes3.dex */
+    public interface a {
+        void a(String str);
     }
 
-    public static void b(sl9 sl9Var, AbsPbActivity.e eVar) {
-        ImageUrlData imageUrlData;
+    public at8(Context context, a aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65537, null, sl9Var, eVar) != null) || sl9Var == null || sl9Var.a0() == null || sl9Var.a0().S() == null || eVar == null || eVar.a == null || eVar.b == null || sl9Var.a0().S().size() == 0) {
-            return;
-        }
-        String str = (String) ListUtils.getItem(eVar.a, eVar.j);
-        if (StringUtils.isNull(str)) {
-            return;
-        }
-        eVar.a = new ArrayList<>();
-        ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = eVar.b;
-        eVar.b = new ConcurrentHashMap<>();
-        Iterator<TbRichTextData> it = sl9Var.a0().S().iterator();
-        while (it.hasNext()) {
-            TbRichTextData next = it.next();
-            if (next != null && next.getType() == 8) {
-                String a = a(next);
-                if (!StringUtils.isNull(a) && concurrentHashMap.get(a) != null && (imageUrlData = concurrentHashMap.get(a)) != null) {
-                    eVar.a.add(a);
-                    eVar.b.put(a, imageUrlData);
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        eVar.j = ListUtils.getPosition(eVar.a, str);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01e8, (ViewGroup) null);
+        this.b = inflate;
+        this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0906cb);
+        this.g = this.b.findViewById(R.id.obfuscated_res_0x7f0906c8);
+        this.a = this.b.findViewById(R.id.obfuscated_res_0x7f09072c);
+        this.d = new zs8((ViewStub) this.b.findViewById(R.id.obfuscated_res_0x7f0906cc), aVar);
+        this.e = new zs8((ViewStub) this.b.findViewById(R.id.obfuscated_res_0x7f0906cd), aVar);
+        this.f = new zs8((ViewStub) this.b.findViewById(R.id.obfuscated_res_0x7f0906ce), aVar);
     }
 
-    public static sl9 c(zs8 zs8Var, boolean z, int i) {
-        InterceptResult invokeCommon;
+    public final User a(Post post, List<User> list) {
+        InterceptResult invokeLL;
+        Long l;
+        Long l2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{zs8Var, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
-            if (z) {
-                if (zs8Var != null && zs8Var.F() != null && zs8Var.F().size() > 0) {
-                    sl9 sl9Var = zs8Var.F().get(0);
-                    if (sl9Var.E() != 1) {
-                        return d(zs8Var);
-                    }
-                    return sl9Var;
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, post, list)) == null) {
+            if (post == null || list == null || list.isEmpty() || (l = post.author_id) == null) {
                 return null;
             }
-            return d(zs8Var);
-        }
-        return (sl9) invokeCommon.objValue;
-    }
-
-    public static sl9 d(zs8 zs8Var) {
-        InterceptResult invokeL;
-        MetaData metaData;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, zs8Var)) == null) {
-            if (zs8Var != null && zs8Var.M() != null && zs8Var.M().getAuthor() != null) {
-                sl9 sl9Var = new sl9();
-                MetaData author = zs8Var.M().getAuthor();
-                String userId = author.getUserId();
-                HashMap<String, MetaData> userMap = zs8Var.M().getUserMap();
-                if (userMap != null && (metaData = userMap.get(userId)) != null && metaData.getUserId() != null) {
-                    author = metaData;
+            long longValue = l.longValue();
+            for (User user : list) {
+                if (user != null && (l2 = user.id) != null && l2.longValue() == longValue) {
+                    return user;
                 }
-                sl9Var.K0(1);
-                sl9Var.Q0(zs8Var.M().getFirstPostId());
-                sl9Var.h1(zs8Var.M().getTitle());
-                sl9Var.g1(zs8Var.M().getCreateTime());
-                sl9Var.H0(author);
-                return sl9Var;
             }
             return null;
         }
-        return (sl9) invokeL.objValue;
+        return (User) invokeLL.objValue;
+    }
+
+    public View b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            SkinManager.setBackgroundResource(this.b, R.color.common_color_10187);
+            SkinManager.setBackgroundColor(this.a, R.color.CAM_X0201);
+            SkinManager.setViewTextColor(this.c, R.color.CAM_X0106, 1);
+            SkinManager.setBackgroundColor(this.g, R.color.CAM_X0204);
+            this.d.c();
+            this.e.c();
+            this.f.c();
+        }
+    }
+
+    public void d(List<Post> list, List<User> list2) {
+        boolean z;
+        boolean update;
+        boolean update2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, list, list2) == null) {
+            if (list != null && !list.isEmpty()) {
+                this.g.setVisibility(0);
+                int size = list.size();
+                if (size == 1) {
+                    z = this.d.update(list.get(0), a(list.get(0), list2));
+                    this.e.d(false);
+                    this.f.d(false);
+                } else {
+                    if (size == 2) {
+                        boolean update3 = this.d.update(list.get(0), a(list.get(0), list2));
+                        boolean update4 = this.e.update(list.get(1), a(list.get(1), list2));
+                        this.f.d(false);
+                        update = update4;
+                        z = update3;
+                        update2 = false;
+                    } else if (size >= 3) {
+                        boolean update5 = this.d.update(list.get(0), a(list.get(0), list2));
+                        update = this.e.update(list.get(1), a(list.get(1), list2));
+                        update2 = this.f.update(list.get(2), a(list.get(2), list2));
+                        z = update5;
+                    } else {
+                        z = false;
+                    }
+                    if (z && !update && !update2) {
+                        this.c.setVisibility(8);
+                        return;
+                    } else {
+                        this.c.setVisibility(0);
+                        return;
+                    }
+                }
+                update2 = false;
+                update = false;
+                if (z) {
+                }
+                this.c.setVisibility(0);
+                return;
+            }
+            this.c.setVisibility(8);
+            this.d.d(false);
+            this.e.d(false);
+            this.f.d(false);
+            this.g.setVisibility(8);
+        }
     }
 }

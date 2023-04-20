@@ -1,35 +1,75 @@
 package com.baidu.tieba;
 
-import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
-import android.text.style.ForegroundColorSpan;
-import android.text.style.StyleSpan;
-import android.widget.TextView;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.mainentrance.RequestSearchPersonHistoryReadMessage;
+import com.baidu.tieba.mainentrance.ResponseSearchPersonHistoryReadMessage;
+import com.baidu.tieba.me;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class dh8 {
+public class dh8 implements CustomMessageTask.CustomRunnable<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(TextView textView, String str, String str2) {
+    public dh8() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65536, null, textView, str, str2) == null) && textView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            String lowerCase = str.toLowerCase();
-            String lowerCase2 = str2.trim().toLowerCase();
-            textView.setText(str);
-            int indexOf = lowerCase.indexOf(lowerCase2);
-            if (indexOf >= 0) {
-                ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0107));
-                SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-                spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, lowerCase2.length() + indexOf, 33);
-                if (indexOf > 0) {
-                    spannableStringBuilder.setSpan(new StyleSpan(1), 0, indexOf, 33);
-                }
-                spannableStringBuilder.setSpan(new StyleSpan(1), indexOf + lowerCase2.length(), lowerCase.length(), 33);
-                textView.setText(spannableStringBuilder);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    public static final List<String> a(List<me.b<String>> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
+            LinkedList linkedList = new LinkedList();
+            if (list != null) {
+                for (me.b<String> bVar : list) {
+                    String str = bVar.a;
+                    if (!TextUtils.isEmpty(str)) {
+                        linkedList.add(str);
+                    }
+                }
+            }
+            return linkedList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            if (customMessage != null && (customMessage instanceof RequestSearchPersonHistoryReadMessage)) {
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                if (currentAccount == null) {
+                    currentAccount = "";
+                }
+                c05.d();
+                List<String> a = a(oi.b(c05.f("tb.searchperson_history", currentAccount)));
+                ResponseSearchPersonHistoryReadMessage responseSearchPersonHistoryReadMessage = new ResponseSearchPersonHistoryReadMessage();
+                responseSearchPersonHistoryReadMessage.datas.addAll(a);
+                return responseSearchPersonHistoryReadMessage;
+            }
+            return null;
+        }
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

@@ -17,9 +17,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.coreExtra.view.UrlDragImageView;
 import com.baidu.tbadk.widget.DragImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fk7;
 import com.baidu.tieba.gg;
-import com.baidu.tieba.z99;
+import com.baidu.tieba.gk7;
+import com.baidu.tieba.ha9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -352,7 +352,7 @@ public class ImagePagerAdapter extends PagerAdapter {
             } else {
                 str = null;
             }
-            if (StringUtils.isNull(str) || z99.j(str) || fk7.d(str) || str.startsWith("####mLiveRoomPageProvider")) {
+            if (StringUtils.isNull(str) || ha9.j(str) || gk7.d(str) || str.startsWith("####mLiveRoomPageProvider")) {
                 return null;
             }
             UrlDragImageView urlDragImageView = new UrlDragImageView(this.a);

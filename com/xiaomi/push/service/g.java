@@ -1,7 +1,7 @@
 package com.xiaomi.push.service;
 
 import android.util.SparseArray;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class g extends SparseArray<Integer> {
     public g(int i) {
         super(i);

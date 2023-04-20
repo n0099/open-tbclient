@@ -17,8 +17,8 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.it4;
-import com.baidu.tieba.q25;
+import com.baidu.tieba.jt4;
+import com.baidu.tieba.r25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -149,7 +149,7 @@ public class PersonCreatorCenterDataView extends LinearLayout implements View.On
             this.d = roundLinearLayout;
             roundLinearLayout.setRadius(ii.g(getContext(), R.dimen.obfuscated_res_0x7f070288));
             this.d.setRoundCount(8);
-            q25.d(this.d).o(R.string.J_X03);
+            r25.d(this.d).o(R.string.J_X03);
             this.e = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091aab);
             this.f = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091aac);
             this.g = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091aa5);
@@ -159,7 +159,7 @@ public class PersonCreatorCenterDataView extends LinearLayout implements View.On
     public final void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            TbWebViewActivityConfig g = it4.g(getContext(), "", str, true);
+            TbWebViewActivityConfig g = jt4.g(getContext(), "", str, true);
             g.setFixTitle(true);
             g.start();
         }

@@ -12,7 +12,7 @@ public final class a {
 
     /* renamed from: com.kwad.components.core.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static final class C0597a {
+    public static final class C0596a {
         public static final a Ez = new a((byte) 0);
     }
 
@@ -66,7 +66,7 @@ public final class a {
     }
 
     public static a ng() {
-        return C0597a.Ez;
+        return C0596a.Ez;
     }
 
     public final void init(Context context) {

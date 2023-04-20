@@ -15,8 +15,8 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.databinding.MemberPayPrivilegeResultActivityBinding;
 import com.baidu.tieba.ii;
 import com.baidu.tieba.memberCenter.memberpayresult.MemberPayPrivilegeResultActivity;
-import com.baidu.tieba.nl8;
-import com.baidu.tieba.q25;
+import com.baidu.tieba.r25;
+import com.baidu.tieba.vl8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -69,7 +69,7 @@ public final class MemberPayPrivilegeResultActivity extends BaseFragmentActivity
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             Intrinsics.checkNotNullParameter(memberBuyButtonUrl, "$memberBuyButtonUrl");
             UrlManager.getInstance().dealOneLink(this$0.getPageContext(), new String[]{(String) memberBuyButtonUrl.element});
-            nl8.a.a();
+            vl8.a.a();
         }
     }
 
@@ -83,7 +83,7 @@ public final class MemberPayPrivilegeResultActivity extends BaseFragmentActivity
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
                 memberPayPrivilegeResultActivityBinding = null;
             }
-            q25 d = q25.d(memberPayPrivilegeResultActivityBinding.m);
+            r25 d = r25.d(memberPayPrivilegeResultActivityBinding.m);
             d.w(R.color.CAM_X0311);
             d.B(R.dimen.T_X05);
             d.C(R.string.F_X02);
@@ -129,7 +129,7 @@ public final class MemberPayPrivilegeResultActivity extends BaseFragmentActivity
             } else {
                 memberPayPrivilegeResultActivityBinding2 = memberPayPrivilegeResultActivityBinding9;
             }
-            q25.d(memberPayPrivilegeResultActivityBinding2.f).q(new int[]{R.color.CAM_X0201, R.color.CAM_X0202}, Direction.TOP);
+            r25.d(memberPayPrivilegeResultActivityBinding2.f).q(new int[]{R.color.CAM_X0201, R.color.CAM_X0202}, Direction.TOP);
         }
     }
 
@@ -167,7 +167,7 @@ public final class MemberPayPrivilegeResultActivity extends BaseFragmentActivity
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
                 memberPayPrivilegeResultActivityBinding3 = null;
             }
-            memberPayPrivilegeResultActivityBinding3.b.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ll8
+            memberPayPrivilegeResultActivityBinding3.b.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tl8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -222,7 +222,7 @@ public final class MemberPayPrivilegeResultActivity extends BaseFragmentActivity
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
                 memberPayPrivilegeResultActivityBinding6 = null;
             }
-            q25 d = q25.d(memberPayPrivilegeResultActivityBinding6.l);
+            r25 d = r25.d(memberPayPrivilegeResultActivityBinding6.l);
             d.B(R.dimen.T_X08);
             d.y(R.dimen.M_H_X004);
             MemberPayPrivilegeResultActivityBinding memberPayPrivilegeResultActivityBinding7 = this.a;
@@ -236,7 +236,7 @@ public final class MemberPayPrivilegeResultActivity extends BaseFragmentActivity
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
                 memberPayPrivilegeResultActivityBinding8 = null;
             }
-            q25 d2 = q25.d(memberPayPrivilegeResultActivityBinding8.k);
+            r25 d2 = r25.d(memberPayPrivilegeResultActivityBinding8.k);
             d2.B(R.dimen.tbds47);
             d2.C(R.string.F_X02);
             MemberPayPrivilegeResultActivityBinding memberPayPrivilegeResultActivityBinding9 = this.a;
@@ -245,7 +245,7 @@ public final class MemberPayPrivilegeResultActivity extends BaseFragmentActivity
             } else {
                 memberPayPrivilegeResultActivityBinding = memberPayPrivilegeResultActivityBinding9;
             }
-            memberPayPrivilegeResultActivityBinding.k.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ml8
+            memberPayPrivilegeResultActivityBinding.k.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ul8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

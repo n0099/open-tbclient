@@ -17,10 +17,10 @@ import com.baidu.tieba.barselect.segment.CardBasicLayout;
 import com.baidu.tieba.barselect.segment.NewAnounceLayout;
 import com.baidu.tieba.barselect.segment.VoteAreaLayout;
 import com.baidu.tieba.barselect.segment.VotedAreaLayout;
-import com.baidu.tieba.cb6;
+import com.baidu.tieba.db6;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.ta6;
-import com.baidu.tieba.va6;
+import com.baidu.tieba.ua6;
+import com.baidu.tieba.wa6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -181,29 +181,29 @@ public class VoteCandidateCard extends CardBasicLayout {
             this.k.d(i);
             SkinManager.setBackgroundColor(this.p, R.color.CAM_X0204, i);
             int i2 = this.a;
-            if (i2 == cb6.d) {
+            if (i2 == db6.d) {
                 SkinManager.setBackgroundResource(this.t, R.drawable.bar_select_bg_shadow_and_radius, i);
                 SkinManager.setViewTextColor(this.h, R.color.CAM_X0105, 1, i);
                 SkinManager.setViewTextColor(this.g, R.color.CAM_X0105, 1, i);
-            } else if (i2 == cb6.c) {
+            } else if (i2 == db6.c) {
                 SkinManager.setBackgroundResource(this.t, R.drawable.bg_bazhu_shadow_and_radius, i);
-            } else if (i2 == cb6.b) {
+            } else if (i2 == db6.b) {
                 if (this.v == 1) {
                     SkinManager.setBackgroundResource(this.t, R.drawable.bar_select_bg_top_round, i);
                 } else {
                     SkinManager.setBackgroundColor(this.t, R.color.CAM_X0201, i);
                 }
-            } else if (i2 == cb6.a) {
+            } else if (i2 == db6.a) {
                 SkinManager.setBackgroundColor(this.t, R.color.CAM_X0201, i);
                 SkinManager.setViewTextColor(this.w, R.color.CAM_X0105, 1, i);
                 SkinManager.setBackgroundColor(this.z, R.color.CAM_X0201, i);
                 SkinManager.setBackgroundColor(this.x, R.color.CAM_X0203, i);
             }
-            ta6 ta6Var = this.c;
-            if (ta6Var == null) {
+            ua6 ua6Var = this.c;
+            if (ua6Var == null) {
                 return;
             }
-            if (ta6Var.n()) {
+            if (ua6Var.n()) {
                 SkinManager.setViewTextColor(this.o, R.color.CAM_X0301, 1, i);
                 SkinManager.setBackgroundResource(this.n, R.drawable.icon_use_tip_red, i);
             }
@@ -219,14 +219,14 @@ public class VoteCandidateCard extends CardBasicLayout {
     }
 
     @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
-    public void setData(int i, va6 va6Var) {
+    public void setData(int i, wa6 wa6Var) {
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, va6Var) == null) {
-            super.setData(i, va6Var);
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, wa6Var) == null) {
+            super.setData(i, wa6Var);
             this.v = i;
             if (this.b != null && this.c != null && (i2 = this.a) >= 0) {
-                if (i2 == cb6.d) {
+                if (i2 == db6.d) {
                     this.t.setBackgroundResource(R.drawable.bar_select_bg_shadow_and_radius);
                     this.f.setVisibility(0);
                     TextView textView = this.h;
@@ -235,9 +235,9 @@ public class VoteCandidateCard extends CardBasicLayout {
                     this.r.setVisibility(8);
                     this.k.setVisibility(0);
                     this.l.setVisibility(8);
-                    this.k.setData(i, va6Var);
+                    this.k.setData(i, wa6Var);
                     this.z.setVisibility(8);
-                } else if (i2 == cb6.a) {
+                } else if (i2 == db6.a) {
                     if (i == 0) {
                         this.r.setVisibility(8);
                     } else {
@@ -261,10 +261,10 @@ public class VoteCandidateCard extends CardBasicLayout {
                     } else {
                         this.z.setVisibility(8);
                         this.k.setVisibility(0);
-                        this.k.setData(i, va6Var);
+                        this.k.setData(i, wa6Var);
                     }
                     this.l.setVisibility(8);
-                } else if (i2 == cb6.c) {
+                } else if (i2 == db6.c) {
                     int g = ii.g(getContext(), R.dimen.tbds22);
                     int g2 = ii.g(getContext(), R.dimen.tbds10);
                     int g3 = ii.g(getContext(), R.dimen.tbds20);
@@ -279,10 +279,10 @@ public class VoteCandidateCard extends CardBasicLayout {
                     setRankVisible(8);
                     this.k.setVisibility(8);
                     this.l.setVisibility(0);
-                    this.l.setData(i, va6Var);
+                    this.l.setData(i, wa6Var);
                     this.u.setPadding(0, g, 0, 0);
                     this.z.setVisibility(8);
-                } else if (i2 == cb6.b) {
+                } else if (i2 == db6.b) {
                     if (i == 1) {
                         this.t.setBackgroundResource(R.drawable.bar_select_bg_top_round);
                         this.r.setVisibility(8);
@@ -310,14 +310,14 @@ public class VoteCandidateCard extends CardBasicLayout {
                     }
                     this.k.setVisibility(8);
                     this.l.setVisibility(0);
-                    this.l.setData(i, va6Var);
+                    this.l.setData(i, wa6Var);
                     this.z.setVisibility(8);
                 } else {
                     setVisibility(8);
                     return;
                 }
-                this.i.setData(i, va6Var);
-                this.j.setData(i, va6Var);
+                this.i.setData(i, wa6Var);
+                this.j.setData(i, wa6Var);
                 if (this.c.n()) {
                     this.m.setVisibility(0);
                 } else {

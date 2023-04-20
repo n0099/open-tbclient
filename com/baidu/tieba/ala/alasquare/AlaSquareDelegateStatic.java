@@ -35,11 +35,11 @@ import com.baidu.tieba.ala.alasquare.special_forum.message.AlaSpecialConcernResp
 import com.baidu.tieba.ala.alasquare.special_forum.message.AlaSpecialRecommendResponse;
 import com.baidu.tieba.ala.alasquare.subtablist.message.AlaNewSquareSubListResponseMessage;
 import com.baidu.tieba.ala.alasquare.subtablist.mvc.AlaNewSquareSubListActivity;
-import com.baidu.tieba.k45;
-import com.baidu.tieba.p45;
-import com.baidu.tieba.u47;
-import com.baidu.tieba.ug5;
+import com.baidu.tieba.l45;
+import com.baidu.tieba.q45;
+import com.baidu.tieba.v47;
 import com.baidu.tieba.vg5;
+import com.baidu.tieba.wg5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -88,7 +88,7 @@ public class AlaSquareDelegateStatic {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                return new CustomResponsedMessage<>(2911006, p45.m().s("show_live_forum_url", "http://tieba.baidu.com/f?kw=百度直播"));
+                return new CustomResponsedMessage<>(2911006, q45.m().s("show_live_forum_url", "http://tieba.baidu.com/f?kw=百度直播"));
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
@@ -118,7 +118,7 @@ public class AlaSquareDelegateStatic {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                return new CustomResponsedMessage<>(2911008, p45.m().s("show_live_forum_name", "百度直播"));
+                return new CustomResponsedMessage<>(2911008, q45.m().s("show_live_forum_name", "百度直播"));
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
@@ -151,7 +151,7 @@ public class AlaSquareDelegateStatic {
                 if (strArr != null && strArr.length != 0 && strArr[0] != null && tbPageContext != null) {
                     String lowerCase = strArr[0].toLowerCase();
                     if (lowerCase.contains(UrlSchemaHelper.JUMP_TO_VIDEO_SQUARE)) {
-                        k45.f(tbPageContext.getPageActivity(), 15, true);
+                        l45.f(tbPageContext.getPageActivity(), 15, true);
                         return 1;
                     } else if (lowerCase.startsWith(UrlSchemaHelper.SCHEMA_TO_FORUM_USER_LIVE)) {
                         Uri parse = Uri.parse(lowerCase);
@@ -248,12 +248,12 @@ public class AlaSquareDelegateStatic {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            u47 u47Var;
+            v47 v47Var;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof u47) && (u47Var = (u47) customResponsedMessage.getData()) != null && !ListUtils.isEmpty(u47Var.e())) {
-                for (FrsTabInfo frsTabInfo : u47Var.e()) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof v47) && (v47Var = (v47) customResponsedMessage.getData()) != null && !ListUtils.isEmpty(v47Var.e())) {
+                for (FrsTabInfo frsTabInfo : v47Var.e()) {
                     if (frsTabInfo.tab_id.intValue() == 1120) {
-                        AlaSquareDelegateStatic.b(u47Var);
+                        AlaSquareDelegateStatic.b(v47Var);
                     }
                 }
             }
@@ -261,12 +261,12 @@ public class AlaSquareDelegateStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class f extends ug5 {
+    public static class f extends vg5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u47 c;
+        public final /* synthetic */ v47 c;
 
-        @Override // com.baidu.tieba.ug5
+        @Override // com.baidu.tieba.vg5
         public TbFragmentTabIndicator c(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -276,7 +276,7 @@ public class AlaSquareDelegateStatic {
             return (TbFragmentTabIndicator) invokeL.objValue;
         }
 
-        @Override // com.baidu.tieba.ug5
+        @Override // com.baidu.tieba.vg5
         public boolean d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -286,12 +286,12 @@ public class AlaSquareDelegateStatic {
             return invokeV.booleanValue;
         }
 
-        public f(u47 u47Var) {
+        public f(v47 v47Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {u47Var};
+                Object[] objArr = {v47Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -301,23 +301,23 @@ public class AlaSquareDelegateStatic {
                     return;
                 }
             }
-            this.c = u47Var;
+            this.c = v47Var;
         }
 
-        @Override // com.baidu.tieba.ug5
-        public vg5 a() {
+        @Override // com.baidu.tieba.vg5
+        public wg5 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 LiveTabYYSubFragment V1 = LiveTabYYSubFragment.V1(false, 2, 3);
                 V1.G1(this.c.b(), this.c.c());
-                vg5 vg5Var = new vg5();
-                vg5Var.a = V1;
-                vg5Var.e = 1120;
-                vg5Var.i = vg5.k;
-                return vg5Var;
+                wg5 wg5Var = new wg5();
+                wg5Var.a = V1;
+                wg5Var.e = 1120;
+                wg5Var.i = wg5.k;
+                return wg5Var;
             }
-            return (vg5) invokeV.objValue;
+            return (wg5) invokeV.objValue;
         }
     }
 
@@ -422,10 +422,10 @@ public class AlaSquareDelegateStatic {
         }
     }
 
-    public static void b(u47 u47Var) {
+    public static void b(v47 v47Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, u47Var) == null) && u47Var != null) {
-            u47Var.a(new f(u47Var));
+        if ((interceptable == null || interceptable.invokeL(65539, null, v47Var) == null) && v47Var != null) {
+            v47Var.a(new f(v47Var));
         }
     }
 

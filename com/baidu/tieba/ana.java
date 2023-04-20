@@ -1,158 +1,236 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
-import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.annotation.MainThread;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.xma;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTImage;
-import com.bytedance.sdk.openadsdk.TTNativeAd;
-import com.fun.ad.sdk.ChannelNativeAds;
-import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.FunNativeAd;
-import com.fun.ad.sdk.internal.api.BaseFunNativeAd;
+import com.bytedance.sdk.openadsdk.AdSlot;
+import com.bytedance.sdk.openadsdk.TTAdNative;
+import com.bytedance.sdk.openadsdk.TTAdSdk;
+import com.bytedance.sdk.openadsdk.TTSplashAd;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.FunSplashAd;
 import com.fun.ad.sdk.internal.api.config.Ssp;
-import java.util.ArrayList;
-import java.util.List;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes3.dex */
-public class ana extends BaseFunNativeAd {
+public class ana extends lna<eoa> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final kna b;
-    public final xma c;
+
+    /* loaded from: classes3.dex */
+    public class a implements TTAdNative.SplashAdListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ana a;
+
+        public a(ana anaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {anaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = anaVar;
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.SplashAdListener, com.bytedance.sdk.openadsdk.common.CommonListener
+        @MainThread
+        public void onError(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                LogPrinter.e("CSJSplashAd onError code: " + i + ", message: " + str, new Object[0]);
+                this.a.onError(i, str);
+            }
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.SplashAdListener
+        @MainThread
+        public void onSplashAdLoad(TTSplashAd tTSplashAd) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tTSplashAd) == null) {
+                LogPrinter.d();
+                this.a.onAdLoaded((ana) new eoa(tTSplashAd));
+            }
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.SplashAdListener
+        @MainThread
+        public void onTimeout() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                LogPrinter.e();
+                this.a.onError(0, "Load Timeout");
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class b implements TTSplashAd.AdInteractionListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final eoa a;
+        public final String b;
+        public boolean c;
+        public boolean d;
+        public final /* synthetic */ ana e;
+
+        public b(ana anaVar, eoa eoaVar, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {anaVar, eoaVar, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = anaVar;
+            this.a = eoaVar;
+            this.b = str;
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTSplashAd.AdInteractionListener
+        public void onAdClicked(View view2, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) {
+                LogPrinter.d();
+                this.e.onAdClicked(this.a, this.d, new String[0]);
+                this.d = true;
+            }
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTSplashAd.AdInteractionListener
+        public void onAdShow(View view2, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i) == null) {
+                LogPrinter.d();
+                this.e.onAdShow(this.a, this.c, new String[0]);
+                this.c = true;
+            }
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTSplashAd.AdInteractionListener
+        public void onAdSkip() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                LogPrinter.d();
+                this.e.onAdClose(this.a);
+            }
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTSplashAd.AdInteractionListener
+        public void onAdTimeOver() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                LogPrinter.d();
+                this.e.onAdClose(this.a);
+            }
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ana(kna knaVar, String str, Ssp.Pid pid, xma xmaVar) {
-        super(str, pid);
+    public ana(Ssp.Pid pid) {
+        super(FunAdType.obtainType(pid, FunAdType.AdType.SPLASH), pid, false, true);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {knaVar, str, pid, xmaVar};
+            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (Ssp.Pid) objArr2[1]);
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = knaVar;
-        this.c = xmaVar;
     }
 
-    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
-    public ChannelNativeAds getChannelNativeAds() {
-        InterceptResult invokeV;
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void destroyInternal(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return ChannelNativeAds.createCsj(this.b.a);
+        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+            eoa eoaVar = (eoa) obj;
         }
-        return (ChannelNativeAds) invokeV.objValue;
     }
 
-    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
-    public String getDescription() {
-        InterceptResult invokeV;
+    public final boolean h(ViewGroup viewGroup, eoa eoaVar, TTSplashAd.AdInteractionListener adInteractionListener) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return ((TTNativeAd) this.b.a).getDescription();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
-    public String getIconUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            TTImage icon = ((TTNativeAd) this.b.a).getIcon();
-            if (icon == null) {
-                return null;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, eoaVar, adInteractionListener)) == null) {
+            View splashView = ((TTSplashAd) eoaVar.a).getSplashView();
+            if (splashView.getParent() != null) {
+                ((ViewGroup) splashView.getParent()).removeView(splashView);
             }
-            return icon.getImageUrl();
+            viewGroup.removeAllViews();
+            viewGroup.addView(splashView);
+            onShowStart(eoaVar);
+            ((TTSplashAd) eoaVar.a).setSplashInteractionListener(adInteractionListener);
+            return true;
         }
-        return (String) invokeV.objValue;
+        return invokeLLL.booleanValue;
     }
 
-    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
-    public String getTitle() {
-        InterceptResult invokeV;
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void loadInternal(Context context, FunAdSlot funAdSlot) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            String source = ((TTNativeAd) this.b.a).getSource();
-            if (TextUtils.isEmpty(source)) {
-                return ((TTNativeAd) this.b.a).getTitle();
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) {
+            if (this.e == null) {
+                this.e = TTAdSdk.getAdManager().createAdNative(context.getApplicationContext());
             }
-            return source;
+            int expressHeight = (int) ((funAdSlot.getExpressHeight() * context.getResources().getDisplayMetrics().density) + 0.5f);
+            AdSlot build = new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true).setImageAcceptedSize((int) ((funAdSlot.getExpressWidth() * context.getResources().getDisplayMetrics().density) + 0.5f), expressHeight).setExpressViewAcceptedSize(funAdSlot.getExpressWidth(), funAdSlot.getExpressHeight()).build();
+            onLoadStart(funAdSlot);
+            this.e.loadSplashAd(build, new a(this), 5000);
         }
-        return (String) invokeV.objValue;
     }
 
-    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
-    public View getVideoView() {
-        InterceptResult invokeV;
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return ((TTNativeAd) this.b.a).getAdView();
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, activity, viewGroup, str, obj)) == null) {
+            eoa eoaVar = (eoa) obj;
+            h(viewGroup, eoaVar, new b(this, eoaVar, str));
+            return true;
         }
-        return (View) invokeV.objValue;
+        return invokeLLLL.booleanValue;
     }
 
-    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
-    public List<String> getImageUrls() {
-        InterceptResult invokeV;
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public FunSplashAd showSplashInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<TTImage> imageList = ((TTNativeAd) this.b.a).getImageList();
-            if (imageList != null && !imageList.isEmpty()) {
-                ArrayList arrayList = new ArrayList();
-                for (TTImage tTImage : imageList) {
-                    arrayList.add(tTImage.getImageUrl());
-                }
-                return arrayList;
-            }
-            return null;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, activity, viewGroup, str, obj)) == null) {
+            eoa eoaVar = (eoa) obj;
+            kna knaVar = new kna((TTSplashAd) eoaVar.a);
+            h(viewGroup, eoaVar, new bna(this, eoaVar, str, knaVar));
+            return knaVar;
         }
-        return (List) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
-    public FunNativeAd.InteractionType getInteractionType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int interactionType = ((TTNativeAd) this.b.a).getInteractionType();
-            if (interactionType != 2 && interactionType != 3) {
-                if (interactionType != 4) {
-                    if (interactionType != 5) {
-                        return FunNativeAd.InteractionType.TYPE_UNKNOW;
-                    }
-                    return FunNativeAd.InteractionType.TYPE_DIAL;
-                }
-                return FunNativeAd.InteractionType.TYPE_DOWNLOAD;
-            }
-            return FunNativeAd.InteractionType.TYPE_BROWSE;
-        }
-        return (FunNativeAd.InteractionType) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BaseFunNativeAd
-    public void showInternal(Context context, ViewGroup viewGroup, List<View> list, List<View> list2, FunAdInteractionListener funAdInteractionListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048583, this, context, viewGroup, list, list2, funAdInteractionListener) == null) {
-            xma xmaVar = this.c;
-            kna knaVar = this.b;
-            xmaVar.g(context, knaVar, this.mSid, viewGroup, list, list2, new xma.b(xmaVar, knaVar), funAdInteractionListener);
-        }
+        return (FunSplashAd) invokeLLLL.objValue;
     }
 }

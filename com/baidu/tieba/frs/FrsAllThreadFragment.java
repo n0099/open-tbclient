@@ -18,23 +18,23 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fl5;
-import com.baidu.tieba.g67;
-import com.baidu.tieba.i57;
+import com.baidu.tieba.gl5;
+import com.baidu.tieba.h67;
+import com.baidu.tieba.j57;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class FrsAllThreadFragment extends BaseFragment implements g67 {
+public class FrsAllThreadFragment extends BaseFragment implements h67 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
     public RecyclerView b;
     public String c;
 
-    @Override // com.baidu.tieba.g67
+    @Override // com.baidu.tieba.h67
     public void n0(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
@@ -55,7 +55,7 @@ public class FrsAllThreadFragment extends BaseFragment implements g67 {
         }
     }
 
-    @Override // com.baidu.tieba.g67
+    @Override // com.baidu.tieba.h67
     public void A1() {
         RecyclerView recyclerView;
         Interceptable interceptable = $ic;
@@ -64,20 +64,20 @@ public class FrsAllThreadFragment extends BaseFragment implements g67 {
         }
     }
 
-    @Override // com.baidu.tieba.g67
+    @Override // com.baidu.tieba.h67
     public void D() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             A1();
-            i57 i57Var = new i57();
-            i57Var.a = 1;
-            i57Var.b = true;
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, i57Var));
+            j57 j57Var = new j57();
+            j57Var.a = 1;
+            j57Var.b = true;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, j57Var));
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
-    public fl5 getTbPageExtra() {
+    public gl5 getTbPageExtra() {
         InterceptResult invokeV;
         Intent intent;
         Interceptable interceptable = $ic;
@@ -88,9 +88,9 @@ public class FrsAllThreadFragment extends BaseFragment implements g67 {
             } else {
                 intent = baseFragmentActivity.getIntent();
             }
-            return new fl5(getUniqueId(), "a006", this.mTbPageExtraPageTabName, intent);
+            return new gl5(getUniqueId(), "a006", this.mTbPageExtraPageTabName, intent);
         }
-        return (fl5) invokeV.objValue;
+        return (gl5) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment

@@ -56,7 +56,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ak {
     public static long a;
 
@@ -69,7 +69,7 @@ public class ak {
     /* renamed from: a  reason: collision with other field name */
     public static ExecutorService f891a = Executors.newCachedThreadPool();
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a implements Callable<Bitmap> {
         public Context a;
 
@@ -110,7 +110,7 @@ public class ak {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class b {
         public long a = 0;
 
@@ -118,7 +118,7 @@ public class ak {
         public Notification f894a;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class c {
 
         /* renamed from: a  reason: collision with other field name */

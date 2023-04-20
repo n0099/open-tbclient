@@ -14,30 +14,30 @@ import com.baidu.tbadk.core.dialog.yun.YunTask;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.data.FallingData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a15;
+import com.baidu.tieba.b15;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.effect.ChatEggRainData;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
 import com.baidu.tieba.immessagecenter.slice.Slice;
-import com.baidu.tieba.o58;
+import com.baidu.tieba.w58;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class EffectSlice extends Slice {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
     public final FallingSlice j;
     @NonNull
-    public final a15 k;
+    public final b15 k;
     public b l;
     @Nullable
     public ChatRoomDetail m;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a extends c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -81,7 +81,7 @@ public class EffectSlice extends Slice {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -113,8 +113,8 @@ public class EffectSlice extends Slice {
         }
     }
 
-    /* loaded from: classes4.dex */
-    public static abstract class c extends YunTask implements o58 {
+    /* loaded from: classes5.dex */
+    public static abstract class c extends YunTask implements w58 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -132,7 +132,7 @@ public class EffectSlice extends Slice {
             }
         }
 
-        @Override // com.baidu.tieba.o58
+        @Override // com.baidu.tieba.w58
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -160,7 +160,7 @@ public class EffectSlice extends Slice {
                 return;
             }
         }
-        this.k = new a15(YunDialogDataManager.j().l());
+        this.k = new b15(YunDialogDataManager.j().l());
         this.j = new FallingSlice(tbPageContext);
     }
 

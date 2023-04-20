@@ -15,7 +15,7 @@ public final class b14 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public c24 a;
+    public d24 a;
 
     static {
         InterceptResult invokeClinit;
@@ -30,7 +30,7 @@ public final class b14 {
                 return;
             }
         }
-        b = eo1.a;
+        b = fo1.a;
     }
 
     public b14() {
@@ -48,22 +48,22 @@ public final class b14 {
     }
 
     public void c() {
-        c24 c24Var;
+        d24 d24Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (c24Var = this.a) != null) {
-            c24Var.c();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (d24Var = this.a) != null) {
+            d24Var.c();
         }
     }
 
-    public static b14 d(b02 b02Var) {
+    public static b14 d(c02 c02Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, b02Var)) == null) {
-            if (b02Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, c02Var)) == null) {
+            if (c02Var == null) {
                 return null;
             }
             b14 b14Var = new b14();
-            b14Var.a = c24.e(b02Var);
+            b14Var.a = d24.e(c02Var);
             return b14Var;
         }
         return (b14) invokeL.objValue;
@@ -73,9 +73,9 @@ public final class b14 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             JSONObject a = a(str);
-            c24 c24Var = this.a;
-            if (c24Var != null) {
-                c24Var.b(a);
+            d24 d24Var = this.a;
+            if (d24Var != null) {
+                d24Var.b(a);
             }
         }
     }
@@ -88,7 +88,7 @@ public final class b14 {
             try {
                 jSONObject.put(StatConstants.KEY_EXT_ERR_CODE, str);
                 jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, com.baidu.pass.biometrics.face.liveness.b.a.g0);
-                jSONObject.put("errDes", hx3.a(str));
+                jSONObject.put("errDes", ix3.a(str));
             } catch (Exception e) {
                 if (b) {
                     e.printStackTrace();

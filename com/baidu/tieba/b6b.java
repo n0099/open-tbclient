@@ -6,17 +6,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.internal.subscriptions.SequentialSubscription;
 /* loaded from: classes3.dex */
-public final class b6b implements m1b {
+public final class b6b<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SequentialSubscription a;
+    public final long a;
+    public final T b;
 
-    public b6b() {
+    public b6b(long j, T t) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j), t};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -26,35 +28,78 @@ public final class b6b implements m1b {
                 return;
             }
         }
-        this.a = new SequentialSubscription();
+        this.b = t;
+        this.a = j;
     }
 
-    @Override // com.baidu.tieba.m1b
-    public boolean isUnsubscribed() {
+    public long a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.longValue;
+    }
+
+    public T b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a.isUnsubscribed();
+            return this.b;
         }
-        return invokeV.booleanValue;
+        return (T) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.m1b
-    public void unsubscribe() {
+    public int hashCode() {
+        InterceptResult invokeV;
+        int hashCode;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.unsubscribe();
-        }
-    }
-
-    public void a(m1b m1bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, m1bVar) == null) {
-            if (m1bVar != null) {
-                this.a.update(m1bVar);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            long j = this.a;
+            int i = (((int) (j ^ (j >>> 32))) + 31) * 31;
+            T t = this.b;
+            if (t == null) {
+                hashCode = 0;
+            } else {
+                hashCode = t.hashCode();
             }
-            throw new IllegalArgumentException("Subscription can not be null");
+            return i + hashCode;
         }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return String.format("Timestamped(timestampMillis = %d, value = %s)", Long.valueOf(this.a), this.b.toString());
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj == null || !(obj instanceof b6b)) {
+                return false;
+            }
+            b6b b6bVar = (b6b) obj;
+            if (this.a == b6bVar.a) {
+                T t = this.b;
+                T t2 = b6bVar.b;
+                if (t == t2) {
+                    return true;
+                }
+                if (t != null && t.equals(t2)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

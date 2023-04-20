@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a9;
-import com.baidu.tieba.al9;
-import com.baidu.tieba.tu4;
+import com.baidu.tieba.il9;
+import com.baidu.tieba.uu4;
 import com.baidu.tieba.za;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -31,7 +31,7 @@ public class RelateRecThreadListModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
     public RelateRecThreadRequestMessage b;
-    public tu4 c;
+    public uu4 c;
     public za d;
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -151,18 +151,18 @@ public class RelateRecThreadListModel extends BdBaseModel {
         return (String) invokeI.objValue;
     }
 
-    public void X(tu4 tu4Var) {
+    public void X(uu4 uu4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, tu4Var) == null) {
-            this.c = tu4Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, uu4Var) == null) {
+            this.c = uu4Var;
         }
     }
 
     public void V() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            al9.h(309701, RelateRecThreadSocketResponseMessage.class, false, false);
-            al9.c(309701, CmdConfigHttp.CMD_RELATE_REC_THREAD, TbConfig.URL_RELATE_REC_THREAD, RelateRecThreadHttpResponseMessage.class, true, false, true, false);
+            il9.h(309701, RelateRecThreadSocketResponseMessage.class, false, false);
+            il9.c(309701, CmdConfigHttp.CMD_RELATE_REC_THREAD, TbConfig.URL_RELATE_REC_THREAD, RelateRecThreadHttpResponseMessage.class, true, false, true, false);
             this.d.getHttpMessageListener().setSelfListener(true);
             this.d.getSocketMessageListener().setSelfListener(true);
             registerListener(this.d);

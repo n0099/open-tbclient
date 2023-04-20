@@ -1,14 +1,20 @@
 package com.baidu.tieba;
 
+import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewTreeObserver;
-import android.widget.FrameLayout;
-import android.widget.SeekBar;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.ViewGroup;
+import android.widget.PopupWindow;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.atomData.WriteActivityConfig;
+import com.baidu.tbadk.core.tabHost.FragmentTabHost;
+import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
+import com.baidu.tbadk.core.util.GreyUtil;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -17,16 +23,23 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class po9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseFragmentActivity a;
-    public SeekBar b;
-    public View c;
-    public int d;
-    public ViewTreeObserver.OnGlobalLayoutListener e;
+    public MainTabActivity a;
+    public PopupWindow b;
+    public FragmentTabHost c;
+    public String d;
+    public long e;
+    public View f;
+    public TextView g;
+    public TextView h;
+    public Runnable i;
+    public Runnable j;
+    public View.OnClickListener k;
 
     /* loaded from: classes5.dex */
-    public class a implements SeekBar.OnSeekBarChangeListener {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ po9 a;
 
         public a(po9 po9Var) {
             Interceptable interceptable = $ic;
@@ -40,46 +53,30 @@ public class po9 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = po9Var;
         }
 
-        @Override // android.widget.SeekBar.OnSeekBarChangeListener
-        public void onStartTrackingTouch(SeekBar seekBar) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, seekBar) == null) {
-                seekBar.setProgressDrawable(SkinManager.getDrawable(R.drawable.video_navi_video_eight_width_seekbar));
-                q79 q79Var = new q79();
-                q79Var.a = 2;
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921635, q79Var));
-            }
-        }
-
-        @Override // android.widget.SeekBar.OnSeekBarChangeListener
-        public void onStopTrackingTouch(SeekBar seekBar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, seekBar) == null) {
-                seekBar.setProgressDrawable(SkinManager.getDrawable(R.drawable.video_navi_video_eight_width_transparent_seekbar));
-                q79 q79Var = new q79();
-                q79Var.a = 3;
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921635, q79Var));
-            }
-        }
-
-        @Override // android.widget.SeekBar.OnSeekBarChangeListener
-        public void onProgressChanged(SeekBar seekBar, int i, boolean z) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{seekBar, Integer.valueOf(i), Boolean.valueOf(z)}) == null) && z) {
-                q79 q79Var = new q79();
-                q79Var.a = 1;
-                q79Var.b = i;
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921635, q79Var));
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.c != null && this.a.b != null && this.a.b.getContentView() != null) {
+                FragmentTabWidget fragmentTabWidget = this.a.c.getFragmentTabWidget();
+                int l = ii.l(this.a.a.getActivity());
+                int g = ii.g(this.a.a.getActivity(), R.dimen.obfuscated_res_0x7f070292);
+                this.a.b.getContentView().measure(0, 0);
+                lg.l(this.a.b, fragmentTabWidget, (l - ii.g(this.a.a.getActivity(), R.dimen.obfuscated_res_0x7f0702c2)) / 2, -g);
+                q45.m().A("home_tip", this.a.e);
+                jg.a().postDelayed(this.a.j, 5000L);
+                TiebaStatic.log(new StatisticItem("c13016").param("obj_locate", 1));
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements ViewTreeObserver.OnGlobalLayoutListener {
+    public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ po9 a;
@@ -102,26 +99,59 @@ public class po9 {
             this.a = po9Var;
         }
 
-        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-        public void onGlobalLayout() {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (this.a.b.getLayoutParams() instanceof FrameLayout.LayoutParams)) {
-                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.a.b.getLayoutParams();
-                if (layoutParams.bottomMargin != this.a.d) {
-                    layoutParams.bottomMargin = this.a.c.getHeight() - ii.g(this.a.a, R.dimen.tbds16);
-                    this.a.b.setLayoutParams(layoutParams);
-                    this.a.d = layoutParams.bottomMargin;
-                }
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.g();
             }
         }
     }
 
-    public po9(BaseFragmentActivity baseFragmentActivity, View view2) {
+    /* loaded from: classes5.dex */
+    public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ po9 a;
+
+        public c(po9 po9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {po9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = po9Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.h();
+                if (WriteActivityConfig.isAsyncWriting()) {
+                    return;
+                }
+                WriteActivityConfig.newInstance(this.a.a).setType(9).setTitle(this.a.d).setForumId("0").send();
+                TiebaStatic.log(new StatisticItem("c13017").param("obj_locate", 1));
+            }
+        }
+    }
+
+    public po9(MainTabActivity mainTabActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragmentActivity, view2};
+            Object[] objArr = {mainTabActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -131,27 +161,59 @@ public class po9 {
                 return;
             }
         }
-        this.d = -1;
-        this.e = new b(this);
-        this.a = baseFragmentActivity;
-        this.c = view2;
-        SeekBar seekBar = (SeekBar) baseFragmentActivity.findViewById(R.id.obfuscated_res_0x7f09276a);
-        this.b = seekBar;
-        seekBar.setOnSeekBarChangeListener(new a(this));
-        view2.getViewTreeObserver().addOnGlobalLayoutListener(this.e);
+        this.i = new a(this);
+        this.j = new b(this);
+        this.k = new c(this);
+        this.a = mainTabActivity;
+        this.c = (FragmentTabHost) mainTabActivity.findViewById(R.id.obfuscated_res_0x7f0921e6);
     }
 
-    public void f(boolean z) {
-        int i;
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            SeekBar seekBar = this.b;
-            if (z) {
-                i = 0;
-            } else {
-                i = 4;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            lg.c(this.b);
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            jg.a().removeCallbacks(this.i);
+            jg.a().removeCallbacks(this.j);
+            g();
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            h();
+        }
+    }
+
+    public void j(String str, String str2, long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, str2, Long.valueOf(j)}) == null) && q45.m().o("home_tip", 0L) != j && !StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
+            this.d = str2;
+            this.e = j;
+            if (this.f == null) {
+                View inflate = LayoutInflater.from(this.a.getActivity()).inflate(R.layout.tips_blue_twice_line_down, (ViewGroup) null);
+                this.f = inflate;
+                this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0923ef);
+                this.h = (TextView) this.f.findViewById(R.id.tips_content);
+                this.f.setOnClickListener(this.k);
             }
-            seekBar.setVisibility(i);
+            this.g.setText(StringHelper.cutHotTopicShow(str, 24, StringHelper.STRING_MORE));
+            this.h.setText(R.string.topic_join);
+            if (this.b == null) {
+                PopupWindow popupWindow = new PopupWindow(this.f, -2, -2);
+                this.b = popupWindow;
+                GreyUtil.grey(popupWindow);
+            } else {
+                h();
+            }
+            jg.a().removeCallbacks(this.i);
+            jg.a().postDelayed(this.i, 100L);
         }
     }
 }

@@ -1,166 +1,78 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.im.data.GroupInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
 /* loaded from: classes6.dex */
 public class x18 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<MetaData> a;
-    public List<MetaData> b;
-    public List<MetaData> c;
-    public List<MetaData> d;
 
-    /* loaded from: classes6.dex */
-    public class a implements Comparator<MetaData> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(x18 x18Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x18Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+    public static void a(GroupInfoData groupInfoData, MetaData metaData, int i) {
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLI(65536, null, groupInfoData, metaData, i) != null) || !GroupInfoData.isValidGroup(groupInfoData)) {
+            return;
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(MetaData metaData, MetaData metaData2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, metaData, metaData2)) == null) {
-                return Long.compare(metaData.lastUpdateTime, metaData2.lastUpdateTime);
-            }
-            return invokeLL.intValue;
+        StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD);
+        statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
+        statisticItem.addParam("room_id", groupInfoData.getGroupId());
+        statisticItem.addParam("fid", groupInfoData.getForumId());
+        statisticItem.addParam("fname", groupInfoData.getForumName());
+        if (metaData != null) {
+            str = metaData.getUserId();
+        } else {
+            str = null;
         }
+        if (!TextUtils.isEmpty(str)) {
+            statisticItem.addParam(TiebaStatic.Params.FRIEND_UID, str);
+        }
+        statisticItem.addParam("obj_type", i);
+        statisticItem.addParam("obj_source", 100);
+        TiebaStatic.log(statisticItem);
     }
 
-    public x18() {
+    public static void c(GroupInfoData groupInfoData, MetaData metaData, int i) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if ((interceptable != null && interceptable.invokeLLI(65538, null, groupInfoData, metaData, i) != null) || !GroupInfoData.isValidGroup(groupInfoData)) {
+            return;
         }
-        this.d = new ArrayList();
+        StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_GROUP_SHARE_SUCCESS);
+        statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
+        statisticItem.addParam("room_id", groupInfoData.getGroupId());
+        statisticItem.addParam("fid", groupInfoData.getForumId());
+        statisticItem.addParam("fname", groupInfoData.getForumName());
+        if (metaData != null) {
+            str = metaData.getUserId();
+        } else {
+            str = null;
+        }
+        if (!TextUtils.isEmpty(str)) {
+            statisticItem.addParam(TiebaStatic.Params.FRIEND_UID, str);
+        }
+        statisticItem.addParam("obj_type", i);
+        statisticItem.addParam("obj_source", 1);
+        TiebaStatic.log(statisticItem);
     }
 
-    public List<MetaData> b() {
-        InterceptResult invokeV;
+    public static void b(GroupInfoData groupInfoData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return c(true, true);
+        if ((interceptable != null && interceptable.invokeL(65537, null, groupInfoData) != null) || !GroupInfoData.isValidGroup(groupInfoData)) {
+            return;
         }
-        return (List) invokeV.objValue;
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            Collections.sort(this.d, new a(this));
-        }
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (!me8.e(this.a)) {
-                for (MetaData metaData : this.a) {
-                    metaData.setItemType(1);
-                }
-            }
-            if (!me8.e(this.c)) {
-                for (MetaData metaData2 : this.c) {
-                    metaData2.setItemType(2);
-                }
-            }
-            if (!me8.e(this.b)) {
-                for (MetaData metaData3 : this.b) {
-                    metaData3.setItemType(3);
-                }
-            }
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (MetaData metaData : this.a) {
-                if (metaData != null) {
-                    arrayList.add(metaData.getUserId());
-                }
-            }
-            if (me8.e(this.c)) {
-                return;
-            }
-            for (MetaData metaData2 : this.c) {
-                if (metaData2 != null) {
-                    if (metaData2.getUserId() == null) {
-                        this.d.add(metaData2);
-                    } else if (!arrayList.contains(metaData2.getUserId())) {
-                        arrayList.add(metaData2.getUserId());
-                        this.d.add(metaData2);
-                    }
-                }
-            }
-        }
-    }
-
-    public List<MetaData> c(boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            this.a = y18.a();
-            if (z) {
-                this.b = z18.a();
-            }
-            a();
-            e(z);
-            f();
-            if (z2) {
-                this.c = b28.a();
-                d();
-            }
-            return this.d;
-        }
-        return (List) invokeCommon.objValue;
-    }
-
-    public final void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            if (!me8.e(this.a)) {
-                this.d.addAll(this.a);
-            }
-            if (z && !me8.e(this.b)) {
-                this.d.addAll(this.b);
-            }
-        }
+        StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_GROUP_SHARE_PANEL_SHOW);
+        statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
+        statisticItem.addParam("room_id", groupInfoData.getGroupId());
+        statisticItem.addParam("fid", groupInfoData.getForumId());
+        statisticItem.addParam("fname", groupInfoData.getForumName());
+        statisticItem.addParam("obj_source", 1);
+        TiebaStatic.log(statisticItem);
     }
 }

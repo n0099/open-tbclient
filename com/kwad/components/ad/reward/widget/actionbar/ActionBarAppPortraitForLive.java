@@ -41,7 +41,7 @@ public class ActionBarAppPortraitForLive extends LinearLayout implements c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(View view2, final boolean z) {
-        com.kwad.components.core.c.a.a.a(new a.C0594a(view2.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(true).l(this.nM.eF.getPlayDuration()).ae(view2 == this.dk ? 1 : 2).a(new a.b() { // from class: com.kwad.components.ad.reward.widget.actionbar.ActionBarAppPortraitForLive.2
+        com.kwad.components.core.c.a.a.a(new a.C0593a(view2.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(true).l(this.nM.eF.getPlayDuration()).ae(view2 == this.dk ? 1 : 2).a(new a.b() { // from class: com.kwad.components.ad.reward.widget.actionbar.ActionBarAppPortraitForLive.2
             @Override // com.kwad.components.core.c.a.a.b
             public final void onAdClicked() {
                 if (ActionBarAppPortraitForLive.this.wO != null) {

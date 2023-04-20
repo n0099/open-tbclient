@@ -1,13 +1,12 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import androidx.core.util.Pair;
 import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.webkit.sdk.WebView;
+import java.util.List;
 /* loaded from: classes5.dex */
 public interface nf6 {
-    public static final ServiceReference a = new ServiceReference(WebView.LOGTAG, "IWebViewFactoryService");
+    public static final ServiceReference a = new ServiceReference(WebView.LOGTAG, "IPrefetchManager");
 
-    void a(android.webkit.WebView webView);
-
-    android.webkit.WebView b(Context context);
+    List<Pair<String, Long>> a(String str);
 }

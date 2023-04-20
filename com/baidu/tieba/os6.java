@@ -1,30 +1,68 @@
 package com.baidu.tieba;
 
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
 import android.graphics.Matrix;
-import android.media.ExifInterface;
-import android.media.MediaMetadataRetriever;
-import android.text.TextUtils;
+import android.graphics.Paint;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.minivideo.arface.utils.ThreadPool;
+import com.baidu.tieba.sfa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.data.MultiMediaData;
-import java.io.IOException;
+import com.baidu.ugc.editvideo.record.RecordConstants;
 /* loaded from: classes5.dex */
-public class os6 extends ns6 {
+public abstract class os6 implements rs6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public us6 a;
+    public ss6 b;
+    public Thread c;
+    public boolean d;
 
-    public os6(boolean z) {
+    public abstract void f();
+
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ os6 a;
+
+        public a(os6 os6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {os6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = os6Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.f();
+            }
+        }
+    }
+
+    public os6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,141 +72,158 @@ public class os6 extends ns6 {
                 return;
             }
         }
-        this.d = z;
+        this.d = false;
     }
 
-    public final int j(String str) {
-        ExifInterface exifInterface;
-        int attributeInt;
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.rs6
+    public void a(us6 us6Var, ss6 ss6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            try {
-                exifInterface = new ExifInterface(str);
-            } catch (IOException unused) {
-                exifInterface = null;
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, us6Var, ss6Var) != null) || ss6Var == null) {
+            return;
+        }
+        this.b = ss6Var;
+        if (us6Var == null) {
+            ss6Var.onError(StringUtil.NULL_STRING, "cover config is null !!");
+            return;
+        }
+        this.a = us6Var;
+        this.c = new Thread(new a(this));
+        ThreadPool.b().e(this.c);
+    }
+
+    public int[] b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            us6 us6Var = this.a;
+            int[] iArr = {us6Var.a, us6Var.b};
+            if (!us6Var.g && !us6Var.e) {
+                float f = us6Var.d;
+                if (f != 0.0f) {
+                    sfa.a e = sfa.e(f, RecordConstants.VIDEO_CONSTANT_WIDTH);
+                    iArr[0] = e.b();
+                    iArr[1] = e.a();
+                }
+            } else {
+                sfa.a e2 = e();
+                float f2 = this.a.d;
+                if (f2 != 0.0f) {
+                    sfa.a f3 = sfa.f(f2, e2.b(), e2.a());
+                    iArr[0] = f3.b();
+                    iArr[1] = f3.a();
+                }
+                sfa.a d = sfa.d(iArr[0], iArr[1]);
+                iArr[0] = d.b();
+                iArr[1] = d.a();
             }
-            if (exifInterface != null && (attributeInt = exifInterface.getAttributeInt(androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION, -1)) != -1) {
-                if (attributeInt != 3) {
-                    if (attributeInt != 6) {
-                        if (attributeInt == 8) {
-                            return 270;
-                        }
-                    } else {
-                        return 90;
-                    }
+            return iArr;
+        }
+        return (int[]) invokeV.objValue;
+    }
+
+    public Bitmap c(Bitmap bitmap, float f, MultiMediaData multiMediaData) {
+        InterceptResult invokeCommon;
+        Bitmap bitmap2;
+        int i;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{bitmap, Float.valueOf(f), multiMediaData})) == null) {
+            if (multiMediaData != null && ((i2 = 360 - (((int) multiMediaData.angle) % 360)) == 90 || i2 == 270)) {
+                Matrix matrix = new Matrix();
+                matrix.setRotate(i2);
+                bitmap2 = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+            } else {
+                bitmap2 = null;
+            }
+            if (bitmap2 != null) {
+                bitmap = bitmap2;
+            }
+            int width = bitmap.getWidth();
+            int height = bitmap.getHeight();
+            if (bitmap.getHeight() / bitmap.getWidth() > f) {
+                width = (int) (bitmap.getHeight() * f);
+            } else {
+                height = (int) (bitmap.getWidth() * f);
+            }
+            Bitmap createBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
+            Canvas canvas = new Canvas(createBitmap);
+            canvas.save();
+            int i3 = 0;
+            if (height != bitmap.getHeight()) {
+                i = Math.abs(height - bitmap.getHeight()) / 2;
+            } else {
+                i = 0;
+            }
+            if (width != bitmap.getWidth()) {
+                i3 = Math.abs(width - bitmap.getWidth()) / 2;
+            }
+            canvas.drawBitmap(bitmap, i3, i, (Paint) null);
+            canvas.restore();
+            bitmap.recycle();
+            return createBitmap;
+        }
+        return (Bitmap) invokeCommon.objValue;
+    }
+
+    public String d(int i, int i2, Bitmap bitmap, boolean z) {
+        InterceptResult invokeCommon;
+        String a2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), bitmap, Boolean.valueOf(z)})) == null) {
+            if (i != 0 && i2 != 0) {
+                Bitmap h = mha.h(bitmap, i, i2, z);
+                if (this.d) {
+                    a2 = a1a.b();
                 } else {
-                    return 180;
+                    a2 = a1a.a();
                 }
+                String c = a1a.c(a2, h, System.currentTimeMillis() + ".jpg");
+                if (h != null) {
+                    h.recycle();
+                    return c;
+                }
+                return c;
             }
-            return 0;
+            return "";
         }
-        return invokeL.intValue;
+        return (String) invokeCommon.objValue;
     }
 
-    public Bitmap k(String str) {
-        InterceptResult invokeL;
+    public sfa.a e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            MultiMediaData multiMediaData = this.a.c;
+            int i = RecordConstants.VIDEO_CONSTANT_WIDTH;
+            int i2 = RecordConstants.VIDEO_CONSTANT_HEIGHT;
+            if (multiMediaData == null) {
+                return new sfa.a(i, i2);
             }
-            ts6 ts6Var = this.a;
-            Bitmap i = i(str, ts6Var.a, ts6Var.b);
-            if (i == null) {
-                return null;
+            if (multiMediaData.type == 1) {
+                float f = multiMediaData.angle;
+                float f2 = multiMediaData.rotation;
+                if ((f + f2) % 360.0f != 90.0f && (f + f2) % 360.0f != 270.0f) {
+                    i = multiMediaData.width;
+                    i2 = multiMediaData.height;
+                } else {
+                    i = multiMediaData.height;
+                    i2 = multiMediaData.width;
+                }
             }
-            int j = j(str);
-            Matrix matrix = new Matrix();
-            matrix.setRotate(j);
-            return Bitmap.createBitmap(i, 0, 0, i.getWidth(), i.getHeight(), matrix, true);
+            return new sfa.a(i, i2);
         }
-        return (Bitmap) invokeL.objValue;
+        return (sfa.a) invokeV.objValue;
     }
 
-    public static int h(BitmapFactory.Options options, int i, int i2) {
-        InterceptResult invokeLII;
+    public void g(ts6 ts6Var, Bitmap bitmap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, options, i, i2)) == null) {
-            int i3 = options.outHeight;
-            int i4 = options.outWidth;
-            if (i3 <= i2 && i4 <= i) {
-                return 1;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, ts6Var, bitmap) == null) {
+            if (ts6Var == null) {
+                ts6Var = new ts6();
             }
-            int round = Math.round(i3 / i2);
-            int round2 = Math.round(i4 / i);
-            if (round >= round2) {
-                round = round2;
-            }
-            if (round >= 3) {
-                if (round < 6.5d) {
-                    return 4;
-                }
-                if (round < 8) {
-                    return 8;
-                }
-            }
-            return round;
-        }
-        return invokeLII.intValue;
-    }
-
-    public static Bitmap i(String str, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65538, null, str, i, i2)) == null) {
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inJustDecodeBounds = true;
-            options.inPreferredConfig = Bitmap.Config.RGB_565;
-            BitmapFactory.decodeFile(str, options);
-            options.inSampleSize = h(options, i, i2);
-            options.inJustDecodeBounds = false;
-            return BitmapFactory.decodeFile(str, options);
-        }
-        return (Bitmap) invokeLII.objValue;
-    }
-
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:25:0x0064 -> B:39:0x005f). Please submit an issue!!! */
-    @Override // com.baidu.tieba.ns6
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ts6 ts6Var = this.a;
-            if (ts6Var.e) {
-                this.b.onError(ts6Var.f, "is cartoon style !!");
-                return;
-            }
-            MultiMediaData multiMediaData = ts6Var.c;
-            if (multiMediaData != null && !TextUtils.isEmpty(multiMediaData.path)) {
-                String str = multiMediaData.path;
-                if (multiMediaData.type == 1) {
-                    MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
-                    try {
-                        try {
-                            mediaMetadataRetriever.setDataSource(str);
-                            Bitmap frameAtTime = mediaMetadataRetriever.getFrameAtTime(multiMediaData.start * 1000);
-                            if (this.a.d != 0.0f) {
-                                g(new ss6(), c(frameAtTime, this.a.d, multiMediaData));
-                            } else {
-                                g(new ss6(), frameAtTime);
-                            }
-                        } catch (IllegalArgumentException e) {
-                            e.printStackTrace();
-                        } catch (Exception unused) {
-                        }
-                        return;
-                    } finally {
-                        mediaMetadataRetriever.release();
-                    }
-                }
-                Bitmap k = k(str);
-                if (k != null) {
-                    g(new ss6(), k);
-                    return;
-                }
-                return;
-            }
-            this.b.onError(this.a.f, "multiMediaData is null !!");
+            int[] b = b();
+            ts6Var.a = d(b[0], b[1], bitmap, true);
+            this.b.a(this.a.f, ts6Var);
         }
     }
 }

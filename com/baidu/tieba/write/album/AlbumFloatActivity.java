@@ -22,8 +22,8 @@ import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bn5;
-import com.baidu.tieba.s1a;
+import com.baidu.tieba.a2a;
+import com.baidu.tieba.cn5;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -35,7 +35,7 @@ import java.util.HashMap;
 public class AlbumFloatActivity extends SuspendedActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public s1a k;
+    public a2a k;
     public ViewGroup l;
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
@@ -76,9 +76,9 @@ public class AlbumFloatActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDestroy();
-            s1a s1aVar = this.k;
-            if (s1aVar != null) {
-                s1aVar.onDestroy();
+            a2a a2aVar = this.k;
+            if (a2aVar != null) {
+                a2aVar.onDestroy();
             }
         }
     }
@@ -87,9 +87,9 @@ public class AlbumFloatActivity extends SuspendedActivity {
     public void onPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            s1a s1aVar = this.k;
-            if (s1aVar != null) {
-                s1aVar.G();
+            a2a a2aVar = this.k;
+            if (a2aVar != null) {
+                a2aVar.H();
             }
             super.onPause();
         }
@@ -100,9 +100,9 @@ public class AlbumFloatActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onResume();
-            s1a s1aVar = this.k;
-            if (s1aVar != null) {
-                s1aVar.onResume();
+            a2a a2aVar = this.k;
+            if (a2aVar != null) {
+                a2aVar.onResume();
             }
         }
     }
@@ -112,9 +112,9 @@ public class AlbumFloatActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onStart();
-            s1a s1aVar = this.k;
-            if (s1aVar != null) {
-                s1aVar.J();
+            a2a a2aVar = this.k;
+            if (a2aVar != null) {
+                a2aVar.K();
             }
         }
     }
@@ -124,9 +124,9 @@ public class AlbumFloatActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onStop();
-            s1a s1aVar = this.k;
-            if (s1aVar != null) {
-                s1aVar.K();
+            a2a a2aVar = this.k;
+            if (a2aVar != null) {
+                a2aVar.M();
             }
         }
     }
@@ -191,7 +191,7 @@ public class AlbumFloatActivity extends SuspendedActivity {
         if (interceptable == null || interceptable.invokeIIL(1048579, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
             if (i2 == -1) {
-                this.k.N(intent);
+                this.k.P(intent);
             }
         }
     }
@@ -201,19 +201,19 @@ public class AlbumFloatActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048585, this, i, strArr, iArr) == null) {
             super.onRequestPermissionsResult(i, strArr, iArr);
-            s1a s1aVar = this.k;
-            if (s1aVar != null) {
-                s1aVar.H(i, strArr, iArr);
+            a2a a2aVar = this.k;
+            if (a2aVar != null) {
+                a2aVar.I(i, strArr, iArr);
             }
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.view.View.OnClickListener
     public void onClick(View view2) {
-        s1a s1aVar;
+        a2a a2aVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && (s1aVar = this.k) != null) {
-            s1aVar.onClick(view2);
+        if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && (a2aVar = this.k) != null) {
+            a2aVar.onClick(view2);
         }
     }
 
@@ -245,7 +245,7 @@ public class AlbumFloatActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048583, this, i, keyEvent)) == null) {
             if (i == 4) {
-                this.k.F();
+                this.k.G();
                 return true;
             }
             return super.onKeyDown(i, keyEvent);
@@ -254,17 +254,17 @@ public class AlbumFloatActivity extends SuspendedActivity {
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public bn5 s1(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public cn5 s1(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, linearLayout, navigationBar)) == null) {
             if (this.k == null) {
-                s1a s1aVar = new s1a(this, null, linearLayout.getId(), R.id.root_stub);
-                this.k = s1aVar;
-                s1aVar.U(navigationBar);
+                a2a a2aVar = new a2a(this, null, linearLayout.getId(), R.id.root_stub);
+                this.k = a2aVar;
+                a2aVar.V(navigationBar);
             }
             return this.k;
         }
-        return (bn5) invokeLL.objValue;
+        return (cn5) invokeLL.objValue;
     }
 }

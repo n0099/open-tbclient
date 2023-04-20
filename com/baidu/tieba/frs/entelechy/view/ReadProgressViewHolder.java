@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.j57;
+import com.baidu.tieba.k57;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -82,9 +82,9 @@ public class ReadProgressViewHolder extends TypeAdapter.ViewHolder {
         this.c = context;
     }
 
-    public void b(j57 j57Var) {
+    public void b(k57 k57Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j57Var) != null) || j57Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k57Var) != null) || k57Var == null) {
             return;
         }
         this.b.setText(R.string.obfuscated_res_0x7f0f105d);

@@ -1,129 +1,101 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
+import android.app.Activity;
+import android.content.Intent;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.slave.SwanAppSlaveManager;
-import com.baidu.swan.apps.core.slave.SwanWebModeWidget;
-import com.baidu.swan.apps.view.SwanAppSimpleH5Widget;
+import com.baidu.browser.sailor.BdSailor;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ju1 implements vt1 {
+public class ju1 implements iu1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public gu1 a;
 
-    @Override // com.baidu.tieba.vt1
-    public boolean j(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) ? i == 0 : invokeI.booleanValue;
+    /* loaded from: classes5.dex */
+    public class a implements gu1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(ju1 ju1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ju1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.gu1
+        public void onActivityResult(Activity activity, int i, int i2, Intent intent) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{activity, Integer.valueOf(i), Integer.valueOf(i2), intent}) == null) {
+                BdSailor.getInstance().onActivityResult(activity, i, i2, intent);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947895683, "Lcom/baidu/tieba/ju1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947895683, "Lcom/baidu/tieba/ju1;");
+                return;
+            }
+        }
+        boolean z = fo1.a;
     }
 
     public ju1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = new a(this);
     }
 
-    @Override // com.baidu.tieba.vt1
-    public p92 d() {
+    @Override // com.baidu.tieba.iu1
+    public hu1 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return new p92();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return w62.k();
         }
-        return (p92) invokeV.objValue;
+        return (hu1) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.vt1
-    public du1 a(Context context) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.iu1
+    public gu1 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            return new SwanWebModeWidget(context);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        return (du1) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.vt1
-    public zt1 b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            return new r62(context);
-        }
-        return (zt1) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.vt1
-    public du1 c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            return new qu1(context);
-        }
-        return (du1) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.vt1
-    public du1 f(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
-            return new jv1(context);
-        }
-        return (du1) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.vt1
-    public du1 g(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) {
-            return new nv1(context);
-        }
-        return (du1) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.vt1
-    public du1 i(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context)) == null) {
-            return new SwanAppSimpleH5Widget(context);
-        }
-        return (du1) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.vt1
-    public au1 e(Context context, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, context, i)) == null) {
-            return new SwanAppSlaveManager(context);
-        }
-        return (au1) invokeLI.objValue;
-    }
-
-    @Override // com.baidu.tieba.vt1
-    public q92 h(Context context, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, context, i)) == null) {
-            return new r92().a(context, i);
-        }
-        return (q92) invokeLI.objValue;
+        return (gu1) invokeV.objValue;
     }
 }

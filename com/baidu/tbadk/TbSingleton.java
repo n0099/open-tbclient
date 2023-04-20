@@ -42,40 +42,40 @@ import com.baidu.tbadk.data.UserGrowthTaskListData;
 import com.baidu.tbadk.data.UserPendantData;
 import com.baidu.tbadk.switchs.PbPreloadSwitch;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.b95;
+import com.baidu.tieba.b9a;
 import com.baidu.tieba.c95;
+import com.baidu.tieba.d89;
+import com.baidu.tieba.d95;
 import com.baidu.tieba.debugtool.annotation.Modify;
 import com.baidu.tieba.debugtool.annotation.ModifyClass;
-import com.baidu.tieba.e95;
+import com.baidu.tieba.ea9;
+import com.baidu.tieba.f95;
 import com.baidu.tieba.frs.accelerator.PkgNameAndNodeInfoData;
-import com.baidu.tieba.g85;
 import com.baidu.tieba.h85;
 import com.baidu.tieba.hi;
-import com.baidu.tieba.hk9;
+import com.baidu.tieba.i85;
 import com.baidu.tieba.jg;
-import com.baidu.tieba.kb5;
-import com.baidu.tieba.l85;
-import com.baidu.tieba.m75;
+import com.baidu.tieba.lb5;
+import com.baidu.tieba.m85;
 import com.baidu.tieba.n75;
 import com.baidu.tieba.o75;
-import com.baidu.tieba.p45;
-import com.baidu.tieba.p85;
-import com.baidu.tieba.pb5;
-import com.baidu.tieba.qy4;
-import com.baidu.tieba.rb5;
-import com.baidu.tieba.s95;
-import com.baidu.tieba.t85;
-import com.baidu.tieba.t8a;
+import com.baidu.tieba.p75;
+import com.baidu.tieba.pk9;
+import com.baidu.tieba.q45;
+import com.baidu.tieba.q85;
+import com.baidu.tieba.qb5;
+import com.baidu.tieba.ry4;
+import com.baidu.tieba.sb5;
+import com.baidu.tieba.t95;
 import com.baidu.tieba.tbadkCore.util.MercatorModel;
-import com.baidu.tieba.v75;
-import com.baidu.tieba.v79;
-import com.baidu.tieba.v85;
+import com.baidu.tieba.u85;
+import com.baidu.tieba.w75;
 import com.baidu.tieba.w85;
-import com.baidu.tieba.w95;
-import com.baidu.tieba.w99;
 import com.baidu.tieba.wallet.YYLiveConfig;
-import com.baidu.tieba.ws4;
-import com.baidu.tieba.y85;
+import com.baidu.tieba.x85;
+import com.baidu.tieba.x95;
+import com.baidu.tieba.xs4;
+import com.baidu.tieba.z85;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -118,7 +118,7 @@ public final class TbSingleton {
     public PkgNameAndNodeInfoData acceleratorData;
     public long acceleratorItemId;
     public long activeTimeStamp;
-    public m75 adFloatViewData;
+    public n75 adFloatViewData;
     public long appFirstInstallTime;
     public long appLastUpdateTime;
     public String baiduIdForAnti;
@@ -139,7 +139,7 @@ public final class TbSingleton {
     public boolean hasPerformInterestPanelShow;
     public boolean hasPerformedFirstLoginTest;
     public boolean hasShowPermDlg;
-    public h85 hotNotifyConfigData;
+    public i85 hotNotifyConfigData;
     public IconPopData iconPopData;
     public String invokeSource;
     public boolean isAddBanner;
@@ -168,7 +168,7 @@ public final class TbSingleton {
     public boolean isUserBan;
     public boolean isVideoChannelRelogin;
     public Boolean isYYLive;
-    public HashMap<String, kb5> lastColourHeaderConfigs;
+    public HashMap<String, lb5> lastColourHeaderConfigs;
     public long lastResumeTime;
     public LevePopData levePopData;
     public ArrayList<LightEmotionData> lightEmotionInfo;
@@ -179,19 +179,19 @@ public final class TbSingleton {
     public String mActivityId;
     public int mAdFloatTipsAppLimitCount;
     public int mAdFloatTipsDayLimitCount;
-    public o75 mAdVertiSementConfigData;
+    public p75 mAdVertiSementConfigData;
     public int mAnimFpsSyncThreshold;
     public String mBannerText;
     public final String mBaseActivity;
     public final String mBaseFragmentActivity;
-    public v75 mBearSidConfigData;
+    public w75 mBearSidConfigData;
     public String mCallFansTid;
     public boolean mCanCallFans;
     public boolean mCanWebViewActivityShowProgress;
-    public s95 mChannelConfigModel;
+    public t95 mChannelConfigModel;
     public int mChatGroupThreadHold;
     public boolean mClipboardDelayTime;
-    public HashMap<String, kb5> mColourHeaderConfigs;
+    public HashMap<String, lb5> mColourHeaderConfigs;
     public int mCpuFlopsDur;
     public int mCpuThreshold;
     public boolean mEnableBenchmark;
@@ -199,15 +199,15 @@ public final class TbSingleton {
     public boolean mForceRefreshHomeRecommend;
     public boolean mFrsContentViewLoadingShow;
     public int mFrsCurTabType;
-    public hk9 mFrsResponseData;
+    public pk9 mFrsResponseData;
     public boolean mFrsRootViewLoadingShow;
     public boolean mHasAgreeToPlay;
     public Map<Long, Integer> mHasClickRedPot;
     public Map<String, Date> mHasShowFid;
     public Map<Long, Date> mHasShowRedPot;
     public final BroadcastReceiver mHeadSetStateReceiver;
-    public g85 mHomeInsertAdData;
-    public pb5 mHomeOperateData;
+    public h85 mHomeInsertAdData;
+    public qb5 mHomeOperateData;
     public int mHomePageStyleAbTest;
     public List<String> mHostWhiteList;
     public String mHotSearch;
@@ -228,25 +228,25 @@ public final class TbSingleton {
     public boolean mIsVisitPreviewServer;
     public String mLFUser;
     public String mLFUserTaskId;
-    public rb5 mLiveActivityGuide;
+    public sb5 mLiveActivityGuide;
     public int mLoopChatroomFrequency;
     public String mLoopRoomMsgId;
-    public p85 mMainTabPopConfig;
+    public q85 mMainTabPopConfig;
     public MercatorModel.MercatorData mMercatorData;
     public String mMissionEntranceIcon;
     public String mMissionEntranceObjSource;
     public String mMissionEntranceUrl;
     public NewGodData mNewGodData;
     public NewUserRedPackageData mNewUserRedPackageData;
-    public qy4 mPbToHomeUpdateData;
-    public v79 mPcdnConfigData;
+    public ry4 mPbToHomeUpdateData;
+    public d89 mPcdnConfigData;
     public String mProfileGameCenterKey;
     public String mPubEnvValue;
     public HashMap mRoomDraft;
     public String mSampleId;
     public int mSendMsgCountToRemindSubscribe;
-    public v85 mShakeData;
-    public w85 mSharePanelConfData;
+    public w85 mShakeData;
+    public x85 mSharePanelConfData;
     public String mSharePanelText;
     public boolean mShowCallFans;
     public boolean mShowShoubaiDynamicGuide;
@@ -258,21 +258,21 @@ public final class TbSingleton {
     public boolean mTipsAutoPlayInVideoChannel;
     public boolean mTipsAutoPlayInVideoMiddle;
     public JSONArray mUbsABTestJsonArray;
-    public w99 mUploadAndClearModule;
+    public ea9 mUploadAndClearModule;
     public Bitmap mVideoCurrentFrame;
-    public LinkedList<ws4> mVideoWatchTimeRecord;
+    public LinkedList<xs4> mVideoWatchTimeRecord;
     public String mWalletSignLink;
-    public e95 mWlConfigData;
+    public f95 mWlConfigData;
     public String mWorldCupSponsorFlag;
     public YYLiveConfig mYYLiveConfig;
-    public t8a mYYLiveTabConfig;
+    public b9a mYYLiveTabConfig;
     public String msgCount;
     public boolean needRefreshForumSquare;
     public JSONObject newGodDataJson;
     public boolean personalizedRecSwitchChanged;
     public long pushDialogLoopTime;
     public long pushDialogShowTime;
-    public t85 pushStrategyConfig;
+    public u85 pushStrategyConfig;
     public String pushTid;
     public Bundle reloginVideoMiddleBundle;
     public String schemaForStartOtherAppAfterSwanApp;
@@ -283,19 +283,19 @@ public final class TbSingleton {
     public boolean showedInterestGuide;
     public String singleSendMessageTips;
     public volatile JSONObject syncJson;
-    public w95 syncModel;
+    public x95 syncModel;
     public HashMap<String, String> tempStrings;
     public boolean triggerInterestPanelYDaysConfig;
-    public y85 upgradePopWindowConfig;
+    public z85 upgradePopWindowConfig;
     public UserGrowthTaskListData userGrowthTaskListData;
     public UserPendantData userPendantData;
     public RedIcon videoChannelAttentionRedIcon;
     public RedIcon videoChannelRecommendRedIcon;
-    public b95 videoEventsConfig;
+    public c95 videoEventsConfig;
     public int videoRedIconInterval;
     public String videoTestType;
     @Nullable
-    public c95 voiceRoomConfig;
+    public d95 voiceRoomConfig;
     public int worksAddTopicMaxNum;
     public String yyCloudSwitch;
 
@@ -462,23 +462,23 @@ public final class TbSingleton {
             }
         };
         this.personalizedRecSwitchChanged = false;
-        setIsOpenTrack(p45.m().i("key_is_open_track", false));
-        setProfileGameCenterKey(p45.m().s("profile_swan_app_key", ""));
-        setHomePageStyleAbTest(p45.m().n("index_activity_abtest_switch_json", 0));
-        setMissionEntranceIcon(p45.m().s("index_activity_abtest_icon_url", ""));
-        setMissionEntranceUrl(p45.m().s("index_activity_abtest_url", ""));
-        setMissionEntranceObjSource(p45.m().s("index_activity_abtest_obj_source", ""));
-        setAuditPackageSwitch(p45.m().i("audit_package_switch", false));
-        setBaiduidCookieSwitch(p45.m().i("key_baidu_id_cookie_switch", false));
-        setUbsSampleId(p45.m().s("key_ubs_sample_id", ""));
-        if (p45.m().n("key_is_show_shoubai_dynamic_guide", 0) == 1) {
+        setIsOpenTrack(q45.m().i("key_is_open_track", false));
+        setProfileGameCenterKey(q45.m().s("profile_swan_app_key", ""));
+        setHomePageStyleAbTest(q45.m().n("index_activity_abtest_switch_json", 0));
+        setMissionEntranceIcon(q45.m().s("index_activity_abtest_icon_url", ""));
+        setMissionEntranceUrl(q45.m().s("index_activity_abtest_url", ""));
+        setMissionEntranceObjSource(q45.m().s("index_activity_abtest_obj_source", ""));
+        setAuditPackageSwitch(q45.m().i("audit_package_switch", false));
+        setBaiduidCookieSwitch(q45.m().i("key_baidu_id_cookie_switch", false));
+        setUbsSampleId(q45.m().s("key_ubs_sample_id", ""));
+        if (q45.m().n("key_is_show_shoubai_dynamic_guide", 0) == 1) {
             z = true;
         } else {
             z = false;
         }
         setShowShoubaiDynamicGuide(z);
-        setClipboardDelayTime(p45.m().i("KEY_ANDROID_PASTE_BOARD_DELAY_TIME", false));
-        setDanmuSwitchOpen(p45.m().i("key_video_danmu_switch", true));
+        setClipboardDelayTime(q45.m().i("KEY_ANDROID_PASTE_BOARD_DELAY_TIME", false));
+        setDanmuSwitchOpen(q45.m().i("key_video_danmu_switch", true));
         initBenchmarkData();
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.intent.action.HEADSET_PLUG");
@@ -514,26 +514,26 @@ public final class TbSingleton {
                 }
             }
         });
-        this.mShowVivoBadge = p45.m().i("key_show_vivo_badge", false);
-        this.mChannelConfigModel = new s95();
+        this.mShowVivoBadge = q45.m().i("key_show_vivo_badge", false);
+        this.mChannelConfigModel = new t95();
         this.calendar = Calendar.getInstance();
-        this.isNewUserRedPackageShowed = p45.m().i("key_task_system_new_user_popup_show_number", false);
-        this.hasPerformedFirstLoginTest = p45.m().i("has_performed_first_login_test", false);
-        this.yyCloudSwitch = p45.m().s("key_yy_cloud_switch", null);
-        this.isStartStatUploadImmediately = p45.m().n("key_switch_immediately_upload", 0) == 1;
+        this.isNewUserRedPackageShowed = q45.m().i("key_task_system_new_user_popup_show_number", false);
+        this.hasPerformedFirstLoginTest = q45.m().i("has_performed_first_login_test", false);
+        this.yyCloudSwitch = q45.m().s("key_yy_cloud_switch", null);
+        this.isStartStatUploadImmediately = q45.m().n("key_switch_immediately_upload", 0) == 1;
         SpeedStats.getInstance().setSid(this.mSampleId);
-        setWorldCupSponsorFlag(p45.m().s("world_cup_sponsor_flag", ""));
+        setWorldCupSponsorFlag(q45.m().s("world_cup_sponsor_flag", ""));
     }
 
     private String getAdStrWithLimit() {
         InterceptResult invokeV;
-        o75 o75Var;
+        p75 p75Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            if (StringHelper.isTaday(p45.m().o("key_pb_falling_ad_feedback_click_time", 0L)) || (o75Var = this.mAdVertiSementConfigData) == null) {
+            if (StringHelper.isTaday(q45.m().o("key_pb_falling_ad_feedback_click_time", 0L)) || (p75Var = this.mAdVertiSementConfigData) == null) {
                 return "";
             }
-            return o75Var.c();
+            return p75Var.c();
         }
         return (String) invokeV.objValue;
     }
@@ -585,7 +585,7 @@ public final class TbSingleton {
     }
 
     public void clearVideoRecord() {
-        LinkedList<ws4> linkedList;
+        LinkedList<xs4> linkedList;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (linkedList = this.mVideoWatchTimeRecord) != null) {
             linkedList.clear();
@@ -597,7 +597,7 @@ public final class TbSingleton {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             if (this.activeTimeStamp == 0) {
-                this.activeTimeStamp = p45.m().o("key_active_timestamp", 0L);
+                this.activeTimeStamp = q45.m().o("key_active_timestamp", 0L);
             }
             return this.activeTimeStamp;
         }
@@ -622,13 +622,13 @@ public final class TbSingleton {
         return (String) invokeV.objValue;
     }
 
-    public o75 getAdVertiSementData() {
+    public p75 getAdVertiSementData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.mAdVertiSementConfigData;
         }
-        return (o75) invokeV.objValue;
+        return (p75) invokeV.objValue;
     }
 
     public int getAnimFpsSyncThreshold() {
@@ -669,7 +669,7 @@ public final class TbSingleton {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             if (this.baiduIdForAnti == null) {
-                this.baiduIdForAnti = p45.m().s("key_baiduid_for_anti", null);
+                this.baiduIdForAnti = q45.m().s("key_baiduid_for_anti", null);
             }
             return this.baiduIdForAnti;
         }
@@ -694,13 +694,13 @@ public final class TbSingleton {
         return (String) invokeV.objValue;
     }
 
-    public s95 getChannelConfigModel() {
+    public t95 getChannelConfigModel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
             return this.mChannelConfigModel;
         }
-        return (s95) invokeV.objValue;
+        return (t95) invokeV.objValue;
     }
 
     public int getChatGroupThreadHold() {
@@ -725,7 +725,7 @@ public final class TbSingleton {
         return invokeV.booleanValue;
     }
 
-    public HashMap<String, kb5> getColourHeaderConfig() {
+    public HashMap<String, lb5> getColourHeaderConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
@@ -748,7 +748,7 @@ public final class TbSingleton {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
             if (this.mCpuFlopsDur < 0) {
-                this.mCpuFlopsDur = p45.m().n("cpu_flops_dura", 0);
+                this.mCpuFlopsDur = q45.m().n("cpu_flops_dura", 0);
             }
             return this.mCpuFlopsDur;
         }
@@ -787,7 +787,7 @@ public final class TbSingleton {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
             if (this.duXiaoManActivityTimestamp == 0) {
-                this.duXiaoManActivityTimestamp = p45.m().o("key_doxiaoman_activity_timestamp", 0L);
+                this.duXiaoManActivityTimestamp = q45.m().o("key_doxiaoman_activity_timestamp", 0L);
             }
             return this.duXiaoManActivityTimestamp;
         }
@@ -839,13 +839,13 @@ public final class TbSingleton {
         return (Map) invokeV.objValue;
     }
 
-    public hk9 getFrsResponseData() {
+    public pk9 getFrsResponseData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
             return this.mFrsResponseData;
         }
-        return (hk9) invokeV.objValue;
+        return (pk9) invokeV.objValue;
     }
 
     public String getFunnySpriteAvatar() {
@@ -902,35 +902,35 @@ public final class TbSingleton {
         return (Map) invokeV.objValue;
     }
 
-    public n75 getHomeAdFloatViewItemData() {
+    public o75 getHomeAdFloatViewItemData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
-            m75 m75Var = this.adFloatViewData;
-            if (m75Var != null) {
-                return m75Var.a();
+            n75 n75Var = this.adFloatViewData;
+            if (n75Var != null) {
+                return n75Var.a();
             }
             return null;
         }
-        return (n75) invokeV.objValue;
+        return (o75) invokeV.objValue;
     }
 
-    public g85 getHomeInsertAdData() {
+    public h85 getHomeInsertAdData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
             return this.mHomeInsertAdData;
         }
-        return (g85) invokeV.objValue;
+        return (h85) invokeV.objValue;
     }
 
-    public pb5 getHomeOperateData() {
+    public qb5 getHomeOperateData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) {
             return this.mHomeOperateData;
         }
-        return (pb5) invokeV.objValue;
+        return (qb5) invokeV.objValue;
     }
 
     public int getHomePageStyleAbTest() {
@@ -951,13 +951,13 @@ public final class TbSingleton {
         return (List) invokeV.objValue;
     }
 
-    public h85 getHotNotifyConfig() {
+    public i85 getHotNotifyConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) {
             return this.hotNotifyConfigData;
         }
-        return (h85) invokeV.objValue;
+        return (i85) invokeV.objValue;
     }
 
     public String getHotSearch() {
@@ -1050,7 +1050,7 @@ public final class TbSingleton {
         return (String) invokeV.objValue;
     }
 
-    public HashMap<String, kb5> getLastColourHeaderConfigs() {
+    public HashMap<String, lb5> getLastColourHeaderConfigs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048634, this)) == null) {
@@ -1064,7 +1064,7 @@ public final class TbSingleton {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048635, this)) == null) {
             if (this.lastResumeTime == 0) {
-                this.lastResumeTime = p45.m().o("last_resume_time", 0L);
+                this.lastResumeTime = q45.m().o("last_resume_time", 0L);
             }
             return this.lastResumeTime;
         }
@@ -1116,13 +1116,13 @@ public final class TbSingleton {
         return (String) invokeV.objValue;
     }
 
-    public p85 getMainTabPopConfig() {
+    public q85 getMainTabPopConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048642, this)) == null) {
             return this.mMainTabPopConfig;
         }
-        return (p85) invokeV.objValue;
+        return (q85) invokeV.objValue;
     }
 
     public MercatorModel.MercatorData getMercatorData() {
@@ -1165,11 +1165,11 @@ public final class TbSingleton {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048647, this)) == null) {
-            w99 w99Var = this.mUploadAndClearModule;
-            if (w99Var == null) {
+            ea9 ea9Var = this.mUploadAndClearModule;
+            if (ea9Var == null) {
                 return null;
             }
-            return w99Var.a();
+            return ea9Var.a();
         }
         return (String) invokeV.objValue;
     }
@@ -1210,42 +1210,42 @@ public final class TbSingleton {
         return (NewUserRedPackageData) invokeV.objValue;
     }
 
-    public n75 getPbAdFloatViewItemData() {
+    public o75 getPbAdFloatViewItemData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048652, this)) == null) {
-            m75 m75Var = this.adFloatViewData;
-            if (m75Var != null) {
-                return m75Var.b();
+            n75 n75Var = this.adFloatViewData;
+            if (n75Var != null) {
+                return n75Var.b();
             }
             return null;
         }
-        return (n75) invokeV.objValue;
+        return (o75) invokeV.objValue;
     }
 
-    public qy4 getPbToHomeUpdateData() {
+    public ry4 getPbToHomeUpdateData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048653, this)) == null) {
             return this.mPbToHomeUpdateData;
         }
-        return (qy4) invokeV.objValue;
+        return (ry4) invokeV.objValue;
     }
 
-    public v79 getPcdnConfigData() {
+    public d89 getPcdnConfigData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048654, this)) == null) {
             return this.mPcdnConfigData;
         }
-        return (v79) invokeV.objValue;
+        return (d89) invokeV.objValue;
     }
 
     public int getPersonalizedRecSwitch() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048655, this)) == null) {
-            return p45.m().n("key_personalized_rec_switch", 1);
+            return q45.m().n("key_personalized_rec_switch", 1);
         }
         return invokeV.intValue;
     }
@@ -1287,17 +1287,17 @@ public final class TbSingleton {
         return invokeV.longValue;
     }
 
-    public t85 getPushStrategyConfig() {
+    public u85 getPushStrategyConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048660, this)) == null) {
-            t85 t85Var = this.pushStrategyConfig;
-            if (t85Var != null) {
-                return t85Var;
+            u85 u85Var = this.pushStrategyConfig;
+            if (u85Var != null) {
+                return u85Var;
             }
-            return t85.d;
+            return u85.d;
         }
-        return (t85) invokeV.objValue;
+        return (u85) invokeV.objValue;
     }
 
     public String getPushTid() {
@@ -1354,22 +1354,22 @@ public final class TbSingleton {
         return invokeV.intValue;
     }
 
-    public v85 getShakeData() {
+    public w85 getShakeData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048668, this)) == null) {
             return this.mShakeData;
         }
-        return (v85) invokeV.objValue;
+        return (w85) invokeV.objValue;
     }
 
-    public w85 getSharePanelConfData() {
+    public x85 getSharePanelConfData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048669, this)) == null) {
             return this.mSharePanelConfData;
         }
-        return (w85) invokeV.objValue;
+        return (x85) invokeV.objValue;
     }
 
     public String getSharePanelText() {
@@ -1408,13 +1408,13 @@ public final class TbSingleton {
         return (JSONObject) invokeV.objValue;
     }
 
-    public w95 getSyncModel() {
+    public x95 getSyncModel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048674, this)) == null) {
             return this.syncModel;
         }
-        return (w95) invokeV.objValue;
+        return (x95) invokeV.objValue;
     }
 
     public TiebaPlusConfigData getTiebaPlusConfigData() {
@@ -1447,17 +1447,17 @@ public final class TbSingleton {
         return (JSONArray) invokeV.objValue;
     }
 
-    public y85 getUpgradePopWindowConfig() {
+    public z85 getUpgradePopWindowConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048680, this)) == null) {
-            y85 y85Var = this.upgradePopWindowConfig;
-            if (y85Var != null) {
-                return y85Var;
+            z85 z85Var = this.upgradePopWindowConfig;
+            if (z85Var != null) {
+                return z85Var;
             }
-            return y85.i;
+            return z85.i;
         }
-        return (y85) invokeV.objValue;
+        return (z85) invokeV.objValue;
     }
 
     public UserGrowthTaskListData getUserGrowthTaskListData() {
@@ -1465,7 +1465,7 @@ public final class TbSingleton {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048681, this)) == null) {
             if (this.userGrowthTaskListData == null) {
-                int n = p45.m().n("key_person_growth_switch", 0);
+                int n = q45.m().n("key_person_growth_switch", 0);
                 UserGrowthTaskListData userGrowthTaskListData = new UserGrowthTaskListData();
                 this.userGrowthTaskListData = userGrowthTaskListData;
                 userGrowthTaskListData.setGrowthSwitch(n);
@@ -1521,16 +1521,16 @@ public final class TbSingleton {
         return (Bitmap) invokeV.objValue;
     }
 
-    public b95 getVideoEventsConfig() {
+    public c95 getVideoEventsConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048687, this)) == null) {
             return this.videoEventsConfig;
         }
-        return (b95) invokeV.objValue;
+        return (c95) invokeV.objValue;
     }
 
-    public LinkedList<ws4> getVideoRecordList() {
+    public LinkedList<xs4> getVideoRecordList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048688, this)) == null) {
@@ -1558,17 +1558,17 @@ public final class TbSingleton {
     }
 
     @NonNull
-    public c95 getVoiceRoomConfig() {
+    public d95 getVoiceRoomConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048691, this)) == null) {
-            c95 c95Var = this.voiceRoomConfig;
-            if (c95Var != null) {
-                return c95Var;
+            d95 d95Var = this.voiceRoomConfig;
+            if (d95Var != null) {
+                return d95Var;
             }
-            return c95.a;
+            return d95.a;
         }
-        return (c95) invokeV.objValue;
+        return (d95) invokeV.objValue;
     }
 
     public String getWalletSignLink() {
@@ -1580,13 +1580,13 @@ public final class TbSingleton {
         return (String) invokeV.objValue;
     }
 
-    public e95 getWlConfigData() {
+    public f95 getWlConfigData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048693, this)) == null) {
             return this.mWlConfigData;
         }
-        return (e95) invokeV.objValue;
+        return (f95) invokeV.objValue;
     }
 
     public int getWorksAddTopicMaxNum() {
@@ -1616,13 +1616,13 @@ public final class TbSingleton {
         return (YYLiveConfig) invokeV.objValue;
     }
 
-    public t8a getYYLiveTabConfig() {
+    public b9a getYYLiveTabConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048697, this)) == null) {
             return this.mYYLiveTabConfig;
         }
-        return (t8a) invokeV.objValue;
+        return (b9a) invokeV.objValue;
     }
 
     public boolean hasAgreeToPlay() {
@@ -1692,11 +1692,11 @@ public final class TbSingleton {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048708, this)) == null) {
-            w99 w99Var = this.mUploadAndClearModule;
-            if (w99Var == null) {
+            ea9 ea9Var = this.mUploadAndClearModule;
+            if (ea9Var == null) {
                 return false;
             }
-            return w99Var.b();
+            return ea9Var.b();
         }
         return invokeV.booleanValue;
     }
@@ -1904,7 +1904,7 @@ public final class TbSingleton {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048735, this)) == null) {
-            return p45.m().i("local_slide_animation__switch", false);
+            return q45.m().i("local_slide_animation__switch", false);
         }
         return invokeV.booleanValue;
     }
@@ -1943,11 +1943,11 @@ public final class TbSingleton {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048739, this)) == null) {
-            w99 w99Var = this.mUploadAndClearModule;
-            if (w99Var == null) {
+            ea9 ea9Var = this.mUploadAndClearModule;
+            if (ea9Var == null) {
                 return false;
             }
-            return w99Var.c();
+            return ea9Var.c();
         }
         return invokeV.booleanValue;
     }
@@ -2106,14 +2106,14 @@ public final class TbSingleton {
     public void saveHomeRecommendItemClickTime() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048755, this) == null) {
-            p45.m().A("key_home_recommend_item_click_time", System.currentTimeMillis());
+            q45.m().A("key_home_recommend_item_click_time", System.currentTimeMillis());
         }
     }
 
     public void setActiveTimeStamp() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048756, this) == null) && getActiveTimeStamp() == 0) {
-            p45.m().A("key_active_timestamp", System.currentTimeMillis());
+            q45.m().A("key_active_timestamp", System.currentTimeMillis());
         }
     }
 
@@ -2168,9 +2168,9 @@ public final class TbSingleton {
                 setAnimAvgFpsCount("anim_switch_slide", 0);
                 return;
             }
-            this.mEnableBenchmark = p45.m().i("enable_benchmark", true);
-            this.mCpuThreshold = p45.m().n("cpu_flops_dura_threshold", Integer.MAX_VALUE);
-            this.mAnimFpsSyncThreshold = p45.m().n("anim_avg_fps_threshold", 0);
+            this.mEnableBenchmark = q45.m().i("enable_benchmark", true);
+            this.mCpuThreshold = q45.m().n("cpu_flops_dura_threshold", Integer.MAX_VALUE);
+            this.mAnimFpsSyncThreshold = q45.m().n("anim_avg_fps_threshold", 0);
         }
     }
 
@@ -2216,7 +2216,7 @@ public final class TbSingleton {
             if (hi.isEmpty(str)) {
                 return -1;
             }
-            return p45.m().n(str, -1);
+            return q45.m().n(str, -1);
         }
         return invokeL.intValue;
     }
@@ -2320,17 +2320,17 @@ public final class TbSingleton {
         }
     }
 
-    public void setAdFloatViewData(m75 m75Var) {
+    public void setAdFloatViewData(n75 n75Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048758, this, m75Var) == null) {
-            this.adFloatViewData = m75Var;
+        if (interceptable == null || interceptable.invokeL(1048758, this, n75Var) == null) {
+            this.adFloatViewData = n75Var;
         }
     }
 
-    public void setAdVertiSementData(o75 o75Var) {
+    public void setAdVertiSementData(p75 p75Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048759, this, o75Var) == null) {
-            this.mAdVertiSementConfigData = o75Var;
+        if (interceptable == null || interceptable.invokeL(1048759, this, p75Var) == null) {
+            this.mAdVertiSementConfigData = p75Var;
         }
     }
 
@@ -2338,7 +2338,7 @@ public final class TbSingleton {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048760, this, i) == null) {
             this.mAnimFpsSyncThreshold = i;
-            p45.m().z("anim_avg_fps_threshold", i);
+            q45.m().z("anim_avg_fps_threshold", i);
         }
     }
 
@@ -2351,8 +2351,8 @@ public final class TbSingleton {
 
     public void setBaiduIdForAnti(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048765, this, str) == null) && p45.m().s("key_baiduid_for_anti", null) == null) {
-            p45.m().B("key_baiduid_for_anti", str);
+        if ((interceptable == null || interceptable.invokeL(1048765, this, str) == null) && q45.m().s("key_baiduid_for_anti", null) == null) {
+            q45.m().B("key_baiduid_for_anti", str);
             this.baiduIdForAnti = str;
         }
     }
@@ -2396,10 +2396,10 @@ public final class TbSingleton {
         }
     }
 
-    public void setChannelConfigModel(s95 s95Var) {
+    public void setChannelConfigModel(t95 t95Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048772, this, s95Var) == null) {
-            this.mChannelConfigModel = s95Var;
+        if (interceptable == null || interceptable.invokeL(1048772, this, t95Var) == null) {
+            this.mChannelConfigModel = t95Var;
         }
     }
 
@@ -2424,7 +2424,7 @@ public final class TbSingleton {
         }
     }
 
-    public void setColourHeaderConfig(HashMap<String, kb5> hashMap) {
+    public void setColourHeaderConfig(HashMap<String, lb5> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048776, this, hashMap) == null) {
             this.mColourHeaderConfigs = hashMap;
@@ -2444,14 +2444,14 @@ public final class TbSingleton {
             return;
         }
         this.mCpuFlopsDur = i;
-        p45.m().z("cpu_flops_dura", i);
+        q45.m().z("cpu_flops_dura", i);
     }
 
     public void setCpuThreshold(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048779, this, i) == null) {
             this.mCpuThreshold = i;
-            p45.m().z("cpu_flops_dura_threshold", i);
+            q45.m().z("cpu_flops_dura_threshold", i);
         }
     }
 
@@ -2466,7 +2466,7 @@ public final class TbSingleton {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048781, this, z) == null) {
             this.isDanmuSwitchOpen = z;
-            p45.m().w("key_video_danmu_switch", z);
+            q45.m().w("key_video_danmu_switch", z);
         }
     }
 
@@ -2481,7 +2481,7 @@ public final class TbSingleton {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeJ(1048783, this, j) == null) && j != this.duXiaoManActivityTimestamp) {
             this.duXiaoManActivityTimestamp = j;
-            p45.m().A("key_doxiaoman_activity_timestamp", j);
+            q45.m().A("key_doxiaoman_activity_timestamp", j);
         }
     }
 
@@ -2489,7 +2489,7 @@ public final class TbSingleton {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048784, this, z) == null) {
             this.mEnableBenchmark = z;
-            p45.m().w("enable_benchmark", z);
+            q45.m().w("enable_benchmark", z);
         }
     }
 
@@ -2602,7 +2602,7 @@ public final class TbSingleton {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048801, this, z) == null) {
             this.hasPerformedFirstLoginTest = z;
-            p45.m().w("has_performed_first_login_test", z);
+            q45.m().w("has_performed_first_login_test", z);
         }
     }
 
@@ -2627,17 +2627,17 @@ public final class TbSingleton {
         }
     }
 
-    public void setHomeInsertAdData(g85 g85Var) {
+    public void setHomeInsertAdData(h85 h85Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048805, this, g85Var) == null) {
-            this.mHomeInsertAdData = g85Var;
+        if (interceptable == null || interceptable.invokeL(1048805, this, h85Var) == null) {
+            this.mHomeInsertAdData = h85Var;
         }
     }
 
-    public void setHomeOperateData(pb5 pb5Var) {
+    public void setHomeOperateData(qb5 qb5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048806, this, pb5Var) == null) {
-            this.mHomeOperateData = pb5Var;
+        if (interceptable == null || interceptable.invokeL(1048806, this, qb5Var) == null) {
+            this.mHomeOperateData = qb5Var;
         }
     }
 
@@ -2655,10 +2655,10 @@ public final class TbSingleton {
         }
     }
 
-    public void setHotNotifyConfig(h85 h85Var) {
+    public void setHotNotifyConfig(i85 i85Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048809, this, h85Var) == null) {
-            this.hotNotifyConfigData = h85Var;
+        if (interceptable == null || interceptable.invokeL(1048809, this, i85Var) == null) {
+            this.hotNotifyConfigData = i85Var;
         }
     }
 
@@ -2753,7 +2753,7 @@ public final class TbSingleton {
         }
     }
 
-    public void setLastColourHeaderConfigs(HashMap<String, kb5> hashMap) {
+    public void setLastColourHeaderConfigs(HashMap<String, lb5> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048823, this, hashMap) == null) {
             this.lastColourHeaderConfigs = hashMap;
@@ -2819,10 +2819,10 @@ public final class TbSingleton {
         }
     }
 
-    public void setMainTabPopConfig(p85 p85Var) {
+    public void setMainTabPopConfig(q85 q85Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048832, this, p85Var) == null) {
-            this.mMainTabPopConfig = p85Var;
+        if (interceptable == null || interceptable.invokeL(1048832, this, q85Var) == null) {
+            this.mMainTabPopConfig = q85Var;
         }
     }
 
@@ -2914,14 +2914,14 @@ public final class TbSingleton {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048845, this, z) == null) {
             this.isNewUserRedPackageShowed = z;
-            p45.m().w("key_task_system_new_user_popup_show_number", z);
+            q45.m().w("key_task_system_new_user_popup_show_number", z);
         }
     }
 
-    public void setPbToHomeUpdateData(qy4 qy4Var) {
+    public void setPbToHomeUpdateData(ry4 ry4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048846, this, qy4Var) == null) {
-            this.mPbToHomeUpdateData = qy4Var;
+        if (interceptable == null || interceptable.invokeL(1048846, this, ry4Var) == null) {
+            this.mPbToHomeUpdateData = ry4Var;
         }
     }
 
@@ -2929,7 +2929,7 @@ public final class TbSingleton {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048847, this, jSONObject) == null) {
             if (this.mPcdnConfigData == null) {
-                this.mPcdnConfigData = new v79();
+                this.mPcdnConfigData = new d89();
             }
             this.mPcdnConfigData.d(jSONObject);
         }
@@ -2970,10 +2970,10 @@ public final class TbSingleton {
         }
     }
 
-    public void setPushStrategyConfig(t85 t85Var) {
+    public void setPushStrategyConfig(u85 u85Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048853, this, t85Var) == null) {
-            this.pushStrategyConfig = t85Var;
+        if (interceptable == null || interceptable.invokeL(1048853, this, u85Var) == null) {
+            this.pushStrategyConfig = u85Var;
         }
     }
 
@@ -3019,17 +3019,17 @@ public final class TbSingleton {
         }
     }
 
-    public void setShakeData(v85 v85Var) {
+    public void setShakeData(w85 w85Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048861, this, v85Var) == null) {
-            this.mShakeData = v85Var;
+        if (interceptable == null || interceptable.invokeL(1048861, this, w85Var) == null) {
+            this.mShakeData = w85Var;
         }
     }
 
-    public void setSharePanelConfData(w85 w85Var) {
+    public void setSharePanelConfData(x85 x85Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048862, this, w85Var) == null) {
-            this.mSharePanelConfData = w85Var;
+        if (interceptable == null || interceptable.invokeL(1048862, this, x85Var) == null) {
+            this.mSharePanelConfData = x85Var;
         }
     }
 
@@ -3092,7 +3092,7 @@ public final class TbSingleton {
     public void setSlideAnimLocalSwitch(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048871, this, z) == null) {
-            p45.m().w("local_slide_animation__switch", z);
+            q45.m().w("local_slide_animation__switch", z);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2156674, Boolean.valueOf(z)));
         }
     }
@@ -3104,10 +3104,10 @@ public final class TbSingleton {
         }
     }
 
-    public void setSyncModel(w95 w95Var) {
+    public void setSyncModel(x95 x95Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048873, this, w95Var) == null) {
-            this.syncModel = w95Var;
+        if (interceptable == null || interceptable.invokeL(1048873, this, x95Var) == null) {
+            this.syncModel = x95Var;
         }
     }
 
@@ -3115,7 +3115,7 @@ public final class TbSingleton {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048874, this, z) == null) {
             this.isYYLive = Boolean.valueOf(z);
-            p45 m = p45.m();
+            q45 m = q45.m();
             m.w("key_is_yy_live" + TbadkCoreApplication.getCurrentAccount(), z);
         }
     }
@@ -3155,17 +3155,17 @@ public final class TbSingleton {
         }
     }
 
-    public void setUpgradePopWindowConfig(y85 y85Var) {
+    public void setUpgradePopWindowConfig(z85 z85Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048881, this, y85Var) == null) {
-            this.upgradePopWindowConfig = y85Var;
+        if (interceptable == null || interceptable.invokeL(1048881, this, z85Var) == null) {
+            this.upgradePopWindowConfig = z85Var;
         }
     }
 
-    public void setUploadAndClearModule(w99 w99Var) {
+    public void setUploadAndClearModule(ea9 ea9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048882, this, w99Var) == null) {
-            this.mUploadAndClearModule = w99Var;
+        if (interceptable == null || interceptable.invokeL(1048882, this, ea9Var) == null) {
+            this.mUploadAndClearModule = ea9Var;
         }
     }
 
@@ -3181,9 +3181,9 @@ public final class TbSingleton {
         if (interceptable == null || interceptable.invokeL(1048884, this, userGrowthTaskListData) == null) {
             this.userGrowthTaskListData = userGrowthTaskListData;
             if (userGrowthTaskListData != null) {
-                p45.m().z("key_person_growth_switch", userGrowthTaskListData.getGrowthSwitch());
+                q45.m().z("key_person_growth_switch", userGrowthTaskListData.getGrowthSwitch());
             } else {
-                p45.m().H("key_person_growth_switch");
+                q45.m().H("key_person_growth_switch");
             }
         }
     }
@@ -3223,14 +3223,14 @@ public final class TbSingleton {
         }
     }
 
-    public void setVideoEventsConfig(b95 b95Var) {
+    public void setVideoEventsConfig(c95 c95Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048892, this, b95Var) == null) {
-            b95 b95Var2 = this.videoEventsConfig;
-            if (b95Var2 == null) {
-                this.videoEventsConfig = b95Var;
-            } else if (!b95Var2.a(b95Var)) {
-                this.videoEventsConfig = b95Var;
+        if (interceptable == null || interceptable.invokeL(1048892, this, c95Var) == null) {
+            c95 c95Var2 = this.videoEventsConfig;
+            if (c95Var2 == null) {
+                this.videoEventsConfig = c95Var;
+            } else if (!c95Var2.a(c95Var)) {
+                this.videoEventsConfig = c95Var;
             }
         }
     }
@@ -3256,10 +3256,10 @@ public final class TbSingleton {
         }
     }
 
-    public void setVoiceRoomConfig(@Nullable c95 c95Var) {
+    public void setVoiceRoomConfig(@Nullable d95 d95Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048896, this, c95Var) == null) {
-            this.voiceRoomConfig = c95Var;
+        if (interceptable == null || interceptable.invokeL(1048896, this, d95Var) == null) {
+            this.voiceRoomConfig = d95Var;
         }
     }
 
@@ -3270,10 +3270,10 @@ public final class TbSingleton {
         }
     }
 
-    public void setWlConfigData(e95 e95Var) {
+    public void setWlConfigData(f95 f95Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048898, this, e95Var) == null) {
-            this.mWlConfigData = e95Var;
+        if (interceptable == null || interceptable.invokeL(1048898, this, f95Var) == null) {
+            this.mWlConfigData = f95Var;
         }
     }
 
@@ -3298,10 +3298,10 @@ public final class TbSingleton {
         }
     }
 
-    public void setYYLiveTabConfig(t8a t8aVar) {
+    public void setYYLiveTabConfig(b9a b9aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048902, this, t8aVar) == null) {
-            this.mYYLiveTabConfig = t8aVar;
+        if (interceptable == null || interceptable.invokeL(1048902, this, b9aVar) == null) {
+            this.mYYLiveTabConfig = b9aVar;
         }
     }
 
@@ -3309,7 +3309,7 @@ public final class TbSingleton {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048903, this, str) == null) {
             this.yyCloudSwitch = str;
-            p45.m().B("key_yy_cloud_switch", str);
+            q45.m().B("key_yy_cloud_switch", str);
         }
     }
 
@@ -3317,7 +3317,7 @@ public final class TbSingleton {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            long o = p45.m().o("key_first_enter_app_timestamp", 0L);
+            long o = q45.m().o("key_first_enter_app_timestamp", 0L);
             if (this.canShowPermDlg && !this.hasShowPermDlg && System.currentTimeMillis() - o > 259200000) {
                 return true;
             }
@@ -3346,7 +3346,7 @@ public final class TbSingleton {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048675, this)) == null) {
             if (this.isYYLive == null) {
-                p45 m = p45.m();
+                q45 m = q45.m();
                 this.isYYLive = Boolean.valueOf(m.i("key_is_yy_live" + TbadkCoreApplication.getCurrentAccount(), true));
             }
             return this.isYYLive.booleanValue();
@@ -3360,12 +3360,12 @@ public final class TbSingleton {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048734, this)) == null) {
             boolean z2 = false;
-            if (p45.m().n("slide_local_switch_is_clicked", 0) == 1) {
+            if (q45.m().n("slide_local_switch_is_clicked", 0) == 1) {
                 z = true;
             } else {
                 z = false;
             }
-            if (p45.m().n("sync_slide_animation__switch", 0) == 1) {
+            if (q45.m().n("sync_slide_animation__switch", 0) == 1) {
                 z2 = true;
             }
             boolean isSlideAnimLocalSwitchOn = isSlideAnimLocalSwitchOn();
@@ -3373,7 +3373,7 @@ public final class TbSingleton {
                 return isSlideAnimLocalSwitchOn;
             }
             if (z2 != isSlideAnimLocalSwitchOn) {
-                p45.m().w("local_slide_animation__switch", z2);
+                q45.m().w("local_slide_animation__switch", z2);
             }
             return z2;
         }
@@ -3383,7 +3383,7 @@ public final class TbSingleton {
     public void onAccountChange() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048749, this) == null) {
-            p45 m = p45.m();
+            q45 m = q45.m();
             this.isYYLive = Boolean.valueOf(m.i("key_is_yy_live" + TbadkCoreApplication.getCurrentAccount(), true));
         }
     }
@@ -3421,7 +3421,7 @@ public final class TbSingleton {
             if (hi.isEmpty(str)) {
                 return 0;
             }
-            p45 m = p45.m();
+            q45 m = q45.m();
             return Integer.valueOf(m.n(str + "_anim_benchmark_avg_suffix", 0));
         }
         return (Integer) invokeL.objValue;
@@ -3434,7 +3434,7 @@ public final class TbSingleton {
             if (hi.isEmpty(str)) {
                 return 0;
             }
-            p45 m = p45.m();
+            q45 m = q45.m();
             return Integer.valueOf(m.n(str + "_anim_benchmark_times_suffix", 0));
         }
         return (Integer) invokeL.objValue;
@@ -3474,7 +3474,7 @@ public final class TbSingleton {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
-            p45 m = p45.m();
+            q45 m = q45.m();
             String s = m.s("key_polling_icon_change" + TbadkCoreApplication.getCurrentAccountId(), "");
             if (!StringUtils.isNull(s)) {
                 this.iconPopData = (IconPopData) DataExt.toEntity(s, IconPopData.class);
@@ -3491,7 +3491,7 @@ public final class TbSingleton {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048636, this)) == null) {
-            p45 m = p45.m();
+            q45 m = q45.m();
             String s = m.s("key_polling_level_change" + TbadkCoreApplication.getCurrentAccountId(), "");
             if (!StringUtils.isNull(s)) {
                 this.levePopData = (LevePopData) DataExt.toEntity(s, LevePopData.class);
@@ -3514,11 +3514,11 @@ public final class TbSingleton {
         TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_FE_FITE_PROGRAM_CLICK).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_id", "15471320").param("obj_source", "game_lauch_screen").param("obj_name", "可口大冒险").param("obj_param1", 1));
     }
 
-    public boolean interestGuideShowCountInLimit(String str, l85 l85Var) {
+    public boolean interestGuideShowCountInLimit(String str, m85 m85Var) {
         InterceptResult invokeLL;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048701, this, str, l85Var)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048701, this, str, m85Var)) == null) {
             if (StringUtils.isNull(str)) {
                 return true;
             }
@@ -3532,12 +3532,12 @@ public final class TbSingleton {
                     e.printStackTrace();
                     i = 0;
                 }
-                if (i <= l85Var.c) {
-                    if (i2 >= l85Var.d - 1) {
+                if (i <= m85Var.c) {
+                    if (i2 >= m85Var.d - 1) {
                         return false;
                     }
                     i2++;
-                } else if (i2 < l85Var.d) {
+                } else if (i2 < m85Var.d) {
                     return true;
                 } else {
                     return false;
@@ -3555,16 +3555,16 @@ public final class TbSingleton {
         boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048721, this)) == null) {
-            l85 interestBoardConfigData = TbadkCoreApplication.getInst().getInterestBoardConfigData();
+            m85 interestBoardConfigData = TbadkCoreApplication.getInst().getInterestBoardConfigData();
             if (interestBoardConfigData == null) {
                 return false;
             }
             long currentTimeMillis = System.currentTimeMillis();
-            long o = p45.m().o("key_new_user_logon_time", 0L);
-            long o2 = p45.m().o("key_home_recommend_item_click_time", 0L);
-            long o3 = p45.m().o("key_select_interest_flag", 0L);
-            long o4 = p45.m().o("key_app_launch_time", 0L);
-            String s = p45.m().s("key_interest_guide_show", "");
+            long o = q45.m().o("key_new_user_logon_time", 0L);
+            long o2 = q45.m().o("key_home_recommend_item_click_time", 0L);
+            long o3 = q45.m().o("key_select_interest_flag", 0L);
+            long o4 = q45.m().o("key_app_launch_time", 0L);
+            String s = q45.m().s("key_interest_guide_show", "");
             boolean isSameDay = TimeHelper.isSameDay(System.currentTimeMillis() - (interestBoardConfigData.a * 86400000), o);
             boolean isTargetTimeInTimeBlock = TimeHelper.isTargetTimeInTimeBlock(o2, o, System.currentTimeMillis());
             int i = (int) (((((currentTimeMillis - o4) / 1000) / 60) / 60) / 24);
@@ -3607,42 +3607,42 @@ public final class TbSingleton {
         }
         int size = this.mVideoWatchTimeRecord.size();
         boolean z = false;
-        ws4 ws4Var = null;
+        xs4 xs4Var = null;
         int i2 = size - 1;
         int i3 = i2;
         while (true) {
             if (i3 < 0) {
                 break;
             }
-            ws4 ws4Var2 = this.mVideoWatchTimeRecord.get(i3);
-            if (str.equals(ws4Var2.a())) {
-                if (ws4Var2.b() == i) {
+            xs4 xs4Var2 = this.mVideoWatchTimeRecord.get(i3);
+            if (str.equals(xs4Var2.a())) {
+                if (xs4Var2.b() == i) {
                     return;
                 }
                 if (i3 == i2) {
                     z = true;
                 }
-                ws4Var = ws4Var2;
+                xs4Var = xs4Var2;
             } else {
                 i3--;
             }
         }
-        if (ws4Var != null) {
-            ws4Var.c(i);
+        if (xs4Var != null) {
+            xs4Var.c(i);
             if (!z) {
-                this.mVideoWatchTimeRecord.remove(ws4Var);
-                this.mVideoWatchTimeRecord.addLast(ws4Var);
+                this.mVideoWatchTimeRecord.remove(xs4Var);
+                this.mVideoWatchTimeRecord.addLast(xs4Var);
                 return;
             }
             return;
         }
-        ws4 ws4Var3 = new ws4(str, i);
+        xs4 xs4Var3 = new xs4(str, i);
         if (size >= 10) {
             this.mVideoWatchTimeRecord.pollFirst();
-            this.mVideoWatchTimeRecord.addLast(ws4Var3);
+            this.mVideoWatchTimeRecord.addLast(xs4Var3);
             return;
         }
-        this.mVideoWatchTimeRecord.addLast(ws4Var3);
+        this.mVideoWatchTimeRecord.addLast(xs4Var3);
     }
 
     public void recordAcceleratorServer(String str, String str2) {
@@ -3655,7 +3655,7 @@ public final class TbSingleton {
     public void setAnimAvgFps(String str, int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048761, this, str, i) == null) && !hi.isEmpty(str) && i >= 0) {
-            p45 m = p45.m();
+            q45 m = q45.m();
             m.z(str + "_anim_benchmark_avg_suffix", i);
         }
     }
@@ -3663,7 +3663,7 @@ public final class TbSingleton {
     public void setAnimAvgFpsCount(String str, int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048762, this, str, i) == null) && !hi.isEmpty(str) && i >= 0) {
-            p45 m = p45.m();
+            q45 m = q45.m();
             m.z(str + "_anim_benchmark_times_suffix", i);
         }
     }
@@ -3673,7 +3673,7 @@ public final class TbSingleton {
         if ((interceptable != null && interceptable.invokeLI(1048763, this, str, i) != null) || hi.isEmpty(str)) {
             return;
         }
-        p45.m().z(str, i);
+        q45.m().z(str, i);
         if ("anim_switch_slide".equals(str) && !isAnimEnable(str)) {
             setSlideAnimLocalSwitch(false);
         }
@@ -3703,15 +3703,15 @@ public final class TbSingleton {
         }
     }
 
-    public void setFrsResponseData(hk9 hk9Var) {
+    public void setFrsResponseData(pk9 pk9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048793, this, hk9Var) == null) {
-            this.mFrsResponseData = hk9Var;
-            if (hk9Var != null && hk9Var.getForum() != null && !TextUtils.isEmpty(hk9Var.getForum().getName())) {
-                if (hk9Var.itemInfo != null) {
-                    this.frsItemInfoCache.put(hk9Var.getForum().getName(), hk9Var.itemInfo);
+        if (interceptable == null || interceptable.invokeL(1048793, this, pk9Var) == null) {
+            this.mFrsResponseData = pk9Var;
+            if (pk9Var != null && pk9Var.getForum() != null && !TextUtils.isEmpty(pk9Var.getForum().getName())) {
+                if (pk9Var.itemInfo != null) {
+                    this.frsItemInfoCache.put(pk9Var.getForum().getName(), pk9Var.itemInfo);
                 } else {
-                    this.frsItemInfoCache.remove(hk9Var.getForum().getName());
+                    this.frsItemInfoCache.remove(pk9Var.getForum().getName());
                 }
             }
         }

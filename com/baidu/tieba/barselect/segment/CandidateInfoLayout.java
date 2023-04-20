@@ -19,11 +19,11 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.barselect.view.BazhuHeadView;
-import com.baidu.tieba.cb6;
+import com.baidu.tieba.db6;
 import com.baidu.tieba.gg;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.ta6;
-import com.baidu.tieba.va6;
+import com.baidu.tieba.ua6;
+import com.baidu.tieba.wa6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -67,10 +67,10 @@ public class CandidateInfoLayout extends CardBasicLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            ta6 ta6Var;
+            ua6 ua6Var;
             boolean z;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (ta6Var = this.a.c) != null && ta6Var.l() != 0) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (ua6Var = this.a.c) != null && ua6Var.l() != 0) {
                 long g = gg.g(TbadkCoreApplication.getCurrentAccount(), 0L);
                 long l = this.a.c.l();
                 if ((this.a.getContext() instanceof Activity) && this.a.c.f() != 2) {
@@ -167,9 +167,9 @@ public class CandidateInfoLayout extends CardBasicLayout {
             SkinManager.setViewTextColor(this.g, R.color.CAM_X0105, 1, i);
             SkinManager.setViewTextColor(this.h, R.color.CAM_X0109, 1, i);
             SkinManager.setViewTextColor(this.j, R.color.CAM_X0109, 1, i);
-            ta6 ta6Var = this.c;
-            if (ta6Var != null) {
-                setGrade(ta6Var.d());
+            ua6 ua6Var = this.c;
+            if (ua6Var != null) {
+                setGrade(ua6Var.d());
             }
         }
     }
@@ -182,14 +182,14 @@ public class CandidateInfoLayout extends CardBasicLayout {
     }
 
     @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
-    public void setData(int i, va6 va6Var) {
+    public void setData(int i, wa6 wa6Var) {
         int i2;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, va6Var) == null) {
-            super.setData(i, va6Var);
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, wa6Var) == null) {
+            super.setData(i, wa6Var);
             if (this.b != null && this.c != null && (i2 = this.a) >= 0) {
-                if (i2 == cb6.c) {
+                if (i2 == db6.c) {
                     int g = ii.g(this.d, R.dimen.tbds191);
                     int g2 = ii.g(this.d, R.dimen.tbds157);
                     int g3 = ii.g(this.d, R.dimen.tbds6);

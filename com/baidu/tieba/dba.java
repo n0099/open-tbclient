@@ -1,40 +1,43 @@
 package com.baidu.tieba;
 
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Autowired
 /* loaded from: classes4.dex */
-public class dba implements yaa {
+public class dba {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public dba() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.yaa
-    public boolean isAgreePrivacy() {
+    @Inject
+    public static iaa a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            aaa a = vaa.a();
-            if (a != null) {
-                return a.isAgreePrivacy();
-            }
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return mg9.a();
         }
-        return invokeV.booleanValue;
+        return (iaa) invokeV.objValue;
+    }
+
+    @Inject
+    public static haa b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return kg9.a();
+        }
+        return (haa) invokeV.objValue;
+    }
+
+    @Inject
+    public static laa c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return z9a.a();
+        }
+        return (laa) invokeV.objValue;
     }
 }

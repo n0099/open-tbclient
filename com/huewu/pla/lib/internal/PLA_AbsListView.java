@@ -24,8 +24,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dy5;
-import com.baidu.tieba.rxa;
+import com.baidu.tieba.ey5;
+import com.baidu.tieba.zxa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -939,7 +939,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
                 Stack<View>[] stackArr = this.d;
                 for (int i2 = 0; i2 < i; i2++) {
                     Stack<View> stack = stackArr[i2];
-                    rxa.c("add scarp views from reclaimScrapViews");
+                    zxa.c("add scarp views from reclaimScrapViews");
                     list.addAll(stack);
                 }
             }
@@ -948,7 +948,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
         public void c(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                rxa.c("addToScrap");
+                zxa.c("addToScrap");
                 LayoutParams layoutParams = (LayoutParams) view2.getLayoutParams();
                 if (layoutParams == null) {
                     return;
@@ -1070,7 +1070,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
             Stack<View> stack;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-                rxa.c("getFromScrap: " + i);
+                zxa.c("getFromScrap: " + i);
                 if (this.g.getHeaderViewsCount() > i) {
                     return null;
                 }
@@ -1113,7 +1113,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
                     int i4 = size - 1;
                     int i5 = 0;
                     while (i5 < i3) {
-                        rxa.c("remove scarp views from pruneScrapViews");
+                        zxa.c("remove scarp views from pruneScrapViews");
                         this.g.removeDetachedView(stack.remove(i4), false);
                         i5++;
                         i4--;
@@ -1153,7 +1153,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
                                 stack = this.d[i];
                             }
                             this.g.dispatchFinishTemporaryDetach(view2);
-                            rxa.c("addToScrap from scrapActiveViews");
+                            zxa.c("addToScrap from scrapActiveViews");
                             stack.add(view2);
                             if (z) {
                                 this.a.onMovedToScrapHeap(view2);
@@ -1282,7 +1282,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
         this.mActivePointerId = -1;
         initAbsListView();
         setVerticalScrollBarEnabled(true);
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(dy5.View);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(ey5.View);
         try {
             View.class.getDeclaredMethod("initializeScrollbars", TypedArray.class).invoke(this, obtainStyledAttributes);
         } catch (IllegalAccessException e2) {
@@ -1326,7 +1326,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
             if (g2 != null) {
                 view2 = this.mAdapter.getView(i2, g2, this);
                 if (view2 != g2) {
-                    rxa.c("obtainView");
+                    zxa.c("obtainView");
                     this.mRecycler.c(g2);
                     int i3 = this.mCacheColorHint;
                     if (i3 != 0) {
@@ -1337,7 +1337,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
                     dispatchFinishTemporaryDetach(view2);
                 }
             } else {
-                rxa.c("makeView:" + i2);
+                zxa.c("makeView:" + i2);
                 view2 = this.mAdapter.getView(i2, null, this);
                 int i4 = this.mCacheColorHint;
                 if (i4 != 0) {
@@ -1390,7 +1390,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
         this.mIsScrap = new boolean[1];
         this.mActivePointerId = -1;
         initAbsListView();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, dy5.AbsListView, i2, 0);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ey5.AbsListView, i2, 0);
         Drawable drawable = obtainStyledAttributes.getDrawable(5);
         if (drawable != null) {
             setSelector(drawable);
@@ -1874,7 +1874,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
     public void invalidateViews() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048612, this) == null) {
-            rxa.a("data changed by invalidateViews()");
+            zxa.a("data changed by invalidateViews()");
             this.mDataChanged = true;
             rememberSyncState();
             requestLayout();
@@ -2267,7 +2267,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
     public void onSizeChanged(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIIII(1048632, this, i2, i3, i4, i5) == null) && getChildCount() > 0) {
-            rxa.a("data changed by onSizeChanged()");
+            zxa.a("data changed by onSizeChanged()");
             this.mDataChanged = true;
             rememberSyncState();
         }
@@ -2589,7 +2589,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
                 }
                 this.mRecycler.h();
             }
-            rxa.c("onLayout");
+            zxa.c("onLayout");
             layoutChildren();
             this.mInLayout = false;
         }
@@ -2839,7 +2839,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048635, this, z) == null) {
             super.onWindowFocusChanged(z);
-            rxa.c("onWindowFocusChanged");
+            zxa.c("onWindowFocusChanged");
             int i2 = !isInTouchMode();
             if (!z) {
                 setChildrenDrawingCacheEnabled(false);
@@ -2856,7 +2856,7 @@ public abstract class PLA_AbsListView extends PLA_AdapterView<ListAdapter> imple
                 int i3 = this.mLastTouchMode;
                 if (i2 != i3 && i3 != -1) {
                     this.mLayoutMode = 0;
-                    rxa.c("onWindowFocusChanged");
+                    zxa.c("onWindowFocusChanged");
                     layoutChildren();
                 }
             }

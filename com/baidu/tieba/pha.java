@@ -1,48 +1,58 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Method;
 /* loaded from: classes5.dex */
-public class pha {
+public abstract class pha {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static float a() {
-        InterceptResult invokeV;
+    public static float a(String str, float f) {
+        InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            long[] b = b();
-            if (b[0] <= 0) {
-                return 0.0f;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65536, null, str, f)) == null) {
+            if (str == null) {
+                return f;
             }
-            return 1.0f - (((float) ((b[1] + b[2]) + b[3])) / ((float) b[0]));
+            try {
+                return Float.parseFloat(str);
+            } catch (Exception unused) {
+                return f;
+            }
         }
-        return invokeV.floatValue;
+        return invokeLF.floatValue;
     }
 
-    public static long[] b() {
-        InterceptResult invokeV;
+    public static int b(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            long[] jArr = new long[4];
-            try {
-                Method method = Class.forName("android.os.Process").getMethod("readProcLines", String.class, String[].class, long[].class);
-                long[] jArr2 = {30, -30};
-                Object[] objArr = {new String(HardwareInfoUtils.MEM_INFO_FILE), new String[]{"MemTotal:", "MemFree:", "Buffers:", "Cached:"}, jArr2};
-                if (method != null) {
-                    method.invoke(null, objArr);
-                    for (int i = 0; i < 4; i++) {
-                        jArr[i] = jArr2[i] / 1024;
-                    }
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
+            if (str == null) {
+                return i;
             }
-            return jArr;
+            try {
+                return Integer.parseInt(str);
+            } catch (Exception unused) {
+                return i;
+            }
         }
-        return (long[]) invokeV.objValue;
+        return invokeLI.intValue;
+    }
+
+    public static long c(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, str, j)) == null) {
+            if (str == null) {
+                return j;
+            }
+            try {
+                return Long.parseLong(str);
+            } catch (Exception unused) {
+                return j;
+            }
+        }
+        return invokeLJ.longValue;
     }
 }

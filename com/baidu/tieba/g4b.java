@@ -1,143 +1,64 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import rx.internal.util.atomic.LinkedQueueNode;
 /* loaded from: classes4.dex */
-public final class g4b<E> extends k4b<E> {
+public abstract class g4b<E> extends i4b<E> {
     public static /* synthetic */ Interceptable $ic;
+    public static final long b;
     public transient /* synthetic */ FieldHolder $fh;
+    public LinkedQueueNode<E> consumerNode;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g4b(int i) {
-        super(i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947745364, "Lcom/baidu/tieba/g4b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947745364, "Lcom/baidu/tieba/g4b;");
                 return;
             }
         }
+        b = k5b.a(g4b.class, "consumerNode");
     }
 
-    @Override // java.util.AbstractCollection, java.util.Collection
-    public boolean isEmpty() {
+    public g4b() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public final LinkedQueueNode<E> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (k() == h()) {
-                return true;
-            }
-            return false;
+            return (LinkedQueueNode) k5b.a.f(this, b);
         }
-        return invokeV.booleanValue;
+        return (LinkedQueueNode) invokeV.objValue;
     }
 
-    @Override // java.util.AbstractCollection, java.util.Collection
-    public int size() {
-        InterceptResult invokeV;
+    public final void d(LinkedQueueNode<E> linkedQueueNode) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            long k = k();
-            while (true) {
-                long h = h();
-                long k2 = k();
-                if (k == k2) {
-                    return (int) (h - k2);
-                }
-                k = k2;
-            }
-        } else {
-            return invokeV.intValue;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, linkedQueueNode) == null) {
+            this.consumerNode = linkedQueueNode;
         }
-    }
-
-    @Override // java.util.Queue
-    public boolean offer(E e) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e)) == null) {
-            if (e != null) {
-                E[] eArr = this.b;
-                long j = this.a;
-                long h = h();
-                long a = a(h);
-                if (e(eArr, a) != null) {
-                    if (h - k() > j) {
-                        return false;
-                    }
-                    do {
-                    } while (e(eArr, a) != null);
-                    g(eArr, a, e);
-                    i(h + 1);
-                    return true;
-                }
-                g(eArr, a, e);
-                i(h + 1);
-                return true;
-            }
-            throw new NullPointerException("Null is not a valid element");
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // java.util.Queue
-    public E peek() {
-        InterceptResult invokeV;
-        E d;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            long l = l();
-            do {
-                long k = k();
-                if (k >= l) {
-                    long h = h();
-                    if (k >= h) {
-                        return null;
-                    }
-                    m(h);
-                }
-                d = d(a(k));
-            } while (d == null);
-            return d;
-        }
-        return (E) invokeV.objValue;
-    }
-
-    @Override // java.util.Queue, com.baidu.tieba.e4b
-    public E poll() {
-        InterceptResult invokeV;
-        long k;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            long l = l();
-            do {
-                k = k();
-                if (k >= l) {
-                    long h = h();
-                    if (k >= h) {
-                        return null;
-                    }
-                    m(h);
-                }
-            } while (!j(k, 1 + k));
-            long a = a(k);
-            E[] eArr = this.b;
-            E c = c(eArr, a);
-            f(eArr, a, null);
-            return c;
-        }
-        return (E) invokeV.objValue;
     }
 }

@@ -14,8 +14,8 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.GreyUtil;
 import com.baidu.tbadk.core.view.KeyEventDealContainerView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hv4;
 import com.baidu.tieba.ii;
+import com.baidu.tieba.iv4;
 import com.baidu.tieba.lg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -124,19 +124,19 @@ public class MorePopupWindow extends PopupWindow {
         this.mIsIntercepted = false;
     }
 
-    private void applaySkin(hv4 hv4Var, int i, Drawable drawable) {
+    private void applaySkin(iv4 iv4Var, int i, Drawable drawable) {
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLIL(65539, this, hv4Var, i, drawable) == null) && this.mContentView != null) {
+        if ((interceptable == null || interceptable.invokeLIL(65539, this, iv4Var, i, drawable) == null) && this.mContentView != null) {
             setBackgroundDrawable(drawable);
             if (i == 4) {
                 z = true;
             } else {
                 z = false;
             }
-            hv4Var.l(z);
+            iv4Var.l(z);
             try {
-                hv4Var.k(this.mContentView);
+                iv4Var.k(this.mContentView);
             } catch (IllegalArgumentException e) {
                 BdLog.e(e.toString());
             }
@@ -217,10 +217,10 @@ public class MorePopupWindow extends PopupWindow {
         }
     }
 
-    public void onChangeSkinType(hv4 hv4Var, int i, Drawable drawable) {
+    public void onChangeSkinType(iv4 iv4Var, int i, Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048580, this, hv4Var, i, drawable) == null) {
-            applaySkin(hv4Var, i, drawable);
+        if (interceptable == null || interceptable.invokeLIL(1048580, this, iv4Var, i, drawable) == null) {
+            applaySkin(iv4Var, i, drawable);
         }
     }
 

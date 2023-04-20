@@ -1,54 +1,82 @@
 package com.baidu.tieba;
 
-import android.util.Pair;
-import com.baidu.tieba.fna;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.utils.AdReporter;
-import java.util.ArrayList;
-import java.util.List;
+import com.bytedance.sdk.openadsdk.TTNativeAd;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class gna<A extends fna> extends AdReporter<A> {
+public class gna {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gna(String str, String str2, String str3) {
-        super(str, str2, str3);
+    public static com.fun.module.csj.g0 a(TTNativeAd tTNativeAd) {
+        InterceptResult invokeL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tTNativeAd)) == null) {
+            int imageMode = tTNativeAd.getImageMode();
+            if (imageMode == 15) {
+                i = R.layout.fun_csj_ad_native_vertical_video_view;
+            } else if (imageMode != 16) {
+                if (imageMode != 166) {
+                    if (imageMode == 2) {
+                        i = R.layout.fun_csj_ad_native_small_img_view;
+                    } else if (imageMode == 3) {
+                        i = R.layout.fun_csj_ad_native_large_img_view;
+                    } else if (imageMode == 4) {
+                        i = R.layout.fun_csj_ad_native_group_img_view;
+                    } else if (imageMode != 5) {
+                        return null;
+                    }
+                }
+                i = R.layout.fun_csj_ad_native_large_video_view;
+            } else {
+                i = R.layout.fun_csj_ad_native_vertical_img_view;
             }
+            com.fun.module.csj.g0 g0Var = (com.fun.module.csj.g0) LayoutInflater.from(FunAdSdk.getAppContext()).inflate(i, (ViewGroup) null);
+            g0Var.a(tTNativeAd);
+            return g0Var;
         }
+        return (com.fun.module.csj.g0) invokeL.objValue;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.utils.AdReporter
-    public List onReport(Object obj, String str) {
-        InterceptResult invokeLL;
+    public static String b(boolean z) {
+        InterceptResult invokeZ;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, str)) == null) {
-            fna fnaVar = (fna) obj;
-            if (fnaVar == null) {
-                return null;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65537, null, z)) == null) {
+            HashMap hashMap = new HashMap();
+            if (z) {
+                str = "1";
+            } else {
+                str = "0";
             }
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(Pair.create("csj_rq_id", fnaVar.a()));
-            return arrayList;
+            hashMap.put("personal_ads_type", str);
+            if (hashMap.isEmpty()) {
+                return "";
+            }
+            try {
+                JSONArray jSONArray = new JSONArray();
+                for (Map.Entry entry : hashMap.entrySet()) {
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("name", entry.getKey());
+                    jSONObject.put("value", entry.getValue());
+                    jSONArray.put(jSONObject);
+                }
+                return jSONArray.toString();
+            } catch (Exception e) {
+                LogPrinter.e(e);
+                return "";
+            }
         }
-        return (List) invokeLL.objValue;
+        return (String) invokeZ.objValue;
     }
 }

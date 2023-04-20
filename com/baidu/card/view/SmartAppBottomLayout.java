@@ -16,9 +16,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hx;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.jw4;
+import com.baidu.tieba.ix;
+import com.baidu.tieba.kw4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class SmartAppBottomLayout extends LinearLayout implements hx<jw4> {
+public class SmartAppBottomLayout extends LinearLayout implements ix<kw4> {
     public static /* synthetic */ Interceptable $ic;
     public static final int e;
     public transient /* synthetic */ FieldHolder $fh;
@@ -111,12 +111,12 @@ public class SmartAppBottomLayout extends LinearLayout implements hx<jw4> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.hx
+    @Override // com.baidu.tieba.ix
     /* renamed from: c */
-    public void a(jw4 jw4Var) {
+    public void a(kw4 kw4Var) {
         ThreadData threadData;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jw4Var) == null) && (threadData = jw4Var.getThreadData()) != null && threadData.getSmartApp() != null) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, kw4Var) == null) && (threadData = kw4Var.getThreadData()) != null && threadData.getSmartApp() != null) {
             if (!TextUtils.isEmpty(threadData.getSmartApp().avatar)) {
                 this.b.N(threadData.getSmartApp().avatar, 10, false);
             } else {

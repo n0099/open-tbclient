@@ -9,8 +9,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.module.hottopic.VideoHotTopicParams;
 import com.baidu.tieba.a9;
-import com.baidu.tieba.ci5;
-import com.baidu.tieba.ly4;
+import com.baidu.tieba.di5;
+import com.baidu.tieba.my4;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -29,7 +29,7 @@ public class VideoHotTopicModel extends BdBaseModel {
     @Nullable
     public b b;
     @NonNull
-    public ci5 c;
+    public di5 c;
     @NonNull
     public List<Map<String, Object>> d;
     public int e;
@@ -61,7 +61,7 @@ public class VideoHotTopicModel extends BdBaseModel {
     }
 
     /* loaded from: classes6.dex */
-    public class a implements ci5.a {
+    public class a implements di5.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoHotTopicParams a;
@@ -86,7 +86,7 @@ public class VideoHotTopicModel extends BdBaseModel {
             this.a = videoHotTopicParams;
         }
 
-        @Override // com.baidu.tieba.ci5.a
+        @Override // com.baidu.tieba.di5.a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
@@ -95,7 +95,7 @@ public class VideoHotTopicModel extends BdBaseModel {
             this.b.f = false;
         }
 
-        @Override // com.baidu.tieba.ci5.a
+        @Override // com.baidu.tieba.di5.a
         public void b(@NonNull List<ThreadData> list, @Nullable Map<String, Object> map) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, map) == null) && this.b.b != null && !list.isEmpty()) {
@@ -132,7 +132,7 @@ public class VideoHotTopicModel extends BdBaseModel {
                 return;
             }
         }
-        this.c = (ci5) ServiceManager.getService(ci5.a);
+        this.c = (di5) ServiceManager.getService(di5.a);
         this.d = new ArrayList();
         this.f = false;
         this.a = videoHotTopicParams;
@@ -164,8 +164,8 @@ public class VideoHotTopicModel extends BdBaseModel {
         }
         this.f = true;
         this.e = this.a.getCurrentPn() + 1;
-        ly4 ly4Var = new ly4();
-        ly4Var.k(this.e);
-        this.c.b(this.a.getSortType(), ly4Var, l.longValue());
+        my4 my4Var = new my4();
+        my4Var.k(this.e);
+        this.c.b(this.a.getSortType(), my4Var, l.longValue());
     }
 }

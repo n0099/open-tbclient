@@ -16,9 +16,9 @@ import androidx.annotation.Nullable;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g53;
 import com.baidu.tieba.h53;
-import com.baidu.tieba.ll3;
+import com.baidu.tieba.i53;
+import com.baidu.tieba.ml3;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -89,7 +89,7 @@ public class EmojiBagLayout extends LinearLayout {
             if (i == getCount() - 1) {
                 imageView.setImageResource(R.drawable.obfuscated_res_0x7f081241);
             } else if (i < this.a.size()) {
-                imageView.setImageBitmap(h53.c().a(this.a.get(i)));
+                imageView.setImageBitmap(i53.c().a(this.a.get(i)));
             }
             return linearLayout;
         }
@@ -179,7 +179,7 @@ public class EmojiBagLayout extends LinearLayout {
         super.onSizeChanged(i, i2, i3, i4);
         Resources resources = getResources();
         int measuredHeight = getChildAt(0).getMeasuredHeight() - (resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07013a) * 3);
-        int g = (measuredHeight / 4) + ll3.g(8.0f);
+        int g = (measuredHeight / 4) + ml3.g(8.0f);
         int i5 = (measuredHeight - (g * 2)) / 2;
         int size = this.d.size();
         for (int i6 = 0; i6 < size; i6++) {
@@ -211,7 +211,7 @@ public class EmojiBagLayout extends LinearLayout {
                 noScrollGridView.setStretchMode(2);
                 noScrollGridView.setVerticalScrollBarEnabled(false);
                 noScrollGridView.setOverScrollMode(2);
-                g53 g = g53.g(getContext().getApplicationContext());
+                h53 g = h53.g(getContext().getApplicationContext());
                 noScrollGridView.setOnItemClickListener(g.h());
                 noScrollGridView.setOnItemLongClickListener(g.i());
                 noScrollGridView.setOnTouchListener(g.j());

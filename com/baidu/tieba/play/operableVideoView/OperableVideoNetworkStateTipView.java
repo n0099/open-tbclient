@@ -18,10 +18,10 @@ import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.it4;
-import com.baidu.tieba.m55;
-import com.baidu.tieba.mu9;
-import com.baidu.tieba.o55;
+import com.baidu.tieba.jt4;
+import com.baidu.tieba.n55;
+import com.baidu.tieba.p55;
+import com.baidu.tieba.uu9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -153,17 +153,17 @@ public class OperableVideoNetworkStateTipView extends LinearLayout implements Vi
             LinearLayout.inflate(getContext(), getLayoutR(), this);
             this.a = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f091b73);
             this.b = (TBSpecificationBtn) findViewById(R.id.free_flow);
-            o55 o55Var = new o55();
-            o55Var.t();
-            o55Var.i(R.drawable.ic_icon_pure_video_play12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
-            o55Var.g(ii.g(getContext(), R.dimen.tbds32));
+            p55 p55Var = new p55();
+            p55Var.t();
+            p55Var.i(R.drawable.ic_icon_pure_video_play12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
+            p55Var.g(ii.g(getContext(), R.dimen.tbds32));
             this.a.setText(getResources().getString(R.string.video_flow_play));
             this.a.setTextSize(R.dimen.tbds36);
-            this.a.setConfig(o55Var);
-            m55 m55Var = new m55();
+            this.a.setConfig(p55Var);
+            n55 n55Var = new n55();
             this.b.setText(getResources().getString(R.string.video_open_free_data));
             this.b.setTextSize(R.dimen.tbds36);
-            this.b.setConfig(m55Var);
+            this.b.setConfig(n55Var);
             this.a.setOnClickListener(this);
             this.b.setOnClickListener(this);
             setOnClickListener(this);
@@ -174,7 +174,7 @@ public class OperableVideoNetworkStateTipView extends LinearLayout implements Vi
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (b() || mu9.c().d() || TbadkCoreApplication.getInst().getAutoPlaySwitch() == 2 || BdNetTypeUtil.isMobileNet()) {
+            if (b() || uu9.c().d() || TbadkCoreApplication.getInst().getAutoPlaySwitch() == 2 || BdNetTypeUtil.isMobileNet()) {
             }
             return false;
         }
@@ -188,7 +188,7 @@ public class OperableVideoNetworkStateTipView extends LinearLayout implements Vi
             return;
         }
         if (view2.getId() == R.id.free_flow) {
-            it4.F(true, getContext(), getResources().getString(R.string.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
+            jt4.F(true, getContext(), getResources().getString(R.string.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
         } else if (view2.getId() == R.id.obfuscated_res_0x7f091b73) {
             setHasAgreeToPlay(true);
             View.OnClickListener onClickListener = this.c;

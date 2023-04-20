@@ -51,23 +51,29 @@ public class me7 extends PriorityOrganizer.Task {
     }
 
     @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
-    public boolean w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (z05.i()) {
-                return false;
-            }
-            return xh7.a(TbSingleton.getInstance().getFrsResponseData(), this.m);
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
     public void z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             t();
         }
+    }
+
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public boolean w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (a15.i()) {
+                return false;
+            }
+            pk9 frsResponseData = TbSingleton.getInstance().getFrsResponseData();
+            n77 n77Var = new n77(this.n.getPageContext());
+            this.m.K4(n77Var);
+            boolean j = n77Var.j(frsResponseData);
+            this.m.I4(j);
+            this.m.N4(j);
+            return j;
+        }
+        return invokeV.booleanValue;
     }
 }

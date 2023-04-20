@@ -12,15 +12,15 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.view.MultiLineEllipsizeTextView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.ix;
-import com.baidu.tieba.q25;
+import com.baidu.tieba.jx;
+import com.baidu.tieba.r25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.ItemInfo;
 /* loaded from: classes4.dex */
-public class CardItemInfoBriefLayout extends FrameLayout implements ix {
+public class CardItemInfoBriefLayout extends FrameLayout implements jx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MultiLineEllipsizeTextView a;
@@ -154,16 +154,16 @@ public class CardItemInfoBriefLayout extends FrameLayout implements ix {
         f();
     }
 
-    @Override // com.baidu.tieba.ix
+    @Override // com.baidu.tieba.jx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
-            q25 d = q25.d(this);
+            r25 d = r25.d(this);
             d.n(2);
             d.o(R.string.J_X06);
             d.f(R.color.CAM_X0205);
-            q25.d(this.a).w(R.color.CAM_X0105);
-            q25.d(this.b).w(R.color.CAM_X0304);
+            r25.d(this.a).w(R.color.CAM_X0105);
+            r25.d(this.b).w(R.color.CAM_X0304);
         }
     }
 
@@ -209,7 +209,7 @@ public class CardItemInfoBriefLayout extends FrameLayout implements ix {
             multiLineEllipsizeTextView.setMaxLines(3);
             MultiLineEllipsizeTextView multiLineEllipsizeTextView2 = this.a;
             multiLineEllipsizeTextView2.setIconWidthForLastLine((int) multiLineEllipsizeTextView2.getPaint().measureText(String.valueOf(getResources().getText(R.string.obfuscated_res_0x7f0f062c))));
-            q25 d = q25.d(this.a);
+            r25 d = r25.d(this.a);
             d.B(R.dimen.T_X07);
             d.y(R.dimen.M_T_X002);
             this.a.setPadding(0, 0, 0, ii.g(getContext(), R.dimen.M_H_X005));
@@ -218,7 +218,7 @@ public class CardItemInfoBriefLayout extends FrameLayout implements ix {
             EMTextView eMTextView = new EMTextView(getContext());
             this.b = eMTextView;
             eMTextView.setText(R.string.obfuscated_res_0x7f0f062c);
-            q25.d(this.a).B(R.dimen.T_X07);
+            r25.d(this.a).B(R.dimen.T_X07);
             this.b.setPadding(ii.g(getContext(), R.dimen.M_W_X005), ii.g(getContext(), R.dimen.M_H_X005), 0, ii.g(getContext(), R.dimen.M_H_X005));
             this.b.setVisibility(8);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);

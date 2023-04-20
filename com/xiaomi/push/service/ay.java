@@ -15,7 +15,7 @@ import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ay {
 
     /* renamed from: a  reason: collision with other field name */
@@ -30,7 +30,7 @@ public class ay {
     public static final a<String, String, String> e = new a<>("setFloat", "canFloat", "canShowFloat");
     public static final a<String, String, String> f = new a<>("setShowBadge", "canShowBadge", "canShowBadge");
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a<F, S, T> {
         public F a;
         public S b;

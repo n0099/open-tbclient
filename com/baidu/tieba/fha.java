@@ -1,55 +1,38 @@
 package com.baidu.tieba;
 
-import android.graphics.Color;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.text.DecimalFormat;
+import java.nio.ByteBuffer;
 /* loaded from: classes4.dex */
 public class fha {
     public static /* synthetic */ Interceptable $ic;
-    public static final DecimalFormat a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947765514, "Lcom/baidu/tieba/fha;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947765514, "Lcom/baidu/tieba/fha;");
-                return;
-            }
-        }
-        a = new DecimalFormat("0.00");
-    }
-
-    public static String a(long j, long j2) {
-        InterceptResult invokeCommon;
+    public static double a(ByteBuffer byteBuffer, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            return a.format(((float) j) / 1048576.0f) + "M/" + a.format(((float) j2) / 1048576.0f) + "M";
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    public static int b(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            try {
-                String hexString = Integer.toHexString((int) (Float.parseFloat(str2) * 255.0f));
-                return Color.parseColor("#" + hexString + str);
-            } catch (Exception e) {
-                e.printStackTrace();
-                return 0;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, byteBuffer, i)) == null) {
+            if (byteBuffer == null || i == 0) {
+                return 0.0d;
             }
+            byteBuffer.position(i);
+            byteBuffer.flip();
+            byte[] bArr = new byte[i];
+            byteBuffer.get(bArr);
+            byteBuffer.position(i);
+            byteBuffer.flip();
+            double d = 0.0d;
+            for (int i2 = 0; i2 < i; i2 += 2) {
+                int i3 = (bArr[i2] & 255) + ((bArr[i2 + 1] & 255) << 8);
+                if (i3 >= 32768) {
+                    i3 = 65535 - i3;
+                }
+                d += i3 * i3;
+            }
+            double d2 = (d / i) / 2.0d;
+            return Math.abs(d2 > 0.0d ? Math.log10(d2) * 10.0d : 0.0d);
         }
-        return invokeLL.intValue;
+        return invokeLI.doubleValue;
     }
 }

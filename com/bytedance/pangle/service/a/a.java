@@ -21,7 +21,7 @@ public class a extends d.a {
     public static volatile a b;
     public final HashMap<ComponentName, IBinder> c = new HashMap<>();
     public final HashMap<ComponentName, b> d = new HashMap<>();
-    public final C0522a<Intent> e = new C0522a<>();
+    public final C0521a<Intent> e = new C0521a<>();
     public final HashMap<ComponentName, com.bytedance.pangle.service.a> f = new HashMap<>();
     public final HashSet<ComponentName> g = new HashSet<>();
     public final HashSet<ComponentName> h = new HashSet<>();
@@ -34,8 +34,8 @@ public class a extends d.a {
 
     /* renamed from: com.bytedance.pangle.service.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C0522a<T> extends HashMap<f, T> {
-        public C0522a() {
+    public class C0521a<T> extends HashMap<f, T> {
+        public C0521a() {
         }
 
         @Override // java.util.HashMap, java.util.AbstractMap, java.util.Map

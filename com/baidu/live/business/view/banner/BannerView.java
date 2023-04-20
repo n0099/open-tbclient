@@ -22,10 +22,10 @@ import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.live.business.model.data.LiveBannerEntity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ac0;
-import com.baidu.tieba.j90;
-import com.baidu.tieba.lb0;
-import com.baidu.tieba.ob0;
+import com.baidu.tieba.bc0;
+import com.baidu.tieba.k90;
+import com.baidu.tieba.mb0;
+import com.baidu.tieba.pb0;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.controller.AbstractDraweeController;
 import com.facebook.drawee.controller.BaseControllerListener;
@@ -365,7 +365,7 @@ public class BannerView extends FrameLayout {
     }
 
     public void u(String str) {
-        if (lb0.c(this.m)) {
+        if (mb0.c(this.m)) {
             return;
         }
         Iterator<BannerWrapFrameView> it = this.m.iterator();
@@ -418,7 +418,7 @@ public class BannerView extends FrameLayout {
                 this.b = 0;
             }
             if (Build.VERSION.SDK_INT >= 21) {
-                new l(this).a(j90.b(getContext(), this.b));
+                new l(this).a(k90.b(getContext(), this.b));
                 this.b = 0;
             }
             this.l.setImageResource(R.drawable.obfuscated_res_0x7f080d59);
@@ -503,9 +503,9 @@ public class BannerView extends FrameLayout {
 
     public final void q(Context context) {
         FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0595, this);
-        this.n = j90.b(context, 8.0f);
-        this.o = j90.b(context, 6.0f);
-        this.p = j90.b(getContext(), 4.0f);
+        this.n = k90.b(context, 8.0f);
+        this.o = k90.b(context, 6.0f);
+        this.p = k90.b(getContext(), 4.0f);
         this.j = (BannerViewPager) findViewById(R.id.obfuscated_res_0x7f090331);
         this.k = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090328);
         this.l = (ImageView) findViewById(R.id.obfuscated_res_0x7f090329);
@@ -525,14 +525,14 @@ public class BannerView extends FrameLayout {
             i2++;
         }
         this.q = bannerEntity;
-        if (bannerEntity != null && !lb0.c(bannerEntity.mBannerList)) {
+        if (bannerEntity != null && !mb0.c(bannerEntity.mBannerList)) {
             list = this.q.mBannerList;
         } else {
             list = null;
         }
         this.e = list;
         z();
-        if (bannerEntity != null && !lb0.c(bannerEntity.mBannerList)) {
+        if (bannerEntity != null && !mb0.c(bannerEntity.mBannerList)) {
             B(0);
             t(bannerEntity.mBannerList.get(0));
         }
@@ -584,7 +584,7 @@ public class BannerView extends FrameLayout {
     public final void B(int i2) {
         BannerEntity bannerEntity;
         ArrayList<BannerWrapFrameView> arrayList = this.m;
-        if (arrayList != null && !lb0.c(arrayList) && (bannerEntity = this.q) != null && !lb0.c(bannerEntity.mBannerList)) {
+        if (arrayList != null && !mb0.c(arrayList) && (bannerEntity = this.q) != null && !mb0.c(bannerEntity.mBannerList)) {
             int size = i2 % this.m.size();
             int size2 = i2 % this.q.mBannerList.size();
             if (size >= 0 && size2 >= 0) {
@@ -643,16 +643,16 @@ public class BannerView extends FrameLayout {
     }
 
     public boolean r(List<LiveBannerEntity> list) {
-        if (lb0.c(list)) {
+        if (mb0.c(list)) {
             return false;
         }
-        if (lb0.c(this.e) || lb0.a(list) != lb0.a(this.e)) {
+        if (mb0.c(this.e) || mb0.a(list) != mb0.a(this.e)) {
             return true;
         }
         for (LiveBannerEntity liveBannerEntity : list) {
             boolean z = false;
             for (LiveBannerEntity liveBannerEntity2 : this.e) {
-                if (liveBannerEntity2 != null && !ob0.a(liveBannerEntity2.pic) && liveBannerEntity != null && !ob0.a(liveBannerEntity.pic) && liveBannerEntity2.pic.equals(liveBannerEntity.pic) && liveBannerEntity2.liveStatus == liveBannerEntity.liveStatus) {
+                if (liveBannerEntity2 != null && !pb0.a(liveBannerEntity2.pic) && liveBannerEntity != null && !pb0.a(liveBannerEntity.pic) && liveBannerEntity2.pic.equals(liveBannerEntity.pic) && liveBannerEntity2.liveStatus == liveBannerEntity.liveStatus) {
                     z = true;
                 }
             }
@@ -666,29 +666,29 @@ public class BannerView extends FrameLayout {
     public final void s(int i2, int i3) {
         try {
             if (this.g) {
-                RoundingParams fromCornersRadius = RoundingParams.fromCornersRadius(j90.b(getContext(), this.b));
+                RoundingParams fromCornersRadius = RoundingParams.fromCornersRadius(k90.b(getContext(), this.b));
                 fromCornersRadius.setOverlayColor(-1);
-                int l2 = ac0.f().l(this.c);
+                int l2 = bc0.f().l(this.c);
                 GenericDraweeHierarchy build = new GenericDraweeHierarchyBuilder(getResources()).setFadeDuration(0).setRoundingParams(fromCornersRadius).setFailureImage(l2).setFailureImageScaleType(ScalingUtils.ScaleType.FIT_XY).setPlaceholderImage(l2).setPlaceholderImageScaleType(ScalingUtils.ScaleType.FIT_XY).build();
                 AbstractDraweeController build2 = Fresco.newDraweeControllerBuilder().setAutoPlayAnimations(false).setControllerListener(new d()).setUri(this.q.mBannerList.get(i2).pic).build();
                 if (this.m.get(i3).getSimpleDraweeView() == null || this.m.get(i3).getSimpleDraweeView().getController() == null || (this.m.get(i3).getSimpleDraweeView().getController() != null && !this.m.get(i3).getSimpleDraweeView().getController().isSameImageRequest(build2))) {
                     this.m.get(i3).getSimpleDraweeView().setHierarchy(build);
                     this.m.get(i3).getSimpleDraweeView().setController(build2);
                 }
-                if (!lb0.c(this.m) && i3 >= 0 && i3 < this.m.size() && !lb0.c(this.q.mBannerList) && i2 >= 0 && i2 < this.q.mBannerList.size()) {
+                if (!mb0.c(this.m) && i3 >= 0 && i3 < this.m.size() && !mb0.c(this.q.mBannerList) && i2 >= 0 && i2 < this.q.mBannerList.size()) {
                     this.m.get(i3).setData(this.q.mBannerList.get(i2));
                     return;
                 }
                 return;
             }
-            int l3 = ac0.f().l(this.c);
+            int l3 = bc0.f().l(this.c);
             GenericDraweeHierarchy build3 = new GenericDraweeHierarchyBuilder(getResources()).setFadeDuration(0).setFailureImage(l3).setFailureImageScaleType(ScalingUtils.ScaleType.FIT_XY).setPlaceholderImage(l3).setPlaceholderImageScaleType(ScalingUtils.ScaleType.FIT_XY).build();
             AbstractDraweeController build4 = Fresco.newDraweeControllerBuilder().setAutoPlayAnimations(false).setControllerListener(new e()).setUri(this.q.mBannerList.get(i2).pic).build();
             if (this.m.get(i3).getSimpleDraweeView() == null || this.m.get(i3).getSimpleDraweeView().getController() == null || (this.m.get(i3).getSimpleDraweeView().getController() != null && !this.m.get(i3).getSimpleDraweeView().getController().isSameImageRequest(build4))) {
                 this.m.get(i3).getSimpleDraweeView().setHierarchy(build3);
                 this.m.get(i3).getSimpleDraweeView().setController(build4);
             }
-            if (!lb0.c(this.m) && i3 >= 0 && i3 < this.m.size() && !lb0.c(this.q.mBannerList) && i2 >= 0 && i2 < this.q.mBannerList.size()) {
+            if (!mb0.c(this.m) && i3 >= 0 && i3 < this.m.size() && !mb0.c(this.q.mBannerList) && i2 >= 0 && i2 < this.q.mBannerList.size()) {
                 this.m.get(i3).setData(this.q.mBannerList.get(i2));
             }
         } catch (Exception e2) {

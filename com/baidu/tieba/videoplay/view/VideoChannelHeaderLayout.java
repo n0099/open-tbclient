@@ -25,7 +25,7 @@ import com.baidu.tbadk.widget.ContinuousAnimationView;
 import com.baidu.tbadk.widget.tab.NewPagerSlidingTabBaseStrip;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.q25;
+import com.baidu.tieba.r25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -411,7 +411,7 @@ public class VideoChannelHeaderLayout extends RelativeLayout {
             this.b.setOnTabItemClickListener(new b(this));
             TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0902e6);
             this.c = textView;
-            q25 d2 = q25.d(textView);
+            r25 d2 = r25.d(textView);
             d2.w(R.color.CAM_X0101);
             d2.B(R.dimen.T_X10);
             d2.C(R.string.F_X01);
@@ -419,7 +419,7 @@ public class VideoChannelHeaderLayout extends RelativeLayout {
             d2.f(R.color.CAM_X0301);
             TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091c75);
             this.d = textView2;
-            q25 d3 = q25.d(textView2);
+            r25 d3 = r25.d(textView2);
             d3.w(R.color.CAM_X0101);
             d3.B(R.dimen.T_X07);
             d3.C(R.string.F_X02);

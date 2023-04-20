@@ -14,21 +14,21 @@ import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.IMConstants;
 import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.swan.apps.database.subscribe.SwanAppSubscribeMsgProvider;
-import com.baidu.tieba.a63;
-import com.baidu.tieba.br2;
-import com.baidu.tieba.eo1;
-import com.baidu.tieba.go1;
-import com.baidu.tieba.ht2;
-import com.baidu.tieba.ne3;
-import com.baidu.tieba.ok2;
-import com.baidu.tieba.ok3;
-import com.baidu.tieba.ol3;
+import com.baidu.tieba.b63;
+import com.baidu.tieba.cr2;
+import com.baidu.tieba.fo1;
+import com.baidu.tieba.ho1;
+import com.baidu.tieba.it2;
+import com.baidu.tieba.oe3;
 import com.baidu.tieba.pk2;
+import com.baidu.tieba.pk3;
+import com.baidu.tieba.pl3;
 import com.baidu.tieba.qk2;
-import com.baidu.tieba.t73;
+import com.baidu.tieba.rk2;
 import com.baidu.tieba.u73;
-import com.baidu.tieba.we3;
-import com.baidu.tieba.yn4;
+import com.baidu.tieba.v73;
+import com.baidu.tieba.xe3;
+import com.baidu.tieba.zn4;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -39,15 +39,15 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class SubscribeHelper {
-    public static final boolean e = eo1.a;
+    public static final boolean e = fo1.a;
     public String[] a;
     public l b;
     public Context c;
-    public u73 d;
+    public v73 d;
 
     /* loaded from: classes3.dex */
     public interface i {
-        void a(@Nullable String str, @Nullable List<qk2> list, boolean z);
+        void a(@Nullable String str, @Nullable List<rk2> list, boolean z);
     }
 
     /* loaded from: classes3.dex */
@@ -86,15 +86,15 @@ public class SubscribeHelper {
             @Override // java.lang.Runnable
             public void run() {
                 ContentResolver contentResolver = SubscribeHelper.this.c.getContentResolver();
-                for (qk2 qk2Var : this.a) {
-                    String str = qk2Var.a;
+                for (rk2 rk2Var : this.a) {
+                    String str = rk2Var.a;
                     Boolean bool = (Boolean) c.this.b.get(str);
                     if (bool != null && !bool.booleanValue()) {
                         ContentValues contentValues = new ContentValues();
                         contentValues.put("appKey", c.this.c.a);
                         contentValues.put("templateId", str);
                         contentValues.put("result", (Integer) 0);
-                        contentValues.put("title", qk2Var.b);
+                        contentValues.put("title", rk2Var.b);
                         contentValues.put("tips", this.b);
                         contentResolver.insert(SwanAppSubscribeMsgProvider.c, contentValues);
                     }
@@ -127,14 +127,14 @@ public class SubscribeHelper {
         }
 
         @Override // com.baidu.swan.apps.api.module.subscription.SubscribeHelper.i
-        public void a(@Nullable String str, List<qk2> list, boolean z) {
+        public void a(@Nullable String str, List<rk2> list, boolean z) {
             if (!TextUtils.isEmpty(str) && list != null && list.size() > 0) {
-                ok3.k(new a(list, str), "createFormDataBase");
+                pk3.k(new a(list, str), "createFormDataBase");
                 if (z && this.c.e) {
                     SubscribeHelper.this.m(this.c, str, list, this.d, this.a);
                     return;
                 } else {
-                    ol3.a0(new b(str, list));
+                    pl3.a0(new b(str, list));
                     return;
                 }
             }
@@ -190,7 +190,7 @@ public class SubscribeHelper {
                     do {
                         hashMap.put(query.getString(query.getColumnIndex("templateId")), Integer.valueOf(query.getInt(query.getColumnIndex("result"))));
                     } while (query.moveToNext());
-                    yn4.d(query);
+                    zn4.d(query);
                 }
             }
             LinkedHashMap<String, Boolean> linkedHashMap = new LinkedHashMap<>();
@@ -210,7 +210,7 @@ public class SubscribeHelper {
     }
 
     /* loaded from: classes3.dex */
-    public class d implements pk2.f {
+    public class d implements qk2.f {
         public final /* synthetic */ l a;
         public final /* synthetic */ List b;
         public final /* synthetic */ String c;
@@ -225,8 +225,8 @@ public class SubscribeHelper {
             this.e = kVar;
         }
 
-        @Override // com.baidu.tieba.pk2.f
-        public boolean a(DialogInterface dialogInterface, int i, List<qk2> list) {
+        @Override // com.baidu.tieba.qk2.f
+        public boolean a(DialogInterface dialogInterface, int i, List<rk2> list) {
             boolean z;
             String str;
             if (i == -1) {
@@ -275,7 +275,7 @@ public class SubscribeHelper {
     }
 
     /* loaded from: classes3.dex */
-    public class f implements go1 {
+    public class f implements ho1 {
         public final /* synthetic */ boolean a;
         public final /* synthetic */ l b;
         public final /* synthetic */ String c;
@@ -292,17 +292,17 @@ public class SubscribeHelper {
             this.f = kVar;
         }
 
-        @Override // com.baidu.tieba.go1
+        @Override // com.baidu.tieba.ho1
         public void onResult(int i) {
             if (i == 0) {
                 if (!this.a && SubscribeHelper.l()) {
-                    ne3.S("success", 12, NativeConstants.COMPONENT);
+                    oe3.S("success", 12, NativeConstants.COMPONENT);
                 }
                 SubscribeHelper.this.v(this.b, this.c, this.d, this.e, this.f);
                 return;
             }
             if (!this.a && !SubscribeHelper.l()) {
-                ne3.S(com.baidu.pass.biometrics.face.liveness.b.a.g0, 12, NativeConstants.COMPONENT);
+                oe3.S(com.baidu.pass.biometrics.face.liveness.b.a.g0, 12, NativeConstants.COMPONENT);
             }
             SubscribeHelper.this.t();
             this.f.a(500106, "用户未登录", null);
@@ -327,9 +327,9 @@ public class SubscribeHelper {
         public void run() {
             int i;
             ContentResolver contentResolver = SubscribeHelper.this.c.getContentResolver();
-            for (qk2 qk2Var : this.a) {
+            for (rk2 rk2Var : this.a) {
                 ContentValues contentValues = new ContentValues();
-                contentValues.put("title", qk2Var.b);
+                contentValues.put("title", rk2Var.b);
                 contentValues.put("tips", this.b);
                 if (this.c) {
                     i = 1;
@@ -337,31 +337,31 @@ public class SubscribeHelper {
                     i = -1;
                 }
                 contentValues.put("result", Integer.valueOf(i));
-                contentResolver.update(SwanAppSubscribeMsgProvider.c, contentValues, "appKey=? and templateId=?", new String[]{this.d, qk2Var.a});
+                contentResolver.update(SwanAppSubscribeMsgProvider.c, contentValues, "appKey=? and templateId=?", new String[]{this.d, rk2Var.a});
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class h implements ok2 {
+    public class h implements pk2 {
         public final /* synthetic */ k a;
 
         public h(k kVar) {
             this.a = kVar;
         }
 
-        @Override // com.baidu.tieba.y53
+        @Override // com.baidu.tieba.z53
         public void a(JSONObject jSONObject) {
             SubscribeHelper.this.t();
             this.a.a(0, "调用成功", jSONObject);
-            if (br2.h0().e(SubscribeHelper.this.c)) {
-                a63.c.e();
+            if (cr2.h0().e(SubscribeHelper.this.c)) {
+                b63.c.e();
             } else {
-                a63.c.f();
+                b63.c.f();
             }
         }
 
-        @Override // com.baidu.tieba.y53
+        @Override // com.baidu.tieba.z53
         public void onFail(String str) {
             this.a.a(500105, "请求formId失败", null);
         }
@@ -384,31 +384,31 @@ public class SubscribeHelper {
     }
 
     public static boolean l() {
-        return t73.K().q().N().e(br2.c());
+        return u73.K().q().N().e(cr2.c());
     }
 
     public void t() {
-        t73.K().q().W().X0("0");
+        u73.K().q().W().X0("0");
     }
 
-    public final void u(@NonNull l lVar, String str, List<qk2> list, @NonNull List<String> list2, @NonNull k kVar) {
-        pk2.a((Activity) this.c, this.d, str, list, new d(lVar, list, str, list2, kVar), new e(kVar)).show();
+    public final void u(@NonNull l lVar, String str, List<rk2> list, @NonNull List<String> list2, @NonNull k kVar) {
+        qk2.a((Activity) this.c, this.d, str, list, new d(lVar, list, str, list2, kVar), new e(kVar)).show();
         q("show", lVar.d, list, list);
     }
 
-    public final void v(@NonNull l lVar, String str, @NonNull List<qk2> list, @NonNull List<String> list2, @NonNull k kVar) {
+    public final void v(@NonNull l lVar, String str, @NonNull List<rk2> list, @NonNull List<String> list2, @NonNull k kVar) {
         w(lVar.a, list, str, true);
-        for (qk2 qk2Var : list) {
-            list2.add(qk2Var.a);
+        for (rk2 rk2Var : list) {
+            list2.add(rk2Var.a);
         }
         r(lVar, list2, kVar);
     }
 
-    public final JSONArray k(List<qk2> list) {
+    public final JSONArray k(List<rk2> list) {
         JSONArray jSONArray = new JSONArray();
         if (list != null && list.size() > 0) {
-            for (qk2 qk2Var : list) {
-                jSONArray.put(qk2Var.b);
+            for (rk2 rk2Var : list) {
+                jSONArray.put(rk2Var.b);
             }
         }
         return jSONArray;
@@ -416,29 +416,29 @@ public class SubscribeHelper {
 
     @AnyThread
     public final void s(@NonNull l lVar, LinkedHashMap<String, Boolean> linkedHashMap, @NonNull List<String> list, k kVar) {
-        br2.W().b(lVar.a, linkedHashMap.keySet(), new c(kVar, linkedHashMap, lVar, list));
+        cr2.W().b(lVar.a, linkedHashMap.keySet(), new c(kVar, linkedHashMap, lVar, list));
     }
 
-    public final void w(String str, List<qk2> list, String str2, boolean z) {
-        ok3.g().execute(new g(list, str2, z, str));
+    public final void w(String str, List<rk2> list, String str2, boolean z) {
+        pk3.g().execute(new g(list, str2, z, str));
     }
 
-    public final void m(@NonNull l lVar, String str, @NonNull List<qk2> list, @NonNull List<String> list2, @NonNull k kVar) {
+    public final void m(@NonNull l lVar, String str, @NonNull List<rk2> list, @NonNull List<String> list2, @NonNull k kVar) {
         boolean l2 = l();
         if (l()) {
             v(lVar, str, list, list2, kVar);
             return;
         }
         if (!l2) {
-            ne3.S("show", 12, NativeConstants.COMPONENT);
+            oe3.S("show", 12, NativeConstants.COMPONENT);
         }
-        t73.K().q().N().f(ht2.U().getActivity(), null, new f(l2, lVar, str, list, list2, kVar));
+        u73.K().q().N().f(it2.U().getActivity(), null, new f(l2, lVar, str, list, list2, kVar));
     }
 
-    public boolean n(Context context, u73 u73Var, String str, JSONObject jSONObject, invokeSubscribeFrom invokesubscribefrom, k kVar) {
+    public boolean n(Context context, v73 v73Var, String str, JSONObject jSONObject, invokeSubscribeFrom invokesubscribefrom, k kVar) {
         boolean z;
         this.c = context;
-        this.d = u73Var;
+        this.d = v73Var;
         String optString = jSONObject.optString("subscribeId");
         if (TextUtils.isEmpty(optString)) {
             kVar.a(202, "subscribeId is empty", null);
@@ -488,27 +488,27 @@ public class SubscribeHelper {
 
     @AnyThread
     public final void p(String str, String[] strArr, j jVar) {
-        ok3.k(new b(str, strArr, jVar), "querySubscribeInfo");
+        pk3.k(new b(str, strArr, jVar), "querySubscribeInfo");
     }
 
     public final void r(@NonNull l lVar, @NonNull List<String> list, @NonNull k kVar) {
-        br2.W().d(lVar.a, list, lVar.b, lVar.c, new h(kVar));
+        cr2.W().d(lVar.a, list, lVar.b, lVar.c, new h(kVar));
     }
 
-    public final void q(String str, String str2, List<qk2> list, List<qk2> list2) {
-        we3 we3Var = new we3();
-        we3Var.a = "swan";
-        we3Var.b = str;
-        we3Var.g = str2;
+    public final void q(String str, String str2, List<rk2> list, List<rk2> list2) {
+        xe3 xe3Var = new xe3();
+        xe3Var.a = "swan";
+        xe3Var.b = str;
+        xe3Var.g = str2;
         if (list2 != null) {
-            we3Var.e = String.valueOf(list2.size());
+            xe3Var.e = String.valueOf(list2.size());
         }
-        we3Var.a("appkey", this.d.getAppId());
-        we3Var.a("tpl", k(list));
-        we3Var.a("selected_tpl", k(list2));
+        xe3Var.a("appkey", this.d.getAppId());
+        xe3Var.a("tpl", k(list));
+        xe3Var.a("selected_tpl", k(list2));
         if (e) {
-            Log.d("SubscribeHelper", "event: " + we3Var.f());
+            Log.d("SubscribeHelper", "event: " + xe3Var.f());
         }
-        ne3.y("1311", "92", we3Var);
+        oe3.y("1311", "92", xe3Var);
     }
 }

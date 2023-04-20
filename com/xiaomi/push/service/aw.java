@@ -16,11 +16,11 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.SocketTimeoutException;
 import java.net.URL;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class aw {
     public static long a;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public int a;
 
@@ -33,7 +33,7 @@ public class aw {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class b {
         public long a;
 

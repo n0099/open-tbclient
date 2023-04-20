@@ -1,26 +1,139 @@
 package com.baidu.tieba;
 
-import android.graphics.Rect;
 import android.text.TextUtils;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tencent.open.SocialConstants;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.HashMap;
+import java.util.Set;
 /* loaded from: classes4.dex */
-public class fe8 {
+public class fe8 extends zr4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public Rect b;
-    public String c;
-    public Rect d;
+
+    @Override // com.baidu.tieba.zr4
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "post" : (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes4.dex */
+    public class a extends BdAsyncTask<Object, Integer, es4> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public volatile NetWork a;
+        public String b;
+        public String c;
+        public HashMap<String, String> d;
+        public z8 e;
+
+        public a(fe8 fe8Var, String str, String str2, HashMap<String, String> hashMap, z8 z8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fe8Var, str, str2, hashMap, z8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = null;
+            this.b = str;
+            this.c = str2;
+            this.d = hashMap;
+            this.e = z8Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public es4 doInBackground(Object... objArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
+                es4 es4Var = new es4();
+                try {
+                    this.a = new NetWork(TbConfig.SERVER_ADDRESS + this.c);
+                    Set<String> keySet = this.d.keySet();
+                    if (keySet.size() > 0) {
+                        for (String str : keySet) {
+                            if (!"url".equalsIgnoreCase(str)) {
+                                this.a.addPostData(str, this.d.get(str));
+                            }
+                        }
+                    }
+                    this.a.addPostData("user_name", TbadkCoreApplication.getCurrentAccountName());
+                    this.a.addPostData("user_id", TbadkCoreApplication.getCurrentAccount());
+                    boolean z = true;
+                    this.a.getNetContext().getRequest().mIsNeedTbs = true;
+                    String postNetData = this.a.postNetData();
+                    if (!this.a.getNetContext().getResponse().isNetSuccess()) {
+                        es4Var.b = this.a.getNetErrorCode();
+                        es4Var.c = this.a.getNetString();
+                    } else {
+                        es4Var.b = this.a.getServerErrorCode();
+                        es4Var.c = this.a.getErrorString();
+                    }
+                    if (this.a.getNetContext().getResponse().isRequestSuccess() && postNetData != null) {
+                        if (es4Var.b != 0) {
+                            z = false;
+                        }
+                        es4Var.a = z;
+                        return es4Var;
+                    }
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
+                }
+                es4Var.a = false;
+                return es4Var;
+            }
+            return (es4) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public void onPostExecute(es4 es4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, es4Var) == null) {
+                z8 z8Var = this.e;
+                if (z8Var != null) {
+                    z8Var.c(es4Var);
+                }
+                be8.a().d(this.c, this.d, es4Var);
+            }
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void cancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                if (this.a != null) {
+                    this.a.cancelNetConnect();
+                    this.a = null;
+                }
+                super.cancel(true);
+                z8 z8Var = this.e;
+                if (z8Var != null) {
+                    z8Var.c(null);
+                }
+            }
+        }
+    }
 
     public fe8() {
         Interceptable interceptable = $ic;
@@ -32,119 +145,21 @@ public class fe8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.zr4, com.baidu.tieba.cs4
+    public void a(Object obj, HashMap<String, String> hashMap, String str, z8 z8Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLL(1048576, this, obj, hashMap, str, z8Var) == null) && hashMap != null && !hashMap.isEmpty() && hashMap.containsKey("url")) {
+            String str2 = hashMap.get("url");
+            if (TextUtils.isEmpty(str2)) {
                 return;
             }
+            a aVar = new a(this, str, str2, hashMap, z8Var);
+            aVar.setPriority(2);
+            aVar.execute(new Object[0]);
         }
-        this.a = "";
-        this.b = new Rect(0, 0, 0, 0);
-        this.c = "";
-        this.d = new Rect(0, 0, 0, 0);
-    }
-
-    public fe8(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = jSONObject.optString("pic_url");
-        this.b = new Rect(jSONObject.optInt("rect_left"), jSONObject.optInt("rect_top"), jSONObject.optInt("rect_right"), jSONObject.optInt("rect_bottom"));
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        try {
-            JSONArray optJSONArray = new JSONObject(str).optJSONArray(SocialConstants.PARAM_IMAGE);
-            if (optJSONArray == null) {
-                return;
-            }
-            try {
-                JSONObject jSONObject = (JSONObject) optJSONArray.get(1);
-                if (jSONObject == null) {
-                    return;
-                }
-                this.c = jSONObject.optString("pic_url");
-                this.d = new Rect(0, 0, jSONObject.optInt(VrPlayerActivityConfig.PIC_WIDTH), jSONObject.optInt(VrPlayerActivityConfig.PIC_HEIGHT));
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        } catch (Throwable th) {
-            th.printStackTrace();
-        }
-    }
-
-    public static fe8 a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return new fe8();
-            }
-            try {
-                return new fe8(new JSONObject(str));
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return new fe8();
-            }
-        }
-        return (fe8) invokeL.objValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!TextUtils.isEmpty(this.c) && !this.d.isEmpty()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!TextUtils.isEmpty(this.a) && !this.b.isEmpty()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (!c()) {
-                return "";
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("pic_url", this.a);
-                jSONObject.put("rect_left", this.b.left);
-                jSONObject.put("rect_top", this.b.top);
-                jSONObject.put("rect_right", this.b.right);
-                jSONObject.put("rect_bottom", this.b.bottom);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject.toString();
-        }
-        return (String) invokeV.objValue;
     }
 }

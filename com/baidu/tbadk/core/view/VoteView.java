@@ -31,13 +31,13 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.fk9;
 import com.baidu.tieba.gg;
 import com.baidu.tieba.ii;
 import com.baidu.tieba.model.AddPollPostModel;
-import com.baidu.tieba.mz4;
-import com.baidu.tieba.q25;
-import com.baidu.tieba.xj9;
-import com.baidu.tieba.xz4;
+import com.baidu.tieba.nz4;
+import com.baidu.tieba.r25;
+import com.baidu.tieba.yz4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -80,7 +80,7 @@ public class VoteView extends LinearLayout {
     public boolean r;
     public int s;
     public boolean t;
-    public xz4 u;
+    public yz4 u;
     public AddPollPostModel v;
     public AddPollPostModel.b w;
     public View.OnClickListener x;
@@ -685,7 +685,7 @@ public class VoteView extends LinearLayout {
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{eVar, Integer.valueOf(i), Boolean.valueOf(z2)}) == null) {
             eVar.e.setVisibility(8);
             if (z2) {
-                q25 d2 = q25.d(eVar.b);
+                r25 d2 = r25.d(eVar.b);
                 d2.e(R.string.A_X07);
                 d2.o(R.string.J_X04);
                 d2.m(R.dimen.L_X01);
@@ -693,7 +693,7 @@ public class VoteView extends LinearLayout {
                 d2.f(i);
                 return;
             }
-            q25 d3 = q25.d(eVar.b);
+            r25 d3 = r25.d(eVar.b);
             d3.o(R.string.J_X04);
             d3.m(R.dimen.L_X01);
             d3.l(R.color.CAM_X0902);
@@ -855,7 +855,7 @@ public class VoteView extends LinearLayout {
     public void D(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            q25 d2 = q25.d(this);
+            r25 d2 = r25.d(this);
             d2.o(R.string.J_X05);
             d2.f(this.s);
             if (this.s == R.color.CAM_X0207) {
@@ -878,11 +878,11 @@ public class VoteView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048602, this, threadData) == null) {
             this.u = null;
-            mz4 taskInfoData = threadData.getTaskInfoData();
+            nz4 taskInfoData = threadData.getTaskInfoData();
             if (taskInfoData == null) {
                 return;
             }
-            xz4 m = taskInfoData.m();
+            yz4 m = taskInfoData.m();
             this.u = m;
             if (m != null && this.h != null) {
                 J();
@@ -1054,7 +1054,7 @@ public class VoteView extends LinearLayout {
             gradientDrawable2.setColor(SkinManager.getColor(i2));
             eVar.c.setBackgroundDrawable(gradientDrawable2);
             if (z2) {
-                q25 d2 = q25.d(eVar.b);
+                r25 d2 = r25.d(eVar.b);
                 d2.e(R.string.A_X07);
                 d2.o(R.string.J_X04);
                 d2.m(R.dimen.L_X01);
@@ -1062,7 +1062,7 @@ public class VoteView extends LinearLayout {
                 d2.f(i2);
                 return;
             }
-            q25 d3 = q25.d(eVar.b);
+            r25 d3 = r25.d(eVar.b);
             d3.o(R.string.J_X04);
             d3.m(R.dimen.L_X01);
             d3.l(R.color.CAM_X0902);
@@ -1075,7 +1075,7 @@ public class VoteView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             boolean z2 = true;
             if (this.u != null) {
-                q25 d2 = q25.d(this.h);
+                r25 d2 = r25.d(this.h);
                 d2.o(R.string.J_X01);
                 d2.i(R.color.CAM_X0302);
                 SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0101);
@@ -1101,14 +1101,14 @@ public class VoteView extends LinearLayout {
             }
             GradientDrawable gradientDrawable = new GradientDrawable();
             gradientDrawable.setCornerRadii(E);
-            gradientDrawable.setColor(xj9.a(SkinManager.getColor(R.color.CAM_X0302), 0.08f));
+            gradientDrawable.setColor(fk9.a(SkinManager.getColor(R.color.CAM_X0302), 0.08f));
             this.h.setBackgroundDrawable(gradientDrawable);
             if (!this.o && !ListUtils.isEmpty(this.m) && this.m.size() > 0) {
                 SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0302);
                 this.h.setEnabled(true);
                 return;
             }
-            this.h.setTextColor(xj9.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
+            this.h.setTextColor(fk9.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
             this.h.setEnabled(false);
         }
     }

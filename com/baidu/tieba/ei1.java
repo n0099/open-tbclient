@@ -1,162 +1,310 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.app.Application;
-import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.prologue.business.data.BaseVM;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
-@SuppressLint({"LongLogTag"})
 /* loaded from: classes4.dex */
-public class ei1 implements Application.ActivityLifecycleCallbacks {
+public class ei1 implements lk1, nk1 {
     public static /* synthetic */ Interceptable $ic;
-    public static int c;
-    public static long d;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public boolean b;
+    @NonNull
+    public final mk1 a;
+    @NonNull
+    public ViewGroup b;
+    @NonNull
+    public final ni1 c;
+    @NonNull
+    public final BaseVM d;
+    @Nullable
+    public di1 e;
+    public long f;
+    public long g;
+    public final long h;
+    public long i;
+    public boolean j;
+    public ii1 k;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947735196, "Lcom/baidu/tieba/ei1;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947735196, "Lcom/baidu/tieba/ei1;");
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
+    @Override // com.baidu.tieba.lk1
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, activity, bundle) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
     }
 
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityDestroyed(@NonNull Activity activity) {
+    @Override // com.baidu.tieba.lk1
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
     }
 
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityPaused(@NonNull Activity activity) {
+    @Override // com.baidu.tieba.lk1
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, activity) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
         }
     }
 
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityResumed(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
+    /* loaded from: classes4.dex */
+    public class a implements ri1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ei1 a;
+
+        @Override // com.baidu.tieba.ri1
+        public void handleSchemeDispatchCallback(String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
+            }
+        }
+
+        public a(ei1 ei1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ei1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ei1Var;
+        }
+
+        @Override // com.baidu.tieba.ri1
+        public boolean c(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                if (this.a.e != null) {
+                    return this.a.e.c(str);
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
         }
     }
 
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivitySaveInstanceState(@NonNull Activity activity, @NonNull Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, activity, bundle) == null) {
+    /* loaded from: classes4.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ei1 a;
+
+        public b(ei1 ei1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ei1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ei1Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.e.d();
+            }
         }
     }
 
-    public ei1() {
+    public ei1(@NonNull mk1 mk1Var, @NonNull ViewGroup viewGroup, @NonNull ni1 ni1Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mk1Var, viewGroup, ni1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = true;
+        this.j = true;
+        this.h = System.currentTimeMillis();
+        this.a = mk1Var;
+        this.b = viewGroup;
+        this.c = ni1Var;
+        this.d = new BaseVM(ni1Var);
+        hi1.b(ni1Var);
     }
 
-    public static long a() {
-        InterceptResult invokeV;
+    public final void j(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d == 0) {
-                d = i11.a().b("splash_sp_name").getLong("last_background_time", d);
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            g8.f().e();
+            if (!this.j) {
+                return;
             }
-            return d;
+            this.j = false;
+            this.d.e(str, this.i);
         }
-        return invokeV.longValue;
     }
 
-    public static int b() {
-        InterceptResult invokeV;
+    public void l(ii1 ii1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return c;
-        }
-        return invokeV.intValue;
-    }
-
-    public void c(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
-            if (this.b) {
-                c = 0;
-                this.b = false;
-            }
-            JSONObject d2 = yh1.a().d();
-            if (d2 != null && d2.optBoolean("should_update_by_sdk", true)) {
-                g8.f().j(c);
+        if (interceptable == null || interceptable.invokeL(1048586, this, ii1Var) == null) {
+            this.k = ii1Var;
+            mk1 mk1Var = this.a;
+            if (mk1Var != null) {
+                ii1Var.l(mk1Var);
             }
         }
     }
 
-    public void d(Activity activity) {
+    public void m(@NonNull di1 di1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-            d = System.currentTimeMillis();
-            i11.a().b("splash_sp_name").h("last_background_time", d);
-            pi1.a();
-            c = 1;
+        if (interceptable == null || interceptable.invokeL(1048587, this, di1Var) == null) {
+            this.e = di1Var;
         }
     }
 
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityStarted(@NonNull Activity activity) {
+    @Override // com.baidu.tieba.nk1
+    public void onAdError(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, activity) == null) {
-            int i = this.a + 1;
-            this.a = i;
-            if (i == 1) {
-                c(activity);
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+            this.i = System.currentTimeMillis() - this.f;
+            di1 di1Var = this.e;
+            if (di1Var != null) {
+                di1Var.f();
             }
         }
     }
 
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityStopped(@NonNull Activity activity) {
+    @Override // com.baidu.tieba.lk1
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity) == null) {
-            int i = this.a - 1;
-            this.a = i;
-            if (i == 0) {
-                d(activity);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (mi1.r() && !TextUtils.isEmpty(this.c.p)) {
+                sh0.b(this.c.p);
+                if (uf0.a) {
+                    f31.a().showToast(this.a.getAdView().getContext(), "执行nad统一新协议跳转");
+                }
+            } else {
+                ui1.a(ji0.b(), this.c.o, new a(this));
+                if (uf0.a) {
+                    f31.a().showToast(this.a.getAdView().getContext(), "执行splash旧协议跳转");
+                }
+            }
+            j(BaseVM.CloseType.CLICK_AD_AREA.value);
+            this.d.b("");
+            di1 di1Var = this.e;
+            if (di1Var != null) {
+                di1Var.a();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.nk1
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.f = System.currentTimeMillis();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("adShowScene", this.c.D);
+                jSONObject.put("adSplashType", this.c.e);
+                if (this.c.D == 1) {
+                    long j = this.g - this.h;
+                    if (j > 0) {
+                        jSONObject.put("adLoadCostTime", j);
+                    }
+                }
+                jSONObject.put("adRenderCostTime", this.f - this.h);
+                long currentTimeMillis = System.currentTimeMillis();
+                jSONObject.put("show_time", currentTimeMillis);
+                k(currentTimeMillis);
+            } catch (JSONException unused) {
+            }
+            this.d.c(jSONObject);
+            li1.D(this.c);
+            pi1.e(this.c);
+            di1 di1Var = this.e;
+            if (di1Var != null) {
+                di1Var.onAdShow();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.nk1
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.g = System.currentTimeMillis();
+        }
+    }
+
+    @Override // com.baidu.tieba.lk1
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            di1 di1Var = this.e;
+            if (di1Var != null) {
+                di1Var.onSkip();
+            }
+            j(BaseVM.CloseType.CLICK_SKIP_BUTTON.value);
+        }
+    }
+
+    @Override // com.baidu.tieba.nk1
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.i = System.currentTimeMillis() - this.f;
+            if ("time_end".equals(str)) {
+                j(BaseVM.CloseType.COUNTDOWN_TIME_FINISH.value);
+            } else if ("click_skip_button".equals(str)) {
+                j(BaseVM.CloseType.CLICK_SKIP_BUTTON.value);
+            } else if ("click_ad_area".equals(str)) {
+                j(BaseVM.CloseType.CLICK_AD_AREA.value);
+            } else {
+                j(BaseVM.CloseType.OTHER.value);
+            }
+            if (this.e != null) {
+                yi0.b(new b(this));
+            }
+        }
+    }
+
+    public final void k(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+            String str = this.c.p;
+            if (!TextUtils.isEmpty(str)) {
+                this.c.p = str.replace("SplashShowTime", String.valueOf(j));
+            }
+            String str2 = this.c.O;
+            if (!TextUtils.isEmpty(str2)) {
+                this.c.O = str2.replace("SplashShowTime", String.valueOf(j));
             }
         }
     }

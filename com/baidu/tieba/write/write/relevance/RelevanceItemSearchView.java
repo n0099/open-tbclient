@@ -28,7 +28,7 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.widget.CustomViewPager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bn5;
+import com.baidu.tieba.cn5;
 import com.baidu.tieba.ii;
 import com.baidu.tieba.write.write.relevance.list.RelevanceItemListFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -40,7 +40,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class RelevanceItemSearchView implements bn5, ViewPager.OnPageChangeListener {
+public class RelevanceItemSearchView implements cn5, ViewPager.OnPageChangeListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String[] a;
@@ -56,7 +56,7 @@ public class RelevanceItemSearchView implements bn5, ViewPager.OnPageChangeListe
     public List<c> k;
     public CustomMessageListener l;
 
-    @Override // com.baidu.tieba.bn5
+    @Override // com.baidu.tieba.cn5
     public boolean N0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -66,7 +66,7 @@ public class RelevanceItemSearchView implements bn5, ViewPager.OnPageChangeListe
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.bn5
+    @Override // com.baidu.tieba.cn5
     public Intent getResultIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -97,7 +97,7 @@ public class RelevanceItemSearchView implements bn5, ViewPager.OnPageChangeListe
         }
     }
 
-    @Override // com.baidu.tieba.bn5
+    @Override // com.baidu.tieba.cn5
     public boolean z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -447,7 +447,7 @@ public class RelevanceItemSearchView implements bn5, ViewPager.OnPageChangeListe
         }
     }
 
-    @Override // com.baidu.tieba.bn5
+    @Override // com.baidu.tieba.cn5
     public void o(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {

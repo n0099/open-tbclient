@@ -26,11 +26,11 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h29;
+import com.baidu.tieba.a39;
+import com.baidu.tieba.b39;
 import com.baidu.tieba.hi;
-import com.baidu.tieba.s29;
-import com.baidu.tieba.t16;
-import com.baidu.tieba.t29;
+import com.baidu.tieba.p29;
+import com.baidu.tieba.u16;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,7 +43,7 @@ public class PersonCenterSmartAppItemView extends LinearLayout implements View.O
     public HeadImageView a;
     public TextView b;
     public ImageView c;
-    public h29 d;
+    public p29 d;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public PersonCenterSmartAppItemView(Context context) {
@@ -117,30 +117,30 @@ public class PersonCenterSmartAppItemView extends LinearLayout implements View.O
         c();
     }
 
-    public void a(h29 h29Var) {
+    public void a(p29 p29Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, h29Var) != null) || h29Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, p29Var) != null) || p29Var == null) {
             return;
         }
-        this.d = h29Var;
+        this.d = p29Var;
         this.c.setVisibility(8);
-        if (h29Var instanceof t29) {
-            t29 t29Var = (t29) h29Var;
-            this.a.O(t29Var.c(), 10, false, false);
-            String g = t29Var.g();
+        if (p29Var instanceof b39) {
+            b39 b39Var = (b39) p29Var;
+            this.a.O(b39Var.c(), 10, false, false);
+            String g = b39Var.g();
             if (!hi.isEmpty(g)) {
                 this.b.setText(UtilHelper.getFixedText(g, 5));
             } else {
                 this.b.setText(R.string.intelligent_smart_app);
             }
-            if (h29Var.getType() == 1) {
+            if (p29Var.getType() == 1) {
                 SkinManager.setImageResource(this.c, R.drawable.icon_personal_recommend);
                 this.c.setVisibility(0);
             } else {
                 this.c.setVisibility(8);
             }
             setOnClickListener(this);
-        } else if (h29Var instanceof s29) {
+        } else if (p29Var instanceof a39) {
             SkinManager.setImageResource(this.a, R.drawable.icon_personal_more);
             this.b.setText(R.string.obfuscated_res_0x7f0f0bac);
             setOnClickListener(this);
@@ -173,23 +173,23 @@ public class PersonCenterSmartAppItemView extends LinearLayout implements View.O
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-            h29 h29Var = this.d;
-            if (h29Var instanceof t29) {
-                t29 t29Var = (t29) h29Var;
-                if (!t16.b(t29Var.b(), t29Var.f(), "1191000600000000", t29Var.e())) {
-                    if (hi.isEmpty(t29Var.d())) {
+            p29 p29Var = this.d;
+            if (p29Var instanceof b39) {
+                b39 b39Var = (b39) p29Var;
+                if (!u16.b(b39Var.b(), b39Var.f(), "1191000600000000", b39Var.e())) {
+                    if (hi.isEmpty(b39Var.d())) {
                         return;
                     }
-                    UrlManager.getInstance().dealOneLink(b(getContext()), new String[]{t29Var.d()});
+                    UrlManager.getInstance().dealOneLink(b(getContext()), new String[]{b39Var.d()});
                 }
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_FE_FITE_PROGRAM_CLICK);
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
                 statisticItem.param("obj_source", "personal_center");
-                statisticItem.param("obj_id", t29Var.a().longValue());
-                statisticItem.param("obj_name", t29Var.g());
-                statisticItem.param("obj_param1", t29Var.e().intValue());
+                statisticItem.param("obj_id", b39Var.a().longValue());
+                statisticItem.param("obj_name", b39Var.g());
+                statisticItem.param("obj_param1", b39Var.e().intValue());
                 TiebaStatic.log(statisticItem);
-            } else if (h29Var instanceof s29) {
+            } else if (p29Var instanceof a39) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SmartAppBrowseHistoryActivityConfig(getContext())));
                 StatisticItem statisticItem2 = new StatisticItem(TbadkCoreStatisticKey.KEY_MORE_HISTORY_RECORD_CLICK);
                 statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccountId());

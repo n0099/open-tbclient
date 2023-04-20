@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes5.dex */
 public interface m02 {
-    void a();
+    void onFailure();
 
-    void cancel();
+    void onSuccess(String str);
 }

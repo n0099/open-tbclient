@@ -2,8 +2,8 @@ package com.baidu.lcp.sdk.pb;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.i80;
 import com.baidu.tieba.j80;
+import com.baidu.tieba.k80;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +25,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectStreamException;
 /* loaded from: classes2.dex */
-public final class RpcMetaPb$event_timestamp extends GeneratedMessageLite implements j80 {
+public final class RpcMetaPb$event_timestamp extends GeneratedMessageLite implements k80 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EVENT_FIELD_NUMBER = 1;
     public static Parser<RpcMetaPb$event_timestamp> PARSER = null;
@@ -72,7 +72,7 @@ public final class RpcMetaPb$event_timestamp extends GeneratedMessageLite implem
     }
 
     /* loaded from: classes2.dex */
-    public static final class b extends GeneratedMessageLite.Builder<RpcMetaPb$event_timestamp, b> implements j80 {
+    public static final class b extends GeneratedMessageLite.Builder<RpcMetaPb$event_timestamp, b> implements k80 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -201,7 +201,7 @@ public final class RpcMetaPb$event_timestamp extends GeneratedMessageLite implem
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-                RpcMetaPb$event_timestamp rpcMetaPb$event_timestamp = new RpcMetaPb$event_timestamp(this, (i80) null);
+                RpcMetaPb$event_timestamp rpcMetaPb$event_timestamp = new RpcMetaPb$event_timestamp(this, (j80) null);
                 int i = this.a;
                 int i2 = 1;
                 if ((i & 1) != 1) {
@@ -555,7 +555,7 @@ public final class RpcMetaPb$event_timestamp extends GeneratedMessageLite implem
         }
     }
 
-    public /* synthetic */ RpcMetaPb$event_timestamp(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, i80 i80Var) throws InvalidProtocolBufferException {
+    public /* synthetic */ RpcMetaPb$event_timestamp(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, j80 j80Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -581,7 +581,7 @@ public final class RpcMetaPb$event_timestamp extends GeneratedMessageLite implem
         this.memoizedSerializedSize = -1;
     }
 
-    public /* synthetic */ RpcMetaPb$event_timestamp(GeneratedMessageLite.Builder builder, i80 i80Var) {
+    public /* synthetic */ RpcMetaPb$event_timestamp(GeneratedMessageLite.Builder builder, j80 j80Var) {
         this(builder);
     }
 

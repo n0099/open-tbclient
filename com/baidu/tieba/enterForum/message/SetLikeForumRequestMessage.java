@@ -4,8 +4,8 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.qq5;
-import com.baidu.tieba.zi5;
+import com.baidu.tieba.aj5;
+import com.baidu.tieba.rq5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -49,12 +49,12 @@ public class SetLikeForumRequestMessage extends NetMessage {
                 builder.original_like_list = this.originalLikeList;
                 builder.new_like_list = this.moveList;
                 if (!TbadkCoreApplication.getInst().isMainProcess(false)) {
-                    builder.tbs = zi5.f();
+                    builder.tbs = aj5.f();
                 } else {
                     builder.tbs = TbadkCoreApplication.getInst().getTbs();
                 }
                 if (z) {
-                    qq5.c(builder, true, true, false);
+                    rq5.c(builder, true, true, false);
                 }
                 SetLikeForumSortReqIdl.Builder builder2 = new SetLikeForumSortReqIdl.Builder();
                 builder2.data = builder.build(false);

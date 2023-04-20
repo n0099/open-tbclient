@@ -1,105 +1,100 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.net.Uri;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.searchbox.launch.stats.SpeedStatsManager;
-import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
-import com.baidu.tbadk.core.util.DeviceInfoUtil;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.coreExtra.service.DealIntentService;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class ch9 extends CustomMessageListener {
+public class ch9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final zg9 a;
-    @NonNull
-    public final ah9 b;
+    public int a;
+    public int b;
+    public int c;
+    public int d;
+    public ug9 e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ch9(@NonNull zg9 zg9Var, @NonNull ah9 ah9Var) {
-        super(2016311);
+    public ch9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {zg9Var, ah9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = zg9Var;
-        this.b = ah9Var;
+        this.e = new ug9();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        String str;
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2016311) {
-            SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_SHOW_END_STAMP_KEY);
-            Object data = customResponsedMessage.getData();
-            if (data instanceof String) {
-                String str2 = (String) data;
-                do9.a("SplashClickListener link:" + str2);
-                if (!TextUtils.isEmpty(str2) && !TextUtils.equals("advertevent", Uri.parse(str2).getScheme())) {
-                    Intent intent = new Intent();
-                    int indexOf = str2.indexOf("&extInfo=");
-                    if (indexOf > 0) {
-                        str = str2.substring(0, indexOf);
-                    } else {
-                        str = str2;
-                    }
-                    String substring = str2.substring(str.length() + 9, str2.length());
-                    if (str.startsWith("https://") || str.startsWith("http://")) {
-                        intent.putExtra("gd_ad", true);
-                        intent.putExtra("ext_info", substring);
-                    }
-                    if (!this.a.h() && ((StringUtils.isNull(str) || !str.startsWith("bdtiebalive")) && this.a.g() != 2)) {
-                        intent.putExtra(DealIntentService.KEY_CLASS, 30);
-                        intent.putExtra(BigdayActivityConfig.JUMP_URL, str);
-                        intent.putExtra("is_ad", true);
-                        TbadkCoreApplication.setIntent(intent);
-                    } else {
-                        intent.putExtra(DealIntentService.KEY_CLASS, 30);
-                        intent.putExtra(BigdayActivityConfig.JUMP_URL, str);
-                        intent.putExtra("is_ad", true);
-                        UtilHelper.commenDealIntent(this.a.getActivity(), intent);
-                    }
-                }
-                this.a.e();
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SPLASH_GOTO_MAIN_TAB).param("obj_locate", this.a.getActivity().getClass().getSimpleName()).param("obj_param1", 5).param(TiebaStatic.Params.OBJ_PARAM3, String.valueOf(this.a.d())));
-                if (!this.a.d() && !DeviceInfoUtil.isHuaWeiP40Pro()) {
-                    SpeedStatsManager.getInstance().setStatsFlag(-1);
-                    if (!this.a.h()) {
-                        TiebaStatic.log(new StatisticItem("ignore_speed").param("obj_source", "click"));
-                        return;
-                    }
-                    return;
-                }
-                this.b.a();
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
+        }
+        return invokeV.intValue;
+    }
+
+    public ug9 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.e;
+        }
+        return (ug9) invokeV.objValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public void f(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        try {
+            this.e.c(jSONObject.optJSONObject("error"));
+            this.a = jSONObject.optInt("forum_id");
+            jSONObject.optString("forum_name");
+            this.b = jSONObject.optInt("signed");
+            jSONObject.optInt("is_on");
+            jSONObject.optInt("is_filter");
+            this.c = jSONObject.optInt("sign_day_count");
+            this.d = jSONObject.optInt("cur_score");
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
     }
 }

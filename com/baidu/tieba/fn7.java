@@ -2,8 +2,8 @@ package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,30 +13,21 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import tbclient.AlaLiveInfo;
-import tbclient.Userlike.UserFollowLive;
+import tbclient.User;
+import tbclient.Userlike.ConcernData;
 /* loaded from: classes4.dex */
-public class fn7 extends jw4 {
+public class fn7 extends ez4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
+    public static final Integer h;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<AlaLiveInfo> a;
+    public boolean f;
+    public List<MetaData> g;
 
-    @Override // com.baidu.tieba.jw4
-    public hy4 getNegFeedBackData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
-        }
-        return (hy4) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.jw4
+    @Override // com.baidu.tieba.ez4, com.baidu.tieba.kw4
     public ThreadData getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return null;
         }
         return (ThreadData) invokeV.objValue;
@@ -55,7 +46,7 @@ public class fn7 extends jw4 {
                 return;
             }
         }
-        b = BdUniqueId.gen();
+        h = 6;
     }
 
     public fn7() {
@@ -71,34 +62,76 @@ public class fn7 extends jw4 {
                 return;
             }
         }
-        this.a = new ArrayList();
+        this.g = new ArrayList();
     }
 
-    public List<AlaLiveInfo> c() {
+    @Override // com.baidu.tieba.ez4
+    public List<MetaData> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            return this.g;
         }
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.hn
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.f;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ez4, com.baidu.tieba.kw4
+    public iy4 getNegFeedBackData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return new iy4();
+        }
+        return (iy4) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ez4, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.in
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return ez4.e;
         }
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public void d(UserFollowLive userFollowLive) {
+    public static boolean f(ConcernData concernData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, userFollowLive) == null) {
-            this.a.clear();
-            if (userFollowLive != null && !ListUtils.isEmpty(userFollowLive.user_follow_live)) {
-                this.a.addAll(userFollowLive.user_follow_live);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, concernData)) == null) {
+            if (concernData == null) {
+                return false;
+            }
+            return concernData.recom_type.equals(h);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void h(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.f = z;
+        }
+    }
+
+    @Override // com.baidu.tieba.ez4
+    public void d(List<User> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) && list != null) {
+            int min = Math.min(list.size(), 10);
+            for (int i = 0; i < min; i++) {
+                MetaData metaData = new MetaData();
+                metaData.parserProtobuf(list.get(i));
+                this.g.add(metaData);
             }
         }
     }

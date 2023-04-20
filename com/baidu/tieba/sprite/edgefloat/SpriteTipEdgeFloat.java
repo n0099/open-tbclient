@@ -5,7 +5,7 @@ import androidx.core.app.NotificationCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.edgefloat.EdgeFloat;
 import com.baidu.tieba.edgefloat.EdgeFloatLifecycle;
-import com.baidu.tieba.jh9;
+import com.baidu.tieba.rh9;
 import com.baidu.tieba.sprite.tips.SpriteBottomTipView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -181,14 +181,14 @@ public final class SpriteTipEdgeFloat {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    jh9 jh9Var = new jh9(this.$activity);
-                    jh9Var.I(this.this$0.c());
-                    jh9Var.w(this.$gravity);
-                    jh9Var.E(this.$startX);
-                    jh9Var.F(this.$startY);
-                    jh9Var.d(this.$canDrag);
-                    jh9Var.B(this.$pageSupportList);
-                    return jh9Var.c();
+                    rh9 rh9Var = new rh9(this.$activity);
+                    rh9Var.I(this.this$0.c());
+                    rh9Var.w(this.$gravity);
+                    rh9Var.E(this.$startX);
+                    rh9Var.F(this.$startY);
+                    rh9Var.d(this.$canDrag);
+                    rh9Var.B(this.$pageSupportList);
+                    return rh9Var.c();
                 }
                 return (EdgeFloat) invokeV.objValue;
             }

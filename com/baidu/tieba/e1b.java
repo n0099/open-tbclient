@@ -1,9 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes4.dex */
-public interface e1b {
-    void onCompleted();
+public interface e1b extends y0b, d1b {
+    void c(String str);
 
-    void onError(Throwable th);
-
-    void onSubscribe(m1b m1bVar);
+    void h(short s);
 }

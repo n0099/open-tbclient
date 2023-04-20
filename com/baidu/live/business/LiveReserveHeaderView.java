@@ -13,9 +13,9 @@ import com.baidu.live.business.base.LiveBaseItemView;
 import com.baidu.live.business.model.data.LiveFeedReserveHeaderInfo;
 import com.baidu.live.business.model.data.LiveRoomEntity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ac0;
-import com.baidu.tieba.j90;
-import com.baidu.tieba.wb0;
+import com.baidu.tieba.bc0;
+import com.baidu.tieba.k90;
+import com.baidu.tieba.xb0;
 /* loaded from: classes2.dex */
 public class LiveReserveHeaderView extends LiveBaseItemView {
     public View h;
@@ -46,8 +46,8 @@ public class LiveReserveHeaderView extends LiveBaseItemView {
     }
 
     public final void d() {
-        wb0.h(this.i, 1, 13.0f);
-        wb0.f(this.j, j90.c(getContext().getResources(), 12.0f), j90.c(getContext().getResources(), 12.0f));
+        xb0.h(this.i, 1, 13.0f);
+        xb0.f(this.j, k90.c(getContext().getResources(), 12.0f), k90.c(getContext().getResources(), 12.0f));
     }
 
     public String getTip() {
@@ -75,17 +75,17 @@ public class LiveReserveHeaderView extends LiveBaseItemView {
         if (view2 != null) {
             Drawable background = view2.getBackground();
             if (background instanceof GradientDrawable) {
-                ((GradientDrawable) background).setColor(ac0.f().a(getContext(), this.c, "color_F5F5F53"));
+                ((GradientDrawable) background).setColor(bc0.f().a(getContext(), this.c, "color_F5F5F53"));
                 this.h.setBackgroundDrawable(background);
             }
         }
         TextView textView = this.i;
         if (textView != null) {
-            textView.setTextColor(ac0.f().a(getContext(), this.c, "color_white4"));
+            textView.setTextColor(bc0.f().a(getContext(), this.c, "color_white4"));
         }
         ImageView imageView = this.j;
         if (imageView != null) {
-            imageView.setImageResource(ac0.f().p(this.c));
+            imageView.setImageResource(bc0.f().p(this.c));
         }
     }
 }

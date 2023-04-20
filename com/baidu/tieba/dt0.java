@@ -1,21 +1,11 @@
 package com.baidu.tieba;
 
-import android.view.MotionEvent;
+import com.baidu.nadcore.player.widget.BdThumbSeekBarView;
 /* loaded from: classes4.dex */
 public interface dt0 {
-    void onBeforeSwitchToFull();
+    void a(BdThumbSeekBarView bdThumbSeekBarView);
 
-    void onBeforeSwitchToHalf();
+    void b(BdThumbSeekBarView bdThumbSeekBarView, int i, boolean z);
 
-    void onGestureActionEnd();
-
-    void onGestureActionStart();
-
-    boolean onGestureDoubleClick(MotionEvent motionEvent);
-
-    void onPanelVisibilityChanged(boolean z);
-
-    void onVideoSwitchToFull();
-
-    void onVideoSwitchToHalf();
+    void c(BdThumbSeekBarView bdThumbSeekBarView);
 }

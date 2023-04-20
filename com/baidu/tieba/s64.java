@@ -1,77 +1,59 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.websocket.WebSocketTask;
+import com.baidu.searchbox.v8engine.JsObject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class s64 {
+public class s64 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ff2 a;
+    public t64 b;
 
-    public s64() {
+    public s64(ff2 ff2Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ff2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = ff2Var;
     }
 
-    public final boolean a() {
+    public u64 a(JsObject jsObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jsObject)) == null) {
+            u64 u64Var = new u64(b(), this.a);
+            u64Var.B(jsObject);
+            return u64Var;
+        }
+        return (u64) invokeL.objValue;
+    }
+
+    @NonNull
+    public final t64 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            gz2 d = d();
-            if (d != null) {
-                return d.a();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.b == null) {
+                this.b = new t64();
             }
-            return false;
+            return this.b;
         }
-        return invokeV.booleanValue;
-    }
-
-    public final gz2 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            u73 M = u73.M();
-            if (M != null) {
-                return M.m0();
-            }
-            return null;
-        }
-        return (gz2) invokeV.objValue;
-    }
-
-    public final void b(WebSocketTask task) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, task) == null) {
-            Intrinsics.checkNotNullParameter(task, "task");
-            gz2 d = d();
-            if (d != null) {
-                d.b(task);
-            }
-        }
-    }
-
-    public final void c(String taskId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, taskId) == null) {
-            Intrinsics.checkNotNullParameter(taskId, "taskId");
-            gz2 d = d();
-            if (d != null) {
-                d.c(taskId);
-            }
-        }
+        return (t64) invokeV.objValue;
     }
 }

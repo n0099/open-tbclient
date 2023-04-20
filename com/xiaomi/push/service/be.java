@@ -15,7 +15,7 @@ import com.xiaomi.push.ha;
 import com.xiaomi.push.service.bg;
 import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.Date;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class be {
     public XMPushService a;
 

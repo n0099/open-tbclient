@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.module.voiceFloat.TiebaAudioFloatView;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.q25;
+import com.baidu.tieba.r25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -89,7 +89,7 @@ public final class TiebaAudioFloatView extends RelativeLayout implements View.On
                     }
                     ImageView imageView3 = this.d;
                     if (imageView3 != null) {
-                        imageView3.postDelayed(new Runnable() { // from class: com.baidu.tieba.ri5
+                        imageView3.postDelayed(new Runnable() { // from class: com.baidu.tieba.si5
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
@@ -240,7 +240,7 @@ public final class TiebaAudioFloatView extends RelativeLayout implements View.On
             if (tBLottieAnimationView3 != null) {
                 tBLottieAnimationView3.playAnimation();
             }
-            q25 d = q25.d(this);
+            r25 d = r25.d(this);
             d.o(R.string.J_X01);
             d.h(SkinManager.getColor(0, (int) R.color.CAM_X0201));
         }

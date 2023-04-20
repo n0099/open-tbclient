@@ -2,7 +2,7 @@ package com.baidu.tieba.im.db.pojo;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.mz7;
+import com.baidu.tieba.nz7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,7 +34,7 @@ public class PbContentPojo extends OrmObject {
     public Integer isLongPic;
     public Integer isNativeApp;
     public Integer isSub;
-    public mz7 item;
+    public nz7 item;
     public String itemForumName;
     public Long itemId;
     public String link;
@@ -124,7 +124,7 @@ public class PbContentPojo extends OrmObject {
         this.itemId = pbContent.itemId;
         this.itemForumName = pbContent.itemForumName;
         this.tiebaplusInfo = TiebaPlusInfoPojo.Q(pbContent.tiebaplusInfo);
-        this.item = mz7.a(pbContent.item);
+        this.item = nz7.a(pbContent.item);
         this.picId = pbContent.picId;
     }
 
@@ -172,7 +172,7 @@ public class PbContentPojo extends OrmObject {
         this.itemId = pbContent.item_id;
         this.itemForumName = pbContent.item_forum_name;
         this.tiebaplusInfo = TiebaPlusInfoPojo.R(pbContent.tiebaplus_info);
-        this.item = mz7.b(pbContent.item);
+        this.item = nz7.b(pbContent.item);
         this.picId = pbContent.pic_id;
     }
 }

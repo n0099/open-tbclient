@@ -17,11 +17,11 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.m55;
+import com.baidu.tieba.n55;
 import com.baidu.tieba.newinterest.model.InterestedForumModel;
-import com.baidu.tieba.o55;
-import com.baidu.tieba.pq8;
-import com.baidu.tieba.q25;
+import com.baidu.tieba.p55;
+import com.baidu.tieba.r25;
+import com.baidu.tieba.xq8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,7 +39,7 @@ public class InterestedForumStyleAFragment extends BaseInterestedForumFragment {
     public View k;
     public LinearLayout l;
     public View m;
-    public pq8 n;
+    public xq8 n;
 
     public InterestedForumStyleAFragment() {
         Interceptable interceptable = $ic;
@@ -161,19 +161,19 @@ public class InterestedForumStyleAFragment extends BaseInterestedForumFragment {
                 textView.setText(strArr[0]);
                 this.i.setText(this.c[2]);
             }
-            m55 m55Var = new m55();
+            n55 n55Var = new n55();
             TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.e.findViewById(R.id.obfuscated_res_0x7f0910b2);
             this.j = tBSpecificationBtn;
             tBSpecificationBtn.setTextSize(R.dimen.T_X06);
-            this.j.setConfig(m55Var);
+            this.j.setConfig(n55Var);
             this.j.setText(getResources().getString(R.string.obfuscated_res_0x7f0f09f5));
             this.j.setEnabled(false);
-            o55 o55Var = new o55();
+            p55 p55Var = new p55();
             TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) this.e.findViewById(R.id.obfuscated_res_0x7f091fe9);
             this.g = tBSpecificationBtn2;
             tBSpecificationBtn2.setTextSize(R.dimen.T_X06);
-            o55Var.s(R.color.CAM_X0105);
-            this.g.setConfig(o55Var);
+            p55Var.s(R.color.CAM_X0105);
+            this.g.setConfig(p55Var);
             this.g.setText(getString(R.string.obfuscated_res_0x7f0f09fd));
             this.k = this.e.findViewById(R.id.obfuscated_res_0x7f0910b3);
             this.l = (LinearLayout) this.e.findViewById(R.id.obfuscated_res_0x7f0910b4);
@@ -187,7 +187,7 @@ public class InterestedForumStyleAFragment extends BaseInterestedForumFragment {
             View view2 = new View(this.f.getContext());
             view2.setLayoutParams(new LinearLayout.LayoutParams(-2, I1(R.dimen.tbds78)));
             this.f.addHeaderView(view2);
-            this.n = new pq8(this, this.f, this.j, this.g, getPageContext(), new InterestedForumModel(getUniqueId()), this.a, this.b);
+            this.n = new xq8(this, this.f, this.j, this.g, getPageContext(), new InterestedForumModel(getUniqueId()), this.a, this.b);
         }
     }
 
@@ -196,22 +196,22 @@ public class InterestedForumStyleAFragment extends BaseInterestedForumFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.onChangeSkinType(i);
-            q25 d = q25.d(this.h);
+            r25 d = r25.d(this.h);
             d.w(R.color.CAM_X0105);
             d.B(R.dimen.T_X03);
             d.C(R.string.F_X02);
-            q25 d2 = q25.d(this.i);
+            r25 d2 = r25.d(this.i);
             d2.w(R.color.CAM_X0108);
             d2.B(R.dimen.T_X07);
             d2.C(R.string.F_X01);
             SkinManager.setBackgroundColor(this.e, R.color.CAM_X0201);
-            q25.d(this.l).f(R.color.CAM_X0201);
-            q25.d(this.k).p(new int[]{R.color.CAM_X0201, R.color.CAM_X0612});
-            q25.d(this.m).p(new int[]{R.color.CAM_X0612, R.color.CAM_X0201});
+            r25.d(this.l).f(R.color.CAM_X0201);
+            r25.d(this.k).p(new int[]{R.color.CAM_X0201, R.color.CAM_X0612});
+            r25.d(this.m).p(new int[]{R.color.CAM_X0612, R.color.CAM_X0201});
             this.g.k();
-            pq8 pq8Var = this.n;
-            if (pq8Var != null) {
-                pq8Var.k(i);
+            xq8 xq8Var = this.n;
+            if (xq8Var != null) {
+                xq8Var.k(i);
             }
         }
     }

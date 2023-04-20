@@ -9,10 +9,10 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.tieba.R;
-import com.baidu.tieba.sm4;
 import com.baidu.tieba.tm4;
 import com.baidu.tieba.um4;
 import com.baidu.tieba.vm4;
+import com.baidu.tieba.wm4;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -21,7 +21,7 @@ import java.util.Set;
 public class TraceInfoActivity extends Activity implements View.OnClickListener {
     public TextView a;
     public Button b;
-    public List<sm4> c;
+    public List<tm4> c;
     public Set<String> d;
     public int e;
 
@@ -58,8 +58,8 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
     }
 
     public final void e() {
-        for (sm4 sm4Var : this.c) {
-            this.d.add(sm4Var.f());
+        for (tm4 tm4Var : this.c) {
+            this.d.add(tm4Var.f());
         }
     }
 
@@ -77,7 +77,7 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        List<sm4> list;
+        List<tm4> list;
         if (view2.getId() == R.id.obfuscated_res_0x7f0921d2 && (list = this.c) != null && list.size() > 0) {
             d();
         }
@@ -97,21 +97,21 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
         this.e = i + 1;
         String str = (String) arrayList.get(i % arrayList.size());
         ArrayList arrayList2 = new ArrayList();
-        for (sm4 sm4Var : this.c) {
-            if (TextUtils.equals(sm4Var.f(), str)) {
-                arrayList2.add(sm4Var);
+        for (tm4 tm4Var : this.c) {
+            if (TextUtils.equals(tm4Var.f(), str)) {
+                arrayList2.add(tm4Var);
             }
         }
-        return vm4.c(arrayList2, null);
+        return wm4.c(arrayList2, null);
     }
 
     public final void i() {
-        um4<List<sm4>> c = tm4.b().c();
+        vm4<List<tm4>> c = um4.b().c();
         if (c == null) {
             this.a.setText("NO DATA");
             return;
         }
-        List<sm4> a2 = c.a();
+        List<tm4> a2 = c.a();
         if (a2 != null && a2.size() > 0) {
             this.c = a2;
             this.e = 0;

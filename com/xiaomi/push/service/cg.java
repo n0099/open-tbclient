@@ -9,7 +9,7 @@ import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class cg implements XMPushService.n {
     public static Context a;
 

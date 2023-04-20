@@ -1,242 +1,146 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.app.Activity;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tbadk.core.liveremind.LiveRemindConfig;
+import com.baidu.tbadk.data.LiveRemindRecommendData;
+import com.baidu.tieba.k95;
+import com.baidu.tieba.t05;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ThemeCardPropMain;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes4.dex */
-public class dr9 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static long k = 1350000;
+public class dr9 extends t05 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public int g;
-    public int h;
-    public int i;
-    public int j;
+    public final MainTabActivity c;
+    public LiveRemindRecommendData d;
+    public Map<String, Object> e;
+    public k95 f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947714302, "Lcom/baidu/tieba/dr9;")) == null) {
-            return;
+    /* loaded from: classes4.dex */
+    public class a implements k95.h {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ dr9 a;
+
+        public a(dr9 dr9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dr9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = dr9Var;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947714302, "Lcom/baidu/tieba/dr9;");
+
+        @Override // com.baidu.tieba.k95.h
+        public void dismiss() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.c();
+            }
         }
     }
 
-    public void l(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-        }
-    }
-
-    public dr9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dr9(MainTabActivity mainTabActivity, ro9 ro9Var) {
+        super(mainTabActivity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity, ro9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Activity) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.j = 0;
+        this.c = mainTabActivity;
     }
 
-    public long a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.t05
+    public void b() {
+        k95 k95Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.longValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.j;
-        }
-        return invokeV.intValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.h;
-        }
-        return invokeV.intValue;
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.g;
-        }
-        return invokeV.intValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.i;
-        }
-        return invokeV.intValue;
-    }
-
-    public String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void k(ThemeCardPropMain themeCardPropMain) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048586, this, themeCardPropMain) != null) || themeCardPropMain == null) {
-            return;
-        }
-        this.a = themeCardPropMain.props_id.longValue();
-        this.b = themeCardPropMain.title;
-        this.c = themeCardPropMain.description;
-        this.d = themeCardPropMain.example_url;
-        this.e = themeCardPropMain.permission;
-        this.f = themeCardPropMain.props_state_img;
-        this.g = themeCardPropMain.in_use.intValue();
-        this.h = themeCardPropMain.free_user_level.intValue();
-        String str = themeCardPropMain.activity_url;
-        this.i = themeCardPropMain.is_finished.intValue();
-    }
-
-    public void m(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
-            this.a = j;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (k95Var = this.f) != null) {
+            k95Var.t();
         }
     }
 
-    public void n(String str) {
+    @Override // com.baidu.tieba.t05
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.f = str;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.f = l95.d(null, this.c.getPageContext(), this.e, 0L, 4000L, new a(this));
+            e45.b().f(LiveRemindConfig.Scene.LIVE_FLOAT);
         }
     }
 
-    public void o(int i) {
+    @Override // com.baidu.tieba.t05
+    public void d(t05.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.j = i;
-        }
-    }
-
-    public void p(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-            this.c = str;
-        }
-    }
-
-    public void q(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-            this.d = str;
-        }
-    }
-
-    public void r(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
-            this.h = i;
-        }
-    }
-
-    public void s(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
-            this.g = i;
-        }
-    }
-
-    public void t(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
-            this.i = i;
-        }
-    }
-
-    public void u(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
-            this.e = str;
-        }
-    }
-
-    public void v(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
-            this.b = str;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            if (a15.i()) {
+                aVar.a(false);
+                return;
+            }
+            LiveRemindRecommendData c = d45.a().c(0);
+            this.d = c;
+            if (c != null && e45.b().j(LiveRemindConfig.Scene.LIVE_FLOAT)) {
+                this.e = new HashMap();
+                int i = 3;
+                if (this.d.getRemindType() != 1) {
+                    if (this.d.getRemindType() == 2) {
+                        i = 4;
+                    } else if (this.d.getRemindType() == 3) {
+                        i = 2;
+                    } else {
+                        i = 0;
+                    }
+                }
+                this.e.put("view_top_params_key_image_url", this.d.getLiveIconSrc());
+                this.e.put("view_top_params_key_schema", this.d.getLiveIconScheme());
+                this.e.put("view_top_params_user_name", this.d.getUserName());
+                this.e.put("view_top_params_key_desc", this.d.getDesc());
+                this.e.put("view_top_params_room_id", this.d.getRoomId());
+                this.e.put("view_top_params_btn_text", this.d.getBtnText());
+                this.e.put("view_top_params_key_title", this.d.getTitle());
+                this.e.put("view_top_params_key_nid", this.d.getFeedId());
+                this.e.put("view_top_params_key_yyext", this.d.getYyExtData());
+                this.e.put("view_top_params_key_type", Integer.valueOf(i));
+                this.e.put("view_top_params_is_breathe", Boolean.FALSE);
+                if (!MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW && !ma5.e()) {
+                    if (!MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW && !ma5.e()) {
+                        aVar.a(true);
+                        return;
+                    } else {
+                        aVar.a(false);
+                        return;
+                    }
+                }
+                aVar.a(false);
+                return;
+            }
+            aVar.a(false);
         }
     }
 }

@@ -24,11 +24,11 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.gg;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.q25;
-import com.baidu.tieba.qq6;
-import com.baidu.tieba.sq6;
+import com.baidu.tieba.r25;
+import com.baidu.tieba.rq6;
 import com.baidu.tieba.tq6;
-import com.baidu.tieba.xq6;
+import com.baidu.tieba.uq6;
+import com.baidu.tieba.yq6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -40,18 +40,18 @@ public class RecommendForumView extends LinearLayout {
     public LinearLayout a;
     public RecommendForumInfoView b;
     public BdTypeRecyclerView c;
-    public sq6 d;
+    public tq6 d;
     public TbPageContext e;
-    public qq6 f;
-    public xq6 g;
+    public rq6 f;
+    public yq6 g;
 
     /* loaded from: classes4.dex */
-    public class a implements xq6.a {
+    public class a implements yq6.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ RecommendForumView a;
 
-        @Override // com.baidu.tieba.xq6.a
+        @Override // com.baidu.tieba.yq6.a
         public void b(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
@@ -76,7 +76,7 @@ public class RecommendForumView extends LinearLayout {
             this.a = recommendForumView;
         }
 
-        @Override // com.baidu.tieba.xq6.a
+        @Override // com.baidu.tieba.yq6.a
         public void c(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
@@ -85,7 +85,7 @@ public class RecommendForumView extends LinearLayout {
             }
         }
 
-        @Override // com.baidu.tieba.xq6.a
+        @Override // com.baidu.tieba.yq6.a
         public void a(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
@@ -280,7 +280,7 @@ public class RecommendForumView extends LinearLayout {
     }
 
     /* loaded from: classes4.dex */
-    public class f implements qq6.b {
+    public class f implements rq6.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ RecommendForumView a;
@@ -303,13 +303,13 @@ public class RecommendForumView extends LinearLayout {
             this.a = recommendForumView;
         }
 
-        @Override // com.baidu.tieba.qq6.b
-        public void a(tq6 tq6Var) {
+        @Override // com.baidu.tieba.rq6.b
+        public void a(uq6 uq6Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, tq6Var) != null) || tq6Var == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, uq6Var) != null) || uq6Var == null) {
                 return;
             }
-            this.a.l(tq6Var.c());
+            this.a.l(uq6Var.c());
         }
     }
 
@@ -353,9 +353,9 @@ public class RecommendForumView extends LinearLayout {
             linearLayoutManager.setOrientation(0);
             this.c.setLayoutManager(linearLayoutManager);
             this.c.addItemDecoration(new e(this, context));
-            qq6 qq6Var = new qq6(context);
-            this.f = qq6Var;
-            qq6Var.d(new f(this));
+            rq6 rq6Var = new rq6(context);
+            this.f = rq6Var;
+            rq6Var.d(new f(this));
             this.c.addAdapters(this.f.b());
         }
     }
@@ -434,9 +434,9 @@ public class RecommendForumView extends LinearLayout {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            xq6 xq6Var = new xq6();
-            this.g = xq6Var;
-            xq6Var.h(this.e);
+            yq6 yq6Var = new yq6();
+            this.g = yq6Var;
+            yq6Var.h(this.e);
             this.g.g(new a(this));
         }
     }
@@ -453,18 +453,18 @@ public class RecommendForumView extends LinearLayout {
     public void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            q25.d(this.a).f(R.color.CAM_X0201);
+            r25.d(this.a).f(R.color.CAM_X0201);
             this.b.e();
         }
     }
 
     public final void l(String str) {
-        sq6 sq6Var;
+        tq6 tq6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, str) != null) || (sq6Var = this.d) == null) {
+        if ((interceptable != null && interceptable.invokeL(1048582, this, str) != null) || (tq6Var = this.d) == null) {
             return;
         }
-        String h = sq6Var.h();
+        String h = tq6Var.h();
         if (!TextUtils.isEmpty(h)) {
             FrsActivityConfig createNormalCfg = new FrsActivityConfig(getContext()).createNormalCfg(h, "");
             createNormalCfg.getIntent().putExtra("transition_type", 0);
@@ -478,19 +478,19 @@ public class RecommendForumView extends LinearLayout {
         }
     }
 
-    public void setData(sq6 sq6Var) {
+    public void setData(tq6 tq6Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, sq6Var) != null) || sq6Var == null) {
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, tq6Var) != null) || tq6Var == null) {
             return;
         }
-        this.d = sq6Var;
-        this.b.setData(sq6Var.e(), sq6Var.h(), gg.e(sq6Var.i(), 0), gg.e(sq6Var.m(), 0), sq6Var.o());
-        if (!ListUtils.isEmpty(sq6Var.l())) {
-            this.c.setData(sq6Var.l());
+        this.d = tq6Var;
+        this.b.setData(tq6Var.e(), tq6Var.h(), gg.e(tq6Var.i(), 0), gg.e(tq6Var.m(), 0), tq6Var.o());
+        if (!ListUtils.isEmpty(tq6Var.l())) {
+            this.c.setData(tq6Var.l());
             if (this.c.getLayoutManager() instanceof LinearLayoutManager) {
                 LinearLayoutManager linearLayoutManager = (LinearLayoutManager) this.c.getLayoutManager();
-                if (sq6Var.getPosition() != Integer.MIN_VALUE && sq6Var.k() != Integer.MIN_VALUE) {
-                    linearLayoutManager.scrollToPositionWithOffset(sq6Var.getPosition(), sq6Var.k());
+                if (tq6Var.getPosition() != Integer.MIN_VALUE && tq6Var.k() != Integer.MIN_VALUE) {
+                    linearLayoutManager.scrollToPositionWithOffset(tq6Var.getPosition(), tq6Var.k());
                 } else {
                     linearLayoutManager.scrollToPosition(0);
                 }

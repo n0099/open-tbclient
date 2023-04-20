@@ -12,9 +12,9 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.frs.gamerecommend.message.AlaGameRecommendReponseMessage;
-import com.baidu.tieba.hn;
-import com.baidu.tieba.vb7;
-import com.baidu.tieba.xb7;
+import com.baidu.tieba.in;
+import com.baidu.tieba.wb7;
+import com.baidu.tieba.yb7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,11 +33,11 @@ public class AlaGameRecommendModel extends BdBaseModel {
     public BdUniqueId e;
     public HttpMessageListener f;
     public b g;
-    public xb7 h;
+    public yb7 h;
 
     /* loaded from: classes4.dex */
     public interface b {
-        void a(boolean z, List<hn> list);
+        void a(boolean z, List<in> list);
 
         void b(int i, String str, boolean z);
     }
@@ -86,7 +86,7 @@ public class AlaGameRecommendModel extends BdBaseModel {
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003401 && (httpResponsedMessage instanceof AlaGameRecommendReponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == this.a.e) {
                 AlaGameRecommendReponseMessage alaGameRecommendReponseMessage = (AlaGameRecommendReponseMessage) httpResponsedMessage;
                 if (!alaGameRecommendReponseMessage.hasError() && alaGameRecommendReponseMessage.getError() == 0) {
-                    vb7 data = alaGameRecommendReponseMessage.getData();
+                    wb7 data = alaGameRecommendReponseMessage.getData();
                     if (data == null) {
                         return;
                     }
@@ -124,7 +124,7 @@ public class AlaGameRecommendModel extends BdBaseModel {
         this.a = str;
         this.g = bVar;
         this.e = BdUniqueId.gen();
-        this.h = new xb7();
+        this.h = new yb7();
         Z();
         registerListener();
     }

@@ -3,14 +3,14 @@ package com.xiaomi.push.service;
 import android.content.Context;
 import com.xiaomi.push.id;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ag {
     public static a a;
 
     /* renamed from: a  reason: collision with other field name */
     public static b f887a;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         Map<String, String> a(Context context, id idVar);
 
@@ -20,7 +20,7 @@ public class ag {
         boolean a(Context context, id idVar, boolean z);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface b {
         void a(id idVar);
 

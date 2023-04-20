@@ -2,7 +2,6 @@ package com.baidu.tieba;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,17 +11,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class eq9 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public xy4 b;
+    public MainTabActivity a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public eq9(MainTabActivity mainTabActivity, jo9 jo9Var) {
-        super(2921333);
+    public eq9(MainTabActivity mainTabActivity) {
+        super(2921654);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, jo9Var};
+            Object[] objArr = {mainTabActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,19 +38,15 @@ public class eq9 extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
-            return;
-        }
-        if (this.b == null && !(customResponsedMessage.getData() instanceof xy4)) {
-            return;
-        }
-        if (customResponsedMessage.getData() != null) {
-            this.b = (xy4) customResponsedMessage.getData();
-        }
-        if (this.b != null && TbadkCoreApplication.isLogin()) {
-            ho9 ho9Var = this.a.v;
-            xy4 xy4Var = this.b;
-            ho9Var.j(xy4Var.a, xy4Var.b, xy4Var.c);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null) {
+            vd5 vd5Var = null;
+            if (customResponsedMessage.getData() instanceof vd5) {
+                vd5Var = (vd5) customResponsedMessage.getData();
+            }
+            if (vd5Var != null && vd5Var.b() == 0) {
+                MainTabActivity mainTabActivity = this.a;
+                new ud5(mainTabActivity, mainTabActivity.findViewById(R.id.obfuscated_res_0x7f0921e6), vd5Var).m();
+            }
         }
     }
 }

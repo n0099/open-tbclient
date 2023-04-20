@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.content.pm.PackageManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -9,12 +10,20 @@ public class qg1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(Context context, float f) {
-        InterceptResult invokeLF;
+    public static String a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(65536, null, context, f)) == null) {
-            return (int) ((f * context.getResources().getDisplayMetrics().scaledDensity) + 0.5f);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            if (context == null) {
+                return null;
+            }
+            try {
+                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
+                return null;
+            }
         }
-        return invokeLF.intValue;
+        return (String) invokeL.objValue;
     }
 }

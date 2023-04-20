@@ -38,7 +38,7 @@ import com.baidu.sapi2.utils.StatService;
 import com.baidu.sapi2.utils.enums.AccountType;
 import com.baidu.sapi2.utils.enums.Enums;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ke1;
+import com.baidu.tieba.le1;
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -453,7 +453,7 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
         this.m = true;
         this.a = context;
         this.b = LayoutInflater.from(context).inflate(R.layout.layout_sapi_sdk_sms_login_view, (ViewGroup) this, true);
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ke1.sapi_sdk_sms_login_view, i, 0);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, le1.sapi_sdk_sms_login_view, i, 0);
         boolean z2 = obtainStyledAttributes.getBoolean(0, false);
         obtainStyledAttributes.recycle();
         this.c = this.b.findViewById(R.id.code_container);

@@ -10,9 +10,9 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.it4;
-import com.baidu.tieba.mu9;
+import com.baidu.tieba.jt4;
 import com.baidu.tieba.play.operableVideoView.OperableVideoNetworkStateTipView;
+import com.baidu.tieba.uu9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -67,7 +67,7 @@ public class VideoNetworkStateTipView extends OperableVideoNetworkStateTipView {
             return;
         }
         if (view2.getId() == R.id.free_flow) {
-            it4.F(true, getContext(), getResources().getString(R.string.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
+            jt4.F(true, getContext(), getResources().getString(R.string.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
         } else if (view2.getId() == R.id.obfuscated_res_0x7f091b73 && (onClickListener = this.c) != null) {
             onClickListener.onClick(view2);
         }
@@ -138,7 +138,7 @@ public class VideoNetworkStateTipView extends OperableVideoNetworkStateTipView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (b() || mu9.c().d() || TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2 || !BdNetTypeUtil.isMobileNet()) {
+            if (b() || uu9.c().d() || TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2 || !BdNetTypeUtil.isMobileNet()) {
                 return false;
             }
             return true;

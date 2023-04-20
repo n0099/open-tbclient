@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.util.PriorityOrganizer;
@@ -63,16 +64,21 @@ public class le7 extends PriorityOrganizer.Task {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (z05.i()) {
+            boolean z = false;
+            if (a15.i()) {
                 return false;
             }
-            hk9 frsResponseData = TbSingleton.getInstance().getFrsResponseData();
-            m77 m77Var = new m77(this.n.getPageContext());
-            this.m.K4(m77Var);
-            boolean j = m77Var.j(frsResponseData);
-            this.m.I4(j);
-            this.m.N4(j);
-            return j;
+            pk9 frsResponseData = TbSingleton.getInstance().getFrsResponseData();
+            if (frsResponseData != null && frsResponseData.getBusinessPromot() != null && !StringUtils.isNull(frsResponseData.getBusinessPromot().q()) && frsResponseData.getForum() != null) {
+                z = true;
+            }
+            if (z) {
+                boolean j = gi7.j(frsResponseData.getBusinessPromot(), frsResponseData.getForum().getId());
+                this.m.J4(j);
+                this.m.N4(j);
+                return j;
+            }
+            return z;
         }
         return invokeV.booleanValue;
     }

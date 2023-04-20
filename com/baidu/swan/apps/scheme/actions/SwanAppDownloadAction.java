@@ -6,24 +6,24 @@ import androidx.annotation.Nullable;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.br2;
-import com.baidu.tieba.nm3;
-import com.baidu.tieba.r83;
-import com.baidu.tieba.r93;
-import com.baidu.tieba.sc3;
-import com.baidu.tieba.u42;
-import com.baidu.tieba.u73;
-import com.baidu.tieba.xc3;
-import com.baidu.tieba.zc3;
+import com.baidu.tieba.ad3;
+import com.baidu.tieba.cr2;
+import com.baidu.tieba.om3;
+import com.baidu.tieba.s83;
+import com.baidu.tieba.s93;
+import com.baidu.tieba.tc3;
+import com.baidu.tieba.v42;
+import com.baidu.tieba.v73;
+import com.baidu.tieba.yc3;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class SwanAppDownloadAction extends r93 {
-    public boolean l(@NonNull UnitedSchemeEntity unitedSchemeEntity, @Nullable u73 u73Var) {
+public class SwanAppDownloadAction extends s93 {
+    public boolean l(@NonNull UnitedSchemeEntity unitedSchemeEntity, @Nullable v73 v73Var) {
         return true;
     }
 
     /* loaded from: classes3.dex */
-    public class a implements nm3<xc3<zc3.e>> {
+    public class a implements om3<yc3<ad3.e>> {
         public final /* synthetic */ CallbackHandler a;
         public final /* synthetic */ UnitedSchemeEntity b;
         public final /* synthetic */ Context c;
@@ -39,19 +39,19 @@ public class SwanAppDownloadAction extends r93 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.nm3
+        @Override // com.baidu.tieba.om3
         /* renamed from: b */
-        public void a(xc3<zc3.e> xc3Var) {
-            if (!sc3.h(xc3Var)) {
-                sc3.p(xc3Var, this.a, this.b);
+        public void a(yc3<ad3.e> yc3Var) {
+            if (!tc3.h(yc3Var)) {
+                tc3.p(yc3Var, this.a, this.b);
             } else if (!SwanAppDownloadAction.this.k(this.c, this.b, this.a, this.d, this.e)) {
                 UnitedSchemeUtility.callCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(1001));
             }
         }
     }
 
-    public SwanAppDownloadAction(r83 r83Var) {
-        this(r83Var, "/swanAPI/installApp");
+    public SwanAppDownloadAction(s83 s83Var) {
+        this(s83Var, "/swanAPI/installApp");
     }
 
     /* loaded from: classes3.dex */
@@ -86,30 +86,30 @@ public class SwanAppDownloadAction extends r93 {
         }
     }
 
-    public SwanAppDownloadAction(r83 r83Var, String str) {
-        super(r83Var, str);
+    public SwanAppDownloadAction(s83 s83Var, String str) {
+        super(s83Var, str);
     }
 
-    @Override // com.baidu.tieba.r93
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, u73 u73Var) {
-        JSONObject a2 = r93.a(unitedSchemeEntity, "params");
+    @Override // com.baidu.tieba.s93
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, v73 v73Var) {
+        JSONObject a2 = s93.a(unitedSchemeEntity, "params");
         if (a2 == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal parameter");
-            u42.i("SwanAppDownloadAction", "params parse error");
+            v42.i("SwanAppDownloadAction", "params parse error");
             return false;
         }
         String optString = a2.optString("type");
         SwanAppDownloadType find = SwanAppDownloadType.find(optString);
         if (find == SwanAppDownloadType.TYPE_OTHER) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "parameters empty");
-            u42.i("SwanAppDownloadAction", "type error:" + optString);
+            v42.i("SwanAppDownloadAction", "type error:" + optString);
             return true;
-        } else if (!l(unitedSchemeEntity, u73Var)) {
+        } else if (!l(unitedSchemeEntity, v73Var)) {
             k(context, unitedSchemeEntity, callbackHandler, a2, find);
             return true;
         } else {
-            if (u73Var != null) {
-                u73Var.e0().g(context, "mapp_i_app_download", new a(callbackHandler, unitedSchemeEntity, context, a2, find));
+            if (v73Var != null) {
+                v73Var.e0().g(context, "mapp_i_app_download", new a(callbackHandler, unitedSchemeEntity, context, a2, find));
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
             } else {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "SwanApp is Null");
@@ -119,7 +119,7 @@ public class SwanAppDownloadAction extends r93 {
     }
 
     public final boolean k(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, JSONObject jSONObject, SwanAppDownloadType swanAppDownloadType) {
-        boolean e = br2.d().e(context, unitedSchemeEntity, swanAppDownloadType, jSONObject, callbackHandler);
+        boolean e = cr2.d().e(context, unitedSchemeEntity, swanAppDownloadType, jSONObject, callbackHandler);
         if (e) {
             JSONObject wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(0, "success");
             unitedSchemeEntity.result = wrapCallbackParams;

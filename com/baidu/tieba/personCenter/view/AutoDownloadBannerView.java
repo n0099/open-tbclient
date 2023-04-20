@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.flow.data.ApkDownloadInfoData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.a35;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.v25;
 import com.baidu.tieba.w25;
-import com.baidu.tieba.wu4;
-import com.baidu.tieba.z25;
+import com.baidu.tieba.x25;
+import com.baidu.tieba.xu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,10 +29,10 @@ public class AutoDownloadBannerView extends RelativeLayout {
     public Context a;
     public DownloadFlowView<ApkDownloadInfoData> b;
     public List<ApkDownloadInfoData> c;
-    public wu4 d;
+    public xu4 d;
 
     /* loaded from: classes5.dex */
-    public class a extends v25 {
+    public class a extends w25 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AutoDownloadBannerView a;
@@ -55,35 +55,35 @@ public class AutoDownloadBannerView extends RelativeLayout {
             this.a = autoDownloadBannerView;
         }
 
-        @Override // com.baidu.tieba.v25, com.baidu.tieba.t25
-        public w25 a() {
+        @Override // com.baidu.tieba.w25, com.baidu.tieba.u25
+        public x25 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                w25 w25Var = new w25();
-                w25Var.c(R.drawable.icon_banner_download_unselect);
-                w25Var.g(R.drawable.icon_banner_download_select);
-                w25Var.d(81);
-                w25Var.e(R.dimen.M_H_X005);
-                w25Var.h(R.dimen.tbds10);
-                return w25Var;
+                x25 x25Var = new x25();
+                x25Var.c(R.drawable.icon_banner_download_unselect);
+                x25Var.g(R.drawable.icon_banner_download_select);
+                x25Var.d(81);
+                x25Var.e(R.dimen.M_H_X005);
+                x25Var.h(R.dimen.tbds10);
+                return x25Var;
             }
-            return (w25) invokeV.objValue;
+            return (x25) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.v25, com.baidu.tieba.t25
-        public z25 c() {
+        @Override // com.baidu.tieba.w25, com.baidu.tieba.u25
+        public a35 c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                z25 z25Var = new z25();
-                z25Var.a(ii.g(this.a.getContext(), R.dimen.tbds187));
-                return z25Var;
+                a35 a35Var = new a35();
+                a35Var.a(ii.g(this.a.getContext(), R.dimen.tbds187));
+                return a35Var;
             }
-            return (z25) invokeV.objValue;
+            return (a35) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.v25, com.baidu.tieba.t25
+        @Override // com.baidu.tieba.w25, com.baidu.tieba.u25
         public TbImageView d(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -205,10 +205,10 @@ public class AutoDownloadBannerView extends RelativeLayout {
         }
     }
 
-    public void setIWindowChangedListener(wu4 wu4Var) {
+    public void setIWindowChangedListener(xu4 xu4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, wu4Var) == null) {
-            this.d = wu4Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, xu4Var) == null) {
+            this.d = xu4Var;
         }
     }
 
@@ -250,13 +250,13 @@ public class AutoDownloadBannerView extends RelativeLayout {
             if (list == null) {
                 return;
             }
-            z25 z25Var = new z25();
+            a35 a35Var = new a35();
             if (list.size() == 1) {
-                z25Var.a(ii.g(getContext(), R.dimen.tbds187));
+                a35Var.a(ii.g(getContext(), R.dimen.tbds187));
             } else {
-                z25Var.a(ii.g(getContext(), R.dimen.tbds230));
+                a35Var.a(ii.g(getContext(), R.dimen.tbds230));
             }
-            this.b.z(z25Var);
+            this.b.z(a35Var);
         }
     }
 

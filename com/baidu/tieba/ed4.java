@@ -1,144 +1,213 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.animation.ValueAnimator;
+import android.graphics.Bitmap;
 import android.text.TextUtils;
 import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mapapi.map.BitmapDescriptor;
+import com.baidu.mapapi.map.BitmapDescriptorFactory;
+import com.baidu.mapapi.map.MapViewLayoutParams;
 import com.baidu.mapapi.map.Marker;
-import com.baidu.mapapi.map.TextureMapView;
+import com.baidu.mapapi.map.MarkerOptions;
+import com.baidu.mapapi.model.LatLng;
+import com.baidu.tieba.pu2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes4.dex */
-public class ed4 extends j32<TextureMapView, gu2> {
+public class ed4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Boolean h;
     public transient /* synthetic */ FieldHolder $fh;
-    public String i;
-    public String j;
-    public boolean k;
-    @NonNull
-    public TextureMapView l;
-    public Context m;
-    public List<dd4> n;
-    public List<cd4> o;
+    public pu2 a;
+    public Marker b;
+    public Marker c;
+    public View d;
+    public ViewGroup e;
+    public Marker f;
+    public ValueAnimator g;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ed4(@NonNull Context context, @NonNull gu2 gu2Var) {
-        super(context, gu2Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, gu2Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (k32) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes4.dex */
+    public interface b {
+        void onAnimationEnd();
+    }
+
+    /* loaded from: classes4.dex */
+    public class a implements ValueAnimator.AnimatorUpdateListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+        public final /* synthetic */ fd4 b;
+        public final /* synthetic */ b c;
+        public final /* synthetic */ ed4 d;
+
+        public a(ed4 ed4Var, fd4 fd4Var, b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ed4Var, fd4Var, bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = ed4Var;
+            this.b = fd4Var;
+            this.c = bVar;
+            this.a = false;
+        }
+
+        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+        public void onAnimationUpdate(ValueAnimator valueAnimator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
+                float animatedFraction = valueAnimator.getAnimatedFraction();
+                this.d.a(this.b, (LatLng) valueAnimator.getAnimatedValue());
+                if (!this.a && animatedFraction > 0.99d) {
+                    this.a = true;
+                    b bVar = this.c;
+                    if (bVar != null) {
+                        bVar.onAnimationEnd();
+                    }
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947730484, "Lcom/baidu/tieba/ed4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947730484, "Lcom/baidu/tieba/ed4;");
                 return;
             }
         }
-        this.n = new ArrayList();
-        this.o = new ArrayList();
-        this.i = gu2Var.c;
-        this.j = gu2Var.b;
-        String str = gu2Var.d;
-        this.m = context;
-        this.l = new TextureMapView(context);
-        this.k = gu2Var.r;
+        h = Boolean.TRUE;
     }
 
-    public static ed4 K(Context context, gu2 gu2Var) {
-        InterceptResult invokeLL;
+    public ed4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, gu2Var)) == null) {
-            if (context != null && gu2Var != null && gu2Var.isValid()) {
-                return new ed4(context, gu2Var);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            return null;
-        }
-        return (ed4) invokeLL.objValue;
-    }
-
-    public void F() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            for (dd4 dd4Var : this.n) {
-                this.l.removeView(dd4Var.e);
-            }
-            this.n.clear();
-            for (cd4 cd4Var : this.o) {
-                this.l.removeView(cd4Var.b);
-            }
-            this.o.clear();
-            this.l.getMap().clear();
         }
     }
 
-    public cd4 G(View view2) {
-        InterceptResult invokeL;
+    public void a(fd4 fd4Var, LatLng latLng) {
+        Marker marker;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
-            for (cd4 cd4Var : this.o) {
-                if (cd4Var.b == view2) {
-                    return cd4Var;
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, fd4Var, latLng) != null) || (marker = this.b) == null) {
+            return;
+        }
+        marker.setPosition(latLng);
+        ou2 ou2Var = this.a.b;
+        ou2Var.a = latLng.latitude;
+        ou2Var.b = latLng.longitude;
+        Marker marker2 = this.f;
+        if (marker2 != null) {
+            marker2.setPosition(latLng);
+        }
+        if (!h.booleanValue()) {
+            return;
+        }
+        Marker marker3 = this.c;
+        if (marker3 != null) {
+            marker3.setPosition(latLng);
+        }
+        ViewGroup viewGroup = this.e;
+        if (viewGroup != null) {
+            fd4Var.l.removeView(viewGroup);
+            MapViewLayoutParams.Builder builder = new MapViewLayoutParams.Builder();
+            builder.layoutMode(MapViewLayoutParams.ELayoutMode.mapMode);
+            builder.position(latLng);
+            fd4Var.l.addView(this.e, builder.build());
+            this.e.setAlpha(0.0f);
+        }
+    }
+
+    public void b(fd4 fd4Var) {
+        pu2 pu2Var;
+        pu2.b bVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fd4Var) == null) && (pu2Var = this.a) != null && (bVar = pu2Var.i) != null && bVar.isValid()) {
+            pu2 pu2Var2 = this.a;
+            if (pu2Var2.k != null && this.d == null && !TextUtils.equals(pu2Var2.i.g, "ALWAYS")) {
+                fd4Var.l.removeView(this.e);
+                this.e.removeView(this.d);
+                View a2 = tc4.a(fd4Var, this.a);
+                this.d = a2;
+                this.e.addView(a2, 0);
+                this.e.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
+                MapViewLayoutParams.Builder builder = new MapViewLayoutParams.Builder();
+                builder.layoutMode(MapViewLayoutParams.ELayoutMode.mapMode);
+                builder.position(this.b.getPosition());
+                Bitmap bitmap = this.b.getIcon().getBitmap();
+                builder.yOffset((int) ((bitmap.getHeight() * (1.0d - this.a.k.b)) + 0.0d));
+                fd4Var.l.addView(this.e, builder.build());
+                this.e.setAlpha(0.0f);
+                Marker marker = this.f;
+                if (marker != null) {
+                    marker.remove();
+                }
+                BitmapDescriptor fromView = BitmapDescriptorFactory.fromView(this.e);
+                if (fromView == null) {
+                    return;
+                }
+                Bitmap bitmap2 = fromView.getBitmap();
+                if (bitmap2.getHeight() > 0 && bitmap2.getWidth() > 0) {
+                    float width = ((float) (((bitmap2.getWidth() - bitmap.getWidth()) / 2.0f) + (this.a.k.a * bitmap.getWidth()))) / bitmap2.getWidth();
+                    float height = ((float) (((float) ((bitmap2.getHeight() - 0.0d) - bitmap.getHeight())) + (this.a.k.b * bitmap.getHeight()))) / fromView.getBitmap().getHeight();
+                    MarkerOptions markerOptions = new MarkerOptions();
+                    ou2 ou2Var = this.a.b;
+                    this.f = (Marker) fd4Var.l.getMap().addOverlay(markerOptions.position(new LatLng(ou2Var.a, ou2Var.b)).icon(fromView).zIndex(66).anchor(width, height));
                 }
             }
-            return null;
         }
-        return (cd4) invokeL.objValue;
     }
 
-    @Nullable
-    public dd4 H(Marker marker) {
-        InterceptResult invokeL;
+    public void c(fd4 fd4Var, LatLng latLng, ku2 ku2Var, b bVar) {
+        Marker marker;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, marker)) == null) {
-            for (dd4 dd4Var : this.n) {
-                if (marker == dd4Var.b) {
-                    return dd4Var;
-                }
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, fd4Var, latLng, ku2Var, bVar) == null) {
+            ValueAnimator valueAnimator = this.g;
+            if ((valueAnimator != null && valueAnimator.isRunning()) || (marker = this.b) == null) {
+                return;
             }
-            return null;
-        }
-        return (dd4) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.j32
-    @NonNull
-    /* renamed from: J */
-    public TextureMapView v(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
-            return this.l;
-        }
-        return (TextureMapView) invokeL.objValue;
-    }
-
-    public List<dd4> I(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            ArrayList arrayList = new ArrayList(1);
-            for (dd4 dd4Var : this.n) {
-                ou2 ou2Var = dd4Var.a;
-                if (ou2Var != null && TextUtils.equals(str, ou2Var.a)) {
-                    arrayList.add(dd4Var);
-                }
+            float f = 360.0f - ((float) ku2Var.B);
+            if (f >= 0.0f && f <= 360.0f) {
+                marker.setRotate(f);
             }
-            return arrayList;
+            int i = ku2Var.C;
+            if (i < 0) {
+                i = -i;
+            }
+            ValueAnimator ofObject = ValueAnimator.ofObject(new sc4(), this.b.getPosition(), new LatLng(latLng.latitude, latLng.longitude));
+            this.g = ofObject;
+            ofObject.setDuration(i);
+            this.g.addUpdateListener(new a(this, fd4Var, bVar));
+            this.g.start();
         }
-        return (List) invokeL.objValue;
     }
 }

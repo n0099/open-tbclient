@@ -1,128 +1,51 @@
 package com.baidu.tieba;
 
-import android.hardware.Camera;
-import android.os.AsyncTask;
-import android.os.Build;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.ComponentName;
+import android.content.pm.PackageManager;
+import androidx.exifinterface.media.ExifInterface;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class p99 extends AsyncTask<Void, Void, String> {
+public class p99 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Camera a;
-    public byte[] b;
-    public a c;
-    public int d;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        String a(byte[] bArr, int i, int i2, boolean z);
-    }
-
-    public p99(Camera camera, byte[] bArr, a aVar, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {camera, bArr, aVar, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = camera;
-        this.b = bArr;
-        this.c = aVar;
-        this.d = i;
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && getStatus() != AsyncTask.Status.FINISHED) {
-            cancel(true);
-        }
-    }
-
-    public p99 c() {
+    public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (Build.VERSION.SDK_INT >= 11) {
-                executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new Void[0]);
-            } else {
-                execute(new Void[0]);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            String systemProperty = UtilHelper.getSystemProperty("ro.miui.ui.version.name");
+            if (StringUtils.isNull(systemProperty) || gg.e(systemProperty.replace(ExifInterface.GPS_MEASUREMENT_INTERRUPTED, ""), 0) < 9) {
+                return false;
             }
-            return this;
+            return true;
         }
-        return (p99) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // android.os.AsyncTask
-    public void onCancelled() {
+    public static boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.onCancelled();
-            this.c = null;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.os.AsyncTask
-    /* renamed from: b */
-    public String doInBackground(Void... voidArr) {
-        InterceptResult invokeL;
-        Camera.Parameters parameters;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-            Camera camera = this.a;
-            if (camera == null) {
-                return null;
-            }
-            try {
-                parameters = camera.getParameters();
-            } catch (RuntimeException e) {
-                BdLog.e(e);
-                parameters = null;
-            }
-            if (parameters == null) {
-                return null;
-            }
-            Camera.Size previewSize = parameters.getPreviewSize();
-            int i = previewSize.width;
-            int i2 = previewSize.height;
-            byte[] bArr = this.b;
-            if (this.d == 0) {
-                bArr = new byte[bArr.length];
-                for (int i3 = 0; i3 < i2; i3++) {
-                    for (int i4 = 0; i4 < i; i4++) {
-                        bArr[(((i4 * i2) + i2) - i3) - 1] = this.b[(i3 * i) + i4];
-                    }
-                }
-                i = i2;
-                i2 = i;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            PackageManager packageManager = TbadkCoreApplication.getInst().getPackageManager();
             try {
                 try {
-                    if (this.c == null) {
-                        return null;
+                } catch (PackageManager.NameNotFoundException unused) {
+                    if (packageManager.getActivityInfo(new ComponentName("com.vivo.permissionmanager", "com.vivo.permissionmanager.activity.StartBgActivityControlActivity"), 0) != null) {
+                        return true;
                     }
-                    return this.c.a(bArr, i, i2, false);
-                } catch (Exception unused) {
-                    return null;
                 }
-            } catch (Exception unused2) {
-                return this.c.a(bArr, i, i2, true);
+            } catch (PackageManager.NameNotFoundException unused2) {
             }
+            if (packageManager.getActivityInfo(new ComponentName("com.vivo.permissionmanager", "com.vivo.permissionmanager.activity.ScreenLockedActionControlActivity"), 0) != null) {
+                return true;
+            }
+            return false;
         }
-        return (String) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 }

@@ -16,8 +16,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.poly.widget.entitiy.InstallmentEntity;
 import com.baidu.poly.widget.entitiy.PayChannelExtInfoEntity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hg1;
-import com.baidu.tieba.qf1;
+import com.baidu.tieba.ig1;
+import com.baidu.tieba.rf1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -85,7 +85,7 @@ public class ChannelItemView extends RelativeLayout implements View.OnClickListe
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                hg1.c++;
+                ig1.c++;
                 if (this.b.f != null) {
                     this.b.f.a(this.a);
                 }
@@ -336,7 +336,7 @@ public class ChannelItemView extends RelativeLayout implements View.OnClickListe
             String icon = payChannelEntity.getIcon();
             int isSelected = payChannelEntity.getIsSelected();
             int enable = payChannelEntity.getEnable();
-            qf1.b().a(this.a, icon);
+            rf1.b().a(this.a, icon);
             this.b.setText(displayName);
             if (isSelected == 1) {
                 this.d.setImageResource(R.drawable.obfuscated_res_0x7f08045e);

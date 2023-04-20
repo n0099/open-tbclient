@@ -1,54 +1,51 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.card.holder.CardViewHolder;
-import com.baidu.tieba.personPolymeric.view.PersonCommonForumItemView;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class x39 extends um<i59, CardViewHolder<k69>> {
+public class x39 implements f59 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public xf<PersonCommonForumItemView> b;
+    public c99 a;
+    public TbPageContext b;
+    public BdUniqueId c;
+    public HttpMessageListener d;
+    public int e;
 
     /* loaded from: classes6.dex */
-    public class a implements yf<PersonCommonForumItemView> {
+    public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ x39 a;
 
-        public PersonCommonForumItemView e(PersonCommonForumItemView personCommonForumItemView) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, personCommonForumItemView)) == null) ? personCommonForumItemView : (PersonCommonForumItemView) invokeL.objValue;
-        }
-
-        public PersonCommonForumItemView h(PersonCommonForumItemView personCommonForumItemView) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, personCommonForumItemView)) == null) ? personCommonForumItemView : (PersonCommonForumItemView) invokeL.objValue;
-        }
-
-        public a(x39 x39Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(x39 x39Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {x39Var};
+                Object[] objArr = {x39Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -57,95 +54,111 @@ public class x39 extends um<i59, CardViewHolder<k69>> {
             this.a = x39Var;
         }
 
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.yf
-        public /* bridge */ /* synthetic */ PersonCommonForumItemView a(PersonCommonForumItemView personCommonForumItemView) {
-            PersonCommonForumItemView personCommonForumItemView2 = personCommonForumItemView;
-            e(personCommonForumItemView2);
-            return personCommonForumItemView2;
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.yf
-        public /* bridge */ /* synthetic */ PersonCommonForumItemView c(PersonCommonForumItemView personCommonForumItemView) {
-            PersonCommonForumItemView personCommonForumItemView2 = personCommonForumItemView;
-            h(personCommonForumItemView2);
-            return personCommonForumItemView2;
-        }
-
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.yf
-        /* renamed from: f */
-        public void b(PersonCommonForumItemView personCommonForumItemView) {
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048581, this, personCommonForumItemView) == null) && personCommonForumItemView != null) {
-                personCommonForumItemView.removeAllViews();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getOrginalMessage().getTag() == this.a.c) {
+                if (httpResponsedMessage.isSuccess() && httpResponsedMessage.getError() == 0) {
+                    if (this.a.b != null) {
+                        this.a.b.showToast(R.string.obfuscated_res_0x7f0f0fef);
+                    }
+                    this.a.e = 1;
+                    this.a.a.e();
+                } else if (this.a.b != null && !StringUtils.isNull(httpResponsedMessage.getErrorString())) {
+                    this.a.b.showToast(httpResponsedMessage.getErrorString());
+                }
             }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.yf
-        /* renamed from: g */
-        public PersonCommonForumItemView d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                return new PersonCommonForumItemView(this.a.mContext);
-            }
-            return (PersonCommonForumItemView) invokeV.objValue;
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public x39(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), i59.b);
+    /* loaded from: classes6.dex */
+    public class b extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ x39 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(x39 x39Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {x39Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = x39Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            int intValue;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2921065 || customResponsedMessage.getData() == null || this.a.e == (intValue = ((Integer) customResponsedMessage.getData()).intValue())) {
+                return;
+            }
+            this.a.e = intValue;
+            if (intValue == 1) {
+                this.a.a.e();
+            }
+        }
+    }
+
+    public x39(TbPageContext tbPageContext, c99 c99Var, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {tbPageContext, c99Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new xf<>(new a(this), 12, 0);
-        this.a = tbPageContext;
+        this.e = 0;
+        this.b = tbPageContext;
+        this.a = c99Var;
+        this.c = bdUniqueId;
+        this.d = new a(this, CmdConfigHttp.SET_PRIVATE_CMD);
+        b bVar = new b(this, 2921065);
+        this.d.setTag(this.c);
+        bVar.setTag(this.c);
+        MessageManager.getInstance().registerListener(this.d);
+        MessageManager.getInstance().registerListener(bVar);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.um
-    /* renamed from: t */
-    public CardViewHolder<k69> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.f59
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            k69 k69Var = new k69(this.a);
-            k69Var.A(this.b);
-            return new CardViewHolder<>(k69Var);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (!BdNetTypeUtil.isNetWorkAvailable()) {
+                TbPageContext tbPageContext = this.b;
+                if (tbPageContext != null) {
+                    tbPageContext.showToast(R.string.obfuscated_res_0x7f0f0d1b);
+                    return;
+                }
+                return;
+            }
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.SET_PRIVATE_CMD);
+            httpMessage.addParam("opt", "post");
+            httpMessage.addParam("val", String.valueOf(1));
+            httpMessage.setTag(this.c);
+            MessageManager.getInstance().sendMessage(httpMessage);
+            TiebaStatic.log(new StatisticItem("c12515").param("obj_locate", 1));
         }
-        return (CardViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.um
-    /* renamed from: u */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, i59 i59Var, CardViewHolder<k69> cardViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, i59Var, cardViewHolder})) == null) {
-            cardViewHolder.a().m(this.a, TbadkCoreApplication.getInst().getSkinType());
-            cardViewHolder.a().l(i59Var);
-            return cardViewHolder.getView();
-        }
-        return (View) invokeCommon.objValue;
     }
 }

@@ -8,10 +8,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes4.dex */
-public class f22 extends a12 {
+public class f22 extends b12 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public k22 a;
+    public int a;
 
     public f22() {
         Interceptable interceptable = $ic;
@@ -23,24 +23,26 @@ public class f22 extends a12 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = -1;
     }
 
-    @Override // com.baidu.tieba.a12
-    public void a(b12 b12Var, Canvas canvas) {
-        k22 k22Var;
+    @Override // com.baidu.tieba.b12
+    public void a(c12 c12Var, Canvas canvas) {
+        int i;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, b12Var, canvas) == null) && (k22Var = this.a) != null && k22Var.a()) {
-            b12Var.i = this.a;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, c12Var, canvas) == null) && (i = this.a) >= 0) {
+            c12Var.c.setStrokeMiter(i);
         }
     }
 
-    @Override // com.baidu.tieba.a12
+    @Override // com.baidu.tieba.b12
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            this.a = new k22(jSONArray);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 0) {
+            this.a = ml3.g((float) jSONArray.optDouble(0));
         }
     }
 }

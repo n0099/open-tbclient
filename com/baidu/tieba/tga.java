@@ -1,7 +1,19 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
+import com.baidu.tieba.oga;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.ugc.editvideo.record.source.IDataSourceView;
 /* loaded from: classes6.dex */
-public interface tga {
-    void a(Bitmap bitmap);
+public class tga implements IDataSourceView.IPlayerDataSourceView, oga.a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract void c();
+
+    public abstract void d(float f);
+
+    public abstract void e(int i);
+
+    public abstract void f();
 }

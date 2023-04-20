@@ -4,176 +4,132 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.record.RecordConstants;
+import com.baidu.ugc.download.exception.DownloadException;
 /* loaded from: classes5.dex */
-public class kfa {
+public class kfa implements dfa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ffa a;
+    public efa b;
 
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final int a;
-        public final int b;
-
-        public a(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public kfa(ffa ffaVar, cfa cfaVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ffaVar, cfaVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            this.a = i;
-            this.b = i2;
         }
+        this.a = ffaVar;
+        efa efaVar = new efa();
+        this.b = efaVar;
+        efaVar.k(cfaVar);
+    }
 
-        public int a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
-        }
-
-        public int b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.intValue;
+    @Override // com.baidu.tieba.dfa
+    public void a(DownloadException downloadException) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, downloadException) == null) {
+            this.b.m(downloadException);
+            this.b.r(108);
+            this.a.a(this.b);
         }
     }
 
-    public static int[] a(float f, int i) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.dfa
+    public void b(DownloadException downloadException) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Float.valueOf(f), Integer.valueOf(i)})) == null) {
-            int[] iArr = new int[2];
-            if (f > 1.0f) {
-                iArr[0] = i;
-                iArr[1] = (int) (i * f);
-                int i2 = iArr[1] % 16;
-                if (i2 > 8) {
-                    iArr[1] = iArr[1] + (16 - i2);
-                } else {
-                    iArr[1] = iArr[1] - i2;
-                }
-            } else {
-                iArr[1] = i;
-                iArr[0] = (int) (i * (1.0f / f));
-                int i3 = iArr[0] % 16;
-                if (i3 > 8) {
-                    iArr[0] = iArr[0] + (16 - i3);
-                } else {
-                    iArr[0] = iArr[0] - i3;
-                }
-            }
-            return iArr;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadException) == null) {
+            this.b.m(downloadException);
+            this.b.r(108);
+            this.a.a(this.b);
         }
-        return (int[]) invokeCommon.objValue;
     }
 
-    public static int[] b(float f, int i, int i2) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.dfa
+    public void onDownloadCompleted(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            int[] iArr = new int[2];
-            if (i > i2) {
-                int i3 = (f > 1.0f ? 1 : (f == 1.0f ? 0 : -1));
-                if (i3 == 0) {
-                    iArr[0] = c(i);
-                    iArr[1] = c(i);
-                    return iArr;
-                }
-                if (i3 > 0) {
-                    iArr[1] = i;
-                    iArr[0] = (int) (i * (1.0f / f));
-                } else {
-                    iArr[1] = i2;
-                    iArr[0] = (int) (i2 * (1.0f / f));
-                }
-                iArr[0] = c(iArr[0]);
-            } else {
-                int i4 = (f > 1.0f ? 1 : (f == 1.0f ? 0 : -1));
-                if (i4 == 0) {
-                    iArr[0] = c(i2);
-                    iArr[1] = c(i2);
-                    return iArr;
-                }
-                if (i4 > 0) {
-                    iArr[0] = i;
-                    iArr[1] = (int) (i * f);
-                } else {
-                    iArr[0] = i2;
-                    iArr[1] = (int) (i2 * f);
-                }
-                iArr[1] = c(iArr[1]);
-            }
-            return iArr;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.b.r(105);
+            this.b.q(str);
+            this.a.a(this.b);
         }
-        return (int[]) invokeCommon.objValue;
     }
 
-    public static int c(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.tieba.dfa
+    public void onConnectCanceled() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            int i2 = i % 16;
-            return i2 > 8 ? i + (16 - i2) : i - i2;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b.r(107);
+            this.a.a(this.b);
         }
-        return invokeI.intValue;
     }
 
-    public static a d(int i, int i2) {
-        InterceptResult invokeII;
+    @Override // com.baidu.tieba.dfa
+    public void onConnecting() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i, i2)) == null) {
-            if (i > 1920 || i2 > 1920) {
-                int[] a2 = a(i2 / i, RecordConstants.VIDEO_CONSTANT_WIDTH);
-                return new a(a2[0], a2[1]);
-            }
-            return new a(i, i2);
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.b.r(102);
+            this.a.a(this.b);
         }
-        return (a) invokeII.objValue;
     }
 
-    public static a e(float f, int i) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.dfa
+    public void onDownloadCanceled() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Float.valueOf(f), Integer.valueOf(i)})) == null) {
-            if (f <= 0.0f) {
-                return new a(RecordConstants.VIDEO_CONSTANT_WIDTH, RecordConstants.VIDEO_CONSTANT_HEIGHT);
-            }
-            int[] a2 = a(f, i);
-            return new a(a2[0], a2[1]);
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.b.r(107);
+            this.a.a(this.b);
         }
-        return (a) invokeCommon.objValue;
     }
 
-    public static a f(float f, int i, int i2) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.dfa
+    public void onDownloadPaused() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            if (f <= 0.0f) {
-                return new a(RecordConstants.VIDEO_CONSTANT_WIDTH, RecordConstants.VIDEO_CONSTANT_HEIGHT);
-            }
-            int[] b = b(f, i, i2);
-            return new a(b[0], b[1]);
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.b.r(106);
+            this.a.a(this.b);
         }
-        return (a) invokeCommon.objValue;
     }
 
-    public static boolean g(int i, int i2) {
-        InterceptResult invokeII;
+    @Override // com.baidu.tieba.dfa
+    public void onStarted() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65542, null, i, i2)) == null) ? i > 1920 || i2 > 1920 : invokeII.booleanValue;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.b.r(101);
+            this.b.a().h();
+        }
+    }
+
+    @Override // com.baidu.tieba.dfa
+    public void onConnected(long j, long j2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
+            this.b.s(j);
+            this.b.j(z);
+            this.b.r(103);
+            this.a.a(this.b);
+        }
+    }
+
+    @Override // com.baidu.tieba.dfa
+    public void onDownloadProgress(long j, long j2, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)}) == null) {
+            this.b.n(j);
+            this.b.o(j2);
+            this.b.p(i);
+            this.b.r(104);
+            this.a.a(this.b);
+        }
     }
 }

@@ -1,33 +1,32 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.card.holder.CardViewHolder;
-import com.baidu.tieba.square.ForumSquareActivity;
+import com.baidu.tbadk.core.log.YunDialogLog;
+import com.baidu.tbadk.data.DialogStrategiesData;
+import com.baidu.tbadk.switchs.FunnySpriteSwitch;
+import com.baidu.tieba.sprite.resdownload.FunnySpriteResDownloadUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class mi9 extends um<oi9, CardViewHolder<fj9>> {
+public class mi9 implements a25 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public xg6<oi9> b;
 
     /* loaded from: classes5.dex */
-    public class a extends xg6<oi9> {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mi9 b;
 
         public a(mi9 mi9Var) {
             Interceptable interceptable = $ic;
@@ -41,103 +40,115 @@ public class mi9 extends um<oi9, CardViewHolder<fj9>> {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.b = mi9Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.xg6
-        /* renamed from: d */
-        public void a(View view2, oi9 oi9Var) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, oi9Var) == null) && oi9Var != null && (this.b.a.getPageActivity() instanceof ForumSquareActivity)) {
-                String className = ((ForumSquareActivity) this.b.a.getPageActivity()).x1().getClassName();
-                if (!"推荐".equals(className)) {
-                    StatisticItem statisticItem = new StatisticItem("c13652");
-                    statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                    statisticItem.param("fid", oi9Var.a);
-                    statisticItem.param("resource_id", className);
-                    TiebaStatic.log(statisticItem);
-                    return;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    Class.forName("com.baidu.tieba.homepage.framework.RecommendFrsStatic");
+                } catch (Exception e) {
+                    BdLog.i(e.getMessage());
                 }
-                StatisticItem statisticItem2 = new StatisticItem("c13643");
-                statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                statisticItem2.param("fid", oi9Var.a);
-                statisticItem2.param("obj_locate", 3);
-                TiebaStatic.log(statisticItem2);
+                zg5.b(1);
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mi9(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), oi9.h);
+    public mi9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = new a(this);
-        this.a = tbPageContext;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.um
-    /* renamed from: t */
-    public CardViewHolder<fj9> onCreateViewHolder(ViewGroup viewGroup) {
+    @Override // com.baidu.tieba.a25
+    @NonNull
+    public Map<String, Object> a(@NonNull DialogStrategiesData dialogStrategiesData, @NonNull Map<String, Object> map, @NonNull Map<String, Object> map2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogStrategiesData, map, map2)) == null) {
+            HashMap hashMap = new HashMap(map);
+            hashMap.putAll(map2);
+            return hashMap;
+        }
+        return (Map) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.a25
+    public boolean b(@NonNull Map<String, Object> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            fj9 fj9Var = new fj9(this.a);
-            fj9Var.o(this.mPageId);
-            return new CardViewHolder<>(fj9Var);
-        }
-        return (CardViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.um
-    /* renamed from: u */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, oi9 oi9Var, CardViewHolder<fj9> cardViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, oi9Var, cardViewHolder})) == null) {
-            if (oi9Var != null && cardViewHolder != null && cardViewHolder.a() != null) {
-                cardViewHolder.a().l(oi9Var);
-                cardViewHolder.a().n(this.b);
-                if (this.a.getPageActivity() instanceof ForumSquareActivity) {
-                    String className = ((ForumSquareActivity) this.a.getPageActivity()).x1().getClassName();
-                    if (!"推荐".equals(className)) {
-                        StatisticItem statisticItem = new StatisticItem("c13651");
-                        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                        statisticItem.param("fid", oi9Var.a);
-                        statisticItem.param("resource_id", className);
-                        TiebaStatic.log(statisticItem);
-                    } else {
-                        StatisticItem statisticItem2 = new StatisticItem("c13642");
-                        statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                        statisticItem2.param("fid", oi9Var.d());
-                        statisticItem2.param("obj_locate", 3);
-                        TiebaStatic.log(statisticItem2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
+            if (!TbadkCoreApplication.isLogin()) {
+                YunDialogLog.getInstance().b("SpriteStrategy", "未登录状态");
+                return false;
+            } else if (!FunnySpriteSwitch.isOn()) {
+                YunDialogLog.getInstance().b("SpriteStrategy", "精灵开关未打开");
+                return false;
+            } else {
+                Object obj = map.get("use_hot");
+                if (obj != null && "1".equals(obj.toString())) {
+                    Object obj2 = map.get("dialog_url");
+                    if (obj2 instanceof String) {
+                        String str = (String) obj2;
+                        if (!TextUtils.isEmpty(str) && !cs5.b().e(str)) {
+                            YunDialogLog.getInstance().b("SpriteStrategy", "H5弹窗未预热完成");
+                            return false;
+                        }
                     }
                 }
-                return cardViewHolder.getView();
+                if (!FunnySpriteResDownloadUtil.i().invoke().booleanValue()) {
+                    YunDialogLog.getInstance().b("SpriteStrategy", "资源未下载完成");
+                    return false;
+                }
+                Object obj3 = map.get("use_offline");
+                if (obj3 != null && "1".equals(obj3.toString())) {
+                    Object obj4 = map.get("dialog_url");
+                    if (obj4 instanceof String) {
+                        String str2 = (String) obj4;
+                        if (!TextUtils.isEmpty(str2)) {
+                            try {
+                                Object obj5 = map.get("module");
+                                vg8 yunDialogLog = YunDialogLog.getInstance();
+                                yunDialogLog.c("SpriteStrategy", "开始手动初始化离线包:" + obj5);
+                                if ((obj5 instanceof String) && !TextUtils.isEmpty((String) obj5)) {
+                                    HashSet hashSet = new HashSet();
+                                    hashSet.add((String) obj5);
+                                    pu4.d(hashSet);
+                                    vg8 yunDialogLog2 = YunDialogLog.getInstance();
+                                    yunDialogLog2.c("SpriteStrategy", "离线包手动初始化完成:" + obj5);
+                                }
+                            } catch (Exception e) {
+                                vg8 yunDialogLog3 = YunDialogLog.getInstance();
+                                yunDialogLog3.b("SpriteStrategy", "离线包手动初始化异常:" + e);
+                            }
+                            boolean c = pu4.c(str2);
+                            vg8 yunDialogLog4 = YunDialogLog.getInstance();
+                            yunDialogLog4.b("SpriteStrategy", "离线包是否可用:" + c);
+                            if (!c) {
+                                YunDialogLog.getInstance().b("SpriteStrategy", "离线包未下载完成");
+                                return false;
+                            }
+                        }
+                    }
+                }
+                jk6.b().b(new uh9());
+                TbSingleton.getInstance().isShowSpriteDialog = true;
+                jg.a().post(new a(this));
+                return true;
             }
-            return null;
         }
-        return (View) invokeCommon.objValue;
+        return invokeL.booleanValue;
     }
 }

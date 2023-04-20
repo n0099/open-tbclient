@@ -1,191 +1,146 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.text.TextPaint;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.ConcurrentHashMap;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tbclient.Abstract;
-import tbclient.ThreadInfo;
-import tbclient.User;
+import com.bumptech.glide.load.engine.GlideException;
 /* loaded from: classes4.dex */
 public class ic9 {
     public static /* synthetic */ Interceptable $ic;
-    public static ic9 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public ConcurrentHashMap<String, List<JSONObject>> a;
-    public ConcurrentHashMap<String, Integer> b;
 
-    public ic9() {
+    public static int a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new ConcurrentHashMap<>();
-        this.b = new ConcurrentHashMap<>();
+        return (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) ? (int) ((i * 9.0d) / 16.0d) : invokeI.intValue;
     }
 
-    public static ic9 f() {
-        InterceptResult invokeV;
+    public static int b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (c == null) {
-                synchronized (ic9.class) {
-                    if (c == null) {
-                        c = new ic9();
-                    }
+        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? (int) ((i * 16.0d) / 9.0d) : invokeI.intValue;
+    }
+
+    public static int c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? (int) ((i * 9.0d) / 16.0d) : invokeI.intValue;
+    }
+
+    public static yj0 d(@NonNull AdCard adCard) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, adCard)) == null) {
+            if (pj0.b().query(adCard.getDownloadKey()) != null) {
+                return pj0.b().query(adCard.getDownloadKey());
+            }
+            yj0 yj0Var = new yj0();
+            yj0Var.h(adCard.getDownloadKey());
+            if (adCard.downloadInfo != null) {
+                if (TextUtils.isEmpty(yj0Var.e())) {
+                    yj0Var.h(adCard.downloadInfo.b);
                 }
+                ac9 ac9Var = adCard.downloadInfo;
+                yj0Var.g = ac9Var.b;
+                yj0Var.d = ac9Var.a;
             }
-            return c;
+            if (TextUtils.isEmpty(yj0Var.e())) {
+                yj0Var.h(adCard.adId);
+            }
+            ck0 ck0Var = new ck0();
+            ck0Var.d = adCard.getButtonText();
+            ck0Var.j = adCard.adId;
+            ck0Var.a = adCard.getExtInfo();
+            mw4 mw4Var = adCard.appInfoModel;
+            if (mw4Var != null) {
+                ck0Var.g = mw4Var.b;
+                ck0Var.h = mw4Var.c;
+            }
+            if (gi0.n(adCard.cmdScheme)) {
+                ck0Var.c = adCard.cmdScheme;
+            }
+            yj0Var.p = ck0Var;
+            zj0 zj0Var = new zj0();
+            zj0Var.a = adCard.getAdvertAppInfo().j;
+            zj0Var.t = pw5.a().b();
+            zj0Var.s = pw5.a().h();
+            yj0Var.q = zj0Var;
+            return yj0Var;
         }
-        return (ic9) invokeV.objValue;
+        return (yj0) invokeL.objValue;
     }
 
-    public static JSONObject b(ThreadInfo threadInfo) {
-        InterceptResult invokeL;
+    public static String e(String str, String str2, float f, TextPaint textPaint) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, threadInfo)) == null) {
-            if (threadInfo == null) {
-                return null;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, Float.valueOf(f), textPaint})) == null) {
+            if (TextUtils.isEmpty(str2)) {
+                str2 = "";
             }
-            return c(threadInfo, threadInfo.fname);
+            if (TextUtils.isEmpty(str)) {
+                str = "";
+            }
+            if (textPaint == null) {
+                textPaint = new TextPaint();
+            }
+            CharSequence ellipsize = TextUtils.ellipsize(str, textPaint, f - textPaint.measureText(GlideException.IndentedAppendable.INDENT + str2), TextUtils.TruncateAt.END);
+            if (ellipsize != null) {
+                return ellipsize.toString() + GlideException.IndentedAppendable.INDENT + str2;
+            }
+            return str2;
         }
-        return (JSONObject) invokeL.objValue;
+        return (String) invokeCommon.objValue;
     }
 
-    public void a(String str) {
+    public static Drawable f(int i, int i2, int i3, int i4) {
+        InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.a.put(str, new ArrayList());
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65541, null, i, i2, i3, i4)) == null) {
+            return p25.G(p25.n(q25.y(), i), i2, i3, i4);
         }
+        return (Drawable) invokeIIII.objValue;
     }
 
-    public String d(String str) {
-        InterceptResult invokeL;
+    public static int g(float f, int i, int i2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return g(this.a.get(str));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            if (i == i2) {
+                return i;
+            }
+            if (f <= 0.0f) {
+                return i;
+            }
+            if (f >= 1.0f) {
+                return i2;
+            }
+            int red = Color.red(i);
+            int green = Color.green(i);
+            int blue = Color.blue(i);
+            int alpha = Color.alpha(i);
+            return Color.argb((int) (alpha + (f * (Color.alpha(i2) - alpha))), (int) (red + ((Color.red(i2) - red) * f)), (int) (green + ((Color.green(i2) - green) * f)), (int) (blue + ((Color.blue(i2) - blue) * f)));
         }
-        return (String) invokeL.objValue;
+        return invokeCommon.intValue;
     }
 
-    public int e(String str) {
-        InterceptResult invokeL;
+    public static int h(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            Integer num = this.b.get(str);
-            if (num == null) {
-                return 0;
-            }
-            return num.intValue();
-        }
-        return invokeL.intValue;
-    }
-
-    public static JSONObject c(ThreadInfo threadInfo, String str) {
-        InterceptResult invokeLL;
-        Long l;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, threadInfo, str)) == null) {
-            if (threadInfo == null) {
-                return null;
-            }
-            String str2 = "" + threadInfo.tid;
-            String str3 = "0";
-            if (StringUtils.isNull(str2) || "0".equals(str2)) {
-                str2 = "" + threadInfo.id;
-            }
-            if (threadInfo.video_info != null) {
-                str3 = "" + threadInfo.video_info.video_duration;
-            }
-            StringBuilder sb = new StringBuilder();
-            List<Abstract> list = threadInfo._abstract;
-            if (list != null) {
-                for (int i = 0; i < list.size(); i++) {
-                    Abstract r6 = (Abstract) me8.d(list, i);
-                    if (r6 != null && r6.type.intValue() == 0) {
-                        sb.append(r6.text);
-                    }
-                }
-            }
-            String sb2 = sb.toString();
-            String str4 = "" + threadInfo.author_id;
-            User user = threadInfo.author;
-            if (user != null && (l = user.id) != null && l.longValue() != 0) {
-                str4 = "" + threadInfo.author.id;
-            }
-            if (StringUtils.isNull(str)) {
-                str = threadInfo.fname;
-            }
-            JSONObject jSONObject = new JSONObject();
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, str, i)) == null) {
             try {
-                jSONObject.put("title", threadInfo.title);
-                jSONObject.put("tid", str2);
-                jSONObject.put("fname", str);
-                jSONObject.put("abstract", sb2);
-                jSONObject.put("author_id", str4);
-                jSONObject.put(AdWebVideoActivityConfig.KEY_VIDEO_DURATION, str3);
-            } catch (JSONException e) {
+                return Color.parseColor(str);
+            } catch (Exception e) {
                 e.printStackTrace();
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeLL.objValue;
-    }
-
-    public final String g(List<JSONObject> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, list)) == null) {
-            try {
-                if (ListUtils.isEmpty(list)) {
-                    return "";
-                }
-                JSONArray jSONArray = new JSONArray();
-                for (JSONObject jSONObject : list) {
-                    if (jSONObject != null) {
-                        jSONArray.put(jSONObject);
-                    }
-                }
-                return ai.j(jSONArray.toString().getBytes("UTF-8"));
-            } catch (Exception unused) {
-                return "";
+                return i;
             }
         }
-        return (String) invokeL.objValue;
-    }
-
-    public void h(String str, List<JSONObject> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, list) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.addAll(list);
-            this.a.put(str, arrayList);
-        }
-    }
-
-    public void i(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048581, this, str, i) == null) {
-            this.b.put(str, Integer.valueOf(i));
-        }
+        return invokeLI.intValue;
     }
 }

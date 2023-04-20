@@ -20,8 +20,8 @@ import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.gg;
-import com.baidu.tieba.hy4;
-import com.baidu.tieba.jw4;
+import com.baidu.tieba.iy4;
+import com.baidu.tieba.kw4;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -48,7 +48,7 @@ import tbclient.User;
 import tbclient.VideoInfo;
 import tbclient.Voice;
 /* loaded from: classes3.dex */
-public class CardPersonDynamicThreadData extends jw4 {
+public class CardPersonDynamicThreadData extends kw4 {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId I;
     public transient /* synthetic */ FieldHolder $fh;
@@ -101,14 +101,14 @@ public class CardPersonDynamicThreadData extends jw4 {
         return invokeIII.intValue;
     }
 
-    @Override // com.baidu.tieba.jw4
-    public hy4 getNegFeedBackData() {
+    @Override // com.baidu.tieba.kw4
+    public iy4 getNegFeedBackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return null;
         }
-        return (hy4) invokeV.objValue;
+        return (iy4) invokeV.objValue;
     }
 
     /* loaded from: classes3.dex */
@@ -640,7 +640,7 @@ public class CardPersonDynamicThreadData extends jw4 {
         I = BdUniqueId.gen();
     }
 
-    @Override // com.baidu.tieba.jw4
+    @Override // com.baidu.tieba.kw4
     public ThreadData getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -650,7 +650,7 @@ public class CardPersonDynamicThreadData extends jw4 {
         return (ThreadData) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.hn
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.in
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

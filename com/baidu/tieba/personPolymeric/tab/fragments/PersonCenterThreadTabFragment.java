@@ -16,14 +16,14 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.performanceLog.PerformanceLoggerHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.f69;
-import com.baidu.tieba.g69;
-import com.baidu.tieba.h69;
-import com.baidu.tieba.hn;
-import com.baidu.tieba.i69;
-import com.baidu.tieba.im5;
+import com.baidu.tieba.d49;
+import com.baidu.tieba.in;
+import com.baidu.tieba.jm5;
+import com.baidu.tieba.n69;
+import com.baidu.tieba.o69;
+import com.baidu.tieba.p69;
 import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
-import com.baidu.tieba.v39;
+import com.baidu.tieba.q69;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,12 +34,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import tbclient.User;
 /* loaded from: classes5.dex */
-public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment implements BdListView.p, g69 {
+public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment implements BdListView.p, o69 {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean l = true;
     public static CustomMessageListener m;
     public transient /* synthetic */ FieldHolder $fh;
-    public i69 b;
+    public q69 b;
     public long c;
     public boolean d;
     public PersonPostModel e;
@@ -181,10 +181,10 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
     }
 
     public void A1() {
-        i69 i69Var;
+        q69 q69Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (i69Var = this.b) != null && this.h) {
-            i69Var.k();
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (q69Var = this.b) != null && this.h) {
+            q69Var.k();
         }
     }
 
@@ -198,8 +198,8 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.g69
-    public List<hn> getListData() {
+    @Override // com.baidu.tieba.o69
+    public List<in> getListData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
@@ -212,17 +212,17 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.g69
-    public i69 getMainView() {
+    @Override // com.baidu.tieba.o69
+    public q69 getMainView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             return this.b;
         }
-        return (i69) invokeV.objValue;
+        return (q69) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.g69
+    @Override // com.baidu.tieba.o69
     public boolean h1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -243,9 +243,9 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
             this.i = false;
             this.h = false;
             this.g = false;
-            i69 i69Var = this.b;
-            if (i69Var != null) {
-                i69Var.j();
+            q69 q69Var = this.b;
+            if (q69Var != null) {
+                q69Var.j();
             }
         }
     }
@@ -301,7 +301,7 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && isAdded() && isPrimary() && this.f != null && !this.h) {
             this.h = true;
-            v39.d().o(System.currentTimeMillis());
+            d49.d().o(System.currentTimeMillis());
             E1(true);
         }
     }
@@ -324,11 +324,11 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
         this.e.fetchPost(getPageContext(), this.k, z, String.valueOf(this.c), true, 0, false, true, this.f);
     }
 
-    public void S1(List<hn> list) {
-        i69 i69Var;
+    public void S1(List<in> list) {
+        q69 q69Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048587, this, list) == null) && (i69Var = this.b) != null) {
-            i69Var.n(list);
+        if ((interceptable == null || interceptable.invokeL(1048587, this, list) == null) && (q69Var = this.b) != null) {
+            q69Var.n(list);
         }
     }
 
@@ -337,9 +337,9 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
             super.onChangeSkinType(i);
-            i69 i69Var = this.b;
-            if (i69Var != null) {
-                i69Var.i(i);
+            q69 q69Var = this.b;
+            if (q69Var != null) {
+                q69Var.i(i);
             }
         }
     }
@@ -361,9 +361,9 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048593, this, layoutInflater, viewGroup, bundle)) == null) {
             View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d074a, viewGroup, false);
-            i69 i69Var = new i69(getPageContext(), inflate, this);
-            this.b = i69Var;
-            i69Var.m(1012);
+            q69 q69Var = new q69(getPageContext(), inflate, this);
+            this.b = q69Var;
+            q69Var.m(1012);
             this.b.l(this);
             return inflate;
         }
@@ -387,10 +387,10 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
 
     @Override // com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterTabBaseFragment
     public void E1(boolean z) {
-        i69 i69Var;
+        q69 q69Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && this.e != null && (i69Var = this.b) != null && this.h) {
-            hideNetRefreshView(i69Var.f());
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && this.e != null && (q69Var = this.b) != null && this.h) {
+            hideNetRefreshView(q69Var.f());
             if (BdNetTypeUtil.isNetWorkAvailable()) {
                 if (z && l) {
                     showLoadingView(this.b.f(), false, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070289));
@@ -434,7 +434,7 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
                 if (z) {
                     personPostModel2.threadList.clear();
                 }
-                this.e.threadList.addAll(h69.c(personPostModel.threadList));
+                this.e.threadList.addAll(p69.c(personPostModel.threadList));
             }
             this.i = L1(personPostModel, z);
             if (ListUtils.isEmpty(this.e.threadList) && !BdNetTypeUtil.isNetWorkAvailable()) {
@@ -447,8 +447,8 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
                 }
                 S1(this.e.threadList);
             }
-            v39.d().l(System.currentTimeMillis() - currentTimeMillis);
-            v39.d().p(System.currentTimeMillis() - v39.d().g());
+            d49.d().l(System.currentTimeMillis() - currentTimeMillis);
+            d49.d().p(System.currentTimeMillis() - d49.d().g());
             if (personPostModel != null && personPostModel.getResponsedMessage() != null) {
                 P1(personPostModel.getResponsedMessage());
             }
@@ -478,29 +478,29 @@ public class PersonCenterThreadTabFragment extends PersonCenterTabBaseFragment i
             super.onCreate(bundle);
             O1(bundle);
             this.e = new PersonPostModel(getPageContext(), getUniqueId(), this.j, G1(), 2);
-            new f69(getPageContext(), getUniqueId(), this, F1());
+            new n69(getPageContext(), getUniqueId(), this, F1());
         }
     }
 
     public void P1(ResponsedMessage<?> responsedMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, responsedMessage) == null) {
-            long h = v39.d().h();
-            long b2 = v39.d().b();
-            long a2 = v39.d().a();
-            long c2 = v39.d().c();
-            long f = v39.d().f();
+            long h = d49.d().h();
+            long b2 = d49.d().b();
+            long a2 = d49.d().a();
+            long c2 = d49.d().c();
+            long f = d49.d().f();
             if (PerformanceLoggerHelper.getInstance().isSmallFlow() && b2 > 0) {
                 long j = h + b2;
                 if (a2 > 0) {
                     j = System.currentTimeMillis() - a2;
                 }
-                im5 im5Var = new im5(1010, true, responsedMessage, 0L, b2, c2, false, 0L, 0L, j);
+                jm5 jm5Var = new jm5(1010, true, responsedMessage, 0L, b2, c2, false, 0L, 0L, j);
                 if (f < 3600000) {
-                    im5Var.b("profileTime", String.valueOf(f));
+                    jm5Var.b("profileTime", String.valueOf(f));
                 }
-                im5Var.c();
-                v39.d().k(0L);
+                jm5Var.c();
+                d49.d().k(0L);
             }
         }
     }

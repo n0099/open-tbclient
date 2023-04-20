@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,15 +13,15 @@ public class vq6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public void b(String str) {
+    public void b(wq6 wq6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, wq6Var) == null) {
         }
     }
 
-    public void c(String str) {
+    public void c(wq6 wq6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wq6Var) == null) {
         }
     }
 
@@ -30,15 +31,9 @@ public class vq6 {
         }
     }
 
-    public void e(String str) {
+    public void e(wq6 wq6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-        }
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, wq6Var) == null) {
         }
     }
 
@@ -64,11 +59,10 @@ public class vq6 {
                 return null;
             }
             vq6 vq6Var = new vq6();
-            vq6Var.b(jSONObject.optString("common_color"));
-            vq6Var.c(jSONObject.optString("dark_color"));
-            vq6Var.d(jSONObject.optString("font_color"));
-            vq6Var.e(jSONObject.optString("light_color"));
-            vq6Var.f(jSONObject.optString("pattern_image"));
+            vq6Var.c(wq6.a(jSONObject.optJSONObject("day")));
+            vq6Var.b(wq6.a(jSONObject.optJSONObject("dark")));
+            vq6Var.e(wq6.a(jSONObject.optJSONObject(LiveFeedPageSdk.UI_MODE_NIGHT)));
+            vq6Var.d(jSONObject.toString());
             return vq6Var;
         }
         return (vq6) invokeL.objValue;

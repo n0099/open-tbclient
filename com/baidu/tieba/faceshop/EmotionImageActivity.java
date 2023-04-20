@@ -16,10 +16,10 @@ import com.baidu.tbadk.gif.GifInfo;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gq5;
-import com.baidu.tieba.hv4;
-import com.baidu.tieba.it6;
-import com.baidu.tieba.sm;
+import com.baidu.tieba.hq5;
+import com.baidu.tieba.iv4;
+import com.baidu.tieba.jt6;
+import com.baidu.tieba.tm;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -216,7 +216,7 @@ public class EmotionImageActivity extends BaseActivity<EmotionImageActivity> {
                 layoutParams = new FrameLayout.LayoutParams(this.n, this.o, 17);
             }
             this.b.setLayoutParams(layoutParams);
-            boolean c = gq5.c();
+            boolean c = hq5.c();
             GifInfo gifInfo = new GifInfo();
             gifInfo.mSharpText = this.k;
             gifInfo.mGid = this.f;
@@ -232,9 +232,9 @@ public class EmotionImageActivity extends BaseActivity<EmotionImageActivity> {
             if (!TextUtils.isEmpty(this.h)) {
                 this.c.N(this.h, 10, false);
             } else {
-                Bitmap f = it6.f(this.f, "panel.png");
+                Bitmap f = jt6.f(this.f, "panel.png");
                 if (f != null) {
-                    new sm(f, false).h(this.c);
+                    new tm(f, false).h(this.c);
                 }
             }
             TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09098b);
@@ -252,7 +252,7 @@ public class EmotionImageActivity extends BaseActivity<EmotionImageActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            hv4 layoutMode = getLayoutMode();
+            iv4 layoutMode = getLayoutMode();
             if (i == 4) {
                 z = true;
             } else {

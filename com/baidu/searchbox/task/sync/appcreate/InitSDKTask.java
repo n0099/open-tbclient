@@ -5,7 +5,7 @@ import com.baidu.searchbox.common.security.DeviceInfoManager;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.GrowthStatsUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.xr4;
+import com.baidu.tieba.yr4;
 /* loaded from: classes2.dex */
 public class InitSDKTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
@@ -37,7 +37,7 @@ public class InitSDKTask extends LaunchTask {
 
     private void initTBTaskSDK() {
         if (TbadkCoreApplication.getInst().isMainProcess(false)) {
-            xr4.f().g(TbadkCoreApplication.getInst());
+            yr4.f().g(TbadkCoreApplication.getInst());
         }
     }
 

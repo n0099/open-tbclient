@@ -12,7 +12,7 @@ public class mk {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BitmapDrawable a;
-    public sm b;
+    public tm b;
     public volatile boolean c;
 
     public mk() {
@@ -77,8 +77,8 @@ public class mk {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            sm smVar = this.b;
-            if (smVar != null && smVar.w()) {
+            tm tmVar = this.b;
+            if (tmVar != null && tmVar.w()) {
                 return true;
             }
             return false;

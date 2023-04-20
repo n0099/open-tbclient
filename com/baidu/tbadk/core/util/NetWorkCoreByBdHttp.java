@@ -31,7 +31,7 @@ import com.baidu.tieba.mf;
 import com.baidu.tieba.of;
 import com.baidu.tieba.pi;
 import com.baidu.tieba.uf;
-import com.baidu.tieba.ur5;
+import com.baidu.tieba.vr5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -109,7 +109,7 @@ public class NetWorkCoreByBdHttp implements INetWorkCore {
         initNetWork();
         this.mContext = TbadkCoreApplication.getInst().getApp();
         this.netContext = httpNetContext;
-        uf.u(ur5.b());
+        uf.u(vr5.b());
         if (Integer.parseInt(Build.VERSION.SDK) < 8) {
             System.setProperty("http.keepAlive", "false");
         }

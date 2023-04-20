@@ -1,6 +1,6 @@
 package com.baidu.validation.js.interpreter;
 
-import com.baidu.tieba.xia;
+import com.baidu.tieba.fja;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,13 +30,13 @@ public class ActionLoadExternalWebview extends BaseInterpreter {
     }
 
     @Override // com.baidu.validation.js.BaseInterpreter
-    public String interpret(xia xiaVar) {
+    public String interpret(fja fjaVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, xiaVar)) == null) {
-            if (xiaVar != null && xiaVar.c() != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fjaVar)) == null) {
+            if (fjaVar != null && fjaVar.c() != null) {
                 try {
-                    this.mInterpreterCallback.a(this.mName, LoadExternalWebViewResult.parseFromJson(new JSONObject(xiaVar.c().get(0))));
+                    this.mInterpreterCallback.a(this.mName, LoadExternalWebViewResult.parseFromJson(new JSONObject(fjaVar.c().get(0))));
                 } catch (JSONException unused) {
                 }
             }

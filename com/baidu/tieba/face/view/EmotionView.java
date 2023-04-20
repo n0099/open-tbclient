@@ -17,7 +17,7 @@ import com.baidu.tieba.bg;
 import com.baidu.tieba.cg;
 import com.baidu.tieba.face.data.EmotionImageData;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.sm;
+import com.baidu.tieba.tm;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -56,7 +56,7 @@ public class EmotionView extends TbImageView {
     }
 
     /* loaded from: classes4.dex */
-    public class a extends bg<sm> {
+    public class a extends bg<tm> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EmotionView a;
@@ -81,14 +81,14 @@ public class EmotionView extends TbImageView {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.bg
-        public void onLoaded(sm smVar, String str, int i) {
+        public void onLoaded(tm tmVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLI(1048576, this, smVar, str, i) == null) && smVar != null) {
-                this.a.H = smVar.t();
+            if ((interceptable == null || interceptable.invokeLLI(1048576, this, tmVar, str, i) == null) && tmVar != null) {
+                this.a.H = tmVar.t();
                 View findViewWithTag = this.a.findViewWithTag(str);
                 if (findViewWithTag != null && (findViewWithTag instanceof TbImageView) && str != null) {
                     TbImageView tbImageView = (TbImageView) findViewWithTag;
-                    smVar.h(tbImageView);
+                    tmVar.h(tbImageView);
                     tbImageView.setTag(null);
                 }
             }
@@ -386,17 +386,17 @@ public class EmotionView extends TbImageView {
     }
 
     public final void q0(EmotionImageData emotionImageData) {
-        sm smVar;
+        tm tmVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, emotionImageData) == null) {
             Object k = cg.h().k(emotionImageData.getThumbUrl(), 20, new a(this), 0, 0, null, null, emotionImageData.getThumbUrl(), Boolean.FALSE, null);
-            if (k != null && (k instanceof sm)) {
-                smVar = (sm) k;
+            if (k != null && (k instanceof tm)) {
+                tmVar = (tm) k;
             } else {
-                smVar = null;
+                tmVar = null;
             }
-            if (smVar != null) {
-                smVar.h(this);
+            if (tmVar != null) {
+                tmVar.h(this);
                 setTag(null);
             }
         }

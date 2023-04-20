@@ -1,57 +1,43 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
+import android.app.Activity;
+import android.content.Context;
+import android.os.Build;
+import android.os.Environment;
+import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ActHot;
 /* loaded from: classes4.dex */
 public class el9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
 
-    public el9() {
+    public static boolean a(Activity activity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, activity)) == null) {
+            if (Build.VERSION.SDK_INT < 23) {
+                return true;
             }
+            boolean checkWriteExternalStorage = PermissionUtil.checkWriteExternalStorage(activity);
+            if (activity.getApplicationInfo().targetSdkVersion < 23 && Environment.getExternalStorageState().equals("unmounted")) {
+                return false;
+            }
+            return checkWriteExternalStorage;
         }
+        return invokeL.booleanValue;
     }
 
-    public void a(ActHot actHot) {
+    public static boolean b(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, actHot) != null) || actHot == null) {
-            return;
-        }
-        String str = actHot.bsize;
-        if (str != null) {
-            try {
-                String[] split = str.split(",");
-                this.a = gg.e(split[0], 1);
-                this.b = gg.e(split[1], 1);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
+            if (context.getPackageManager().getPackageInfo(str, 0) == null) {
+                return false;
             }
+            return true;
         }
-        if (this.a <= 0) {
-            this.a = 1;
-        }
-        if (this.b <= 0) {
-            this.b = 1;
-        }
-        String str2 = actHot.img_src;
-        String str3 = actHot.link;
-        String str4 = actHot.author_name;
-        String str5 = actHot.img_des;
-        actHot.img_type.intValue();
+        return invokeLL.booleanValue;
     }
 }

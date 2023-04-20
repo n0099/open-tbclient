@@ -1,7 +1,13 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tieba.pb.pb.sub.NewSubPbActivity;
+import com.baidu.tieba.pb.pb.sub.adapter.SubPbReplyAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,17 +15,25 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes5.dex */
 public class mz8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<qz8> a;
+    public qz8 a;
+    public SubPbReplyAdapter b;
+    public NewSubPbActivity c;
+    public BdTypeListView d;
+    public List<vm> e;
+    public View.OnClickListener f;
+    public boolean g;
+    public boolean h;
 
-    public mz8() {
+    public mz8(NewSubPbActivity newSubPbActivity, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {newSubPbActivity, bdTypeListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,67 +43,102 @@ public class mz8 {
                 return;
             }
         }
-        this.a = new ArrayList<>();
+        this.e = new ArrayList();
+        this.f = null;
+        this.g = false;
+        this.h = true;
+        this.c = newSubPbActivity;
+        this.d = bdTypeListView;
     }
 
-    public ArrayList<qz8> a() {
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            return this.g;
         }
-        return (ArrayList) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final boolean b(ExcContent excContent) {
-        InterceptResult invokeL;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, excContent)) == null) {
-            long longValue = excContent.type.longValue();
-            if (longValue == 2 || longValue == 0 || longValue == 1) {
-                return true;
-            }
-            return false;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.d.getAdapter2() != null) {
+            this.d.getAdapter2().notifyDataSetChanged();
         }
-        return invokeL.booleanValue;
     }
 
-    public void c(TbPageContext<?> tbPageContext, List<ExcContent> list) {
-        tz8 tz8Var;
+    public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, list) == null) && list != null && !list.isEmpty()) {
-            loop0: while (true) {
-                tz8Var = null;
-                for (ExcContent excContent : list) {
-                    if (excContent != null && excContent.type != null) {
-                        if (b(excContent)) {
-                            pz8 a = sz8.a(tbPageContext, excContent);
-                            if (a == null) {
-                                continue;
-                            } else if (a.a()) {
-                                if (tz8Var != null) {
-                                    this.a.add(tz8Var);
-                                }
-                                this.a.add(a);
-                            } else {
-                                if (tz8Var == null) {
-                                    tz8Var = new tz8();
-                                }
-                                tz8Var.c(a.b());
-                            }
-                        } else {
-                            if (tz8Var != null) {
-                                this.a.add(tz8Var);
-                            }
-                            this.a.add(sz8.b(excContent));
-                        }
-                    }
-                }
-                break loop0;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            qz8 qz8Var = new qz8(this.c, am9.R0);
+            this.a = qz8Var;
+            qz8Var.e(this.f);
+            this.a.setFromCDN(this.h);
+            this.e.add(this.a);
+            SubPbReplyAdapter subPbReplyAdapter = new SubPbReplyAdapter(this.c, tz8.b);
+            this.b = subPbReplyAdapter;
+            this.e.add(subPbReplyAdapter);
+            this.e.add(new rz8(this.c, sz8.a));
+            this.d.addAdapters(this.e);
+        }
+    }
+
+    public void d(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
+            this.f = onClickListener;
+        }
+    }
+
+    public void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.h = z;
+        }
+    }
+
+    public void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.g = z;
+        }
+    }
+
+    public void h(View.OnLongClickListener onLongClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, onLongClickListener) == null) {
+            this.a.d(onLongClickListener);
+        }
+    }
+
+    public void i(boolean z) {
+        qz8 qz8Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) && (qz8Var = this.a) != null) {
+            qz8Var.H(z);
+        }
+    }
+
+    public void j(TbRichTextView.a0 a0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, a0Var) == null) {
+            this.a.n(a0Var);
+        }
+    }
+
+    public void e(ThreadData threadData, List<in> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, threadData, list) == null) {
+            this.a.J(threadData);
+            if (!hi.isEmpty(this.c.L3().H0())) {
+                this.a.I(this.c.L3().H0());
             }
-            if (tz8Var != null) {
-                this.a.add(tz8Var);
+            NewSubPbActivity newSubPbActivity = this.c;
+            if (newSubPbActivity != null && newSubPbActivity.L3() != null) {
+                this.a.G(this.c.L3().e1());
             }
+            this.d.setData(list);
+            this.d.getAdapter2().notifyDataSetChanged();
         }
     }
 }

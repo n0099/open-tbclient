@@ -15,16 +15,16 @@ import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.core.util.TbMd5;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.a9;
-import com.baidu.tieba.e95;
+import com.baidu.tieba.f95;
 import com.baidu.tieba.ii;
 import com.baidu.tieba.ik;
-import com.baidu.tieba.k75;
 import com.baidu.tieba.ki;
-import com.baidu.tieba.ng8;
-import com.baidu.tieba.o95;
-import com.baidu.tieba.p45;
+import com.baidu.tieba.l75;
+import com.baidu.tieba.p95;
+import com.baidu.tieba.q45;
 import com.baidu.tieba.setting.more.AboutActivity;
-import com.baidu.tieba.w95;
+import com.baidu.tieba.vg8;
+import com.baidu.tieba.x95;
 import com.baidu.tieba.xh;
 import com.baidu.tieba.z8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -58,7 +58,7 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
     }
 
     /* loaded from: classes6.dex */
-    public class b extends BdAsyncTask<String, Integer, w95> {
+    public class b extends BdAsyncTask<String, Integer, x95> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
@@ -90,12 +90,12 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public w95 doInBackground(String... strArr) {
+        public x95 doInBackground(String... strArr) {
             InterceptResult invokeL;
             String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-                w95 w95Var = null;
+                x95 x95Var = null;
                 try {
                     NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + "c/s/sync");
                     this.a = netWork;
@@ -105,7 +105,7 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
                     stringBuffer.append(",");
                     stringBuffer.append(String.valueOf(ii.j(TbadkCoreApplication.getInst().getApp())));
                     this.a.addPostData("_phone_screen", stringBuffer.toString());
-                    if (o95.d().f() > 0) {
+                    if (p95.d().f() > 0) {
                         this.a.addPostData("_msg_status", "0");
                     } else {
                         this.a.addPostData("_msg_status", "1");
@@ -135,31 +135,31 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
                     netWork4.addPostData("support_abi", str2);
                     String postNetData = this.a.postNetData();
                     if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                        w95 w95Var2 = new w95();
+                        x95 x95Var2 = new x95();
                         try {
-                            w95Var2.B(postNetData);
-                            if (TbadkCoreApplication.getClientId() == null && w95Var2.i().a() != null && w95Var2.i().a().length() > 0) {
-                                TbadkCoreApplication.saveClientId(this.b.b, w95Var2.i().a());
-                                TbadkCoreApplication.setClientId(w95Var2.i().a());
+                            x95Var2.B(postNetData);
+                            if (TbadkCoreApplication.getClientId() == null && x95Var2.i().a() != null && x95Var2.i().a().length() > 0) {
+                                TbadkCoreApplication.saveClientId(this.b.b, x95Var2.i().a());
+                                TbadkCoreApplication.setClientId(x95Var2.i().a());
                             }
-                            e95 v = w95Var2.v();
+                            f95 v = x95Var2.v();
                             if (v != null) {
-                                p45.m().w("localvideo_open", v.y());
+                                q45.m().w("localvideo_open", v.y());
                             }
-                            k75 e = w95Var2.e();
+                            l75 e = x95Var2.e();
                             if (e != null && !TextUtils.isEmpty(e.c())) {
-                                p45.m().B("sync_ad_privacy_url", e.c());
+                                q45.m().B("sync_ad_privacy_url", e.c());
                             }
-                            ng8 a = ik.a();
+                            vg8 a = ik.a();
                             a.c(Config.DEVICE_PART, "sync success from about page: " + postNetData);
-                            return w95Var2;
+                            return x95Var2;
                         } catch (Exception e2) {
                             e = e2;
-                            w95Var = w95Var2;
+                            x95Var = x95Var2;
                             BdLog.e(e.getMessage());
-                            ng8 a2 = ik.a();
+                            vg8 a2 = ik.a();
                             a2.b(Config.DEVICE_PART, "sync exception from about page: " + e.getMessage());
-                            return w95Var;
+                            return x95Var;
                         }
                     }
                     ik.a().b(Config.DEVICE_PART, "sync fail from about page");
@@ -168,22 +168,22 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
                     e = e3;
                 }
             } else {
-                return (w95) invokeL.objValue;
+                return (x95) invokeL.objValue;
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(w95 w95Var) {
+        public void onPostExecute(x95 x95Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, w95Var) == null) {
-                super.onPostExecute(w95Var);
-                if (w95Var != null && w95Var.e() != null) {
-                    TbadkCoreApplication.getInst().setAdAdSense(w95Var.e());
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x95Var) == null) {
+                super.onPostExecute(x95Var);
+                if (x95Var != null && x95Var.e() != null) {
+                    TbadkCoreApplication.getInst().setAdAdSense(x95Var.e());
                 }
                 this.b.a = null;
-                this.b.mLoadDataCallBack.c(w95Var);
+                this.b.mLoadDataCallBack.c(x95Var);
             }
         }
 

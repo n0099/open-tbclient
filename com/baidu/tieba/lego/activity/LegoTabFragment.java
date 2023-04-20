@@ -12,17 +12,17 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.df8;
-import com.baidu.tieba.ef8;
-import com.baidu.tieba.jd8;
-import com.baidu.tieba.jf8;
-import com.baidu.tieba.kd8;
-import com.baidu.tieba.kf8;
 import com.baidu.tieba.lego.indicator.ScrollFragmentTabHost;
 import com.baidu.tieba.lf8;
-import com.baidu.tieba.og5;
+import com.baidu.tieba.mf8;
 import com.baidu.tieba.pg5;
-import com.baidu.tieba.qd8;
+import com.baidu.tieba.qg5;
+import com.baidu.tieba.rd8;
+import com.baidu.tieba.rf8;
+import com.baidu.tieba.sd8;
+import com.baidu.tieba.sf8;
+import com.baidu.tieba.tf8;
+import com.baidu.tieba.yd8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,22 +37,22 @@ public class LegoTabFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ScrollFragmentTabHost a;
-    public kf8 b;
-    public pg5 c;
-    public og5 d;
+    public sf8 b;
+    public qg5 c;
+    public pg5 d;
     public long e;
     public String f;
     public String g;
     public String h;
     public String i;
-    public List<df8> j;
-    public qd8 k;
-    public kd8 l;
-    public jd8 m;
+    public List<lf8> j;
+    public yd8 k;
+    public sd8 l;
+    public rd8 m;
     public CustomMessageListener n;
 
     /* loaded from: classes5.dex */
-    public class a implements kd8 {
+    public class a implements sd8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LegoTabFragment a;
@@ -75,7 +75,7 @@ public class LegoTabFragment extends BaseFragment {
             this.a = legoTabFragment;
         }
 
-        @Override // com.baidu.tieba.kd8
+        @Override // com.baidu.tieba.sd8
         public void a(int i, long j, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), str, str2}) == null) {
@@ -83,7 +83,7 @@ public class LegoTabFragment extends BaseFragment {
             }
         }
 
-        @Override // com.baidu.tieba.kd8
+        @Override // com.baidu.tieba.sd8
         public void b(long j, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j, str) == null) {
@@ -93,7 +93,7 @@ public class LegoTabFragment extends BaseFragment {
     }
 
     /* loaded from: classes5.dex */
-    public class b implements jd8 {
+    public class b implements rd8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LegoTabFragment a;
@@ -116,12 +116,12 @@ public class LegoTabFragment extends BaseFragment {
             this.a = legoTabFragment;
         }
 
-        @Override // com.baidu.tieba.jd8
-        public void a(List<df8> list) {
+        @Override // com.baidu.tieba.rd8
+        public void a(List<lf8> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
                 LegoTabFragment legoTabFragment = this.a;
-                List<df8> list2 = legoTabFragment.j;
+                List<lf8> list2 = legoTabFragment.j;
                 if (list2 == null) {
                     legoTabFragment.j = new ArrayList();
                 } else {
@@ -134,7 +134,7 @@ public class LegoTabFragment extends BaseFragment {
             }
         }
 
-        @Override // com.baidu.tieba.jd8
+        @Override // com.baidu.tieba.rd8
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -143,7 +143,7 @@ public class LegoTabFragment extends BaseFragment {
             }
         }
 
-        @Override // com.baidu.tieba.jd8
+        @Override // com.baidu.tieba.rd8
         public void c(long j, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j, str) == null) {
@@ -151,8 +151,8 @@ public class LegoTabFragment extends BaseFragment {
             }
         }
 
-        @Override // com.baidu.tieba.jd8
-        public void d(String str, String str2, String str3, List<ef8> list) {
+        @Override // com.baidu.tieba.rd8
+        public void d(String str, String str2, String str3, List<mf8> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLLL(1048579, this, str, str2, str3, list) == null) {
                 this.a.g = str;
@@ -163,7 +163,7 @@ public class LegoTabFragment extends BaseFragment {
             }
         }
 
-        @Override // com.baidu.tieba.jd8
+        @Override // com.baidu.tieba.rd8
         public void e(long j, String str, int i, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), str, Integer.valueOf(i), str2}) == null) {
@@ -211,7 +211,7 @@ public class LegoTabFragment extends BaseFragment {
     }
 
     /* loaded from: classes5.dex */
-    public class d implements lf8 {
+    public class d implements tf8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LegoTabFragment a;
@@ -234,7 +234,7 @@ public class LegoTabFragment extends BaseFragment {
             this.a = legoTabFragment;
         }
 
-        @Override // com.baidu.tieba.lf8
+        @Override // com.baidu.tieba.tf8
         public void a(boolean z, Message message, boolean z2, long j, String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), message, Boolean.valueOf(z2), Long.valueOf(j), str, Integer.valueOf(i)}) == null) {
@@ -256,7 +256,7 @@ public class LegoTabFragment extends BaseFragment {
             }
         }
 
-        @Override // com.baidu.tieba.lf8
+        @Override // com.baidu.tieba.tf8
         public void b(long j, String str, String str2, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), str, str2, Integer.valueOf(i)}) == null) {
@@ -274,7 +274,7 @@ public class LegoTabFragment extends BaseFragment {
             }
         }
 
-        @Override // com.baidu.tieba.lf8
+        @Override // com.baidu.tieba.tf8
         public void c(long j, String str, Message message, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), str, message, Boolean.valueOf(z)}) == null) {
@@ -365,10 +365,10 @@ public class LegoTabFragment extends BaseFragment {
     }
 
     public final void R1(View view2) {
-        og5 og5Var;
+        pg5 pg5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (og5Var = this.d) != null) {
-            og5Var.dettachView(view2);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (pg5Var = this.d) != null) {
+            pg5Var.dettachView(view2);
             this.d = null;
         }
     }
@@ -380,10 +380,10 @@ public class LegoTabFragment extends BaseFragment {
         }
     }
 
-    public void X1(qd8 qd8Var) {
+    public void X1(yd8 yd8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, qd8Var) == null) {
-            this.k = qd8Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, yd8Var) == null) {
+            this.k = yd8Var;
         }
     }
 
@@ -416,10 +416,10 @@ public class LegoTabFragment extends BaseFragment {
     }
 
     public final void S1() {
-        pg5 pg5Var;
+        qg5 qg5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (pg5Var = this.c) != null) {
-            pg5Var.dettachView(getView());
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (qg5Var = this.c) != null) {
+            qg5Var.dettachView(getView());
             this.c = null;
         }
     }
@@ -427,21 +427,21 @@ public class LegoTabFragment extends BaseFragment {
     public final void T1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            kf8 c2 = jf8.d().c(getPageContext(), getUniqueId());
+            sf8 c2 = rf8.d().c(getPageContext(), getUniqueId());
             this.b = c2;
             c2.b(new d(this));
         }
     }
 
     public final void a2() {
-        qd8 qd8Var;
+        yd8 yd8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (qd8Var = this.k) != null) {
-            qd8Var.g(this.j);
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (yd8Var = this.k) != null) {
+            yd8Var.g(this.j);
         }
     }
 
-    public final void U1(List<ef8> list) {
+    public final void U1(List<mf8> list) {
         int count;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, list) == null) && (count = ListUtils.getCount(list)) > 0 && this.a != null) {
@@ -481,9 +481,9 @@ public class LegoTabFragment extends BaseFragment {
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{view2, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
             if (this.d == null) {
                 if (i < 0) {
-                    this.d = new og5(getActivity());
+                    this.d = new pg5(getActivity());
                 } else {
-                    this.d = new og5(getActivity(), i);
+                    this.d = new pg5(getActivity(), i);
                 }
                 this.d.onChangeSkinType();
             }
@@ -496,7 +496,7 @@ public class LegoTabFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048591, this, view2, str, z) == null) {
             if (this.c == null) {
-                this.c = new pg5(getPageContext().getPageActivity(), new e(this));
+                this.c = new qg5(getPageContext().getPageActivity(), new e(this));
             }
             this.c.k(getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070254));
             this.c.m(str);

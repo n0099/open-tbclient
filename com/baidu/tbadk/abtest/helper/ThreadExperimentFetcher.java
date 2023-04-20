@@ -2,7 +2,7 @@ package com.baidu.tbadk.abtest.helper;
 
 import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.tbadk.switchs.ThreadOptSwitch;
-import com.baidu.tieba.qj1;
+import com.baidu.tieba.rj1;
 import com.baidu.tieba.vh;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class ThreadExperimentFetcher extends qj1<vh> {
+public class ThreadExperimentFetcher extends rj1<vh> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -71,7 +71,7 @@ public class ThreadExperimentFetcher extends qj1<vh> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.qj1
+    @Override // com.baidu.tieba.rj1
     public vh createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -10,10 +10,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dg1;
-import com.baidu.tieba.fg1;
-import com.baidu.tieba.hh1;
-import com.baidu.tieba.th1;
+import com.baidu.tieba.eg1;
+import com.baidu.tieba.gg1;
+import com.baidu.tieba.ih1;
+import com.baidu.tieba.uh1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -36,7 +36,7 @@ public class WechatSignAutoRenewActivity extends Activity implements View.OnClic
     public int j;
 
     /* loaded from: classes2.dex */
-    public class a implements hh1 {
+    public class a implements ih1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ boolean a;
@@ -97,7 +97,7 @@ public class WechatSignAutoRenewActivity extends Activity implements View.OnClic
             this.a = z;
         }
 
-        @Override // com.baidu.tieba.hh1
+        @Override // com.baidu.tieba.ih1
         public void onResult(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
@@ -134,7 +134,7 @@ public class WechatSignAutoRenewActivity extends Activity implements View.OnClic
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
-                ((ActivityManager) getSystemService("activity")).moveTaskToFront(dg1.a().b(), 1);
+                ((ActivityManager) getSystemService("activity")).moveTaskToFront(eg1.a().b(), 1);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -155,7 +155,7 @@ public class WechatSignAutoRenewActivity extends Activity implements View.OnClic
             this.f.setEnable(false);
             this.f.setPressed(true);
             this.f.b();
-            fg1.b().a(new a(this, z));
+            gg1.b().a(new a(this, z));
         }
     }
 
@@ -163,8 +163,8 @@ public class WechatSignAutoRenewActivity extends Activity implements View.OnClic
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             d();
-            fg1.b c = fg1.b().c();
-            fg1.b().e(null);
+            gg1.b c = gg1.b().c();
+            gg1.b().e(null);
             if (c != null) {
                 int i = this.j;
                 if (i == 0) {
@@ -216,7 +216,7 @@ public class WechatSignAutoRenewActivity extends Activity implements View.OnClic
                 this.d.setVisibility(8);
                 this.e.setVisibility(0);
                 this.h.setVisibility(8);
-                th1.f(this, "网络错误，请重试");
+                uh1.f(this, "网络错误，请重试");
             } else {
                 this.a.setImageResource(R.drawable.obfuscated_res_0x7f081331);
                 this.b.setText("自动续费开通失败，请重试");
@@ -238,8 +238,8 @@ public class WechatSignAutoRenewActivity extends Activity implements View.OnClic
             PolyActivity.g = null;
             if (getIntent().getIntExtra("code", 0) == -2) {
                 d();
-                fg1.b c = fg1.b().c();
-                fg1.b().e(null);
+                gg1.b c = gg1.b().c();
+                gg1.b().e(null);
                 if (c != null) {
                     c.onResult(2, "支付取消");
                 }

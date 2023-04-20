@@ -1,63 +1,81 @@
 package com.baidu.tieba;
 
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.cca;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.ubs.analytics.SampleResult;
+import java.util.Map;
 /* loaded from: classes3.dex */
-public final class aca {
+public class aca {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public SQLiteDatabase a;
 
-    public aca() {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947611754, "Lcom/baidu/tieba/aca;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.a = zba.a().c();
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947611754, "Lcom/baidu/tieba/aca;");
+        }
     }
 
-    public final List<com.baidu.ubs.analytics.a.i> a() {
-        InterceptResult invokeV;
+    public static SampleResult a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Cursor rawQuery = this.a.rawQuery("SELECT * FROM tb_ab_netlog order by _id ", null);
-            ArrayList arrayList = new ArrayList();
-            while (rawQuery.moveToNext()) {
-                com.baidu.ubs.analytics.a.i iVar = new com.baidu.ubs.analytics.a.i();
-                iVar.setUrl(rawQuery.getString(rawQuery.getColumnIndex("_url")));
-                iVar.setType(rawQuery.getString(rawQuery.getColumnIndex("_type")));
-                iVar.u(rawQuery.getString(rawQuery.getColumnIndex("_timeStamp")));
-                iVar.setParameters(rawQuery.getString(rawQuery.getColumnIndex("_parameters")));
-                iVar.x(rawQuery.getString(rawQuery.getColumnIndex("_sessionId")));
-                iVar.setId(rawQuery.getInt(rawQuery.getColumnIndex("_id")));
-                arrayList.add(iVar);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (a) {
+                return cca.a.a.f(str);
             }
-            rawQuery.close();
-            return arrayList;
+            return SampleResult.OTHERE;
         }
-        return (List) invokeV.objValue;
+        return (SampleResult) invokeL.objValue;
     }
 
-    public final void b(int i) {
+    public static void b(bca bcaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.a.execSQL("delete from tb_ab_netlog where _id <= " + i);
+        if ((interceptable != null && interceptable.invokeL(65538, null, bcaVar) != null) || bcaVar == null) {
+            return;
         }
+        wca.b(bcaVar);
+    }
+
+    public static void d(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) && a) {
+            uca.a().b(str);
+        }
+    }
+
+    public static void e(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65541, null, str) == null) && a) {
+            uca.a().c(str);
+        }
+    }
+
+    public static void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65542, null, z) == null) {
+            a = z;
+        }
+    }
+
+    public static void c(String str, String str2, String str3, Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLLL(65539, null, str, str2, str3, map) != null) || !a || str == null) {
+            return;
+        }
+        zca.a(str, str2, str3, map);
     }
 }

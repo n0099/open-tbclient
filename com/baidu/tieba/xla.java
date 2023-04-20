@@ -1,375 +1,252 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.content.SharedPreferences;
+import android.os.SystemClock;
+import android.preference.PreferenceManager;
+import android.text.TextUtils;
+import android.util.Base64;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.dma;
+import com.baidu.tieba.xra;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.NumberUtils;
-import java.io.ObjectInput;
-import java.io.ObjectOutput;
+import com.fun.ad.sdk.FunAdConfig;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.internal.api.Module;
+import com.fun.ad.sdk.internal.api.PidLoaderCreator;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.nio.charset.Charset;
+import java.security.MessageDigest;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
-import org.json.JSONArray;
+import java.util.Random;
+import java.util.Set;
+import java.util.UUID;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class xla extends era {
+public final class xla {
     public static /* synthetic */ Interceptable $ic;
+    public static dma a;
+    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final List<b> b;
-    public final int c;
 
     /* loaded from: classes7.dex */
-    public static final class a extends era implements ula {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final long a;
-        public final int b;
-        public final Ssp.Pid c;
-        public final b d;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(int i, ObjectInput objectInput, Map<Long, Ssp.Pid> map, b bVar) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), objectInput, map, bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = bVar;
-            long readLong = objectInput.readLong();
-            this.a = readLong;
-            this.b = objectInput.readInt();
-            this.c = map.get(Long.valueOf(readLong));
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(JSONObject jSONObject, Map<Long, Ssp.Pid> map, b bVar) {
-            super(0);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jSONObject, map, bVar};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.d = bVar;
-            long adjustLong = NumberUtils.adjustLong(jSONObject.getLong("id"), 0L);
-            this.a = adjustLong;
-            this.b = NumberUtils.adjustInt(jSONObject.getInt("weight"), 0);
-            this.c = map.get(Long.valueOf(adjustLong));
-        }
-
-        @Override // com.baidu.tieba.ula
-        public boolean a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.ula
-        public int b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.intValue;
-        }
-
-        public boolean equals(Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-                if (this == obj) {
-                    return true;
-                }
-                if (obj == null || a.class != obj.getClass()) {
-                    return false;
-                }
-                a aVar = (a) obj;
-                return this.a == aVar.a && this.b == aVar.b && Objects.equals(this.c, aVar.c);
-            }
-            return invokeL.booleanValue;
-        }
-
-        public int hashCode() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Objects.hash(Long.valueOf(this.a), Integer.valueOf(this.b), this.c) : invokeV.intValue;
-        }
-
-        @Override // com.baidu.tieba.era
-        public void srzableInternal(ObjectOutput objectOutput) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, objectOutput) == null) {
-                objectOutput.writeLong(this.a);
-                objectOutput.writeInt(this.b);
-            }
-        }
+    public interface a {
+        void a(vla vlaVar);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xla(int i, ObjectInput objectInput, Map<Long, Ssp.Pid> map) {
-        super(i);
+    public static <T extends cma> T a(Random random, List<T> list, ema<T> emaVar) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), objectInput, map};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, random, list, emaVar)) == null) {
+            if (random == null || list == null || list.isEmpty()) {
+                return null;
             }
+            LogPrinter.v("Start select for class:%s with size:%d", list.iterator().next().getClass().getSimpleName(), Integer.valueOf(list.size()));
+            ArrayList arrayList = new ArrayList();
+            int size = list.size();
+            T t = null;
+            for (int i = 0; i < size; i++) {
+                T t2 = list.get(i);
+                if (emaVar != null) {
+                    if (!emaVar.a(t2)) {
+                        continue;
+                    }
+                    if (t == null && t2.b() != t.b()) {
+                        break;
+                    }
+                    arrayList.add(t2);
+                    t = t2;
+                } else {
+                    if (!t2.a()) {
+                        continue;
+                    }
+                    if (t == null) {
+                    }
+                    arrayList.add(t2);
+                    t = t2;
+                }
+            }
+            if (arrayList.isEmpty()) {
+                LogPrinter.v("No one is selected", new Object[0]);
+                return null;
+            }
+            return (T) arrayList.get(random.nextInt(arrayList.size()));
         }
-        this.a = objectInput.readUTF();
-        int readInt = objectInput.readInt();
-        ArrayList arrayList = new ArrayList();
-        for (int i4 = 0; i4 < readInt; i4++) {
-            arrayList.add(new b(objectInput.readInt(), objectInput, map));
-        }
-        this.b = Collections.unmodifiableList(arrayList);
-        if (i >= 1) {
-            this.c = objectInput.readInt();
-        } else {
-            this.c = 0;
-        }
+        return (T) invokeLLL.objValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xla(JSONObject jSONObject, Map<Long, Ssp.Pid> map) {
-        super(1);
+    public static boolean g(String str, JSONObject jSONObject) {
+        InterceptResult invokeLL;
+        dma dmaVar;
+        boolean z;
+        boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject, map};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = jSONObject.getString("sid");
-        JSONArray jSONArray = jSONObject.getJSONArray("pGroups");
-        ArrayList arrayList = new ArrayList();
-        for (int i3 = 0; i3 < jSONArray.length(); i3++) {
-            arrayList.add(new b(jSONArray.getJSONObject(i3), map));
-        }
-        this.b = Collections.unmodifiableList(arrayList);
-        this.c = jSONObject.optInt("ver", 0);
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj == null || xla.class != obj.getClass()) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, jSONObject)) == null) {
+            if (str == null || jSONObject == null || (dmaVar = a) == null) {
                 return false;
             }
-            xla xlaVar = (xla) obj;
-            return Objects.equals(this.a, xlaVar.a) && Objects.equals(this.b, xlaVar.b) && this.c == xlaVar.c;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Objects.hash(this.a, this.b, Integer.valueOf(this.c)) : invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.era
-    public void srzableInternal(ObjectOutput objectOutput) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, objectOutput) == null) {
-            objectOutput.writeUTF(this.a);
-            objectOutput.writeInt(this.b.size());
-            for (b bVar : this.b) {
-                bVar.srzable(objectOutput);
-            }
-            objectOutput.writeInt(this.c);
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class b extends era {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final long a;
-        public final List<a> b;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(int i, ObjectInput objectInput, Map<Long, Ssp.Pid> map) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), objectInput, map};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = objectInput.readLong();
-            int readInt = objectInput.readInt();
-            HashSet hashSet = new HashSet();
-            for (int i4 = 0; i4 < readInt; i4++) {
-                hashSet.add(new a(objectInput.readInt(), objectInput, map, this));
-            }
-            ArrayList arrayList = new ArrayList(hashSet);
-            a(arrayList);
-            this.b = Collections.unmodifiableList(arrayList);
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(JSONObject jSONObject, Map<Long, Ssp.Pid> map) {
-            super(0);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jSONObject, map};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.a = NumberUtils.adjustLong(jSONObject.optLong("tmout", 5000L), 100L, 30000L);
-            HashSet hashSet = new HashSet();
-            JSONArray jSONArray = jSONObject.getJSONArray(TiebaStatic.Params.PID_MERGE);
-            for (int i3 = 0; i3 < jSONArray.length(); i3++) {
-                hashSet.add(new a(jSONArray.getJSONObject(i3), map, this));
-            }
-            ArrayList arrayList = new ArrayList(hashSet);
-            a(arrayList);
-            this.b = Collections.unmodifiableList(arrayList);
-        }
-
-        public final <T extends a> List<T> a(List<T> list) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
-                Collections.sort(list, new a(this));
-                return list;
-            }
-            return (List) invokeL.objValue;
-        }
-
-        public boolean equals(Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-                if (this == obj) {
-                    return true;
-                }
-                if (obj == null || b.class != obj.getClass()) {
-                    return false;
-                }
-                b bVar = (b) obj;
-                return this.a == bVar.a && Objects.equals(this.b, bVar.b);
-            }
-            return invokeL.booleanValue;
-        }
-
-        public int hashCode() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Objects.hash(Long.valueOf(this.a), this.b) : invokeV.intValue;
-        }
-
-        @Override // com.baidu.tieba.era
-        public void srzableInternal(ObjectOutput objectOutput) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, objectOutput) == null) {
-                objectOutput.writeLong(this.a);
-                objectOutput.writeInt(this.b.size());
-                for (a aVar : this.b) {
-                    aVar.srzable(objectOutput);
-                }
-            }
-        }
-
-        /* JADX INFO: Add missing generic type declarations: [T] */
-        /* loaded from: classes7.dex */
-        public class a<T> implements Comparator<T> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
+            for (dma.a aVar : dmaVar.a) {
+                if (str.equals(aVar.a)) {
+                    for (Map.Entry<String, Set<Object>> entry : aVar.b.entrySet()) {
+                        Object opt = jSONObject.opt(entry.getKey());
+                        if (opt != null) {
+                            Iterator<Object> it = entry.getValue().iterator();
+                            while (true) {
+                                if (it.hasNext()) {
+                                    if (opt.equals(it.next())) {
+                                        z2 = true;
+                                        continue;
+                                        break;
+                                    }
+                                } else {
+                                    z2 = false;
+                                    continue;
+                                    break;
+                                }
+                            }
+                            if (!z2) {
+                            }
+                        }
+                        z = false;
+                    }
+                    z = true;
+                    if (z) {
+                        return true;
                     }
                 }
             }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
 
-            @Override // java.util.Comparator
-            public int compare(Object obj, Object obj2) {
-                InterceptResult invokeLL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, obj2)) == null) {
-                    return -Integer.compare(((a) obj).b, ((a) obj2).b);
+    public static <T> T b(String str, kra<T> kraVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, kraVar)) == null) {
+            if (str != null && kraVar != null) {
+                try {
+                    byte[] decode = Base64.decode(str, 0);
+                    if (decode == null) {
+                        return null;
+                    }
+                    try {
+                        return kraVar.a(new ObjectInputStream(new ByteArrayInputStream(decode)));
+                    } catch (IOException e) {
+                        LogPrinter.e(e);
+                        return null;
+                    }
+                } catch (Exception e2) {
+                    LogPrinter.e(e2);
                 }
-                return invokeLL.intValue;
+            }
+            return null;
+        }
+        return (T) invokeLL.objValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (TextUtils.isEmpty(b)) {
+                SharedPreferences defaultSharedPreferences = PreferenceManager.getDefaultSharedPreferences(FunAdSdk.getAppContext());
+                String string = defaultSharedPreferences.getString("u_tok", "");
+                if (TextUtils.isEmpty(string)) {
+                    string = UUID.randomUUID().toString();
+                    try {
+                        MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                        messageDigest.update(string.getBytes(Charset.forName("UTF-8")));
+                        string = Base64.encodeToString(messageDigest.digest(), 2);
+                    } catch (Throwable unused) {
+                        if (string.length() >= 24) {
+                            string = string.substring(0, 24);
+                        }
+                    }
+                    defaultSharedPreferences.edit().putString("u_tok", string).apply();
+                }
+                b = string;
+            }
+            return b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:12:0x0020 A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:13:0x0021  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static String d(mra mraVar) {
+        InterceptResult invokeL;
+        byte[] bArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, mraVar)) == null) {
+            if (mraVar != null) {
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                try {
+                    ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
+                    mraVar.srzable(objectOutputStream);
+                    objectOutputStream.flush();
+                    bArr = byteArrayOutputStream.toByteArray();
+                } catch (IOException unused) {
+                }
+                if (bArr != null) {
+                    return null;
+                }
+                return Base64.encodeToString(bArr, 0);
+            }
+            bArr = null;
+            if (bArr != null) {
+            }
+        } else {
+            return (String) invokeL.objValue;
+        }
+    }
+
+    public static void e(long j, a aVar, FunAdConfig funAdConfig, Map<String, PidLoaderCreator> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), aVar, funAdConfig, map}) == null) {
+            xra.a aVar2 = xra.a;
+            aVar2.a = System.currentTimeMillis() - 0;
+            aVar2.b = SystemClock.currentThreadTimeMillis() - 0;
+            LogPrinter.d("All ssp initialized with %dms consumed.", Long.valueOf(System.currentTimeMillis() - j));
+            funAdConfig.moduleInitManager.tryCallbackComplete();
+            aVar.a(new vla(map));
+        }
+    }
+
+    public static void f(String str, String str2, FunAdConfig funAdConfig, Map<String, PidLoaderCreator> map, String str3) {
+        Module module;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(65541, null, str, str2, funAdConfig, map, str3) == null) {
+            try {
+                module = (Module) Class.forName(str2).getConstructor(new Class[0]).newInstance(new Object[0]);
+                LogPrinter.d("Module for %s created", str2);
+            } catch (Exception e) {
+                LogPrinter.e(e, "Module for %s not found", str2);
+                module = null;
+            }
+            if (module == null) {
+                return;
+            }
+            try {
+                PidLoaderCreator init = module.init(funAdConfig, str3);
+                if (init == null) {
+                    LogPrinter.e("Module for %s init failed", str);
+                } else {
+                    map.put(str, init);
+                }
+            } catch (Exception unused) {
             }
         }
     }

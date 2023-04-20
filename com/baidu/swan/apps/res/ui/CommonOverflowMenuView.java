@@ -13,29 +13,29 @@ import android.widget.TextView;
 import androidx.annotation.ColorRes;
 import androidx.appcompat.content.res.AppCompatResources;
 import com.baidu.tieba.R;
-import com.baidu.tieba.br2;
-import com.baidu.tieba.e73;
+import com.baidu.tieba.cr2;
 import com.baidu.tieba.f73;
-import com.baidu.tieba.id3;
+import com.baidu.tieba.g73;
+import com.baidu.tieba.jd3;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes3.dex */
-public class CommonOverflowMenuView extends LinearLayout implements e73.g {
+public class CommonOverflowMenuView extends LinearLayout implements f73.g {
     public int a;
     public int b;
     public ColorStateList c;
     public List<ImageView> d;
     public List<TextView> e;
-    public HashMap<f73, ImageView> f;
+    public HashMap<g73, ImageView> f;
     public View g;
     public LinearLayout h;
     public SwanAppScrollView i;
     public Object j;
 
     /* loaded from: classes3.dex */
-    public class a implements id3 {
+    public class a implements jd3 {
         public a() {
         }
     }
@@ -103,7 +103,7 @@ public class CommonOverflowMenuView extends LinearLayout implements e73.g {
         for (TextView textView : this.e) {
             textView.setTextColor(this.c);
         }
-        for (Map.Entry<f73, ImageView> entry : this.f.entrySet()) {
+        for (Map.Entry<g73, ImageView> entry : this.f.entrySet()) {
             entry.getValue().setImageDrawable(entry.getKey().b());
         }
     }
@@ -123,13 +123,13 @@ public class CommonOverflowMenuView extends LinearLayout implements e73.g {
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        br2.M().f(this.j, new a());
+        cr2.M().f(this.j, new a());
         b();
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        br2.M().g(this.j);
+        cr2.M().g(this.j);
     }
 }

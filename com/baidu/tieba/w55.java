@@ -1,127 +1,276 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.view.itemcard.ItemCardHelper;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.JvmName;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
-@JvmName(name = "ItemTabLogUtil")
 /* loaded from: classes6.dex */
 public final class w55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final int a;
+    public String b;
+    public String c;
+    public int d;
+    public int e;
+    public int f;
+    public int g;
+    public String h;
+    public String i;
+    public int j;
 
-    public static final int a(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65536, null, i, i2)) == null) {
-            if (i != 1) {
-                return i != 2 ? -1 : 2;
-            } else if (i2 != 1) {
-                return i2 != 2 ? -1 : 3;
-            } else {
-                return 4;
-            }
-        }
-        return invokeII.intValue;
-    }
-
-    public static final int b(String name) {
+    public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, name)) == null) {
-            Intrinsics.checkNotNullParameter(name, "name");
-            if (Intrinsics.areEqual(ItemCardHelper.a, name)) {
-                return 1;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
-            if (Intrinsics.areEqual(ItemCardHelper.b, name)) {
-                return 2;
-            }
-            return 9;
+            return (obj instanceof w55) && this.a == ((w55) obj).a;
         }
-        return invokeL.intValue;
+        return invokeL.booleanValue;
     }
 
-    public static final void c(v55 itemLogData) {
+    public int hashCode() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, itemLogData) == null) {
-            Intrinsics.checkNotNullParameter(itemLogData, "itemLogData");
-            StatisticItem statisticItem = new StatisticItem();
-            boolean z = false;
-            switch (itemLogData.getType()) {
-                case 1:
-                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_TAB_ALBUM_CLICK).param("obj_name", itemLogData.b()).param("obj_locate", itemLogData.c()).param("obj_type", itemLogData.g()).param("fid", itemLogData.a()).param("uid", itemLogData.i());
-                    break;
-                case 2:
-                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_TAB_TAG_CLICK).param("obj_name", itemLogData.b()).param("obj_locate", itemLogData.c()).param("fid", itemLogData.a());
-                    break;
-                case 3:
-                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_TAB_RECOMMEND_CLICK).param("obj_name", itemLogData.b()).param("obj_locate", itemLogData.c()).param("obj_type", itemLogData.g()).param("fid", itemLogData.a());
-                    break;
-                case 4:
-                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_TAB_COMMENT_CLICK).param("obj_name", itemLogData.b()).param("obj_locate", itemLogData.c()).param("obj_type", itemLogData.g()).param("fid", itemLogData.a());
-                    break;
-                case 5:
-                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_TAB_SHOW).param("obj_name", itemLogData.b()).param("obj_source", itemLogData.f()).param("obj_locate", itemLogData.a());
-                    break;
-                case 6:
-                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_TAB_RANKING).param("obj_name", itemLogData.b()).param("obj_type", itemLogData.g()).param("fid", itemLogData.a());
-                    break;
-                case 7:
-                    statisticItem.key(CommonStatisticKey.KEY_FRS_ORDER_DOWNLOAD_EXPORT).param("obj_name", itemLogData.b()).param("obj_type", itemLogData.g()).param("fid", itemLogData.a()).param("uid", itemLogData.i());
-                    break;
-                case 8:
-                    statisticItem.key(CommonStatisticKey.KEY_FRS_ORDER_DOWNLOAD_CLICK).param("obj_name", itemLogData.b()).param("obj_type", itemLogData.g()).param("fid", itemLogData.a()).param("uid", itemLogData.i()).param("obj_source", itemLogData.f());
-                    String d = itemLogData.d();
-                    if (!((d == null || d.length() == 0) ? true : true)) {
-                        statisticItem.param("obj_locate", itemLogData.d());
-                        break;
-                    }
-                    break;
-                case 9:
-                    statisticItem.key(CommonStatisticKey.KEY_ITEM_RECENT_UPDATE_SHOW).param("fid", itemLogData.a());
-                    break;
-                case 10:
-                    statisticItem.key(CommonStatisticKey.KEY_ITEM_RECENT_UPDATE_CLICK).param("fid", itemLogData.a());
-                    break;
-                case 11:
-                    statisticItem.key(CommonStatisticKey.KEY_ITEM_HOT_VIDEO_SHOW).param("fid", itemLogData.a()).param("obj_locate", itemLogData.c());
-                    break;
-                case 12:
-                    statisticItem.key(CommonStatisticKey.KEY_ITEM_HOT_VIDEO_CLICK).param("fid", itemLogData.a()).param("obj_locate", itemLogData.c());
-                    String h = itemLogData.h();
-                    if (!((h == null || h.length() == 0) ? true : true)) {
-                        statisticItem.param("post_id", itemLogData.h());
-                        break;
-                    }
-                    break;
-                case 13:
-                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_GAME_CODE_SHOW).param("fid", itemLogData.a()).param("obj_id", itemLogData.b()).param("uid", itemLogData.i());
-                    break;
-                case 14:
-                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_GAME_CODE_CLICK).param("fid", itemLogData.a()).param("obj_id", itemLogData.b()).param("uid", itemLogData.i());
-                    break;
-                case 15:
-                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_GAME_CODE_FLOATING_LAYER_SHOW).param("obj_id", itemLogData.b()).param("fid", itemLogData.a()).param("obj_locate", itemLogData.c()).param("uid", itemLogData.i());
-                    break;
-                case 16:
-                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_GAME_CODE_FLOATING_LAYER_CLICK).param("obj_id", itemLogData.b()).param("fid", itemLogData.a()).param("obj_name", itemLogData.e()).param("obj_type", itemLogData.g());
-                    break;
-                case 17:
-                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_ACCELERATOR_START_BTN_DESC_SHOW).param("fid", itemLogData.a()).param("uid", itemLogData.i()).param("obj_id", itemLogData.b());
-                    break;
-                case 18:
-                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_ACCELERATOR_START_BTN_DESC_CLICK).param("fid", itemLogData.a()).param("uid", itemLogData.i()).param("obj_id", itemLogData.b());
-                    break;
-                case 19:
-                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_ACCELERATOR_START_BTN_IMG_CLICK).param("fid", itemLogData.a()).param("uid", itemLogData.i()).param("obj_id", itemLogData.b());
-                    break;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return "ItemTabLogData(type=" + this.a + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public w55(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            TiebaStatic.log(statisticItem);
+        }
+        this.a = i;
+        this.g = -1;
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public w55(int i, int i2) {
+        this(i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                this(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.e = i2;
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public w55(int i, int i2, int i3) {
+        this(i, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.f = i3;
+    }
+
+    public final String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String str = this.b;
+            if (str != null) {
+                return str;
+            }
+            Intrinsics.throwUninitializedPropertyAccessException("fid");
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
+        }
+        return invokeV.intValue;
+    }
+
+    public final int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
+        }
+        return invokeV.intValue;
+    }
+
+    public final String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.h;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.j;
+        }
+        return invokeV.intValue;
+    }
+
+    public final int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.g;
+        }
+        return invokeV.intValue;
+    }
+
+    public final int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.f;
+        }
+        return invokeV.intValue;
+    }
+
+    public final int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public final String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.i;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            String str = this.c;
+            if (str != null) {
+                return str;
+            }
+            Intrinsics.throwUninitializedPropertyAccessException("uid");
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void j(String fid, String uid, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048588, this, fid, uid, i) == null) {
+            Intrinsics.checkNotNullParameter(fid, "fid");
+            Intrinsics.checkNotNullParameter(uid, "uid");
+            k(fid);
+            q(uid);
+            this.d = i;
+        }
+    }
+
+    public final void k(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
+            Intrinsics.checkNotNullParameter(str, "<set-?>");
+            this.b = str;
+        }
+    }
+
+    public final void l(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
+            this.h = str;
+        }
+    }
+
+    public final void m(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.j = i;
+        }
+    }
+
+    public final void n(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            this.g = i;
+        }
+    }
+
+    public final void o(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            this.f = i;
+        }
+    }
+
+    public final void p(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
+            this.i = str;
+        }
+    }
+
+    public final void q(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
+            Intrinsics.checkNotNullParameter(str, "<set-?>");
+            this.c = str;
         }
     }
 }

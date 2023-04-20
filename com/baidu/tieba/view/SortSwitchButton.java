@@ -25,10 +25,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ao9;
-import com.baidu.tieba.nx5;
-import com.baidu.tieba.vl9;
-import com.baidu.tieba.xj9;
+import com.baidu.tieba.dm9;
+import com.baidu.tieba.fk9;
+import com.baidu.tieba.io9;
+import com.baidu.tieba.ox5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,14 +40,14 @@ import java.util.List;
 public class SortSwitchButton extends View implements View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public nx5 A;
+    public ox5 A;
     public float B;
     public float C;
     public boolean D;
     public boolean E;
     public boolean F;
     public boolean G;
-    public List<vl9> H;
+    public List<dm9> H;
     public List<Float> I;
     public GestureDetector J;
     public f K;
@@ -60,7 +60,7 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
     public BdUniqueId R;
     public BdUniqueId S;
     public CustomMessageListener T;
-    public nx5.a U;
+    public ox5.a U;
     public GestureDetector.SimpleOnGestureListener V;
     public float a;
     public float b;
@@ -142,7 +142,7 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements nx5.a {
+    public class b implements ox5.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SortSwitchButton a;
@@ -165,7 +165,7 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
             this.a = sortSwitchButton;
         }
 
-        @Override // com.baidu.tieba.nx5.a
+        @Override // com.baidu.tieba.ox5.a
         public void a(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
@@ -378,7 +378,7 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
                 this.o.setColor(SkinManager.getColor(0, this.d));
                 Paint paint = this.p;
                 if (paint != null) {
-                    paint.setColor(xj9.a(SkinManager.getColor(0, this.e), this.g));
+                    paint.setColor(fk9.a(SkinManager.getColor(0, this.e), this.g));
                 }
             }
         }
@@ -405,18 +405,18 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
         }
     }
 
-    public final boolean G(vl9 vl9Var, vl9 vl9Var2) {
+    public final boolean G(dm9 dm9Var, dm9 dm9Var2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, vl9Var, vl9Var2)) == null) {
-            if (vl9Var == null && vl9Var2 == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, dm9Var, dm9Var2)) == null) {
+            if (dm9Var == null && dm9Var2 == null) {
                 return true;
             }
-            if (vl9Var != null && vl9Var2 != null) {
-                if (vl9Var.a() == vl9Var2.a() && vl9Var.b() != null && vl9Var.b().equals(vl9Var2.b())) {
+            if (dm9Var != null && dm9Var2 != null) {
+                if (dm9Var.a() == dm9Var2.a() && dm9Var.b() != null && dm9Var.b().equals(dm9Var2.b())) {
                     return true;
                 }
-                if (vl9Var.a() == vl9Var2.a() && vl9Var.b() == null && vl9Var2.b() == null) {
+                if (dm9Var.a() == dm9Var2.a() && dm9Var.b() == null && dm9Var2.b() == null) {
                     return true;
                 }
             }
@@ -444,7 +444,7 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
                 return;
             }
         }
-        this.A = new nx5();
+        this.A = new ox5();
         this.D = false;
         this.E = true;
         this.F = false;
@@ -484,7 +484,7 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
         }
     }
 
-    public void setData(List<vl9> list) {
+    public void setData(List<dm9> list) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048593, this, list) != null) || !F(list)) {
             return;
@@ -540,7 +540,7 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
         }
     }
 
-    public final boolean F(List<vl9> list) {
+    public final boolean F(List<dm9> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, list)) == null) {
@@ -613,7 +613,7 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
                 this.p = paint2;
                 paint2.setStyle(Paint.Style.STROKE);
                 this.p.setStrokeWidth(this.f);
-                this.p.setColor(xj9.a(SkinManager.getColor(this.d), this.g));
+                this.p.setColor(fk9.a(SkinManager.getColor(this.d), this.g));
             }
             this.q = new Paint(1);
             Paint paint3 = new Paint(1);
@@ -643,7 +643,7 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
             this.o.setColor(SkinManager.getColor(this.d));
             Paint paint = this.p;
             if (paint != null) {
-                paint.setColor(xj9.a(SkinManager.getColor(this.d), this.g));
+                paint.setColor(fk9.a(SkinManager.getColor(this.d), this.g));
             }
             invalidate();
         }
@@ -652,7 +652,7 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
     public final void D(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ao9.SortSwitchButton);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, io9.SortSwitchButton);
             int resourceId = obtainStyledAttributes.getResourceId(3, R.color.CAM_X0107);
             this.d = resourceId;
             this.e = obtainStyledAttributes.getResourceId(1, resourceId);
@@ -774,13 +774,13 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
             if (mode == Integer.MIN_VALUE) {
                 this.a = 0.0f;
                 for (int i3 = 0; i3 < count; i3++) {
-                    vl9 vl9Var = (vl9) ListUtils.getItem(this.H, i3);
-                    if (vl9Var != null) {
+                    dm9 dm9Var = (dm9) ListUtils.getItem(this.H, i3);
+                    if (dm9Var != null) {
                         Paint paint = this.r;
-                        if (vl9Var.b() == null) {
+                        if (dm9Var.b() == null) {
                             b2 = "";
                         } else {
-                            b2 = vl9Var.b();
+                            b2 = dm9Var.b();
                         }
                         float measureText = paint.measureText(b2) + (this.l * 2.0f);
                         if (this.G) {
@@ -899,11 +899,11 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
         return invokeLL.booleanValue;
     }
 
-    public void setData(List<vl9> list, int i) {
-        nx5 nx5Var;
+    public void setData(List<dm9> list, int i) {
+        ox5 ox5Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048594, this, list, i) == null) {
-            if (!F(list) && (nx5Var = this.A) != null && nx5Var.a() == i) {
+            if (!F(list) && (ox5Var = this.A) != null && ox5Var.a() == i) {
                 return;
             }
             if (ListUtils.isEmpty(list)) {

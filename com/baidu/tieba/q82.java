@@ -4,7 +4,7 @@ import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.core.launchtips.monitor.network.NetworkStatus;
 import com.baidu.swan.apps.core.launchtips.scene.SceneType;
-import com.baidu.tieba.c82;
+import com.baidu.tieba.d82;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,29 +12,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class q82 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final c82 a;
-    public final l82 b;
-    public final z72 c;
+    public long a;
+    public boolean b;
+    public final d82 c;
 
-    /* loaded from: classes5.dex */
-    public class a implements c82.b {
+    /* loaded from: classes6.dex */
+    public class a implements d82.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ n82 a;
-        public final /* synthetic */ b82 b;
-        public final /* synthetic */ q82 c;
+        public final /* synthetic */ q82 a;
 
-        public a(q82 q82Var, n82 n82Var, b82 b82Var) {
+        public a(q82 q82Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {q82Var, n82Var, b82Var};
+                Object[] objArr = {q82Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -44,32 +42,24 @@ public class q82 {
                     return;
                 }
             }
-            this.c = q82Var;
-            this.a = n82Var;
-            this.b = b82Var;
+            this.a = q82Var;
         }
 
-        @Override // com.baidu.tieba.c82.b
+        @Override // com.baidu.tieba.d82.b
         public void a(NetworkStatus networkStatus) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, networkStatus) == null) {
-                v72.e(SceneType.SCENE_INIT_DATA_ERROR.getType(), networkStatus.getStatus(), this.a.e().getStatus(), this.a.g(), this.a.b(), this.a.f(), this.a.a());
-                StringBuilder sb = new StringBuilder();
-                sb.append(SceneType.SCENE_INIT_DATA_ERROR.getScene());
-                sb.append(this.b.a());
-                sb.append(this.a.d());
-                sb.append(networkStatus.getDesc());
-                sb.append(this.a.c());
+                x72.g(SceneType.SCENE_DOWNLOAD_PKG_TIMEOUT.getScene() + networkStatus.getDesc());
+                w72.c(SceneType.SCENE_DOWNLOAD_PKG_TIMEOUT.getType(), networkStatus.getStatus());
+                this.a.e(networkStatus);
                 if (q82.d) {
-                    Log.d("SceneInitDataTips", ">> " + sb.toString());
+                    Log.d("SceneDownloadPkgTips", ">> " + SceneType.SCENE_DOWNLOAD_PKG_TIMEOUT.getScene() + networkStatus.getDesc());
                 }
-                w72.g(sb.toString());
-                this.c.d(networkStatus);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class b {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -114,7 +104,7 @@ public class q82 {
                 return;
             }
         }
-        d = eo1.a;
+        d = fo1.a;
     }
 
     public q82() {
@@ -130,32 +120,69 @@ public class q82 {
                 return;
             }
         }
-        this.c = z72.d();
-        this.a = new c82();
-        this.b = l82.d();
+        this.c = new d82();
     }
 
-    public void c() {
+    public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (d) {
-                Log.d("SceneInitDataTips", ">> trigger init data error event.");
-            }
-            l82.d().j();
-            z72.d().j();
-            b82 f = this.c.f();
-            this.a.a(new a(this, this.b.f(), f));
+            this.c.a(new a(this));
         }
     }
 
-    public final void d(NetworkStatus networkStatus) {
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, networkStatus) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            boolean z = true;
+            if (u73.K().k() == 1) {
+                z = false;
+            }
+            this.b = z;
+            this.a = 0L;
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.b = false;
+            if (d) {
+                Log.d("SceneDownloadPkgTips", ">> stop collecting network status.");
+            }
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || !this.b) {
+            return;
+        }
+        if (this.a == 0) {
+            if (d) {
+                Log.d("SceneDownloadPkgTips", ">> start to check download progress.");
+            }
+            this.a = System.currentTimeMillis();
+            return;
+        }
+        long currentTimeMillis = System.currentTimeMillis();
+        if (currentTimeMillis - this.a > 2000) {
+            if (d) {
+                Log.d("SceneDownloadPkgTips", ">> download progress over 2s.");
+            }
+            c();
+            g();
+        }
+        this.a = currentTimeMillis;
+    }
+
+    public final void e(NetworkStatus networkStatus) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, networkStatus) == null) {
             int i = b.a[networkStatus.ordinal()];
             if (i != 1 && i != 2) {
-                u72.f(R.string.obfuscated_res_0x7f0f1403);
+                v72.f(R.string.obfuscated_res_0x7f0f1403);
             } else {
-                u72.f(R.string.obfuscated_res_0x7f0f13f9);
+                v72.f(R.string.obfuscated_res_0x7f0f13f9);
             }
         }
     }

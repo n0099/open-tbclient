@@ -1,269 +1,170 @@
 package com.baidu.tieba;
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.graphics.drawable.Drawable;
-import android.text.TextUtils;
-import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.util.KVStorageFactory;
 import com.baidu.down.manage.Download;
-import com.baidu.down.manage.DownloadManager;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.gamecenter.appmanager.notification.InstallNotifyReceiver;
+import com.baidu.down.request.task.ProgressInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.Calendar;
 import java.util.Collection;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class rz3 {
+public class rz3 extends qz3 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile rz3 c;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public SharedPreferences a;
-    public String b;
 
-    public rz3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948138878, "Lcom/baidu/tieba/rz3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948138878, "Lcom/baidu/tieba/rz3;");
                 return;
             }
         }
-        this.b = "com.baidu.gamenow";
-        this.a = KVStorageFactory.getSharedPreferences("gamecenter_install_notification", 0);
+        d = fo1.a;
     }
 
-    public static rz3 f() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public rz3(Download download) {
+        super("onSuccess", 0, g(f(download), ""));
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (rz3.class) {
-                    if (c == null) {
-                        c = new rz3();
-                    }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {download};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public rz3(String str) {
+        super("onSuccess", 0, g(null, str));
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public rz3(Collection<Download> collection) {
+        super("onSuccess", 0, g(e(collection), ""));
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {collection};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public static JSONArray e(Collection<Download> collection) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, collection)) == null) {
+            JSONArray jSONArray = new JSONArray();
+            if (collection == null) {
+                return jSONArray;
+            }
+            for (Download download : collection) {
+                if (download != null) {
+                    jSONArray.put(f(download));
                 }
             }
-            return c;
+            return jSONArray;
         }
-        return (rz3) invokeV.objValue;
+        return (JSONArray) invokeL.objValue;
     }
 
-    public final boolean b() {
-        InterceptResult invokeV;
+    public static JSONObject f(Download download) {
+        InterceptResult invokeL;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return ik3.f(Long.valueOf(g()), Long.valueOf(System.currentTimeMillis()));
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (b()) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, download)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            if (download == null) {
+                return jSONObject;
             }
-            if (d()) {
-                return "todayfirst";
-            }
-            if (!e()) {
-                return null;
-            }
-            return "pushregularly";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if ((System.currentTimeMillis() / 86400000) - (g() / 86400000) > 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (i() <= System.currentTimeMillis()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final long g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a.getLong("key_notification_time", 0L);
-        }
-        return invokeV.longValue;
-    }
-
-    public final long h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            long i = i();
-            if (i < System.currentTimeMillis()) {
-                return i + 86400000;
-            }
-            return i;
-        }
-        return invokeV.longValue;
-    }
-
-    public final long i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            Calendar calendar = Calendar.getInstance();
-            calendar.set(11, 19);
-            calendar.set(12, 30);
-            return calendar.getTimeInMillis();
-        }
-        return invokeV.longValue;
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && !TextUtils.isEmpty(c())) {
-            n(c());
-        }
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            SharedPreferences.Editor edit = this.a.edit();
-            edit.putLong("key_notification_time", System.currentTimeMillis());
-            edit.apply();
-        }
-    }
-
-    public void a(Download download) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, download) == null) {
-            sz3.a(AppRuntime.getAppContext(), Long.valueOf(download.getId().longValue()).intValue());
-        }
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            ((AlarmManager) AppRuntime.getAppContext().getSystemService(NotificationCompat.CATEGORY_ALARM)).set(0, h(), PendingIntent.getBroadcast(AppRuntime.getAppContext(), 2147483646, InstallNotifyReceiver.createIntent(InstallNotifyReceiver.NOTIFICATION_INSTALL_ACTION_ALARM), 0));
-        }
-    }
-
-    public void m(Download download, boolean z, String str) {
-        String format;
-        String string;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{download, Boolean.valueOf(z), str}) == null) {
             try {
-                String str3 = download.getRealDownloadDir() + File.separator + download.getFileName();
-                PackageManager packageManager = AppRuntime.getAppContext().getPackageManager();
-                PackageInfo packageArchiveInfo = packageManager.getPackageArchiveInfo(str3, 1);
-                if (packageArchiveInfo == null) {
-                    return;
-                }
-                Context appContext = AppRuntime.getAppContext();
-                ApplicationInfo applicationInfo = packageArchiveInfo.applicationInfo;
-                applicationInfo.sourceDir = str3;
-                applicationInfo.publicSourceDir = str3;
-                Drawable applicationIcon = packageManager.getApplicationIcon(applicationInfo);
-                String charSequence = packageManager.getApplicationLabel(applicationInfo).toString();
-                PendingIntent broadcast = PendingIntent.getBroadcast(appContext, Long.valueOf(download.getId().longValue()).intValue(), InstallNotifyReceiver.createIntent(InstallNotifyReceiver.NOTIFICATION_INSTALL_ACTION_ONE, download.getKeyByUser(), str), 134217728);
-                if (z) {
-                    l();
-                    format = String.format(appContext.getString(R.string.obfuscated_res_0x7f0f01e7), charSequence);
-                    string = appContext.getString(R.string.obfuscated_res_0x7f0f011f);
+                jSONObject.put("apkId", new ez3(download).c());
+                jSONObject.put("downloadId", download.getId());
+                jSONObject.put("packageName", download.getKeyByUser());
+                jSONObject.put("url", download.getUrl());
+                jSONObject.put("status", download.getState().ordinal());
+                jSONObject.put(ProgressInfo.JSON_KEY_CURRENT, download.getCurrentbytes());
+                jSONObject.put("total", download.getTotalbytes());
+                if (gz3.j(download)) {
+                    str = "1";
                 } else {
-                    format = String.format(appContext.getString(R.string.obfuscated_res_0x7f0f01e7), charSequence);
-                    string = appContext.getString(R.string.obfuscated_res_0x7f0f011f);
+                    str = "0";
                 }
-                String str4 = format;
-                try {
-                    if (TextUtils.equals(download.getKeyByUser(), this.b)) {
-                        str2 = appContext.getString(R.string.obfuscated_res_0x7f0f018f);
-                    } else {
-                        str2 = string;
-                    }
-                    sz3.c(appContext, Long.valueOf(download.getId().longValue()).intValue(), str4, str2, sz3.b(applicationIcon), System.currentTimeMillis(), broadcast, str, download.getKeyByUser());
-                } catch (Exception e) {
-                    e = e;
-                    if (eo1.a) {
-                        e.printStackTrace();
-                    }
+                jSONObject.put("fileExist", str);
+            } catch (JSONException e) {
+                if (d) {
+                    e.printStackTrace();
                 }
-            } catch (Exception e2) {
-                e = e2;
             }
+            return jSONObject;
         }
+        return (JSONObject) invokeL.objValue;
     }
 
-    public void n(String str) {
+    public static String g(Object obj, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048588, this, str) != null) || b()) {
-            return;
-        }
-        try {
-            Collection<Download> t = new fz3(DownloadManager.getInstance(AppRuntime.getAppContext())).t();
-            if (t != null && t.size() != 0) {
-                k();
-                Download download = null;
-                for (Download download2 : t) {
-                    if (download2 != null) {
-                        download = download2;
-                    }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, obj, str)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("data", obj);
+                jSONObject.put("message", str);
+            } catch (JSONException e) {
+                if (d) {
+                    e.printStackTrace();
                 }
-                if (1 == t.size()) {
-                    m(download, false, str);
-                    return;
-                }
-                String str2 = download.getRealDownloadDir() + File.separator + download.getFileName();
-                PackageManager packageManager = AppRuntime.getAppContext().getPackageManager();
-                PackageInfo packageArchiveInfo = packageManager.getPackageArchiveInfo(str2, 1);
-                if (packageArchiveInfo == null) {
-                    return;
-                }
-                Context appContext = AppRuntime.getAppContext();
-                ApplicationInfo applicationInfo = packageArchiveInfo.applicationInfo;
-                applicationInfo.sourceDir = str2;
-                applicationInfo.publicSourceDir = str2;
-                sz3.c(appContext, 0, String.format(appContext.getString(R.string.obfuscated_res_0x7f0f01e8), Integer.valueOf(t.size())), appContext.getString(R.string.obfuscated_res_0x7f0f011f), sz3.b(packageManager.getApplicationIcon(applicationInfo)), System.currentTimeMillis(), PendingIntent.getBroadcast(appContext, Integer.MAX_VALUE, InstallNotifyReceiver.createToDownloadPageIntent(InstallNotifyReceiver.NOTIFICATION_INSTALL_ACTION_MULTIPLE).putExtra(InstallNotifyReceiver.OPPORTUNITY, str), 134217728), str, download.getKeyByUser());
             }
-        } catch (Exception e) {
-            if (eo1.a) {
-                e.printStackTrace();
-            }
+            return jSONObject.toString();
         }
+        return (String) invokeLL.objValue;
     }
 }

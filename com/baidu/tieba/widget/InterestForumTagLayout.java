@@ -21,8 +21,8 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.data.SelectForumData;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.ix;
-import com.baidu.tieba.q25;
+import com.baidu.tieba.jx;
+import com.baidu.tieba.r25;
 import com.baidu.tieba.widget.InterestForumTagView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -31,7 +31,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class InterestForumTagLayout extends LinearLayout implements ix {
+public class InterestForumTagLayout extends LinearLayout implements jx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final float a;
@@ -163,13 +163,13 @@ public class InterestForumTagLayout extends LinearLayout implements ix {
         }
     }
 
-    @Override // com.baidu.tieba.ix
+    @Override // com.baidu.tieba.jx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048583, this, tbPageContext, i) == null) {
             TextView textView = this.c;
             if (textView != null) {
-                q25 d = q25.d(textView);
+                r25 d = r25.d(textView);
                 d.w(R.color.CAM_X0109);
                 d.B(R.dimen.T_X06);
             }
@@ -178,8 +178,8 @@ public class InterestForumTagLayout extends LinearLayout implements ix {
                 int childCount = linearLayout.getChildCount();
                 for (int i2 = 0; i2 < childCount; i2++) {
                     View childAt = this.d.getChildAt(i2);
-                    if (childAt instanceof ix) {
-                        ((ix) childAt).onChangeSkinType(tbPageContext, i);
+                    if (childAt instanceof jx) {
+                        ((jx) childAt).onChangeSkinType(tbPageContext, i);
                     }
                 }
             }
@@ -263,7 +263,7 @@ public class InterestForumTagLayout extends LinearLayout implements ix {
         EMTextView eMTextView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (eMTextView = this.e) != null) {
-            q25 d = q25.d(eMTextView);
+            r25 d = r25.d(eMTextView);
             d.w(R.color.CAM_X0110);
             d.B(R.dimen.T_X06);
         }

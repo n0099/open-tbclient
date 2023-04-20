@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbClipImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.um;
+import com.baidu.tieba.vm;
 import com.baidu.tieba.write.data.QuestionTagListData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class QuestionTagAdapter extends um<QuestionTagListData.QuestionTag, QuestionTagHolder> {
+public class QuestionTagAdapter extends vm<QuestionTagListData.QuestionTag, QuestionTagHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -96,7 +96,7 @@ public class QuestionTagAdapter extends um<QuestionTagListData.QuestionTag, Ques
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.um
+    @Override // com.baidu.tieba.vm
     /* renamed from: s */
     public QuestionTagHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -108,7 +108,7 @@ public class QuestionTagAdapter extends um<QuestionTagListData.QuestionTag, Ques
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.um
+    @Override // com.baidu.tieba.vm
     public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, QuestionTagListData.QuestionTag questionTag, QuestionTagHolder questionTagHolder) {
         t(i, view2, viewGroup, questionTag, questionTagHolder);
         return view2;

@@ -1,101 +1,713 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.data.BaijiahaoData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.homepage.personalize.data.RealTimeHttpResponse;
-import com.baidu.tieba.homepage.personalize.data.RealTimeRequest;
-import com.baidu.tieba.homepage.personalize.data.RealTimeSocketResponse;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import tbclient.App;
+import tbclient.BannerList;
+import tbclient.DiscoverHotForum;
+import tbclient.Personalized.CardForum;
+import tbclient.Personalized.CardGod;
+import tbclient.Personalized.CardTopic;
+import tbclient.Personalized.DataRes;
+import tbclient.Personalized.Resource;
+import tbclient.Personalized.TagStruct;
+import tbclient.ThreadInfo;
 /* loaded from: classes4.dex */
 public class hs7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
 
-    public hs7() {
+    public static void A(fh6 fh6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeL(65536, null, fh6Var) == null) {
+            fh6Var.u = true;
+            fh6Var.setSupportType(BaseCardInfo.SupportType.EXTEND);
+        }
+    }
+
+    public static void C(fh6 fh6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, fh6Var) == null) {
+            fh6Var.z = true;
+            fh6Var.setSupportType(BaseCardInfo.SupportType.EXTEND);
+        }
+    }
+
+    public static int f(App app) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, app)) == null) {
+            if (app == null) {
+                return -1;
+            }
+            return ia9.b(app);
+        }
+        return invokeL.intValue;
+    }
+
+    public static nh6 g(ThreadData threadData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, threadData)) == null) {
+            nh6 nh6Var = new nh6();
+            nh6Var.a = threadData;
+            threadData.isLinkThread();
+            if (!threadData.isLinkThread()) {
+                threadData.isGodThread();
+            }
+            return nh6Var;
+        }
+        return (nh6) invokeL.objValue;
+    }
+
+    public static AdvertAppInfo l(App app) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, app)) == null) {
+            wr7 wr7Var = new wr7();
+            wr7Var.d(app);
+            return wr7Var.c();
+        }
+        return (AdvertAppInfo) invokeL.objValue;
+    }
+
+    public static void r(fh6 fh6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65558, null, fh6Var) == null) {
+            fh6Var.n = true;
+            fh6Var.setSupportType(BaseCardInfo.SupportType.TOP);
+        }
+    }
+
+    public static void u(fh6 fh6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65561, null, fh6Var) == null) {
+            ((nh6) fh6Var).o = true;
+            fh6Var.setSupportType(BaseCardInfo.SupportType.CONTENT);
+        }
+    }
+
+    public static void v(fh6 fh6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65562, null, fh6Var) == null) {
+            ((nh6) fh6Var).q = true;
+            fh6Var.setSupportType(BaseCardInfo.SupportType.CONTENT);
+        }
+    }
+
+    public static void w(fh6 fh6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65563, null, fh6Var) == null) {
+            ((nh6) fh6Var).p = true;
+            fh6Var.setSupportType(BaseCardInfo.SupportType.CONTENT);
+        }
+    }
+
+    public static void x(fh6 fh6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65564, null, fh6Var) == null) {
+            ((nh6) fh6Var).r = true;
+            fh6Var.setSupportType(BaseCardInfo.SupportType.CONTENT);
+        }
+    }
+
+    public static void y(fh6 fh6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65565, null, fh6Var) == null) {
+            ((oh6) fh6Var).s = true;
+            fh6Var.setSupportType(BaseCardInfo.SupportType.CONTENT);
+        }
+    }
+
+    public static void z(fh6 fh6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65566, null, fh6Var) == null) {
+            ((ph6) fh6Var).t = true;
+            fh6Var.setSupportType(BaseCardInfo.SupportType.CONTENT);
+        }
+    }
+
+    public static void B(fh6 fh6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, fh6Var) == null) {
+            if (fh6Var instanceof nh6) {
+                ((nh6) fh6Var).w = true;
+            } else if (fh6Var instanceof oh6) {
+                ((oh6) fh6Var).w = true;
+            } else if (fh6Var instanceof mh6) {
+                ((mh6) fh6Var).w = true;
+            }
+            fh6Var.setSupportType(BaseCardInfo.SupportType.EXTEND);
+        }
+    }
+
+    public static void D(fh6 fh6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, fh6Var) == null) {
+            if (fh6Var instanceof nh6) {
+                ((nh6) fh6Var).v = true;
+            } else if (fh6Var instanceof oh6) {
+                ((oh6) fh6Var).v = true;
+            } else if (fh6Var instanceof mh6) {
+                ((mh6) fh6Var).v = true;
+            }
+            fh6Var.setSupportType(BaseCardInfo.SupportType.EXTEND);
+        }
+    }
+
+    public static void a(List<App> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65541, null, list) == null) && list != null && list.size() > 1) {
+            int size = list.size() - 1;
+            while (true) {
+                int i = size - 1;
+                if (i > 0) {
+                    int f = f(list.get(size));
+                    int f2 = f(list.get(i));
+                    if (f <= 0 || f - f2 < 3) {
+                        ListUtils.remove(list, size);
+                    }
+                    size--;
+                } else {
+                    return;
+                }
             }
         }
-        this.a = null;
     }
 
-    public final void b() {
+    public static void p(fh6 fh6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_REPORT_HOME_PIC_CLICK, al9.a(TbConfig.HOME_REALTIME_ADDRESS, 309277));
-            tbHttpMessageTask.setIsNeedAddCommenParam(true);
-            tbHttpMessageTask.setResponsedClass(RealTimeHttpResponse.class);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        if (interceptable == null || interceptable.invokeL(65556, null, fh6Var) == null) {
+            if (fh6Var instanceof ph6) {
+                ((ph6) fh6Var).A = true;
+            } else if (fh6Var instanceof nh6) {
+                ((nh6) fh6Var).A = true;
+            } else if (fh6Var instanceof oh6) {
+                ((oh6) fh6Var).A = true;
+            } else if (fh6Var instanceof mh6) {
+                ((mh6) fh6Var).A = true;
+            }
+            fh6Var.setSupportType(BaseCardInfo.SupportType.BOTTOM);
         }
     }
 
-    public final void c() {
+    public static void t(fh6 fh6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            fn5 fn5Var = new fn5(309277);
-            fn5Var.setResponsedClass(RealTimeSocketResponse.class);
-            fn5Var.g(true);
-            MessageManager.getInstance().registerTask(fn5Var);
+        if (interceptable == null || interceptable.invokeL(65560, null, fh6Var) == null) {
+            if (fh6Var instanceof ph6) {
+                ((ph6) fh6Var).m = true;
+            } else if (fh6Var instanceof nh6) {
+                ((nh6) fh6Var).m = true;
+            } else if (fh6Var instanceof oh6) {
+                ((oh6) fh6Var).m = true;
+            } else if (fh6Var instanceof mh6) {
+                ((mh6) fh6Var).m = true;
+            }
+            fh6Var.setSupportType(BaseCardInfo.SupportType.TOP);
         }
     }
 
-    public void a(BdUniqueId bdUniqueId) {
+    public static void E(BannerList.Builder builder) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bdUniqueId) == null) {
-            this.a = bdUniqueId;
-            b();
-            c();
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, builder) == null) && builder != null && !ListUtils.isEmpty(builder.app)) {
+            for (int i = 0; i < builder.app.size(); i++) {
+                App app = builder.app.get(i);
+                if (app != null) {
+                    App.Builder builder2 = new App.Builder(app);
+                    builder2.pos = Integer.valueOf(ia9.b(app));
+                    App build = builder2.build(false);
+                    builder.app.remove(i);
+                    builder.app.add(i, build);
+                }
+            }
         }
     }
 
-    public final void d(NetMessage netMessage) {
+    public static void c(DataRes.Builder builder) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, netMessage) != null) || netMessage == null) {
+        if ((interceptable != null && interceptable.invokeL(65543, null, builder) != null) || builder == null) {
             return;
         }
-        if (netMessage.getTag() == null) {
-            netMessage.setTag(this.a);
+        if (builder.thread_list == null) {
+            builder.thread_list = new LinkedList();
         }
-        MessageManager.getInstance().sendMessage(netMessage);
+        if (builder.card_forum == null) {
+            builder.card_forum = new LinkedList();
+        }
+        if (builder.card_topic == null) {
+            builder.card_topic = new LinkedList();
+        }
+        if (builder.resource_list == null) {
+            builder.resource_list = new LinkedList();
+        }
+        if (builder.thread_personalized == null) {
+            builder.thread_personalized = new LinkedList();
+        }
+        if (builder.interestion == null) {
+            builder.interestion = new LinkedList();
+        }
+        if (builder.card_god == null) {
+            builder.card_god = new LinkedList();
+        }
     }
 
-    public void e(long j, String str, String str2, int i, String str3, int i2, String str4, BaijiahaoData baijiahaoData) {
+    public static void o(ThreadData threadData) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), str, str2, Integer.valueOf(i), str3, Integer.valueOf(i2), str4, baijiahaoData}) == null) && !StringUtils.isNull(str) && !StringUtils.isNull(str2) && !StringUtils.isNull(str3)) {
-            RealTimeRequest realTimeRequest = new RealTimeRequest();
-            realTimeRequest.setTid(j);
-            realTimeRequest.setWeight(str);
-            realTimeRequest.setSource(str2);
-            realTimeRequest.setLocation(i);
-            realTimeRequest.setAbtest_tag(str3);
-            realTimeRequest.setType(i2);
-            realTimeRequest.setPage(str4);
-            if (baijiahaoData != null && i2 != gg.e("2", 0)) {
-                realTimeRequest.setOriUgcNid(baijiahaoData.oriUgcNid);
-                realTimeRequest.setOriUgcTid(baijiahaoData.oriUgcTid);
-                realTimeRequest.setOriUgcType(Integer.toString(baijiahaoData.oriUgcType));
-                realTimeRequest.setOriUgcVid(baijiahaoData.oriUgcVid);
+        if (interceptable == null || interceptable.invokeL(65555, null, threadData) == null) {
+            String lengthLimitName = threadData.getLengthLimitName();
+            String formatTimeForHomeC = StringHelper.getFormatTimeForHomeC(threadData.getLast_time_int() * 1000);
+            if (!TextUtils.isEmpty(lengthLimitName) && !TextUtils.isEmpty(formatTimeForHomeC)) {
+                lengthLimitName = lengthLimitName + TbadkCoreApplication.getInst().getString(R.string.send_post) + "   " + TbadkCoreApplication.getInst().getString(R.string.repley_when) + formatTimeForHomeC;
             }
-            d(realTimeRequest);
+            threadData.setThreadExtendInfo(lengthLimitName);
+        }
+    }
+
+    public static void q(fh6 fh6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65557, null, fh6Var) == null) {
+            if (fh6Var != null && fh6Var.getThreadData() != null && fh6Var.getThreadData().isFromHomPage && fh6Var.getThreadData().isWorksInfo()) {
+                return;
+            }
+            if (fh6Var instanceof nh6) {
+                ((nh6) fh6Var).x = true;
+            } else if (fh6Var instanceof oh6) {
+                ((oh6) fh6Var).x = true;
+            } else if (fh6Var instanceof mh6) {
+                ((mh6) fh6Var).x = true;
+            }
+            fh6Var.setSupportType(BaseCardInfo.SupportType.EXTEND);
+        }
+    }
+
+    public static void b(int i, List<App> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIL(65542, null, i, list) == null) && list != null) {
+            int i2 = 0;
+            Iterator<App> it = list.iterator();
+            while (it.hasNext()) {
+                App next = it.next();
+                if (next != null) {
+                    int b = ia9.b(next);
+                    if (b <= 0) {
+                        it.remove();
+                        rc9.h(l(next), 1, 23);
+                    } else {
+                        int i3 = i + i2 + 1;
+                        if (b <= i3) {
+                            i2++;
+                        } else {
+                            it.remove();
+                            rc9.i(l(next), 1, 2, b, i3);
+                        }
+                    }
+                } else {
+                    it.remove();
+                }
+            }
+        }
+    }
+
+    public static List<th6> d(DataRes.Builder builder) {
+        InterceptResult invokeL;
+        List<App> list;
+        AdvertAppInfo advertAppInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, builder)) == null) {
+            zr7 zr7Var = null;
+            if (builder == null) {
+                return null;
+            }
+            LinkedList linkedList = new LinkedList();
+            List<Resource> list2 = builder.resource_list;
+            if (list2 != null) {
+                for (Resource resource : list2) {
+                    yr7 yr7Var = new yr7();
+                    yr7Var.c(resource);
+                    linkedList.add(yr7Var);
+                }
+            }
+            List<CardForum> list3 = builder.card_forum;
+            if (list3 != null) {
+                for (CardForum cardForum : list3) {
+                    if (cardForum != null && xr7.i(cardForum.card_type.intValue()) && zr7Var == null) {
+                        zr7Var = new zr7();
+                        zr7Var.l(cardForum);
+                        if (zr7Var.k()) {
+                            linkedList.add(zr7Var);
+                        }
+                    }
+                }
+            }
+            List<AdvertAppInfo> f = db9.l().f();
+            if (f != null) {
+                f.clear();
+            }
+            BannerList bannerList = builder.banner_list;
+            if (bannerList != null && (list = bannerList.app) != null) {
+                for (App app : list) {
+                    wr7 wr7Var = new wr7();
+                    wr7Var.d(app);
+                    if (f != null && (advertAppInfo = wr7Var.a) != null) {
+                        advertAppInfo.isFromHomPage = true;
+                        f.add(advertAppInfo);
+                    }
+                    AdvertAppInfo c = wr7Var.c();
+                    if (c == null) {
+                        rc9.h(wr7Var.c(), 1, 100);
+                    } else {
+                        int i = c.i();
+                        if (i != 0) {
+                            rc9.h(wr7Var.c(), 1, i);
+                            if (i != 28 && i != 31) {
+                                c.c = -1001;
+                            }
+                        }
+                        if (wr7Var.getPosition() <= 0) {
+                            rc9.h(wr7Var.c(), 1, 23);
+                            c.c = -1001;
+                        }
+                        if (c.e()) {
+                            try {
+                                if (TextUtils.isEmpty(c.p)) {
+                                    rc9.h(wr7Var.c(), 1, 26);
+                                } else if (el9.b(TbadkCoreApplication.getInst().getContext(), c.p) && pw5.a().p()) {
+                                    rc9.h(wr7Var.c(), 1, 3);
+                                }
+                            } catch (Exception unused) {
+                                rc9.h(wr7Var.c(), 1, 100);
+                            }
+                        }
+                        linkedList.add(wr7Var);
+                    }
+                }
+            }
+            return linkedList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public static fh6 e(ThreadData threadData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, threadData)) == null) {
+            if (threadData == null) {
+                return null;
+            }
+            if (threadData.isShareThread) {
+                nh6 nh6Var = new nh6();
+                nh6Var.a = threadData;
+                return nh6Var;
+            } else if (ph6.W(threadData)) {
+                return new ph6(threadData);
+            } else {
+                if (mh6.W(threadData)) {
+                    return new mh6(threadData);
+                }
+                if (!nh6.W(threadData) && !nh6.X(threadData)) {
+                    if (!oh6.R(threadData)) {
+                        return null;
+                    }
+                    return new oh6(threadData);
+                }
+                nh6 nh6Var2 = new nh6();
+                threadData.isLinkThread();
+                threadData.isSmartAppThreadType();
+                if (!threadData.isLinkThread() && !threadData.isSmartAppThreadType()) {
+                    threadData.isGodThread();
+                }
+                nh6Var2.a = threadData;
+                return nh6Var2;
+            }
+        }
+        return (fh6) invokeL.objValue;
+    }
+
+    public static void s(fh6 fh6Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65559, null, fh6Var) == null) && fh6Var != null && fh6Var.getThreadData() != null && fh6Var.getThreadData().getTopAgreePost() != null && fh6Var.getThreadData().getTopAgreePost().q() != null && fh6Var.getThreadData().getTopAgreePost().q().getUserId() != null) {
+            if (fh6Var instanceof nh6) {
+                ((nh6) fh6Var).y = true;
+            } else if (fh6Var instanceof oh6) {
+                ((oh6) fh6Var).y = true;
+            } else if (fh6Var instanceof mh6) {
+                ((mh6) fh6Var).y = true;
+            }
+            fh6Var.setSupportType(BaseCardInfo.SupportType.EXTEND);
+        }
+    }
+
+    public static void h(BannerList.Builder builder, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(65548, null, builder, i) == null) && builder != null && builder.app != null) {
+            for (int i2 = 0; i2 < builder.app.size(); i2++) {
+                App app = builder.app.get(i2);
+                if (app != null) {
+                    App.Builder builder2 = new App.Builder(app);
+                    ia9.c(builder2, i);
+                    App build = builder2.build(false);
+                    builder.app.remove(i2);
+                    builder.app.add(i2, build);
+                }
+            }
+        }
+    }
+
+    public static BannerList i(boolean z, BannerList bannerList, BannerList bannerList2, int i, int i2, int i3, int i4) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{Boolean.valueOf(z), bannerList, bannerList2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
+            if (i4 <= 0) {
+                return bannerList;
+            }
+            BannerList.Builder builder = new BannerList.Builder(bannerList);
+            if (bannerList2 != null && bannerList2.app != null) {
+                if (builder.app == null) {
+                    builder.app = new LinkedList();
+                }
+                b(i, builder.app);
+                int i5 = i2 + i3;
+                BannerList.Builder builder2 = new BannerList.Builder(bannerList2);
+                if (builder2.app == null) {
+                    builder2.app = new LinkedList();
+                }
+                if (z) {
+                    E(builder2);
+                }
+                List<App> list = builder2.app;
+                if (list != null) {
+                    Iterator<App> it = list.iterator();
+                    int i6 = 0;
+                    while (it.hasNext()) {
+                        App next = it.next();
+                        if (next != null) {
+                            int b = ia9.b(next);
+                            if (b <= 0) {
+                                it.remove();
+                                rc9.h(l(next), 1, 23);
+                            } else {
+                                int i7 = i4 + i6 + 1;
+                                if (b <= i7) {
+                                    i6++;
+                                } else {
+                                    it.remove();
+                                    rc9.i(l(next), 1, 2, b, i7);
+                                }
+                            }
+                        } else {
+                            it.remove();
+                        }
+                    }
+                }
+                h(builder2, i5);
+                List<App> list2 = builder2.app;
+                if (list2 != null) {
+                    builder.app.addAll(list2);
+                }
+                return builder.build(false);
+            }
+            return builder.build(false);
+        }
+        return (BannerList) invokeCommon.objValue;
+    }
+
+    public static void k(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i, int i2, int i3, int i4) {
+        int i5;
+        List<TagStruct> list;
+        List<Resource> list2;
+        List<CardTopic> list3;
+        List<CardForum> list4;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65551, null, new Object[]{Boolean.valueOf(z), builder, builder2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) && builder2 != null && builder != null) {
+            List<CardForum> list5 = builder2.card_forum;
+            if (list5 != null && (list4 = builder.card_forum) != null) {
+                list4.addAll(list5);
+            }
+            List<CardTopic> list6 = builder2.card_topic;
+            if (list6 != null && (list3 = builder.card_topic) != null) {
+                list3.addAll(list6);
+            }
+            List<Resource> list7 = builder2.resource_list;
+            if (list7 != null && (list2 = builder.resource_list) != null) {
+                list2.addAll(list7);
+            }
+            if (i == 0) {
+                builder.banner_list = j(z, builder.banner_list, builder2.banner_list, i2);
+            } else {
+                List<ThreadInfo> list8 = builder.thread_list;
+                if (list8 != null) {
+                    i5 = list8.size();
+                } else {
+                    i5 = 0;
+                }
+                builder.banner_list = i(z, builder.banner_list, builder2.banner_list, i5, i3, i4, i2);
+            }
+            if (builder.age_sex == null) {
+                builder.age_sex = builder2.age_sex;
+                if (builder2.age_sex != null) {
+                    q45.m().w("has_requested_new_user_guide", true);
+                }
+            }
+            if (builder2.interestion != null && builder != null && (list = builder.interestion) != null && list.size() == 0) {
+                builder.interestion.addAll(builder2.interestion);
+            }
+            List<CardGod> list9 = builder2.card_god;
+            if (list9 != null) {
+                builder.card_god.addAll(list9);
+            }
+            DiscoverHotForum discoverHotForum = builder2.hot_recomforum;
+            if (discoverHotForum != null) {
+                builder.hot_recomforum = discoverHotForum;
+            }
+        }
+    }
+
+    public static BannerList j(boolean z, BannerList bannerList, BannerList bannerList2, int i) {
+        InterceptResult invokeCommon;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{Boolean.valueOf(z), bannerList, bannerList2, Integer.valueOf(i)})) == null) {
+            if (i <= 0) {
+                return bannerList;
+            }
+            BannerList.Builder builder = new BannerList.Builder(bannerList);
+            if (builder.app == null) {
+                builder.app = new LinkedList();
+            }
+            BannerList.Builder builder2 = new BannerList.Builder(bannerList2);
+            if (z) {
+                E(builder2);
+            }
+            List<App> list = builder2.app;
+            if (list != null) {
+                Iterator<App> it = list.iterator();
+                i2 = 0;
+                while (it.hasNext()) {
+                    App next = it.next();
+                    if (next != null) {
+                        int b = ia9.b(next);
+                        if (b <= 0) {
+                            it.remove();
+                            rc9.h(l(next), 1, 23);
+                        } else {
+                            int i3 = i + i2 + 1;
+                            if (b <= i3) {
+                                i2++;
+                            } else {
+                                it.remove();
+                                rc9.i(l(next), 1, 2, b, i3);
+                            }
+                        }
+                    } else {
+                        it.remove();
+                    }
+                }
+            } else {
+                i2 = 0;
+            }
+            int i4 = i2 + i;
+            if (i4 <= 0) {
+                return builder.build(false);
+            }
+            h(builder, i4);
+            List<App> list2 = builder2.app;
+            if (list2 != null) {
+                builder.app.addAll(0, list2);
+            }
+            return builder.build(false);
+        }
+        return (BannerList) invokeCommon.objValue;
+    }
+
+    public static void m(DataRes.Builder builder) {
+        BannerList.Builder builder2;
+        List<App> list;
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65553, null, builder) != null) || builder == null) {
+            return;
+        }
+        int count = ListUtils.getCount(builder.thread_list);
+        BannerList bannerList = builder.banner_list;
+        if (bannerList != null && bannerList.app != null && (list = (builder2 = new BannerList.Builder(bannerList)).app) != null) {
+            a(list);
+            for (int size = builder2.app.size() - 1; size >= 0; size--) {
+                App app = builder2.app.get(size);
+                wr7 wr7Var = new wr7();
+                wr7Var.d(app);
+                if (app != null) {
+                    i = ia9.b(app);
+                } else {
+                    i = -1;
+                }
+                if (i < 0) {
+                    rc9.h(wr7Var.c(), 1, 33);
+                    builder2.app.remove(size);
+                } else {
+                    int i2 = count + size;
+                    if (i > i2) {
+                        rc9.i(wr7Var.B(), 1, 2, i, i2);
+                        builder2.app.remove(size);
+                    } else {
+                        AdvertAppInfo c = wr7Var.c();
+                        if (c == null) {
+                            rc9.h(wr7Var.c(), 1, 100);
+                            builder2.app.remove(size);
+                        } else {
+                            int i3 = c.i();
+                            if (i3 != 0) {
+                                rc9.h(wr7Var.c(), 1, i3);
+                                builder2.app.remove(size);
+                            }
+                        }
+                    }
+                }
+            }
+            if (builder2.app.size() != builder.banner_list.app.size()) {
+                builder.banner_list = builder2.build(false);
+            }
+        }
+    }
+
+    public static void n(DataRes.Builder builder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65554, null, builder) == null) {
+            m(builder);
+            if (builder != null && builder.card_forum != null && builder.card_topic != null && builder.resource_list != null && ListUtils.getCount(builder.thread_list) != 0) {
+                int count = ListUtils.getCount(builder.thread_list);
+                for (int size = builder.card_forum.size() - 1; size >= 0; size--) {
+                    if (builder.card_forum.get(size).position.longValue() > count) {
+                        builder.card_forum.remove(size);
+                    }
+                }
+                for (int size2 = builder.card_topic.size() - 1; size2 >= 0; size2--) {
+                    if (builder.card_topic.get(size2).position.intValue() > count) {
+                        builder.card_topic.remove(size2);
+                    }
+                }
+                for (int size3 = builder.resource_list.size() - 1; size3 >= 0; size3--) {
+                    if (builder.resource_list.get(size3).position.longValue() > count) {
+                        builder.resource_list.remove(size3);
+                    }
+                }
+                for (int size4 = builder.card_god.size() - 1; size4 >= 0; size4--) {
+                    if (builder.card_god.get(size4).position.intValue() > count) {
+                        builder.card_god.remove(size4);
+                    }
+                }
+            }
         }
     }
 }

@@ -17,7 +17,7 @@ import com.xiaomi.push.bi;
 import com.xiaomi.push.ha;
 import com.xiaomi.push.l;
 import com.xiaomi.push.service.ServiceClient;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class NetworkStatusReceiver extends BroadcastReceiver {
     public static boolean a;
     public boolean b;

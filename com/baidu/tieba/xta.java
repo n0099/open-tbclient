@@ -8,15 +8,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class xta implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ eua a;
+    public final /* synthetic */ mua a;
     public final /* synthetic */ zta b;
 
-    public xta(zta ztaVar, eua euaVar) {
+    public xta(zta ztaVar, mua muaVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ztaVar, euaVar};
+            Object[] objArr = {ztaVar, muaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,7 +27,7 @@ public class xta implements Runnable {
             }
         }
         this.b = ztaVar;
-        this.a = euaVar;
+        this.a = muaVar;
     }
 
     @Override // java.lang.Runnable
@@ -35,10 +35,9 @@ public class xta implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             synchronized (this.b.c) {
-                Object obj = this.b.a;
-                if (obj != null) {
-                    this.a.d();
-                    ((iua) obj).a.countDown();
+                bva<TResult> bvaVar = this.b.a;
+                if (bvaVar != 0) {
+                    bvaVar.a(this.a);
                 }
             }
         }

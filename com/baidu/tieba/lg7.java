@@ -1,24 +1,23 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.log.YunDialogLog;
+import com.baidu.tbadk.data.DialogStrategiesData;
+import com.baidu.tbadk.switchs.LooperBlockSwitch;
+import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class lg7 implements b25 {
+public class lg7 implements a25 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.b25
-    public String name() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "NA_FRS_GUIDE_STRATEGY" : (String) invokeV.objValue;
-    }
 
     public lg7() {
         Interceptable interceptable = $ic;
@@ -34,13 +33,39 @@ public class lg7 implements b25 {
         }
     }
 
-    @Override // com.baidu.tieba.b25
-    public z15 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.a25
+    @NonNull
+    public Map<String, Object> a(@NonNull DialogStrategiesData dialogStrategiesData, @NonNull Map<String, Object> map, @NonNull Map<String, Object> map2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new kg7();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogStrategiesData, map, map2)) == null) {
+            HashMap hashMap = new HashMap(map);
+            hashMap.put("dialogName", "frsGuide");
+            hashMap.putAll(map);
+            hashMap.putAll(map2);
+            return hashMap;
         }
-        return (z15) invokeV.objValue;
+        return (Map) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.a25
+    public boolean b(@NonNull Map<String, Object> map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
+            if (!LooperBlockSwitch.getIsOn()) {
+                return false;
+            }
+            if (!(TbadkCoreApplication.getInst().getCurrentActivity() instanceof FrsActivity)) {
+                YunDialogLog.getInstance().b("YunDialogManager", "吧主弹窗策略校验失败：当前Activity非FrsActivity");
+                return false;
+            }
+            boolean z = !q45.m().i("has_guide_popup_window_been_shown", false);
+            if (!z) {
+                YunDialogLog.getInstance().b("YunDialogManager", "吧主弹窗策略校验失败：已经显示过");
+            }
+            return z;
+        }
+        return invokeL.booleanValue;
     }
 }

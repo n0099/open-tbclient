@@ -26,11 +26,11 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.module.hottopic.HotTopicStat;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.R;
-import com.baidu.tieba.av5;
-import com.baidu.tieba.di5;
+import com.baidu.tieba.bv5;
+import com.baidu.tieba.ei5;
 import com.baidu.tieba.gg;
-import com.baidu.tieba.hy4;
-import com.baidu.tieba.my4;
+import com.baidu.tieba.iy4;
+import com.baidu.tieba.ny4;
 import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
 import com.baidu.tieba.tbadkCore.data.WorksInfoData;
 import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
@@ -512,7 +512,7 @@ public class VideoItemData implements Serializable, Parcelable {
                 }
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("rich_abstract");
                 if (optJSONArray2 != null) {
-                    this.mRichAbstractList = my4.a(optJSONArray2);
+                    this.mRichAbstractList = ny4.a(optJSONArray2);
                 }
                 StringBuilder sb = new StringBuilder();
                 JSONArray optJSONArray3 = jSONObject.optJSONArray("abstract");
@@ -632,7 +632,7 @@ public class VideoItemData implements Serializable, Parcelable {
                 try {
                     Object obj2 = map.get("rich_abstract");
                     if (obj2 != null) {
-                        this.mRichAbstractList = my4.a(new JSONArray(DataExt.toJson(obj2)));
+                        this.mRichAbstractList = ny4.a(new JSONArray(DataExt.toJson(obj2)));
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -798,27 +798,27 @@ public class VideoItemData implements Serializable, Parcelable {
         return invokeL.booleanValue;
     }
 
-    public hy4 getNegFeedBackData() {
+    public iy4 getNegFeedBackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             SparseArray<String> sparseArray = this.feedBackReasonMap;
             if (sparseArray != null && sparseArray.size() > 0) {
-                hy4 hy4Var = new hy4();
-                hy4Var.n(this.nid);
-                hy4Var.o(this.thread_id);
-                hy4Var.l(this.forum_id);
-                hy4Var.j(this.feedBackReasonMap);
-                hy4Var.g = this.feedBackExtraMap;
-                hy4Var.p = this.mRecomAbTag;
-                hy4Var.k = this.mRecomWeight;
-                hy4Var.m = this.mRecomExtra;
-                hy4Var.l = this.mRecomSource;
-                return hy4Var;
+                iy4 iy4Var = new iy4();
+                iy4Var.n(this.nid);
+                iy4Var.o(this.thread_id);
+                iy4Var.l(this.forum_id);
+                iy4Var.j(this.feedBackReasonMap);
+                iy4Var.g = this.feedBackExtraMap;
+                iy4Var.p = this.mRecomAbTag;
+                iy4Var.k = this.mRecomWeight;
+                iy4Var.m = this.mRecomExtra;
+                iy4Var.l = this.mRecomSource;
+                return iy4Var;
             }
             return null;
         }
-        return (hy4) invokeV.objValue;
+        return (iy4) invokeV.objValue;
     }
 
     public void parseFeedJson(String str, String str2) {
@@ -846,7 +846,7 @@ public class VideoItemData implements Serializable, Parcelable {
                 this.title = jSONObject.optString("title");
                 JSONArray optJSONArray = jSONObject.optJSONArray("rich_abstract");
                 if (optJSONArray != null) {
-                    this.mRichAbstractList = my4.a(optJSONArray);
+                    this.mRichAbstractList = ny4.a(optJSONArray);
                 }
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("rich_title");
                 if (optJSONArray2 != null) {
@@ -1040,13 +1040,13 @@ public class VideoItemData implements Serializable, Parcelable {
             if (this.threadData != null && (list = this.richTitle) != null && !list.isEmpty()) {
                 for (PbContent pbContent : this.richTitle) {
                     if (pbContent.type.intValue() == 18) {
-                        di5 f = di5.f(this.threadData, pbContent);
+                        ei5 f = ei5.f(this.threadData, pbContent);
                         f.d(R.color.CAM_X0101);
                         f.e(R.color.CAM_X0113);
                         f.b(HotTopicStat.Locate.VIDEO_MIDDLE);
-                        p = av5.q(f);
+                        p = bv5.q(f);
                     } else {
-                        p = av5.p(this.threadData, pbContent);
+                        p = bv5.p(this.threadData, pbContent);
                     }
                     this.titleSsb.append(p);
                 }

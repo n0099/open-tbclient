@@ -15,11 +15,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 @TargetApi(24)
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class au {
     public static au a = new au();
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a {
 
         /* renamed from: a  reason: collision with other field name */
@@ -32,7 +32,7 @@ public class au {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class b {
         public int a;
 

@@ -30,24 +30,24 @@ import com.baidu.tbadk.coreExtra.InitUserNameDialogActivity;
 import com.baidu.tbadk.mutiprocess.sync.SyncDataEvent;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.UpdateDialog;
-import com.baidu.tieba.al9;
-import com.baidu.tieba.bj5;
-import com.baidu.tieba.c35;
-import com.baidu.tieba.cv4;
-import com.baidu.tieba.dx7;
-import com.baidu.tieba.gz7;
+import com.baidu.tieba.ak5;
+import com.baidu.tieba.cj5;
+import com.baidu.tieba.d35;
+import com.baidu.tieba.dv4;
+import com.baidu.tieba.ex7;
+import com.baidu.tieba.hz7;
+import com.baidu.tieba.il9;
 import com.baidu.tieba.im.memorycache.ImMemoryCacheRegister;
-import com.baidu.tieba.k28;
+import com.baidu.tieba.l28;
 import com.baidu.tieba.lc.LcUpdateDialogActivity;
-import com.baidu.tieba.lf5;
-import com.baidu.tieba.mt4;
-import com.baidu.tieba.n25;
-import com.baidu.tieba.pm9;
+import com.baidu.tieba.mf5;
+import com.baidu.tieba.nt4;
+import com.baidu.tieba.o25;
 import com.baidu.tieba.service.FatalErrorService;
 import com.baidu.tieba.service.TiebaSyncService;
 import com.baidu.tieba.service.UpdateInfoService;
 import com.baidu.tieba.wallet.WalletStaticInit;
-import com.baidu.tieba.zj5;
+import com.baidu.tieba.xm9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -190,17 +190,17 @@ public class LaunchStatic {
         b();
         d();
         c();
-        pm9.a();
-        k28.a();
-        dx7.a();
+        xm9.a();
+        l28.a();
+        ex7.a();
         ImMemoryCacheRegister.i();
-        gz7.i();
-        mt4.h();
+        hz7.i();
+        nt4.h();
         ServiceStaticInit.init();
         WalletStaticInit.init();
-        n25.d();
-        c35.a();
-        cv4.d();
+        o25.d();
+        d35.a();
+        dv4.d();
         a();
         e();
         testTitans();
@@ -212,9 +212,9 @@ public class LaunchStatic {
             CustomMessageTask customMessageTask = new CustomMessageTask(2006002, new a());
             customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
             MessageManager.getInstance().registerTask(customMessageTask);
-            lf5.d().f();
-            al9.f(303039, ClientConfigSocketResponse.class, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CLIENT_CONFIG, al9.a(TbConfig.GET_PAY_CONFIG, 303039));
+            mf5.d().f();
+            il9.f(303039, ClientConfigSocketResponse.class, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CLIENT_CONFIG, il9.a(TbConfig.GET_PAY_CONFIG, 303039));
             tbHttpMessageTask.setResponsedClass(ClientConfigHttpProtoResponse.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
@@ -245,7 +245,7 @@ public class LaunchStatic {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, null) == null) {
             try {
-                bj5.f().l(SyncDataEvent.class, new zj5());
+                cj5.f().l(SyncDataEvent.class, new ak5());
             } catch (Exception e) {
                 e.printStackTrace();
             }

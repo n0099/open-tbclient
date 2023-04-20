@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
+import com.baidu.tieba.dd8;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.vc8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -142,7 +142,7 @@ public class LabelItemView extends LinearLayout {
         }
     }
 
-    public void setData(List<vc8> list, boolean z) {
+    public void setData(List<dd8> list, boolean z) {
         int i;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLZ(1048579, this, list, z) != null) || ListUtils.isEmpty(list)) {
@@ -156,19 +156,19 @@ public class LabelItemView extends LinearLayout {
             if (i2 >= i) {
                 break;
             }
-            vc8 vc8Var = list.get(i2);
-            if (vc8Var != null && (getChildAt(i2) instanceof TextView)) {
+            dd8 dd8Var = list.get(i2);
+            if (dd8Var != null && (getChildAt(i2) instanceof TextView)) {
                 TextView textView = (TextView) getChildAt(i2);
                 textView.setVisibility(0);
-                String str = vc8Var.b;
-                if (!StringUtils.isNull(str) && vc8Var.b.length() > 4) {
-                    str = vc8Var.b.substring(0, 3) + StringHelper.STRING_MORE;
+                String str = dd8Var.b;
+                if (!StringUtils.isNull(str) && dd8Var.b.length() > 4) {
+                    str = dd8Var.b.substring(0, 3) + StringHelper.STRING_MORE;
                 }
                 textView.setText(str);
                 SkinManager.setViewTextColor(textView, (int) R.drawable.color_lable_selector);
                 textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_lable_selector), (Drawable) null);
-                textView.setSelected(vc8Var.c);
-                textView.setTag(vc8Var);
+                textView.setSelected(dd8Var.c);
+                textView.setTag(dd8Var);
             }
             i2++;
         }

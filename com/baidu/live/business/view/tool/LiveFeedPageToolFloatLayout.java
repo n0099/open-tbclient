@@ -22,9 +22,9 @@ import com.baidu.live.business.model.data.LiveFeedToolWrapData;
 import com.baidu.live.business.view.search.LiveSearchGuideView;
 import com.baidu.spswitch.emotion.view.BDEmotionBagVerticalLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ac0;
-import com.baidu.tieba.j90;
-import com.baidu.tieba.wb0;
+import com.baidu.tieba.bc0;
+import com.baidu.tieba.k90;
+import com.baidu.tieba.xb0;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class LiveFeedPageToolFloatLayout extends RelativeLayout {
@@ -171,7 +171,7 @@ public class LiveFeedPageToolFloatLayout extends RelativeLayout {
         }
         ImageView imageView = this.e;
         if (imageView != null) {
-            ac0 f = ac0.f();
+            bc0 f = bc0.f();
             if (this.b) {
                 str2 = LiveFeedPageSdk.IMMERSION;
             } else {
@@ -230,8 +230,8 @@ public class LiveFeedPageToolFloatLayout extends RelativeLayout {
         } else {
             f = 47.0f;
         }
-        float b2 = j90.b(context, f);
-        wb0.f(this.e, b2, b2);
+        float b2 = k90.b(context, f);
+        xb0.f(this.e, b2, b2);
         this.g.c();
         if (this.f != null) {
             for (int i = 0; i < this.f.getChildCount(); i++) {
@@ -337,7 +337,7 @@ public class LiveFeedPageToolFloatLayout extends RelativeLayout {
                 } else {
                     f3 = 10.0f;
                 }
-                layoutParams3.rightMargin = j90.b(context, f3);
+                layoutParams3.rightMargin = k90.b(context, f3);
                 this.d.setLayoutParams(layoutParams2);
             }
         }
@@ -352,7 +352,7 @@ public class LiveFeedPageToolFloatLayout extends RelativeLayout {
                 } else {
                     f2 = 4.0f;
                 }
-                layoutParams5.rightMargin = j90.b(context2, f2);
+                layoutParams5.rightMargin = k90.b(context2, f2);
                 this.f.setLayoutParams(layoutParams4);
             }
         }
@@ -364,12 +364,12 @@ public class LiveFeedPageToolFloatLayout extends RelativeLayout {
             } else {
                 f = 47.0f;
             }
-            int b2 = j90.b(context3, f);
+            int b2 = k90.b(context3, f);
             layoutParams.width = b2;
             layoutParams.height = b2;
             this.e.setLayoutParams(layoutParams);
         }
-        d(ac0.f().r());
+        d(bc0.f().r());
         e();
     }
 }

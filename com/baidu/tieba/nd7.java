@@ -11,25 +11,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.RecentUpdate;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import tbclient.ThreadInfo;
 /* loaded from: classes5.dex */
-public class nd7 extends jw4 {
+public class nd7 extends kw4 {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public RecentUpdate a;
+    public List<ThreadData> a;
 
-    @Override // com.baidu.tieba.jw4
-    public hy4 getNegFeedBackData() {
+    @Override // com.baidu.tieba.kw4
+    public iy4 getNegFeedBackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return null;
         }
-        return (hy4) invokeV.objValue;
+        return (iy4) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.jw4
+    @Override // com.baidu.tieba.kw4
     public ThreadData getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -71,16 +74,7 @@ public class nd7 extends jw4 {
         setSupportType(BaseCardInfo.SupportType.FULL);
     }
 
-    public RecentUpdate c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (RecentUpdate) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.hn
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.in
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -90,10 +84,32 @@ public class nd7 extends jw4 {
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public void d(RecentUpdate recentUpdate) {
+    public List<ThreadData> c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recentUpdate) == null) {
-            this.a = recentUpdate;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.a.size() > 10) {
+                ArrayList arrayList = new ArrayList();
+                Iterator<ThreadData> it = this.a.iterator();
+                while (it.hasNext() && arrayList.size() < 10) {
+                    arrayList.add(it.next());
+                }
+                return arrayList;
+            }
+            return this.a;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public void d(List<ThreadInfo> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            this.a = new ArrayList();
+            for (ThreadInfo threadInfo : list) {
+                ThreadData threadData = new ThreadData();
+                threadData.parserProtobuf(threadInfo);
+                this.a.add(threadData);
+            }
         }
     }
 }

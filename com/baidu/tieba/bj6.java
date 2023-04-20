@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,15 +12,16 @@ import java.util.HashMap;
 import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes3.dex */
-public final class bj6 implements e07 {
+public final class bj6 implements f07 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final HashMap<String, String> a;
 
-    @Override // com.baidu.tieba.e07
+    @Override // com.baidu.tieba.f07
     public String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "c12351" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? TbadkCoreStatisticKey.CONCERN_TAB_THREAD_CLICK : (String) invokeV.objValue;
     }
 
     public bj6() {
@@ -32,33 +34,48 @@ public final class bj6 implements e07 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new HashMap<>();
     }
 
-    @Override // com.baidu.tieba.e07
-    public Map<String, String> a(qw6 businessInfo) {
+    @Override // com.baidu.tieba.f07
+    public Map<String, String> a(rw6 businessInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
             Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            HashMap hashMap = new HashMap();
             Map<String, String> a = businessInfo.a();
-            hashMap.put("obj_type", gj6.a.a(businessInfo));
-            String str = a.get("user_id");
+            this.a.put("obj_type", hj6.a.a(businessInfo));
+            this.a.put("obj_source", "1");
+            this.a.put("obj_param1", "1");
+            HashMap<String, String> hashMap = this.a;
+            String str = a.get("live_type");
             String str2 = "";
             if (str == null) {
                 str = "";
             }
-            hashMap.put("obj_id", str);
-            hashMap.put("obj_param1", "1");
-            String str3 = a.get("live_type");
+            hashMap.put(TiebaStatic.Params.OBJ_PARAM2, str);
+            HashMap<String, String> hashMap2 = this.a;
+            String str3 = a.get("thread_id");
             if (str3 != null) {
                 str2 = str3;
             }
-            hashMap.put(TiebaStatic.Params.OBJ_PARAM3, str2);
-            return hashMap;
+            hashMap2.put("obj_id", str2);
+            return this.a;
         }
         return (Map) invokeL.objValue;
+    }
+
+    public final bj6 b(String locate) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, locate)) == null) {
+            Intrinsics.checkNotNullParameter(locate, "locate");
+            this.a.put("obj_locate", locate);
+            return this;
+        }
+        return (bj6) invokeL.objValue;
     }
 }

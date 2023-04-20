@@ -5,7 +5,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tieba.gg;
-import com.baidu.tieba.sm;
+import com.baidu.tieba.tm;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -68,24 +68,24 @@ public class LocalPicDrawableLoaderProc extends AbstractImageLoaderProc {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.dg
-    public sm getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
+    public tm getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
             String str3 = str + "";
-            sm w = TbImageMemoryCache.s().w(str3);
+            tm w = TbImageMemoryCache.s().w(str3);
             if (w == null) {
                 Bitmap bitmap = SkinManager.getBitmap(gg.e(str2, 0));
                 if (bitmap == null) {
                     return null;
                 }
-                sm smVar = new sm(bitmap, false, str2);
-                TbImageMemoryCache.s().k(str3, smVar);
-                return smVar;
+                tm tmVar = new tm(bitmap, false, str2);
+                TbImageMemoryCache.s().k(str3, tmVar);
+                return tmVar;
             }
             return w;
         }
-        return (sm) invokeCommon.objValue;
+        return (tm) invokeCommon.objValue;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc

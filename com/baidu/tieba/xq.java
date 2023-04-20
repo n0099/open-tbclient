@@ -1,4 +1,5 @@
 package com.baidu.tieba;
 /* loaded from: classes7.dex */
-public interface xq<T> {
+public interface xq<StoreSubscriber> {
+    void a(StoreSubscriber storesubscriber);
 }

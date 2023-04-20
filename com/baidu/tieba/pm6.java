@@ -10,99 +10,73 @@ public final class pm6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final ul6 a(y yVar) {
-        InterceptResult invokeL;
+    public static final <T extends nl6> T a(ol6 ol6Var, Class<T> type, y entity, gl6 item) {
+        InterceptResult invokeLLLL;
+        T t;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, yVar)) == null) {
-            Intrinsics.checkNotNullParameter(yVar, "<this>");
-            return (ul6) yVar.d(ul6.class);
-        }
-        return (ul6) invokeL.objValue;
-    }
-
-    public static final rl6 b(y yVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, yVar)) == null) {
-            Intrinsics.checkNotNullParameter(yVar, "<this>");
-            return (rl6) yVar.d(rl6.class);
-        }
-        return (rl6) invokeL.objValue;
-    }
-
-    public static final long c(y yVar) {
-        InterceptResult invokeL;
-        fl6 a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, yVar)) == null) {
-            Intrinsics.checkNotNullParameter(yVar, "<this>");
-            rl6 b = b(yVar);
-            if (b != null && (a = b.a()) != null) {
-                return a.g();
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, ol6Var, type, entity, item)) == null) {
+            Intrinsics.checkNotNullParameter(ol6Var, "<this>");
+            Intrinsics.checkNotNullParameter(type, "type");
+            Intrinsics.checkNotNullParameter(entity, "entity");
+            Intrinsics.checkNotNullParameter(item, "item");
+            x f = ol6Var.f();
+            if (f != null && (t = (T) f.h(type)) != null) {
+                entity.a(t);
+                t.b(item);
+                return t;
             }
-            return 0L;
+            return null;
+        }
+        return (T) invokeLLLL.objValue;
+    }
+
+    public static final long b(ol6 ol6Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, ol6Var)) == null) {
+            Intrinsics.checkNotNullParameter(ol6Var, "<this>");
+            return d(ol6Var).a();
         }
         return invokeL.longValue;
     }
 
-    public static final ql6 d(y yVar) {
+    public static final gn6 c(ol6 ol6Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, yVar)) == null) {
-            Intrinsics.checkNotNullParameter(yVar, "<this>");
-            return (ql6) yVar.d(ql6.class);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, ol6Var)) == null) {
+            Intrinsics.checkNotNullParameter(ol6Var, "<this>");
+            return ol6Var.i().d();
         }
-        return (ql6) invokeL.objValue;
+        return (gn6) invokeL.objValue;
     }
 
-    public static final sl6 e(y yVar) {
+    public static final jn6 d(ol6 ol6Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, yVar)) == null) {
-            Intrinsics.checkNotNullParameter(yVar, "<this>");
-            return (sl6) yVar.d(sl6.class);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, ol6Var)) == null) {
+            Intrinsics.checkNotNullParameter(ol6Var, "<this>");
+            return ol6Var.i().f();
         }
-        return (sl6) invokeL.objValue;
+        return (jn6) invokeL.objValue;
     }
 
-    public static final long f(y yVar) {
+    public static final boolean e(ol6 ol6Var) {
         InterceptResult invokeL;
-        fl6 a;
+        ml6 ml6Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, yVar)) == null) {
-            Intrinsics.checkNotNullParameter(yVar, "<this>");
-            rl6 b = b(yVar);
-            if (b != null && (a = b.a()) != null) {
-                return a.j();
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, ol6Var)) == null) {
+            Intrinsics.checkNotNullParameter(ol6Var, "<this>");
+            x f = ol6Var.f();
+            if (f instanceof ml6) {
+                ml6Var = (ml6) f;
+            } else {
+                ml6Var = null;
             }
-            return 0L;
-        }
-        return invokeL.longValue;
-    }
-
-    public static final boolean g(y yVar, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, yVar, j)) == null) {
-            Intrinsics.checkNotNullParameter(yVar, "<this>");
-            if (j - f(yVar) < 0) {
-                return true;
+            if (ml6Var != null) {
+                return ml6Var.x();
             }
-            return false;
+            return true;
         }
-        return invokeLJ.booleanValue;
-    }
-
-    public static final boolean h(y yVar, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65543, null, yVar, j)) == null) {
-            Intrinsics.checkNotNullParameter(yVar, "<this>");
-            if (j - f(yVar) > c(yVar)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeLJ.booleanValue;
+        return invokeL.booleanValue;
     }
 }

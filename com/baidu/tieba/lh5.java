@@ -1,8 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
-import java.util.ArrayList;
+import com.baidu.tbadk.module.alalivesdk.imSdkPersonService.data.PersonFetchMsgResponse;
 /* loaded from: classes5.dex */
 public interface lh5 {
-    void onReceiveMessage(int i, int i2, ArrayList<ChatMsg> arrayList);
+    void a(int i, String str, PersonFetchMsgResponse personFetchMsgResponse);
 }

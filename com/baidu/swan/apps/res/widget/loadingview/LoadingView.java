@@ -10,25 +10,25 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.swan.apps.res.ui.SmoothProgressBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.br2;
-import com.baidu.tieba.d73;
-import com.baidu.tieba.e23;
-import com.baidu.tieba.id3;
-import com.baidu.tieba.v13;
+import com.baidu.tieba.cr2;
+import com.baidu.tieba.e73;
+import com.baidu.tieba.f23;
+import com.baidu.tieba.jd3;
+import com.baidu.tieba.w13;
 /* loaded from: classes3.dex */
-public class LoadingView extends FrameLayout implements d73<LoadingView> {
+public class LoadingView extends FrameLayout implements e73<LoadingView> {
     public View a;
     public SmoothProgressBar b;
     public TextView c;
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.d73
+    @Override // com.baidu.tieba.e73
     public LoadingView getLoadingView() {
         return this;
     }
 
     /* loaded from: classes3.dex */
-    public class a implements id3 {
+    public class a implements jd3 {
         public a() {
         }
     }
@@ -54,8 +54,8 @@ public class LoadingView extends FrameLayout implements d73<LoadingView> {
 
     public void a() {
         View view2;
-        if (v13.e()) {
-            view2 = e23.a().d(R.layout.obfuscated_res_0x7f0d00bb);
+        if (w13.e()) {
+            view2 = f23.a().d(R.layout.obfuscated_res_0x7f0d00bb);
         } else {
             view2 = null;
         }
@@ -73,13 +73,13 @@ public class LoadingView extends FrameLayout implements d73<LoadingView> {
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        br2.M().f(this, new a());
+        cr2.M().f(this, new a());
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        br2.M().g(this);
+        cr2.M().g(this);
     }
 
     public void setMsg(String str) {

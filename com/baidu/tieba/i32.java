@@ -1,151 +1,394 @@
 package com.baidu.tieba;
 
-import android.graphics.Color;
+import android.animation.Animator;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
+import android.content.Context;
+import android.graphics.drawable.GradientDrawable;
+import android.text.TextUtils;
+import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.Interpolator;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.graphics.drawable.AnimatedStateListDrawableCompat;
+import androidx.constraintlayout.motion.utils.Easing;
+import androidx.constraintlayout.motion.widget.Key;
+import androidx.core.view.InputDeviceCompat;
+import androidx.core.view.animation.PathInterpolatorCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.searchbox.crius.constants.NativeConstants;
+import com.baidu.swan.apps.component.container.view.SwanAppComponentContainerView;
+import com.baidu.tieba.j32;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class i32 extends k32 {
+public abstract class i32<V extends View, M extends j32> extends k32<V, M> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public JSONObject j;
-    public int k;
-    public int l;
-    public int m;
-    public int n;
-    public JSONArray o;
-    public float p;
-    @Nullable
-    public JSONObject q;
-    public long r;
-    public String s;
+
+    /* loaded from: classes4.dex */
+    public class a implements ValueAnimator.AnimatorUpdateListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SwanAppComponentContainerView a;
+        public final /* synthetic */ boolean b;
+        public final /* synthetic */ j32 c;
+
+        public a(i32 i32Var, SwanAppComponentContainerView swanAppComponentContainerView, boolean z, j32 j32Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {i32Var, swanAppComponentContainerView, Boolean.valueOf(z), j32Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = swanAppComponentContainerView;
+            this.b = z;
+            this.c = j32Var;
+        }
+
+        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+        public void onAnimationUpdate(ValueAnimator valueAnimator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
+                ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
+                if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
+                    ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
+                    if (this.b) {
+                        marginLayoutParams.leftMargin = ((Integer) valueAnimator.getAnimatedValue()).intValue();
+                    } else {
+                        marginLayoutParams.topMargin = ((Integer) valueAnimator.getAnimatedValue()).intValue();
+                    }
+                    this.c.h.l(marginLayoutParams.leftMargin);
+                    this.c.h.m(marginLayoutParams.topMargin);
+                    this.a.setLayoutParams(marginLayoutParams);
+                }
+            }
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i32(String str, @NonNull String str2) {
-        super(str, str2);
+    public i32(@Nullable Context context, @NonNull M m) {
+        super(context, m);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
+            Object[] objArr = {context, m};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (String) objArr2[1]);
+                super((Context) objArr2[0], (l32) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.k = 0;
-        this.m = 0;
-        this.p = -1.0f;
-        this.s = "";
     }
 
-    @Override // com.baidu.tieba.k32, com.baidu.tieba.tx2
-    public void a(JSONObject jSONObject) throws JSONException {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.k32
+    @NonNull
+    /* renamed from: I */
+    public n42 k(@NonNull M m, @NonNull M m2) {
+        InterceptResult invokeLL;
+        JSONObject jSONObject;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, m, m2)) == null) {
+            n42 k = super.k(m, m2);
+            if (m2.j != null && ((jSONObject = m.j) == null || !TextUtils.equals(jSONObject.toString(), m2.j.toString()))) {
+                k.b(4);
+            }
+            return k;
+        }
+        return (n42) invokeLL.objValue;
+    }
+
+    public void Q(@NonNull V v, @NonNull M m) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048588, this, v, m) != null) || m.j == null) {
             return;
         }
-        super.a(jSONObject);
-        this.j = jSONObject.optJSONObject("style");
-        this.q = jSONObject.optJSONObject(AnimatedStateListDrawableCompat.ELEMENT_TRANSITION);
-        i();
-        h();
+        if (k32.h) {
+            Log.d("Component-View", "renderBackground");
+        }
+        GradientDrawable gradientDrawable = new GradientDrawable();
+        gradientDrawable.setColor(m.k);
+        gradientDrawable.setCornerRadius(m.n);
+        gradientDrawable.setStroke(m.l, m.m);
+        v.setBackground(gradientDrawable);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.k32
-    public void g(JSONObject jSONObject) {
+    /* renamed from: O */
+    public void C(@NonNull V v, @NonNull M m, @NonNull n42 n42Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            super.g(jSONObject);
-            i();
-            h();
+        if (interceptable == null || interceptable.invokeLLL(1048586, this, v, m, n42Var) == null) {
+            super.C(v, m, n42Var);
+            if (n42Var.a(4)) {
+                R(v, m);
+                Q(v, m);
+                P(v, m);
+            }
         }
     }
 
-    @Override // com.baidu.tieba.k32
-    public Object clone() throws CloneNotSupportedException {
+    @Nullable
+    public final ValueAnimator F(@NonNull SwanAppComponentContainerView swanAppComponentContainerView, @NonNull j32 j32Var, @NonNull j32 j32Var2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, swanAppComponentContainerView, j32Var, j32Var2)) == null) {
+            if (j32Var2.j != null) {
+                float b = vk3.b(j32Var.j, NativeConstants.OPACITY, 1.0f);
+                float b2 = vk3.b(j32Var2.j, NativeConstants.OPACITY, b);
+                if (b != b2) {
+                    return ObjectAnimator.ofFloat(swanAppComponentContainerView, Key.ALPHA, b, b2);
+                }
+            }
+            return null;
+        }
+        return (ValueAnimator) invokeLLL.objValue;
+    }
+
+    public final AnimatorSet G(long j, @NonNull Interpolator interpolator, List<Animator> list) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), interpolator, list})) == null) {
+            if (j <= 0 || list == null) {
+                return null;
+            }
+            ArrayList arrayList = new ArrayList();
+            for (Animator animator : list) {
+                if (animator != null) {
+                    arrayList.add(animator);
+                }
+            }
+            if (arrayList.size() == 0) {
+                return null;
+            }
+            AnimatorSet animatorSet = new AnimatorSet();
+            animatorSet.setInterpolator(interpolator);
+            animatorSet.setDuration(j);
+            animatorSet.playTogether(arrayList);
+            return animatorSet;
+        }
+        return (AnimatorSet) invokeCommon.objValue;
+    }
+
+    @Nullable
+    public final ValueAnimator H(@NonNull SwanAppComponentContainerView swanAppComponentContainerView, @NonNull j32 j32Var, @NonNull j32 j32Var2, boolean z) {
+        InterceptResult invokeCommon;
+        int e;
+        int e2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{swanAppComponentContainerView, j32Var, j32Var2, Boolean.valueOf(z)})) == null) {
+            by2 by2Var = j32Var.h;
+            if (by2Var == null || j32Var2.h == null) {
+                return null;
+            }
+            if (z) {
+                e = by2Var.d();
+            } else {
+                e = by2Var.e();
+            }
+            by2 by2Var2 = j32Var2.h;
+            if (z) {
+                e2 = by2Var2.d();
+            } else {
+                e2 = by2Var2.e();
+            }
+            if (e == e2) {
+                return null;
+            }
+            ValueAnimator ofInt = ValueAnimator.ofInt(e, e2);
+            ofInt.addUpdateListener(new a(this, swanAppComponentContainerView, z, j32Var2));
+            return ofInt;
+        }
+        return (ValueAnimator) invokeCommon.objValue;
+    }
+
+    public final boolean J() {
+        InterceptResult invokeV;
+        JSONObject jSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (!s(4) || !t() || (jSONObject = ((j32) n()).q) == null || TextUtils.isEmpty(jSONObject.optString("duration"))) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    public final Interpolator K(@NonNull String str) {
+        InterceptResult invokeL;
+        char c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            switch (str.hashCode()) {
+                case -1965120668:
+                    if (str.equals("ease-in")) {
+                        c = 1;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -1102672091:
+                    if (str.equals(Easing.LINEAR_NAME)) {
+                        c = 0;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -789192465:
+                    if (str.equals("ease-out")) {
+                        c = 2;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -361990811:
+                    if (str.equals("ease-in-out")) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 3105774:
+                    if (str.equals("ease")) {
+                        c = 4;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    c = 65535;
+                    break;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    if (c != 2) {
+                        if (c != 3) {
+                            return PathInterpolatorCompat.create(0.25f, 0.1f, 0.25f, 1.0f);
+                        }
+                        return PathInterpolatorCompat.create(0.42f, 0.0f, 0.58f, 1.0f);
+                    }
+                    return PathInterpolatorCompat.create(0.0f, 0.0f, 0.58f, 1.0f);
+                }
+                return PathInterpolatorCompat.create(0.42f, 0.0f, 1.0f, 1.0f);
+            }
+            return PathInterpolatorCompat.create(0.0f, 0.0f, 1.0f, 1.0f);
+        }
+        return (Interpolator) invokeL.objValue;
+    }
+
+    public final boolean N(boolean z) {
+        InterceptResult invokeZ;
+        JSONObject jSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048585, this, z)) == null) {
+            SwanAppComponentContainerView m = m();
+            j32 j32Var = (j32) p();
+            j32 j32Var2 = (j32) n();
+            if (m == null || j32Var == null || (jSONObject = j32Var2.q) == null || TextUtils.isEmpty(jSONObject.optString("duration"))) {
+                return false;
+            }
+            ArrayList arrayList = new ArrayList();
+            if (z) {
+                arrayList.add(H(m, j32Var, j32Var2, false));
+                arrayList.add(H(m, j32Var, j32Var2, true));
+            } else {
+                arrayList.add(F(m, j32Var, j32Var2));
+            }
+            AnimatorSet G = G(j32Var2.r, K(j32Var2.s), arrayList);
+            if (G != null) {
+                G.start();
+            }
+            return true;
+        }
+        return invokeZ.booleanValue;
+    }
+
+    public final boolean L() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            i32 i32Var = (i32) super.clone();
-            if (this.j != null) {
-                try {
-                    i32Var.j = new JSONObject(this.j.toString());
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (this.o != null) {
-                try {
-                    i32Var.o = new JSONArray(this.o.toString());
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
-                }
-            }
-            if (this.q != null) {
-                try {
-                    i32Var.q = new JSONObject(this.q.toString());
-                } catch (JSONException e3) {
-                    e3.printStackTrace();
-                }
-            }
-            return i32Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return N(false);
         }
-        return invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final void h() {
-        JSONObject jSONObject;
+    public final boolean M() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (jSONObject = this.q) != null) {
-            try {
-                this.r = Long.parseLong(jSONObject.optString("duration"));
-            } catch (Exception unused) {
-                u42.b("Component-Model-View", "duration occurs exception");
-                this.r = 0L;
-            }
-            this.s = this.q.optString("easing");
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return N(true);
         }
+        return invokeV.booleanValue;
     }
 
-    public final void i() {
-        JSONObject jSONObject;
+    public void P(@NonNull View view2, @NonNull M m) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (jSONObject = this.j) != null) {
-            try {
-                this.k = Color.parseColor(jSONObject.optString("bgColor"));
-            } catch (Exception unused) {
-                u42.b("Component-Model-View", "backgroundColor occurs exception");
-                this.k = 0;
-            }
-            this.l = this.j.optInt("borderWidth");
-            try {
-                this.m = Color.parseColor(this.j.optString("borderColor"));
-            } catch (Exception unused2) {
-                u42.b("Component-Model-View", "borderColor occurs exception");
-                this.m = 0;
-            }
-            this.n = ll3.g(this.j.optInt("borderRadius"));
-            this.p = uk3.b(this.j, NativeConstants.OPACITY, -1.0f);
-            this.o = this.j.optJSONArray(CriusAttrConstants.PADDING);
+        if ((interceptable != null && interceptable.invokeLL(1048587, this, view2, m) != null) || m.j == null) {
+            return;
         }
+        if (k32.h) {
+            Log.d("Component-View", "renderAlpha");
+        }
+        if (J()) {
+            if (k32.h) {
+                Log.d("Component-View", "renderAlpha with animation");
+            }
+            if (!L()) {
+                v42.o("Component-View", "performAlphaUpdateAnimation fail");
+                return;
+            }
+            return;
+        }
+        float f = m.p;
+        if (f >= 0.0f && f <= 1.0f) {
+            view2.setAlpha(f);
+            return;
+        }
+        v42.o("Component-View", "alpha invalid: " + m.p);
+    }
+
+    public void R(@NonNull V v, @NonNull M m) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048589, this, v, m) != null) || m.j == null) {
+            return;
+        }
+        if (k32.h) {
+            Log.d("Component-View", "renderPadding");
+        }
+        JSONArray jSONArray = m.o;
+        if (jSONArray == null) {
+            return;
+        }
+        if (jSONArray.length() == 4) {
+            v.setPadding(ml3.g((float) jSONArray.optDouble(3, 0.0d)), ml3.g((float) jSONArray.optDouble(0, 0.0d)), ml3.g((float) jSONArray.optDouble(1, 0.0d)), ml3.g((float) jSONArray.optDouble(2, 0.0d)));
+            return;
+        }
+        v42.c("Component-View", "invalid padding array length: " + jSONArray.length());
     }
 }

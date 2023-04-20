@@ -1,77 +1,85 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.net.UploadDataProvider;
-import java.io.IOException;
-import java.io.OutputStream;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import java.util.Locale;
 /* loaded from: classes4.dex */
-public abstract class h9a extends OutputStream {
+public final class h9a {
     public static /* synthetic */ Interceptable $ic;
+    public static final Object a;
+    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
-    public IOException a;
-    public boolean b;
-    public boolean c;
 
-    public abstract void e() throws IOException;
-
-    public abstract UploadDataProvider f();
-
-    public abstract void g() throws IOException;
-
-    public h9a() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947779929, "Lcom/baidu/tieba/h9a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947779929, "Lcom/baidu/tieba/h9a;");
+                return;
             }
         }
+        a = new Object();
     }
 
-    public void a() throws IOException {
-        IOException iOException;
+    public static String a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (iOException = this.a) == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(context.getPackageName());
+            sb.append(WebvttCueParser.CHAR_SLASH);
+            sb.append(b(context));
+            sb.append(" (Linux; U; Android ");
+            sb.append(Build.VERSION.RELEASE);
+            sb.append("; ");
+            sb.append(Locale.getDefault().toString());
+            String str = Build.MODEL;
+            if (str.length() > 0) {
+                sb.append("; ");
+                sb.append(str);
+            }
+            String str2 = Build.ID;
+            if (str2.length() > 0) {
+                sb.append("; Build/");
+                sb.append(str2);
+            }
+            sb.append("; TurboNet/");
+            sb.append("53.0.2785.116");
+            sb.append(')');
+            return sb.toString();
         }
-        throw iOException;
+        return (String) invokeL.objValue;
     }
 
-    public void c() throws IOException {
+    public static int b(Context context) {
+        InterceptResult invokeL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (!this.c) {
-                if (!this.b) {
-                    return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            synchronized (a) {
+                if (b == 0) {
+                    try {
+                        b = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
+                    } catch (PackageManager.NameNotFoundException unused) {
+                        throw new IllegalStateException("Cannot determine package version");
+                    }
                 }
-                throw new IOException("Stream has been closed.");
+                i = b;
             }
-            a();
-            throw new IOException("Writing after request completed.");
+            return i;
         }
-    }
-
-    @Override // java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
-    public void close() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b = true;
-        }
-    }
-
-    public void h(IOException iOException) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, iOException) == null) {
-            this.a = iOException;
-            this.c = true;
-        }
+        return invokeL.intValue;
     }
 }

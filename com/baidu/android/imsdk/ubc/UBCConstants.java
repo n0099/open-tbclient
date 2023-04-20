@@ -13,7 +13,8 @@ public class UBCConstants {
     public static String BCSEND_UBCID = "3035";
     public static boolean IS_ASYNC = true;
     public static boolean IS_REAL = true;
-    public static boolean IS_SAVE_DB;
+    public static boolean IS_SAVE_DB = false;
+    public static final String SEND_FAIL_RECORD_UBC = "send_msg_fail_record";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

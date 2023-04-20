@@ -1,5 +1,5 @@
 package com.xiaomi.push.service;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class bk {
     public static String A = "ext_cloud_attr";
     public static String B = "ext_pkg_name";

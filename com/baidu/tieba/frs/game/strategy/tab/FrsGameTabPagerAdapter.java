@@ -7,11 +7,11 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.viewpager.widget.PagerAdapter;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.cb7;
-import com.baidu.tieba.eb7;
+import com.baidu.tieba.db7;
+import com.baidu.tieba.fb7;
 import com.baidu.tieba.frs.game.strategy.data.LabelDataList;
 import com.baidu.tieba.frs.game.strategy.view.FrsGameStrategyItemListView;
-import com.baidu.tieba.gb7;
+import com.baidu.tieba.hb7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,8 +24,8 @@ public class FrsGameTabPagerAdapter extends PagerAdapter {
     public final FrsGameStrategyItemListView[] a;
     public int b;
     public Context c;
-    public cb7 d;
-    public eb7 e;
+    public db7 d;
+    public fb7 e;
     public FrsGameStrategyItemListView f;
     public int g;
     public BdUniqueId h;
@@ -37,12 +37,12 @@ public class FrsGameTabPagerAdapter extends PagerAdapter {
         }
     }
 
-    public FrsGameTabPagerAdapter(Context context, cb7 cb7Var, eb7 eb7Var) {
+    public FrsGameTabPagerAdapter(Context context, db7 db7Var, fb7 fb7Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, cb7Var, eb7Var};
+            Object[] objArr = {context, db7Var, fb7Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -56,8 +56,8 @@ public class FrsGameTabPagerAdapter extends PagerAdapter {
         this.b = 0;
         this.g = -1;
         this.c = context;
-        this.d = cb7Var;
-        this.e = eb7Var;
+        this.d = db7Var;
+        this.e = fb7Var;
     }
 
     public FrsGameStrategyItemListView b() {
@@ -179,7 +179,7 @@ public class FrsGameTabPagerAdapter extends PagerAdapter {
     @Override // androidx.viewpager.widget.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
-        gb7 a;
+        hb7 a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048586, this, viewGroup, i)) == null) {
             int i2 = i % 3;
@@ -201,8 +201,8 @@ public class FrsGameTabPagerAdapter extends PagerAdapter {
                 viewGroup.removeView(d);
             }
             viewGroup.addView(d);
-            eb7 eb7Var = this.e;
-            if (eb7Var != null && (a = eb7Var.a(i)) != null) {
+            fb7 fb7Var = this.e;
+            if (fb7Var != null && (a = fb7Var.a(i)) != null) {
                 Object obj = a.c;
                 if (obj instanceof LabelDataList) {
                     d.o(a.a, ((LabelDataList) obj).getSelectedLabelId());

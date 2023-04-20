@@ -1,102 +1,111 @@
 package com.baidu.tieba;
 
-import android.graphics.Matrix;
-import android.graphics.Rect;
-import android.graphics.RectF;
-import android.hardware.camera2.CameraCharacteristics;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.VideoTemplate.DataRes;
+import tbclient.VideoTemplateContent;
 /* loaded from: classes7.dex */
 public class xy9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Matrix a;
-    public RectF b;
+    public List<wy9> a;
+    public int b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
 
-    public xy9(CameraCharacteristics cameraCharacteristics, RectF rectF) {
-        int intValue;
-        boolean z;
+    public xy9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {cameraCharacteristics, rectF};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        if (a(rectF)) {
-            Rect rect = (Rect) cameraCharacteristics.get(CameraCharacteristics.SENSOR_INFO_ACTIVE_ARRAY_SIZE);
-            Integer num = (Integer) cameraCharacteristics.get(CameraCharacteristics.SENSOR_ORIENTATION);
-            if (num == null) {
-                intValue = 90;
-            } else {
-                intValue = num.intValue();
-            }
-            this.b = new RectF(rect);
-            Integer num2 = (Integer) cameraCharacteristics.get(CameraCharacteristics.LENS_FACING);
-            if (num2 != null && num2.intValue() == 0) {
-                z = true;
-            } else {
-                z = false;
-            }
-            this.a = b(z, intValue, rectF);
-            return;
-        }
-        throw new IllegalArgumentException("previewRect");
     }
 
-    public final boolean a(RectF rectF) {
-        InterceptResult invokeL;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, rectF)) == null) {
-            if (rectF.width() != 0.0f && rectF.height() != 0.0f) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.f;
         }
-        return invokeL.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public RectF c(RectF rectF) {
-        InterceptResult invokeL;
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rectF)) == null) {
-            RectF rectF2 = new RectF();
-            this.a.mapRect(rectF2, rectF);
-            return rectF2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
         }
-        return (RectF) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final Matrix b(boolean z, int i, RectF rectF) {
-        InterceptResult invokeCommon;
-        float f;
+    public List<wy9> c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), rectF})) == null) {
-            Matrix matrix = new Matrix();
-            if (z) {
-                f = -1.0f;
-            } else {
-                f = 1.0f;
-            }
-            matrix.setScale(f, 1.0f);
-            matrix.postRotate(-i);
-            matrix.mapRect(rectF);
-            Matrix matrix2 = new Matrix();
-            matrix2.setRectToRect(rectF, this.b, Matrix.ScaleToFit.FILL);
-            matrix.setConcat(matrix2, matrix);
-            return matrix;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
         }
-        return (Matrix) invokeCommon.objValue;
+        return (List) invokeV.objValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void g(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, dataRes) == null) {
+            this.b = dataRes.topic_id.intValue();
+            this.c = dataRes.topic_name;
+            this.d = dataRes.back_url;
+            this.e = dataRes.video_template_url;
+            this.f = dataRes.activity_url;
+            List<VideoTemplateContent> list = dataRes.video_template_content;
+            if (list != null) {
+                this.a = new ArrayList();
+                for (int i = 0; i < list.size(); i++) {
+                    wy9 wy9Var = new wy9();
+                    wy9Var.a(list.get(i));
+                    this.a.add(wy9Var);
+                }
+            }
+        }
     }
 }

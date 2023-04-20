@@ -10,15 +10,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import tbclient.GetVipInfo.VipTaskItem;
-import tbclient.GetVipInfo.VipTaskList;
+import tbclient.GetVipInfo.VipThemeItem;
+import tbclient.GetVipInfo.VipThemeList;
 /* loaded from: classes3.dex */
-public class al8 implements hn {
+public class al8 implements in {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId c;
+    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public nk8 a;
+    public vk8 a;
     public List<bl8> b;
+    public List<bl8> c;
 
     static {
         InterceptResult invokeClinit;
@@ -33,25 +34,25 @@ public class al8 implements hn {
                 return;
             }
         }
-        c = BdUniqueId.gen();
+        d = BdUniqueId.gen();
     }
 
-    @Override // com.baidu.tieba.hn
+    @Override // com.baidu.tieba.in
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return c;
+            return d;
         }
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public al8(VipTaskList vipTaskList) {
+    public al8(VipThemeList vipThemeList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vipTaskList};
+            Object[] objArr = {vipThemeList};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -61,17 +62,26 @@ public class al8 implements hn {
                 return;
             }
         }
-        if (vipTaskList != null && vipTaskList.item != null) {
-            String str = vipTaskList.card_id;
-            nk8 nk8Var = new nk8();
-            this.a = nk8Var;
-            nk8Var.e(3);
-            this.a.d(vipTaskList.class_name);
-            this.a.f(vipTaskList.class_url_name);
-            this.a.g(vipTaskList.class_url);
+        if (vipThemeList == null) {
+            return;
+        }
+        String str = vipThemeList.card_id;
+        vk8 vk8Var = new vk8();
+        this.a = vk8Var;
+        vk8Var.e(2);
+        this.a.d(vipThemeList.class_name);
+        this.a.f(vipThemeList.class_url_name);
+        this.a.g(vipThemeList.class_url);
+        if (vipThemeList.item != null) {
             this.b = new ArrayList();
-            for (VipTaskItem vipTaskItem : vipTaskList.item) {
-                this.b.add(new bl8(vipTaskItem));
+            for (VipThemeItem vipThemeItem : vipThemeList.item) {
+                this.b.add(new bl8(vipThemeItem));
+            }
+        }
+        if (vipThemeList.item_card != null) {
+            this.c = new ArrayList();
+            for (VipThemeItem vipThemeItem2 : vipThemeList.item_card) {
+                this.c.add(new bl8(vipThemeItem2));
             }
         }
     }

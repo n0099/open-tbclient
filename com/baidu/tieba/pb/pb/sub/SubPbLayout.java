@@ -17,10 +17,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dz8;
+import com.baidu.tieba.am9;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.q25;
-import com.baidu.tieba.sl9;
+import com.baidu.tieba.lz8;
+import com.baidu.tieba.r25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,9 +37,9 @@ public class SubPbLayout extends ViewGroup {
     public View.OnClickListener a;
     public View.OnLongClickListener b;
     public View.OnTouchListener c;
-    public dz8 d;
+    public lz8 d;
     public int e;
-    public sl9 f;
+    public am9 f;
     public View g;
     public final Queue<b> h;
     public RelativeLayout i;
@@ -111,8 +111,8 @@ public class SubPbLayout extends ViewGroup {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
             long drawingTime = getDrawingTime();
-            sl9 sl9Var = this.f;
-            if (sl9Var != null && sl9Var.e0() != null) {
+            am9 am9Var = this.f;
+            if (am9Var != null && am9Var.e0() != null) {
                 int i = this.e;
                 for (int i2 = 0; i2 < i; i2++) {
                     if (i < getChildCount()) {
@@ -217,7 +217,7 @@ public class SubPbLayout extends ViewGroup {
         return invokeII.intValue;
     }
 
-    public final int c(List<sl9> list, int i) {
+    public final int c(List<am9> list, int i) {
         InterceptResult invokeLI;
         boolean z;
         boolean z2;
@@ -265,9 +265,9 @@ public class SubPbLayout extends ViewGroup {
                         childAt2.setTag(sparseArray);
                     }
                     Object obj = sparseArray.get(R.id.tag_load_sub_data);
-                    sl9 sl9Var = this.f;
-                    if (obj != sl9Var) {
-                        sparseArray.put(R.id.tag_load_sub_data, sl9Var);
+                    am9 am9Var = this.f;
+                    if (obj != am9Var) {
+                        sparseArray.put(R.id.tag_load_sub_data, am9Var);
                     }
                     sparseArray.put(R.id.tag_load_sub_view, this.g);
                     sparseArray.put(R.id.tag_is_subpb, Boolean.TRUE);
@@ -280,9 +280,9 @@ public class SubPbLayout extends ViewGroup {
                         sparseArray.put(R.id.tag_photo_userid, list.get(i4).q().getUserId());
                         sparseArray.put(R.id.tag_clip_board, list.get(i4));
                     }
-                    dz8.b bVar = (dz8.b) sparseArray.get(R.id.tag_holder);
-                    dz8 dz8Var = this.d;
-                    sl9 sl9Var2 = list.get(i4);
+                    lz8.b bVar = (lz8.b) sparseArray.get(R.id.tag_holder);
+                    lz8 lz8Var = this.d;
+                    am9 am9Var2 = list.get(i4);
                     if (this.f.g0() <= list.size() && list.size() - i4 <= 1) {
                         z = false;
                     } else {
@@ -293,7 +293,7 @@ public class SubPbLayout extends ViewGroup {
                     } else {
                         z2 = false;
                     }
-                    dz8Var.c(bVar, sl9Var2, z, z2, false);
+                    lz8Var.c(bVar, am9Var2, z, z2, false);
                     bVar.e.setPadding(0, 0, 0, ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds7));
                     if (UbsABTestHelper.isPBPlanA()) {
                         f();
@@ -336,9 +336,9 @@ public class SubPbLayout extends ViewGroup {
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (textView = this.j) != null) {
             textView.setTextSize(0, TbConfig.getContentSizeOfLzl());
             if (this.k) {
-                q25.d(this.j).w(R.color.CAM_X0304);
+                r25.d(this.j).w(R.color.CAM_X0304);
             } else {
-                q25.d(this.j).w(R.color.CAM_X0108);
+                r25.d(this.j).w(R.color.CAM_X0108);
             }
         }
     }
@@ -349,9 +349,9 @@ public class SubPbLayout extends ViewGroup {
         if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (textView = this.j) != null) {
             textView.setTextSize(0, TbConfig.getTestContentSizeOfLzl());
             if (this.k) {
-                q25.d(this.j).w(R.color.CAM_X0318);
+                r25.d(this.j).w(R.color.CAM_X0318);
             } else {
-                q25.d(this.j).w(R.color.CAM_X0108);
+                r25.d(this.j).w(R.color.CAM_X0108);
             }
         }
     }
@@ -401,18 +401,18 @@ public class SubPbLayout extends ViewGroup {
         }
     }
 
-    public void setSubPbAdapter(dz8 dz8Var) {
+    public void setSubPbAdapter(lz8 lz8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, dz8Var) == null) {
-            this.d = dz8Var;
+        if (interceptable == null || interceptable.invokeL(1048593, this, lz8Var) == null) {
+            this.d = lz8Var;
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        sl9 sl9Var;
+        am9 am9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) && (sl9Var = this.f) != null && sl9Var.e0() != null) {
+        if ((interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) && (am9Var = this.f) != null && am9Var.e0() != null) {
             int size = this.h.size();
             for (int i5 = 0; i5 < size; i5++) {
                 b poll = this.h.poll();
@@ -458,11 +458,11 @@ public class SubPbLayout extends ViewGroup {
 
     @Override // android.view.View
     public void onMeasure(int i, int i2) {
-        sl9 sl9Var;
-        ArrayList<sl9> e0;
+        am9 am9Var;
+        ArrayList<am9> e0;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048586, this, i, i2) == null) {
-            if (this.d != null && (sl9Var = this.f) != null && sl9Var.e0() != null) {
+            if (this.d != null && (am9Var = this.f) != null && am9Var.e0() != null) {
                 int size = View.MeasureSpec.getSize(i);
                 if (this.f.z0()) {
                     e0 = this.f.y();
@@ -476,10 +476,10 @@ public class SubPbLayout extends ViewGroup {
         }
     }
 
-    public void setData(sl9 sl9Var, View view2) {
+    public void setData(am9 am9Var, View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048590, this, sl9Var, view2) == null) {
-            this.f = sl9Var;
+        if (interceptable == null || interceptable.invokeLL(1048590, this, am9Var, view2) == null) {
+            this.f = am9Var;
             requestLayout();
             this.g = view2;
         }

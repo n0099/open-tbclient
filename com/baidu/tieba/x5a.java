@@ -1,49 +1,28 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.AtListActivityConfig;
-import com.baidu.tbadk.core.atomData.HotTopicActivityConfig;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tbadk.data.AtSelectData;
+import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
 public class x5a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
-    public final TbPageContext<?> a;
-    @NonNull
-    public final s4a b;
-    @Nullable
-    public WriteData c;
-    public boolean d;
-    @Nullable
-    public String e;
-    @Nullable
-    public ArrayList<AtSelectData> f;
+    public final EditorTools a;
+    public final Map<Integer, z5a> b;
 
-    public x5a(@NonNull TbPageContext<?> tbPageContext, @NonNull s4a s4aVar) {
+    public x5a(@NonNull EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, s4aVar};
+            Object[] objArr = {editorTools};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -53,103 +32,35 @@ public class x5a {
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.b = s4aVar;
+        this.b = new HashMap();
+        this.a = editorTools;
     }
 
-    @Nullable
-    public String a() {
-        InterceptResult invokeV;
+    public void b(int[] iArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void b(CharSequence charSequence, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2) == null) && charSequence != null && i2 == 1 && i < charSequence.length() && i >= 0 && charSequence.charAt(i) == '@') {
-            i();
-        }
-    }
-
-    public void c(CharSequence charSequence, int i, int i2, String str) {
-        WriteData writeData;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{charSequence, Integer.valueOf(i), Integer.valueOf(i2), str}) == null) && (writeData = this.c) != null && 14 != writeData.getType() && charSequence != null && i2 == 1 && i < charSequence.length() && i >= 0) {
-            this.d = false;
-            this.e = "";
-            if ("from_content".equals(str)) {
-                this.e = "from_content";
-            } else if ("from_title".equals(str)) {
-                this.e = "from_title";
-            }
-            if (eq5.f(String.valueOf(charSequence.charAt(i)))) {
-                this.b.m();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iArr) == null) {
+            for (int i : iArr) {
+                if (this.b.containsKey(Integer.valueOf(i))) {
+                    this.a.setToolEnabled(this.b.get(Integer.valueOf(i)).a(i), i);
+                }
             }
         }
     }
 
-    public String d(Intent intent) {
-        InterceptResult invokeL;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, intent)) == null) {
-            if (intent == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            for (Map.Entry<Integer, z5a> entry : this.b.entrySet()) {
+                this.a.setToolEnabled(entry.getValue().a(entry.getKey().intValue()), entry.getKey().intValue());
             }
-            String stringExtra = intent.getStringExtra(HotTopicActivityConfig.HOT_TOPIC_SELECT_STRING);
-            if (StringUtils.isNull(stringExtra)) {
-                return null;
-            }
-            StringBuilder sb = new StringBuilder();
-            if (this.d) {
-                sb.append("#");
-                this.d = false;
-            }
-            sb.append(stringExtra);
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void e(ArrayList<AtSelectData> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) {
-            this.f = arrayList;
         }
     }
 
-    public void f(@Nullable String str) {
+    public void c(int i, @NonNull z5a z5aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.e = str;
+        if ((interceptable != null && interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, z5aVar) != null) || this.b.containsKey(Integer.valueOf(i))) {
+            return;
         }
-    }
-
-    public void g(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.d = z;
-        }
-    }
-
-    public void h(WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, writeData) == null) {
-            this.c = writeData;
-        }
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            AtListActivityConfig atListActivityConfig = new AtListActivityConfig(this.a.getPageActivity(), 12004, true);
-            atListActivityConfig.setSelectedAtList(this.f);
-            this.a.sendMessage(new CustomMessage(2002001, atListActivityConfig));
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_AT_PANEL_SHOW);
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            TiebaStatic.log(statisticItem);
-        }
+        this.b.put(Integer.valueOf(i), z5aVar);
     }
 }

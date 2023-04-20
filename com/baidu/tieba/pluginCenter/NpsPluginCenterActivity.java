@@ -152,7 +152,7 @@ public class NpsPluginCenterActivity extends BaseActivity {
             this.e.add("com.baidu.searchbox.yylive.extlib");
             this.e.add(WalletPluginManager.PLUGIN_PKG_NAME);
             this.e.add(FlutterPluginManager.PLUGIN_PKG_NAME);
-            for (BundleInfo bundleInfo : yk.e().c()) {
+            for (BundleInfo bundleInfo : yk.f().c()) {
                 if (this.e.contains(bundleInfo.getPackageName())) {
                     TbSettingTextTipView A1 = A1();
                     A1.setText(bundleInfo.getName());

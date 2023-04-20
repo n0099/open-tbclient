@@ -30,14 +30,14 @@ import com.baidu.tbadk.widget.layout.ConstrainImageGroup;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hv8;
+import com.baidu.tieba.by8;
 import com.baidu.tieba.ii;
 import com.baidu.tieba.pb.pb.sub.SubPbLayout;
-import com.baidu.tieba.pw4;
-import com.baidu.tieba.q25;
-import com.baidu.tieba.tx8;
+import com.baidu.tieba.pv8;
+import com.baidu.tieba.qw4;
+import com.baidu.tieba.r25;
 import com.baidu.tieba.view.VirtualImageStatusTip;
-import com.baidu.tieba.yt5;
+import com.baidu.tieba.zt5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -106,7 +106,7 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
     public AgreeView o;
     public MaskView o0;
     public HeadImageView p;
-    public tx8 p0;
+    public by8 p0;
     public TbRichTextView q;
     public FrameLayout q0;
     public RelativeLayout r;
@@ -211,12 +211,12 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
             this.v0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925f2);
             RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091e05);
             this.w0 = relativeLayout;
-            q25 d = q25.d(relativeLayout);
+            r25 d = r25.d(relativeLayout);
             d.o(R.string.J_X04);
             d.f(R.color.CAM_X0204);
             RelativeLayout relativeLayout2 = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091ded);
             this.x0 = relativeLayout2;
-            q25 d2 = q25.d(relativeLayout2);
+            r25 d2 = r25.d(relativeLayout2);
             d2.o(R.string.J_X07);
             d2.f(R.color.CAM_X0905);
             this.y0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092577);
@@ -227,12 +227,12 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
             this.o.setVisibility(0);
             this.H = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091996);
             this.Z = i;
-            pw4 pw4Var = new pw4();
-            pw4Var.b = 5;
-            pw4Var.h = 8;
-            pw4Var.g = 2;
-            pw4Var.f = i;
-            this.o.setStatisticData(pw4Var);
+            qw4 qw4Var = new qw4();
+            qw4Var.b = 5;
+            qw4Var.h = 8;
+            qw4Var.g = 2;
+            qw4Var.f = i;
+            this.o.setStatisticData(qw4Var);
             this.p = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091887);
             HeadPendantView headPendantView = (HeadPendantView) view2.findViewById(R.id.obfuscated_res_0x7f091a43);
             this.E = headPendantView;
@@ -260,10 +260,10 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
             this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b8a);
             this.t.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701be));
             this.t.setSingleImageRatio(0.75d);
-            this.t.setImageProcessor(new yt5(3));
-            hv8 hv8Var = new hv8(this.q.getLayoutStrategy());
-            hv8Var.p(TbConfig.getPostLineSpace(), 1.0f);
-            this.q.setLayoutStrategy(hv8Var);
+            this.t.setImageProcessor(new zt5(3));
+            pv8 pv8Var = new pv8(this.q.getLayoutStrategy());
+            pv8Var.p(TbConfig.getPostLineSpace(), 1.0f);
+            this.q.setLayoutStrategy(pv8Var);
             this.q.setIsNeedResizeEmotion(true);
             this.q.setTextSize(TbConfig.getContentSize());
             this.p.setIsRound(true);
@@ -303,15 +303,15 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
             this.c0.setNormalColorResourceId(R.color.CAM_X0109);
             this.c0.y(false);
             this.c0.setAgreeAlone(true);
-            this.c0.setStatisticData(pw4Var);
+            this.c0.setStatisticData(qw4Var);
             this.e0 = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f0919fb);
             this.f0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0927d1);
             this.g0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0904bd);
             this.m0 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0919f2);
             this.n0 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f092650);
-            tx8 tx8Var = new tx8(tbPageContext, this.n0);
-            this.p0 = tx8Var;
-            tx8Var.f = 3;
+            by8 by8Var = new by8(tbPageContext, this.n0);
+            this.p0 = by8Var;
+            by8Var.f = 3;
             this.o0 = (MaskView) view2.findViewById(R.id.obfuscated_res_0x7f09163c);
             this.q0 = (FrameLayout) view2.findViewById(R.id.user_container);
             this.r0 = (VirtualImageStatusTip) view2.findViewById(R.id.obfuscated_res_0x7f09280d);
@@ -336,12 +336,12 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
     public void g(boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && z) {
-            pw4 pw4Var = new pw4();
-            pw4Var.b = 12;
-            pw4Var.h = 9;
-            pw4Var.g = 3;
-            pw4Var.f = this.Z;
-            this.o.setStatisticData(pw4Var);
+            qw4 qw4Var = new qw4();
+            qw4Var.b = 12;
+            qw4Var.h = 9;
+            qw4Var.g = 3;
+            qw4Var.f = this.Z;
+            this.o.setStatisticData(qw4Var);
         }
     }
 
@@ -356,7 +356,7 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
             PbFloorComplaint pbFloorComplaint = this.U;
             if (pbFloorComplaint != null) {
                 pbFloorComplaint.setBackgroundColor(R.color.CAM_X0206);
-                q25 d = q25.d(this.U);
+                r25 d = r25.d(this.U);
                 d.n(0);
                 d.o(R.string.J_X05);
                 d.f(R.color.CAM_X0206);

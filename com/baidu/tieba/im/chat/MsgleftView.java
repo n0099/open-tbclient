@@ -21,10 +21,10 @@ import com.baidu.tieba.ii;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.widget.sharecard.ChatShareChatroomCard;
-import com.baidu.tieba.mx7;
-import com.baidu.tieba.p45;
-import com.baidu.tieba.sr5;
-import com.baidu.tieba.xz7;
+import com.baidu.tieba.nx7;
+import com.baidu.tieba.q45;
+import com.baidu.tieba.tr5;
+import com.baidu.tieba.yz7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,7 +34,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public class MsgleftView extends mx7 {
+public class MsgleftView extends nx7 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String P = "com.baidu.tieba.im.chat.MsgleftView";
     public transient /* synthetic */ FieldHolder $fh;
@@ -96,7 +96,7 @@ public class MsgleftView extends mx7 {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
                 if (motionEvent.getAction() == 0) {
                     this.a = System.currentTimeMillis();
-                    sr5.e();
+                    tr5.e();
                 } else if (motionEvent.getAction() == 1) {
                     if (System.currentTimeMillis() - this.a <= 200) {
                         MsgleftView msgleftView = this.b;
@@ -189,7 +189,7 @@ public class MsgleftView extends mx7 {
         this.n.setIsLeft(true);
     }
 
-    @Override // com.baidu.tieba.mx7
+    @Override // com.baidu.tieba.nx7
     public void I() {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.D == TbadkCoreApplication.getInst().getSkinType()) {
@@ -210,7 +210,7 @@ public class MsgleftView extends mx7 {
     /* JADX WARN: Removed duplicated region for block: B:39:0x013c A[Catch: Exception -> 0x01dc, TryCatch #0 {Exception -> 0x01dc, blocks: (B:19:0x00ae, B:21:0x00b4, B:22:0x00d6, B:24:0x00e3, B:27:0x00ee, B:29:0x00f2, B:30:0x0104, B:32:0x0108, B:34:0x0114, B:35:0x011a, B:37:0x0129, B:39:0x013c, B:40:0x015f, B:42:0x018e, B:43:0x0193, B:55:0x01ac, B:57:0x01b0, B:58:0x01b4, B:59:0x01b8, B:60:0x01bc, B:61:0x01c0, B:62:0x01c6, B:63:0x01ca, B:64:0x01d0, B:65:0x01d6, B:36:0x0122), top: B:73:0x00ae }] */
     /* JADX WARN: Removed duplicated region for block: B:42:0x018e A[Catch: Exception -> 0x01dc, TryCatch #0 {Exception -> 0x01dc, blocks: (B:19:0x00ae, B:21:0x00b4, B:22:0x00d6, B:24:0x00e3, B:27:0x00ee, B:29:0x00f2, B:30:0x0104, B:32:0x0108, B:34:0x0114, B:35:0x011a, B:37:0x0129, B:39:0x013c, B:40:0x015f, B:42:0x018e, B:43:0x0193, B:55:0x01ac, B:57:0x01b0, B:58:0x01b4, B:59:0x01b8, B:60:0x01bc, B:61:0x01c0, B:62:0x01c6, B:63:0x01ca, B:64:0x01d0, B:65:0x01d6, B:36:0x0122), top: B:73:0x00ae }] */
     /* JADX WARN: Removed duplicated region for block: B:45:0x0199  */
-    @Override // com.baidu.tieba.mx7
+    @Override // com.baidu.tieba.nx7
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -268,7 +268,7 @@ public class MsgleftView extends mx7 {
                 }
                 if (chatMessage.getUserInfo().getUserType() != 1 && chatMessage.getUserInfo().getUserType() != 3) {
                     if (this.N == null) {
-                        this.N = xz7.n().h(String.valueOf(chatMessage.getUserId()), 2);
+                        this.N = yz7.n().h(String.valueOf(chatMessage.getUserId()), 2);
                     }
                     if (this.N != null && !TextUtils.isEmpty(this.N.getGroup_head())) {
                         str = this.N.getGroup_head();
@@ -365,7 +365,7 @@ public class MsgleftView extends mx7 {
     public final void l0(ChatMessage chatMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatMessage) == null) {
-            String s = p45.m().s("live_room_chat_page_author_id", "");
+            String s = q45.m().s("live_room_chat_page_author_id", "");
             if (chatMessage.getUserInfo() != null && chatMessage.getUserInfo().getUserId() != null && chatMessage.getUserInfo().getUserId().equals(s)) {
                 this.K.setVisibility(0);
             } else {

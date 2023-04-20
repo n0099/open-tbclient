@@ -8,25 +8,25 @@ import androidx.lifecycle.SavedStateHandle;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.tieba.ae3;
-import com.baidu.tieba.au1;
 import com.baidu.tieba.be3;
-import com.baidu.tieba.br2;
-import com.baidu.tieba.eo1;
-import com.baidu.tieba.he2;
-import com.baidu.tieba.me3;
+import com.baidu.tieba.bu1;
+import com.baidu.tieba.ce3;
+import com.baidu.tieba.cr2;
+import com.baidu.tieba.fo1;
+import com.baidu.tieba.ie2;
 import com.baidu.tieba.ne3;
-import com.baidu.tieba.nm3;
-import com.baidu.tieba.ok3;
-import com.baidu.tieba.qe3;
-import com.baidu.tieba.r13;
-import com.baidu.tieba.t13;
-import com.baidu.tieba.t73;
-import com.baidu.tieba.u42;
-import com.baidu.tieba.u52;
-import com.baidu.tieba.uk3;
-import com.baidu.tieba.w13;
-import com.baidu.tieba.yt2;
+import com.baidu.tieba.oe3;
+import com.baidu.tieba.om3;
+import com.baidu.tieba.pk3;
+import com.baidu.tieba.re3;
+import com.baidu.tieba.s13;
+import com.baidu.tieba.u13;
+import com.baidu.tieba.u73;
+import com.baidu.tieba.v42;
+import com.baidu.tieba.v52;
+import com.baidu.tieba.vk3;
+import com.baidu.tieba.x13;
+import com.baidu.tieba.zt2;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -39,7 +39,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public final class HybridUbcFlow {
-    public static final boolean r = eo1.a;
+    public static final boolean r = fo1.a;
     public static final SubmitStrategy s = SubmitStrategy.HYBRID;
     public String a;
     public final String p;
@@ -125,15 +125,15 @@ public final class HybridUbcFlow {
     /* loaded from: classes3.dex */
     public class e {
         public final String a;
-        public final nm3<HybridUbcFlow> b;
+        public final om3<HybridUbcFlow> b;
 
-        public e(HybridUbcFlow hybridUbcFlow, String str, nm3<HybridUbcFlow> nm3Var) {
+        public e(HybridUbcFlow hybridUbcFlow, String str, om3<HybridUbcFlow> om3Var) {
             this.a = str;
-            this.b = nm3Var;
+            this.b = om3Var;
         }
 
-        public /* synthetic */ e(HybridUbcFlow hybridUbcFlow, String str, nm3 nm3Var, a aVar) {
-            this(hybridUbcFlow, str, nm3Var);
+        public /* synthetic */ e(HybridUbcFlow hybridUbcFlow, String str, om3 om3Var, a aVar) {
+            this(hybridUbcFlow, str, om3Var);
         }
 
         public boolean a() {
@@ -174,8 +174,8 @@ public final class HybridUbcFlow {
         this.l = true;
         R();
         c("callback_on_submit");
-        ok3.j(new b(), "HybridUbcFlow");
-        t13.b();
+        pk3.j(new b(), "HybridUbcFlow");
+        u13.b();
     }
 
     public final boolean M() {
@@ -477,12 +477,12 @@ public final class HybridUbcFlow {
     }
 
     public final void c(String str) {
-        nm3<HybridUbcFlow> nm3Var;
+        om3<HybridUbcFlow> om3Var;
         List<e> list = this.n.get(str);
         if (list != null && !list.isEmpty()) {
             for (e eVar : list) {
-                if (eVar != null && (nm3Var = eVar.b) != null) {
-                    nm3Var.a(this);
+                if (eVar != null && (om3Var = eVar.b) != null) {
+                    om3Var.a(this);
                 }
             }
         }
@@ -530,29 +530,29 @@ public final class HybridUbcFlow {
         return this;
     }
 
-    public HybridUbcFlow C(@Nullable au1 au1Var) {
+    public HybridUbcFlow C(@Nullable bu1 bu1Var) {
         String str;
         if (r) {
             StringBuilder sb = new StringBuilder();
             sb.append("naPaintFlowDone, slave page=");
-            if (au1Var == null) {
+            if (bu1Var == null) {
                 str = StringUtil.NULL_STRING;
             } else {
-                str = au1Var.m() + ", routeId=" + au1Var.j0();
+                str = bu1Var.m() + ", routeId=" + bu1Var.j0();
             }
             sb.append(str);
             Log.i("HybridUbcFlow", sb.toString());
         }
-        if (au1Var != null) {
-            String j0 = au1Var.j0();
+        if (bu1Var != null) {
+            String j0 = bu1Var.j0();
             if (j0 != null) {
                 b("routeId", j0);
             }
-            String a2 = au1Var.a();
+            String a2 = bu1Var.a();
             if (a2 != null) {
                 b(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, a2);
             }
-            String m = au1Var.m();
+            String m = bu1Var.m();
             if (m != null) {
                 b(PrefetchEvent.EVENT_KEY_PAGE_URL, m);
             }
@@ -582,8 +582,8 @@ public final class HybridUbcFlow {
         return this;
     }
 
-    public HybridUbcFlow H(String str, nm3<HybridUbcFlow> nm3Var) {
-        e eVar = new e(this, str, nm3Var, null);
+    public HybridUbcFlow H(String str, om3<HybridUbcFlow> om3Var) {
+        e eVar = new e(this, str, om3Var, null);
         if (eVar.a()) {
             synchronized (this.n) {
                 List<e> list = this.n.get(str);
@@ -602,7 +602,7 @@ public final class HybridUbcFlow {
     }
 
     public final String j(boolean z, String str) {
-        if (w13.b()) {
+        if (x13.b()) {
             if (!z) {
                 return this.q;
             }
@@ -640,10 +640,10 @@ public final class HybridUbcFlow {
     }
 
     public final void R() {
-        he2 he2Var;
+        ie2 ie2Var;
         UbcFlowEvent a2;
-        if (TextUtils.equals("670", this.a) && w13.a() && (he2Var = (he2) k("fmp_data_record")) != null && he2Var.c() && (a2 = he2Var.a()) != null) {
-            D("fmp_type", he2Var.b());
+        if (TextUtils.equals("670", this.a) && x13.a() && (ie2Var = (ie2) k("fmp_data_record")) != null && ie2Var.c() && (a2 = ie2Var.a()) != null) {
+            D("fmp_type", ie2Var.b());
             UbcFlowEvent ubcFlowEvent = new UbcFlowEvent(a2.a);
             ubcFlowEvent.h(a2.g());
             ubcFlowEvent.d(UbcFlowEvent.RecordType.UPDATE);
@@ -698,30 +698,30 @@ public final class HybridUbcFlow {
 
     public final void o() {
         if (TextUtils.equals("670", this.a)) {
-            u42.k("HybridUbcFlow", "getMemoryInfo scene=launch_end_mem");
-            this.c.put("sys_total_mem", u52.c().k());
-            this.c.put("launch_end_mem", u52.c().h(t73.K().q().W().j("main_pid", -1)));
-            u52.c().l();
+            v42.k("HybridUbcFlow", "getMemoryInfo scene=launch_end_mem");
+            this.c.put("sys_total_mem", v52.c().k());
+            this.c.put("launch_end_mem", v52.c().h(u73.K().q().W().j("main_pid", -1)));
+            v52.c().l();
         }
         JSONObject jSONObject = new JSONObject();
-        uk3.f(jSONObject, "static", Float.valueOf(br2.m().a()));
+        vk3.f(jSONObject, "static", Float.valueOf(cr2.m().a()));
         this.c.put("device_score", jSONObject.toString());
-        String a2 = br2.n0().a();
+        String a2 = cr2.n0().a();
         if (!TextUtils.isEmpty(a2)) {
             this.c.put("dyeId", a2);
         }
-        this.c.put("localABTestSids", yt2.b().a());
-        this.c.put("hostLaunchType", String.valueOf(t73.K().q().W().i("host_launch_type")));
+        this.c.put("localABTestSids", zt2.b().a());
+        this.c.put("hostLaunchType", String.valueOf(u73.K().q().W().i("host_launch_type")));
         P();
-        qe3.c(this);
+        re3.c(this);
         c("component_reporter");
         if (TextUtils.isEmpty(this.a)) {
             return;
         }
-        ae3 c2 = ne3.c(this.a);
+        be3 c2 = oe3.c(this.a);
         for (UbcFlowEvent ubcFlowEvent : this.f) {
             if (!ubcFlowEvent.b()) {
-                be3.e(c2, ubcFlowEvent.a, ubcFlowEvent.j(), ubcFlowEvent.g());
+                ce3.e(c2, ubcFlowEvent.a, ubcFlowEvent.j(), ubcFlowEvent.g());
             }
         }
         if (q()) {
@@ -739,18 +739,18 @@ public final class HybridUbcFlow {
                     jSONObject2.put(key, value);
                 }
             }
-            me3.a(jSONObject2);
+            ne3.a(jSONObject2);
             E("ext", jSONObject2);
         } catch (Exception e2) {
             if (r) {
                 e2.printStackTrace();
             }
         }
-        be3.f(c2, this.b.toString());
-        be3.c(c2);
+        ce3.f(c2, this.b.toString());
+        ce3.c(c2);
         if (TextUtils.equals("670", this.a)) {
-            r13.d(this.f, this.b);
-            u42.k("HybridUbcFlow", "670: " + e().toString());
+            s13.d(this.f, this.b);
+            v42.k("HybridUbcFlow", "670: " + e().toString());
         }
     }
 }

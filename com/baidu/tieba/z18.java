@@ -8,23 +8,22 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes7.dex */
 public class z18 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static List<MetaData> a() {
+    public static ArrayList<MetaData> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921765, wy7.class);
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921689, wy7.class);
             if (runTask != null && runTask.getData() != null) {
                 return ((wy7) runTask.getData()).b();
             }
-            return new ArrayList();
+            return new ArrayList<>();
         }
-        return (List) invokeV.objValue;
+        return (ArrayList) invokeV.objValue;
     }
 }

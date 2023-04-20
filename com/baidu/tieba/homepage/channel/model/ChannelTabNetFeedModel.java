@@ -18,14 +18,14 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TbImageHelper;
 import com.baidu.tbadk.coreExtra.data.ChannelIconConfigFinalData;
 import com.baidu.tieba.a9;
-import com.baidu.tieba.al9;
-import com.baidu.tieba.at7;
+import com.baidu.tieba.au7;
 import com.baidu.tieba.bt7;
-import com.baidu.tieba.fc9;
+import com.baidu.tieba.ct7;
 import com.baidu.tieba.homepage.channel.message.HomePageChannelTabHttpResponsedMessage;
-import com.baidu.tieba.vl7;
+import com.baidu.tieba.il9;
+import com.baidu.tieba.nc9;
 import com.baidu.tieba.wl7;
-import com.baidu.tieba.zt7;
+import com.baidu.tieba.xl7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,15 +33,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class ChannelTabNetFeedModel extends BdBaseModel implements bt7 {
+public class ChannelTabNetFeedModel extends BdBaseModel implements ct7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
     public boolean b;
     public int c;
     public String d;
-    public at7 e;
-    public wl7 f;
+    public bt7 e;
+    public xl7 f;
     public HttpMessageListener g;
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -88,7 +88,7 @@ public class ChannelTabNetFeedModel extends BdBaseModel implements bt7 {
             if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
                 this.a.b = false;
                 if (httpResponsedMessage != null && (httpResponsedMessage instanceof HomePageChannelTabHttpResponsedMessage)) {
-                    vl7 vl7Var = ((HomePageChannelTabHttpResponsedMessage) httpResponsedMessage).channelTabRespData;
+                    wl7 wl7Var = ((HomePageChannelTabHttpResponsedMessage) httpResponsedMessage).channelTabRespData;
                     this.a.mErrorCode = httpResponsedMessage.getError();
                     this.a.mErrorString = httpResponsedMessage.getErrorString();
                     ErrorData errorData = new ErrorData();
@@ -97,8 +97,8 @@ public class ChannelTabNetFeedModel extends BdBaseModel implements bt7 {
                     if (this.a.e == null) {
                         return;
                     }
-                    if (this.a.mErrorCode == 0 && vl7Var != null) {
-                        this.a.Z(vl7Var);
+                    if (this.a.mErrorCode == 0 && wl7Var != null) {
+                        this.a.Z(wl7Var);
                     } else {
                         this.a.e.g(errorData);
                     }
@@ -108,13 +108,13 @@ public class ChannelTabNetFeedModel extends BdBaseModel implements bt7 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ChannelTabNetFeedModel(TbPageContext tbPageContext, at7 at7Var) {
+    public ChannelTabNetFeedModel(TbPageContext tbPageContext, bt7 bt7Var) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, at7Var};
+            Object[] objArr = {tbPageContext, bt7Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -129,15 +129,15 @@ public class ChannelTabNetFeedModel extends BdBaseModel implements bt7 {
         this.b = false;
         this.c = 1;
         this.g = new a(this, CmdConfigHttp.CMD_HOME_CHANNEL_TAB_LIST);
-        al9.e(CmdConfigHttp.CMD_HOME_CHANNEL_TAB_LIST, TbConfig.CMD_HMEPAGE_CHANNEL_LIST, HomePageChannelTabHttpResponsedMessage.class, true, true, true, true);
-        this.f = new wl7();
-        this.e = at7Var;
+        il9.e(CmdConfigHttp.CMD_HOME_CHANNEL_TAB_LIST, TbConfig.CMD_HMEPAGE_CHANNEL_LIST, HomePageChannelTabHttpResponsedMessage.class, true, true, true, true);
+        this.f = new xl7();
+        this.e = bt7Var;
     }
 
-    public final void Z(vl7 vl7Var) {
+    public final void Z(wl7 wl7Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vl7Var) == null) && this.e != null) {
-            zt7 b = this.f.b(this.c, this.a, vl7Var);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, wl7Var) == null) && this.e != null) {
+            au7 b = this.f.b(this.c, this.a, wl7Var);
             if (b != null) {
                 this.c = b.d;
             }
@@ -145,7 +145,7 @@ public class ChannelTabNetFeedModel extends BdBaseModel implements bt7 {
         }
     }
 
-    @Override // com.baidu.tieba.bt7
+    @Override // com.baidu.tieba.ct7
     public void f(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdUniqueId) == null) {
@@ -157,7 +157,7 @@ public class ChannelTabNetFeedModel extends BdBaseModel implements bt7 {
         }
     }
 
-    @Override // com.baidu.tieba.bt7
+    @Override // com.baidu.tieba.ct7
     public void G(String str, String str2, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048576, this, str, str2, i) == null) {
@@ -182,7 +182,7 @@ public class ChannelTabNetFeedModel extends BdBaseModel implements bt7 {
             httpMessage.addParam("rn", 20);
             httpMessage.addParam("q_type", TbImageHelper.getInstance().getUrlQuality());
             if ("local".equals(this.d)) {
-                httpMessage.addParam("app_pos", fc9.e().b());
+                httpMessage.addParam("app_pos", nc9.e().b());
             }
             ChannelIconConfigFinalData c = TbSingleton.getInstance().getChannelConfigModel().c();
             if (c != null && !TextUtils.isEmpty(c.getTid())) {
@@ -194,7 +194,7 @@ public class ChannelTabNetFeedModel extends BdBaseModel implements bt7 {
         }
     }
 
-    @Override // com.baidu.tieba.bt7
+    @Override // com.baidu.tieba.ct7
     public void b() {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || this.b) {
@@ -224,21 +224,21 @@ public class ChannelTabNetFeedModel extends BdBaseModel implements bt7 {
         }
     }
 
-    @Override // com.baidu.tieba.bt7
+    @Override // com.baidu.tieba.ct7
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            wl7 wl7Var = this.f;
-            if (wl7Var == null) {
+            xl7 xl7Var = this.f;
+            if (xl7Var == null) {
                 return false;
             }
-            return wl7Var.d();
+            return xl7Var.d();
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.bt7
+    @Override // com.baidu.tieba.ct7
     public void destory() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -248,7 +248,7 @@ public class ChannelTabNetFeedModel extends BdBaseModel implements bt7 {
         }
     }
 
-    @Override // com.baidu.tieba.bt7
+    @Override // com.baidu.tieba.ct7
     public void refresh() {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048586, this) != null) || this.b) {
@@ -258,16 +258,16 @@ public class ChannelTabNetFeedModel extends BdBaseModel implements bt7 {
         Y(1);
     }
 
-    @Override // com.baidu.tieba.bt7
+    @Override // com.baidu.tieba.ct7
     public List<ThreadData> s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            wl7 wl7Var = this.f;
-            if (wl7Var == null) {
+            xl7 xl7Var = this.f;
+            if (xl7Var == null) {
                 return null;
             }
-            return wl7Var.c();
+            return xl7Var.c();
         }
         return (List) invokeV.objValue;
     }

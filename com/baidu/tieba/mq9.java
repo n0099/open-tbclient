@@ -2,6 +2,7 @@ package com.baidu.tieba;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,16 +13,16 @@ public class mq9 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
-    public final uo9 b;
+    public yy4 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mq9(MainTabActivity mainTabActivity, jo9 jo9Var) {
-        super(2921579);
+    public mq9(MainTabActivity mainTabActivity, ro9 ro9Var) {
+        super(2921333);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, jo9Var};
+            Object[] objArr = {mainTabActivity, ro9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,22 +34,25 @@ public class mq9 extends CustomMessageListener {
             }
         }
         this.a = mainTabActivity;
-        this.b = mainTabActivity.e;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        uo9 uo9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (uo9Var = this.b) != null && uo9Var.g() != null) {
-            Runnable runnable = this.b.g().c;
-            jg.a().removeCallbacks(runnable);
-            int i = 0;
-            if (customResponsedMessage.getData() instanceof Integer) {
-                i = ((Integer) customResponsedMessage.getData()).intValue();
-            }
-            jg.a().postDelayed(runnable, i * 1000);
+        if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
+            return;
+        }
+        if (this.b == null && !(customResponsedMessage.getData() instanceof yy4)) {
+            return;
+        }
+        if (customResponsedMessage.getData() != null) {
+            this.b = (yy4) customResponsedMessage.getData();
+        }
+        if (this.b != null && TbadkCoreApplication.isLogin()) {
+            po9 po9Var = this.a.v;
+            yy4 yy4Var = this.b;
+            po9Var.j(yy4Var.a, yy4Var.b, yy4Var.c);
         }
     }
 }

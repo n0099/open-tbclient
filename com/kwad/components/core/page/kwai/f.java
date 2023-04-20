@@ -78,7 +78,7 @@ public final class f extends c {
         return new w.a() { // from class: com.kwad.components.core.page.kwai.f.2
             @Override // com.kwad.components.core.webview.jshandler.w.a
             public final void a(com.kwad.components.core.webview.a.b bVar) {
-                AdWebViewActivityProxy.launch(f.this.Fv.getContext(), new AdWebViewActivityProxy.a.C0601a().ao(bVar.title).ap(bVar.url).N(f.this.mAdTemplate).nx());
+                AdWebViewActivityProxy.launch(f.this.Fv.getContext(), new AdWebViewActivityProxy.a.C0600a().ao(bVar.title).ap(bVar.url).N(f.this.mAdTemplate).nx());
             }
         };
     }

@@ -15,19 +15,19 @@ import com.baidu.tbadk.core.atomData.InterestGuideActivityConfig;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.jq8;
-import com.baidu.tieba.kq8;
-import com.baidu.tieba.m55;
-import com.baidu.tieba.q25;
-import com.baidu.tieba.qq8;
+import com.baidu.tieba.n55;
+import com.baidu.tieba.r25;
+import com.baidu.tieba.rq8;
+import com.baidu.tieba.sq8;
 import com.baidu.tieba.view.NoScrollGridView;
+import com.baidu.tieba.yq8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class InterestSelectionStyleAFragment extends BaseInterestSelectionFragment implements jq8.a {
+public class InterestSelectionStyleAFragment extends BaseInterestSelectionFragment implements rq8.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View g;
@@ -36,7 +36,7 @@ public class InterestSelectionStyleAFragment extends BaseInterestSelectionFragme
     public TextView j;
     public TextView k;
     public NoScrollGridView l;
-    public qq8 m;
+    public yq8 m;
 
     public InterestSelectionStyleAFragment() {
         Interceptable interceptable = $ic;
@@ -100,9 +100,9 @@ public class InterestSelectionStyleAFragment extends BaseInterestSelectionFragme
                 this.j.setText(strArr[0]);
                 this.k.setText(this.f[1]);
             }
-            m55 m55Var = new m55();
+            n55 n55Var = new n55();
             this.b.setTextSize(R.dimen.T_X06);
-            this.b.setConfig(m55Var);
+            this.b.setConfig(n55Var);
             this.b.setText(getResources().getString(R.string.obfuscated_res_0x7f0f11cd));
             this.b.setEnabled(false);
             this.b.setOnClickListener(this);
@@ -116,18 +116,18 @@ public class InterestSelectionStyleAFragment extends BaseInterestSelectionFragme
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            q25.d(this.d).f(R.color.CAM_X0201);
-            q25 d = q25.d(this.j);
+            r25.d(this.d).f(R.color.CAM_X0201);
+            r25 d = r25.d(this.j);
             d.w(R.color.CAM_X0105);
             d.B(R.dimen.T_X03);
             d.C(R.string.F_X02);
-            q25 d2 = q25.d(this.k);
+            r25 d2 = r25.d(this.k);
             d2.w(R.color.CAM_X0108);
             d2.B(R.dimen.T_X07);
             d2.C(R.string.F_X01);
-            q25.d(this.i).f(R.color.CAM_X0201);
-            q25.d(this.g).p(new int[]{R.color.CAM_X0201, R.color.CAM_X0612});
-            q25.d(this.h).p(new int[]{R.color.CAM_X0612, R.color.CAM_X0201});
+            r25.d(this.i).f(R.color.CAM_X0201);
+            r25.d(this.g).p(new int[]{R.color.CAM_X0201, R.color.CAM_X0612});
+            r25.d(this.h).p(new int[]{R.color.CAM_X0612, R.color.CAM_X0201});
             this.c.notifyDataSetChanged();
         }
     }
@@ -153,9 +153,9 @@ public class InterestSelectionStyleAFragment extends BaseInterestSelectionFragme
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            kq8 kq8Var = new kq8(null, getContext());
-            this.c = kq8Var;
-            this.m = new qq8(this, kq8Var);
+            sq8 sq8Var = new sq8(null, getContext());
+            this.c = sq8Var;
+            this.m = new yq8(this, sq8Var);
         }
     }
 

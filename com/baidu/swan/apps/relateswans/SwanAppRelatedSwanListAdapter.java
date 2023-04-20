@@ -14,17 +14,17 @@ import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
 import com.baidu.searchbox.unitedscheme.SchemeRouter;
 import com.baidu.swan.apps.view.SwanAppRoundedImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b63;
-import com.baidu.tieba.de3;
-import com.baidu.tieba.ne3;
-import com.baidu.tieba.rk3;
-import com.baidu.tieba.rs2;
-import com.baidu.tieba.t73;
-import com.baidu.tieba.xe3;
+import com.baidu.tieba.c63;
+import com.baidu.tieba.ee3;
+import com.baidu.tieba.oe3;
+import com.baidu.tieba.sk3;
+import com.baidu.tieba.ss2;
+import com.baidu.tieba.u73;
+import com.baidu.tieba.ye3;
 /* loaded from: classes3.dex */
 public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public Context a;
-    public b63 b;
+    public c63 b;
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemViewType(int i) {
@@ -72,11 +72,11 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
 
         /* loaded from: classes3.dex */
         public class a implements View.OnClickListener {
-            public final /* synthetic */ b63.a a;
+            public final /* synthetic */ c63.a a;
             public final /* synthetic */ Context b;
             public final /* synthetic */ int c;
 
-            public a(b bVar, b63.a aVar, Context context, int i) {
+            public a(b bVar, c63.a aVar, Context context, int i) {
                 this.a = aVar;
                 this.b = context;
                 this.c = i;
@@ -94,7 +94,7 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
 
         /* renamed from: com.baidu.swan.apps.relateswans.SwanAppRelatedSwanListAdapter$b$b  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0188b implements rk3.b {
+        public class C0188b implements sk3.b {
             public final /* synthetic */ SwanAppRoundedImageView a;
             public final /* synthetic */ Context b;
 
@@ -103,7 +103,7 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
                 this.b = context;
             }
 
-            @Override // com.baidu.tieba.rk3.b
+            @Override // com.baidu.tieba.sk3.b
             public void a(String str, Bitmap bitmap) {
                 if (bitmap == null) {
                     this.a.setImageDrawable(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080140));
@@ -117,12 +117,12 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
             super(view2);
         }
 
-        public void a(Context context, b63.a aVar, int i) {
+        public void a(Context context, c63.a aVar, int i) {
             if (aVar == null) {
                 return;
             }
             ((RelativeLayout) this.itemView.findViewById(R.id.obfuscated_res_0x7f091d5f)).setOnClickListener(new a(this, aVar, context, i));
-            rk3.e(aVar.a, new C0188b(this, (SwanAppRoundedImageView) this.itemView.findViewById(R.id.obfuscated_res_0x7f092194), context));
+            sk3.e(aVar.a, new C0188b(this, (SwanAppRoundedImageView) this.itemView.findViewById(R.id.obfuscated_res_0x7f092194), context));
             ((TextView) this.itemView.findViewById(R.id.obfuscated_res_0x7f092196)).setText(aVar.b);
         }
     }
@@ -131,20 +131,20 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
         this(context, null);
     }
 
-    public void l(b63 b63Var) {
-        this.b = b63Var;
+    public void l(c63 c63Var) {
+        this.b = c63Var;
         notifyDataSetChanged();
     }
 
-    public SwanAppRelatedSwanListAdapter(Context context, b63 b63Var) {
+    public SwanAppRelatedSwanListAdapter(Context context, c63 c63Var) {
         this.a = context;
-        this.b = b63Var;
+        this.b = c63Var;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
-        b63 b63Var = this.b;
-        if (b63Var == null) {
+        c63 c63Var = this.b;
+        if (c63Var == null) {
             return;
         }
         if (viewHolder instanceof b) {
@@ -152,9 +152,9 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
             if (i2 < 0) {
                 return;
             }
-            ((b) viewHolder).a(this.a, b63Var.a.get(i2), i);
+            ((b) viewHolder).a(this.a, c63Var.a.get(i2), i);
         } else if (viewHolder instanceof a) {
-            ((a) viewHolder).a(this.a, b63Var.b);
+            ((a) viewHolder).a(this.a, c63Var.b);
         }
     }
 
@@ -171,30 +171,30 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        xe3 xe3Var = new xe3();
-        xe3Var.e = str;
+        ye3 ye3Var = new ye3();
+        ye3Var.e = str;
         if (!TextUtils.isEmpty(str2)) {
-            xe3Var.a("page", str2);
-            xe3Var.g = str2;
+            ye3Var.a("page", str2);
+            ye3Var.g = str2;
         }
         if (!TextUtils.isEmpty(str3)) {
-            xe3Var.b = str3;
+            ye3Var.b = str3;
         }
-        rs2.a W = t73.K().q().W();
-        xe3Var.a = ne3.n(t73.K().k());
-        xe3Var.f = W.H();
-        xe3Var.c = W.T();
-        xe3Var.b(ne3.k(W.W()));
-        xe3Var.d(W.s0().getString(UBCCloudControlProcessor.UBC_KEY));
-        de3.b(xe3Var);
+        ss2.a W = u73.K().q().W();
+        ye3Var.a = oe3.n(u73.K().k());
+        ye3Var.f = W.H();
+        ye3Var.c = W.T();
+        ye3Var.b(oe3.k(W.W()));
+        ye3Var.d(W.s0().getString(UBCCloudControlProcessor.UBC_KEY));
+        ee3.b(ye3Var);
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        b63 b63Var = this.b;
-        if (b63Var == null) {
+        c63 c63Var = this.b;
+        if (c63Var == null) {
             return 0;
         }
-        return b63Var.a.size() + 1;
+        return c63Var.a.size() + 1;
     }
 }

@@ -17,7 +17,7 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ax4;
+import com.baidu.tieba.bx4;
 import com.baidu.tieba.hi;
 import com.baidu.tieba.ii;
 import com.baidu.tieba.video.VideoItemData;
@@ -33,7 +33,7 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public AbsPbActivity b;
-    public ax4 c;
+    public bx4 c;
     public String d;
     public boolean e;
     public int f;
@@ -251,37 +251,37 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
         }
     }
 
-    public void f(ax4 ax4Var) {
+    public void f(bx4 bx4Var) {
         int i;
         int i2;
         int i3;
         int i4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ax4Var) == null) {
-            this.c = ax4Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bx4Var) == null) {
+            this.c = bx4Var;
             View view2 = this.h;
-            if (ax4Var.d()) {
+            if (bx4Var.d()) {
                 i = 0;
             } else {
                 i = 8;
             }
             view2.setVisibility(i);
             View view3 = this.r;
-            if (ax4Var.f()) {
+            if (bx4Var.f()) {
                 i2 = 0;
             } else {
                 i2 = 8;
             }
             view3.setVisibility(i2);
             View view4 = this.i;
-            if (ax4Var.e()) {
+            if (bx4Var.e()) {
                 i3 = 8;
             } else {
                 i3 = 0;
             }
             view4.setVisibility(i3);
             View view5 = this.p;
-            if (ax4Var.e()) {
+            if (bx4Var.e()) {
                 i4 = 0;
             } else {
                 i4 = 8;
@@ -294,16 +294,16 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
             this.j.setRadius(ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds21));
             this.j.setDrawCorner(true);
             this.j.setPlaceHolder(2);
-            if (ax4Var.getThreadVideoInfo() != null) {
-                this.l.setText(ax4Var.getTitle());
-                this.j.N(ax4Var.getThreadVideoInfo().thumbnail_url, 10, false);
+            if (bx4Var.getThreadVideoInfo() != null) {
+                this.l.setText(bx4Var.getTitle());
+                this.j.N(bx4Var.getThreadVideoInfo().thumbnail_url, 10, false);
                 this.k.setVisibility(0);
                 this.k.setAlpha(0.5f);
                 this.m.setVisibility(0);
-                this.o.setText(StringUtils.translateSecondsToString(ax4Var.getThreadVideoInfo().video_duration.intValue()));
+                this.o.setText(StringUtils.translateSecondsToString(bx4Var.getThreadVideoInfo().video_duration.intValue()));
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.u.getLayoutParams();
-                if (ax4Var.getAuthor() != null && !hi.isEmpty(ax4Var.getAuthor().getName_show())) {
-                    this.t.setText(ax4Var.getAuthor().getName_show());
+                if (bx4Var.getAuthor() != null && !hi.isEmpty(bx4Var.getAuthor().getName_show())) {
+                    this.t.setText(bx4Var.getAuthor().getName_show());
                     this.t.setVisibility(0);
                     layoutParams.leftMargin = ii.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004);
                 } else {
@@ -311,12 +311,12 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
                     layoutParams.leftMargin = 0;
                 }
                 this.u.setLayoutParams(layoutParams);
-                this.u.setText(String.format(this.b.getResources().getString(R.string.bjh_pb_recommend_video_tip), StringHelper.numFormatOverWan(ax4Var.getThreadVideoInfo().play_count.intValue())));
+                this.u.setText(String.format(this.b.getResources().getString(R.string.bjh_pb_recommend_video_tip), StringHelper.numFormatOverWan(bx4Var.getThreadVideoInfo().play_count.intValue())));
             } else {
                 this.m.setVisibility(8);
                 this.k.setVisibility(8);
-                this.j.N(ax4Var.getArticeCover(), 10, false);
-                this.l.setText(ax4Var.getTitle());
+                this.j.N(bx4Var.getArticeCover(), 10, false);
+                this.l.setText(bx4Var.getTitle());
             }
             this.g.setOnClickListener(this.w);
         }

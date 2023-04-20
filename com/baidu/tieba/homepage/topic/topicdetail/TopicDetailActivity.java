@@ -22,12 +22,12 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.gg;
 import com.baidu.tieba.hi;
-import com.baidu.tieba.hn;
 import com.baidu.tieba.homepage.topic.topicdetail.model.TopicDetailModel;
 import com.baidu.tieba.homepage.topic.topicdetail.view.TopicDetailView;
-import com.baidu.tieba.iu7;
-import com.baidu.tieba.mu7;
-import com.baidu.tieba.tq4;
+import com.baidu.tieba.in;
+import com.baidu.tieba.ju7;
+import com.baidu.tieba.nu7;
+import com.baidu.tieba.uq4;
 import com.baidu.tieba.w8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -44,7 +44,7 @@ import org.apache.commons.codec.language.bm.ResourceConstants;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements iu7 {
+public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements ju7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TopicDetailModel a;
@@ -54,7 +54,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
     public long e;
     public boolean f;
 
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.ll5
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.ml5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -166,8 +166,8 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // com.baidu.tieba.iu7
-    public void L0(int i, boolean z, List<hn> list) {
+    @Override // com.baidu.tieba.ju7
+    public void L0(int i, boolean z, List<in> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), list}) == null) {
             this.b.setNextData(i, z, list);
@@ -186,7 +186,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // com.baidu.tieba.iu7
+    @Override // com.baidu.tieba.ju7
     public void a() {
         int i;
         String substring;
@@ -277,14 +277,14 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // com.baidu.tieba.iu7
-    public void t(int i, mu7 mu7Var) {
+    @Override // com.baidu.tieba.ju7
+    public void t(int i, nu7 nu7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048587, this, i, mu7Var) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048587, this, i, nu7Var) == null) {
             this.b.r();
-            if (i == 0 && mu7Var != null && !ListUtils.isEmpty(mu7Var.f)) {
+            if (i == 0 && nu7Var != null && !ListUtils.isEmpty(nu7Var.f)) {
                 this.b.s();
-                this.b.setData(mu7Var);
+                this.b.setData(nu7Var);
                 return;
             }
             this.b.D(true);
@@ -300,7 +300,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
             Map<String, String> paramPair = UrlManager.getParamPair(str);
             if (paramPair != null) {
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SCHEME_JUMP_CALL_NATIVE);
-                tq4.b(statisticItem, paramPair);
+                uq4.b(statisticItem, paramPair);
                 statisticItem.param("obj_locate", paramPair.get("obj_locate"));
                 statisticItem.param("obj_type", 1);
                 statisticItem.param("tid", paramPair.get("tid"));

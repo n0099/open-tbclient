@@ -11,15 +11,15 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bd5;
-import com.baidu.tieba.pc5;
+import com.baidu.tieba.cd5;
+import com.baidu.tieba.qc5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class EmotionNoLaunchView extends AppCompatImageView implements bd5 {
+public class EmotionNoLaunchView extends AppCompatImageView implements cd5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -27,10 +27,10 @@ public class EmotionNoLaunchView extends AppCompatImageView implements bd5 {
     public boolean c;
     public boolean d;
 
-    @Override // com.baidu.tieba.qc5
-    public void C(pc5 pc5Var) {
+    @Override // com.baidu.tieba.rc5
+    public void C(qc5 qc5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, pc5Var) != null) || pc5Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, qc5Var) != null) || qc5Var == null) {
         }
     }
 
@@ -69,11 +69,11 @@ public class EmotionNoLaunchView extends AppCompatImageView implements bd5 {
                 }
                 EmotionNoLaunchView emotionNoLaunchView = this.a;
                 emotionNoLaunchView.setSelected(emotionNoLaunchView.d);
-                this.a.H(new pc5(1, 3, null));
+                this.a.H(new qc5(1, 3, null));
                 EmotionNoLaunchView emotionNoLaunchView2 = this.a;
-                emotionNoLaunchView2.H(new pc5(1, 5, Boolean.valueOf(emotionNoLaunchView2.d)));
+                emotionNoLaunchView2.H(new qc5(1, 5, Boolean.valueOf(emotionNoLaunchView2.d)));
                 EmotionNoLaunchView emotionNoLaunchView3 = this.a;
-                emotionNoLaunchView3.H(new pc5(62, 0, Boolean.valueOf(emotionNoLaunchView3.d)));
+                emotionNoLaunchView3.H(new qc5(62, 0, Boolean.valueOf(emotionNoLaunchView3.d)));
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921706, Boolean.TRUE));
             }
         }
@@ -145,16 +145,16 @@ public class EmotionNoLaunchView extends AppCompatImageView implements bd5 {
         init();
     }
 
-    @Override // com.baidu.tieba.bd5
-    public void H(pc5 pc5Var) {
+    @Override // com.baidu.tieba.cd5
+    public void H(qc5 qc5Var) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pc5Var) == null) && (editorTools = this.b) != null) {
-            editorTools.C(pc5Var);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qc5Var) == null) && (editorTools = this.b) != null) {
+            editorTools.C(qc5Var);
         }
     }
 
-    @Override // com.baidu.tieba.bd5
+    @Override // com.baidu.tieba.cd5
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
@@ -162,7 +162,7 @@ public class EmotionNoLaunchView extends AppCompatImageView implements bd5 {
         }
     }
 
-    @Override // com.baidu.tieba.bd5
+    @Override // com.baidu.tieba.cd5
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, editorTools) == null) {
@@ -177,7 +177,7 @@ public class EmotionNoLaunchView extends AppCompatImageView implements bd5 {
         }
     }
 
-    @Override // com.baidu.tieba.bd5
+    @Override // com.baidu.tieba.cd5
     public void setToolId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
@@ -185,7 +185,7 @@ public class EmotionNoLaunchView extends AppCompatImageView implements bd5 {
         }
     }
 
-    @Override // com.baidu.tieba.bd5
+    @Override // com.baidu.tieba.cd5
     public void display() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.c) {
@@ -197,7 +197,7 @@ public class EmotionNoLaunchView extends AppCompatImageView implements bd5 {
         }
     }
 
-    @Override // com.baidu.tieba.bd5
+    @Override // com.baidu.tieba.cd5
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -207,7 +207,7 @@ public class EmotionNoLaunchView extends AppCompatImageView implements bd5 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.bd5
+    @Override // com.baidu.tieba.cd5
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -215,7 +215,7 @@ public class EmotionNoLaunchView extends AppCompatImageView implements bd5 {
         }
     }
 
-    @Override // com.baidu.tieba.bd5
+    @Override // com.baidu.tieba.cd5
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {

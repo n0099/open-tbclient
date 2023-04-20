@@ -25,13 +25,13 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ah5;
-import com.baidu.tieba.ch5;
+import com.baidu.tieba.bh5;
+import com.baidu.tieba.dh5;
+import com.baidu.tieba.fk9;
 import com.baidu.tieba.hi;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.p45;
-import com.baidu.tieba.q25;
-import com.baidu.tieba.xj9;
-import com.baidu.tieba.zg5;
+import com.baidu.tieba.q45;
+import com.baidu.tieba.r25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -62,9 +62,9 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
     public HashMap<String, TbFragmentTabIndicator.a> u;
     public boolean v;
     public boolean w;
-    public zg5 x;
+    public ah5 x;
     public boolean y;
-    public ah5 z;
+    public bh5 z;
 
     public void setShowIconType(int i) {
         Interceptable interceptable = $ic;
@@ -166,7 +166,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
         public void a(String str, boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) && z) {
-                if (this.b.x == null || !ch5.f().b()) {
+                if (this.b.x == null || !dh5.f().b()) {
                     this.b.m.setVisibility(0);
                 }
                 if (!hi.isEmpty(this.a)) {
@@ -211,12 +211,12 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
             setText(R.string.home_recommend);
             if (z) {
                 this.j.playAnimation();
-                q25.d(this.k).C(R.string.F_X02);
+                r25.d(this.k).C(R.string.F_X02);
                 return;
             }
             this.j.cancelAnimation();
             this.j.setFrame(0);
-            q25.d(this.k).C(R.string.F_X01);
+            r25.d(this.k).C(R.string.F_X01);
         }
     }
 
@@ -247,9 +247,9 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
         o();
     }
 
-    public void r(int i, ah5 ah5Var) {
+    public void r(int i, bh5 bh5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048593, this, i, ah5Var) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048593, this, i, bh5Var) == null) {
             if (this.z != null) {
                 u();
                 SkinManager.setBackgroundColor(this.o, R.color.transparent, i);
@@ -328,10 +328,10 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
         }
     }
 
-    public void setDynamicIconData(zg5 zg5Var) {
+    public void setDynamicIconData(ah5 ah5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, zg5Var) == null) {
-            this.x = zg5Var;
+        if (interceptable == null || interceptable.invokeL(1048596, this, ah5Var) == null) {
+            this.x = ah5Var;
             v();
         }
     }
@@ -375,12 +375,12 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            ah5 ah5Var = this.z;
-            if (ah5Var != null) {
+            bh5 bh5Var = this.z;
+            if (bh5Var != null) {
                 if (this.y) {
-                    return ah5Var.g();
+                    return bh5Var.g();
                 }
-                return ah5Var.f();
+                return bh5Var.f();
             }
             return null;
         }
@@ -409,7 +409,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
     public final void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            p45.m().z("key_lottie_show_count", p45.m().n("key_lottie_show_count", 0) + 1);
+            q45.m().z("key_lottie_show_count", q45.m().n("key_lottie_show_count", 0) + 1);
         }
     }
 
@@ -434,8 +434,8 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
     public final void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            if (System.currentTimeMillis() > p45.m().o("key_lottie_show_expired_time", 0L)) {
-                p45.m().z("key_lottie_show_count", 0);
+            if (System.currentTimeMillis() > q45.m().o("key_lottie_show_expired_time", 0L)) {
+                q45.m().z("key_lottie_show_count", 0);
             }
         }
     }
@@ -475,14 +475,14 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
         }
     }
 
-    public void q(boolean z, ah5 ah5Var) {
+    public void q(boolean z, bh5 bh5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048592, this, z, ah5Var) == null) {
-            this.z = ah5Var;
+        if (interceptable == null || interceptable.invokeZL(1048592, this, z, bh5Var) == null) {
+            this.z = bh5Var;
             if (z) {
-                r(4, ah5Var);
+                r(4, bh5Var);
             } else {
-                r(this.q, ah5Var);
+                r(this.q, bh5Var);
             }
         }
     }
@@ -545,7 +545,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
                 return;
             }
             if (z) {
-                q25.d(this.k).C(R.string.F_X02);
+                r25.d(this.k).C(R.string.F_X02);
                 this.m.setVisibility(8);
                 this.j.playAnimation();
                 HashMap<String, TbFragmentTabIndicator.a> hashMap = this.u;
@@ -559,7 +559,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
             } else {
                 this.j.cancelAnimation();
                 this.j.setFrame(0);
-                q25.d(this.k).C(R.string.F_X01);
+                r25.d(this.k).C(R.string.F_X01);
             }
             if (this.z != null) {
                 u();
@@ -572,12 +572,12 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
         if ((interceptable != null && interceptable.invokeZ(1048598, this, z) != null) || this.l == null) {
             return;
         }
-        String s = p45.m().s("sync_send_maintab_my_tab_lottie_url", "");
+        String s = q45.m().s("sync_send_maintab_my_tab_lottie_url", "");
         if (hi.isEmpty(s) && z) {
             return;
         }
         p();
-        if (!TimeHelper.isInTimeBlock(p45.m().o("sync_send_maintab_my_tab_lottie_start_time", 0L), p45.m().o("sync_send_maintab_my_tab_lottie_end_time", 0L)) || p45.m().n("key_lottie_show_count", 0) >= 3) {
+        if (!TimeHelper.isInTimeBlock(q45.m().o("sync_send_maintab_my_tab_lottie_start_time", 0L), q45.m().o("sync_send_maintab_my_tab_lottie_end_time", 0L)) || q45.m().n("key_lottie_show_count", 0) >= 3) {
             return;
         }
         this.l.playAnimation();
@@ -590,8 +590,8 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            int n = p45.m().n("key_lottie_show_count", 0);
-            p45.m().A("key_lottie_show_expired_time", System.currentTimeMillis() + 86400000);
+            int n = q45.m().n("key_lottie_show_count", 0);
+            q45.m().A("key_lottie_show_expired_time", System.currentTimeMillis() + 86400000);
             TBLottieAnimationView tBLottieAnimationView = this.l;
             tBLottieAnimationView.setFrame(tBLottieAnimationView.getFrame());
             if (n >= 3) {
@@ -609,14 +609,14 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
             this.l.startAnimation(scaleAnimation);
             this.l.setVisibility(4);
             this.j.setVisibility(0);
-            p45.m().z("key_lottie_show_count", 4);
+            q45.m().z("key_lottie_show_count", 4);
         }
     }
 
     public final void u() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048606, this) == null) && this.k != null) {
-            int f = xj9.f(getDynamicTextColor());
+            int f = fk9.f(getDynamicTextColor());
             if (f == 0 || f == Integer.MAX_VALUE) {
                 if (this.y) {
                     f = SkinManager.getColor(R.color.CAM_X0622);
@@ -633,7 +633,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
 
     public final void v() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048607, this) == null) && this.x != null && ch5.f().b()) {
+        if ((interceptable == null || interceptable.invokeV(1048607, this) == null) && this.x != null && dh5.f().b()) {
             this.j.setVisibility(8);
             this.l.setVisibility(4);
             this.m.setVisibility(8);

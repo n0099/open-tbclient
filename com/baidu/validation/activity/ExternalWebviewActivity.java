@@ -23,9 +23,9 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
 import com.baidu.tieba.R;
-import com.baidu.tieba.via;
-import com.baidu.tieba.wia;
-import com.baidu.tieba.xia;
+import com.baidu.tieba.dja;
+import com.baidu.tieba.eja;
+import com.baidu.tieba.fja;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,7 +38,7 @@ import com.baidu.validation.view.ValidationTimeoutView;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class ExternalWebviewActivity extends Activity implements via, View.OnClickListener {
+public class ExternalWebviewActivity extends Activity implements dja, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public WebView a;
@@ -92,12 +92,12 @@ public class ExternalWebviewActivity extends Activity implements via, View.OnCli
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
                 ValidationLog.e(ValidationLog.TAG, str2);
-                xia a = xia.a(str2);
+                fja a = fja.a(str2);
                 if (a == null) {
                     jsPromptResult.cancel();
                     return true;
                 }
-                BaseInterpreter a2 = wia.b().a(a.b());
+                BaseInterpreter a2 = eja.b().a(a.b());
                 if (a2 == null) {
                     jsPromptResult.cancel();
                     return true;
@@ -272,7 +272,7 @@ public class ExternalWebviewActivity extends Activity implements via, View.OnCli
         }
     }
 
-    @Override // com.baidu.tieba.via
+    @Override // com.baidu.tieba.dja
     public void a(String str, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, obj) == null) {

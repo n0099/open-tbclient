@@ -1,26 +1,39 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
-import java.util.List;
-import org.json.JSONObject;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface sja {
-    public static final ServiceReference a = new ServiceReference("voyager", StatConstants.VALUE_TYPE_UPLOAD);
+public class sja {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    @Inject(force = false)
+    public fj1<xja> a;
 
-    void a(String str, String str2, int i, rja rjaVar);
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            dj1 b = dj1.b();
+            this.a = b;
+            b.a(new yja());
+        }
+    }
 
-    void b(List<String> list, String str, long j, JSONObject jSONObject);
-
-    void c(String str, String str2, JSONObject jSONObject);
-
-    boolean d(JSONObject jSONObject);
-
-    void e(String str, String str2, rja rjaVar);
-
-    void f();
-
-    void g(List<String> list, String str, long j, rja rjaVar);
-
-    void retry();
+    public sja() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        a();
+    }
 }

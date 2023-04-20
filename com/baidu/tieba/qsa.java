@@ -1,24 +1,25 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.ar.core.InstallActivity;
 /* loaded from: classes6.dex */
-public final class qsa extends AnimatorListenerAdapter {
+public final class qsa extends Thread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ InstallActivity a;
+    public final Context a;
+    public final ata b;
+    public volatile boolean c;
 
-    public qsa(InstallActivity installActivity) {
+    public qsa(Context context, ata ataVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {installActivity};
+            Object[] objArr = {context, ataVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,15 +29,31 @@ public final class qsa extends AnimatorListenerAdapter {
                 return;
             }
         }
-        this.a = installActivity;
+        this.a = context;
+        this.b = ataVar;
     }
 
-    @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-    public final void onAnimationEnd(Animator animator) {
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeL(1048576, this, animator) != null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.c = true;
         }
-        this.a.m();
+    }
+
+    @Override // java.lang.Thread, java.lang.Runnable
+    public final void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            while (!this.c) {
+                if (tsa.d().h(this.a)) {
+                    this.b.a(com.google.ar.core.p.COMPLETED);
+                    return;
+                }
+                try {
+                    Thread.sleep(200L);
+                } catch (InterruptedException unused) {
+                }
+            }
+        }
     }
 }

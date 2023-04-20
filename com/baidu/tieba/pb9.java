@@ -1,13 +1,11 @@
 package com.baidu.tieba;
-
-import com.baidu.tbadk.core.data.AdvertAppInfo;
 /* loaded from: classes5.dex */
-public interface pb9 {
-    String getImageUrl();
+public interface pb9<T> {
+    void a(int i, int i2);
 
-    String getShareLink();
+    void c(int i, int i2, ob9 ob9Var, T t);
 
-    AdvertAppInfo getThreadData();
+    void d(int i, int i2, int i3, ob9 ob9Var, T t);
 
-    String getTitle();
+    void e(int i, int i2, T t, ob9 ob9Var, T t2);
 }

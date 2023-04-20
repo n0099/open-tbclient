@@ -1,11 +1,5 @@
 package com.baidu.tieba;
 /* loaded from: classes6.dex */
-public interface x0b {
-    x0b a();
-
-    boolean b(String str);
-
-    String c();
-
-    String toString();
+public interface x0b extends y0b, w0b {
+    void b(String str);
 }

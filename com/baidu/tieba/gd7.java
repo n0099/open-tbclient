@@ -4,17 +4,17 @@ import android.content.Context;
 import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.frs.itemtab.card.CardItemRecentUpdateLayout;
+import com.baidu.tieba.frs.itemtab.card.CardItemHotVideoLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class gd7 extends pw<nd7> {
+public class gd7 extends qw<kw4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final CardItemRecentUpdateLayout f;
+    public CardItemHotVideoLayout f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public gd7(Context context) {
@@ -34,20 +34,20 @@ public class gd7 extends pw<nd7> {
                 return;
             }
         }
-        this.f = new CardItemRecentUpdateLayout(context);
+        this.f = new CardItemHotVideoLayout(context);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.hx
+    @Override // com.baidu.tieba.ix
     /* renamed from: s */
-    public void a(nd7 nd7Var) {
+    public void a(kw4 kw4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, nd7Var) == null) {
-            this.f.setData(nd7Var.c());
+        if (interceptable == null || interceptable.invokeL(1048579, this, kw4Var) == null) {
+            this.f.setData((nd7) kw4Var);
         }
     }
 
-    @Override // com.baidu.tieba.pw
+    @Override // com.baidu.tieba.qw
     public View k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -57,7 +57,7 @@ public class gd7 extends pw<nd7> {
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ix
+    @Override // com.baidu.tieba.jx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {

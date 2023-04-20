@@ -1,73 +1,122 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Base64;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.SecureRandom;
-import javax.crypto.Cipher;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.FileFilter;
+import java.util.concurrent.PriorityBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
-public final class bn1 {
-    public static /* synthetic */ Interceptable $ic;
+public class bn1 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static bn1 b = null;
+    public static int c = Integer.MAX_VALUE;
+    public static long d = 120;
     public transient /* synthetic */ FieldHolder $fh;
+    public ThreadPoolExecutor a;
 
-    public static String a(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
-            try {
-                byte[] bArr2 = new byte[32];
-                new SecureRandom().nextBytes(bArr2);
-                byte[] bArr3 = new byte[16];
-                System.arraycopy(bArr2, 8, bArr3, 0, 16);
-                IvParameterSpec ivParameterSpec = new IvParameterSpec(bArr3);
-                SecretKeySpec secretKeySpec = new SecretKeySpec(bArr2, "AES");
-                Cipher cipher = Cipher.getInstance(com.kuaishou.weapon.p0.b.c);
-                cipher.init(1, secretKeySpec, ivParameterSpec);
-                byte[] doFinal = cipher.doFinal(bArr);
-                byte[] bArr4 = new byte[doFinal.length + 32];
-                System.arraycopy(doFinal, 0, bArr4, 0, doFinal.length);
-                System.arraycopy(bArr2, 0, bArr4, doFinal.length, 32);
-                return Base64.encodeToString(bArr4, 0);
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return null;
+    /* loaded from: classes3.dex */
+    public class a implements FileFilter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(bn1 bn1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bn1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        return (String) invokeL.objValue;
+
+        @Override // java.io.FileFilter
+        public boolean accept(File file) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) {
+                if (Pattern.matches("cpu[0-9]", file.getName())) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
     }
 
-    public static byte[] b(String str) {
-        InterceptResult invokeL;
+    public bn1() {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            try {
-                if (TextUtils.isEmpty(str)) {
-                    return null;
-                }
-                byte[] decode = Base64.decode(str, 0);
-                if (decode != null && decode.length >= 32) {
-                    byte[] bArr = new byte[32];
-                    int length = decode.length - 32;
-                    byte[] bArr2 = new byte[length];
-                    System.arraycopy(decode, 0, bArr2, 0, length);
-                    System.arraycopy(decode, length, bArr, 0, 32);
-                    SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
-                    Cipher cipher = Cipher.getInstance(com.kuaishou.weapon.p0.b.c);
-                    byte[] bArr3 = new byte[16];
-                    System.arraycopy(bArr, 8, bArr3, 0, 16);
-                    cipher.init(2, secretKeySpec, new IvParameterSpec(bArr3));
-                    return cipher.doFinal(bArr2);
-                }
-                return decode;
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (byte[]) invokeL.objValue;
+        int a2 = (a() / 2) + 2;
+        if (a2 > 3) {
+            i = 3;
+        } else {
+            i = a2;
+        }
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(i, c, d, TimeUnit.SECONDS, new PriorityBlockingQueue());
+        this.a = threadPoolExecutor;
+        threadPoolExecutor.setThreadFactory(new an1());
+        this.a.allowCoreThreadTimeOut(true);
+    }
+
+    public static bn1 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (bn1.class) {
+                if (b == null) {
+                    b = new bn1();
+                }
+            }
+            return b;
+        }
+        return (bn1) invokeV.objValue;
+    }
+
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                return new File("/sys/devices/system/cpu/").listFiles(new a(this)).length;
+            } catch (Throwable unused) {
+                return 2;
+            }
+        }
+        return invokeV.intValue;
+    }
+
+    public void b(xm1 xm1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xm1Var) == null) {
+            try {
+                this.a.execute(xm1Var);
+            } catch (Throwable th) {
+                en1.d(th);
+            }
+        }
     }
 }

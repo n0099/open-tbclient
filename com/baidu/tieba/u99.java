@@ -1,29 +1,390 @@
 package com.baidu.tieba;
 
+import android.content.ContentResolver;
+import android.content.Intent;
+import android.database.Cursor;
+import android.os.Build;
+import android.provider.MediaStore;
 import android.text.TextUtils;
+import android.webkit.CookieManager;
+import android.webkit.CookieSyncManager;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.QRCodeScanActivityConfig;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
+import com.baidu.tieba.bt9;
+import com.baidu.tieba.qrcode.lib.core.QRCodeView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.concurrent.ConcurrentHashMap;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
+import java.io.File;
+import java.io.UnsupportedEncodingException;
+import java.lang.ref.WeakReference;
+import java.net.URLDecoder;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class u99 {
+public class u99 implements QRCodeView.c {
     public static /* synthetic */ Interceptable $ic;
-    public static u99 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, String> a;
-    public HashMap<String, String> b;
-    public ConcurrentHashMap<String, v99> c;
+    public final t99 a;
+    public final TbPageContext b;
+    public e c;
+    public bt9 d;
+    public d e;
+    public boolean f;
 
-    public u99() {
+    /* loaded from: classes6.dex */
+    public class a implements d.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ u99 a;
+
+        public a(u99 u99Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u99Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = u99Var;
+        }
+
+        @Override // com.baidu.tieba.u99.d.a
+        public void a(String str, String str2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeLL(1048576, this, str, str2) != null) || TextUtils.isEmpty(str)) {
+                return;
+            }
+            q45.m().B("key_gallery_last_image_path", str);
+            if (TextUtils.isEmpty(str2)) {
+                return;
+            }
+            this.a.a.l0(str, str2);
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements PermissionJudgePolicy.OnPermissionsGrantedListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ u99 b;
+
+        public b(u99 u99Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u99Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = u99Var;
+            this.a = str;
+        }
+
+        @Override // com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.OnPermissionsGrantedListener
+        public void onPermissionsGranted() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2921361, URLDecoder.decode(this.a, "UTF-8")));
+                    this.b.b.getPageActivity().finish();
+                } catch (UnsupportedEncodingException unused) {
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c extends BdAsyncTask<String, Void, String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ u99 a;
+
+        public c(u99 u99Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u99Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = u99Var;
+        }
+
+        public /* synthetic */ c(u99 u99Var, a aVar) {
+            this(u99Var);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public String doInBackground(String... strArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
+                String str = strArr[0];
+                if (StringUtils.isNull(str)) {
+                    return null;
+                }
+                String postNetData = new NetWork(str).postNetData();
+                if (StringUtils.isNull(postNetData)) {
+                    return null;
+                }
+                try {
+                    return new JSONObject(postNetData).optString("data");
+                } catch (JSONException unused) {
+                    return null;
+                }
+            }
+            return (String) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+                super.onPostExecute((c) str);
+                this.a.p(str);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class d extends BdAsyncTask<String, Void, String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public a b;
+
+        /* loaded from: classes6.dex */
+        public interface a {
+            void a(String str, String str2);
+        }
+
+        public d(a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = aVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public String doInBackground(String... strArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
+                if (strArr != null && strArr.length > 0) {
+                    String str = strArr[0];
+                    this.a = str;
+                    return y99.c(str);
+                }
+                return null;
+            }
+            return (String) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+                super.onPostExecute((d) str);
+                a aVar = this.b;
+                if (aVar != null) {
+                    aVar.a(this.a, str);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class e extends BdAsyncTask<String, Void, String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ u99 a;
+
+        public e(u99 u99Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u99Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = u99Var;
+        }
+
+        public /* synthetic */ e(u99 u99Var, a aVar) {
+            this(u99Var);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public String doInBackground(String... strArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
+                if (strArr != null && strArr.length > 0) {
+                    return y99.c(strArr[0]);
+                }
+                return null;
+            }
+            return (String) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+                super.onPostExecute((e) str);
+                this.a.a.b1();
+                this.a.b(str);
+            }
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPreExecute() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                super.onPreExecute();
+                this.a.a.a0();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class f implements bt9.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final WeakReference<t99> a;
+        public final String b;
+        public final WeakReference<TbPageContext> c;
+
+        public f(t99 t99Var, String str, TbPageContext tbPageContext) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {t99Var, str, tbPageContext};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new WeakReference<>(t99Var);
+            this.b = str;
+            this.c = new WeakReference<>(tbPageContext);
+        }
+
+        @Override // com.baidu.tieba.bt9.a
+        public void a() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.get() != null) {
+                this.a.get().b1();
+                this.a.get().a1();
+            }
+        }
+
+        @Override // com.baidu.tieba.bt9.a
+        public void b() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a.get() != null) {
+                this.a.get().b1();
+                this.a.get().u0(this.b);
+            }
+        }
+
+        @Override // com.baidu.tieba.bt9.a
+        public void c() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                if (this.a.get() != null) {
+                    this.a.get().b1();
+                }
+                if (this.c.get() != null) {
+                    UrlManager.getInstance().dealOneLink(this.c.get(), new String[]{this.b});
+                    this.c.get().getPageActivity().finish();
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.bt9.a
+        public void onError(String str) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && this.a.get() != null) {
+                this.a.get().b1();
+                this.a.get().f1();
+            }
+        }
+    }
+
+    public u99(t99 t99Var, TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {t99Var, tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,155 +394,264 @@ public class u99 {
                 return;
             }
         }
-        this.a = new HashMap<>();
-        this.b = new HashMap<>();
-        this.c = new ConcurrentHashMap<>();
+        this.a = t99Var;
+        this.b = tbPageContext;
     }
 
-    public static u99 a() {
-        InterceptResult invokeV;
+    public void j(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (d == null) {
-                synchronized (u99.class) {
-                    if (d == null) {
-                        d = new u99();
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            UrlManager.getInstance().dealOneLink(this.b, new String[]{str});
+            this.b.getPageActivity().finish();
+        }
+    }
+
+    public void o(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.f = z;
+        }
+    }
+
+    @Override // com.baidu.tieba.qrcode.lib.core.QRCodeView.c
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ii.P(this.b.getPageActivity(), R.string.disallow_camera_permission);
+            this.b.getPageActivity().finish();
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            bt9 bt9Var = this.d;
+            if (bt9Var != null && !bt9Var.isCancelled()) {
+                this.d.cancel();
+            }
+            e eVar = this.c;
+            if (eVar != null) {
+                eVar.cancel();
+                this.c = null;
+            }
+            d dVar = this.e;
+            if (dVar != null) {
+                dVar.cancel();
+                this.e = null;
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.qrcode.lib.core.QRCodeView.c
+    public void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            if (StringUtils.isNull(str)) {
+                this.a.b1();
+                this.a.f1();
+            } else if (this.f) {
+                Intent intent = new Intent();
+                intent.putExtra(QRCodeScanActivityConfig.RESULT_SCAN_CODE, str);
+                this.b.getPageActivity().setResult(-1, intent);
+                this.b.getPageActivity().finish();
+            } else if (k(str)) {
+                this.a.b1();
+            } else if (!StringUtils.isNull(str) && str.contains("feedavatar.baidu.com")) {
+                this.a.b1();
+                i(str);
+            } else if (l(str)) {
+                this.a.b1();
+                this.b.getPageActivity().finish();
+            } else if (!StringHelper.isNetworkUrl(str)) {
+                this.a.b1();
+                this.a.f1();
+            } else {
+                m(str);
+            }
+        }
+    }
+
+    public final String f(ContentResolver contentResolver) {
+        InterceptResult invokeL;
+        Throwable th;
+        Cursor cursor;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, contentResolver)) == null) {
+            Cursor cursor2 = null;
+            if (contentResolver == null) {
+                return null;
+            }
+            try {
+                cursor = contentResolver.query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, new String[]{"_id", "_display_name", "_data", "_size", "bucket_display_name", "date_modified"}, null, null, null);
+            } catch (Exception unused) {
+                str = null;
+            } catch (Throwable th2) {
+                th = th2;
+                cursor = null;
+            }
+            if (cursor == null) {
+                if (cursor != null) {
+                    cursor.close();
+                }
+                return null;
+            }
+            try {
+                try {
+                    cursor.moveToLast();
+                    str = cursor.getString(cursor.getColumnIndex("_data"));
+                    try {
+                    } catch (Exception unused2) {
+                        cursor2 = cursor;
+                        if (cursor2 != null) {
+                            cursor2.close();
+                        }
+                        return str;
                     }
+                } catch (Exception unused3) {
+                    str = null;
                 }
-            }
-            return d;
-        }
-        return (u99) invokeV.objValue;
-    }
-
-    public ConcurrentHashMap<String, v99> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return (ConcurrentHashMap) invokeV.objValue;
-    }
-
-    public v99 c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            HashMap<String, String> hashMap = this.a;
-            if (hashMap == null || this.c == null) {
-                return null;
-            }
-            String str2 = hashMap.get(str);
-            if (TextUtils.isEmpty(str2)) {
-                return null;
-            }
-            return this.c.get(str2);
-        }
-        return (v99) invokeL.objValue;
-    }
-
-    public void f(String str) {
-        ConcurrentHashMap<String, v99> concurrentHashMap;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && !TextUtils.isEmpty(str) && (concurrentHashMap = this.c) != null) {
-            Iterator<String> it = concurrentHashMap.keySet().iterator();
-            while (it.hasNext()) {
-                v99 v99Var = this.c.get(it.next());
-                if (v99Var != null && str.equals(v99Var.b)) {
-                    it.remove();
+                if (TextUtils.isEmpty(str)) {
+                    if (cursor != null) {
+                        cursor.close();
+                    }
+                    return null;
+                } else if (!new File(str).exists()) {
+                    if (cursor != null) {
+                        cursor.close();
+                    }
+                    return null;
+                } else {
+                    cursor.close();
+                    if (cursor != null) {
+                        cursor.close();
+                    }
+                    return str;
                 }
+            } catch (Throwable th3) {
+                th = th3;
+                if (cursor != null) {
+                    cursor.close();
+                }
+                throw th;
             }
-        }
-    }
-
-    public void g(boolean z) {
-        ConcurrentHashMap<String, v99> concurrentHashMap;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(1048581, this, z) != null) || (concurrentHashMap = this.c) == null) {
-            return;
-        }
-        for (String str : concurrentHashMap.keySet()) {
-            v99 v99Var = this.c.get(str);
-            if (v99Var != null) {
-                v99Var.e = z;
-            }
-        }
-    }
-
-    public v99 d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            ConcurrentHashMap<String, v99> concurrentHashMap = this.c;
-            if (concurrentHashMap == null) {
-                return null;
-            }
-            return concurrentHashMap.get(str);
-        }
-        return (v99) invokeL.objValue;
-    }
-
-    public String e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            HashMap<String, String> hashMap = this.b;
-            if (hashMap == null) {
-                return null;
-            }
-            return hashMap.get(str);
         }
         return (String) invokeL.objValue;
     }
 
-    public void i(HashMap<String, v99> hashMap) {
+    public void g() {
+        TbPageContext tbPageContext;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, hashMap) == null) {
-            this.c.clear();
-            if (hashMap == null) {
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (tbPageContext = this.b) != null && tbPageContext.getPageActivity() != null) {
+            if (Build.VERSION.SDK_INT >= 23 && (this.b.getPageActivity().checkSelfPermission("android.permission.WRITE_EXTERNAL_STORAGE") != 0 || this.b.getPageActivity().checkSelfPermission(com.kuaishou.weapon.p0.h.i) != 0)) {
                 return;
             }
-            this.c.putAll(hashMap);
+            String f2 = f(this.b.getPageActivity().getContentResolver());
+            if (TextUtils.isEmpty(f2) || f2.endsWith(".gif") || f2.endsWith(".GIF") || f2.equals(q45.m().s("key_gallery_last_image_path", null))) {
+                return;
+            }
+            d dVar = this.e;
+            if (dVar != null) {
+                dVar.cancel();
+            }
+            d dVar2 = new d(new a(this));
+            this.e = dVar2;
+            dVar2.execute(f2);
         }
     }
 
-    public void h(boolean z, String str) {
-        ConcurrentHashMap<String, v99> concurrentHashMap;
+    public final void i(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZL(1048582, this, z, str) == null) && !TextUtils.isEmpty(str) && (concurrentHashMap = this.c) != null) {
-            for (String str2 : concurrentHashMap.keySet()) {
-                v99 v99Var = this.c.get(str2);
-                if (v99Var != null && str.equals(v99Var.b)) {
-                    v99Var.e = z;
-                }
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            CookieSyncManager.createInstance(this.b.getPageActivity());
+            CookieManager cookieManager = CookieManager.getInstance();
+            cookieManager.setAcceptCookie(true);
+            cookieManager.setCookie("feedavatar.baidu.com", "cuid=" + TbadkCoreApplication.getInst().getCuid() + ParamableElem.DIVIDE_PARAM);
+            cookieManager.setCookie("feedavatar.baidu.com", "tiebaapp=1;");
+            CookieSyncManager.getInstance().sync();
+            jt4.v(this.b.getPageActivity(), null, str, false);
+        }
+    }
+
+    public final void m(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            if (!ii.F()) {
+                this.a.b1();
+                ii.Q(this.b.getPageActivity(), this.b.getResources().getString(R.string.network_not_available));
+                return;
+            }
+            bt9 bt9Var = this.d;
+            if (bt9Var != null && !bt9Var.isCancelled()) {
+                this.d.cancel();
+            }
+            bt9 bt9Var2 = new bt9(str, new f(this.a, str, this.b));
+            this.d = bt9Var2;
+            bt9Var2.setPriority(3);
+            this.d.execute(new String[0]);
+        }
+    }
+
+    public final void p(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048588, this, str) == null) && !StringUtils.isNull(str) && str.startsWith("tiebaclient:")) {
+            if (Build.VERSION.SDK_INT <= 21) {
+                ii.P(this.b.getPageActivity(), R.string.ai_apps_not_support);
+                return;
+            }
+            PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
+            permissionJudgePolicy.clearRequestPermissionList();
+            permissionJudgePolicy.appendRequestPermission(this.b.getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
+            permissionJudgePolicy.setOnPermissionsGrantedListener(new b(this, str));
+            permissionJudgePolicy.startRequestPermission(this.b.getPageActivity());
+        }
+    }
+
+    public final boolean k(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            if (StringUtils.isNULL(str)) {
+                return false;
+            }
+            if (str.startsWith("tiebaclient:")) {
+                p(str);
+                return true;
+            } else if (!str.contains("smartapp.baidu.com/mappconsole/api/packagescheme") && !str.contains("mappconsole/api/packagescheme")) {
+                return false;
+            } else {
+                new c(this, null).execute(str);
+                return true;
             }
         }
+        return invokeL.booleanValue;
     }
 
-    public void j(String str, String str2) {
-        HashMap<String, String> hashMap;
+    public final boolean l(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && (hashMap = this.a) != null) {
-            hashMap.put(str, str2);
-        }
-    }
-
-    public void k(String str, String str2) {
-        HashMap<String, String> hashMap;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048585, this, str, str2) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && (hashMap = this.b) != null) {
-            hashMap.put(str, str2);
-        }
-    }
-
-    public void l(String str, HashMap<String, v99> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, str, hashMap) == null) {
-            if (this.c == null) {
-                this.c = new ConcurrentHashMap<>();
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921339, null, str);
+            if (runTask != null && runTask.getData() != null && (runTask.getData() instanceof Boolean) && ((Boolean) runTask.getData()).booleanValue()) {
+                return true;
             }
-            f(str);
-            this.c.putAll(hashMap);
+            return false;
         }
+        return invokeL.booleanValue;
+    }
+
+    public void n(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048586, this, str) != null) || StringUtils.isNull(str)) {
+            return;
+        }
+        this.a.a0();
+        e eVar = this.c;
+        if (eVar != null) {
+            eVar.cancel();
+        }
+        e eVar2 = new e(this, null);
+        this.c = eVar2;
+        eVar2.execute(str);
     }
 }

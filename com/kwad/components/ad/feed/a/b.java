@@ -134,7 +134,7 @@ public abstract class b extends a implements View.OnClickListener {
             i = 101;
         }
         g(false);
-        com.kwad.components.core.c.a.a.a(new a.C0594a(com.kwad.sdk.b.kwai.a.x(this)).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(view2 == this.dk ? 1 : 2).aj(view2 == this.dk).a(new a.b() { // from class: com.kwad.components.ad.feed.a.b.1
+        com.kwad.components.core.c.a.a.a(new a.C0593a(com.kwad.sdk.b.kwai.a.x(this)).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(view2 == this.dk ? 1 : 2).aj(view2 == this.dk).a(new a.b() { // from class: com.kwad.components.ad.feed.a.b.1
             @Override // com.kwad.components.core.c.a.a.b
             public final void onAdClicked() {
                 b.this.aq(i);

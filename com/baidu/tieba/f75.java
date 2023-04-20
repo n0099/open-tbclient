@@ -1,24 +1,25 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.sapi2.utils.enums.Domain;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.UtilHelper;
+import android.media.MediaPlayer;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
 /* loaded from: classes4.dex */
-public class f75 {
+public class f75 extends MediaPlayer implements d75 {
     public static /* synthetic */ Interceptable $ic;
-    public static Domain a;
-    public static boolean b;
-    public static g75 c;
+    public static Object d;
+    public static f75 e;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public boolean b;
+    public int c;
 
     static {
         InterceptResult invokeClinit;
@@ -33,50 +34,173 @@ public class f75 {
                 return;
             }
         }
-        a = Domain.DOMAIN_ONLINE;
-        b = true;
-        c = null;
+        d = new Object();
     }
 
-    public static g75 b() {
+    public f75() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = false;
+        this.b = true;
+        this.c = -1;
+    }
+
+    public static f75 h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return c;
-        }
-        return (g75) invokeV.objValue;
-    }
-
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            if (TbConfig.USE_OLD_LOGIN) {
-                b = true;
-                return;
-            }
-            if (Build.VERSION.SDK_INT < 9) {
-                if (TbadkCoreApplication.getInst().isLowVersionPassV6ShouldOpen()) {
-                    b = false;
-                } else {
-                    b = true;
+            if (e == null) {
+                synchronized (d) {
+                    if (e == null) {
+                        e = new f75();
+                    }
                 }
-            } else if (TbadkCoreApplication.getInst().isPassportV6ShouldOpen()) {
-                b = false;
-            } else {
-                b = true;
             }
-            if (Build.VERSION.SDK_INT <= 10 && !b && UtilHelper.webViewIsProbablyCorrupt(TbadkCoreApplication.getInst().getContext())) {
-                TbadkCoreApplication.getInst().incPassportV6CrashCount();
-                b = true;
+            return e;
+        }
+        return (f75) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.d75
+    public void a() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.b) {
+            return;
+        }
+        stop();
+        this.b = true;
+        this.a = false;
+    }
+
+    @Override // com.baidu.tieba.d75
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.d75
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            pause();
+        }
+    }
+
+    @Override // com.baidu.tieba.d75
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            reset();
+            this.a = false;
+            this.b = true;
+            this.c = -1;
+        }
+    }
+
+    @Override // com.baidu.tieba.d75
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return getCurrentPosition();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.d75
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            start();
+            this.b = false;
+        }
+    }
+
+    @Override // com.baidu.tieba.d75
+    public boolean isPrepared() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.d75
+    public boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            this.c = -1;
+            if (!this.a) {
+                this.b = true;
+                reset();
+                try {
+                    setDataSource(str);
+                    i(aj.b);
+                    try {
+                        prepare();
+                    } catch (IOException e2) {
+                        e2.printStackTrace();
+                        this.c = 2;
+                        return false;
+                    } catch (IllegalStateException unused) {
+                        this.c = 1;
+                        return false;
+                    }
+                } catch (IOException unused2) {
+                    this.c = 2;
+                    return false;
+                } catch (IllegalArgumentException unused3) {
+                    this.c = 0;
+                    return false;
+                } catch (IllegalStateException unused4) {
+                    this.c = 1;
+                    return false;
+                }
+            }
+            this.a = true;
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void i(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            setAudioStreamType(i);
+        }
+    }
+
+    public void j(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            try {
+                seekTo(i);
+            } catch (Exception unused) {
             }
         }
     }
 
-    public static void c() {
-        CustomResponsedMessage runTask;
+    @Override // com.baidu.tieba.d75
+    public void seek(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65539, null) == null) && c == null && (runTask = MessageManager.getInstance().runTask(2001268, g75.class)) != null && runTask.getData() != null) {
-            c = (g75) runTask.getData();
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            j(i);
         }
     }
 }

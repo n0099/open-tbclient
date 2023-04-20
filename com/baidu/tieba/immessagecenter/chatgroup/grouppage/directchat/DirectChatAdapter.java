@@ -19,10 +19,10 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.ViewSingleClickCompat;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a58;
+import com.baidu.tieba.b58;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
-import com.baidu.tieba.k78;
-import com.baidu.tieba.q25;
+import com.baidu.tieba.r25;
+import com.baidu.tieba.s78;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,7 +31,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class DirectChatAdapter extends RecyclerView.Adapter<ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,10 +43,10 @@ public class DirectChatAdapter extends RecyclerView.Adapter<ViewHolder> {
     public final int f;
     public final int g;
     @NonNull
-    public a58 h;
+    public b58 h;
     public View.OnClickListener i;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class ViewHolder extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -78,7 +78,7 @@ public class DirectChatAdapter extends RecyclerView.Adapter<ViewHolder> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -114,17 +114,17 @@ public class DirectChatAdapter extends RecyclerView.Adapter<ViewHolder> {
                 } else {
                     content = abilityItem.getStyleConf().getContent();
                 }
-                k78.e("c15187", content, this.a.c);
+                s78.e("c15187", content, this.a.c);
             }
         }
     }
 
-    public DirectChatAdapter(Context context, @NonNull a58 a58Var) {
+    public DirectChatAdapter(Context context, @NonNull b58 b58Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, a58Var};
+            Object[] objArr = {context, b58Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -137,7 +137,7 @@ public class DirectChatAdapter extends RecyclerView.Adapter<ViewHolder> {
         this.d = new ArrayList();
         this.i = new a(this);
         this.a = context;
-        this.h = a58Var;
+        this.h = b58Var;
         this.f = context.getResources().getDimensionPixelSize(R.dimen.M_W_X007);
         this.e = context.getResources().getDimensionPixelSize(R.dimen.M_W_X004);
         this.g = context.getResources().getDimensionPixelSize(R.dimen.M_W_X006);
@@ -160,7 +160,7 @@ public class DirectChatAdapter extends RecyclerView.Adapter<ViewHolder> {
             }
             String content = styleConf.getContent();
             if (!TextUtils.isEmpty(content) && !this.d.contains(content)) {
-                k78.e("c15186", content, this.c);
+                s78.e("c15186", content, this.c);
                 this.d.add(content);
             }
             viewHolder.a.setTag(abilityItem);
@@ -290,10 +290,10 @@ public class DirectChatAdapter extends RecyclerView.Adapter<ViewHolder> {
     public final void s(@NonNull ViewHolder viewHolder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, viewHolder) == null) {
-            q25 d = q25.d(viewHolder.a);
+            r25 d = r25.d(viewHolder.a);
             d.o(R.string.J_X01);
             d.f(R.color.CAM_X0208);
-            q25 d2 = q25.d(viewHolder.c);
+            r25 d2 = r25.d(viewHolder.c);
             d2.B(R.dimen.T_X08);
             d2.C(R.string.F_X02);
             d2.w(R.color.CAM_X0105);
@@ -303,10 +303,10 @@ public class DirectChatAdapter extends RecyclerView.Adapter<ViewHolder> {
     public final void t(@NonNull ViewHolder viewHolder, @NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048586, this, viewHolder, str, str2) == null) {
-            q25 d = q25.d(viewHolder.a);
+            r25 d = r25.d(viewHolder.a);
             d.o(R.string.J_X01);
             d.g(str);
-            q25 d2 = q25.d(viewHolder.c);
+            r25 d2 = r25.d(viewHolder.c);
             d2.B(R.dimen.T_X08);
             d2.C(R.string.F_X02);
             viewHolder.c.setTextColor(Color.parseColor(str2));

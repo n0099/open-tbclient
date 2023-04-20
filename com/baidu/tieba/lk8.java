@@ -1,58 +1,63 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.live.interfaces.service.ToastService;
+import com.baidu.searchbox.live.interfaces.toast.ToastClickListener;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetVipInfo.VipBannerItem;
 /* loaded from: classes5.dex */
-public class lk8 implements u25 {
+public class lk8 implements ToastService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
 
-    public lk8(VipBannerItem vipBannerItem) {
+    @Override // com.baidu.searchbox.live.interfaces.service.ToastService
+    public void showToastCenter(@NonNull Context context, @NonNull String str, @NonNull Drawable drawable, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLI(1048579, this, context, str, drawable, i) == null) {
+        }
+    }
+
+    public lk8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vipBannerItem};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        if (vipBannerItem == null) {
-            return;
-        }
-        this.a = vipBannerItem.img_url;
-        this.b = vipBannerItem.link;
     }
 
-    @Override // com.baidu.tieba.u25
-    public String getPicLinkUrl() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.live.interfaces.service.ToastService
+    public void showClickableToast(Context context, String str, String str2, int i, ToastClickListener toastClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, str, str2, Integer.valueOf(i), toastClickListener}) == null) {
+            ii.Q(TbadkCoreApplication.getInst(), str);
         }
-        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.u25
-    public String getPicUrl() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.live.interfaces.service.ToastService
+    public void showNormal(Context context, String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, i) == null) {
+            ii.Q(TbadkCoreApplication.getInst(), str);
         }
-        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.ToastService
+    public void showToastBottom(Context context, String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, context, str, i) == null) {
+            ii.Q(TbadkCoreApplication.getInst(), str);
+        }
     }
 }

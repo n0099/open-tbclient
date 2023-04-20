@@ -1,60 +1,35 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class kl8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str, String str2, String str3) {
+    public kl8() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, str, str2, str3) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14870");
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.addParam("obj_source", str);
-            statisticItem.addParam("obj_id", str2);
-            statisticItem.addParam("fid", str3);
-            TiebaStatic.log(statisticItem);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    public static void c(int i, String str, String str2) {
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(65538, null, i, str, str2) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14871");
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.addParam("obj_source", i);
-            statisticItem.addParam("fid", str);
-            statisticItem.addParam("obj_locate", str2);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public static void d(int i, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(65539, null, i, str, str2) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14872");
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.addParam("obj_source", i);
-            statisticItem.addParam("fid", str);
-            statisticItem.addParam("obj_locate", str2);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public static void b(int i, String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), str, Long.valueOf(j)}) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14873");
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.addParam("obj_source", i);
-            statisticItem.addParam("fid", str);
-            statisticItem.addParam("obj_locate", j);
-            TiebaStatic.log(statisticItem);
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            jSONObject.optString("error_code");
+            jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
         }
     }
 }

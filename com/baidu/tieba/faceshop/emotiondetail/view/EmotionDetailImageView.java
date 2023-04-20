@@ -16,7 +16,7 @@ import com.baidu.tieba.bg;
 import com.baidu.tieba.cg;
 import com.baidu.tieba.faceshop.emotiondetail.data.EmotionDetailData;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.sm;
+import com.baidu.tieba.tm;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,7 +34,7 @@ public class EmotionDetailImageView extends FrameLayout {
     public int c;
 
     /* loaded from: classes4.dex */
-    public class a extends bg<sm> {
+    public class a extends bg<tm> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EmotionDetailData a;
@@ -69,13 +69,13 @@ public class EmotionDetailImageView extends FrameLayout {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.bg
-        public void onLoaded(sm smVar, String str, int i) {
+        public void onLoaded(tm tmVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, smVar, str, i) == null) {
+            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tmVar, str, i) == null) {
                 this.b.b.setVisibility(8);
-                if (smVar != null) {
+                if (tmVar != null) {
                     this.b.a = new TbMemeImageView(this.b.getContext());
-                    ((TbMemeImageView) this.b.a).g(smVar);
+                    ((TbMemeImageView) this.b.a).g(tmVar);
                     EmotionDetailImageView emotionDetailImageView = this.b;
                     ImageView imageView = emotionDetailImageView.a;
                     EmotionDetailData.PicInfo picInfo = this.a.pic_info;

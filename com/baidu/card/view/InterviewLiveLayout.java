@@ -31,13 +31,13 @@ import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.cg;
-import com.baidu.tieba.hx;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.jw4;
-import com.baidu.tieba.mz4;
-import com.baidu.tieba.rv4;
-import com.baidu.tieba.sm;
-import com.baidu.tieba.xg6;
+import com.baidu.tieba.ix;
+import com.baidu.tieba.kw4;
+import com.baidu.tieba.nz4;
+import com.baidu.tieba.sv4;
+import com.baidu.tieba.tm;
+import com.baidu.tieba.yg6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -45,13 +45,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes2.dex */
-public class InterviewLiveLayout extends FrameLayout implements hx<jw4> {
+public class InterviewLiveLayout extends FrameLayout implements ix<kw4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public boolean b;
-    public xg6<jw4> c;
-    public jw4 d;
+    public yg6<kw4> c;
+    public kw4 d;
     public TbImageView e;
     public LinearLayout f;
     public ImageView g;
@@ -187,7 +187,7 @@ public class InterviewLiveLayout extends FrameLayout implements hx<jw4> {
                 } else {
                     i = 14;
                 }
-                sm w = TbImageMemoryCache.s().w(cg.h().g(tbImageView.getUrl(), i));
+                tm w = TbImageMemoryCache.s().w(cg.h().g(tbImageView.getUrl(), i));
                 int i3 = 0;
                 if (w != null) {
                     i3 = w.r();
@@ -305,10 +305,10 @@ public class InterviewLiveLayout extends FrameLayout implements hx<jw4> {
         }
     }
 
-    public void setSubClickListener(xg6<jw4> xg6Var) {
+    public void setSubClickListener(yg6<kw4> yg6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, xg6Var) == null) {
-            this.c = xg6Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, yg6Var) == null) {
+            this.c = yg6Var;
         }
     }
 
@@ -329,16 +329,16 @@ public class InterviewLiveLayout extends FrameLayout implements hx<jw4> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.hx
+    @Override // com.baidu.tieba.ix
     /* renamed from: k */
-    public void a(jw4 jw4Var) {
+    public void a(kw4 kw4Var) {
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jw4Var) == null) {
-            this.d = jw4Var;
-            if (jw4Var != null && this.e != null) {
-                ThreadData threadData = jw4Var.getThreadData();
-                mz4 taskInfoData = threadData.getTaskInfoData();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, kw4Var) == null) {
+            this.d = kw4Var;
+            if (kw4Var != null && this.e != null) {
+                ThreadData threadData = kw4Var.getThreadData();
+                nz4 taskInfoData = threadData.getTaskInfoData();
                 if (taskInfoData == null) {
                     setVisibility(8);
                     return;
@@ -346,7 +346,7 @@ public class InterviewLiveLayout extends FrameLayout implements hx<jw4> {
                 this.j = threadData;
                 this.k = threadData.getFid();
                 this.l = taskInfoData.g();
-                if (rv4.c().g() && taskInfoData != null && !StringUtils.isNull(taskInfoData.k())) {
+                if (sv4.c().g() && taskInfoData != null && !StringUtils.isNull(taskInfoData.k())) {
                     this.i.clear();
                     this.i.add(taskInfoData.k());
                     setVisibility(0);

@@ -1,79 +1,61 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.editortools.view.CommonTabHost;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetVipInfo.VipDailyList;
-import tbclient.GetVipInfo.VipThemeItem;
 /* loaded from: classes6.dex */
-public class qk8 implements hn {
+public class qk8 extends bd5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public nk8 a;
-    public List<rk8> b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948094827, "Lcom/baidu/tieba/qk8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948094827, "Lcom/baidu/tieba/qk8;");
-                return;
-            }
-        }
-        c = BdUniqueId.gen();
-    }
-
-    @Override // com.baidu.tieba.hn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return c;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public qk8(VipDailyList vipDailyList) {
-        List<VipThemeItem> list;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qk8(Context context) {
+        super(context, context.getString(R.string.editor_privilege), 12);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vipDailyList};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (vipDailyList != null && (list = vipDailyList.item) != null && list.size() > 0) {
-            String str = vipDailyList.card_id;
-            nk8 nk8Var = new nk8();
-            this.a = nk8Var;
-            nk8Var.e(1);
-            this.a.d(vipDailyList.class_name);
-            this.a.f(vipDailyList.class_url_name);
-            this.a.g(vipDailyList.class_url);
-            this.b = new ArrayList();
-            for (VipThemeItem vipThemeItem : vipDailyList.item) {
-                this.b.add(new rk8(vipThemeItem));
-            }
+        this.d = R.drawable.icon_pure_post_bubble24;
+        this.h = R.drawable.icon_pure_post_more_bubble64;
+        this.e = R.drawable.icon_mask_post_keyboard24_selection;
+        this.r = R.drawable.icon_pure_pic_vip64;
+        this.i = false;
+        this.j = true;
+        this.o = true;
+        CommonTabHost commonTabHost = new CommonTabHost(context);
+        this.m = commonTabHost;
+        commonTabHost.h(new pk8());
+        this.n = 6;
+        this.p = new int[]{1};
+    }
+
+    @Override // com.baidu.tieba.bd5
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            TiebaStatic.log(new StatisticItem("c15104").param("uid", TbadkCoreApplication.getCurrentAccount()));
+            return super.a();
         }
+        return invokeV.booleanValue;
     }
 }

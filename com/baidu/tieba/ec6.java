@@ -1,96 +1,90 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.of6;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
-import java.util.Objects;
 /* loaded from: classes4.dex */
-public abstract class ec6<T extends of6> {
+public class ec6 extends rj1<of6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public final T[] b;
 
-    public ec6(int i) {
+    /* loaded from: classes4.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes4.dex */
+    public static final class b implements of6 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+
+        @Override // com.baidu.tieba.of6
+        public void a(WebView webView) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, webView) == null) {
+                dc6.c().f(webView);
+            }
+        }
+
+        @Override // com.baidu.tieba.of6
+        public WebView b(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+                return dc6.c().e(context);
+            }
+            return (WebView) invokeL.objValue;
+        }
+    }
+
+    public ec6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = 0;
-        if (i > 0) {
-            this.b = (T[]) new of6[i];
-        } else {
-            this.b = (T[]) new of6[5];
-        }
-        Arrays.fill(this.b, (Object) null);
     }
 
-    public synchronized boolean c(T t) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t)) == null) {
-            synchronized (this) {
-                if (b(t)) {
-                    return true;
-                }
-                if (this.a < this.b.length) {
-                    T[] tArr = this.b;
-                    int i = this.a;
-                    this.a = i + 1;
-                    tArr[i] = t;
-                    return true;
-                }
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public synchronized T a() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.rj1
+    /* renamed from: a */
+    public of6 createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this) {
-                if (this.a <= 0) {
-                    return null;
-                }
-                T[] tArr = this.b;
-                int i = this.a - 1;
-                this.a = i;
-                T t = tArr[i];
-                this.b[i] = null;
-                return t;
-            }
+            return new b(null);
         }
-        return (T) invokeV.objValue;
-    }
-
-    public boolean b(T t) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t)) == null) {
-            for (int i = 0; i < this.a; i++) {
-                if (Objects.equals(this.b[i], t)) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
+        return (of6) invokeV.objValue;
     }
 }

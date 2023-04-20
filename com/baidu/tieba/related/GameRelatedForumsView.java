@@ -24,10 +24,10 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.data.SelectForumData;
 import com.baidu.tieba.R;
 import com.baidu.tieba.adapter.SelectForumItemAdapter;
-import com.baidu.tieba.og5;
 import com.baidu.tieba.pg5;
-import com.baidu.tieba.uw5;
-import com.baidu.tieba.ww5;
+import com.baidu.tieba.qg5;
+import com.baidu.tieba.vw5;
+import com.baidu.tieba.xw5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,7 +36,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class GameRelatedForumsView extends FrameLayout implements ww5<String> {
+public class GameRelatedForumsView extends FrameLayout implements xw5<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public RecyclerView a;
@@ -44,13 +44,13 @@ public class GameRelatedForumsView extends FrameLayout implements ww5<String> {
     public LinearLayoutManager c;
     public boolean d;
     public int e;
-    public og5 f;
-    public pg5 g;
+    public pg5 f;
+    public qg5 g;
     public List<SelectForumData> h;
     public int i;
     public HttpMessageListener j;
 
-    @Override // com.baidu.tieba.ww5
+    @Override // com.baidu.tieba.xw5
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -210,7 +210,7 @@ public class GameRelatedForumsView extends FrameLayout implements ww5<String> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ww5
+    @Override // com.baidu.tieba.xw5
     /* renamed from: o */
     public void c(String str) {
         Interceptable interceptable = $ic;
@@ -298,9 +298,9 @@ public class GameRelatedForumsView extends FrameLayout implements ww5<String> {
             return;
         }
         if (this.f == null) {
-            og5 og5Var = new og5(getContext());
-            this.f = og5Var;
-            og5Var.onChangeSkinType();
+            pg5 pg5Var = new pg5(getContext());
+            this.f = pg5Var;
+            pg5Var.onChangeSkinType();
         }
         this.f.attachView(this, z);
     }
@@ -309,15 +309,15 @@ public class GameRelatedForumsView extends FrameLayout implements ww5<String> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
-            if (getContext() instanceof uw5) {
-                return ((uw5) getContext()).i1();
+            if (getContext() instanceof vw5) {
+                return ((vw5) getContext()).i1();
             }
             return null;
         }
         return (GameData) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ww5
+    @Override // com.baidu.tieba.xw5
     public void a() {
         int skinType;
         Interceptable interceptable = $ic;
@@ -325,22 +325,22 @@ public class GameRelatedForumsView extends FrameLayout implements ww5<String> {
             return;
         }
         this.i = skinType;
-        og5 og5Var = this.f;
-        if (og5Var != null) {
-            og5Var.onChangeSkinType();
-        }
-        pg5 pg5Var = this.g;
+        pg5 pg5Var = this.f;
         if (pg5Var != null) {
             pg5Var.onChangeSkinType();
+        }
+        qg5 qg5Var = this.g;
+        if (qg5Var != null) {
+            qg5Var.onChangeSkinType();
         }
         this.b.notifyDataSetChanged();
     }
 
     public void j() {
-        og5 og5Var;
+        pg5 pg5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (og5Var = this.f) != null) {
-            og5Var.dettachView(this);
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (pg5Var = this.f) != null) {
+            pg5Var.dettachView(this);
             this.f = null;
         }
     }
@@ -348,9 +348,9 @@ public class GameRelatedForumsView extends FrameLayout implements ww5<String> {
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            pg5 pg5Var = this.g;
-            if (pg5Var != null) {
-                pg5Var.dettachView(this);
+            qg5 qg5Var = this.g;
+            if (qg5Var != null) {
+                qg5Var.dettachView(this);
                 this.g = null;
             }
             this.a.setVisibility(0);
@@ -361,9 +361,9 @@ public class GameRelatedForumsView extends FrameLayout implements ww5<String> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            og5 og5Var = this.f;
-            if (og5Var != null) {
-                return og5Var.isViewAttached();
+            pg5 pg5Var = this.f;
+            if (pg5Var != null) {
+                return pg5Var.isViewAttached();
             }
             return false;
         }
@@ -374,16 +374,16 @@ public class GameRelatedForumsView extends FrameLayout implements ww5<String> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            pg5 pg5Var = this.g;
-            if (pg5Var != null) {
-                return pg5Var.isViewAttached();
+            qg5 qg5Var = this.g;
+            if (qg5Var != null) {
+                return qg5Var.isViewAttached();
             }
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ww5
+    @Override // com.baidu.tieba.xw5
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
@@ -396,7 +396,7 @@ public class GameRelatedForumsView extends FrameLayout implements ww5<String> {
         }
     }
 
-    @Override // com.baidu.tieba.ww5
+    @Override // com.baidu.tieba.xw5
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -431,7 +431,7 @@ public class GameRelatedForumsView extends FrameLayout implements ww5<String> {
             return;
         }
         if (this.g == null) {
-            this.g = new pg5(getContext(), new b(this));
+            this.g = new qg5(getContext(), new b(this));
         }
         this.g.k(getResources().getDimensionPixelSize(R.dimen.tbds380));
         this.g.attachView(this, z);

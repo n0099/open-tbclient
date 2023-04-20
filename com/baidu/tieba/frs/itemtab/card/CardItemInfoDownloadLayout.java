@@ -24,10 +24,10 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.RankStarView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.ix;
-import com.baidu.tieba.q25;
+import com.baidu.tieba.jx;
+import com.baidu.tieba.r25;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
-import com.baidu.tieba.v55;
+import com.baidu.tieba.w55;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -43,7 +43,7 @@ import tbclient.ItemTable;
 import tbclient.Ranking;
 import tbclient.RankingParam;
 /* loaded from: classes4.dex */
-public class CardItemInfoDownloadLayout extends FrameLayout implements ix {
+public class CardItemInfoDownloadLayout extends FrameLayout implements jx {
     public static /* synthetic */ Interceptable $ic;
     public static final String q;
     public static final int r;
@@ -194,12 +194,12 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements ix {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             if (z) {
-                q25 d = q25.d(this.h);
+                r25 d = r25.d(this.h);
                 d.B(R.dimen.T_X06);
                 d.w(R.color.CAM_X0305);
                 return;
             }
-            q25 d2 = q25.d(this.h);
+            r25 d2 = r25.d(this.h);
             d2.B(R.dimen.T_X09);
             d2.w(R.color.CAM_X0109);
         }
@@ -254,9 +254,9 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements ix {
     public final void o(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            v55 v55Var = new v55(6);
-            v55Var.o(i);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, v55Var));
+            w55 w55Var = new w55(6);
+            w55Var.o(i);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, w55Var));
         }
     }
 
@@ -355,19 +355,19 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements ix {
         }
     }
 
-    @Override // com.baidu.tieba.ix
+    @Override // com.baidu.tieba.jx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, tbPageContext, i) == null) {
-            q25 d = q25.d(this.a);
+            r25 d = r25.d(this.a);
             d.n(1);
             d.o(R.string.J_X06);
             d.f(R.color.CAM_X0201);
-            q25 d2 = q25.d(this.g);
+            r25 d2 = r25.d(this.g);
             d2.C(R.string.F_X02);
             d2.w(R.color.CAM_X0105);
-            q25.d(this.h).w(R.color.CAM_X0305);
-            q25.d(this.e).w(R.color.CAM_X0311);
+            r25.d(this.h).w(R.color.CAM_X0305);
+            r25.d(this.e).w(R.color.CAM_X0311);
             WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f0809b2, R.color.CAM_X0311, WebPManager.ResourceStateType.NORMAL);
             SkinManager.setBackgroundResource(this.d, R.drawable.pic_bg_gamelistl);
             this.i.e(i);

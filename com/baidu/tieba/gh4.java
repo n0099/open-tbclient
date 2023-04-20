@@ -1,41 +1,64 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes4.dex */
-public abstract class gh4 {
+public class gh4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract wh4 a();
-
-    public abstract boolean b(wh4 wh4Var);
-
-    public abstract void c(boolean z);
-
-    public gh4() {
+    public static void a(@NonNull pi4 pi4Var, @Nullable List<vg4> list, @Nullable List<wg4> list2, @NonNull qf4 qf4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeLLLL(65536, null, pi4Var, list, list2, qf4Var) == null) {
+            ai4 b = ih4.b(pi4Var, qf4Var);
+            if (list != null && !list.isEmpty()) {
+                ih4.a(b, zh4.h(list, qf4Var));
             }
+            if (list2 != null && !list2.isEmpty()) {
+                ih4.a(b, zh4.e(list2, qf4Var));
+            }
+            b.e();
         }
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public static void b(qi4 qi4Var, qf4 qf4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "task=" + a();
+        if (interceptable == null || interceptable.invokeLL(65537, null, qi4Var, qf4Var) == null) {
+            ih4.c(qi4Var, qf4Var);
         }
-        return (String) invokeV.objValue;
+    }
+
+    public static void c(ri4 ri4Var, qf4 qf4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, ri4Var, qf4Var) == null) {
+            ih4.d(ri4Var, qf4Var);
+        }
+    }
+
+    public static void d(si4 si4Var, qf4 qf4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, si4Var, qf4Var) == null) {
+            ih4.e(si4Var, qf4Var);
+        }
+    }
+
+    public static void e(nk4 nk4Var, qf4 qf4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, nk4Var, qf4Var) == null) {
+            ih4.f(nk4Var, qf4Var);
+        }
+    }
+
+    public static synchronized void f(List<wg4> list, qf4 qf4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, list, qf4Var) == null) {
+            synchronized (gh4.class) {
+                ih4.g(list, qf4Var);
+            }
+        }
     }
 }

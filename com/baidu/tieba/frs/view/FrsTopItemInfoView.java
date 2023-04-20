@@ -22,12 +22,12 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.RankStarView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c05;
+import com.baidu.tieba.d05;
 import com.baidu.tieba.frs.ForumWriteData;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.frs.SerializableItemInfo;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.q25;
+import com.baidu.tieba.r25;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -84,17 +84,17 @@ public class FrsTopItemInfoView extends LinearLayout {
         public final /* synthetic */ FrsTopItemInfoView a;
 
         /* loaded from: classes4.dex */
-        public class a implements c05.e {
+        public class a implements d05.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ c05 a;
+            public final /* synthetic */ d05 a;
 
-            public a(b bVar, c05 c05Var) {
+            public a(b bVar, d05 d05Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, c05Var};
+                    Object[] objArr = {bVar, d05Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -104,13 +104,13 @@ public class FrsTopItemInfoView extends LinearLayout {
                         return;
                     }
                 }
-                this.a = c05Var;
+                this.a = d05Var;
             }
 
-            @Override // com.baidu.tieba.c05.e
-            public void onClick(c05 c05Var) {
+            @Override // com.baidu.tieba.d05.e
+            public void onClick(d05 d05Var) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) {
+                if (interceptable == null || interceptable.invokeL(1048576, this, d05Var) == null) {
                     this.a.dismiss();
                 }
             }
@@ -140,10 +140,10 @@ public class FrsTopItemInfoView extends LinearLayout {
             if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || !(this.a.a instanceof FrsActivity)) {
                 return;
             }
-            c05 c05Var = new c05((FrsActivity) this.a.a);
-            c05Var.setMessage(this.a.a.getString(R.string.obfuscated_res_0x7f0f043a));
-            c05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0439, new a(this, c05Var));
-            c05Var.create(((FrsActivity) this.a.a).getPageContext()).show();
+            d05 d05Var = new d05((FrsActivity) this.a.a);
+            d05Var.setMessage(this.a.a.getString(R.string.obfuscated_res_0x7f0f043a));
+            d05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0439, new a(this, d05Var));
+            d05Var.create(((FrsActivity) this.a.a).getPageContext()).show();
         }
     }
 
@@ -320,24 +320,24 @@ public class FrsTopItemInfoView extends LinearLayout {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            q25 d = q25.d(this);
+            r25 d = r25.d(this);
             d.o(R.string.J_X06);
             d.f(R.color.CAM_X0201);
-            q25 d2 = q25.d(this.b);
+            r25 d2 = r25.d(this.b);
             d2.C(R.string.F_X02);
             d2.w(R.color.CAM_X0105);
             SkinManager.setBackgroundColor(this.c, R.color.CAM_X0109);
-            q25 d3 = q25.d(this.d);
+            r25 d3 = r25.d(this.d);
             d3.C(R.string.F_X02);
             d3.w(R.color.CAM_X0105);
-            q25 d4 = q25.d(this.f);
+            r25 d4 = r25.d(this.f);
             d4.C(R.string.F_X02);
             d4.w(R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.g, R.color.CAM_X0109, 1);
-            q25 d5 = q25.d(this.i);
+            r25 d5 = r25.d(this.i);
             d5.w(R.color.CAM_X0109);
             d5.C(R.string.F_X01);
-            q25 d6 = q25.d(this.l);
+            r25 d6 = r25.d(this.l);
             d6.C(R.string.F_X01);
             d6.w(R.color.CAM_X0105);
             this.h.d();

@@ -1,10 +1,10 @@
 package com.baidu.tieba.lego.card.model;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.hn;
+import com.baidu.tieba.in;
 import java.io.Serializable;
 /* loaded from: classes5.dex */
-public interface ICardInfo extends Serializable, hn {
+public interface ICardInfo extends Serializable, in {
     int getAdapterCount();
 
     ICardInfo getAdapterItem(int i);

@@ -1,175 +1,349 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Paint;
+import android.content.res.Resources;
 import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
-import android.text.SpannableString;
-import android.text.style.ImageSpan;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
+import android.view.inputmethod.InputMethodManager;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 /* loaded from: classes6.dex */
 public class u53 {
     public static /* synthetic */ Interceptable $ic;
+    public static int a;
+    public static int b;
+    public static int c;
+    public static int d;
+    public static int e;
+    public static int f;
+    public static boolean g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public static class a extends ImageSpan {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public interface b {
+        void onSoftInputShowing(boolean z);
+    }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(Context context, Bitmap bitmap) {
-            super(context, bitmap);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, bitmap};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((Context) objArr2[0], (Bitmap) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948161942, "Lcom/baidu/tieba/u53;")) == null) {
+            return;
         }
-
-        @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-        public void draw(@NonNull Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, @NonNull Paint paint) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
-                Drawable drawable = getDrawable();
-                Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
-                if (i3 != 0) {
-                    i3 -= 4;
-                }
-                canvas.save();
-                canvas.translate(f, i3 + (((fontMetricsInt.bottom - fontMetricsInt.top) - drawable.getBounds().bottom) / 2));
-                drawable.draw(canvas);
-                canvas.restore();
-            }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-
-        @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-        public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
-                Rect bounds = getDrawable().getBounds();
-                if (fontMetricsInt != null) {
-                    Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
-                    int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
-                    int i4 = (bounds.bottom - bounds.top) / 2;
-                    int i5 = i3 / 4;
-                    int i6 = i4 - i5;
-                    int i7 = -(i4 + i5);
-                    fontMetricsInt.ascent = i7;
-                    fontMetricsInt.top = i7;
-                    int i8 = i6 + 8;
-                    fontMetricsInt.bottom = i8;
-                    fontMetricsInt.descent = i8;
-                }
-                return bounds.right + 5;
-            }
-            return invokeCommon.intValue;
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948161942, "Lcom/baidu/tieba/u53;");
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class b extends ImageSpan {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ View a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(Context context, Bitmap bitmap) {
-            super(context, bitmap);
+        public a(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context, bitmap};
+                Object[] objArr = {view2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((Context) objArr2[0], (Bitmap) objArr2[1]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
+            this.a = view2;
         }
 
-        @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-        public void draw(@NonNull Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, @NonNull Paint paint) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
-                Drawable drawable = getDrawable();
-                Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
-                if (i3 != 0) {
-                    i3 -= 4;
-                }
-                canvas.save();
-                canvas.translate(f, i3 + (((fontMetricsInt.bottom - fontMetricsInt.top) - drawable.getBounds().bottom) / 2));
-                drawable.draw(canvas);
-                canvas.restore();
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                u53.m(this.a);
             }
-        }
-
-        @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-        public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
-                Rect bounds = getDrawable().getBounds();
-                if (fontMetricsInt != null) {
-                    Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
-                    int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
-                    int i4 = (bounds.bottom - bounds.top) / 2;
-                    int i5 = i3 / 4;
-                    int i6 = i4 - i5;
-                    int i7 = -(i4 + i5);
-                    fontMetricsInt.ascent = i7;
-                    fontMetricsInt.top = i7;
-                    int i8 = i6 + 3;
-                    fontMetricsInt.bottom = i8;
-                    fontMetricsInt.descent = i8;
-                }
-                return bounds.right + 5;
-            }
-            return invokeCommon.intValue;
         }
     }
 
-    public static int a(String str) {
+    /* loaded from: classes6.dex */
+    public static class c implements ViewTreeObserver.OnGlobalLayoutListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final y53 a;
+        public final ViewGroup b;
+        public final b c;
+        public int d;
+        public boolean e;
+        public final Activity f;
+        public int g;
+
+        public c(Activity activity, ViewGroup viewGroup, y53 y53Var, b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {activity, viewGroup, y53Var, bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = 0;
+            this.f = activity;
+            this.c = bVar;
+            this.b = viewGroup;
+            this.a = y53Var;
+        }
+
+        private Context getContext() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+                return this.b.getContext();
+            }
+            return (Context) invokeV.objValue;
+        }
+
+        public final void a(int i) {
+            int abs;
+            int j;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                if (this.d == 0) {
+                    this.d = i;
+                    this.a.refreshHeight(u53.j(getContext()));
+                }
+                if (r53.e(this.b.getContext())) {
+                    abs = ((View) this.b.getParent()).getHeight() - i;
+                } else {
+                    abs = Math.abs(i - this.d);
+                }
+                if (abs <= u53.g(getContext())) {
+                    if (Math.abs(abs) == u53.i(this.b.getContext())) {
+                        this.d -= abs;
+                    }
+                } else if (u53.l(getContext(), abs) && this.a.getHeight() != (j = u53.j(getContext()))) {
+                    this.a.refreshHeight(j);
+                }
+            }
+        }
+
+        public final void b(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+                View view2 = (View) this.b.getParent();
+                int height = view2.getHeight() - view2.getPaddingTop();
+                boolean z = true;
+                if (r53.e(this.b.getContext())) {
+                    if (height <= i) {
+                        z = false;
+                    }
+                } else {
+                    int i2 = this.g;
+                    if (i2 == 0) {
+                        z = this.e;
+                    } else if (i >= i2 - u53.g(getContext())) {
+                        z = false;
+                    }
+                    this.g = Math.max(this.g, height);
+                }
+                if (this.e != z) {
+                    this.a.onSoftInputShowing(z);
+                    b bVar = this.c;
+                    if (bVar != null) {
+                        bVar.onSoftInputShowing(z);
+                    }
+                }
+                this.e = z;
+            }
+        }
+
+        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+        public void onGlobalLayout() {
+            int i;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                View childAt = this.b.getChildAt(0);
+                Rect rect = new Rect();
+                if (childAt != null) {
+                    if (!r53.e(this.b.getContext()) && (!w53.e(this.f) || !w53.c(this.f))) {
+                        i = childAt.getHeight();
+                    } else {
+                        childAt.getWindowVisibleDisplayFrame(rect);
+                        i = rect.bottom - rect.top;
+                    }
+                } else {
+                    i = -1;
+                }
+                if (i == -1) {
+                    return;
+                }
+                a(i);
+                b(i);
+            }
+        }
+    }
+
+    public static int d(Resources resources) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            SpannableString spannableString = new SpannableString(str);
-            int length = str.length();
-            Matcher matcher = Pattern.compile("\\[([一-龥\\w])+\\]").matcher(spannableString);
-            int i = 0;
-            int i2 = 0;
-            while (matcher.find()) {
-                i += matcher.group().length();
-                i2++;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, resources)) == null) {
+            if (d == 0) {
+                d = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070153);
             }
-            return (length - i) + i2;
+            return d;
+        }
+        return invokeL.intValue;
+    }
+
+    public static int e(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            if (b == 0) {
+                b = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070154);
+            }
+            return b;
+        }
+        return invokeL.intValue;
+    }
+
+    public static int f(Resources resources) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, resources)) == null) {
+            if (c == 0) {
+                c = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070155);
+            }
+            return c;
+        }
+        return invokeL.intValue;
+    }
+
+    public static int g(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+            if (a == 0) {
+                a = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070156);
+            }
+            return a;
+        }
+        return invokeL.intValue;
+    }
+
+    public static int h(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
+            if (e == 0) {
+                e = l53.a(context, f(context.getResources()));
+            }
+            return e;
+        }
+        return invokeL.intValue;
+    }
+
+    public static int j(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
+            return Math.min(d(context.getResources()), Math.max(f(context.getResources()), h(context)));
+        }
+        return invokeL.intValue;
+    }
+
+    public static void k(@NonNull View view2) {
+        InputMethodManager inputMethodManager;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65547, null, view2) == null) && (inputMethodManager = (InputMethodManager) view2.getContext().getSystemService("input_method")) != null) {
+            inputMethodManager.hideSoftInputFromWindow(view2.getWindowToken(), 0);
+        }
+    }
+
+    public static void m(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65549, null, view2) == null) {
+            view2.requestFocus();
+            InputMethodManager inputMethodManager = (InputMethodManager) view2.getContext().getSystemService("input_method");
+            if (inputMethodManager != null) {
+                inputMethodManager.showSoftInput(view2, 0);
+            }
+        }
+    }
+
+    public static boolean l(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65548, null, context, i)) == null) {
+            if (e == i || i < 0) {
+                return false;
+            }
+            e = i;
+            return l53.b(context, i);
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public static void n(View view2, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(65550, null, view2, j) == null) {
+            view2.postDelayed(new a(view2), j);
+        }
+    }
+
+    public static ViewTreeObserver.OnGlobalLayoutListener c(Activity activity, ViewGroup viewGroup, y53 y53Var, b bVar) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, activity, viewGroup, y53Var, bVar)) == null) {
+            if (viewGroup == null) {
+                viewGroup = (ViewGroup) activity.findViewById(16908290);
+            }
+            c cVar = new c(activity, viewGroup, y53Var, bVar);
+            viewGroup.getViewTreeObserver().addOnGlobalLayoutListener(cVar);
+            return cVar;
+        }
+        return (ViewTreeObserver.OnGlobalLayoutListener) invokeLLLL.objValue;
+    }
+
+    public static synchronized int i(Context context) {
+        InterceptResult invokeL;
+        int i;
+        int identifier;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
+            synchronized (u53.class) {
+                if (!g && (identifier = context.getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.g, EMABTest.TYPE_DIMEN, "android")) > 0) {
+                    f = context.getResources().getDimensionPixelSize(identifier);
+                    g = true;
+                }
+                i = f;
+            }
+            return i;
         }
         return invokeL.intValue;
     }

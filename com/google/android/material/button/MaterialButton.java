@@ -43,7 +43,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MaterialButton extends AppCompatButton implements Checkable, Shapeable {
     public static final int[] CHECKABLE_STATE_SET = {16842911};
     public static final int[] CHECKED_STATE_SET = {16842912};
@@ -76,16 +76,16 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
     public OnPressedChangeListener onPressedChangeListenerInternal;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public @interface IconGravity {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface OnCheckedChangeListener {
         void onCheckedChanged(MaterialButton materialButton, boolean z);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface OnPressedChangeListener {
         void onPressedChanged(MaterialButton materialButton, boolean z);
     }
@@ -258,7 +258,7 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
         setChecked(!this.checked);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class SavedState extends AbsSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: com.google.android.material.button.MaterialButton.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */

@@ -1,128 +1,83 @@
 package com.baidu.tieba;
 
-import android.os.Environment;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONArray;
+import org.json.JSONException;
 /* loaded from: classes6.dex */
-public final class st9 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String a = "databases";
-    public static final String b = "shared_prefs";
+public class st9 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948163089, "Lcom/baidu/tieba/st9;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948163089, "Lcom/baidu/tieba/st9;");
-        }
-    }
-
-    public static final void a() {
+    public static String a(a9 a9Var, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            c(au9.f());
-            e();
-            d();
-            au9.a();
-        }
-    }
-
-    public static final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            a();
-            f();
-            h();
-            g();
-        }
-    }
-
-    public static final boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (Intrinsics.areEqual("mounted", Environment.getExternalStorageState()) && au9.c(au9.d().getExternalCacheDir())) {
-                return true;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, a9Var, str)) == null) {
+            try {
+                JSONArray jSONArray = new JSONArray(str);
+                StringBuilder sb = new StringBuilder();
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    sb.append(jSONArray.optJSONObject(i).optString("src"));
+                }
+                return sb.toString();
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return a9Var.getString(R.string.pic_str);
             }
-            return false;
         }
-        return invokeV.booleanValue;
+        return (String) invokeLL.objValue;
     }
 
-    public static final boolean e() {
-        InterceptResult invokeV;
+    public static String b(a9 a9Var, ChatMessage chatMessage) {
+        InterceptResult invokeLL;
+        String content;
+        String string;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return au9.c(au9.d().getCacheDir());
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static final boolean f() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            File filesDir = au9.d().getFilesDir();
-            if (filesDir != null) {
-                str = filesDir.getParent();
-            } else {
-                str = null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, a9Var, chatMessage)) == null) {
+            int msgType = chatMessage.getMsgType();
+            if (msgType != 1) {
+                if (msgType != 2) {
+                    if (msgType != 3) {
+                        if (msgType != 30) {
+                            if (msgType != 37) {
+                                if (msgType != 32) {
+                                    if (msgType != 33) {
+                                        content = "";
+                                    } else {
+                                        content = a9Var.getString(R.string.last_msg_forum_share);
+                                    }
+                                } else {
+                                    content = a9Var.getString(R.string.last_msg_thread_share);
+                                }
+                            } else {
+                                content = a9Var.getString(R.string.last_msg_chatroom_share);
+                            }
+                        }
+                    } else {
+                        content = a9Var.getString(R.string.voice_str);
+                    }
+                } else {
+                    content = a(a9Var, chatMessage.getContent());
+                }
+                if (chatMessage == null && chatMessage.getToUserInfo() != null) {
+                    if (TextUtils.equals(chatMessage.getToUserInfo().getUserId(), String.valueOf(TbadkCoreApplication.getCurrentAccountId()))) {
+                        string = a9Var.getString(R.string.private_message_report_person);
+                    } else {
+                        string = a9Var.getString(R.string.private_message_is_report_name);
+                    }
+                    return string + chatMessage.getToUserInfo().getUserName() + a9Var.getString(R.string.private_message_report_content) + content;
+                }
+                return a9Var.getString(R.string.private_message_is_report_name);
             }
-            return au9.c(new File(str, a));
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static final boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return au9.c(au9.d().getFilesDir());
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static final boolean c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            return au9.c(au9.g(str));
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static final boolean h() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            File filesDir = au9.d().getFilesDir();
-            if (filesDir != null) {
-                str = filesDir.getParent();
-            } else {
-                str = null;
+            content = chatMessage.getContent();
+            if (chatMessage == null) {
             }
-            boolean c = au9.c(new File(str, b));
-            if (c) {
-                au9.b();
-            }
-            return c;
+            return a9Var.getString(R.string.private_message_is_report_name);
         }
-        return invokeV.booleanValue;
+        return (String) invokeLL.objValue;
     }
 }

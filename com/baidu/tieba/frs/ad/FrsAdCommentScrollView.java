@@ -13,7 +13,7 @@ import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dk9;
+import com.baidu.tieba.lk9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -30,7 +30,7 @@ public class FrsAdCommentScrollView extends LinearLayout {
     public FrameLayout d;
     public Handler e;
     public ValueAnimator f;
-    public List<dk9> g;
+    public List<lk9> g;
     public int h;
     public Runnable i;
 
@@ -268,7 +268,7 @@ public class FrsAdCommentScrollView extends LinearLayout {
         }
     }
 
-    public void m(List<dk9> list) {
+    public void m(List<lk9> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
             if (ListUtils.getCount(list) <= 1) {
@@ -324,25 +324,25 @@ public class FrsAdCommentScrollView extends LinearLayout {
     }
 
     public final void r() {
-        dk9 dk9Var;
+        lk9 lk9Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            dk9 dk9Var2 = (dk9) ListUtils.getItem(this.g, this.h);
+            lk9 lk9Var2 = (lk9) ListUtils.getItem(this.g, this.h);
             if (this.h + 1 >= this.g.size()) {
-                dk9Var = (dk9) ListUtils.getItem(this.g, 0);
+                lk9Var = (lk9) ListUtils.getItem(this.g, 0);
             } else {
-                dk9Var = (dk9) ListUtils.getItem(this.g, this.h + 1);
+                lk9Var = (lk9) ListUtils.getItem(this.g, this.h + 1);
             }
-            if ((this.c.getTag() instanceof TextView) && dk9Var2 != null) {
-                String a2 = dk9Var2.a();
-                if (dk9Var2.b()) {
+            if ((this.c.getTag() instanceof TextView) && lk9Var2 != null) {
+                String a2 = lk9Var2.a();
+                if (lk9Var2.b()) {
                     a2 = getContext().getString(R.string.obfuscated_res_0x7f0f07b4, a2);
                 }
                 ((TextView) this.c.getTag()).setText(a2);
             }
-            if ((this.d.getTag() instanceof TextView) && dk9Var != null) {
-                String a3 = dk9Var.a();
-                if (dk9Var.b()) {
+            if ((this.d.getTag() instanceof TextView) && lk9Var != null) {
+                String a3 = lk9Var.a();
+                if (lk9Var.b()) {
                     a3 = getContext().getString(R.string.obfuscated_res_0x7f0f07b4, a3);
                 }
                 ((TextView) this.d.getTag()).setText(a3);

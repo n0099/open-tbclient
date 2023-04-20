@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.view.MorePopupWindow;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.TabMenuPopView;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.w67;
+import com.baidu.tieba.x67;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -128,10 +128,10 @@ public class PostCategoryView extends TextView {
         }
     }
 
-    public void setCategoryContainerData(List<w67> list, w67 w67Var) {
+    public void setCategoryContainerData(List<x67> list, x67 x67Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, list, w67Var) == null) {
-            this.e.setData(list, w67Var);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, list, x67Var) == null) {
+            this.e.setData(list, x67Var);
         }
     }
 }

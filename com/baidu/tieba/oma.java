@@ -1,162 +1,161 @@
 package com.baidu.tieba;
 
+import android.content.SharedPreferences;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.internal.api.PidLoader;
-import com.fun.ad.sdk.internal.api.PidLoaderCreator;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.fun.ad.sdk.FunAdSdk;
+import java.io.ObjectInput;
 /* loaded from: classes5.dex */
-public class oma implements PidLoaderCreator {
+public class oma {
     public static /* synthetic */ Interceptable $ic;
+    public static final Object a;
+    public static final SharedPreferences b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public oma() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948038438, "Lcom/baidu/tieba/oma;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948038438, "Lcom/baidu/tieba/oma;");
+                return;
+            }
+        }
+        a = new Object();
+        b = FunAdSdk.getAppContext().getSharedPreferences("fun_ad_sdk", 0);
+    }
+
+    public static rla b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? (rla) xla.b(b.getString("key_adcfg", null), new kra() { // from class: com.baidu.tieba.lla
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            @Override // com.baidu.tieba.kra
+            public final Object a(ObjectInput objectInput) {
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, objectInput)) == null) ? oma.c(objectInput) : invokeL.objValue;
+            }
+        }) : (rla) invokeV.objValue;
+    }
+
+    public static /* synthetic */ rla c(ObjectInput objectInput) {
+        return new rla(objectInput.readInt(), objectInput);
+    }
+
+    public static void d(double d) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Double.valueOf(d)}) == null) {
+            b.edit().putLong("key_price_total", Double.doubleToRawLongBits(d)).apply();
+        }
+    }
+
+    public static void e(int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIII(65541, null, i, i2, i3) == null) {
+            synchronized (a) {
+                int j = j();
+                int k = k();
+                int i4 = i();
+                b.edit().putInt("key_rpt_req_c", ((j - i) - i2) - i3).putInt("key_rpt_fai_c", g() - i).putInt("key_rpt_suc_c", k - i2).putInt("key_rpt_mis_c", i4 - i3).apply();
             }
         }
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    @Override // com.fun.ad.sdk.internal.api.PidLoaderCreator
-    public PidLoader create(Ssp.Pid pid) {
-        InterceptResult invokeL;
-        char c;
+    public static void f(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) {
-            String str = pid.type;
-            str.hashCode();
-            switch (str.hashCode()) {
-                case -2105157443:
-                    if (str.equals(FunAdType.CSJ_DRAW_VIDEO)) {
-                        c = 0;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1412451668:
-                    if (str.equals(FunAdType.CSJ_INTERSITIAL_2)) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1263692214:
-                    if (str.equals(FunAdType.CSJ_INTERACTION_EXPRESS)) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1071311851:
-                    if (str.equals(FunAdType.CSJ_DRAW_NATIVE)) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -950004865:
-                    if (str.equals(FunAdType.CSJ_NATIVE_EXPRESS)) {
-                        c = 4;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 347930415:
-                    if (str.equals(FunAdType.CSJ_SPLASH_EXPRESS)) {
-                        c = 5;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 556489085:
-                    if (str.equals(FunAdType.CSJ_BANNER_NATIVE)) {
-                        c = 6;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1168375858:
-                    if (str.equals(FunAdType.CSJ_REWARD_VIDEO)) {
-                        c = 7;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1319012390:
-                    if (str.equals(FunAdType.CSJ_FULLSCREEN_VIDEO)) {
-                        c = '\b';
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1328722634:
-                    if (str.equals(FunAdType.CSJ_BANNER_EXPRESS)) {
-                        c = '\t';
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1922685617:
-                    if (str.equals(FunAdType.CSJ_NATIVE)) {
-                        c = '\n';
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 2079438081:
-                    if (str.equals(FunAdType.CSJ_SPLASH)) {
-                        c = 11;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    c = 65535;
-                    break;
+        if (interceptable == null || interceptable.invokeLI(65542, null, str, i) == null) {
+            b.edit().putInt(str, i).apply();
+        }
+    }
+
+    public static /* synthetic */ dma h(ObjectInput objectInput) {
+        return new dma(objectInput.readInt(), objectInput);
+    }
+
+    public static dma l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? (dma) xla.b(b.getString("key_rptcfg", null), new kra() { // from class: com.baidu.tieba.fla
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            @Override // com.baidu.tieba.kra
+            public final Object a(ObjectInput objectInput) {
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, objectInput)) == null) ? oma.h(objectInput) : invokeL.objValue;
             }
-            switch (c) {
-                case 0:
-                    return new ina(pid);
-                case 1:
-                    return new tna(pid);
-                case 2:
-                    return new una(pid);
-                case 3:
-                    return new ena(pid);
-                case 4:
-                    return new yna(pid);
-                case 5:
-                    return new qma(pid);
-                case 6:
-                    return new xma(FunAdType.obtainType(pid, FunAdType.AdType.BANNER), pid);
-                case 7:
-                    return new eoa(pid);
-                case '\b':
-                    return new ona(FunAdType.obtainType(pid, FunAdType.AdType.FULL_SCREEN), pid);
-                case '\t':
-                    return new rma(pid);
-                case '\n':
-                    return new doa(pid);
-                case 11:
-                    return new sma(pid);
-                default:
-                    LogPrinter.e("Not supported pid.type:%s", pid.type);
-                    return null;
+        }) : (dma) invokeV.objValue;
+    }
+
+    public static double m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? Double.longBitsToDouble(b.getLong("key_price_total", 0L)) : invokeV.doubleValue;
+    }
+
+    public static void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65550, null) == null) {
+            synchronized (a) {
+                f("key_rpt_req_c", j() + 1);
             }
         }
-        return (PidLoader) invokeL.objValue;
+    }
+
+    public static int a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return b.getInt("key_sid_c_pre_" + str, 0);
+        }
+        return invokeL.intValue;
+    }
+
+    public static int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return b.getInt("key_rpt_fai_c", 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public static int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return b.getInt("key_rpt_mis_c", 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public static int j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            return b.getInt("key_rpt_req_c", 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public static int k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            return b.getInt("key_rpt_suc_c", 0);
+        }
+        return invokeV.intValue;
     }
 }

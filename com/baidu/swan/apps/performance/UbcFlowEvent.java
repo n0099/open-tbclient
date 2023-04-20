@@ -1,13 +1,13 @@
 package com.baidu.swan.apps.performance;
 
 import android.util.Log;
-import com.baidu.tieba.eo1;
+import com.baidu.tieba.fo1;
 import java.util.Locale;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class UbcFlowEvent {
-    public static final boolean g = eo1.a;
+    public static final boolean g = fo1.a;
     public final String a;
     public long b = System.currentTimeMillis();
     public String c = "";

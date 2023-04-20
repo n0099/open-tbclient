@@ -1,10 +1,9 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.AttributeSet;
+import android.os.Build;
 import android.view.LayoutInflater;
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,62 +12,125 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class jm4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public static class a implements LayoutInflater.Factory {
+    public interface a {
+        void a(LayoutInflater layoutInflater, nm4 nm4Var);
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b implements a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final mm4 a;
 
-        public a(mm4 mm4Var) {
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mm4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = mm4Var;
         }
 
-        @Override // android.view.LayoutInflater.Factory
-        public View onCreateView(String str, Context context, AttributeSet attributeSet) {
-            InterceptResult invokeLLL;
+        @Override // com.baidu.tieba.jm4.a
+        public void a(LayoutInflater layoutInflater, nm4 nm4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, context, attributeSet)) == null) {
-                return this.a.onCreateView(null, str, context, attributeSet);
+            if (interceptable == null || interceptable.invokeLL(1048576, this, layoutInflater, nm4Var) == null) {
+                km4.a(layoutInflater, nm4Var);
             }
-            return (View) invokeLLL.objValue;
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return getClass().getName() + "{" + this.a + "}";
-            }
-            return (String) invokeV.objValue;
         }
     }
 
-    public static void a(LayoutInflater layoutInflater, mm4 mm4Var) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, layoutInflater, mm4Var) == null) {
-            if (mm4Var != null) {
-                aVar = new a(mm4Var);
-            } else {
-                aVar = null;
+    /* loaded from: classes5.dex */
+    public static class c extends b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            layoutInflater.setFactory(aVar);
+        }
+
+        @Override // com.baidu.tieba.jm4.b, com.baidu.tieba.jm4.a
+        public void a(LayoutInflater layoutInflater, nm4 nm4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, layoutInflater, nm4Var) == null) {
+                lm4.b(layoutInflater, nm4Var);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class d extends c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public d() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.jm4.c, com.baidu.tieba.jm4.b, com.baidu.tieba.jm4.a
+        public void a(LayoutInflater layoutInflater, nm4 nm4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, layoutInflater, nm4Var) == null) {
+                mm4.a(layoutInflater, nm4Var);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947888088, "Lcom/baidu/tieba/jm4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947888088, "Lcom/baidu/tieba/jm4;");
+                return;
+            }
+        }
+        int i = Build.VERSION.SDK_INT;
+        if (i >= 21) {
+            a = new d();
+        } else if (i >= 11) {
+            a = new c();
+        } else {
+            a = new b();
+        }
+    }
+
+    public static void a(LayoutInflater layoutInflater, nm4 nm4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, layoutInflater, nm4Var) == null) {
+            a.a(layoutInflater, nm4Var);
         }
     }
 }

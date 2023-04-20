@@ -1,9 +1,24 @@
 package com.baidu.tieba;
-
-import android.view.SurfaceHolder;
 /* loaded from: classes6.dex */
 public interface qk1 {
+
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a();
+    }
+
+    /* loaded from: classes6.dex */
+    public interface b {
+        void onPrepared();
+    }
+
     void a();
 
-    void surfaceCreated(SurfaceHolder surfaceHolder);
+    void b();
+
+    void c();
+
+    void d();
+
+    void e();
 }

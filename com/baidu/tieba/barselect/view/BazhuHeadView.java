@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.view.HeadPendantView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.ne8;
+import com.baidu.tieba.ve8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -130,7 +130,7 @@ public class BazhuHeadView extends HeadPendantView {
                 int g3 = ii.g(getContext(), R.dimen.tbds26);
                 int g4 = ii.g(getContext(), R.dimen.tbds44);
                 getHeadView().setBorderWidth(g);
-                getHeadView().setBorderColor(ne8.b("#FCD442"));
+                getHeadView().setBorderColor(ve8.b("#FCD442"));
                 getHeadView().setDrawBorder(true);
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(g2, g2);
                 layoutParams.leftMargin = g3;

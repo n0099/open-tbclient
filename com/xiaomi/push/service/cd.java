@@ -4,7 +4,7 @@ import android.annotation.TargetApi;
 import android.app.Notification;
 import android.content.Context;
 import com.xiaomi.push.aj;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class cd extends aj.a {
     public final /* synthetic */ int a;
 

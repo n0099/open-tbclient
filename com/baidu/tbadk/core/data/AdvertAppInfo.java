@@ -9,18 +9,18 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.RecommendDetailActivityConfig;
 import com.baidu.tbadk.core.util.TiebaMainDatabaseHelper;
 import com.baidu.tbadk.switchs.AppLegoSwitch;
-import com.baidu.tieba.ae8;
-import com.baidu.tieba.gb9;
+import com.baidu.tieba.ay4;
+import com.baidu.tieba.eb9;
 import com.baidu.tieba.gg;
+import com.baidu.tieba.ie8;
 import com.baidu.tieba.lego.card.exception.CardParseException;
 import com.baidu.tieba.lego.card.model.ICardInfo;
-import com.baidu.tieba.lh0;
-import com.baidu.tieba.lw4;
-import com.baidu.tieba.me8;
-import com.baidu.tieba.ow4;
-import com.baidu.tieba.rv4;
-import com.baidu.tieba.wa9;
-import com.baidu.tieba.zx4;
+import com.baidu.tieba.mh0;
+import com.baidu.tieba.mw4;
+import com.baidu.tieba.ob9;
+import com.baidu.tieba.pw4;
+import com.baidu.tieba.sv4;
+import com.baidu.tieba.ue8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,7 +34,7 @@ import org.json.JSONObject;
 import tbclient.App;
 import tbclient.GoodsInfo;
 /* loaded from: classes3.dex */
-public class AdvertAppInfo extends ThreadData implements zx4, gb9 {
+public class AdvertAppInfo extends ThreadData implements ay4, ob9 {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId A;
     public static final BdUniqueId B;
@@ -59,7 +59,7 @@ public class AdvertAppInfo extends ThreadData implements zx4, gb9 {
     public String f;
     public String g;
     public ILegoAdvert h;
-    public ow4 i;
+    public pw4 i;
     public String j;
     public int k;
     public String l;
@@ -68,7 +68,7 @@ public class AdvertAppInfo extends ThreadData implements zx4, gb9 {
     public String o;
     public String p;
     public String q;
-    public lh0 r;
+    public mh0 r;
     public int s;
     public String t;
     public int u;
@@ -81,7 +81,7 @@ public class AdvertAppInfo extends ThreadData implements zx4, gb9 {
 
         AdvertAppInfo getAdvertAppInfo();
 
-        lw4 getAppInfoModel();
+        mw4 getAppInfoModel();
 
         @NonNull
         String getDownloadId();
@@ -92,7 +92,7 @@ public class AdvertAppInfo extends ThreadData implements zx4, gb9 {
 
         int getGoodsStyle();
 
-        @Override // com.baidu.tieba.lego.card.model.ICardInfo, com.baidu.tieba.hn
+        @Override // com.baidu.tieba.lego.card.model.ICardInfo, com.baidu.tieba.in
         /* synthetic */ BdUniqueId getType();
 
         boolean isNoPicAd();
@@ -100,7 +100,7 @@ public class AdvertAppInfo extends ThreadData implements zx4, gb9 {
         void setAdvertAppInfo(AdvertAppInfo advertAppInfo);
     }
 
-    @Override // com.baidu.tieba.zx4
+    @Override // com.baidu.tieba.ay4
     public AdvertAppInfo B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -234,7 +234,7 @@ public class AdvertAppInfo extends ThreadData implements zx4, gb9 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.zx4
+    @Override // com.baidu.tieba.ay4
     public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -261,7 +261,7 @@ public class AdvertAppInfo extends ThreadData implements zx4, gb9 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.zx4
+    @Override // com.baidu.tieba.ay4
     public int p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -285,7 +285,7 @@ public class AdvertAppInfo extends ThreadData implements zx4, gb9 {
         return (AdvertAppInfo) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.gb9
+    @Override // com.baidu.tieba.ob9
     public void a(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
@@ -293,7 +293,7 @@ public class AdvertAppInfo extends ThreadData implements zx4, gb9 {
         }
     }
 
-    @Override // com.baidu.tieba.zx4
+    @Override // com.baidu.tieba.ay4
     public void setPosition(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
@@ -302,7 +302,7 @@ public class AdvertAppInfo extends ThreadData implements zx4, gb9 {
         }
     }
 
-    @Override // com.baidu.tieba.gb9
+    @Override // com.baidu.tieba.ob9
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -336,7 +336,7 @@ public class AdvertAppInfo extends ThreadData implements zx4, gb9 {
         if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
             try {
                 jSONObject.putOpt("card_type", Integer.valueOf(this.b));
-                ICardInfo j = ae8.j(jSONObject);
+                ICardInfo j = ie8.j(jSONObject);
                 if (j instanceof ILegoAdvert) {
                     ILegoAdvert iLegoAdvert = (ILegoAdvert) j;
                     this.h = iLegoAdvert;
@@ -369,7 +369,7 @@ public class AdvertAppInfo extends ThreadData implements zx4, gb9 {
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.core.data.ThreadData, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.hn
+    @Override // com.baidu.tbadk.core.data.ThreadData, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.in
     public BdUniqueId getType() {
         InterceptResult invokeV;
         ILegoAdvert iLegoAdvert;
@@ -377,7 +377,7 @@ public class AdvertAppInfo extends ThreadData implements zx4, gb9 {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             int i = this.c;
             if (i != 1001 && i != -1001) {
-                if (!rv4.c().g() && (iLegoAdvert = this.h) != null && iLegoAdvert.isNoPicAd()) {
+                if (!sv4.c().g() && (iLegoAdvert = this.h) != null && iLegoAdvert.isNoPicAd()) {
                     return w;
                 }
                 ILegoAdvert iLegoAdvert2 = this.h;
@@ -413,10 +413,10 @@ public class AdvertAppInfo extends ThreadData implements zx4, gb9 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             if (!ThreadData.isRecAppLoaded.get()) {
-                wa9.n();
+                eb9.n();
                 return 31;
             } else if (!v.get()) {
-                wa9.n();
+                eb9.n();
                 return 31;
             } else if (!TextUtils.equals("PB_BANNER", this.j) && !TextUtils.equals("PIC_PAGE_BANNER", this.j) && TextUtils.isEmpty(this.f)) {
                 return 23;
@@ -442,10 +442,10 @@ public class AdvertAppInfo extends ThreadData implements zx4, gb9 {
                         return this.k;
                     }
                     if (!TextUtils.isEmpty(this.a) && !TextUtils.isEmpty(this.a.trim())) {
-                        if (this.h.getAppInfoModel() != null && !lw4.c(this.h.getAppInfoModel())) {
+                        if (this.h.getAppInfoModel() != null && !mw4.c(this.h.getAppInfoModel())) {
                             return 42;
                         }
-                        if (!rv4.c().g() && !this.h.isNoPicAd()) {
+                        if (!sv4.c().g() && !this.h.isNoPicAd()) {
                             return 34;
                         }
                         int i3 = this.m;
@@ -481,7 +481,7 @@ public class AdvertAppInfo extends ThreadData implements zx4, gb9 {
 
     public void l(App app) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048591, this, app) == null) && app != null && SwitchManager.getInstance().findType(AppLegoSwitch.APP_LEGO_KEY) == 1 && !me8.e(app.goods_info)) {
+        if ((interceptable == null || interceptable.invokeL(1048591, this, app) == null) && app != null && SwitchManager.getInstance().findType(AppLegoSwitch.APP_LEGO_KEY) == 1 && !ue8.e(app.goods_info)) {
             for (GoodsInfo goodsInfo : app.goods_info) {
                 if (goodsInfo != null) {
                     this.c = goodsInfo.goods_style.intValue();

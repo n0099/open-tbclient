@@ -1,25 +1,13 @@
 package com.baidu.tieba;
-
-import android.view.View;
 /* loaded from: classes7.dex */
-public interface xw5 extends dx5<fx5> {
+public interface xw5<T> {
+    void a();
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void a(fx5 fx5Var, View view2);
+    void b(String str);
 
-        void b(fx5 fx5Var, View view2);
-    }
+    void c(T t);
 
-    void a(int i);
+    String getTitle();
 
-    void c(Object obj);
-
-    View getView();
-
-    void h(a aVar);
-
-    void j();
-
-    void l(int i);
+    void onDestroy();
 }

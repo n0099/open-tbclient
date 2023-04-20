@@ -1,86 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Matrix;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.write.data.CreateTagResponseData;
-import com.baidu.tieba.write.write.message.QuestionTagCreateRequestMessage;
-import com.baidu.tieba.write.write.message.QuestionTagCreateResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class v6a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b a;
-    public boolean b;
-    public final HttpMessageListener c;
+    public Matrix a;
+    public Bitmap b;
 
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(CreateTagResponseData createTagResponseData);
-
-        void onFail(String str);
-    }
-
-    /* loaded from: classes6.dex */
-    public class a extends HttpMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ v6a a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(v6a v6aVar, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v6aVar, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = v6aVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
-                this.a.b = false;
-                if (!(httpResponsedMessage instanceof QuestionTagCreateResponseMessage)) {
-                    return;
-                }
-                CreateTagResponseData createTagResponseData = ((QuestionTagCreateResponseMessage) httpResponsedMessage).data;
-                if (createTagResponseData != null && createTagResponseData.tagInfo != null) {
-                    if (this.a.a != null) {
-                        this.a.a.a(createTagResponseData);
-                    }
-                } else if (this.a.a != null) {
-                    this.a.a.onFail(httpResponsedMessage.getErrorString());
-                }
-            }
-        }
-    }
-
-    public v6a() {
+    public v6a(Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bitmap};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -90,47 +31,59 @@ public class v6a {
                 return;
             }
         }
-        this.c = new a(this, CmdConfigHttp.CMD_QUESTION_THREAD_CREATE_TAG);
-        d();
+        this.b = bitmap;
+        this.a = new Matrix();
     }
 
-    public void e() {
+    public void a(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().registerListener(this.c);
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.c);
-        }
-    }
-
-    public void c(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, str, str2) != null) || this.b) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, canvas) != null) || canvas == null) {
             return;
         }
-        this.b = true;
-        MessageManager.getInstance().sendMessage(new QuestionTagCreateRequestMessage().setForumId(str2).setName(str));
+        canvas.drawBitmap(this.b, this.a, null);
     }
 
-    public void f(b bVar) {
+    public Matrix b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            this.a = bVar;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
+        return (Matrix) invokeV.objValue;
     }
 
-    public final void d() {
+    public Bitmap c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_QUESTION_THREAD_CREATE_TAG, TbConfig.SERVER_ADDRESS + TbConfig.QUESTION_THREAD_CREATE_TAG);
-            tbHttpMessageTask.setIsNeedTbs(true);
-            tbHttpMessageTask.setResponsedClass(QuestionTagCreateResponseMessage.class);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
         }
+        return (Bitmap) invokeV.objValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            Bitmap bitmap = this.b;
+            if (bitmap == null) {
+                return 0;
+            }
+            return bitmap.getHeight();
+        }
+        return invokeV.intValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            Bitmap bitmap = this.b;
+            if (bitmap == null) {
+                return 0;
+            }
+            return bitmap.getWidth();
+        }
+        return invokeV.intValue;
     }
 }

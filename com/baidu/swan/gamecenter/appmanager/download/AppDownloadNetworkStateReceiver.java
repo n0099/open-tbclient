@@ -7,15 +7,15 @@ import android.os.Bundle;
 import android.util.Log;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.tieba.eo1;
-import com.baidu.tieba.ez3;
-import com.baidu.tieba.hz3;
-import com.baidu.tieba.p43;
-import com.baidu.tieba.t73;
-import com.baidu.tieba.ty3;
+import com.baidu.tieba.fo1;
+import com.baidu.tieba.fz3;
+import com.baidu.tieba.iz3;
+import com.baidu.tieba.q43;
+import com.baidu.tieba.u73;
+import com.baidu.tieba.uy3;
 /* loaded from: classes3.dex */
 public class AppDownloadNetworkStateReceiver extends BroadcastReceiver {
-    public static final boolean DEBUG = eo1.a;
+    public static final boolean DEBUG = fo1.a;
     public static final String KEY_OPERATION = "operation";
 
     @Override // android.content.BroadcastReceiver
@@ -24,25 +24,25 @@ public class AppDownloadNetworkStateReceiver extends BroadcastReceiver {
             if (DEBUG) {
                 Log.d("NetworkBroadcast", "——> onReceive: ");
             }
-            if (SwanAppNetworkUtils.NetType.WIFI == SwanAppNetworkUtils.f() && ez3.a().b()) {
+            if (SwanAppNetworkUtils.NetType.WIFI == SwanAppNetworkUtils.f() && fz3.a().b()) {
                 if (ProcessUtils.isMainProcess()) {
-                    ty3.n().D();
+                    uy3.n().D();
                     return;
                 }
-                p43 y = t73.K().y();
+                q43 y = u73.K().y();
                 if (y != null) {
                     Bundle bundle = new Bundle();
                     bundle.putString(KEY_OPERATION, "resumeAllDownload");
-                    y.W(bundle, hz3.class);
+                    y.W(bundle, iz3.class);
                 }
             } else if (ProcessUtils.isMainProcess()) {
-                ty3.n().u();
+                uy3.n().u();
             } else {
-                p43 y2 = t73.K().y();
+                q43 y2 = u73.K().y();
                 if (y2 != null) {
                     Bundle bundle2 = new Bundle();
                     bundle2.putString(KEY_OPERATION, "pauseAllDownload");
-                    y2.W(bundle2, hz3.class);
+                    y2.W(bundle2, iz3.class);
                 }
             }
         }

@@ -1,197 +1,94 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.frs.FrsHotTopic.FrsHotTopicListData;
-import com.baidu.tieba.frs.FrsHotTopic.FrsLinkHashMap;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.Map;
 /* loaded from: classes3.dex */
-public class c57 {
+public class c57 implements in {
     public static /* synthetic */ Interceptable $ic;
-    public static c57 b;
+    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrsLinkHashMap<String, Long> a;
+    public int a;
+    public int b;
 
-    /* loaded from: classes3.dex */
-    public class a extends BdAsyncTask<Void, Void, Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c57 a;
-
-        public a(c57 c57Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947625828, "Lcom/baidu/tieba/c57;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c57Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = c57Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Void doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
-            FrsHotTopicListData frsHotTopicListData;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                b05.d();
-                me<String> f = b05.f("tb.frs_hottopic", "");
-                if (f != null) {
-                    String str = f.get("hot_topic_key");
-                    if (!StringUtils.isNull(str) && (frsHotTopicListData = (FrsHotTopicListData) OrmObject.objectWithJsonStr(str, FrsHotTopicListData.class)) != null) {
-                        this.a.a = frsHotTopicListData.mSceneMap;
-                    }
-                }
-                return null;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947625828, "Lcom/baidu/tieba/c57;");
+                return;
             }
-            return (Void) invokeL.objValue;
         }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b extends BdAsyncTask<Void, Void, Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c57 a;
-
-        public b(c57 c57Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c57Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = c57Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Void doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                b05.d();
-                me<String> f = b05.f("tb.frs_hottopic", "");
-                if (f == null) {
-                    return null;
-                }
-                FrsHotTopicListData frsHotTopicListData = new FrsHotTopicListData();
-                frsHotTopicListData.mSceneMap = this.a.a;
-                String jsonStrWithObject = OrmObject.jsonStrWithObject(frsHotTopicListData);
-                if (!StringUtils.isNull(jsonStrWithObject)) {
-                    f.g("hot_topic_key", jsonStrWithObject);
-                }
-                return null;
-            }
-            return (Void) invokeL.objValue;
-        }
+        c = BdUniqueId.gen();
     }
 
     public c57() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = 0;
+        this.b = 0;
     }
 
-    public static c57 d() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b == null) {
-                synchronized (c57.class) {
-                    if (b == null) {
-                        b = new c57();
-                    }
-                }
-            }
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return (c57) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public final void f() {
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            b bVar = new b(this);
-            bVar.setPriority(3);
-            bVar.execute(new Void[0]);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.in
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return c;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.b = i;
         }
     }
 
-    public final void e(String str, long j) {
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
-            a aVar = new a(this);
-            aVar.setPriority(3);
-            aVar.execute(new Void[0]);
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.a = i;
         }
-    }
-
-    public boolean c(String str, long j) {
-        InterceptResult invokeLJ;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, str, j)) == null) {
-            if (this.a == null) {
-                this.a = new FrsLinkHashMap<>();
-                e(str, j);
-            }
-            if (StringUtils.isNull(str) || this.a.isEmpty()) {
-                return false;
-            }
-            Iterator<Map.Entry<String, Long>> it = this.a.entrySet().iterator();
-            while (true) {
-                if (it.hasNext()) {
-                    Map.Entry<String, Long> next = it.next();
-                    if (next != null && str.equals(next.getKey())) {
-                        z = true;
-                        break;
-                    }
-                } else {
-                    z = false;
-                    break;
-                }
-            }
-            if (z && this.a.get(str).longValue() == j) {
-                return false;
-            }
-            this.a.put(str, Long.valueOf(j));
-            f();
-            return true;
-        }
-        return invokeLJ.booleanValue;
     }
 }

@@ -1,13 +1,32 @@
 package com.baidu.tieba;
+
+import com.baidu.tieba.bn6;
+import com.baidu.tieba.danmu.layout.retainer.BottomRetainer;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface tm6 {
-    void a(fl6 fl6Var, long j, fn6 fn6Var, zk6 zk6Var);
+public final class tm6 extends sm6 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(fl6 fl6Var);
-
-    void c(int i, int i2);
-
-    void clear();
-
-    boolean d(fl6 fl6Var, long j, fn6 fn6Var, zk6 zk6Var);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public tm6() {
+        super(new BottomRetainer(0.5f), new zm6());
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((bn6) objArr[0], (bn6.a) objArr[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
 }

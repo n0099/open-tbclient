@@ -1,45 +1,50 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import android.animation.ValueAnimator;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicBoolean;
+import com.google.ar.core.InstallActivity;
 /* loaded from: classes7.dex */
-public final class xsa implements Runnable {
+public final class xsa implements ValueAnimator.AnimatorUpdateListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ AtomicBoolean a;
-    public final /* synthetic */ wsa b;
+    public final /* synthetic */ int a;
+    public final /* synthetic */ int b;
+    public final /* synthetic */ int c;
+    public final /* synthetic */ InstallActivity d;
 
-    public xsa(wsa wsaVar, AtomicBoolean atomicBoolean) {
+    public xsa(InstallActivity installActivity, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {wsaVar, atomicBoolean};
+            Object[] objArr = {installActivity, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = wsaVar;
-        this.a = atomicBoolean;
+        this.d = installActivity;
+        this.a = i;
+        this.b = i2;
+        this.c = i3;
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
+    @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+    public final void onAnimationUpdate(ValueAnimator valueAnimator) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.a.getAndSet(true)) {
-            Log.w("ARCore-InstallService", "requestInstall timed out, launching fullscreen.");
-            wsa wsaVar = this.b;
-            rsa rsaVar = wsaVar.c;
-            rsa.n(wsaVar.a, wsaVar.b);
+        if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
+            float animatedFraction = 1.0f - valueAnimator.getAnimatedFraction();
+            float animatedFraction2 = valueAnimator.getAnimatedFraction();
+            int i = this.b;
+            this.d.getWindow().setLayout((int) ((this.a * animatedFraction) + (i * animatedFraction2)), (int) ((this.c * animatedFraction) + (i * animatedFraction2)));
+            this.d.getWindow().getDecorView().refreshDrawableState();
         }
     }
 }

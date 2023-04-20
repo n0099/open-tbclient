@@ -5,7 +5,7 @@ import com.xiaomi.push.gg;
 import com.xiaomi.push.id;
 import com.xiaomi.push.service.XMPushService;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class aa extends XMPushService.j {
     public final /* synthetic */ id a;
 

@@ -30,11 +30,11 @@ import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tieba.R;
+import com.baidu.tieba.a55;
 import com.baidu.tieba.bb;
+import com.baidu.tieba.dj9;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.it4;
-import com.baidu.tieba.vi9;
-import com.baidu.tieba.y45;
+import com.baidu.tieba.jt4;
 import com.baidu.tieba.z45;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -63,14 +63,14 @@ public class SquareForumListActivity extends BaseActivity<SquareForumListActivit
     public boolean mHasMore;
     public boolean mIsLoading;
     public CustomMessageListener mLikeForumListener;
-    public vi9 mListAdapter;
+    public dj9 mListAdapter;
     public final List<ForumSpaceForumInfo> mListData;
     public View mListFooter;
     public NavigationBar mNavigationBar;
     public NoDataView mNoDataView;
     public int mPageNum;
     public int mPageType;
-    public z45 mPullView;
+    public a55 mPullView;
     public View mRootView;
     public CustomMessageListener mUnlikeForumListener;
 
@@ -295,13 +295,13 @@ public class SquareForumListActivity extends BaseActivity<SquareForumListActivit
                     str = SquareForumListActivity.RULE_URL_HOT;
                     TiebaStatic.log("c10564");
                 }
-                it4.s(this.a.getBaseContext(), str);
+                jt4.s(this.a.getBaseContext(), str);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class f implements y45.g {
+    public class f implements z45.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SquareForumListActivity a;
@@ -324,7 +324,7 @@ public class SquareForumListActivity extends BaseActivity<SquareForumListActivit
             this.a = squareForumListActivity;
         }
 
-        @Override // com.baidu.tieba.y45.g
+        @Override // com.baidu.tieba.z45.g
         public void f(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -436,7 +436,7 @@ public class SquareForumListActivity extends BaseActivity<SquareForumListActivit
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.mNavigationBar.setTitleText(getPageContext().getString(i));
             this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.hot_topic_rule), eVar);
-            this.mPullView = new z45(getPageContext());
+            this.mPullView = new a55(getPageContext());
             BdListView bdListView = (BdListView) findViewById(R.id.obfuscated_res_0x7f090b85);
             this.mForumListView = bdListView;
             bdListView.setPullRefresh(this.mPullView);
@@ -450,9 +450,9 @@ public class SquareForumListActivity extends BaseActivity<SquareForumListActivit
             this.mListFooter.setOnClickListener(new g(this));
             this.mForumListView.addFooterView(this.mListFooter);
             this.mListFooter.setVisibility(8);
-            vi9 vi9Var = new vi9(getPageContext(), this.mPageType);
-            this.mListAdapter = vi9Var;
-            this.mForumListView.setAdapter((ListAdapter) vi9Var);
+            dj9 dj9Var = new dj9(getPageContext(), this.mPageType);
+            this.mListAdapter = dj9Var;
+            this.mForumListView.setAdapter((ListAdapter) dj9Var);
         }
     }
 

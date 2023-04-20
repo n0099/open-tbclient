@@ -1,5 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes6.dex */
 public interface uu4<T> {
-    void a(T t);
+    void onError(int i, String str);
+
+    void onSuccess(T t);
 }

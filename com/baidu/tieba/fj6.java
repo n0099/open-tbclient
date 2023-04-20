@@ -10,16 +10,15 @@ import java.util.HashMap;
 import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public final class fj6 implements e07 {
+public final class fj6 implements f07 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
 
-    @Override // com.baidu.tieba.e07
+    @Override // com.baidu.tieba.f07
     public String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "c13565" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "c13571" : (String) invokeV.objValue;
     }
 
     public fj6() {
@@ -32,31 +31,18 @@ public final class fj6 implements e07 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = "0";
     }
 
-    @Override // com.baidu.tieba.e07
-    public Map<String, String> a(qw6 businessInfo) {
+    @Override // com.baidu.tieba.f07
+    public Map<String, String> a(rw6 businessInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
             Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            HashMap hashMap = new HashMap();
-            businessInfo.a();
-            hashMap.put("obj_source", this.a);
-            return hashMap;
+            return new HashMap();
         }
         return (Map) invokeL.objValue;
-    }
-
-    public final void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            Intrinsics.checkNotNullParameter(str, "<set-?>");
-            this.a = str;
-        }
     }
 }

@@ -9,11 +9,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ew6;
-import com.baidu.tieba.q25;
-import com.baidu.tieba.ty6;
-import com.baidu.tieba.uz6;
+import com.baidu.tieba.fw6;
+import com.baidu.tieba.r25;
+import com.baidu.tieba.uy6;
 import com.baidu.tieba.vz6;
+import com.baidu.tieba.wz6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -24,7 +24,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000.\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\u0018\u00002\b\u0012\u0004\u0012\u00020\u00020\u00012\u00020\u0003B\u001b\b\u0007\u0012\u0006\u0010\u0004\u001a\u00020\u0005\u0012\n\b\u0002\u0010\u0006\u001a\u0004\u0018\u00010\u0007¢\u0006\u0002\u0010\bJ\u0010\u0010\u000b\u001a\u00020\f2\u0006\u0010\r\u001a\u00020\u0002H\u0014J\b\u0010\u000e\u001a\u00020\fH\u0016R\u000e\u0010\t\u001a\u00020\nX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006\u000f"}, d2 = {"Lcom/baidu/tieba/feed/component/CardTitleView;", "Lcom/baidu/tieba/feed/component/CardFrameView;", "Lcom/baidu/tieba/feed/component/uistate/CardTitleUiState;", "Lcom/baidu/tieba/feed/list/OnChangeSkinListener;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "textView", "Landroid/widget/TextView;", "doUpdateState", "", "state", "onChangeSkin", "lib-templates_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes4.dex */
-public final class CardTitleView extends CardFrameView<ew6> implements uz6 {
+public final class CardTitleView extends CardFrameView<fw6> implements vz6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView c;
@@ -75,14 +75,14 @@ public final class CardTitleView extends CardFrameView<ew6> implements uz6 {
         Intrinsics.checkNotNullParameter(context, "context");
         TextView textView = new TextView(context);
         this.c = textView;
-        q25 d = q25.d(textView);
+        r25 d = r25.d(textView);
         d.C(R.string.F_X02);
         d.B(R.dimen.T_X06);
         this.c.setLineSpacing(getResources().getDimensionPixelSize(R.dimen.M_T_X001), 1.0f);
         this.c.setMaxLines(2);
         this.c.setEllipsize(TextUtils.TruncateAt.END);
         this.c.setPadding(0, 0, 0, UtilHelper.getDimenPixelSize(R.dimen.tbds15));
-        this.c.setMovementMethod(ty6.a);
+        this.c.setMovementMethod(uy6.a);
         this.c.setClickable(false);
         this.c.setLongClickable(false);
         addView(this.c, new FrameLayout.LayoutParams(-1, -2));
@@ -92,26 +92,26 @@ public final class CardTitleView extends CardFrameView<ew6> implements uz6 {
         this(context, (i & 2) != 0 ? null : attributeSet);
     }
 
-    @Override // com.baidu.tieba.uz6
+    @Override // com.baidu.tieba.vz6
     public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || vz6.a(this)) {
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || wz6.a(this)) {
             return;
         }
-        q25.d(this.c).w(R.color.CAM_X0105);
+        r25.d(this.c).w(R.color.CAM_X0105);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.feed.component.CardFrameView
     /* renamed from: g */
-    public void e(ew6 state) {
+    public void e(fw6 state) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, state) == null) {
             Intrinsics.checkNotNullParameter(state, "state");
             if (state.g()) {
-                q25.d(this.c).C(R.string.F_X01);
+                r25.d(this.c).C(R.string.F_X01);
             } else {
-                q25.d(this.c).C(R.string.F_X02);
+                r25.d(this.c).C(R.string.F_X02);
             }
             ThreadCardUtils.cutAndSetTextByMaxLineForDot(this.c, state.f(), 2, getWidth());
             b();

@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.data.AtSelectData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.xc9;
+import com.baidu.tieba.fd9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +19,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class WritePostDispatcher implements xc9 {
+public class WritePostDispatcher implements fd9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -58,7 +58,7 @@ public class WritePostDispatcher implements xc9 {
         return (ArrayList) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.xc9
+    @Override // com.baidu.tieba.fd9
     public void dispatch(JSONObject jSONObject, Context context) {
         boolean z;
         Interceptable interceptable = $ic;

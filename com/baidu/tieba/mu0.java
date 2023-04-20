@@ -1,16 +1,15 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class mu0 {
+public class mu0 extends tu0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zx0 a;
 
     public mu0() {
         Interceptable interceptable = $ic;
@@ -26,26 +25,28 @@ public abstract class mu0 {
         }
     }
 
-    public void a() {
+    public static tu0 w(@NonNull String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = null;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
+            tu0 m = tu0.m(str, 7);
+            m.u(1);
+            m.s(i);
+            return m;
         }
+        return (tu0) invokeLI.objValue;
     }
 
-    public void b(@NonNull zx0 zx0Var) {
+    @Override // com.baidu.tieba.tu0
+    public boolean b(@NonNull uv0 uv0Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zx0Var) == null) {
-            this.a = zx0Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, uv0Var)) == null) {
+            if (1 != uv0Var.getType()) {
+                return true;
+            }
+            return false;
         }
-    }
-
-    public void c(@NonNull su0 su0Var) {
-        zx0 zx0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, su0Var) != null) || (zx0Var = this.a) == null) {
-            return;
-        }
-        zx0Var.d(su0Var);
+        return invokeL.booleanValue;
     }
 }

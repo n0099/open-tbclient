@@ -8,7 +8,7 @@ import com.xiaomi.push.hn;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ba {
     public static volatile ba a;
 
@@ -19,7 +19,7 @@ public class ba {
     public HashSet<a> f923a = new HashSet<>();
     public SharedPreferences b;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static abstract class a implements Runnable {
         public String mDescription;
         public int mId;

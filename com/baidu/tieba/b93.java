@@ -1,7 +1,11 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.graphics.BitmapFactory;
+import android.media.ExifInterface;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
@@ -12,21 +16,51 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class b93 extends r93 {
+public class b93 extends s93 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public final String l(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            switch (i) {
+                case 0:
+                case 1:
+                    return MapBundleKey.OfflineMapKey.OFFLINE_UPDATE;
+                case 2:
+                    return "up-mirrored";
+                case 3:
+                    return "down";
+                case 4:
+                    return "down-mirrored";
+                case 5:
+                    return "left-mirrored";
+                case 6:
+                    return "left";
+                case 7:
+                    return "right-mirrored";
+                case 8:
+                    return "right";
+                default:
+                    return "";
+            }
+        }
+        return (String) invokeI.objValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b93(r83 r83Var) {
-        super(r83Var, "/swanAPI/getLocalImgData");
+    public b93(s83 s83Var) {
+        super(s83Var, "/swanAPI/getImageInfo");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {r83Var};
+            Object[] objArr = {s83Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,54 +74,100 @@ public class b93 extends r93 {
         }
     }
 
-    @Override // com.baidu.tieba.r93
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, u73 u73Var) {
+    @Override // com.baidu.tieba.s93
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, v73 v73Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, u73Var)) == null) {
-            if (u73Var == null) {
-                u42.c("GetLocalImgDataAction", "illegal swanApp");
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, v73Var)) == null) {
+            if (v73Var == null) {
+                v42.c("getImageInfo", "illegal swanApp");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
                 return false;
             }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                u42.c("SwanAppAction", "illegal params");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
-            }
-            String optString = optParamsAsJo.optString("filePath");
+            String optString = vk3.d(unitedSchemeEntity.getParam("params")).optString("src");
             if (TextUtils.isEmpty(optString)) {
-                u42.c("GetLocalImgDataAction", "GetLocalImgDataAction bdfile path null");
+                v42.c("getImageInfo", "path null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
-            } else if (cf3.s(optString) != PathType.BD_FILE) {
-                u42.c("GetLocalImgDataAction", "invalid path : " + optString);
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(null, 2006, o83.a(2006));
-                return false;
-            } else {
-                String M = cf3.M(optString, u73Var.b);
-                if (TextUtils.isEmpty(M)) {
-                    u42.c("GetLocalImgDataAction", "GetLocalImgDataAction realPath null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                }
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("filePath", M);
-                    u42.i("GetLocalImgDataAction", "getLocalImgData success");
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
-                    return true;
-                } catch (JSONException e) {
-                    u42.c("GetLocalImgDataAction", "getLocalImgData failed");
-                    if (r93.b) {
-                        e.printStackTrace();
-                    }
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                }
             }
+            JSONObject jSONObject = null;
+            if (df3.s(optString) == PathType.BD_FILE) {
+                jSONObject = k(df3.M(optString, v73Var.b), optString);
+            } else if (df3.s(optString) == PathType.RELATIVE) {
+                jSONObject = k(df3.L(optString, v73Var, v73Var.k0()), optString);
+            }
+            if (jSONObject != null) {
+                v42.i("getImageInfo", "getImgInfo success");
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
+                return true;
+            }
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "image not found");
+            return false;
         }
         return invokeLLLL.booleanValue;
+    }
+
+    public final ExifInterface j(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            try {
+                return new ExifInterface(str);
+            } catch (IOException unused) {
+                return null;
+            }
+        }
+        return (ExifInterface) invokeL.objValue;
+    }
+
+    public final JSONObject k(String str, String str2) {
+        InterceptResult invokeLL;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+            v42.i("getImageInfo", "getImgInfo start");
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            int i = 1;
+            options.inJustDecodeBounds = true;
+            BitmapFactory.decodeFile(str, options);
+            int i2 = options.outWidth;
+            int i3 = options.outHeight;
+            String str4 = options.outMimeType;
+            if (!TextUtils.isEmpty(str4)) {
+                String[] split = str4.split("/");
+                str3 = split[split.length - 1];
+            } else {
+                str3 = "";
+            }
+            if (!TextUtils.equals("png", str3)) {
+                ExifInterface j = j(str);
+                if (j == null) {
+                    return null;
+                }
+                i = j.getAttributeInt(androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION, 1);
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("width", i2);
+                jSONObject.put("height", i3);
+                jSONObject.put("path", str2);
+                jSONObject.put("orientation", l(i));
+                jSONObject.put("type", str3);
+            } catch (JSONException e) {
+                v42.c("getImageInfo", "getImgInfo failed by json exception");
+                if (s93.b) {
+                    e.printStackTrace();
+                }
+            }
+            v42.i("getImageInfo", "getImgInfo end");
+            return jSONObject;
+        }
+        return (JSONObject) invokeLL.objValue;
     }
 }

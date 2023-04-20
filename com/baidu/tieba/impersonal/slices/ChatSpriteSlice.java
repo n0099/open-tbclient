@@ -6,10 +6,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.crius.constants.NativeConstants;
-import com.baidu.tieba.bi5;
+import com.baidu.tieba.ci5;
 import com.baidu.tieba.immessagecenter.slice.Slice;
 import com.baidu.tieba.impersonal.databinding.SlicePersonalSpriteBinding;
-import com.baidu.tieba.pk6;
+import com.baidu.tieba.qk6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -58,7 +58,7 @@ public final class ChatSpriteSlice extends Slice {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, bundle) == null) {
             super.P(view2, bundle);
-            pk6 a = bi5.a.a().a();
+            qk6 a = ci5.a.a().a();
             if (a != null) {
                 SlicePersonalSpriteBinding slicePersonalSpriteBinding = this.j;
                 if (slicePersonalSpriteBinding == null) {

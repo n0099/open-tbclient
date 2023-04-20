@@ -2,7 +2,7 @@ package com.xiaomi.push.service;
 
 import com.xiaomi.mipush.sdk.ErrorCode;
 import com.xiaomi.push.service.bg;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class aj implements bg.b.a {
     public final /* synthetic */ XMPushService a;
 

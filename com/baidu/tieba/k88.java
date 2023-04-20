@@ -1,129 +1,133 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.view.UserIconBox;
+import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
+import com.baidu.tieba.immessagecenter.im.chat.personaltalk.InvatateAnswerSettingActivity;
+import com.baidu.tieba.immessagecenter.im.chat.personaltalk.PersonalTalkSettingViewSettingView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class k88 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String a = "2";
-    public static final String b = "1";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final InvatateAnswerSettingActivity a;
+    public final NavigationBar b;
+    public final View c;
+    public final HeadImageView d;
+    public final TextView e;
+    public final UserIconBox f;
+    public final TextView g;
+    public ImageView h;
+    public TbSettingTextTipView i;
+    public TbSettingTextTipView j;
+    public TbSettingTextTipView k;
+    public RelativeLayout l;
+    public View m;
+    public PersonalTalkSettingViewSettingView n;
 
-    public static void a(String str, String str2, String str3, int i, boolean z) {
-        String str4;
+    public k88(InvatateAnswerSettingActivity invatateAnswerSettingActivity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, str2, str3, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14740");
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.addParam("obj_id", str);
-            statisticItem.addParam("obj_name", str2);
-            if (z) {
-                str4 = a;
-            } else {
-                str4 = b;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {invatateAnswerSettingActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            statisticItem.addParam("obj_type", str4);
-            statisticItem.addParam("obj_locate", i);
-            statisticItem.addParam(TiebaStatic.Params.FRIEND_UID, str3);
-            TiebaStatic.log(statisticItem);
+        }
+        this.a = invatateAnswerSettingActivity;
+        invatateAnswerSettingActivity.setContentView(R.layout.obfuscated_res_0x7f0d06ed);
+        View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f091b0a);
+        this.c = findViewById;
+        NavigationBar navigationBar = (NavigationBar) findViewById.findViewById(R.id.view_navigation_bar);
+        this.b = navigationBar;
+        navigationBar.setCenterTextTitle(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1460));
+        this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        PersonalTalkSettingViewSettingView personalTalkSettingViewSettingView = (PersonalTalkSettingViewSettingView) this.a.findViewById(R.id.obfuscated_res_0x7f092021);
+        this.n = personalTalkSettingViewSettingView;
+        personalTalkSettingViewSettingView.a.setVisibility(0);
+        c(q45.m().i("key_question_msg_no_remind", false));
+        this.n.b.setVisibility(8);
+        this.l = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0926a3);
+        TbSettingTextTipView tbSettingTextTipView = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f092136);
+        this.j = tbSettingTextTipView;
+        tbSettingTextTipView.setVisibility(8);
+        TbSettingTextTipView tbSettingTextTipView2 = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f090130);
+        this.k = tbSettingTextTipView2;
+        tbSettingTextTipView2.setVisibility(8);
+        TbSettingTextTipView tbSettingTextTipView3 = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f092135);
+        this.i = tbSettingTextTipView3;
+        tbSettingTextTipView3.setVisibility(8);
+        HeadImageView headImageView = (HeadImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091b45);
+        this.d = headImageView;
+        headImageView.setIsRound(true);
+        this.d.setGodIconWidth(R.dimen.tbds47);
+        TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090fbf);
+        this.e = textView;
+        textView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0a10));
+        ImageView imageView = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090fbd);
+        this.h = imageView;
+        imageView.setVisibility(8);
+        this.f = (UserIconBox) this.a.findViewById(R.id.user_icon_box);
+        TextView textView2 = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092684);
+        this.g = textView2;
+        textView2.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0db6));
+        this.m = this.a.findViewById(R.id.obfuscated_res_0x7f0908d8);
+    }
+
+    public void a(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.a.getLayoutMode().k(this.c);
+            this.b.onChangeSkinType(this.a.getPageContext(), i);
+            this.d.setImageDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f08084d));
+            r25 d = r25.d(this.e);
+            d.C(R.string.F_X02);
+            d.B(R.dimen.T_X04);
+            d.w(R.color.CAM_X0105);
+            r25 d2 = r25.d(this.g);
+            d2.C(R.string.F_X01);
+            d2.B(R.dimen.T_X08);
+            d2.w(R.color.CAM_X0109);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.h, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
+            SkinManager.setBackgroundColor(this.k, R.color.CAM_X0201);
+            SkinManager.setBackgroundColor(this.j, R.color.CAM_X0201);
         }
     }
 
-    public static void e(String str, String str2, String str3, int i, boolean z) {
-        String str4;
+    public void b(BdSwitchView.b bVar) {
+        PersonalTalkSettingViewSettingView personalTalkSettingViewSettingView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, str3, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14739");
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.addParam("obj_id", str);
-            statisticItem.addParam("obj_name", str2);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) && (personalTalkSettingViewSettingView = this.n) != null) {
+            personalTalkSettingViewSettingView.setSwitchStateChangeListener(bVar);
+        }
+    }
+
+    public void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             if (z) {
-                str4 = a;
+                this.n.a.g();
             } else {
-                str4 = b;
+                this.n.a.e();
             }
-            statisticItem.addParam("obj_type", str4);
-            statisticItem.addParam("obj_locate", i);
-            statisticItem.addParam(TiebaStatic.Params.FRIEND_UID, str3);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public static StatisticItem g(String str, String str2, String str3, int i, boolean z) {
-        InterceptResult invokeCommon;
-        String str4;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{str, str2, str3, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.addParam("obj_id", str2);
-            statisticItem.addParam("obj_name", str3);
-            if (z) {
-                str4 = a;
-            } else {
-                str4 = b;
-            }
-            statisticItem.addParam("obj_type", str4);
-            statisticItem.addParam("obj_locate", i);
-            return statisticItem;
-        }
-        return (StatisticItem) invokeCommon.objValue;
-    }
-
-    public static void h(String str, String str2, String str3, int i, boolean z) {
-        String str4;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{str, str2, str3, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14738");
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.addParam("obj_id", str);
-            statisticItem.addParam("obj_name", str2);
-            if (z) {
-                str4 = a;
-            } else {
-                str4 = b;
-            }
-            statisticItem.addParam("obj_type", str4);
-            statisticItem.addParam("obj_locate", i);
-            statisticItem.addParam(TiebaStatic.Params.FRIEND_UID, str3);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public static void b(String str, String str2, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, str2, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            TiebaStatic.log(g("c14742", str, str2, i, z));
-        }
-    }
-
-    public static void d(String str, String str2, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{str, str2, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            TiebaStatic.log(g("c14744", str, str2, i, z));
-        }
-    }
-
-    public static void c(String str, String str2, int i, boolean z, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, str2, Integer.valueOf(i), Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
-            StatisticItem g = g("c14743", str, str2, i, z);
-            g.addParam("obj_source", i2);
-            TiebaStatic.log(g);
-        }
-    }
-
-    public static void f(String str, String str2, int i, boolean z, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{str, str2, Integer.valueOf(i), Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
-            StatisticItem g = g("c14741", str, str2, i, z);
-            g.addParam("obj_source", i2);
-            TiebaStatic.log(g);
         }
     }
 }

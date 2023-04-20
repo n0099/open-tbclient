@@ -7,7 +7,7 @@ import com.baidu.searchbox.http.HttpRuntime;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.wf9;
+import com.baidu.tieba.eg9;
 /* loaded from: classes2.dex */
 public class LaunchWithPrivacyTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
@@ -51,6 +51,6 @@ public class LaunchWithPrivacyTask extends LaunchTask {
     public void execute() {
         registerPhoneListener();
         HttpRuntime.getHttpContext().prefetchDnsResult("tbprefetch");
-        HttpManager.getDefault(wf9.a()).setHttpDnsEnable(true);
+        HttpManager.getDefault(eg9.a()).setHttpDnsEnable(true);
     }
 }

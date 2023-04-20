@@ -1,95 +1,62 @@
 package com.baidu.tieba;
 
-import android.graphics.Rect;
-import android.text.SpannableString;
-import android.text.style.ImageSpan;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.imageManager.TbFaceManager;
-import com.baidu.tieba.pf5;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes5.dex */
-public class nz8 implements pz8 {
+public class nz8 extends PbListView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ExcContent a;
-    public SpannableString b;
+    public TbPageContext<?> C;
 
-    @Override // com.baidu.tieba.pz8
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.qz8
-    public int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return 2;
-        }
-        return invokeV.intValue;
-    }
-
-    public nz8(ExcContent excContent) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public nz8(TbPageContext<?> tbPageContext) {
+        super(tbPageContext.getPageActivity());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {excContent};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = excContent;
+        this.C = tbPageContext;
+        w(false);
+        c().setPadding(0, tbPageContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701be), 0, tbPageContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702fd));
+        C();
+        B();
+        y();
+        J(R.dimen.tbfontsize33);
     }
 
-    @Override // com.baidu.tieba.pz8
-    public CharSequence b() {
-        InterceptResult invokeV;
+    public void T() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return c(this.a);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.g();
+            F(this.C.getResources().getString(R.string.load_more));
+            c().setVisibility(0);
         }
-        return (CharSequence) invokeV.objValue;
     }
 
-    public final SpannableString c(ExcContent excContent) {
-        InterceptResult invokeL;
-        pf5.a f;
+    @Override // com.baidu.tbadk.core.view.PbListView
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, excContent)) == null) {
-            if (this.b == null) {
-                String str = excContent.text;
-                if (TbFaceManager.i().o(str)) {
-                    String str2 = SmallTailInfo.EMOTION_PREFIX + TbFaceManager.i().j(str) + SmallTailInfo.EMOTION_SUFFIX;
-                    this.b = new SpannableString(str2 + " ");
-                    zu5 c = TbFaceManager.i().c(str);
-                    if (TbFaceManager.i().f(str) != null) {
-                        int a = (int) (f.a() * 0.6d);
-                        c.setBounds(new Rect(0, 0, a, a));
-                    } else {
-                        c.setBounds(new Rect(0, 0, 0, 0));
-                    }
-                    this.b.setSpan(new ImageSpan(c, 0), 0, str2.length(), 33);
-                }
-            }
-            return this.b;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.g();
+            F(this.C.getResources().getString(R.string.sub_pb_list_no_more));
+            c().setVisibility(0);
         }
-        return (SpannableString) invokeL.objValue;
     }
 }

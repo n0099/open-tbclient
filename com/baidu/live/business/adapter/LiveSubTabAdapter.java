@@ -20,9 +20,9 @@ import com.baidu.live.business.model.data.LiveFeedConfig;
 import com.baidu.live.business.model.data.LiveRoomEntity;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ac0;
-import com.baidu.tieba.k90;
-import com.baidu.tieba.lb0;
+import com.baidu.tieba.bc0;
+import com.baidu.tieba.l90;
+import com.baidu.tieba.mb0;
 import java.util.ArrayList;
 import java.util.List;
 import kotlin.Metadata;
@@ -119,7 +119,7 @@ public final class LiveSubTabAdapter extends RecyclerView.Adapter<RecyclerView.V
         @Override // com.baidu.live.business.base.LiveBaseItemView.b
         public void a(int i) {
             a n;
-            LiveRoomEntity liveRoomEntity = (LiveRoomEntity) lb0.b(this.b.topicRoomList, i);
+            LiveRoomEntity liveRoomEntity = (LiveRoomEntity) mb0.b(this.b.topicRoomList, i);
             if (liveRoomEntity != null && (n = LiveSubTabAdapter.this.n()) != null) {
                 n.onItemViewClick(liveRoomEntity, this.c);
             }
@@ -128,7 +128,7 @@ public final class LiveSubTabAdapter extends RecyclerView.Adapter<RecyclerView.V
         @Override // com.baidu.live.business.base.LiveBaseItemView.b
         public void b(int i) {
             a n;
-            LiveRoomEntity liveRoomEntity = (LiveRoomEntity) lb0.b(this.b.topicRoomList, i);
+            LiveRoomEntity liveRoomEntity = (LiveRoomEntity) mb0.b(this.b.topicRoomList, i);
             if (liveRoomEntity != null && (n = LiveSubTabAdapter.this.n()) != null) {
                 n.onItemViewShow(liveRoomEntity, this.c);
             }
@@ -167,7 +167,7 @@ public final class LiveSubTabAdapter extends RecyclerView.Adapter<RecyclerView.V
         @Override // com.baidu.live.business.base.LiveBaseItemView.a
         public final void a(String it) {
             a n;
-            if (!k90.a() && (n = LiveSubTabAdapter.this.n()) != null) {
+            if (!l90.a() && (n = LiveSubTabAdapter.this.n()) != null) {
                 Intrinsics.checkExpressionValueIsNotNull(it, "it");
                 n.onItemLabelClickListener(it, this.b, this.c);
             }
@@ -310,7 +310,7 @@ public final class LiveSubTabAdapter extends RecyclerView.Adapter<RecyclerView.V
                     ((LiveReserveHeaderView) liveBaseItemView).setData(this.a.get(i).reserveHeaderInfo);
                     LiveBaseItemView liveBaseItemView2 = liveFeedBaseHolder.a;
                     if (liveBaseItemView2 != null) {
-                        ac0 f2 = ac0.f();
+                        bc0 f2 = bc0.f();
                         Intrinsics.checkExpressionValueIsNotNull(f2, "UIModeUtils.getInstance()");
                         ((LiveReserveHeaderView) liveBaseItemView2).f(f2.r());
                         LiveBaseItemView liveBaseItemView3 = liveFeedBaseHolder.a;
@@ -397,7 +397,7 @@ public final class LiveSubTabAdapter extends RecyclerView.Adapter<RecyclerView.V
         }
         LiveReserveHeaderView liveReserveHeaderView = new LiveReserveHeaderView(this.g);
         liveReserveHeaderView.setScene(this.h);
-        ac0 f2 = ac0.f();
+        bc0 f2 = bc0.f();
         Intrinsics.checkExpressionValueIsNotNull(f2, "UIModeUtils.getInstance()");
         liveReserveHeaderView.f(f2.r());
         return new LiveFeedBaseHolder(liveReserveHeaderView);

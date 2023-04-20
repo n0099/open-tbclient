@@ -40,7 +40,7 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behavior<V> {
     public static final int CORNER_ANIMATION_DURATION = 500;
     public static final int DEF_STYLE_RES = 2131755833;
@@ -111,7 +111,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
     @Nullable
     public WeakReference<V> viewRef;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static abstract class BottomSheetCallback {
         public abstract void onSlide(@NonNull View view2, float f);
 
@@ -120,13 +120,13 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public @interface SaveFlags {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public @interface State {
     }
 
@@ -134,7 +134,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
     public void onNestedScroll(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V v, @NonNull View view2, int i, int i2, int i3, int i4, int i5, @NonNull int[] iArr) {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class SettleRunnable implements Runnable {
         public boolean isPosted;
         public int targetState;
@@ -447,7 +447,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
         this.viewDragHelper = null;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class SavedState extends AbsSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: com.google.android.material.bottomsheet.BottomSheetBehavior.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */

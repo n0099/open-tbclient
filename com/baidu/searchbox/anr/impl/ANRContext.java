@@ -12,7 +12,7 @@ import com.baidu.searchbox.block.impl.BlockMonitor;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.track.Track;
 import com.baidu.searchbox.track.ui.TrackUI;
-import com.baidu.tieba.ej1;
+import com.baidu.tieba.fj1;
 @Autowired
 /* loaded from: classes2.dex */
 public class ANRContext {
@@ -22,7 +22,7 @@ public class ANRContext {
             if (AppConfig.isDebug()) {
                 Log.d(BlockMonitor.TAG, "onAppNotResponding");
             }
-            ej1<IANRRegister> iANRUploadList = ANRRuntime.getInstance().getIANRUploadList();
+            fj1<IANRRegister> iANRUploadList = ANRRuntime.getInstance().getIANRUploadList();
             if (iANRUploadList != null && iANRUploadList.getList() != null && aNRInfo != null) {
                 if (AppConfig.isDebug()) {
                     Log.i(BlockMonitor.TAG, "ANRInfo = " + aNRInfo.getStackTrace());

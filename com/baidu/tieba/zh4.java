@@ -1,113 +1,186 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.pms.constants.ErrorConstant;
+import com.baidu.searchbox.pms.db.PackageTable;
+import com.baidu.tieba.pi4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class zh4 implements sh4 {
+public class zh4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<gh4> a;
-    public mf4 b;
-    public List<sg4> c;
-    public List<sg4> d;
-    public List<sg4> e;
 
-    @Override // com.baidu.tieba.sh4
-    public <T> void a(wh4<T> wh4Var) {
+    public static <T> boolean a(mf4<T> mf4Var, T t, String str, String str2) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, wh4Var) == null) {
-        }
-    }
-
-    public zh4(mf4 mf4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mf4Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, mf4Var, t, str, str2)) == null) {
+            if (t == null || mf4Var == null) {
+                return false;
             }
-        }
-        this.c = new ArrayList();
-        this.d = new ArrayList();
-        this.e = new ArrayList();
-        this.b = mf4Var;
-        this.a = new ArrayList();
-        uh4.b().e(this);
-    }
-
-    @Override // com.baidu.tieba.sh4
-    public <T> void b(wh4<T> wh4Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wh4Var) != null) || wh4Var.k()) {
-            return;
-        }
-        Iterator<gh4> it = this.a.iterator();
-        while (true) {
-            if (!it.hasNext()) {
-                break;
-            }
-            gh4 next = it.next();
-            if (next.b(wh4Var)) {
-                int i = wh4Var.i();
-                this.a.remove(next);
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i == 10) {
-                            this.c.add(next.a().a.b);
-                        }
-                    } else {
-                        this.d.add(next.a().a.b);
-                    }
-                } else {
-                    this.e.add(next.a().a.b);
-                }
-            }
-        }
-        d();
-    }
-
-    public void c(gh4 gh4Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gh4Var) == null) && gh4Var != null) {
-            this.a.add(gh4Var);
-        }
-    }
-
-    public final boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.a.isEmpty()) {
-                this.b.b();
-                uh4.b().g(this);
+            if (TextUtils.isEmpty(str)) {
+                k(t, PackageTable.MD5, mf4Var);
+                return false;
+            } else if (TextUtils.isEmpty(str2)) {
+                k(t, TTDownloadField.TT_DOWNLOAD_URL, mf4Var);
+                return false;
+            } else {
                 return true;
             }
-            return false;
         }
-        return invokeV.booleanValue;
+        return invokeLLLL.booleanValue;
     }
 
-    public void e() {
+    public static <T> boolean b(T t, mf4<T> mf4Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || d()) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, t, mf4Var)) == null) {
+            if (mf4Var == null || t == null) {
+                return false;
+            }
+            if (t instanceof tg4) {
+                tg4 tg4Var = (tg4) t;
+                return a(mf4Var, t, tg4Var.l, tg4Var.n);
+            } else if (!(t instanceof pi4.a)) {
+                return false;
+            } else {
+                ug4 ug4Var = ((pi4.a) t).d;
+                return a(mf4Var, t, ug4Var.l, ug4Var.n);
+            }
         }
-        for (gh4 gh4Var : this.a) {
-            gh4Var.c(false);
+        return invokeLL.booleanValue;
+    }
+
+    public static xh4<qg4> c(qg4 qg4Var, qf4 qf4Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, qg4Var, qf4Var)) == null) {
+            if (qf4Var == null || !b(qg4Var, qf4Var.r())) {
+                return null;
+            }
+            return new xh4<>(new wh4(qg4Var), qg4Var, new uh4(qf4Var.r()));
+        }
+        return (xh4) invokeLL.objValue;
+    }
+
+    public static xh4<sg4> d(sg4 sg4Var, qf4 qf4Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, sg4Var, qf4Var)) == null) {
+            if (qf4Var == null || !b(sg4Var, qf4Var.s())) {
+                return null;
+            }
+            return new xh4<>(new wh4(sg4Var), sg4Var, new uh4(qf4Var.s()));
+        }
+        return (xh4) invokeLL.objValue;
+    }
+
+    public static xh4<ug4> g(ug4 ug4Var, qf4 qf4Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, ug4Var, qf4Var)) == null) {
+            if (qf4Var == null || !b(ug4Var, qf4Var.u())) {
+                return null;
+            }
+            return new xh4<>(new wh4(ug4Var), ug4Var, new uh4(qf4Var.u()));
+        }
+        return (xh4) invokeLL.objValue;
+    }
+
+    public static xh4<wg4> i(wg4 wg4Var, qf4 qf4Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, wg4Var, qf4Var)) == null) {
+            if (qf4Var == null || !b(wg4Var, qf4Var.x())) {
+                return null;
+            }
+            return new xh4<>(new wh4(wg4Var), wg4Var, new uh4(qf4Var.x()));
+        }
+        return (xh4) invokeLL.objValue;
+    }
+
+    public static xh4<xg4> j(xg4 xg4Var, qf4 qf4Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, xg4Var, qf4Var)) == null) {
+            if (qf4Var == null || !b(xg4Var, qf4Var.z())) {
+                return null;
+            }
+            return new xh4<>(new wh4(xg4Var), xg4Var, new uh4(qf4Var.z()));
+        }
+        return (xh4) invokeLL.objValue;
+    }
+
+    public static List<xh4<wg4>> e(List<wg4> list, qf4 qf4Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, list, qf4Var)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (qf4Var == null) {
+                return arrayList;
+            }
+            if (list != null && list.size() > 0) {
+                for (wg4 wg4Var : list) {
+                    if (b(wg4Var, qf4Var.q())) {
+                        arrayList.add(new xh4(new wh4(wg4Var), wg4Var, new uh4(qf4Var.q())));
+                    }
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeLL.objValue;
+    }
+
+    public static List<xh4<pi4.a>> f(List<pi4.a> list, qf4 qf4Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, list, qf4Var)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (qf4Var == null) {
+                return arrayList;
+            }
+            if (list != null && list.size() > 0) {
+                for (pi4.a aVar : list) {
+                    ug4 ug4Var = aVar.d;
+                    if (ug4Var != null && b(aVar, qf4Var.v())) {
+                        arrayList.add(new xh4(new wh4(ug4Var), aVar, new uh4(qf4Var.v())));
+                    }
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeLL.objValue;
+    }
+
+    public static List<xh4<vg4>> h(List<vg4> list, qf4 qf4Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, list, qf4Var)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (qf4Var == null) {
+                return arrayList;
+            }
+            if (list != null && list.size() > 0) {
+                for (vg4 vg4Var : list) {
+                    if (b(vg4Var, qf4Var.A())) {
+                        arrayList.add(new xh4(new wh4(vg4Var), vg4Var, new uh4(qf4Var.A())));
+                    }
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeLL.objValue;
+    }
+
+    public static <T> void k(T t, String str, mf4<T> mf4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65546, null, t, str, mf4Var) == null) {
+            mf4Var.e(t, new pg4(ErrorConstant.Code.DOWNLOAD_ERROR_NETWROK_CHANGE, "download : param error:" + str));
         }
     }
 }

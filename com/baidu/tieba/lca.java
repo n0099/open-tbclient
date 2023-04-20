@@ -1,44 +1,17 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-import java.util.Stack;
+import java.util.List;
 /* loaded from: classes5.dex */
 public final class lca {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Stack<WeakReference<Activity>> a;
-
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final lca a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-635943838, "Lcom/baidu/tieba/lca$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-635943838, "Lcom/baidu/tieba/lca$a;");
-                    return;
-                }
-            }
-            a = new lca((byte) 0);
-        }
-    }
+    public kca a;
 
     public lca() {
         Interceptable interceptable = $ic;
@@ -53,61 +26,29 @@ public final class lca {
                 return;
             }
         }
-        this.a = new Stack<>();
+        this.a = new kca();
     }
 
-    public final Stack<WeakReference<Activity>> a() {
+    public final List<com.baidu.ubs.analytics.a.l> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            return this.a.a();
         }
-        return (Stack) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public /* synthetic */ lca(byte b) {
-        this();
-    }
-
-    public final void c(WeakReference<Activity> weakReference) {
+    public final void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, weakReference) == null) {
-            this.a.add(weakReference);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.a.b(i);
         }
     }
 
-    public final String b() {
-        InterceptResult invokeV;
+    public final void c(com.baidu.ubs.analytics.a.l lVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < this.a.size(); i++) {
-                Activity activity = this.a.get(i).get();
-                if (activity != null) {
-                    sb.append(activity.getClass().getSimpleName());
-                    sb.append("->");
-                }
-            }
-            if (sb.length() > 0) {
-                return sb.substring(0, sb.length() - 2);
-            }
-            return "没有路径了";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void d(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-            if (this.a != null) {
-                for (int i = 0; i < this.a.size(); i++) {
-                    if (this.a.get(i).get() == activity) {
-                        Stack<WeakReference<Activity>> stack = this.a;
-                        stack.remove(stack.get(i));
-                    }
-                }
-            }
-            b();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lVar) == null) {
+            this.a.c(lVar);
         }
     }
 }

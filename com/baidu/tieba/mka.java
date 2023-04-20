@@ -1,25 +1,40 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.AppConfig;
+import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class mka {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean l;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public float c;
+    public float d;
+    public float e;
+    public float f;
+    public float g;
+    public List<oka> h;
+    public List<String> i;
+    public Map<String, String> j;
+    public Map<String, nka> k;
 
     static {
         InterceptResult invokeClinit;
@@ -34,291 +49,426 @@ public class mka {
                 return;
             }
         }
-        a = AppConfig.isDebug();
+        l = AppConfig.isDebug();
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:25:0x0049 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:27:0x004b */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:79:0x00b4 */
-    /* JADX WARN: Code restructure failed: missing block: B:59:0x008a, code lost:
-        if (com.baidu.tieba.mka.a == false) goto L49;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:60:0x008c, code lost:
-        r5.printStackTrace();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:76:0x00b0, code lost:
-        if (com.baidu.tieba.mka.a == false) goto L49;
-     */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:102:0x00b7 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:85:0x00bf A[Catch: IOException -> 0x00bb, TryCatch #12 {IOException -> 0x00bb, blocks: (B:81:0x00b7, B:85:0x00bf, B:87:0x00c4), top: B:102:0x00b7 }] */
-    /* JADX WARN: Removed duplicated region for block: B:87:0x00c4 A[Catch: IOException -> 0x00bb, TRY_LEAVE, TryCatch #12 {IOException -> 0x00bb, blocks: (B:81:0x00b7, B:85:0x00bf, B:87:0x00c4), top: B:102:0x00b7 }] */
-    /* JADX WARN: Type inference failed for: r2v0, types: [com.baidu.titan.sdk.runtime.Interceptable] */
-    /* JADX WARN: Type inference failed for: r2v10 */
-    /* JADX WARN: Type inference failed for: r2v2 */
-    /* JADX WARN: Type inference failed for: r2v3 */
-    /* JADX WARN: Type inference failed for: r2v4 */
-    /* JADX WARN: Type inference failed for: r2v5 */
-    /* JADX WARN: Type inference failed for: r2v6, types: [java.io.FileInputStream] */
-    /* JADX WARN: Type inference failed for: r2v7, types: [java.io.FileInputStream] */
-    /* JADX WARN: Type inference failed for: r2v8, types: [java.io.FileInputStream] */
-    /* JADX WARN: Type inference failed for: r2v9, types: [java.io.FileInputStream, java.io.InputStream] */
-    /* JADX WARN: Type inference failed for: r3v0 */
-    /* JADX WARN: Type inference failed for: r3v12 */
-    /* JADX WARN: Type inference failed for: r3v2 */
-    /* JADX WARN: Type inference failed for: r3v5 */
-    /* JADX WARN: Type inference failed for: r3v6, types: [java.io.BufferedReader] */
-    /* JADX WARN: Type inference failed for: r3v9 */
-    /* JADX WARN: Type inference failed for: r5v0, types: [java.lang.Object, java.io.File] */
-    /* JADX WARN: Type inference failed for: r5v11, types: [java.io.BufferedInputStream] */
-    /* JADX WARN: Type inference failed for: r5v14 */
-    /* JADX WARN: Type inference failed for: r5v15 */
-    /* JADX WARN: Type inference failed for: r5v16, types: [java.io.BufferedInputStream, java.io.InputStream] */
-    /* JADX WARN: Type inference failed for: r5v2 */
-    /* JADX WARN: Type inference failed for: r5v3 */
-    /* JADX WARN: Type inference failed for: r5v5 */
-    /* JADX WARN: Type inference failed for: r5v6, types: [java.io.BufferedInputStream] */
-    /* JADX WARN: Type inference failed for: r5v8, types: [java.io.BufferedInputStream] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static String a(File file) {
-        ?? r2;
-        ?? r3;
-        BufferedReader bufferedReader;
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (!TextUtils.equals("1", this.b)) {
+                this.b = "0";
+            }
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public Map<String, String> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.j;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public List<String> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.i;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (!TextUtils.equals("0", this.a)) {
+                this.a = "1";
+            }
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public Map<String, nka> e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.k;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public float f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            float f = this.g;
+            if (f <= 0.0f || Float.isNaN(f)) {
+                this.g = 20.0f;
+            }
+            return this.g;
+        }
+        return invokeV.floatValue;
+    }
+
+    public float g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            float f = this.d;
+            if (f <= 0.0f || Float.isNaN(f)) {
+                this.d = 1.0f;
+            }
+            return this.d;
+        }
+        return invokeV.floatValue;
+    }
+
+    public List<oka> h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.h;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public float i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            float f = this.e;
+            if (f <= 0.0f || Float.isNaN(f)) {
+                this.e = 20.0f;
+            }
+            return this.e;
+        }
+        return invokeV.floatValue;
+    }
+
+    public float j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            float f = this.f;
+            if (f <= 0.0f || Float.isNaN(f)) {
+                this.f = 7.0f;
+            }
+            return this.f;
+        }
+        return invokeV.floatValue;
+    }
+
+    public float k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            float f = this.c;
+            if (f <= 0.0f || Float.isNaN(f)) {
+                this.c = 100.0f;
+            }
+            return this.c;
+        }
+        return invokeV.floatValue;
+    }
+
+    public boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return TextUtils.equals("1", a());
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return TextUtils.equals("1", d());
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            this.a = "1";
+            this.b = "0";
+            this.c = 100.0f;
+            this.d = 1.0f;
+            this.e = 20.0f;
+            this.f = 7.0f;
+            this.g = 20.0f;
+        }
+    }
+
+    public mka() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
-            r2 = interceptable;
-            r3 = 65537;
-            InterceptResult invokeL = r2.invokeL(65537, null, file);
-            if (invokeL != null) {
-                return (String) invokeL.objValue;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-        if (file == 0 || !file.exists()) {
-            return null;
-        }
-        StringBuilder sb = new StringBuilder();
-        try {
-            try {
-                r2 = new FileInputStream((File) file);
-            } catch (Throwable th) {
-                th = th;
-            }
-        } catch (FileNotFoundException e) {
-            e = e;
-            file = 0;
-            r2 = 0;
-            bufferedReader = null;
-        } catch (IOException e2) {
-            e = e2;
-            file = 0;
-            r2 = 0;
-            bufferedReader = null;
-        } catch (Throwable th2) {
-            th = th2;
-            r2 = 0;
-            r3 = 0;
-        }
-        try {
-            file = new BufferedInputStream(r2);
-            try {
-                bufferedReader = new BufferedReader(new InputStreamReader(file));
-                while (true) {
-                    try {
-                        String readLine = bufferedReader.readLine();
-                        if (readLine == null) {
-                            break;
-                        }
-                        sb.append(readLine);
-                    } catch (FileNotFoundException e3) {
-                        e = e3;
-                        if (a) {
-                            e.printStackTrace();
-                        }
-                        if (bufferedReader != null) {
-                            try {
-                                bufferedReader.close();
-                            } catch (IOException e4) {
-                                e = e4;
-                            }
-                        }
-                        if (file != 0) {
-                            file.close();
-                        }
-                        if (r2 != 0) {
-                            r2.close();
-                        }
-                        return null;
-                    } catch (IOException e5) {
-                        e = e5;
-                        if (a) {
-                            e.printStackTrace();
-                        }
-                        if (bufferedReader != null) {
-                            try {
-                                bufferedReader.close();
-                            } catch (IOException e6) {
-                                e = e6;
-                            }
-                        }
-                        if (file != 0) {
-                            file.close();
-                        }
-                        if (r2 != 0) {
-                            r2.close();
-                        }
-                        return null;
-                    }
-                }
-                String sb2 = sb.toString();
-                try {
-                    bufferedReader.close();
-                    file.close();
-                    r2.close();
-                } catch (IOException e7) {
-                    if (a) {
-                        e7.printStackTrace();
-                    }
-                }
-                return sb2;
-            } catch (FileNotFoundException e8) {
-                e = e8;
-                bufferedReader = null;
-            } catch (IOException e9) {
-                e = e9;
-                bufferedReader = null;
-            } catch (Throwable th3) {
-                r3 = 0;
-                th = th3;
-                if (r3 != 0) {
-                    try {
-                        r3.close();
-                    } catch (IOException e10) {
-                        if (a) {
-                            e10.printStackTrace();
-                        }
-                        throw th;
-                    }
-                }
-                if (file != 0) {
-                    file.close();
-                }
-                if (r2 != 0) {
-                    r2.close();
-                }
-                throw th;
-            }
-        } catch (FileNotFoundException e11) {
-            e = e11;
-            file = 0;
-            bufferedReader = null;
-        } catch (IOException e12) {
-            e = e12;
-            file = 0;
-            bufferedReader = null;
-        } catch (Throwable th4) {
-            th = th4;
-            r3 = 0;
-            r2 = r2;
-            th = th;
-            file = r3;
-            if (r3 != 0) {
-            }
-            if (file != 0) {
-            }
-            if (r2 != 0) {
-            }
-            throw th;
+        this.h = new ArrayList();
+        this.i = new ArrayList();
+        this.j = new HashMap();
+        this.k = new HashMap();
+    }
+
+    public void A(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048576, this, f) == null) {
+            this.c = f;
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:38:0x004d, code lost:
-        if (com.baidu.tieba.mka.a == false) goto L32;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:39:0x004f, code lost:
-        r4.printStackTrace();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:49:0x0064, code lost:
-        if (com.baidu.tieba.mka.a == false) goto L32;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static boolean b(String str, File file) {
-        InterceptResult invokeLL;
-        FileOutputStream fileOutputStream;
+    public void q(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, file)) == null) {
-            if (TextUtils.isEmpty(str) || !file.exists()) {
-                return false;
-            }
-            FileOutputStream fileOutputStream2 = null;
-            try {
-                try {
-                    fileOutputStream = new FileOutputStream(file);
-                } catch (Throwable th) {
-                    th = th;
+        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public void r(Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, map) == null) {
+            this.j = map;
+        }
+    }
+
+    public void s(List<String> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, list) == null) {
+            this.i = list;
+        }
+    }
+
+    public void t(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
+            this.a = str;
+        }
+    }
+
+    public void u(Map<String, nka> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, map) == null) {
+            this.k = map;
+        }
+    }
+
+    public void v(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048598, this, f) == null) {
+            this.g = f;
+        }
+    }
+
+    public void w(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048599, this, f) == null) {
+            this.d = f;
+        }
+    }
+
+    public void x(List<oka> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048600, this, list) == null) {
+            this.h = list;
+        }
+    }
+
+    public void y(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048601, this, f) == null) {
+            this.e = f;
+        }
+    }
+
+    public void z(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048602, this, f) == null) {
+            this.f = f;
+        }
+    }
+
+    public void n(JSONObject jSONObject) {
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, jSONObject) == null) {
+            if (jSONObject != null && jSONObject.length() != 0) {
+                if (l) {
+                    Log.d("YaLogConfigData", "yalog config params is: " + jSONObject.toString());
                 }
-            } catch (FileNotFoundException e) {
-                e = e;
-            } catch (IOException e2) {
-                e = e2;
-            }
-            try {
-                fileOutputStream.write(str.getBytes());
-                fileOutputStream.flush();
-                try {
-                    fileOutputStream.close();
-                } catch (IOException e3) {
-                    if (a) {
-                        e3.printStackTrace();
-                    }
+                String optString = jSONObject.optString(SetImageWatermarkTypeReqMsg.SWITCH);
+                this.a = optString;
+                if (!TextUtils.equals("0", optString)) {
+                    this.a = "1";
                 }
-                return true;
-            } catch (FileNotFoundException e4) {
-                e = e4;
-                fileOutputStream2 = fileOutputStream;
-                if (a) {
-                    e.printStackTrace();
+                String optString2 = jSONObject.optString("clear");
+                this.b = optString2;
+                if (!TextUtils.equals("1", optString2)) {
+                    this.b = "0";
                 }
-                if (fileOutputStream2 != null) {
-                    try {
-                        fileOutputStream2.close();
-                    } catch (IOException e5) {
-                        e = e5;
-                    }
+                float optDouble = (float) jSONObject.optDouble("totalsize");
+                this.c = optDouble;
+                if (optDouble <= 0.0f || Float.isNaN(optDouble)) {
+                    this.c = 100.0f;
                 }
-                return false;
-            } catch (IOException e6) {
-                e = e6;
-                fileOutputStream2 = fileOutputStream;
-                if (a) {
-                    e.printStackTrace();
+                float optDouble2 = (float) jSONObject.optDouble("singlesize");
+                this.d = optDouble2;
+                if (optDouble2 <= 0.0f || Float.isNaN(optDouble2)) {
+                    this.d = 1.0f;
                 }
-                if (fileOutputStream2 != null) {
-                    try {
-                        fileOutputStream2.close();
-                    } catch (IOException e7) {
-                        e = e7;
-                    }
+                float optDouble3 = (float) jSONObject.optDouble("spacesize");
+                this.e = optDouble3;
+                if (optDouble3 <= 0.0f || Float.isNaN(optDouble3)) {
+                    this.e = 20.0f;
                 }
-                return false;
-            } catch (Throwable th2) {
-                th = th2;
-                fileOutputStream2 = fileOutputStream;
-                if (fileOutputStream2 != null) {
-                    try {
-                        fileOutputStream2.close();
-                    } catch (IOException e8) {
-                        if (a) {
-                            e8.printStackTrace();
+                float optDouble4 = (float) jSONObject.optDouble("spacetimeout");
+                this.f = optDouble4;
+                if (optDouble4 <= 0.0f || Float.isNaN(optDouble4)) {
+                    this.f = 7.0f;
+                }
+                float optDouble5 = (float) jSONObject.optDouble("idsize");
+                this.g = optDouble5;
+                if (optDouble5 <= 0.0f || Float.isNaN(optDouble5)) {
+                    this.g = 20.0f;
+                }
+                this.i = new ArrayList();
+                JSONObject optJSONObject2 = jSONObject.optJSONObject("set");
+                if (optJSONObject2 != null && optJSONObject2.length() > 0) {
+                    Iterator<String> keys = optJSONObject2.keys();
+                    while (keys.hasNext()) {
+                        String next = keys.next();
+                        JSONObject optJSONObject3 = optJSONObject2.optJSONObject(next);
+                        if (optJSONObject3 != null && (optJSONObject = optJSONObject3.optJSONObject("data")) != null && optJSONObject.length() != 0) {
+                            boolean z = !TextUtils.equals("0", optJSONObject.optString(SetImageWatermarkTypeReqMsg.SWITCH));
+                            float optDouble6 = (float) optJSONObject.optDouble("size");
+                            if (optDouble6 <= 0.0f || Float.isNaN(optDouble6)) {
+                                optDouble6 = this.e;
+                            }
+                            float optDouble7 = (float) optJSONObject.optDouble("timeout");
+                            if (optDouble7 <= 0.0f || Float.isNaN(optDouble7)) {
+                                optDouble7 = this.f;
+                            }
+                            oka okaVar = new oka(next, z, optDouble6, optDouble7);
+                            if (okaVar.e(z, this.e, this.f)) {
+                                this.i.add(next);
+                            } else {
+                                this.h.add(okaVar);
+                            }
                         }
                     }
                 }
-                throw th;
+            } else if (l) {
+                Log.d("YaLogConfigData", "ConfigData is null");
             }
         }
-        return invokeLL.booleanValue;
+    }
+
+    public void o(JSONObject jSONObject, boolean z) {
+        nka nkaVar;
+        long j;
+        long j2;
+        nka nkaVar2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048591, this, jSONObject, z) == null) {
+            if (jSONObject != null && jSONObject.length() != 0) {
+                if (l) {
+                    Log.d("YaLogConfigData", "yalog id content is: " + jSONObject.toString());
+                }
+                JSONObject optJSONObject = jSONObject.optJSONObject("set");
+                if (optJSONObject != null && optJSONObject.length() > 0) {
+                    Iterator<String> keys = optJSONObject.keys();
+                    while (keys.hasNext()) {
+                        String next = keys.next();
+                        JSONObject optJSONObject2 = optJSONObject.optJSONObject(next);
+                        if (optJSONObject2 != null) {
+                            long optLong = optJSONObject2.optLong("version");
+                            if (this.j != null && this.j.containsKey(next)) {
+                                j2 = Long.parseLong(this.j.get(next));
+                            } else {
+                                if (this.k != null && this.k.containsKey(next) && (nkaVar2 = this.k.get(next)) != null) {
+                                    j2 = nkaVar2.c();
+                                }
+                                j2 = 0;
+                            }
+                            if (!z || j2 < optLong) {
+                                JSONObject optJSONObject3 = optJSONObject2.optJSONObject("data");
+                                if (optJSONObject3 != null && optJSONObject3.length() != 0 && optJSONObject3.has("yalogswitch")) {
+                                    boolean z2 = !TextUtils.equals(optJSONObject3.optString("yalogswitch"), "0");
+                                    float optDouble = (float) optJSONObject3.optDouble("yalogsize");
+                                    if (optDouble <= 0.0f || Float.isNaN(optDouble)) {
+                                        optDouble = f();
+                                    }
+                                    nka nkaVar3 = new nka(next, optLong, z2, optDouble);
+                                    if (nkaVar3.d(z2, f())) {
+                                        Map<String, String> map = this.j;
+                                        if (map != null) {
+                                            map.put(next, String.valueOf(optLong));
+                                        }
+                                        Map<String, nka> map2 = this.k;
+                                        if (map2 != null && map2.containsKey(next)) {
+                                            this.k.remove(next);
+                                        }
+                                    } else {
+                                        Map<String, nka> map3 = this.k;
+                                        if (map3 != null) {
+                                            map3.put(next, nkaVar3);
+                                        }
+                                        Map<String, String> map4 = this.j;
+                                        if (map4 != null && map4.containsKey(next)) {
+                                            this.j.remove(next);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                JSONObject optJSONObject4 = jSONObject.optJSONObject("del");
+                if (optJSONObject4 != null && optJSONObject4.length() > 0) {
+                    Iterator<String> keys2 = optJSONObject4.keys();
+                    while (keys2.hasNext()) {
+                        String next2 = keys2.next();
+                        long optLong2 = optJSONObject4.optLong(next2, 0L);
+                        Map<String, String> map5 = this.j;
+                        if (map5 != null && !TextUtils.isEmpty(map5.get(next2))) {
+                            try {
+                                j = Long.parseLong(this.j.get(next2));
+                            } catch (NumberFormatException unused) {
+                                j = 0;
+                            }
+                            if (!z || j < optLong2) {
+                                this.j.remove(next2);
+                            }
+                        } else {
+                            Map<String, nka> map6 = this.k;
+                            if (map6 != null && map6.containsKey(next2) && (nkaVar = this.k.get(next2)) != null) {
+                                long c = nkaVar.c();
+                                if (!z || c < optLong2) {
+                                    this.k.remove(next2);
+                                }
+                            }
+                        }
+                    }
+                }
+            } else if (l) {
+                Log.d("YaLogConfigData", "yalog id content is null");
+            }
+        }
     }
 }

@@ -1,7 +1,13 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.ui5;
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes6.dex */
-public interface vi5<T extends ui5> {
-    boolean onEvent(T t);
+public interface vi5 {
+    int getPid();
+
+    int getTag();
+
+    int getType();
+
+    void setTag(BdUniqueId bdUniqueId);
 }

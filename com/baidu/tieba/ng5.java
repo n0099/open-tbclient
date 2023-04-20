@@ -1,43 +1,38 @@
 package com.baidu.tieba;
 
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ng5 implements lg5 {
+public class ng5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public ng5() {
+    public static mg5 a(View view2, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65536, null, view2, z)) == null) {
+            if (view2 == null) {
+                return null;
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.lg5
-    public void a(View view2, View view3, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048576, this, view2, view3, z) == null) {
-            LinearLayout linearLayout = (LinearLayout) view2;
+            if (view2 instanceof LinearLayout) {
+                return new og5();
+            }
+            if (view2 instanceof RelativeLayout) {
+                return new rg5();
+            }
+            if (!(view2 instanceof FrameLayout)) {
+                return null;
+            }
             if (z) {
-                linearLayout.addView(view3, 0);
-            } else {
-                linearLayout.addView(view3);
+                return new sg5();
             }
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) view3.getLayoutParams();
-            layoutParams.gravity = 1;
-            view3.setLayoutParams(layoutParams);
+            return new kg5();
         }
+        return (mg5) invokeLZ.objValue;
     }
 }

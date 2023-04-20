@@ -54,32 +54,32 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.util.schemeaction.SchemeActionHelper;
 import com.baidu.tbadk.core.util.schemeaction.SchemeActionManager;
 import com.baidu.tbadk.switchs.NewWebHotTopicPageSwitch;
-import com.baidu.tieba.aq4;
-import com.baidu.tieba.e35;
-import com.baidu.tieba.f99;
-import com.baidu.tieba.fd9;
+import com.baidu.tieba.bq4;
+import com.baidu.tieba.f35;
 import com.baidu.tieba.gg;
-import com.baidu.tieba.h95;
-import com.baidu.tieba.i35;
+import com.baidu.tieba.i95;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.ii5;
-import com.baidu.tieba.it4;
-import com.baidu.tieba.mt9;
-import com.baidu.tieba.nf5;
-import com.baidu.tieba.p45;
+import com.baidu.tieba.j35;
+import com.baidu.tieba.ji5;
+import com.baidu.tieba.jt4;
+import com.baidu.tieba.n99;
+import com.baidu.tieba.nd9;
+import com.baidu.tieba.of5;
 import com.baidu.tieba.pb.pb.main.PbModel;
-import com.baidu.tieba.pp5;
-import com.baidu.tieba.qc8;
-import com.baidu.tieba.sq5;
+import com.baidu.tieba.q45;
+import com.baidu.tieba.qp5;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
 import com.baidu.tieba.tblauncher.dispatcher.EnterForumDispatcher;
 import com.baidu.tieba.tblauncher.dispatcher.MessageCenterDispatcher;
-import com.baidu.tieba.tq4;
-import com.baidu.tieba.ur5;
+import com.baidu.tieba.tq5;
+import com.baidu.tieba.uq4;
+import com.baidu.tieba.ut9;
 import com.baidu.tieba.video.UserItemData;
 import com.baidu.tieba.video.VideoItemData;
+import com.baidu.tieba.vr5;
 import com.baidu.tieba.w8;
-import com.baidu.tieba.yh5;
+import com.baidu.tieba.yc8;
+import com.baidu.tieba.zh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -136,23 +136,23 @@ public class SchemaRouteActivity extends BaseActivity {
         if (!(interceptable == null || interceptable.invokeL(1048582, this, intent) == null) || intent == null) {
             return;
         }
-        e35.r(intent.getDataString(), false);
+        f35.r(intent.getDataString(), false);
         A1(intent.getData());
         B1(intent.getData());
         String dataString = intent.getDataString();
         UtilHelper.clearClipBoardBySchemaParam(dataString);
-        tq4.e(intent.getData());
-        tq4.c(intent.getData());
+        uq4.e(intent.getData());
+        uq4.c(intent.getData());
         GrowthStatsUtil.statisticChannel(GrowthStatsUtil.SPLASH_SOURCE.THIRD_PARTY, dataString);
-        fd9.d().a(intent.getData());
+        nd9.d().a(intent.getData());
         if (TextUtils.isEmpty(dataString)) {
             return;
         }
-        if (i35.a().d()) {
-            i35.a().i(1);
+        if (j35.a().d()) {
+            j35.a().i(1);
         }
         if (SchemeActionHelper.isTieBaAppSchemeHeader(dataString)) {
-            aq4.w().M(true);
+            bq4.w().M(true);
             if (!w8.f().h("MainTabActivity")) {
                 if (z1(dataString)) {
                     UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{dataString}, true);
@@ -170,28 +170,28 @@ public class SchemaRouteActivity extends BaseActivity {
                     if (BdUniDispatchSchemeController.isUniScheme(data)) {
                         BdUniDispatchSchemeController.getInstance().parseWebViewScheme(dataString, data, this.a);
                     } else {
-                        it4.r(getActivity(), data);
+                        jt4.r(getActivity(), data);
                     }
-                    aq4.w().M(true);
+                    bq4.w().M(true);
                 } else if (!dataString.contains("tbtopicdetail") && !dataString.contains("unidispatch/topicdetail")) {
                     if (!dataString.contains("tbusercenter") && !dataString.contains("unidispatch/usercenter") && !dataString.contains("usercenter")) {
                         if (dataString.contains(UrlSchemaHelper.FROM_FORUM_SQUARE)) {
                             ForumSquareActivityConfig forumSquareActivityConfig = new ForumSquareActivityConfig(getActivity());
                             forumSquareActivityConfig.setUri(intent.getData());
                             sendMessage(new CustomMessage(2002001, forumSquareActivityConfig));
-                            aq4.w().M(true);
+                            bq4.w().M(true);
                             return;
                         } else if (dataString.contains("unidispatch/hotuserrank")) {
                             HotUserRankActivityConfig hotUserRankActivityConfig = new HotUserRankActivityConfig(getActivity());
                             hotUserRankActivityConfig.setUri(intent.getData());
                             sendMessage(new CustomMessage(2002001, hotUserRankActivityConfig));
-                            aq4.w().M(true);
+                            bq4.w().M(true);
                             return;
                         } else if (dataString.contains("unidispatch/openapp") || dataString.contains("donothing")) {
                             if (!w8.f().h("MainTabActivity")) {
                                 sendMessage(new CustomMessage(2002001, new LogoActivityConfig(getActivity())));
                             }
-                            aq4.w().M(true);
+                            bq4.w().M(true);
                             return;
                         } else {
                             if (dataString.contains(BdUniDispatchSchemeController.HOST + BdUniDispatchSchemeController.PATH_CHUSHOU_ALA_ROOM)) {
@@ -199,24 +199,24 @@ public class SchemaRouteActivity extends BaseActivity {
                                 String queryParameter = parse.getQueryParameter(BdUniDispatchSchemeController.PARAM_CHUSHOU_THIRD_LIVE_TYPE);
                                 String queryParameter2 = parse.getQueryParameter(BdUniDispatchSchemeController.PARAM_CHUSHOU_ROOM_ID);
                                 UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{"tiebachushou://liveroom?roomid=" + queryParameter2 + "&livetype=" + queryParameter});
-                                aq4.w().M(true);
+                                bq4.w().M(true);
                                 return;
                             }
                             if (dataString.contains(BdUniDispatchSchemeController.HOST + BdUniDispatchSchemeController.PATH_TIEBA_YY_ROOM)) {
                                 String queryParameter3 = Uri.parse(dataString).getQueryParameter(BdUniDispatchSchemeController.PARAM_YY_URL);
                                 if (queryParameter3 != null) {
                                     UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{new String(Base64.decode(queryParameter3.getBytes(), 2))});
-                                    aq4.w().M(true);
+                                    bq4.w().M(true);
                                     return;
                                 }
                                 return;
                             } else if (dataString.contains(BdUniDispatchSchemeController.PATH_TIEBA_BAR_FRIEND)) {
                                 UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{ii.T(dataString, "from=key_from_live_close_link")});
-                                aq4.w().M(true);
+                                bq4.w().M(true);
                                 return;
                             } else if (dataString.contains(BdUniDispatchSchemeController.PATH_BDP_LIVE_CHANNEL)) {
                                 AlaTabFeedActivityConfig alaTabFeedActivityConfig = new AlaTabFeedActivityConfig(this);
-                                alaTabFeedActivityConfig.setPageSource(h95.d(dataString));
+                                alaTabFeedActivityConfig.setPageSource(i95.d(dataString));
                                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, alaTabFeedActivityConfig));
                                 return;
                             } else if (dataString.contains("unidispatch/onekeysign")) {
@@ -227,7 +227,7 @@ public class SchemaRouteActivity extends BaseActivity {
                                 } else {
                                     sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(this).createNormalCfg(1)));
                                 }
-                                aq4.w().M(true);
+                                bq4.w().M(true);
                                 return;
                             } else if (dataString.startsWith(UrlSchemaHelper.SCHEMA_LIVE_MY_CONCERN_LIST)) {
                                 MainTabActivityConfig mainTabActivityConfig = new MainTabActivityConfig(this);
@@ -347,7 +347,7 @@ public class SchemaRouteActivity extends BaseActivity {
                                         if (ViewHelper.checkUpIsLoginFromH5(loginActivityConfig)) {
                                             return;
                                         }
-                                        ii5.a().a(getActivity(), optLong2, -1, optString2);
+                                        ji5.a().a(getActivity(), optLong2, -1, optString2);
                                         return;
                                     }
                                 }
@@ -360,7 +360,7 @@ public class SchemaRouteActivity extends BaseActivity {
                                         FrsActivityConfig frsActivityConfig = new FrsActivityConfig(getActivity());
                                         frsActivityConfig.setUri(Uri.parse(str3));
                                         sendMessage(new CustomMessage(2003000, frsActivityConfig));
-                                        aq4.w().M(true);
+                                        bq4.w().M(true);
                                     } else {
                                         String queryParameter13 = parse3.getQueryParameter(BdUniDispatchSchemeController.PARAM_ITEM_ID_CAMEL);
                                         HashMap hashMap3 = new HashMap();
@@ -466,7 +466,7 @@ public class SchemaRouteActivity extends BaseActivity {
                                     LoginActivityConfig loginActivityConfig2 = new LoginActivityConfig(this);
                                     loginActivityConfig2.setAutoLogin(dataString);
                                     sendMessage(new CustomMessage(i, loginActivityConfig2));
-                                    aq4.w().M(true);
+                                    bq4.w().M(true);
                                 }
                                 if (dataString.contains("unidispatch/voiceRoom")) {
                                     try {
@@ -476,7 +476,7 @@ public class SchemaRouteActivity extends BaseActivity {
                                             hashMap4.put(str4, parse7.getQueryParameter(str4));
                                         }
                                         if (hashMap4.containsKey("room_id")) {
-                                            ((yh5) ServiceManager.getService(yh5.a.a())).a(TbadkCoreApplication.getInst().getCurrentPageContext(this), gg.g((String) hashMap4.get("room_id"), 0L), hashMap4);
+                                            ((zh5) ServiceManager.getService(zh5.a.a())).a(TbadkCoreApplication.getInst().getCurrentPageContext(this), gg.g((String) hashMap4.get("room_id"), 0L), hashMap4);
                                         }
                                     } catch (Exception unused) {
                                         if (BdBaseApplication.getInst().isDebugMode()) {
@@ -501,29 +501,29 @@ public class SchemaRouteActivity extends BaseActivity {
                                     String queryParameter36 = parse8.getQueryParameter("is_video_topic");
                                     if (!TextUtils.isEmpty(queryParameter34)) {
                                         if (!StringHelper.equals(queryParameter36, "1") && NewWebHotTopicPageSwitch.isOn()) {
-                                            sq5.e(getPageContext(), queryParameter34, queryParameter35);
+                                            tq5.e(getPageContext(), queryParameter34, queryParameter35);
                                         } else {
                                             new HotTopicActivityConfig(getPageContext().getPageActivity()).createNormalConfig(queryParameter34, queryParameter35, queryParameter36, null).start();
                                         }
                                     }
                                 }
                                 if (dataString.contains(UrlSchemaHelper.SCHEMA_TYPE_HOT_TOPIC_RANK_LIST)) {
-                                    mt9.c(getPageContext());
+                                    ut9.c(getPageContext());
                                 }
                                 if (dataString.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_PERSON_CHAT)) {
-                                    f99.e(this, dataString, true);
+                                    n99.e(this, dataString, true);
                                 }
                                 if (dataString.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_ALBUM)) {
-                                    f99.a(this, dataString);
+                                    n99.a(this, dataString);
                                 }
                                 if (dataString.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_SKILL_DETAIL)) {
-                                    f99.d(this, dataString);
+                                    n99.d(this, dataString);
                                 }
                                 if (dataString.startsWith("com.baidu.tieba://unidispatch/GameGodsDetailPage")) {
-                                    f99.b(this, dataString);
+                                    n99.b(this, dataString);
                                 }
                                 if (dataString.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_ORDER_PAGE)) {
-                                    f99.c(this, dataString);
+                                    n99.c(this, dataString);
                                 }
                                 if (dataString.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_MAIN_PAGE)) {
                                     UrlSchemaJumpHelper.jumpGamePlayPage(this, dataString);
@@ -543,7 +543,7 @@ public class SchemaRouteActivity extends BaseActivity {
                                 }
                                 if (TextUtils.isEmpty(dataString)) {
                                     if (dataString.contains(UrlSchemaHelper.SCHEMA_GAME_RECOMMENT_PAGE) || dataString.contains(NewUrlSchemaHelper.Jump.JUMP_TO_VIDEO_SQUARE) || dataString.contains(UrlSchemaHelper.SCHEMA_TYPE_TB_CLIENT) || dataString.contains(UrlSchemaHelper.SCHEMA_LIVE_SDK) || dataString.contains(UrlSchemaHelper.SCHEMA_CHUSHOU_LIVE_SDK) || dataString.contains(UrlSchemaHelper.SCHEMA_TYPE_TB_CLIENT_ZM) || dataString.contains(UrlSchemaHelper.SCHEMA_TYPE_TB_LAUNCH) || dataString.contains("com.baidu.tieba://unidispatch/homepage") || dataString.contains("com.baidu.tieba://unidispatch/activitypage") || dataString.contains("com.baidu.tieba://unidispatch/minePage") || dataString.contains(MessageCenterDispatcher.url) || dataString.contains(EnterForumDispatcher.url) || dataString.contains("com.baidu.tieba://unidispatch/recommendforum") || dataString.contains("com.baidu.tieba://deeplink") || dataString.contains("com.baidu.tieba://unidispatch/videotab") || dataString.contains(UrlSchemaHelper.SCHEMA_TYPE_HOMEPAGE_ANYTAB)) {
-                                        qc8.G(dataString);
+                                        yc8.G(dataString);
                                         MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(TbadkCoreApplication.getInst()).createUriCfg(intent.getData())));
                                         return;
                                     }
@@ -556,16 +556,16 @@ public class SchemaRouteActivity extends BaseActivity {
                     PersonPolymericActivityConfig personPolymericActivityConfig = new PersonPolymericActivityConfig(getActivity());
                     personPolymericActivityConfig.setUri(intent.getData());
                     sendMessage(new CustomMessage(2002001, personPolymericActivityConfig));
-                    aq4.w().M(true);
+                    bq4.w().M(true);
                 } else {
                     if (NewWebHotTopicPageSwitch.isOn()) {
-                        sq5.e(getPageContext(), ur5.c(dataString, "topic_id="), null);
+                        tq5.e(getPageContext(), vr5.c(dataString, "topic_id="), null);
                     } else {
                         TopicDetailActivityConfig topicDetailActivityConfig = new TopicDetailActivityConfig(getActivity());
                         topicDetailActivityConfig.setUri(intent.getData());
                         sendMessage(new CustomMessage(2002001, topicDetailActivityConfig));
                     }
-                    aq4.w().M(true);
+                    bq4.w().M(true);
                 }
             } else if ("tbpb://tieba.baidu.com".equals(dataString)) {
                 if (w8.f().h("MainTabActivity")) {
@@ -584,7 +584,7 @@ public class SchemaRouteActivity extends BaseActivity {
                     arrayList4.add(videoItemData4);
                     new VideoRecommentPlayActivityConfig(this, arrayList4, null, VideoRecommentPlayActivityConfig.FROM_PB_VIDEO_SCHEME).setUri(intent.getData()).start();
                 }
-                aq4.w().M(true);
+                bq4.w().M(true);
             }
         } else {
             FrsActivityConfig frsActivityConfig2 = new FrsActivityConfig(getActivity());
@@ -597,7 +597,7 @@ public class SchemaRouteActivity extends BaseActivity {
                 frsActivityConfig2.setGroupListLocateRoomId(gg.g(parse9.getQueryParameter(FrsActivityConfig.LOCATE_ROOM_ID), -1L));
             }
             sendMessage(new CustomMessage(2003000, frsActivityConfig2));
-            aq4.w().M(true);
+            bq4.w().M(true);
         }
     }
 
@@ -629,7 +629,7 @@ public class SchemaRouteActivity extends BaseActivity {
         public void a(HashMap<String, Object> hashMap) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) && hashMap != null && (hashMap.get(BdUniDispatchSchemeController.PARAM_URL) instanceof String)) {
-                TbWebViewActivityConfig g = it4.g(this.a.getActivity(), null, (String) hashMap.get(BdUniDispatchSchemeController.PARAM_URL), true);
+                TbWebViewActivityConfig g = jt4.g(this.a.getActivity(), null, (String) hashMap.get(BdUniDispatchSchemeController.PARAM_URL), true);
                 g.setIsFromSchema(true);
                 g.setUri((Uri) hashMap.get(BdUniDispatchSchemeController.PARAM_URI));
                 this.a.sendMessage(new CustomMessage(2002001, g));
@@ -653,7 +653,7 @@ public class SchemaRouteActivity extends BaseActivity {
         this.a = new a(this);
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.ll5
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.ml5
     public List<String> getCurrentPageSourceKeyList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -679,7 +679,7 @@ public class SchemaRouteActivity extends BaseActivity {
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri) != null) || uri == null) {
             return;
         }
-        pp5.d(uri.getQueryParameter(TiebaStatic.Params.WISE_SAMPLE_ID));
+        qp5.d(uri.getQueryParameter(TiebaStatic.Params.WISE_SAMPLE_ID));
     }
 
     public final void E1(String str) {
@@ -699,7 +699,7 @@ public class SchemaRouteActivity extends BaseActivity {
             if (loadInt == 1) {
                 TbadkCoreApplication.getInst().setSkinTypeValue(4);
                 TbadkCoreApplication.getInst().SendSkinTypeBroadcast(4);
-            } else if (p45.m().i("key_is_follow_system_mode", false)) {
+            } else if (q45.m().i("key_is_follow_system_mode", false)) {
                 SkinManager.setDayOrDarkSkinTypeWithSystemMode(false, true);
             } else {
                 TbadkCoreApplication.getInst().setSkinTypeValue(loadInt);
@@ -714,10 +714,10 @@ public class SchemaRouteActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_MID_ACTIVITY_ONCREATE_START_STAMP_KEY);
             if (TbadkCoreApplication.getInst().getStartType() == 2) {
-                nf5.a = true;
+                of5.a = true;
             }
-            qc8.o = true;
-            e35.t(this);
+            yc8.o = true;
+            f35.t(this);
             super.onCreate(bundle);
             C1();
             if (PermissionUtil.isAgreePrivacyPolicy()) {

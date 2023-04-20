@@ -1,44 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.core.slave.SwanAppSlaveManager;
+import com.baidu.swan.apps.core.slave.SwanWebModeWidget;
+import com.baidu.swan.apps.view.SwanAppSimpleH5Widget;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public final class ku1 {
+public class ku1 implements wt1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final ku1 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-649379548, "Lcom/baidu/tieba/ku1$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-649379548, "Lcom/baidu/tieba/ku1$b;");
-                    return;
-                }
-            }
-            a = new ku1(null);
-        }
+    @Override // com.baidu.tieba.wt1
+    public boolean j(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) ? i == 0 : invokeI.booleanValue;
     }
 
     public ku1() {
@@ -55,25 +37,93 @@ public final class ku1 {
         }
     }
 
-    public static ku1 a() {
+    @Override // com.baidu.tieba.wt1
+    public q92 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return new q92();
         }
-        return (ku1) invokeV.objValue;
+        return (q92) invokeV.objValue;
     }
 
-    public hu1 b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.wt1
+    public eu1 a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new iu1();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            return new SwanWebModeWidget(context);
         }
-        return (hu1) invokeV.objValue;
+        return (eu1) invokeL.objValue;
     }
 
-    public /* synthetic */ ku1(a aVar) {
-        this();
+    @Override // com.baidu.tieba.wt1
+    public au1 b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            return new s62(context);
+        }
+        return (au1) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.wt1
+    public eu1 c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            return new ru1(context);
+        }
+        return (eu1) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.wt1
+    public eu1 f(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
+            return new kv1(context);
+        }
+        return (eu1) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.wt1
+    public eu1 g(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) {
+            return new ov1(context);
+        }
+        return (eu1) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.wt1
+    public eu1 i(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context)) == null) {
+            return new SwanAppSimpleH5Widget(context);
+        }
+        return (eu1) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.wt1
+    public bu1 e(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, context, i)) == null) {
+            return new SwanAppSlaveManager(context);
+        }
+        return (bu1) invokeLI.objValue;
+    }
+
+    @Override // com.baidu.tieba.wt1
+    public r92 h(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, context, i)) == null) {
+            return new s92().a(context, i);
+        }
+        return (r92) invokeLI.objValue;
     }
 }

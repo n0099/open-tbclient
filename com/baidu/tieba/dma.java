@@ -1,45 +1,197 @@
 package com.baidu.tieba;
 
-import android.util.Base64;
-import com.baidu.searchbox.retrieve.file.util.AESUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.lifecycle.SavedStateHandle;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.nio.charset.Charset;
-import javax.crypto.Cipher;
-import javax.crypto.spec.SecretKeySpec;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.tencent.open.SocialConstants;
+import java.io.ObjectInput;
+import java.io.ObjectOutput;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class dma {
+public class dma extends mra {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Set<a> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947710737, "Lcom/baidu/tieba/dma;")) == null) {
-            return;
+    /* loaded from: classes4.dex */
+    public static class a extends mra {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final String a;
+        public final Map<String, Set<Object>> b;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(int i, ObjectInput objectInput) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), objectInput};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = objectInput.readUTF();
+            HashMap hashMap = new HashMap();
+            int readInt = objectInput.readInt();
+            for (int i4 = 0; i4 < readInt; i4++) {
+                String readUTF = objectInput.readUTF();
+                int readInt2 = objectInput.readInt();
+                HashSet hashSet = new HashSet();
+                for (int i5 = 0; i5 < readInt2; i5++) {
+                    try {
+                        hashSet.add(objectInput.readObject());
+                    } catch (ClassNotFoundException e) {
+                        LogPrinter.e(e);
+                    }
+                }
+                hashMap.put(readUTF, Collections.unmodifiableSet(hashSet));
+            }
+            this.b = Collections.unmodifiableMap(hashMap);
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(JSONObject jSONObject) {
+            super(1);
+            Map<String, Set<Object>> unmodifiableMap;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jSONObject};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.a = jSONObject.getString("key");
+            JSONArray optJSONArray = jSONObject.optJSONArray("content");
+            if (optJSONArray == null) {
+                unmodifiableMap = Collections.emptyMap();
+            } else {
+                HashMap hashMap = new HashMap();
+                for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
+                    JSONObject jSONObject2 = optJSONArray.getJSONObject(i3);
+                    String string = jSONObject2.getString(CriusAttrConstants.COLUMN);
+                    JSONArray optJSONArray2 = jSONObject2.optJSONArray(SavedStateHandle.VALUES);
+                    int length = optJSONArray2 == null ? 0 : optJSONArray2.length();
+                    HashSet hashSet = new HashSet();
+                    for (int i4 = 0; i4 < length; i4++) {
+                        hashSet.add(optJSONArray2.get(i4));
+                    }
+                    hashMap.put(string, Collections.unmodifiableSet(hashSet));
+                }
+                unmodifiableMap = Collections.unmodifiableMap(hashMap);
+            }
+            this.b = unmodifiableMap;
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947710737, "Lcom/baidu/tieba/dma;");
+
+        @Override // com.baidu.tieba.mra
+        public void srzableInternal(ObjectOutput objectOutput) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, objectOutput) == null) {
+                objectOutput.writeUTF(this.a);
+                objectOutput.writeInt(this.b.size());
+                for (Map.Entry<String, Set<Object>> entry : this.b.entrySet()) {
+                    Set<Object> value = entry.getValue();
+                    objectOutput.writeUTF(entry.getKey());
+                    objectOutput.writeInt(value.size());
+                    for (Object obj : value) {
+                        objectOutput.writeObject(obj);
+                    }
+                }
+            }
         }
     }
 
-    public static String a(String str, String str2) {
-        InterceptResult invokeLL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dma(int i, ObjectInput objectInput) {
+        super(i);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            Charset forName = Charset.forName("UTF-8");
-            SecretKeySpec secretKeySpec = new SecretKeySpec(Base64.decode(str2.getBytes(forName), 0), "AES");
-            Cipher cipher = Cipher.getInstance(AESUtil.ECB_TRANSFORMATION);
-            cipher.init(2, secretKeySpec);
-            return new String(cipher.doFinal(Base64.decode(str.getBytes(forName), 0)), forName);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), objectInput};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return (String) invokeLL.objValue;
+        int readInt = objectInput.readInt();
+        HashSet hashSet = new HashSet();
+        for (int i4 = 0; i4 < readInt; i4++) {
+            hashSet.add(new a(objectInput.readInt(), objectInput));
+        }
+        this.a = Collections.unmodifiableSet(hashSet);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dma(JSONObject jSONObject) {
+        super(1);
+        Set<a> unmodifiableSet;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONObject};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        JSONArray optJSONArray = jSONObject.optJSONArray(SocialConstants.PARAM_EXCLUDE);
+        if (optJSONArray == null) {
+            unmodifiableSet = Collections.emptySet();
+        } else {
+            HashSet hashSet = new HashSet();
+            for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
+                hashSet.add(new a(optJSONArray.getJSONObject(i3)));
+            }
+            unmodifiableSet = Collections.unmodifiableSet(hashSet);
+        }
+        this.a = unmodifiableSet;
+    }
+
+    @Override // com.baidu.tieba.mra
+    public void srzableInternal(ObjectOutput objectOutput) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, objectOutput) == null) {
+            objectOutput.writeInt(this.a.size());
+            for (a aVar : this.a) {
+                aVar.srzable(objectOutput);
+            }
+        }
     }
 }

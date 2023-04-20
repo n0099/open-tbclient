@@ -1,27 +1,27 @@
 package com.baidu.tieba;
 
-import android.widget.EditText;
+import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.AccountAccessActivityConfig;
-import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
-import com.baidu.tbadk.core.atomData.NewVcodeActivityConfig;
-import com.baidu.tbadk.core.atomData.VcodeActivityConfig;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AddLinkActivityConfig;
+import com.baidu.tbadk.core.dialog.WriteTipBubbleController;
+import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.c05;
-import com.baidu.tieba.tbadkCore.util.AntiHelper;
-import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
-import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.tieba.view.DefaultNavigationBarCoverTip;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.tbadk.switchs.AsyncGetClipboardSwitch;
+import com.baidu.tieba.write.write.NewWriteActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
@@ -31,33 +31,29 @@ public class a6a {
     @NonNull
     public final TbPageContext<?> a;
     @NonNull
-    public final f3a b;
-    @NonNull
-    public final c6a c;
+    public final EditorTools b;
     @Nullable
-    public EditText d;
-    @Nullable
-    public EditText e;
-    public final Runnable f;
-    public final NewWriteModel.d g;
+    public WriteTipBubbleController c;
+    public final CustomMessageListener d;
+    public final WriteTipBubbleController.b e;
 
     /* loaded from: classes3.dex */
-    public class b implements NewWriteModel.d {
+    public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a6a a;
 
         /* loaded from: classes3.dex */
-        public class a implements c05.e {
+        public class a extends dr5<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public a(b bVar) {
+            public a(c cVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
+                    Object[] objArr = {cVar};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -68,28 +64,30 @@ public class a6a {
                 }
             }
 
-            @Override // com.baidu.tieba.c05.e
-            public void onClick(c05 c05Var) {
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.tieba.dr5
+            public String doInBackground() {
+                InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) {
-                    c05Var.dismiss();
+                if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                    return UtilHelper.getClipBoardContent();
                 }
+                return (String) invokeV.objValue;
             }
         }
 
-        /* renamed from: com.baidu.tieba.a6a$b$b  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0207b implements c05.e {
+        public class b implements gq5<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
+            public final /* synthetic */ c a;
 
-            public C0207b(b bVar) {
+            public b(c cVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
+                    Object[] objArr = {cVar};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -99,103 +97,22 @@ public class a6a {
                         return;
                     }
                 }
-                this.a = bVar;
+                this.a = cVar;
             }
 
-            @Override // com.baidu.tieba.c05.e
-            public void onClick(c05 c05Var) {
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.tieba.gq5
+            /* renamed from: a */
+            public void onReturnDataInUI(String str) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) {
-                    c05Var.dismiss();
-                    this.a.a.a.sendMessage(new CustomMessage(2002001, new MemberPayActivityConfig(this.a.a.a.getPageActivity(), 0, 26, 1)));
-                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.WRITE_MORE_LINK_DIALOG_SHOW_OPEN_CLICK).param("obj_locate", 1).param("obj_type", 1));
+                if (interceptable != null && interceptable.invokeL(1048576, this, str) != null) {
+                    return;
                 }
+                this.a.a.h(str);
             }
         }
 
-        public b(a6a a6aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {a6aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = a6aVar;
-        }
-
-        @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
-        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, a95 a95Var, WriteData writeData, AntiData antiData) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, a95Var, writeData, antiData}) != null) || postWriteCallBackData == null) {
-                return;
-            }
-            this.a.b.m(null);
-            if (z) {
-                return;
-            }
-            if (postWriteCallBackData.isSensitiveError()) {
-                this.a.b.n(postWriteCallBackData.getErrorString());
-                this.a.b.m(postWriteCallBackData.getSensitiveWords());
-                this.a.b.h(this.a.d, this.a.e);
-            } else if (postWriteCallBackData.isErrorLinkCountExceedLimit()) {
-                if (this.a.a.getPageActivity() == null) {
-                    return;
-                }
-                if (hi.isEmpty(postWriteCallBackData.getErrorString())) {
-                    DefaultNavigationBarCoverTip.t(this.a.a.getPageActivity(), this.a.a.getPageActivity().getString(R.string.current_links_too_much_please_modify_and_publish), null).v();
-                } else {
-                    DefaultNavigationBarCoverTip.t(this.a.a.getPageActivity(), postWriteCallBackData.getErrorString(), null).v();
-                }
-            } else if (postWriteCallBackData.isErrorShowApplyMemberDialog()) {
-                if (this.a.a.getPageActivity() == null) {
-                    return;
-                }
-                c05 c05Var = new c05(this.a.a.getPageActivity());
-                if (hi.isEmpty(postWriteCallBackData.getErrorString())) {
-                    c05Var.setMessage(this.a.a.getPageActivity().getString(R.string.open_member_and_add_more_links));
-                } else {
-                    c05Var.setMessage(postWriteCallBackData.getErrorString());
-                }
-                c05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038d, new a(this));
-                c05Var.setPositiveButton(R.string.open_now, new C0207b(this));
-                c05Var.create(this.a.a).show();
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.WRITE_MORE_LINK_DIALOG_SHOW).param("obj_locate", 1).param("obj_type", 1));
-            } else if ((a95Var == null || writeData == null || a95Var.c() == null || AntiHelper.h(antiData)) && postWriteCallBackData.getErrorCode() != 227001 && !et9.d(postWriteCallBackData.getErrorCode())) {
-                this.a.c.b(postWriteCallBackData);
-            } else if (a95Var != null && writeData != null && a95Var.c() != null) {
-                if (writeData.isCanNoForum()) {
-                    writeData.setForumName("");
-                    writeData.setForumId("0");
-                }
-                writeData.setVcodeMD5(a95Var.b());
-                writeData.setVcodeUrl(a95Var.c());
-                writeData.setVcodeExtra(a95Var.a());
-                if (zr5.b(a95Var.d())) {
-                    this.a.a.sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.a.a.getPageActivity(), 12006, writeData, false, a95Var.d())));
-                } else {
-                    this.a.a.sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this.a.a.getPageActivity(), writeData, 12006)));
-                }
-            } else if (postWriteCallBackData.getErrorCode() == 227001) {
-                this.a.a.sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(this.a.a.getPageActivity(), 12006, writeData, postWriteCallBackData.getAccessState())));
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ a6a a;
-
-        public a(a6a a6aVar) {
+        public c(a6a a6aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -216,18 +133,133 @@ public class a6a {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.g.callback(false, qn9.d, qn9.e, qn9.f, qn9.g);
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.b.a != null) {
+                if (AsyncGetClipboardSwitch.isOn() && TbadkCoreApplication.getInst().isMIUIRom()) {
+                    hr5.b(new a(this), new b(this));
+                    return;
+                }
+                this.a.h(UtilHelper.getClipBoardContent());
             }
         }
     }
 
-    public a6a(@NonNull TbPageContext<?> tbPageContext, @NonNull f3a f3aVar) {
+    /* loaded from: classes3.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ a6a a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(a6a a6aVar, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {a6aVar, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = a6aVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof BackgroundSwitchMessage) && !((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
+                this.a.e();
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class b implements WriteTipBubbleController.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ a6a a;
+
+        public b(a6a a6aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {a6aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = a6aVar;
+        }
+
+        @Override // com.baidu.tbadk.core.dialog.WriteTipBubbleController.b
+        public void a(View view2, String str) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeLL(1048576, this, view2, str) != null) || this.a.c == null) {
+                return;
+            }
+            TiebaStatic.log("c13802");
+            this.a.c.c();
+            UtilHelper.clearClipBoard();
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AddLinkActivityConfig(this.a.a.getPageActivity(), 25049, str, false, null)));
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class d implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ a6a b;
+
+        public d(a6a a6aVar, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {a6aVar, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = a6aVar;
+            this.a = str;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                View s = this.b.b.a.s(31);
+                WriteTipBubbleController writeTipBubbleController = this.b.c;
+                writeTipBubbleController.d(s, this.b.a.getString(R.string.find_new_link) + "\n" + this.a, this.a, WriteTipBubbleController.ANCHOR_VIEW_FROM.FROM_EDITOR_TOOL);
+            }
+        }
+    }
+
+    public a6a(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, f3aVar};
+            Object[] objArr = {tbPageContext, editorTools};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -237,38 +269,45 @@ public class a6a {
                 return;
             }
         }
-        this.f = new a(this);
-        this.g = new b(this);
+        this.d = new a(this, 2001011);
+        this.e = new b(this);
         this.a = tbPageContext;
-        this.b = f3aVar;
-        this.c = new c6a(tbPageContext);
+        this.b = editorTools;
     }
 
-    public void i(@Nullable EditText editText) {
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, editText) == null) {
-            this.e = editText;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b.post(new c(this));
         }
     }
 
-    public void j(@Nullable EditText editText) {
+    public void f() {
+        WriteTipBubbleController writeTipBubbleController;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, editText) == null) {
-            this.d = editText;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (writeTipBubbleController = this.c) != null) {
+            writeTipBubbleController.c();
         }
     }
 
     public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            jg.a().removeCallbacks(this.f);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.registerListener(this.d);
         }
     }
 
-    public void h() {
+    public final void h(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            jg.a().postDelayed(this.f, 500L);
+        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && !hi.isEmpty(str) && UrlManager.getInstance().isUrlValid(str)) {
+            int i = 0;
+            if ((this.a.getPageActivity() instanceof NewWriteActivity) && ((NewWriteActivity) this.a.getPageActivity()).t1()) {
+                i = 5000;
+            }
+            if (this.c == null) {
+                this.c = new WriteTipBubbleController(this.a, this.e);
+            }
+            jg.a().postDelayed(new d(this, str), i);
         }
     }
 }

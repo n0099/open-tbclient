@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.data.SelectForumData;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.ix;
-import com.baidu.tieba.q25;
+import com.baidu.tieba.jx;
+import com.baidu.tieba.r25;
 import com.baidu.tieba.view.SymbolEMTextView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class InterestForumTagView extends LinearLayout implements ix {
+public class InterestForumTagView extends LinearLayout implements jx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
@@ -123,13 +123,13 @@ public class InterestForumTagView extends LinearLayout implements ix {
         }
     }
 
-    @Override // com.baidu.tieba.ix
+    @Override // com.baidu.tieba.jx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) {
             SymbolEMTextView symbolEMTextView = this.b;
             if (symbolEMTextView != null) {
-                q25 d = q25.d(symbolEMTextView);
+                r25 d = r25.d(symbolEMTextView);
                 d.B(R.dimen.T_X09);
                 d.w(R.color.CAM_X0107);
                 d.y(R.dimen.tbds0);
@@ -139,7 +139,7 @@ public class InterestForumTagView extends LinearLayout implements ix {
             if (imageView != null) {
                 WebPManager.setPureDrawable(imageView, R.drawable.icon_pure_card_close22, R.color.CAM_X0108, WebPManager.ResourceStateType.NORMAL);
             }
-            q25 d2 = q25.d(this);
+            r25 d2 = r25.d(this);
             d2.o(R.string.J_X01);
             d2.f(R.color.CAM_X0202);
         }

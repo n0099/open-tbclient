@@ -2,65 +2,18 @@ package com.baidu.tieba;
 
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import androidx.annotation.Nullable;
-import com.baidu.swan.apps.core.container.PullToRefreshBaseWebView;
-import com.baidu.tieba.bu1;
+import com.baidu.tieba.cu1;
 /* loaded from: classes3.dex */
-public interface au1<T extends bu1> extends cu1<T>, jt1 {
-    void C(int i);
+public interface au1<T extends cu1> extends du1<T> {
+    void E();
 
-    boolean I();
+    void F(ViewGroup viewGroup);
 
-    boolean J();
+    void G(View view2);
 
-    void K(le2 le2Var);
+    void P(boolean z);
 
-    lu1 M();
+    void V();
 
-    void O(FrameLayout frameLayout, j83 j83Var);
-
-    int Q();
-
-    void R(String str);
-
-    void T();
-
-    boolean W(sb3 sb3Var);
-
-    boolean X(sb3 sb3Var);
-
-    void Y(i92 i92Var);
-
-    void Z(j92 j92Var);
-
-    boolean c();
-
-    @Nullable
-    k42 c0();
-
-    int f0();
-
-    void h(ux2 ux2Var);
-
-    PullToRefreshBaseWebView h0();
-
-    boolean i0();
-
-    void j(ViewGroup viewGroup, View view2);
-
-    @Nullable
-    String j0();
-
-    du1 k();
-
-    String m();
-
-    boolean s(int i);
-
-    void x(String str);
-
-    boolean y(sb3 sb3Var);
-
-    void z(FrameLayout frameLayout, j83 j83Var);
+    void g0(String str, String str2);
 }

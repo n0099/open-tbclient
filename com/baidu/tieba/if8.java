@@ -1,12 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.squareup.wire.Message;
+import java.util.List;
 /* loaded from: classes4.dex */
 public interface if8 {
-    af8 a(ef8 ef8Var);
+    int a();
 
-    ee8 b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, int i);
+    void b(boolean z, Message message, boolean z2, int i);
 
-    kf8 c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId);
+    List<ICardInfo> c();
+
+    boolean d();
+
+    boolean hasMore();
 }

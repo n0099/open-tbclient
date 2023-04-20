@@ -3,7 +3,7 @@ package com.xiaomi.push.service;
 import com.xiaomi.push.fk;
 import com.xiaomi.push.gg;
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class bt extends XMPushService.j {
     public fk a;
 

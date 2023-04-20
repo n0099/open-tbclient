@@ -7,7 +7,7 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.BIMManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tieba.bq5;
+import com.baidu.tieba.cq5;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.BubbleInfo;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.UserExtraInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,7 +31,7 @@ public class CommonMsgField extends OrmObject implements Serializable {
     public Map<String, Object> content;
     @Nullable
     @SerializedName("main_data")
-    @bq5(deserialize = false, serialize = false)
+    @cq5(deserialize = false, serialize = false)
     public List<EnableDegradeUserData> enableDegradeUserDataList;
     @SerializedName("forum_id")
     public long forumId;
@@ -40,12 +40,12 @@ public class CommonMsgField extends OrmObject implements Serializable {
     public boolean isLocalMsgId;
     public int level;
     @SerializedName("msg_id")
-    @bq5(serialize = false)
+    @cq5(serialize = false)
     public long msgId;
     @SerializedName("msg_key")
-    @bq5(serialize = false)
+    @cq5(serialize = false)
     public String msgKey;
-    @bq5(serialize = false)
+    @cq5(serialize = false)
     public String portrait;
     @Nullable
     @SerializedName("quick_operate")
@@ -54,17 +54,17 @@ public class CommonMsgField extends OrmObject implements Serializable {
     public int robotRole;
     public int role;
     @SerializedName("room_id")
-    @bq5(serialize = false)
+    @cq5(serialize = false)
     public long roomId;
     public int type;
     @Nullable
     @SerializedName("user_extra_info")
     public UserExtraInfo userExtraInfo;
     @SerializedName("user_id")
-    @bq5(serialize = false)
+    @cq5(serialize = false)
     public long userId;
     @SerializedName("user_name")
-    @bq5(serialize = false)
+    @cq5(serialize = false)
     public String userName;
     @Nullable
     public String version;

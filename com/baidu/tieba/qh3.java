@@ -2,35 +2,39 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.util.Log;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.nh3;
+import com.baidu.tieba.oh3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class qh3 extends ph3 {
+public abstract class qh3 extends s93 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qh3(r83 r83Var) {
-        super(r83Var, "/swanAPI/getBatteryInfoSync");
+    public qh3(s83 s83Var, String str) {
+        super(s83Var, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {r83Var};
+            Object[] objArr = {s83Var, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((r83) objArr2[0], (String) objArr2[1]);
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -38,33 +42,49 @@ public class qh3 extends ph3 {
         }
     }
 
-    @Override // com.baidu.tieba.r93
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, u73 u73Var) {
-        InterceptResult invokeLLLL;
+    public boolean j(Context context, v73 v73Var, UnitedSchemeEntity unitedSchemeEntity) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, u73Var)) == null) {
-            if (!j(context, u73Var, unitedSchemeEntity)) {
-                return false;
-            }
-            nh3.a a = nh3.a(context);
-            if (a == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "sticky broadcast receive error");
-                return false;
-            }
-            if (r93.b) {
-                Log.d("battery", "/swanAPI/getBatteryInfoSync = level: " + a.a + " ; plugged: " + a.b);
-            }
-            JSONObject k = k(a);
-            if (k == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "Json error");
-                if (r93.b) {
-                    Log.d("SwanAppAction", "getBatteryInfoSync --- json error");
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, v73Var, unitedSchemeEntity)) == null) {
+            if (v73Var == null) {
+                v42.c("battery", "none swanApp");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
+                if (s93.b) {
+                    Log.d("SwanAppAction", "getBatteryInfo --- illegal swanApp");
                 }
                 return false;
+            } else if (context == null) {
+                v42.c("battery", "none context");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
+                if (s93.b) {
+                    Log.d("SwanAppAction", "getBatteryInfo --- illegal context");
+                }
+                return false;
+            } else {
+                return true;
             }
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(k, 0);
-            return true;
         }
-        return invokeLLLL.booleanValue;
+        return invokeLLL.booleanValue;
+    }
+
+    @Nullable
+    public JSONObject k(@NonNull oh3.a aVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                int i = 100;
+                if (aVar.a <= 100) {
+                    i = aVar.a;
+                }
+                jSONObject.put("level", String.valueOf(i));
+                jSONObject.put("isCharging", aVar.b);
+                return jSONObject;
+            } catch (JSONException unused) {
+                return null;
+            }
+        }
+        return (JSONObject) invokeL.objValue;
     }
 }

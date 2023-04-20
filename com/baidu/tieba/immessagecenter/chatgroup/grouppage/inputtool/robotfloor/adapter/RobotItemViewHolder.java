@@ -14,13 +14,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.BaseItemViewHolder;
-import com.baidu.tieba.n38;
-import com.baidu.tieba.q25;
+import com.baidu.tieba.o38;
+import com.baidu.tieba.r25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class RobotItemViewHolder extends BaseItemViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -79,7 +79,7 @@ public class RobotItemViewHolder extends BaseItemViewHolder {
     public void f(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            q25 d = q25.d(this.g);
+            r25 d = r25.d(this.g);
             d.B(R.dimen.T_X08);
             d.w(R.color.CAM_X0107);
             this.f.setIsRound(true);
@@ -88,10 +88,10 @@ public class RobotItemViewHolder extends BaseItemViewHolder {
     }
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.BaseItemViewHolder
-    public void d(@NonNull n38 n38Var, @NonNull TbPageContext tbPageContext, int i) {
+    public void d(@NonNull o38 o38Var, @NonNull TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, n38Var, tbPageContext, i) == null) && (n38Var instanceof RobotItem)) {
-            RobotItem robotItem = (RobotItem) n38Var;
+        if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, o38Var, tbPageContext, i) == null) && (o38Var instanceof RobotItem)) {
+            RobotItem robotItem = (RobotItem) o38Var;
             this.i = robotItem;
             if (!TextUtils.isEmpty(robotItem.getRoboatName())) {
                 this.g.setText(this.i.getRoboatName());

@@ -1,42 +1,67 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.DialogInterface;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payservice.IH5PayActivityVisit;
-import tv.athena.revenue.api.pay.params.PayFlowType;
+import tv.athena.revenue.payui.view.AbsViewEventHandler;
+import tv.athena.revenue.payui.view.IYYPayResultView;
+import tv.athena.revenue.payui.view.dialog.CancelType;
 /* loaded from: classes5.dex */
-public class j8b implements IH5PayActivityVisit {
+public class j8b implements yab {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public AbsViewEventHandler a;
+    public o7b b;
+    public Activity c;
+    public IYYPayResultView d;
 
-    public j8b() {
+    @Override // com.baidu.tieba.yab
+    public boolean b(DialogInterface dialogInterface, CancelType cancelType) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface, cancelType)) == null) {
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public j8b(AbsViewEventHandler absViewEventHandler, o7b o7bVar, Activity activity, IYYPayResultView iYYPayResultView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {absViewEventHandler, o7bVar, activity, iYYPayResultView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.yy.mobile.framework.revenuesdk.payservice.IH5PayActivityVisit
-    public void notifyPayFlowActivityVisit(String str, int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(1048576, this, str, i, i2, i3) == null) {
-            RLog.info("H5PayActivityVisitImpl", "notifyPayFlowActivityVisit mAppId:" + i + " mUserChannel:" + i2 + " name:" + str);
-            PayFlowType a = q9b.a(i3);
-            if (a == null) {
-                RLog.error("H5PayActivityVisitImpl", "notifyPayFlowActivityVisit mAppId:" + i + " mUserChannel:" + i2 + " name:" + str + " payFlowType null", new Object[0]);
                 return;
             }
-            s8b.b(str, i, i2, a);
+        }
+        RLog.info("PayResultDialogListener", "create PayResultDialogListener");
+        this.a = absViewEventHandler;
+        this.b = o7bVar;
+        this.c = activity;
+        this.d = iYYPayResultView;
+    }
+
+    @Override // com.baidu.tieba.yab
+    public void a(CancelType cancelType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
+            RLog.info("PayResultDialogListener", "PayResultDialog notifyCancelType clickArea:" + cancelType);
+            if (cancelType == CancelType.BUTTOM_AREA_CLICK) {
+                this.d.a();
+            }
+            this.b.d(cancelType, this.a);
         }
     }
 }

@@ -1,40 +1,64 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Bundle;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.env.launch.SwanLauncher;
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 /* loaded from: classes3.dex */
 public class cl3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(SwanAppActivity swanAppActivity) {
-        Intent intent;
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65536, null, swanAppActivity) != null) || swanAppActivity == null || (intent = swanAppActivity.getIntent()) == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            v73 M = v73.M();
+            if (M != null) {
+                return String.format(str, M.O(), M.V());
+            }
+            return "";
         }
-        if (t33.D()) {
-            f52.k().s();
+        return (String) invokeL.objValue;
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            String a = a("https://smartapps.cn/%s/%s/page-frame.html");
+            if (fo1.a) {
+                Log.d("SwanAppRefererUtils", "getFixedReferer: " + a);
+            }
+            return a;
         }
-        Bundle bundle = new Bundle();
-        bundle.putAll(intent.getExtras());
-        bundle.putBoolean("should_ignore_launch_time", true);
-        Bundle bundle2 = bundle.getBundle("mExtraData");
-        if (bundle2 == null) {
-            bundle2 = new Bundle();
-            bundle.putBundle("mExtraData", bundle2);
+        return (String) invokeV.objValue;
+    }
+
+    public static void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            String b = b();
+            if (!TextUtils.isEmpty(b)) {
+                if (fo1.a) {
+                    Log.d("SwanAppRefererUtils", "call setRefererPattern for Slave Webview; referer is " + b);
+                }
+                WebSettingsGlobalBlink.setRefererPattern(b, rq2.i());
+            }
         }
-        bundle2.putLong("launch_flag_for_statistic", System.currentTimeMillis());
-        bundle2.putLong("page_display_flag_for_statistic", System.currentTimeMillis());
-        t73.K().n(new String[0]);
-        bundle.remove("pms_db_info_onload");
-        bundle.remove("pms_db_info_updated");
-        bundle.remove("mPage");
-        bundle.putString("launch_id", SwanLauncher.h());
-        t73.K().l(bundle, "update_tag_by_activity_on_relaunch");
+    }
+
+    public static boolean c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (!TextUtils.isEmpty(str) && str.startsWith("https://")) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

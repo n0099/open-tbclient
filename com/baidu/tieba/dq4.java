@@ -1,202 +1,135 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.log.DefaultLog;
+import android.app.Dialog;
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.os.Bundle;
+import android.view.Display;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.message.UserGrowthTaskRequestMessage;
-import com.baidu.tbadk.core.message.UserGrowthTaskResponseMessage;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.view.RoundRelativeLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.CommonTaskInfo;
-import tbclient.TaskProgress;
 /* loaded from: classes4.dex */
-public class dq4 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String c = "TaskManager";
-    public static dq4 d;
+public class dq4 extends Dialog implements View.OnClickListener {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<CommonTaskInfo> a;
-    public final HttpMessageListener b;
+    public Context a;
+    public a9 b;
+    public float c;
+    public ViewGroup d;
+    public RoundRelativeLayout e;
+    public View f;
+    public ImageView g;
+    public ImageView h;
+    public Drawable i;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947713186, "Lcom/baidu/tieba/dq4;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947713186, "Lcom/baidu/tieba/dq4;");
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class a extends HttpMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dq4 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(dq4 dq4Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dq4Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dq4Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || !(httpResponsedMessage instanceof UserGrowthTaskResponseMessage)) {
-                return;
-            }
-            int errCode = ((UserGrowthTaskResponseMessage) httpResponsedMessage).getErrCode();
-            ng8 defaultLog = DefaultLog.getInstance();
-            String str = dq4.c;
-            defaultLog.c(str, "任务完成：errCode=" + errCode);
-            if (errCode == 0) {
-                this.a.g();
-            }
-        }
-    }
-
-    public dq4() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dq4(a9 a9Var) {
+        super(a9Var.getPageActivity(), 16973835);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {a9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new a(this, CmdConfigHttp.CMD_YINJI_TASK_SHARE_REPORT);
+        this.c = 0.33f;
+        this.b = a9Var;
+        this.a = a9Var.getPageActivity();
     }
 
-    public static dq4 d() {
-        InterceptResult invokeV;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (d == null) {
-                synchronized (dq4.class) {
-                    if (d == null) {
-                        dq4 dq4Var = new dq4();
-                        d = dq4Var;
-                        dq4Var.f();
-                    }
-                }
-            }
-            return d;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            lg.b(this, this.b);
         }
-        return (dq4) invokeV.objValue;
     }
 
-    public final void f() {
+    public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().registerListener(this.b);
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            aq4.w().I();
-        }
-    }
-
-    public boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return c(str, "");
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void h(List<CommonTaskInfo> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            this.a = list;
-        }
-    }
-
-    public boolean c(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            ng8 defaultLog = DefaultLog.getInstance();
-            String str3 = c;
-            defaultLog.c(str3, "尝试完成任务：" + str);
-            if (!e(str)) {
-                return false;
+            if (isShowing()) {
+                lg.b(this, this.b);
             }
-            ng8 defaultLog2 = DefaultLog.getInstance();
-            String str4 = c;
-            defaultLog2.c(str4, "开始完成任务：" + str + " data=" + str2);
-            UserGrowthTaskRequestMessage userGrowthTaskRequestMessage = new UserGrowthTaskRequestMessage(str);
-            userGrowthTaskRequestMessage.addActData(str2);
-            MessageManager.getInstance().sendMessage(userGrowthTaskRequestMessage);
-            return true;
+            lg.j(this, this.b);
         }
-        return invokeLL.booleanValue;
     }
 
-    public boolean e(String str) {
-        InterceptResult invokeL;
-        TaskProgress taskProgress;
+    public void b(Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (!StringUtils.isNull(str) && !ListUtils.isEmpty(this.a)) {
-                StringBuilder sb = new StringBuilder();
-                for (CommonTaskInfo commonTaskInfo : this.a) {
-                    sb.append(commonTaskInfo.act_type);
-                    sb.append("=");
-                    sb.append(commonTaskInfo.dotask_status);
-                    sb.append(",");
-                    if (str.equals(commonTaskInfo.act_type) && commonTaskInfo.dotask_status.intValue() == 1 && ((taskProgress = commonTaskInfo.task_progress) == null || taskProgress.total.intValue() <= 0 || commonTaskInfo.task_progress.current.intValue() < commonTaskInfo.task_progress.total.intValue())) {
-                        return true;
-                    }
-                }
-                ng8 defaultLog = DefaultLog.getInstance();
-                String str2 = c;
-                defaultLog.b(str2, "任务列表中无此任务:" + sb.toString());
-                return false;
-            }
-            DefaultLog.getInstance().b(c, "任务列表为空，无法完成");
-            return false;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, drawable) == null) {
+            this.i = drawable;
         }
-        return invokeL.booleanValue;
+    }
+
+    public void c(ViewGroup viewGroup) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) == null) {
+            this.f = viewGroup;
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && view2.getId() == R.id.img_btn_close) {
+            a();
+        }
+    }
+
+    @Override // android.app.Dialog
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
+            super.onCreate(bundle);
+            requestWindowFeature(1);
+            setContentView(R.layout.dialog_card_main);
+            Display defaultDisplay = ((WindowManager) this.a.getSystemService("window")).getDefaultDisplay();
+            WindowManager.LayoutParams attributes = getWindow().getAttributes();
+            attributes.width = defaultDisplay.getWidth();
+            attributes.height = defaultDisplay.getHeight();
+            getWindow().setAttributes(attributes);
+            getWindow().setBackgroundDrawableResource(R.color.transparent);
+            getWindow().setDimAmount(this.c);
+            getWindow().setGravity(80);
+            getWindow().setWindowAnimations(0);
+            setCanceledOnTouchOutside(true);
+            setCancelable(true);
+            this.d = (ViewGroup) findViewById(R.id.card_root_layout);
+            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.round_corner_layout);
+            this.e = roundRelativeLayout;
+            roundRelativeLayout.setAllCornerRound(gg.d(TbadkCoreApplication.getInst().getString(R.string.J_X06), 31.0f));
+            ViewGroup.LayoutParams layoutParams = this.f.getLayoutParams();
+            if (layoutParams != null) {
+                layoutParams.height = -1;
+                layoutParams.width = -1;
+            } else {
+                layoutParams = new RelativeLayout.LayoutParams(-1, -1);
+            }
+            this.e.addView(this.f, layoutParams);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091030);
+            this.g = imageView;
+            imageView.setImageDrawable(this.i);
+            ImageView imageView2 = (ImageView) findViewById(R.id.img_btn_close);
+            this.h = imageView2;
+            imageView2.setOnClickListener(this);
+        }
     }
 }

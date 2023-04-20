@@ -1,66 +1,34 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
+import android.content.Intent;
+import android.text.TextUtils;
+import androidx.fragment.app.Fragment;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tbadk.core.atomData.NewUserRedPackageActivityConfig;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.tbadk.core.tabHost.FragmentTabHost;
+import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* loaded from: classes6.dex */
 public class vo9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public boolean b;
-    public Runnable c;
+    public TbPageContext a;
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vo9 a;
-
-        public a(vo9 vo9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vo9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = vo9Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
-                    this.a.b = true;
-                } else {
-                    this.a.a();
-                }
-            }
-        }
-    }
-
-    public vo9(MainTabActivity mainTabActivity, jo9 jo9Var) {
+    public vo9(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, jo9Var};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -70,41 +38,61 @@ public class vo9 {
                 return;
             }
         }
-        this.b = false;
-        this.c = new a(this);
-        this.a = mainTabActivity;
+        this.a = tbPageContext;
+        MessageManager.getInstance().registerStickyMode(2921453);
     }
 
-    public void a() {
+    public void a(Intent intent, ro9 ro9Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && TbSingleton.getInstance().getNewUserRedPackageData() != null) {
-            TbSingleton.getInstance().setNewUserRedPackageShowed(true);
-            this.a.sendMessage(new CustomMessage(2002001, new NewUserRedPackageActivityConfig(this.a, TbSingleton.getInstance().getNewUserRedPackageData())));
-            TbSingleton.getInstance().setNewUserRedPackageData(null);
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, intent, ro9Var) != null) || intent == null) {
+            return;
         }
+        String stringExtra = intent.getStringExtra(MainTabActivityConfig.PUSH_DES_PAGE);
+        if (!TextUtils.isEmpty(stringExtra)) {
+            String string = this.a.getString(R.string.des_page_home_recommend);
+            wy4 wy4Var = new wy4();
+            Matcher matcher = Pattern.compile(UrlSchemaHelper.PB_URL).matcher(intent.getStringExtra("target_scheme"));
+            int i = 1;
+            if (matcher.find()) {
+                wy4Var.c = matcher.group(1);
+            }
+            if (stringExtra.equals(string)) {
+                wy4Var.a = 1;
+            } else {
+                wy4Var.a = 2;
+                wy4Var.b = stringExtra;
+            }
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921453, wy4Var));
+            if (stringExtra.equals(string)) {
+                intent.putExtra("sub_locate_type", 1);
+                i = 2;
+            } else {
+                intent.putExtra("sub_locate_type", stringExtra);
+            }
+            if (ro9Var != null && ro9Var.y() != null) {
+                ro9Var.y().setCurrentTabByType(i);
+                FragmentTabHost.c h = ro9Var.y().h(i);
+                if (h != null) {
+                    Fragment fragment = h.c;
+                    if (fragment instanceof mv4) {
+                        ((mv4) fragment).q1(intent);
+                    }
+                }
+            }
+        }
+        intent.removeExtra(MainTabActivityConfig.PUSH_FOLLOW_UP_ACTION);
+        intent.removeExtra(MainTabActivityConfig.PUSH_DES_PAGE);
     }
 
-    public void b() {
+    public boolean b(Intent intent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.b) {
-            this.b = false;
-            jg.a().removeCallbacks(this.c);
-            jg.a().postDelayed(this.c, 200L);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent)) == null) {
+            if (intent.getIntExtra(MainTabActivityConfig.PUSH_FOLLOW_UP_ACTION, 0) != 1) {
+                return false;
+            }
+            return true;
         }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            jg.a().removeCallbacks(this.c);
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            jg.a().removeCallbacks(this.c);
-            jg.a().postDelayed(this.c, 200L);
-        }
+        return invokeL.booleanValue;
     }
 }

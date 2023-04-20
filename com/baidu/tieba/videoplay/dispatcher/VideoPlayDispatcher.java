@@ -9,11 +9,11 @@ import com.baidu.tbadk.core.data.AlaInfoData;
 import com.baidu.tbadk.core.data.YyExtData;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.mutiprocess.live.YyLiveRoomConfig;
+import com.baidu.tieba.fd9;
 import com.baidu.tieba.gg;
-import com.baidu.tieba.lq5;
+import com.baidu.tieba.mq5;
 import com.baidu.tieba.video.UserItemData;
 import com.baidu.tieba.video.VideoItemData;
-import com.baidu.tieba.xc9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -22,7 +22,7 @@ import com.tencent.connect.share.QzonePublish;
 import java.util.ArrayList;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class VideoPlayDispatcher implements xc9 {
+public class VideoPlayDispatcher implements fd9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -42,7 +42,7 @@ public class VideoPlayDispatcher implements xc9 {
 
     /* JADX WARN: Removed duplicated region for block: B:38:0x017e  */
     /* JADX WARN: Removed duplicated region for block: B:40:0x018e  */
-    @Override // com.baidu.tieba.xc9
+    @Override // com.baidu.tieba.fd9
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -130,7 +130,7 @@ public class VideoPlayDispatcher implements xc9 {
                         new VideoRecommentPlayActivityConfig(context, arrayList, (String) null, VideoRecommentPlayActivityConfig.FROM_REPLY_PAGE, z2).start();
                         return;
                     } else {
-                        lq5.d(context, arrayList, videoItemData.nid, z, 0, rect, "from_nani_video", "personalize_page", "", VideoPlayActivityConfig.FROM_H5_SEARCH, "", z2, false, gg.g(videoItemData.forum_id, 0L));
+                        mq5.d(context, arrayList, videoItemData.nid, z, 0, rect, "from_nani_video", "personalize_page", "", VideoPlayActivityConfig.FROM_H5_SEARCH, "", z2, false, gg.g(videoItemData.forum_id, 0L));
                         return;
                     }
                 }

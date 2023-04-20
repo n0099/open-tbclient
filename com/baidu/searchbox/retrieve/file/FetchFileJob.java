@@ -15,9 +15,9 @@ import com.baidu.searchbox.retrieve.upload.FetchResult;
 import com.baidu.searchbox.retrieve.upload.FetchTaskObj;
 import com.baidu.searchbox.retrieve.upload.FetchUploadManager;
 import com.baidu.searchbox.retrieve.upload.IUploadListener;
-import com.baidu.tieba.rja;
-import com.baidu.tieba.sja;
-import com.baidu.tieba.uja;
+import com.baidu.tieba.aka;
+import com.baidu.tieba.cka;
+import com.baidu.tieba.zja;
 import java.util.List;
 import java.util.concurrent.Executors;
 import org.json.JSONObject;
@@ -109,29 +109,29 @@ public class FetchFileJob extends IFetchJob {
         List<String> list = fetchBean.mPathList;
         if (list != null && list.size() != 0) {
             statFetchData(StatConstants.VALUE_TYPE_CHECK_PARAM, true, fetchBean, "", "", null);
-            sja sjaVar = (sja) ServiceManager.getService(sja.a);
-            if (sjaVar == null) {
+            aka akaVar = (aka) ServiceManager.getService(aka.a);
+            if (akaVar == null) {
                 if (DEBUG) {
                     Log.d(TAG, "loss voyager impl component");
                     return;
                 }
                 return;
             }
-            sjaVar.g(list, "fetchlog", fetchBean.mMaxFileSize * 1024, new rja() { // from class: com.baidu.searchbox.retrieve.file.FetchFileJob.2
-                @Override // com.baidu.tieba.rja
+            akaVar.g(list, "fetchlog", fetchBean.mMaxFileSize * 1024, new zja() { // from class: com.baidu.searchbox.retrieve.file.FetchFileJob.2
+                @Override // com.baidu.tieba.zja
                 public void onFailure(String str, JSONObject jSONObject) {
                     FetchFileJob.this.statFetchFileData(false, fetchBean, str, "", jSONObject);
                     if (!TextUtils.equals("dir not found", str)) {
                         FetchFileJob fetchFileJob = FetchFileJob.this;
                         FetchFileData.FetchBean fetchBean2 = fetchBean;
-                        uja.a(jSONObject, str);
+                        cka.a(jSONObject, str);
                         fetchFileJob.reportTaskDone(fetchBean2, "", "2", jSONObject);
                         return;
                     }
                     FetchFileJob.this.reportTaskDone(fetchBean, "", "1", jSONObject);
                 }
 
-                @Override // com.baidu.tieba.rja
+                @Override // com.baidu.tieba.zja
                 public void onSuccess(String str, JSONObject jSONObject) {
                     FetchFileJob.this.statFetchFileData(true, fetchBean, "", str, jSONObject);
                     FetchFileJob.this.reportTaskDone(fetchBean, str, "0", jSONObject);

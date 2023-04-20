@@ -1,12 +1,11 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.WorkerThread;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
-import java.util.List;
-import kotlin.Unit;
-import kotlin.jvm.functions.Function1;
+import java.util.TreeSet;
 /* loaded from: classes6.dex */
 public interface th5 {
-    void a(long j, List<? extends ChatMsg> list, Function1<? super List<? extends ChatMsg>, Unit> function1);
-
-    void onDestroy();
+    @WorkerThread
+    void a(int i, @NonNull String str, @NonNull TreeSet<ChatMsg> treeSet);
 }

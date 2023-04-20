@@ -1,100 +1,63 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.FrsPage.Fans;
-import tbclient.FrsPage.Size;
-import tbclient.FrsPage.StarInfo;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class ik9 {
+public class ik9 extends BaseCardInfo implements in {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public long b;
-    public boolean c;
-    public String d;
+    public List<ThreadData> a;
+    public int b;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947856530, "Lcom/baidu/tieba/ik9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947856530, "Lcom/baidu/tieba/ik9;");
+                return;
+            }
+        }
+        c = BdUniqueId.gen();
+    }
 
     public ik9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = 0;
-        this.b = 0L;
-        this.c = false;
-        this.d = null;
+        this.b = -1;
     }
 
-    public String a() {
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.in
+    public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
+            return c;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public void c(StarInfo starInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, starInfo) != null) || starInfo == null) {
-            return;
-        }
-        int intValue = starInfo.has_frs_star.intValue();
-        this.a = intValue;
-        boolean z = true;
-        if (intValue == 1) {
-            String str = starInfo.top;
-            String str2 = starInfo.head;
-            Fans fans = starInfo.fans;
-            if (fans != null) {
-                fans.is_get.intValue();
-                fans.num.intValue();
-                fans.open.intValue();
-                this.b = fans.left_time.intValue();
-            }
-            Size size = starInfo.top_size;
-            if (size != null) {
-                size.width.intValue();
-                size.height.intValue();
-            }
-            Size size2 = starInfo.head_size;
-            if (size2 != null) {
-                size2.width.intValue();
-                size2.height.intValue();
-            }
-        }
-        if (starInfo.trade == null) {
-            z = false;
-        }
-        this.c = z;
-        if (z) {
-            Integer num = starInfo.trade.time;
-            if (num != null) {
-                num.intValue();
-            }
-            String str3 = starInfo.trade.url;
-        }
-        this.d = starInfo.star_forum_headimg;
+        return (BdUniqueId) invokeV.objValue;
     }
 }

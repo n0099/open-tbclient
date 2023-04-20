@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.WorkerThread;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.m68;
+import com.baidu.tieba.u68;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,7 +28,7 @@ public class Action {
     /* loaded from: classes4.dex */
     public interface a<Msg extends BaseMsg> {
         @WorkerThread
-        void a(@NonNull Op op, @Nullable Msg msg, @NonNull m68.j jVar);
+        void a(@NonNull Op op, @Nullable Msg msg, @NonNull u68.j jVar);
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */

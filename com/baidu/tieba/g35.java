@@ -25,10 +25,10 @@ public class g35 implements AppLaunchInfoFetcher.a {
     }
 
     @Override // com.baidu.tbadk.util.AppLaunchInfoFetcher.a
-    public void onFinish(nq5 nq5Var) {
+    public void onFinish(oq5 oq5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, nq5Var) == null) && nq5Var != null) {
-            h35.a().c(nq5Var.b);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, oq5Var) == null) && oq5Var != null) {
+            f35.s(oq5Var.a, oq5Var.b);
         }
     }
 }

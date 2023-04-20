@@ -5,18 +5,17 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.TiebaFieldsInfo;
 /* loaded from: classes5.dex */
 public class kq6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
-    public String c;
-    public String d;
+    public MetaData c;
+    public long d;
     public String e;
-    public MetaData f;
-    public boolean g;
-    public boolean h;
+    public TiebaFieldsInfo f;
 
     public kq6() {
         Interceptable interceptable = $ic;
@@ -28,10 +27,7 @@ public class kq6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.g = false;
-        this.h = false;
     }
 }

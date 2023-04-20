@@ -80,31 +80,31 @@ import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tbadk.switchs.NickNameActivitySwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bs8;
-import com.baidu.tieba.c05;
-import com.baidu.tieba.e05;
+import com.baidu.tieba.d05;
+import com.baidu.tieba.f05;
 import com.baidu.tieba.hi;
-import com.baidu.tieba.hv4;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.it4;
+import com.baidu.tieba.iv4;
 import com.baidu.tieba.jg;
-import com.baidu.tieba.jr5;
-import com.baidu.tieba.l05;
-import com.baidu.tieba.lf5;
-import com.baidu.tieba.ll7;
+import com.baidu.tieba.js8;
+import com.baidu.tieba.jt4;
+import com.baidu.tieba.kr5;
+import com.baidu.tieba.m05;
+import com.baidu.tieba.mf5;
 import com.baidu.tieba.ml7;
-import com.baidu.tieba.n05;
-import com.baidu.tieba.p45;
+import com.baidu.tieba.nl7;
+import com.baidu.tieba.o05;
 import com.baidu.tieba.personExtra.PersonChangeModel;
-import com.baidu.tieba.q25;
-import com.baidu.tieba.rm9;
-import com.baidu.tieba.sm;
-import com.baidu.tieba.va5;
+import com.baidu.tieba.q45;
+import com.baidu.tieba.r25;
+import com.baidu.tieba.tm;
 import com.baidu.tieba.view.BdTopToast;
+import com.baidu.tieba.wa5;
 import com.baidu.tieba.widget.InterestForumTagLayout;
 import com.baidu.tieba.widget.InterestForumTagView;
 import com.baidu.tieba.widget.ManualObservableScrollView;
 import com.baidu.tieba.yh;
+import com.baidu.tieba.zm9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -121,12 +121,12 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
     public InputMethodManager A;
     public TextView A0;
     public PersonChangeModel B;
-    public ll7 B0;
+    public ml7 B0;
     public FrameLayout C;
     public boolean C0;
     public HeadImageView D;
     public int D0;
-    public sm E;
+    public tm E;
     public ViewTreeObserver.OnGlobalLayoutListener E0;
     public b0 F;
     public final Runnable F0;
@@ -136,9 +136,9 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
     public final View.OnClickListener H0;
     public DialogInterface.OnCancelListener I;
     public CustomMessageListener I0;
-    public c05 J;
+    public d05 J;
     public CustomMessageListener J0;
-    public l05 K;
+    public m05 K;
     public boolean L;
     public boolean M;
     public boolean N;
@@ -152,14 +152,14 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
     public ImageView V;
     public ImageView W;
     public ImageView X;
-    public c05 Y;
+    public d05 Y;
     public boolean Z;
     public Boolean a;
     public String a0;
     public final WriteImagesInfo b;
     public PermissionJudgePolicy b0;
     public NavigationBar c;
-    public va5 c0;
+    public wa5 c0;
     public TextView d;
     public LinearLayout d0;
     public EMTextView e;
@@ -399,7 +399,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                 this.a.F = null;
                 this.a.H.setVisibility(8);
                 if (bitmap != null) {
-                    this.a.E = new sm(bitmap, false, (String) null);
+                    this.a.E = new tm(bitmap, false, (String) null);
                     this.a.E.h(this.a.D);
                     TbImageMemoryCache.s().j(this.a.B.U().getPortrait(), this.a.E, true);
                 }
@@ -530,7 +530,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                 }
                 this.a.postMultiNetData();
                 if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                    rm9.j();
+                    zm9.j();
                 }
                 return null;
             }
@@ -761,7 +761,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
     }
 
     /* loaded from: classes5.dex */
-    public class h implements c05.e {
+    public class h implements d05.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonChangeActivity a;
@@ -784,11 +784,11 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             this.a = personChangeActivity;
         }
 
-        @Override // com.baidu.tieba.c05.e
-        public void onClick(c05 c05Var) {
+        @Override // com.baidu.tieba.d05.e
+        public void onClick(d05 d05Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) {
-                c05Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, d05Var) == null) {
+                d05Var.dismiss();
                 this.a.B2();
                 this.a.M2();
             }
@@ -796,7 +796,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
     }
 
     /* loaded from: classes5.dex */
-    public class i implements c05.e {
+    public class i implements d05.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonChangeActivity a;
@@ -819,11 +819,11 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             this.a = personChangeActivity;
         }
 
-        @Override // com.baidu.tieba.c05.e
-        public void onClick(c05 c05Var) {
+        @Override // com.baidu.tieba.d05.e
+        public void onClick(d05 d05Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) {
-                c05Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, d05Var) == null) {
+                d05Var.dismiss();
                 if (this.a.B.U().getPhotoChanged()) {
                     Intent intent = new Intent();
                     if (this.a.a.booleanValue()) {
@@ -981,7 +981,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
     }
 
     /* loaded from: classes5.dex */
-    public class n implements e05.c {
+    public class n implements f05.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonChangeActivity a;
@@ -1004,10 +1004,10 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             this.a = personChangeActivity;
         }
 
-        @Override // com.baidu.tieba.e05.c
-        public void a(e05 e05Var, int i, View view2) {
+        @Override // com.baidu.tieba.f05.c
+        public void a(f05 f05Var, int i, View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, e05Var, i, view2) == null) {
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, f05Var, i, view2) == null) {
                 if (i == 0) {
                     AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) this.a.getPageContext().getPageActivity(), this.a.b.toJsonString(), true);
                     albumActivityConfig.setRequestCode(TaskResponseData.ERROR_NO_TASK_OFFLINE_03);
@@ -1016,13 +1016,13 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                 } else if (i == 1) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ChangeSystemPhotoActivityConfig(this.a.getPageContext().getPageActivity(), 12014)));
                 }
-                e05Var.e();
+                f05Var.e();
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class o implements n05.f {
+    public class o implements o05.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -1049,10 +1049,10 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             this.b = str2;
         }
 
-        @Override // com.baidu.tieba.n05.f
-        public void M0(n05 n05Var, int i, View view2) {
+        @Override // com.baidu.tieba.o05.f
+        public void M0(o05 o05Var, int i, View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, n05Var, i, view2) == null) {
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, o05Var, i, view2) == null) {
                 if (this.c.K != null && this.c.K.isShowing()) {
                     this.c.K.dismiss();
                 }
@@ -1307,7 +1307,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
     }
 
     /* loaded from: classes5.dex */
-    public class u implements ll7.b {
+    public class u implements ml7.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonChangeActivity a;
@@ -1330,7 +1330,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             this.a = personChangeActivity;
         }
 
-        @Override // com.baidu.tieba.ll7.b
+        @Override // com.baidu.tieba.ml7.b
         public void a(Date date, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(1048576, this, date, j) == null) {
@@ -1345,7 +1345,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
     }
 
     /* loaded from: classes5.dex */
-    public class v implements c05.e {
+    public class v implements d05.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonChangeActivity a;
@@ -1368,18 +1368,18 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             this.a = personChangeActivity;
         }
 
-        @Override // com.baidu.tieba.c05.e
-        public void onClick(c05 c05Var) {
+        @Override // com.baidu.tieba.d05.e
+        public void onClick(d05 d05Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) {
-                it4.v(this.a.getPageContext().getPageActivity(), null, bs8.a(), true);
-                c05Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, d05Var) == null) {
+                jt4.v(this.a.getPageContext().getPageActivity(), null, js8.a(), true);
+                d05Var.dismiss();
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class w implements c05.e {
+    public class w implements d05.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonChangeActivity a;
@@ -1402,17 +1402,17 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             this.a = personChangeActivity;
         }
 
-        @Override // com.baidu.tieba.c05.e
-        public void onClick(c05 c05Var) {
+        @Override // com.baidu.tieba.d05.e
+        public void onClick(d05 d05Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) {
-                c05Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, d05Var) == null) {
+                d05Var.dismiss();
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class x implements va5.e {
+    public class x implements wa5.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonChangeActivity a;
@@ -1435,7 +1435,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             this.a = personChangeActivity;
         }
 
-        @Override // com.baidu.tieba.va5.e
+        @Override // com.baidu.tieba.wa5.e
         public void a(AccountData accountData) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, accountData) != null) || accountData == null) {
@@ -1633,7 +1633,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                 layoutParams.width = UtilHelper.getDimenPixelSize(R.dimen.tbds21);
                 layoutParams.height = UtilHelper.getDimenPixelSize(R.dimen.tbds21);
                 this.S.setImageResource(R.drawable.obfuscated_res_0x7f08068f);
-                if (this.B.U().getNickNameLeftDays() == 0 && !p45.m().i("key_has_show_nick_name_red_icon_tip", false)) {
+                if (this.B.U().getNickNameLeftDays() == 0 && !q45.m().i("key_has_show_nick_name_red_icon_tip", false)) {
                     this.S.setVisibility(0);
                 } else {
                     this.S.setVisibility(4);
@@ -1678,9 +1678,9 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
             if (this.Y == null) {
                 View inflate = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0771, (ViewGroup) null);
-                c05 c05Var = new c05(getPageContext().getPageActivity());
-                this.Y = c05Var;
-                c05Var.setContentView(inflate);
+                d05 d05Var = new d05(getPageContext().getPageActivity());
+                this.Y = d05Var;
+                d05Var.setContentView(inflate);
                 this.Y.setPositiveButton(R.string.nick_name_confirm, new v(this));
                 this.Y.setNegativeButton(R.string.nick_name_cancel, new w(this));
                 this.Y.create(getPageContext());
@@ -1741,9 +1741,9 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, accountData) == null) {
             if (this.c0 == null) {
-                va5 va5Var = new va5(this);
-                this.c0 = va5Var;
-                va5Var.w(new x(this));
+                wa5 wa5Var = new wa5(this);
+                this.c0 = wa5Var;
+                wa5Var.w(new x(this));
             }
             this.c0.p();
             this.c0.u(accountData);
@@ -1826,25 +1826,25 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         TiebaStatic.log(statisticItem);
     }
 
-    public final ll7 F2() {
+    public final ml7 F2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             if (this.B0 == null) {
-                this.B0 = new ll7(this);
+                this.B0 = new ml7(this);
             }
             return this.B0;
         }
-        return (ll7) invokeV.objValue;
+        return (ml7) invokeV.objValue;
     }
 
-    public final ll7.b G2() {
+    public final ml7.b G2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return new u(this);
         }
-        return (ll7.b) invokeV.objValue;
+        return (ml7.b) invokeV.objValue;
     }
 
     public final void I2() {
@@ -1985,7 +1985,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             if (!this.C0) {
                 TiebaStatic.log("c12204");
             } else {
-                ml7.b();
+                nl7.b();
             }
             registerListener(this.I0);
             registerListener(this.J0);
@@ -2094,11 +2094,11 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
             String[] strArr = {getPageContext().getString(R.string.change_photo), getPageContext().getString(R.string.change_system_photo)};
-            e05 e05Var = new e05(getPageContext().getPageActivity());
-            e05Var.k(R.string.obfuscated_res_0x7f0f0de6);
-            e05Var.j(strArr, new n(this));
-            e05Var.c(getPageContext());
-            e05Var.m();
+            f05 f05Var = new f05(getPageContext().getPageActivity());
+            f05Var.k(R.string.obfuscated_res_0x7f0f0de6);
+            f05Var.j(strArr, new n(this));
+            f05Var.c(getPageContext());
+            f05Var.m();
         }
     }
 
@@ -2106,7 +2106,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
             if (this.K == null) {
-                this.K = new l05(getPageContext());
+                this.K = new m05(getPageContext());
                 String string = getPageContext().getString(R.string.obfuscated_res_0x7f0f0b4c);
                 String string2 = getPageContext().getString(R.string.obfuscated_res_0x7f0f0668);
                 this.K.i(getString(R.string.obfuscated_res_0x7f0f03fb), new String[]{string, string2}, new o(this, string, string2));
@@ -2137,9 +2137,9 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             if (editText != null) {
                 editText.addTextChangedListener(null);
             }
-            va5 va5Var = this.c0;
-            if (va5Var != null) {
-                va5Var.s();
+            wa5 wa5Var = this.c0;
+            if (wa5Var != null) {
+                wa5Var.s();
             }
             if (this.E0 != null && (viewGroup = this.U) != null) {
                 viewGroup.getViewTreeObserver().removeGlobalOnLayoutListener(this.E0);
@@ -2153,7 +2153,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048622, this) == null) {
             if (UbsABTestHelper.isNickNameABTest()) {
-                p45.m().w("key_has_show_nick_name_red_icon_tip", true);
+                q45.m().w("key_has_show_nick_name_red_icon_tip", true);
                 S2();
                 this.m.setFocusableInTouchMode(true);
                 this.m.requestFocus();
@@ -2169,7 +2169,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         PersonChangeModel personChangeModel;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && (personChangeModel = this.B) != null && personChangeModel.U() != null) {
-            lf5.d().h();
+            mf5.d().h();
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001380, this.B.U()));
         }
     }
@@ -2196,7 +2196,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             if (str == null || str.equals(this.B.U().getNameShow())) {
                 return true;
             }
-            if (jr5.c(this.a0) <= 20 && jr5.c(this.a0) >= 2) {
+            if (kr5.c(this.a0) <= 20 && kr5.c(this.a0) >= 2) {
                 return true;
             }
             return false;
@@ -2327,7 +2327,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048610, this, i2) == null) {
             super.onChangeSkinType(i2);
-            hv4 layoutMode = getLayoutMode();
+            iv4 layoutMode = getLayoutMode();
             if (i2 == 4) {
                 z2 = true;
             } else {
@@ -2345,25 +2345,25 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             if (textView != null) {
                 SkinManager.setViewTextColor(textView, R.color.CAM_X0302, 1);
             }
-            q25.d(this.t0).w(R.color.CAM_X0108);
-            q25.d(this.u0).w(R.color.CAM_X0108);
-            q25.d(this.g).w(R.color.CAM_X0109);
-            q25.d(this.h).w(R.color.CAM_X0109);
-            q25.d(this.f0).w(R.color.CAM_X0109);
-            q25.d(this.e0).w(R.color.CAM_X0109);
-            q25 d2 = q25.d(this.e);
+            r25.d(this.t0).w(R.color.CAM_X0108);
+            r25.d(this.u0).w(R.color.CAM_X0108);
+            r25.d(this.g).w(R.color.CAM_X0109);
+            r25.d(this.h).w(R.color.CAM_X0109);
+            r25.d(this.f0).w(R.color.CAM_X0109);
+            r25.d(this.e0).w(R.color.CAM_X0109);
+            r25 d2 = r25.d(this.e);
             d2.C(R.string.F_X02);
             d2.w(R.color.CAM_X0105);
-            q25.d(this.y).w(R.color.CAM_X0105);
+            r25.d(this.y).w(R.color.CAM_X0105);
             WebPManager.setPureDrawable(this.s, R.drawable.icon_common_arrow16_right_n, R.color.CAM_X0109, null);
             WebPManager.setPureDrawable(this.i0, R.drawable.icon_common_arrow16_right_n, R.color.CAM_X0109, null);
-            q25.d(this.z0).w(R.color.CAM_X0108);
-            q25 d3 = q25.d(this.A0);
+            r25.d(this.z0).w(R.color.CAM_X0108);
+            r25 d3 = r25.d(this.A0);
             d3.w(R.color.CAM_X0101);
             d3.o(R.string.J_X07);
             d3.i(R.color.CAM_X0303);
             this.x0.onChangeSkinType(getPageContext(), i2);
-            q25 d4 = q25.d(this.n);
+            r25 d4 = r25.d(this.n);
             d4.w(R.color.CAM_X0108);
             d4.o(R.string.J_X04);
             d4.f(R.color.CAM_X0204);
@@ -2449,7 +2449,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                             }
                             return;
                         } else if (view2 == this.A0) {
-                            ml7.a();
+                            nl7.a();
                             if (!this.M && !this.N) {
                                 finish();
                                 return;
@@ -2684,9 +2684,9 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             this.y.setOnFocusChangeListener(new f(this));
             this.y.addTextChangedListener(new g(this));
             this.H = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091006);
-            c05 c05Var = new c05(getPageContext().getPageActivity());
-            this.J = c05Var;
-            c05Var.setMessage(getPageContext().getString(R.string.obfuscated_res_0x7f0f0462));
+            d05 d05Var = new d05(getPageContext().getPageActivity());
+            this.J = d05Var;
+            d05Var.setMessage(getPageContext().getString(R.string.obfuscated_res_0x7f0f0462));
             this.J.setPositiveButton(getPageContext().getString(R.string.alert_yes_button), new h(this));
             this.J.setNegativeButton(getPageContext().getString(R.string.obfuscated_res_0x7f0f038d), new i(this));
             this.J.create(getPageContext());

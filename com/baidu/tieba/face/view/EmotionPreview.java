@@ -13,7 +13,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.bg;
 import com.baidu.tieba.cg;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.sm;
+import com.baidu.tieba.tm;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -26,7 +26,7 @@ public class EmotionPreview extends LinearLayout {
     public int b;
 
     /* loaded from: classes4.dex */
-    public class a extends bg<sm> {
+    public class a extends bg<tm> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -55,10 +55,10 @@ public class EmotionPreview extends LinearLayout {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.bg
-        public void onLoaded(sm smVar, String str, int i) {
+        public void onLoaded(tm tmVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLI(1048576, this, smVar, str, i) == null) && smVar != null) {
-                if (smVar.t()) {
+            if ((interceptable == null || interceptable.invokeLLI(1048576, this, tmVar, str, i) == null) && tmVar != null) {
+                if (tmVar.t()) {
                     this.c.a = new GifView(this.c.getContext());
                     ((GifView) this.c.a).setSupportNoImage(false);
                     GifInfo gifInfo = new GifInfo();
@@ -71,7 +71,7 @@ public class EmotionPreview extends LinearLayout {
                 } else {
                     this.c.a = new TbImageView(this.c.getContext());
                     ((TbImageView) this.c.a).setGifIconSupport(false);
-                    smVar.h(this.c.a);
+                    tmVar.h(this.c.a);
                 }
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.c.b, this.c.b);
                 layoutParams.gravity = 17;

@@ -1,7 +1,13 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,53 +15,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+@Service
 /* loaded from: classes7.dex */
-public class yb3 {
+public class yb3 extends UnitedSchemeBaseInterceptor {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<String, Boolean> a;
-    public static final Map<String, Boolean> b;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public static class a implements nm3<uc3> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ nm3 b;
-
-        public a(String str, nm3 nm3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, nm3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = nm3Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.nm3
-        /* renamed from: b */
-        public void a(uc3 uc3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uc3Var) == null) {
-                boolean z = true;
-                z = (uc3Var == null || uc3Var.d || uc3Var.j != 1) ? false : false;
-                yb3.a.put(this.a, Boolean.valueOf(z));
-                this.b.a(Boolean.valueOf(z));
-            }
-        }
+    @Override // com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor
+    public String getInterceptorName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "aiapps_websafe_interceptor" : (String) invokeV.objValue;
     }
 
     static {
@@ -71,48 +42,56 @@ public class yb3 {
                 return;
             }
         }
-        a = new ConcurrentHashMap();
-        b = new ConcurrentHashMap();
+        a = fo1.a;
     }
 
-    public static boolean c() {
-        InterceptResult invokeV;
+    public yb3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            Boolean bool = b.get(t73.K().getAppId());
-            if (bool != null) {
-                return bool.booleanValue();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            b.clear();
-            a.clear();
-        }
-    }
-
-    public static void b(nm3<Boolean> nm3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, nm3Var) == null) {
-            String appId = t73.K().getAppId();
-            Boolean bool = a.get(appId);
-            if (bool != null) {
-                nm3Var.a(bool);
-            } else {
-                t73.K().q().e0().e("mapp_custom_screenshot_image", new a(appId, nm3Var));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static void e(boolean z) {
+    public final String a(UnitedSchemeEntity unitedSchemeEntity) {
+        InterceptResult invokeL;
+        String[] paths;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65541, null, z) == null) {
-            b.put(t73.K().getAppId(), Boolean.valueOf(z));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, unitedSchemeEntity)) == null) {
+            if (unitedSchemeEntity == null || (paths = UnitedSchemeUtility.getPaths(unitedSchemeEntity.getUri())) == null) {
+                return "";
+            }
+            StringBuilder sb = new StringBuilder();
+            for (String str : paths) {
+                sb.append("/");
+                sb.append(str);
+            }
+            return sb.substring(1);
         }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor, com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeAbsInterceptor
+    public boolean shouldInterceptDispatch(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, callbackHandler)) == null) {
+            String a2 = a(unitedSchemeEntity);
+            boolean b = wz1.b(a2, callbackHandler);
+            if (a) {
+                Log.d("SwanWebSafeInterceptor", "intercept: result=" + b + ", path=" + a2);
+            }
+            if (b) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(402);
+            }
+            return b;
+        }
+        return invokeLLL.booleanValue;
     }
 }

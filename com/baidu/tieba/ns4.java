@@ -1,7 +1,8 @@
 package com.baidu.tieba;
+
+import android.content.Context;
+import android.view.View;
 /* loaded from: classes5.dex */
 public interface ns4 {
-    void a(boolean z);
-
-    void onFail();
+    View a(Context context);
 }

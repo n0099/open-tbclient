@@ -15,7 +15,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.livesdk.sdk.service.IMLikeRequest;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bk3;
+import com.baidu.tieba.ck3;
 /* loaded from: classes3.dex */
 public class RotateLoadingLayout extends LoadingLayout {
     public static final Interpolator k = new LinearInterpolator();
@@ -66,7 +66,7 @@ public class RotateLoadingLayout extends LoadingLayout {
 
     public final void o() {
         this.f.clearAnimation();
-        if (bk3.c()) {
+        if (ck3.c()) {
             this.f.setRotation(0.0f);
         }
     }
@@ -78,7 +78,7 @@ public class RotateLoadingLayout extends LoadingLayout {
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void d(float f) {
-        if (bk3.c()) {
+        if (ck3.c()) {
             this.f.setRotation(f * 180.0f);
         }
     }

@@ -1,115 +1,108 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.PreLoadImageInfo;
-import com.baidu.tbadk.core.util.PreLoadImageProvider;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes6.dex */
-public class rz8 implements qz8, PreLoadImageProvider {
+public class rz8 extends vm<sz8, a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public int c;
-    public ArrayList<PreLoadImageInfo> d;
-    public String e;
 
-    @Override // com.baidu.tieba.qz8
-    public int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return 3;
+    /* loaded from: classes6.dex */
+    public static class a extends TypeAdapter.ViewHolder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TextView a;
+        public int b;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(View view2) {
+            super(view2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((View) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = 3;
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09186d);
         }
-        return invokeV.intValue;
+
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.b != TbadkApplication.getInst().getSkinType()) {
+                    SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0109);
+                }
+                this.b = TbadkApplication.getInst().getSkinType();
+            }
+        }
     }
 
-    public rz8(ExcContent excContent) {
-        Long l;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public rz8(Context context, BdUniqueId bdUniqueId) {
+        super(context, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {excContent};
+            Object[] objArr = {context, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (excContent != null && (l = excContent.type) != null && l.equals(3L)) {
-            this.d = new ArrayList<>(1);
-            this.a = excContent.src;
-            String str = excContent.bsize;
-            this.e = str;
-            if (str != null) {
-                try {
-                    String[] split = str.split(",");
-                    this.b = gg.e(split[0], 0);
-                    this.c = gg.e(split[1], 0);
-                } catch (Exception e) {
-                    BdLog.e(e.getMessage());
-                }
-            }
-            if (this.b <= 0) {
-                this.b = 1;
-            }
-            if (this.c <= 0) {
-                this.c = 1;
-            }
-            String str2 = excContent.cdn_src;
-            PreLoadImageInfo preLoadImageInfo = new PreLoadImageInfo();
-            preLoadImageInfo.procType = 17;
-            preLoadImageInfo.height = this.c;
-            preLoadImageInfo.width = this.b;
-            if (StringUtils.isNull(str2)) {
-                preLoadImageInfo.imgUrl = this.a;
-            } else {
-                preLoadImageInfo.imgUrl = str2;
-            }
-            this.d.add(preLoadImageInfo);
-        }
     }
 
-    public int c(int i) {
-        InterceptResult invokeI;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.vm
+    /* renamed from: s */
+    public a onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i <= 0) {
-                return 0;
-            }
-            return (i * this.c) / this.b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            return new a(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d086f, viewGroup, false));
         }
-        return invokeI.intValue;
+        return (a) invokeL.objValue;
     }
 
-    public String d() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.vm
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, sz8 sz8Var, a aVar) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, sz8Var, aVar})) == null) {
+            aVar.a();
+            return aVar.getView();
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tbadk.core.util.PreLoadImageProvider
-    public ArrayList<PreLoadImageInfo> getImages() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return (ArrayList) invokeV.objValue;
+        return (View) invokeCommon.objValue;
     }
 }

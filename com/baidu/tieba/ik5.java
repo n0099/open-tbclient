@@ -1,9 +1,7 @@
 package com.baidu.tieba;
-
-import java.util.HashMap;
 /* loaded from: classes4.dex */
-public interface ik5 extends dk5 {
-    HashMap<String, Object> K();
+public interface ik5 extends gk5 {
+    boolean C(String str);
 
-    HashMap<String, String> O();
+    String r();
 }

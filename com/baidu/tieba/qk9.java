@@ -1,45 +1,100 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.FrsPage.Fans;
+import tbclient.FrsPage.Size;
+import tbclient.FrsPage.StarInfo;
 /* loaded from: classes6.dex */
 public class qk9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public long b;
+    public boolean c;
+    public String d;
 
-    public static boolean a(String str, Boolean bool) {
-        InterceptResult invokeLL;
+    public qk9() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, bool)) == null) {
-            if (SwitchManager.getInstance().findType("voice") != 0 || ((str != null && b(str)) || bool == null)) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return bool.booleanValue();
         }
-        return invokeLL.booleanValue;
+        this.a = 0;
+        this.b = 0L;
+        this.c = false;
+        this.d = null;
     }
 
-    public static boolean b(String str) {
-        InterceptResult invokeL;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            String[] stringArray = TbadkCoreApplication.getInst().getApp().getResources().getStringArray(R.array.voice_black_frs_list);
-            String string = TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.obfuscated_res_0x7f0f06b5);
-            int length = stringArray.length;
-            for (int i = 0; i < length; i++) {
-                if (!stringArray[i].equals(str)) {
-                    if (str.equals(stringArray[i] + string)) {
-                        return true;
-                    }
-                } else {
-                    return true;
-                }
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
         }
-        return invokeL.booleanValue;
+        return (String) invokeV.objValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public void c(StarInfo starInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, starInfo) != null) || starInfo == null) {
+            return;
+        }
+        int intValue = starInfo.has_frs_star.intValue();
+        this.a = intValue;
+        boolean z = true;
+        if (intValue == 1) {
+            String str = starInfo.top;
+            String str2 = starInfo.head;
+            Fans fans = starInfo.fans;
+            if (fans != null) {
+                fans.is_get.intValue();
+                fans.num.intValue();
+                fans.open.intValue();
+                this.b = fans.left_time.intValue();
+            }
+            Size size = starInfo.top_size;
+            if (size != null) {
+                size.width.intValue();
+                size.height.intValue();
+            }
+            Size size2 = starInfo.head_size;
+            if (size2 != null) {
+                size2.width.intValue();
+                size2.height.intValue();
+            }
+        }
+        if (starInfo.trade == null) {
+            z = false;
+        }
+        this.c = z;
+        if (z) {
+            Integer num = starInfo.trade.time;
+            if (num != null) {
+                num.intValue();
+            }
+            String str3 = starInfo.trade.url;
+        }
+        this.d = starInfo.star_forum_headimg;
     }
 }

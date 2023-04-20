@@ -15,7 +15,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.poly.widget.PayChannelEntity;
 import com.baidu.poly.widget.ProgressButton;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qh1;
+import com.baidu.tieba.rh1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +29,7 @@ public class DigitalBankPayView extends FrameLayout implements View.OnClickListe
     public ListView a;
     public ProgressButton b;
     public List<PayChannelEntity> c;
-    public qh1 d;
+    public rh1 d;
     public b e;
 
     /* loaded from: classes2.dex */
@@ -245,7 +245,7 @@ public class DigitalBankPayView extends FrameLayout implements View.OnClickListe
         if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
             this.c = list;
             if (this.d == null) {
-                this.d = new qh1(getContext());
+                this.d = new rh1(getContext());
             }
             this.a.setAdapter((ListAdapter) this.d);
             this.d.b(this.c);

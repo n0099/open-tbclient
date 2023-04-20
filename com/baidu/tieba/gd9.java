@@ -1,155 +1,159 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.searchrecforum.message.SearchRecForumRequestMessage;
-import com.baidu.tieba.searchrecforum.message.SearchRecForumResponsedMessage;
+import android.content.Context;
+import android.net.Uri;
+import android.text.TextUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.log.ActivityLog;
+import com.baidu.tieba.hd9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class gd9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BdUniqueId a;
-    public boolean b;
-    public boolean c;
-    public HttpResponsedMessage d;
-    public b e;
-    public final HttpMessageListener f;
 
     /* loaded from: classes4.dex */
-    public interface b {
-        void a(jd9 jd9Var);
-
-        void onFail();
-    }
-
-    /* loaded from: classes4.dex */
-    public class a extends HttpMessageListener {
+    public static class a implements hd9.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gd9 a;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ Uri b;
+        public final /* synthetic */ Context c;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(gd9 gd9Var, int i) {
-            super(i);
+        public a(String str, Uri uri, Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {gd9Var, Integer.valueOf(i)};
+                Object[] objArr = {str, uri, context};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = gd9Var;
+            this.a = str;
+            this.b = uri;
+            this.c = context;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        /* JADX WARN: Removed duplicated region for block: B:43:0x00a3 A[ORIG_RETURN, RETURN] */
+        /* JADX WARN: Removed duplicated region for block: B:53:0x006b A[EXC_TOP_SPLITTER, SYNTHETIC] */
+        @Override // com.baidu.tieba.hd9.c
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public void a(HashMap<String, String> hashMap) {
+            JSONObject jSONObject;
+            String str;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
-                if (this.a.c) {
-                    this.a.d = httpResponsedMessage;
-                } else {
-                    this.a.f(httpResponsedMessage);
-                }
-            }
-        }
-    }
-
-    public gd9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((interceptable != null && interceptable.invokeL(1048576, this, hashMap) != null) || hashMap == null) {
                 return;
             }
-        }
-        this.a = BdUniqueId.gen();
-        this.b = false;
-        this.c = false;
-        this.f = new a(this, CmdConfigHttp.CMD_GET_SEARCH_BACK_INTEREST_FORUM);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_SEARCH_BACK_INTEREST_FORUM, TbConfig.SERVER_ADDRESS + "c/f/excellent/getRecomForum");
-        tbHttpMessageTask.setResponsedClass(SearchRecForumResponsedMessage.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().registerListener(this.f);
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || !fd9.d().e()) {
-            return;
-        }
-        if (this.b) {
-            MessageManager.getInstance().removeHttpMessage(this.a);
-        }
-        this.b = true;
-        SearchRecForumRequestMessage searchRecForumRequestMessage = new SearchRecForumRequestMessage();
-        searchRecForumRequestMessage.setParams(fd9.d().c());
-        searchRecForumRequestMessage.setTag(this.a);
-        MessageManager.getInstance().sendMessage(searchRecForumRequestMessage);
-    }
-
-    public void h(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.e = bVar;
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c) {
-            f(this.d);
-            this.c = false;
-            this.d = null;
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c = true;
-        }
-    }
-
-    public final void f(HttpResponsedMessage httpResponsedMessage) {
-        b bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, httpResponsedMessage) == null) {
-            this.b = false;
-            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003526 && (httpResponsedMessage instanceof SearchRecForumResponsedMessage)) {
-                if (httpResponsedMessage.getError() != 0 && (bVar = this.e) != null) {
-                    bVar.onFail();
+            Class<?> cls = null;
+            try {
+                JSONObject jSONObject2 = new JSONObject(this.a);
+                str = jSONObject2.optString("page");
+                try {
+                    String optString = jSONObject2.optString("refre");
+                    jSONObject = jSONObject2.optJSONObject("pageParams");
+                    if (jSONObject == null) {
+                        try {
+                            jSONObject = new JSONObject();
+                        } catch (Exception e) {
+                            e = e;
+                            e.printStackTrace();
+                            if (jSONObject == null) {
+                            }
+                        }
+                    }
+                    jSONObject.put("page", str);
+                    jSONObject.put("refre", optString);
+                    jSONObject.put("from", 1);
+                    for (String str2 : this.b.getQueryParameterNames()) {
+                        if (!"params".equals(str2)) {
+                            jSONObject.put(str2, this.b.getQueryParameter(str2));
+                        }
+                    }
+                } catch (Exception e2) {
+                    e = e2;
+                    jSONObject = null;
+                }
+            } catch (Exception e3) {
+                e = e3;
+                jSONObject = null;
+                str = null;
+            }
+            if (jSONObject == null) {
+                try {
+                    cls = Class.forName(hashMap.get(str));
+                } catch (Exception e4) {
+                    e4.printStackTrace();
+                }
+                if (cls == null) {
                     return;
                 }
-                fd9.d().i(false);
-                b bVar2 = this.e;
-                if (bVar2 != null) {
-                    bVar2.a(((SearchRecForumResponsedMessage) httpResponsedMessage).data);
+                for (Class<?> cls2 : cls.getInterfaces()) {
+                    if (cls2.isAssignableFrom(fd9.class)) {
+                        try {
+                            ((fd9) cls.newInstance()).dispatch(jSONObject, this.c);
+                            return;
+                        } catch (Exception e5) {
+                            e5.printStackTrace();
+                            return;
+                        }
+                    }
                 }
             }
         }
+    }
+
+    public static int a(Context context, String[] strArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, strArr)) == null) {
+            if (context != null && strArr != null && strArr.length != 0) {
+                String str = strArr[0];
+                if (TextUtils.isEmpty(str)) {
+                    return 3;
+                }
+                if (!str.startsWith("tiebaapp://router/portal") && !str.startsWith("com.baidu.tieba://unidispatch/router/portal") && ((str = hi.getUrlDecode(str)) == null || !str.startsWith("com.baidu.tieba://unidispatch/router/portal"))) {
+                    str = null;
+                }
+                if (!TextUtils.isEmpty(str)) {
+                    Uri parse = Uri.parse(str);
+                    ActivityLog.getInstance().c("scheme", "SchemaHelper:" + str);
+                    try {
+                        hd9.c().b(new a(parse.getQueryParameter("params"), parse, context));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    return 0;
+                }
+            }
+            return 3;
+        }
+        return invokeLL.intValue;
+    }
+
+    public static int b(TbPageContext<?> tbPageContext, String[] strArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, tbPageContext, strArr)) == null) {
+            if (tbPageContext != null && strArr != null && strArr.length != 0) {
+                return a(tbPageContext.getPageActivity(), strArr);
+            }
+            return 3;
+        }
+        return invokeLL.intValue;
     }
 }

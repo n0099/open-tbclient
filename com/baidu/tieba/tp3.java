@@ -1,17 +1,45 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class tp3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static ho1 a;
+    public static final ho1 b;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes6.dex */
+    public static class a implements ho1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.ho1
+        public void onResult(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            }
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -26,25 +54,33 @@ public class tp3 {
                 return;
             }
         }
-        a = eo1.a;
+        b = new a();
     }
 
-    public static void a(String str, String str2, String str3, String str4, String str5) {
+    public static ho1 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65537, null, str, str2, str3, str4, str5) == null) {
-            xe3 xe3Var = new xe3();
-            xe3Var.a = "swan";
-            xe3Var.b = str;
-            xe3Var.g = str2;
-            if (TextUtils.equals(str, "click")) {
-                xe3Var.e = str3;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            ho1 ho1Var = a;
+            if (ho1Var == null) {
+                return b;
             }
-            xe3Var.f = str5;
-            xe3Var.a("source", str4);
-            if (a) {
-                Log.d("LoginAndGetMobileStatics", "staticLoginResult: event = " + xe3Var.f());
-            }
-            ne3.x("1372", xe3Var);
+            return ho1Var;
+        }
+        return (ho1) invokeV.objValue;
+    }
+
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            a = null;
+        }
+    }
+
+    public static void c(ho1 ho1Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65539, null, ho1Var) == null) && a != ho1Var) {
+            a = ho1Var;
         }
     }
 }

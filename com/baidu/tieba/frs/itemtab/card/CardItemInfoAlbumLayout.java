@@ -31,9 +31,9 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.g9;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.ix;
-import com.baidu.tieba.q25;
-import com.baidu.tieba.v55;
+import com.baidu.tieba.jx;
+import com.baidu.tieba.r25;
+import com.baidu.tieba.w55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,7 +43,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.AlbumElement;
 /* loaded from: classes4.dex */
-public class CardItemInfoAlbumLayout extends LinearLayout implements ix {
+public class CardItemInfoAlbumLayout extends LinearLayout implements jx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdRecyclerView a;
@@ -99,8 +99,8 @@ public class CardItemInfoAlbumLayout extends LinearLayout implements ix {
                 this.a.setPageId(g9.a(view2.getContext()).getUniqueId());
                 View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f090c72);
                 this.b = findViewById;
-                q25.d(findViewById).t(R.array.Mask_X001);
-                q25.d(this.b).o(R.string.J_X05);
+                r25.d(findViewById).t(R.array.Mask_X001);
+                r25.d(this.b).o(R.string.J_X05);
                 this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090c73);
             }
 
@@ -292,7 +292,7 @@ public class CardItemInfoAlbumLayout extends LinearLayout implements ix {
                     x.getIntent().putExtra("from", "index");
                     MessageManager.getInstance().sendMessage(new CustomMessage(2010000, x));
                 }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new v55(1, i + 1, albumElement.album_type.intValue())));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new w55(1, i + 1, albumElement.album_type.intValue())));
             }
         }
     }
@@ -415,7 +415,7 @@ public class CardItemInfoAlbumLayout extends LinearLayout implements ix {
         }
     }
 
-    @Override // com.baidu.tieba.ix
+    @Override // com.baidu.tieba.jx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {

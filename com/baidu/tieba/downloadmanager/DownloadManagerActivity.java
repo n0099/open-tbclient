@@ -27,10 +27,10 @@ import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.itemcard.ItemCardHelper;
 import com.baidu.tbadk.core.view.viewpager.BdBaseViewPager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bo6;
+import com.baidu.tieba.co6;
 import com.baidu.tieba.downloadmanager.ui.DownloadManagerFragment;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.vg5;
+import com.baidu.tieba.wg5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -47,7 +47,7 @@ public class DownloadManagerActivity extends BaseFragmentActivity {
     public TbTabLayout b;
     public BdBaseViewPager c;
     public int d;
-    public ArrayList<vg5> e;
+    public ArrayList<wg5> e;
     public CustomMessageListener f;
 
     /* loaded from: classes4.dex */
@@ -81,11 +81,11 @@ public class DownloadManagerActivity extends BaseFragmentActivity {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof bo6)) {
-                bo6 bo6Var = (bo6) customResponsedMessage.getData();
-                View a = bo6Var.a();
-                if (!ItemCardHelper.d.equals(((TBSpecificationBtn) bo6Var.a()).getText())) {
-                    ItemCardHelper.f(bo6Var.e(), bo6Var.d(), ItemCardHelper.e(((TBSpecificationBtn) bo6Var.a()).getText()), bo6Var.c(), bo6Var.b(), true);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof co6)) {
+                co6 co6Var = (co6) customResponsedMessage.getData();
+                View a = co6Var.a();
+                if (!ItemCardHelper.d.equals(((TBSpecificationBtn) co6Var.a()).getText())) {
+                    ItemCardHelper.f(co6Var.e(), co6Var.d(), ItemCardHelper.e(((TBSpecificationBtn) co6Var.a()).getText()), co6Var.c(), co6Var.b(), true);
                 }
                 DownloadManagerActivity downloadManagerActivity = this.a;
                 ItemCardHelper.l(downloadManagerActivity, downloadManagerActivity.getUniqueId(), a, (ViewGroup) this.a.findViewById(16908290));
@@ -246,11 +246,11 @@ public class DownloadManagerActivity extends BaseFragmentActivity {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
-        public List<vg5> b;
+        public List<wg5> b;
         public final /* synthetic */ DownloadManagerActivity c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public e(DownloadManagerActivity downloadManagerActivity, FragmentManager fragmentManager, List<vg5> list) {
+        public e(DownloadManagerActivity downloadManagerActivity, FragmentManager fragmentManager, List<wg5> list) {
             super(fragmentManager);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -295,7 +295,7 @@ public class DownloadManagerActivity extends BaseFragmentActivity {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                List<vg5> list = this.b;
+                List<wg5> list = this.b;
                 if (list == null) {
                     return 0;
                 }
@@ -374,7 +374,7 @@ public class DownloadManagerActivity extends BaseFragmentActivity {
             this.b.setSelectedIndicatorBottomMargin(ii.g(getActivity(), R.dimen.tbds5));
             SkinManager.setBackgroundColor(this.b, R.color.CAM_X0208);
             this.b.setTabTextColors(SkinManager.getColor(R.color.CAM_X0107), SkinManager.getColor(R.color.CAM_X0105));
-            Iterator<vg5> it = this.e.iterator();
+            Iterator<wg5> it = this.e.iterator();
             while (it.hasNext()) {
                 ((BaseFragment) it.next().a).onChangeSkinType(i);
             }
@@ -435,30 +435,30 @@ public class DownloadManagerActivity extends BaseFragmentActivity {
             bundle.putInt(TiebaStatic.Params.TAB_ID, 1);
             bundle.putInt("tab_source", this.d);
             bundle.putBoolean("tab_need_login", true);
-            vg5 vg5Var = new vg5();
+            wg5 wg5Var = new wg5();
             DownloadManagerFragment O1 = DownloadManagerFragment.O1();
-            vg5Var.a = O1;
+            wg5Var.a = O1;
             O1.setArguments(bundle);
-            vg5Var.c = getResources().getString(R.string.item_order_complete);
-            this.e.add(vg5Var);
+            wg5Var.c = getResources().getString(R.string.item_order_complete);
+            this.e.add(wg5Var);
             Bundle bundle2 = new Bundle();
             bundle2.putInt(TiebaStatic.Params.TAB_ID, 2);
             bundle2.putInt("tab_source", this.d);
-            vg5 vg5Var2 = new vg5();
+            wg5 wg5Var2 = new wg5();
             DownloadManagerFragment O12 = DownloadManagerFragment.O1();
-            vg5Var2.a = O12;
+            wg5Var2.a = O12;
             O12.setArguments(bundle2);
-            vg5Var2.c = getResources().getString(R.string.obfuscated_res_0x7f0f09c4);
-            this.e.add(vg5Var2);
+            wg5Var2.c = getResources().getString(R.string.obfuscated_res_0x7f0f09c4);
+            this.e.add(wg5Var2);
             Bundle bundle3 = new Bundle();
             bundle3.putInt(TiebaStatic.Params.TAB_ID, 3);
             bundle3.putInt("tab_source", this.d);
-            vg5 vg5Var3 = new vg5();
+            wg5 wg5Var3 = new wg5();
             DownloadManagerFragment O13 = DownloadManagerFragment.O1();
-            vg5Var3.a = O13;
+            wg5Var3.a = O13;
             O13.setArguments(bundle3);
-            vg5Var3.c = getResources().getString(R.string.obfuscated_res_0x7f0f0553);
-            this.e.add(vg5Var3);
+            wg5Var3.c = getResources().getString(R.string.obfuscated_res_0x7f0f0553);
+            this.e.add(wg5Var3);
             this.c.setOffscreenPageLimit(this.e.size());
             this.c.setAdapter(new e(this, getSupportFragmentManager(), this.e));
             this.c.setCurrentItem(t1());

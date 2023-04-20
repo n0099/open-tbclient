@@ -1,24 +1,24 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.c2b;
+import com.baidu.tieba.k2b;
 import java.util.Collection;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes9.dex */
-public final class OnSubscribeAmb$Selection<T> extends AtomicReference<c2b<T>> {
-    public final Collection<c2b<T>> ambSubscribers = new ConcurrentLinkedQueue();
+public final class OnSubscribeAmb$Selection<T> extends AtomicReference<k2b<T>> {
+    public final Collection<k2b<T>> ambSubscribers = new ConcurrentLinkedQueue();
 
     public void unsubscribeLosers() {
-        c2b<T> c2bVar = get();
-        if (c2bVar != null) {
-            unsubscribeOthers(c2bVar);
+        k2b<T> k2bVar = get();
+        if (k2bVar != null) {
+            unsubscribeOthers(k2bVar);
         }
     }
 
-    public void unsubscribeOthers(c2b<T> c2bVar) {
-        for (c2b<T> c2bVar2 : this.ambSubscribers) {
-            if (c2bVar2 != c2bVar) {
-                c2bVar2.unsubscribe();
+    public void unsubscribeOthers(k2b<T> k2bVar) {
+        for (k2b<T> k2bVar2 : this.ambSubscribers) {
+            if (k2bVar2 != k2bVar) {
+                k2bVar2.unsubscribe();
             }
         }
         this.ambSubscribers.clear();

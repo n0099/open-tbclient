@@ -1,18 +1,16 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
+import android.content.DialogInterface;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class w15 extends k15 {
+public final class w15 extends l15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,26 +28,38 @@ public class w15 extends k15 {
         }
     }
 
-    @Override // com.baidu.tieba.k15
-    public void a(@NonNull Context context, @NonNull b15 b15Var) {
+    public static final void b(DialogInterface dialogInterface) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, b15Var) == null) {
-            String a = b15Var.a("yun_dialogName");
-            String a2 = b15Var.a("yun_dialogUrl");
-            if (!TextUtils.isEmpty(a) && !TextUtils.isEmpty(a2)) {
-                b(context, a2, a);
-            }
+        if (interceptable == null || interceptable.invokeL(65537, null, dialogInterface) == null) {
+            a15.r("userIcon");
         }
     }
 
-    public final void b(Context context, String str, String str2) {
+    @Override // com.baidu.tieba.l15
+    public void a(Context context, c15 data) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2) == null) {
-            TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(context, "", str, false, true, true);
-            tbWebViewActivityConfig.setPageTranslucent(TbWebViewActivityConfig.PAGE_TYPE_BLACK_TRANSLUCENT);
-            tbWebViewActivityConfig.setWebDialogName(str2);
-            tbWebViewActivityConfig.setTranslucentAutoClose(true);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, tbWebViewActivityConfig));
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, data) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(data, "data");
+            if (!PollingModel.u0()) {
+                a15.r("userIcon");
+                return;
+            }
+            qj9 qj9Var = new qj9();
+            qj9Var.f(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.e15
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // android.content.DialogInterface.OnDismissListener
+                public final void onDismiss(DialogInterface dialogInterface) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) {
+                        w15.b(dialogInterface);
+                    }
+                }
+            });
+            qj9Var.d(TbSingleton.getInstance().getIconPopData());
+            a15.l("userIcon");
         }
     }
 }

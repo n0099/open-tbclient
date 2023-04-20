@@ -1,12 +1,12 @@
 package com.baidu.swan.apps.core.prefetch.image.config.image;
 
 import androidx.annotation.NonNull;
-import com.baidu.tieba.ac2;
-import com.baidu.tieba.pc2;
+import com.baidu.tieba.bc2;
+import com.baidu.tieba.qc2;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class CustomStrategyImpl implements ac2 {
+public class CustomStrategyImpl implements bc2 {
     public final List<String> a = new ArrayList<String>() { // from class: com.baidu.swan.apps.core.prefetch.image.config.image.CustomStrategyImpl.1
         {
             add("intercepthttp");
@@ -19,8 +19,8 @@ public class CustomStrategyImpl implements ac2 {
         return "CustomStrategyImpl";
     }
 
-    @Override // com.baidu.tieba.ac2
-    public boolean a(@NonNull pc2.a aVar) {
+    @Override // com.baidu.tieba.bc2
+    public boolean a(@NonNull qc2.a aVar) {
         String d = aVar.d();
         for (String str : this.a) {
             if (d.startsWith(str)) {

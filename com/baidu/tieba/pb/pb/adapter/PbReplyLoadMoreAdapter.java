@@ -10,16 +10,16 @@ import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pv8;
-import com.baidu.tieba.sl9;
-import com.baidu.tieba.yz8;
+import com.baidu.tieba.am9;
+import com.baidu.tieba.g09;
+import com.baidu.tieba.xv8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class PbReplyLoadMoreAdapter extends pv8<sl9, ReplyLoadMoreViewHolder> {
+public class PbReplyLoadMoreAdapter extends xv8<am9, ReplyLoadMoreViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View.OnClickListener g;
@@ -58,12 +58,12 @@ public class PbReplyLoadMoreAdapter extends pv8<sl9, ReplyLoadMoreViewHolder> {
             }
         }
 
-        public void b(sl9 sl9Var) {
+        public void b(am9 am9Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sl9Var) != null) || sl9Var == null) {
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, am9Var) != null) || am9Var == null) {
                 return;
             }
-            if (sl9Var.D) {
+            if (am9Var.D) {
                 Drawable drawable = SkinManager.getDrawable(R.drawable.icon_emotion_smallarrow_n);
                 drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
                 this.a.setCompoundDrawables(null, null, drawable, null);
@@ -76,19 +76,19 @@ public class PbReplyLoadMoreAdapter extends pv8<sl9, ReplyLoadMoreViewHolder> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PbReplyLoadMoreAdapter(yz8 yz8Var, BdUniqueId bdUniqueId) {
-        super(yz8Var, bdUniqueId);
+    public PbReplyLoadMoreAdapter(g09 g09Var, BdUniqueId bdUniqueId) {
+        super(g09Var, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {yz8Var, bdUniqueId};
+            Object[] objArr = {g09Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((yz8) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((g09) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -104,7 +104,7 @@ public class PbReplyLoadMoreAdapter extends pv8<sl9, ReplyLoadMoreViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.um
+    @Override // com.baidu.tieba.vm
     /* renamed from: u */
     public ReplyLoadMoreViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -120,13 +120,13 @@ public class PbReplyLoadMoreAdapter extends pv8<sl9, ReplyLoadMoreViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pv8, com.baidu.tieba.um
+    @Override // com.baidu.tieba.xv8, com.baidu.tieba.vm
     /* renamed from: x */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, sl9 sl9Var, ReplyLoadMoreViewHolder replyLoadMoreViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, am9 am9Var, ReplyLoadMoreViewHolder replyLoadMoreViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, sl9Var, replyLoadMoreViewHolder})) == null) {
-            replyLoadMoreViewHolder.b(sl9Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, am9Var, replyLoadMoreViewHolder})) == null) {
+            replyLoadMoreViewHolder.b(am9Var);
             return replyLoadMoreViewHolder.getView();
         }
         return (View) invokeCommon.objValue;

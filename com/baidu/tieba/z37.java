@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class z37 extends um<h47, CardViewHolder<l47>> {
+public class z37 extends vm<i47, CardViewHolder<l47>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
@@ -41,7 +42,7 @@ public class z37 extends um<h47, CardViewHolder<l47>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.um
+    @Override // com.baidu.tieba.vm
     /* renamed from: s */
     public CardViewHolder<l47> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -53,13 +54,13 @@ public class z37 extends um<h47, CardViewHolder<l47>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.um
+    @Override // com.baidu.tieba.vm
     /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, h47 h47Var, CardViewHolder<l47> cardViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, i47 i47Var, CardViewHolder<l47> cardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, h47Var, cardViewHolder})) == null) {
-            cardViewHolder.a().l(h47Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, i47Var, cardViewHolder})) == null) {
+            cardViewHolder.a().m(this.a, TbadkCoreApplication.getInst().getSkinType());
             return cardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;

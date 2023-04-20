@@ -6,7 +6,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.drawable.NinePatchDrawable;
-import com.baidu.tieba.dha;
+import com.baidu.tieba.lha;
 import com.baidu.ugc.editvideo.data.Div;
 import java.io.Externalizable;
 import java.io.IOException;
@@ -205,7 +205,7 @@ public class NinePatchChunk implements Externalizable {
             }
             return true;
         } catch (Exception e) {
-            dha.g(e);
+            lha.g(e);
             return true;
         }
     }
@@ -370,7 +370,7 @@ public class NinePatchChunk implements Externalizable {
             this.padding = parse.padding;
             this.colors = parse.colors;
         } catch (ChunkNotSerializedException | DivLengthException e) {
-            dha.g(e);
+            lha.g(e);
         }
     }
 

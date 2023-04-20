@@ -1,138 +1,95 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
-import org.bouncycastle.crypto.engines.AESEngine;
-import org.bouncycastle.crypto.prng.SP800SecureRandomBuilder;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.Executor;
 /* loaded from: classes6.dex */
-public class twa {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static boolean a = false;
-    public static boolean b = true;
+public final class twa<TResult> implements iwa<TResult> {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public lwa<TResult> a;
+    public Executor b;
+    public final Object c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948197003, "Lcom/baidu/tieba/twa;")) == null) {
-            return;
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ mwa a;
+        public final /* synthetic */ twa b;
+
+        public a(twa twaVar, mwa mwaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {twaVar, mwaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = twaVar;
+            this.a = mwaVar;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
+
+        /* JADX DEBUG: Multi-variable search result rejected for r1v4, resolved type: com.baidu.tieba.lwa */
+        /* JADX WARN: Multi-variable type inference failed */
+        @Override // java.lang.Runnable
+        public final void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                synchronized (this.b.c) {
+                    if (this.b.a != null) {
+                        this.b.a.onSuccess(this.a.e());
+                    }
+                }
+            }
+        }
+    }
+
+    public twa(Executor executor, lwa<TResult> lwaVar) {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {executor, lwaVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948197003, "Lcom/baidu/tieba/twa;");
+        this.c = new Object();
+        this.a = lwaVar;
+        this.b = executor;
+    }
+
+    @Override // com.baidu.tieba.iwa
+    public final void cancel() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this.c) {
+                this.a = null;
+            }
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:29:0x001f A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static SecureRandom a() {
-        InterceptResult invokeV;
-        SecureRandom secureRandom;
+    @Override // com.baidu.tieba.iwa
+    public final void onComplete(mwa<TResult> mwaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            xwa.b("EncryptUtil", "generateSecureRandomNew ");
-            try {
-            } catch (NoSuchAlgorithmException unused) {
-                xwa.c("EncryptUtil", "getSecureRandomBytes: NoSuchAlgorithmException");
-            }
-            if (Build.VERSION.SDK_INT >= 26) {
-                secureRandom = SecureRandom.getInstanceStrong();
-                if (secureRandom == null) {
-                    try {
-                        secureRandom = SecureRandom.getInstance("SHA1PRNG");
-                    } catch (NoSuchAlgorithmException unused2) {
-                        xwa.c("EncryptUtil", "NoSuchAlgorithmException");
-                        return secureRandom;
-                    } catch (Throwable th) {
-                        if (b) {
-                            xwa.c("EncryptUtil", "exception : " + th.getMessage() + " , you should implementation bcprov-jdk15on library");
-                            b = false;
-                        }
-                        return secureRandom;
-                    }
-                }
-                AESEngine aESEngine = new AESEngine();
-                byte[] bArr = new byte[32];
-                secureRandom.nextBytes(bArr);
-                return new SP800SecureRandomBuilder(secureRandom, true).setEntropyBitsRequired(384).buildCTR(aESEngine, 256, bArr, false);
-            }
-            secureRandom = null;
-            if (secureRandom == null) {
-            }
-            AESEngine aESEngine2 = new AESEngine();
-            byte[] bArr2 = new byte[32];
-            secureRandom.nextBytes(bArr2);
-            return new SP800SecureRandomBuilder(secureRandom, true).setEntropyBitsRequired(384).buildCTR(aESEngine2, 256, bArr2, false);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mwaVar) == null) && mwaVar.h() && !mwaVar.f()) {
+            this.b.execute(new a(this, mwaVar));
         }
-        return (SecureRandom) invokeV.objValue;
-    }
-
-    public static byte[] b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            SecureRandom a2 = a();
-            if (a2 == null) {
-                return new byte[0];
-            }
-            byte[] bArr = new byte[i];
-            a2.nextBytes(bArr);
-            return bArr;
-        }
-        return (byte[]) invokeI.objValue;
-    }
-
-    public static String d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
-            return uwa.a(c(i));
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public static byte[] c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            if (!a) {
-                byte[] bArr = new byte[i];
-                SecureRandom secureRandom = null;
-                try {
-                    if (Build.VERSION.SDK_INT >= 26) {
-                        secureRandom = SecureRandom.getInstanceStrong();
-                    }
-                } catch (NoSuchAlgorithmException unused) {
-                    xwa.c("EncryptUtil", "getSecureRandomBytes: NoSuchAlgorithmException");
-                }
-                if (secureRandom == null) {
-                    try {
-                        secureRandom = SecureRandom.getInstance("SHA1PRNG");
-                    } catch (NoSuchAlgorithmException unused2) {
-                        xwa.c("EncryptUtil", "getSecureRandomBytes getInstance: NoSuchAlgorithmException");
-                        return new byte[0];
-                    } catch (Exception e) {
-                        xwa.c("EncryptUtil", "getSecureRandomBytes getInstance: exception : " + e.getMessage());
-                        return new byte[0];
-                    }
-                }
-                secureRandom.nextBytes(bArr);
-                return bArr;
-            }
-            return b(i);
-        }
-        return (byte[]) invokeI.objValue;
     }
 }

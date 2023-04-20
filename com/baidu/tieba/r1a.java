@@ -1,249 +1,171 @@
 package com.baidu.tieba;
 
-import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.database.ContentObserver;
-import android.os.Handler;
-import android.os.Looper;
-import android.provider.MediaStore;
-import androidx.core.view.InputDeviceCompat;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+import android.widget.ScrollView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.GreyUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.lang.reflect.Method;
 /* loaded from: classes6.dex */
-public class r1a {
+public class r1a extends PopupWindow {
     public static /* synthetic */ Interceptable $ic;
-    public static r1a g;
     public transient /* synthetic */ FieldHolder $fh;
-    public Handler a;
-    public BroadcastReceiver b;
-    public ContentObserver c;
-    public ArrayList<d> d;
-    public Handler e;
-    public Runnable f;
+    public int a;
+    public a b;
+    public int c;
+    public LinearLayout d;
+    public Context e;
+    public int f;
 
     /* loaded from: classes6.dex */
-    public interface d {
-        void B(boolean z);
+    public interface a {
+        void S0(int i);
     }
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    public static class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ r1a a;
+        public int a;
+        public a b;
 
-        public a(r1a r1aVar) {
+        public b(int i, a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {r1aVar};
+                Object[] objArr = {Integer.valueOf(i), aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = r1aVar;
+            this.a = i;
+            this.b = aVar;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            a aVar;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.h(false);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (aVar = this.b) != null) {
+                aVar.S0(this.a);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class b extends BroadcastReceiver {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ r1a this$0;
-
-        public b(r1a r1aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {r1aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = r1aVar;
-        }
-
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
-                this.this$0.i(intent);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c extends ContentObserver {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ r1a a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(r1a r1aVar, Handler handler) {
-            super(handler);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {r1aVar, handler};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Handler) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = r1aVar;
-        }
-
-        @Override // android.database.ContentObserver
-        public void onChange(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.a.e.removeCallbacks(this.a.f);
-                this.a.e.postDelayed(this.a.f, 2000L);
-            }
-        }
-    }
-
-    public r1a() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public r1a(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new Handler(Looper.getMainLooper());
-        this.d = new ArrayList<>();
-        this.e = new Handler();
-        this.f = new a(this);
+        this.a = -1;
+        this.e = context;
+        b(context);
     }
 
-    public static r1a f() {
-        InterceptResult invokeV;
+    public void a(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (g == null) {
-                synchronized (r1a.class) {
-                    if (g == null) {
-                        r1a r1aVar = new r1a();
-                        g = r1aVar;
-                        r1aVar.g(TbadkCoreApplication.getInst());
-                    }
-                }
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            view2.setOnClickListener(new b(this.c, this.b));
+            this.d.addView(view2);
+            this.c++;
+        }
+    }
+
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            int i2 = this.a;
+            if (i2 != -1) {
+                this.d.getChildAt(i2).setSelected(false);
             }
-            return g;
-        }
-        return (r1a) invokeV.objValue;
-    }
-
-    public void d(d dVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) && dVar != null && !this.d.contains(dVar)) {
-            this.d.add(dVar);
+            this.a = i;
+            this.d.getChildAt(i).setSelected(true);
         }
     }
 
-    public void h(boolean z) {
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            Iterator<d> it = this.d.iterator();
-            while (it.hasNext()) {
-                it.next().B(z);
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.f = i;
+        }
+    }
+
+    public void e(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
+            this.b = aVar;
+        }
+    }
+
+    public final void b(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            ScrollView scrollView = new ScrollView(context);
+            scrollView.setLayoutParams(new FrameLayout.LayoutParams(-1, -2));
+            LinearLayout linearLayout = new LinearLayout(context);
+            this.d = linearLayout;
+            linearLayout.setOrientation(1);
+            this.d.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+            scrollView.addView(this.d);
+            scrollView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+            scrollView.setPadding(0, 0, ii.d(context, 1.0f), ii.d(context, 1.0f));
+            scrollView.setFadingEdgeLength(0);
+            scrollView.setScrollbarFadingEnabled(false);
+            try {
+                Method declaredMethod = scrollView.getClass().getDeclaredMethod("setOverScrollMode", Integer.TYPE);
+                declaredMethod.setAccessible(true);
+                declaredMethod.invoke(scrollView, 2);
+            } catch (Exception unused) {
             }
+            setContentView(scrollView);
+            GreyUtil.grey(this);
         }
     }
 
-    public final void i(Intent intent) {
+    @Override // android.widget.PopupWindow
+    public void showAsDropDown(View view2, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, intent) == null) {
-            if (intent.getAction().equals("android.intent.action.MEDIA_UNMOUNTED")) {
-                h(true);
-                return;
+        if (interceptable == null || interceptable.invokeLII(1048581, this, view2, i, i2) == null) {
+            getContentView().measure(View.MeasureSpec.makeMeasureSpec(this.e.getResources().getDisplayMetrics().widthPixels, Integer.MIN_VALUE), View.MeasureSpec.makeMeasureSpec(this.e.getResources().getDisplayMetrics().heightPixels, Integer.MIN_VALUE));
+            int measuredWidth = getContentView().getMeasuredWidth();
+            if (measuredWidth < view2.getWidth()) {
+                measuredWidth = view2.getWidth();
             }
-            this.e.removeCallbacks(this.f);
-            this.e.postDelayed(this.f, 2000L);
-        }
-    }
-
-    public void k(d dVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, dVar) == null) && this.d.contains(dVar)) {
-            this.d.remove(dVar);
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            j();
-            TbadkCoreApplication inst = TbadkCoreApplication.getInst();
-            inst.unregisterReceiver(this.b);
-            inst.getContentResolver().unregisterContentObserver(this.c);
-            this.e.removeCallbacks(this.f);
-            g = null;
-        }
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.d.clear();
-        }
-    }
-
-    public final void g(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            this.b = new b(this);
-            this.c = new c(this, this.a);
-            IntentFilter intentFilter = new IntentFilter();
-            intentFilter.addAction("android.intent.action.MEDIA_MOUNTED");
-            intentFilter.addAction("android.intent.action.MEDIA_UNMOUNTED");
-            intentFilter.addAction("android.intent.action.MEDIA_SCANNER_STARTED");
-            intentFilter.addAction("android.intent.action.MEDIA_SCANNER_FINISHED");
-            intentFilter.addAction("android.intent.action.MEDIA_EJECT");
-            intentFilter.addDataScheme("file");
-            context.registerReceiver(this.b, intentFilter);
-            context.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.c);
+            int measuredHeight = getContentView().getMeasuredHeight();
+            int i3 = this.f;
+            if (measuredHeight > i3) {
+                measuredHeight = i3;
+            }
+            setWidth(measuredWidth);
+            setHeight(measuredHeight);
+            super.showAsDropDown(view2, i, i2);
         }
     }
 }

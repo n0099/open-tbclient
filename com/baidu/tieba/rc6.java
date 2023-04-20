@@ -1,94 +1,49 @@
 package com.baidu.tieba;
 
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tieba.browser.core.statistics.HybridStatisticKey;
+import android.webkit.WebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class rc6 {
+public class rc6 extends qc6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final StatisticItem a;
 
-    public rc6(String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public rc6(WebView webView) {
+        super(webView);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {webView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((WebView) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = StatisticItem.make(str);
     }
 
-    public static rc6 a(HybridStatisticKey hybridStatisticKey) {
-        InterceptResult invokeL;
+    public static void d(WebView webView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, hybridStatisticKey)) == null) {
-            return new rc6(hybridStatisticKey.getValue());
+        if (interceptable == null || interceptable.invokeL(65537, null, webView) == null) {
+            webView.setHorizontalScrollBarEnabled(false);
+            webView.setHorizontalScrollbarOverlay(false);
+            new rc6(webView).a();
         }
-        return (rc6) invokeL.objValue;
     }
 
-    public static String b(StatisticItem statisticItem) {
-        InterceptResult invokeL;
-        int size;
+    @Override // com.baidu.tieba.qc6
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, statisticItem)) == null) {
-            StringBuilder sb = new StringBuilder();
-            if (statisticItem == null) {
-                return "";
-            }
-            sb.append("RD_STAT_LOG: ");
-            sb.append("key=");
-            sb.append(statisticItem.getKey());
-            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-            List<Object> params = statisticItem.getParams();
-            if (params != null && (size = params.size()) > 0) {
-                for (int i = 0; i < size; i++) {
-                    sb.append(params.get(i));
-                    if (i % 2 == 0) {
-                        sb.append("=");
-                    } else if (i != size - 1) {
-                        sb.append(",");
-                    }
-                }
-            }
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public rc6 c(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            this.a.param(str, str2);
-            return this;
-        }
-        return (rc6) invokeLL.objValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (bc6.f()) {
-                xe6.a("lt-log", b(this.a));
-            }
-            this.a.eventStat();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.a();
         }
     }
 }

@@ -10,7 +10,7 @@ import com.baidu.android.imsdk.chatmessage.messages.ImageMsg;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bq5;
+import com.baidu.tieba.cq5;
 import com.baidu.tieba.gg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,28 +19,28 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.annotations.SerializedName;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public abstract class BaseImageMsg<SdkMsg extends com.baidu.android.imsdk.chatmessage.messages.ImageMsg> extends BaseChatMsg<SdkMsg> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @bq5(serialize = false)
+    @cq5(serialize = false)
     public final String IMG_THUMBNAIL_TEXT;
     @SerializedName("big_size")
     public String bigSize;
     @SerializedName("big_src")
-    @bq5(serialize = false)
+    @cq5(serialize = false)
     public String bigSrc;
     @SerializedName("bsize")
     public String thumbSize;
     @SerializedName("src")
-    @bq5(serialize = false)
+    @cq5(serialize = false)
     public String thumbUrl;
 
     public abstract SdkMsg createSdkMsgByChildClass();
 
     public abstract void fromSdkMsgToChildClass(@NonNull SdkMsg sdkmsg);
 
-    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatMsg, com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.hn
+    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatMsg, com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.in
     public abstract /* synthetic */ BdUniqueId getType();
 
     public BaseImageMsg() {

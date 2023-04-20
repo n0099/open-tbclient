@@ -2,25 +2,28 @@ package com.baidu.tieba;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.im.message.MemoryModifyLastMsgMessage;
+import com.baidu.tieba.im.model.IMUserListModel;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class aq9 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
+    public IMUserListModel a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public aq9(MainTabActivity mainTabActivity, jo9 jo9Var) {
-        super(2921414);
+    public aq9(MainTabActivity mainTabActivity) {
+        super(2016003);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, jo9Var};
+            Object[] objArr = {mainTabActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,16 +34,18 @@ public class aq9 extends CustomMessageListener {
                 return;
             }
         }
-        this.a = mainTabActivity;
+        this.a = new IMUserListModel(mainTabActivity.getPageContext(), mainTabActivity.getUniqueId());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        i1a i1aVar;
+        MemoryModifyLastMsgMessage.a data;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (i1aVar = this.a.q) != null) {
-            i1aVar.g();
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2016003 && (data = ((MemoryModifyLastMsgMessage) customResponsedMessage).getData()) != null && iz7.f().g(data.a, 2) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(data.a);
+            this.a.request(false, arrayList);
         }
     }
 }

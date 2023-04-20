@@ -3,7 +3,7 @@ package com.baidu.bdtask.framework.utils;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.zq;
+import com.baidu.tieba.ar;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -55,7 +55,7 @@ public final class DebugTrace {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (!zq.c.l() || !zq.c.h().c()) {
+            if (!ar.c.l() || !ar.c.h().c()) {
                 return false;
             }
             return true;

@@ -1,16 +1,54 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.live.imp.LiveUserSecurityBehaviorServiceImpl;
-import com.baidu.searchbox.live.interfaces.service.LiveUserSecurityBehaviorService;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.searchbox.live.interfaces.realauth.LiveRealAuthCallback;
+import com.baidu.searchbox.live.interfaces.service.LiveRealAuthService;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.wallet.ICertification;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes4.dex */
-public final class ii8 extends qj1<LiveUserSecurityBehaviorService> {
+public class ii8 implements LiveRealAuthService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes4.dex */
+    public class a implements ICertification.CertificationCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ LiveRealAuthCallback a;
+
+        public a(ii8 ii8Var, LiveRealAuthCallback liveRealAuthCallback) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ii8Var, liveRealAuthCallback};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = liveRealAuthCallback;
+        }
+
+        @Override // com.baidu.tieba.wallet.ICertification.CertificationCallback
+        public void onResult(int i, Map<String, Object> map) {
+            LiveRealAuthCallback liveRealAuthCallback;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeIL(1048576, this, i, map) == null) && (liveRealAuthCallback = this.a) != null) {
+                liveRealAuthCallback.onRealAuthResult(i, map);
+            }
+        }
+    }
 
     public ii8() {
         Interceptable interceptable = $ic;
@@ -26,15 +64,12 @@ public final class ii8 extends qj1<LiveUserSecurityBehaviorService> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qj1
-    /* renamed from: a */
-    public LiveUserSecurityBehaviorService createService() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.live.interfaces.service.LiveRealAuthService
+    public void doAuth(Map<String, ?> map, LiveRealAuthCallback liveRealAuthCallback) {
+        CustomResponsedMessage runTask;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new LiveUserSecurityBehaviorServiceImpl();
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, map, liveRealAuthCallback) == null) && (runTask = MessageManager.getInstance().runTask(2921433, ICertification.class)) != null && runTask.getData() != null) {
+            ((ICertification) runTask.getData()).certification(TbadkCoreApplication.getInst(), map, new a(this, liveRealAuthCallback));
         }
-        return (LiveUserSecurityBehaviorService) invokeV.objValue;
     }
 }

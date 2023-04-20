@@ -15,10 +15,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fp5;
+import com.baidu.tieba.gp5;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.q25;
-import com.baidu.tieba.qd7;
+import com.baidu.tieba.r25;
+import com.baidu.tieba.rd7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import tbclient.GameCodeList;
 /* loaded from: classes4.dex */
-public class GameCodeListView extends ConstraintLayout implements fp5 {
+public class GameCodeListView extends ConstraintLayout implements gp5 {
     public static /* synthetic */ Interceptable $ic;
     public static final int f;
     public static final int g;
@@ -89,11 +89,11 @@ public class GameCodeListView extends ConstraintLayout implements fp5 {
         a(context);
     }
 
-    @Override // com.baidu.tieba.fp5
+    @Override // com.baidu.tieba.gp5
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            q25 d = q25.d(this);
+            r25 d = r25.d(this);
             d.o(R.string.J_X14);
             d.f(R.color.CAM_X0212);
             SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0109);
@@ -202,10 +202,10 @@ public class GameCodeListView extends ConstraintLayout implements fp5 {
         }
     }
 
-    public void c(qd7 qd7Var) {
+    public void c(rd7 rd7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qd7Var) == null) {
-            this.c.n(qd7Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rd7Var) == null) {
+            this.c.n(rd7Var);
         }
     }
 

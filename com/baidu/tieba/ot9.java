@@ -1,45 +1,51 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Process;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.JvmOverloads;
-import kotlin.jvm.internal.Intrinsics;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public final class ot9 {
+public class ot9 extends qa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final String a() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ot9() {
+        super(0);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            String packageName = au9.d().getPackageName();
-            Intrinsics.checkNotNullExpressionValue(packageName, "getAppCtx().packageName");
-            return packageName;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return (String) invokeV.objValue;
     }
 
-    @JvmOverloads
-    public static final void b(boolean z) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ua
+    /* renamed from: c */
+    public HttpResponsedMessage a(HttpResponsedMessage httpResponsedMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
-            Intent launchIntentForPackage = au9.d().getPackageManager().getLaunchIntentForPackage(au9.d().getPackageName());
-            if (launchIntentForPackage != null) {
-                launchIntentForPackage.addFlags(335577088);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpResponsedMessage)) == null) {
+            if (httpResponsedMessage == null) {
+                return null;
             }
-            if (launchIntentForPackage != null) {
-                int h = au9.h();
-                au9.d().startActivity(launchIntentForPackage);
-                if (z && h > 0) {
-                    Process.killProcess(h);
-                    System.exit(0);
-                    throw new RuntimeException("System.exit returned normally, while it was supposed to halt JVM.");
-                }
+            if (mt9.d(httpResponsedMessage.getError()) && httpResponsedMessage.getCmd() == 1001601) {
+                mt9.e(TbadkCoreApplication.getInst().getCurrentActivity(), httpResponsedMessage.getErrorString());
             }
+            return httpResponsedMessage;
         }
+        return (HttpResponsedMessage) invokeL.objValue;
     }
 }

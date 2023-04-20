@@ -1,25 +1,25 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class mj6 implements e07 {
+public final class mj6 implements f07 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.e07
+    @Override // com.baidu.tieba.f07
     public String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TbadkCoreStatisticKey.KEY_ITEM_THROUGH_CLICK : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "" : (String) invokeV.objValue;
     }
 
     public mj6() {
@@ -36,21 +36,15 @@ public final class mj6 implements e07 {
         }
     }
 
-    @Override // com.baidu.tieba.e07
-    public Map<String, String> a(qw6 businessInfo) {
+    @Override // com.baidu.tieba.f07
+    public Map<String, String> a(rw6 businessInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
             Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            HashMap hashMap = new HashMap();
-            Map<String, String> a = businessInfo.a();
-            hashMap.put("obj_locate", "2");
-            String str = a.get("item_id");
-            if (str == null) {
-                str = "";
-            }
-            hashMap.put("obj_type", str);
-            return hashMap;
+            LinkedHashMap linkedHashMap = new LinkedHashMap();
+            linkedHashMap.put("page_from", ImageViewerConfig.FROM_CONCERN);
+            return linkedHashMap;
         }
         return (Map) invokeL.objValue;
     }

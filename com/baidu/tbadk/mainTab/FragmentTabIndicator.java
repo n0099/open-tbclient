@@ -23,10 +23,10 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.a9;
 import com.baidu.tieba.bg;
 import com.baidu.tieba.cg;
+import com.baidu.tieba.fk9;
 import com.baidu.tieba.g9;
 import com.baidu.tieba.ig;
-import com.baidu.tieba.sm;
-import com.baidu.tieba.xj9;
+import com.baidu.tieba.tm;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -55,7 +55,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     public int s;
     public boolean t;
     public HashMap<String, TbFragmentTabIndicator.a> u;
-    public final bg<sm> v;
+    public final bg<tm> v;
 
     /* loaded from: classes3.dex */
     public class a extends ig {
@@ -92,7 +92,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     }
 
     /* loaded from: classes3.dex */
-    public class b extends bg<sm> {
+    public class b extends bg<tm> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FragmentTabIndicator a;
@@ -117,14 +117,14 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.bg
-        public void onLoaded(sm smVar, String str, int i) {
+        public void onLoaded(tm tmVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, smVar, str, i) == null) {
-                super.onLoaded((b) smVar, str, i);
-                if (this.a.p != null && smVar != null && smVar.w()) {
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, tmVar, str, i) == null) {
+                super.onLoaded((b) tmVar, str, i);
+                if (this.a.p != null && tmVar != null && tmVar.w()) {
                     this.a.p.setBackgroundResource(0);
                     this.a.p.setImageDrawable(null);
-                    smVar.h(this.a.p);
+                    tmVar.h(this.a.p);
                     return;
                 }
                 this.a.l();
@@ -595,10 +595,10 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
                 ThemeColorInfo themeColorInfo = this.f;
                 if (themeColorInfo != null && themeColorInfo.day != null && themeColorInfo.night != null && themeColorInfo.dark != null) {
                     if (TbadkCoreApplication.getInst().getSkinType() == 4) {
-                        this.q.setTextColor(xj9.f(this.f.dark.font_color));
+                        this.q.setTextColor(fk9.f(this.f.dark.font_color));
                         return;
                     } else {
-                        this.q.setTextColor(xj9.f(this.f.day.font_color));
+                        this.q.setTextColor(fk9.f(this.f.day.font_color));
                         return;
                     }
                 }

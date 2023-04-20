@@ -1,54 +1,40 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.os.Build;
+import android.security.keystore.KeyGenParameterSpec;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-import java.net.InetAddress;
-import java.net.Socket;
-import java.net.UnknownHostException;
-import java.security.KeyManagementException;
+import java.io.UnsupportedEncodingException;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.Key;
+import java.security.KeyStore;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
+import java.security.UnrecoverableKeyException;
 import java.security.cert.CertificateException;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLSocket;
-import javax.net.ssl.SSLSocketFactory;
-import javax.net.ssl.X509TrustManager;
-import org.apache.http.conn.ssl.BrowserCompatHostnameVerifier;
-import org.apache.http.conn.ssl.StrictHostnameVerifier;
-import org.apache.http.conn.ssl.X509HostnameVerifier;
-@Deprecated
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+import javax.crypto.BadPaddingException;
+import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.KeyGenerator;
+import javax.crypto.NoSuchPaddingException;
+import javax.crypto.SecretKey;
+import javax.crypto.spec.GCMParameterSpec;
 /* loaded from: classes7.dex */
-public class zwa extends SSLSocketFactory {
+public class zwa {
     public static /* synthetic */ Interceptable $ic;
-    @Deprecated
-    public static final X509HostnameVerifier i;
-    public static final String j;
-    public static volatile zwa k;
+    public static Map<String, SecretKey> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public SSLContext a;
-    public SSLSocket b;
-    public Context c;
-    public String[] d;
-    public X509TrustManager e;
-    public String[] f;
-    public String[] g;
-    public String[] h;
-
-    @Override // javax.net.ssl.SSLSocketFactory
-    public String[] getDefaultCipherSuites() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? new String[0] : (String[]) invokeV.objValue;
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -63,198 +49,251 @@ public class zwa extends SSLSocketFactory {
                 return;
             }
         }
-        new BrowserCompatHostnameVerifier();
-        i = new StrictHostnameVerifier();
-        j = zwa.class.getSimpleName();
-        k = null;
+        a = new HashMap();
     }
 
-    public zwa(Context context) throws NoSuchAlgorithmException, CertificateException, KeyStoreException, IOException, KeyManagementException {
+    public static boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (Build.VERSION.SDK_INT >= 23) {
+                return true;
             }
+            return false;
         }
-        this.a = null;
-        this.b = null;
-        if (context == null) {
-            lxa.d(j, "SecureSSLSocketFactory: context is null");
-            return;
-        }
-        c(context);
-        d(ywa.f());
-        cxa a = bxa.a(context);
-        this.e = a;
-        this.a.init(null, new X509TrustManager[]{a}, null);
+        return invokeV.booleanValue;
     }
 
-    public static zwa b(Context context) throws IOException, NoSuchAlgorithmException, CertificateException, KeyStoreException, IllegalAccessException, KeyManagementException, IllegalArgumentException {
+    public static SecretKey a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            ixa.b(context);
-            if (k == null) {
-                synchronized (zwa.class) {
-                    if (k == null) {
-                        k = new zwa(context);
-                    }
-                }
-            }
-            if (k.c == null && context != null) {
-                k.c(context);
-            }
-            String str = j;
-            lxa.b(str, "getInstance: cost : " + (System.currentTimeMillis() - currentTimeMillis) + " ms");
-            return k;
-        }
-        return (zwa) invokeL.objValue;
-    }
-
-    public final void a(Socket socket) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, socket) == null) {
-            boolean z2 = true;
-            if (!hxa.a(this.h)) {
-                lxa.e(j, "set protocols");
-                ywa.e((SSLSocket) socket, this.h);
-                z = true;
-            } else {
-                z = false;
-            }
-            if (hxa.a(this.g) && hxa.a(this.f)) {
-                z2 = false;
-            } else {
-                lxa.e(j, "set white cipher or black cipher");
-                SSLSocket sSLSocket = (SSLSocket) socket;
-                ywa.d(sSLSocket);
-                if (!hxa.a(this.g)) {
-                    ywa.h(sSLSocket, this.g);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            fxa.d("GCMKS", "load key");
+            SecretKey secretKey = null;
+            try {
+                KeyStore keyStore = KeyStore.getInstance("AndroidKeyStore");
+                keyStore.load(null);
+                Key key = keyStore.getKey(str, null);
+                if (key instanceof SecretKey) {
+                    secretKey = (SecretKey) key;
                 } else {
-                    ywa.b(sSLSocket, this.f);
+                    fxa.d("GCMKS", "generate key");
+                    KeyGenerator keyGenerator = KeyGenerator.getInstance("AES", "AndroidKeyStore");
+                    keyGenerator.init(new KeyGenParameterSpec.Builder(str, 3).setBlockModes("GCM").setEncryptionPaddings("NoPadding").setKeySize(256).build());
+                    secretKey = keyGenerator.generateKey();
+                }
+            } catch (IOException e) {
+                fxa.c("GCMKS", "IOException : " + e.getMessage());
+            } catch (InvalidAlgorithmParameterException e2) {
+                fxa.c("GCMKS", "InvalidAlgorithmParameterException : " + e2.getMessage());
+            } catch (KeyStoreException e3) {
+                fxa.c("GCMKS", "KeyStoreException : " + e3.getMessage());
+            } catch (NoSuchAlgorithmException e4) {
+                fxa.c("GCMKS", "NoSuchAlgorithmException : " + e4.getMessage());
+            } catch (NoSuchProviderException e5) {
+                fxa.c("GCMKS", "NoSuchProviderException : " + e5.getMessage());
+            } catch (UnrecoverableKeyException e6) {
+                fxa.c("GCMKS", "UnrecoverableKeyException : " + e6.getMessage());
+            } catch (CertificateException e7) {
+                fxa.c("GCMKS", "CertificateException : " + e7.getMessage());
+            } catch (Exception e8) {
+                fxa.c("GCMKS", "Exception: " + e8.getMessage());
+            }
+            a.put(str, secretKey);
+            return secretKey;
+        }
+        return (SecretKey) invokeL.objValue;
+    }
+
+    public static SecretKey c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            if (a.get(str) == null) {
+                a(str);
+            }
+            return a.get(str);
+        }
+        return (SecretKey) invokeL.objValue;
+    }
+
+    public static String d(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                try {
+                    return new String(e(str, cxa.b(str2)), "UTF-8");
+                } catch (UnsupportedEncodingException e) {
+                    fxa.c("GCMKS", "decrypt: UnsupportedEncodingException : " + e.getMessage());
+                    return "";
                 }
             }
-            if (!z) {
-                lxa.e(j, "set default protocols");
-                ywa.d((SSLSocket) socket);
+            fxa.c("GCMKS", "alias or encrypt content is null");
+            return "";
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static byte[] e(String str, byte[] bArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, bArr)) == null) {
+            byte[] bArr2 = new byte[0];
+            if (!TextUtils.isEmpty(str) && bArr != null) {
+                if (!b()) {
+                    fxa.c("GCMKS", "sdk version is too low");
+                    return bArr2;
+                } else if (bArr.length <= 12) {
+                    fxa.c("GCMKS", "Decrypt source data is invalid.");
+                    return bArr2;
+                } else {
+                    return f(c(str), bArr);
+                }
             }
-            if (!z2) {
-                lxa.e(j, "set default cipher suites");
-                ywa.c((SSLSocket) socket);
+            fxa.c("GCMKS", "alias or encrypt content is null");
+            return bArr2;
+        }
+        return (byte[]) invokeLL.objValue;
+    }
+
+    public static String g(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                try {
+                    return cxa.a(h(str, str2.getBytes("UTF-8")));
+                } catch (UnsupportedEncodingException e) {
+                    fxa.c("GCMKS", "encrypt: UnsupportedEncodingException : " + e.getMessage());
+                    return "";
+                }
+            }
+            fxa.c("GCMKS", "alias or encrypt content is null");
+            return "";
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static byte[] f(SecretKey secretKey, byte[] bArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, secretKey, bArr)) == null) {
+            byte[] bArr2 = new byte[0];
+            if (secretKey == null) {
+                fxa.c("GCMKS", "Decrypt secret key is null");
+                return bArr2;
+            } else if (bArr == null) {
+                fxa.c("GCMKS", "content is null");
+                return bArr2;
+            } else if (!b()) {
+                fxa.c("GCMKS", "sdk version is too low");
+                return bArr2;
+            } else if (bArr.length <= 12) {
+                fxa.c("GCMKS", "Decrypt source data is invalid.");
+                return bArr2;
+            } else {
+                byte[] copyOf = Arrays.copyOf(bArr, 12);
+                try {
+                    Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
+                    cipher.init(2, secretKey, new GCMParameterSpec(128, copyOf));
+                    return cipher.doFinal(bArr, 12, bArr.length - 12);
+                } catch (InvalidAlgorithmParameterException e) {
+                    fxa.c("GCMKS", "InvalidAlgorithmParameterException : " + e.getMessage());
+                    return bArr2;
+                } catch (InvalidKeyException e2) {
+                    fxa.c("GCMKS", "InvalidKeyException : " + e2.getMessage());
+                    return bArr2;
+                } catch (NoSuchAlgorithmException e3) {
+                    fxa.c("GCMKS", "NoSuchAlgorithmException : " + e3.getMessage());
+                    return bArr2;
+                } catch (BadPaddingException e4) {
+                    fxa.c("GCMKS", "BadPaddingException : " + e4.getMessage());
+                    return bArr2;
+                } catch (IllegalBlockSizeException e5) {
+                    fxa.c("GCMKS", "IllegalBlockSizeException : " + e5.getMessage());
+                    return bArr2;
+                } catch (NoSuchPaddingException e6) {
+                    fxa.c("GCMKS", "NoSuchPaddingException : " + e6.getMessage());
+                    return bArr2;
+                } catch (Exception e7) {
+                    fxa.c("GCMKS", "Exception: " + e7.getMessage());
+                    return bArr2;
+                }
             }
         }
+        return (byte[]) invokeLL.objValue;
     }
 
-    public void c(Context context) {
+    public static byte[] i(SecretKey secretKey, byte[] bArr) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.c = context.getApplicationContext();
-        }
-    }
-
-    public void d(SSLContext sSLContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, sSLContext) == null) {
-            this.a = sSLContext;
-        }
-    }
-
-    @Override // javax.net.SocketFactory
-    public Socket createSocket(String str, int i2) throws IOException {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i2)) == null) {
-            lxa.e(j, "createSocket: host , port");
-            Socket createSocket = this.a.getSocketFactory().createSocket(str, i2);
-            if (createSocket instanceof SSLSocket) {
-                a(createSocket);
-                SSLSocket sSLSocket = (SSLSocket) createSocket;
-                this.b = sSLSocket;
-                this.d = (String[]) sSLSocket.getEnabledCipherSuites().clone();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, secretKey, bArr)) == null) {
+            byte[] bArr2 = new byte[0];
+            if (bArr == null) {
+                fxa.c("GCMKS", "content is null");
+                return bArr2;
+            } else if (secretKey == null) {
+                fxa.c("GCMKS", "secret key is null");
+                return bArr2;
+            } else if (!b()) {
+                fxa.c("GCMKS", "sdk version is too low");
+                return bArr2;
+            } else {
+                try {
+                    Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
+                    cipher.init(1, secretKey);
+                    byte[] doFinal = cipher.doFinal(bArr);
+                    byte[] iv = cipher.getIV();
+                    if (iv != null && iv.length == 12) {
+                        byte[] copyOf = Arrays.copyOf(iv, iv.length + doFinal.length);
+                        System.arraycopy(doFinal, 0, copyOf, iv.length, doFinal.length);
+                        return copyOf;
+                    }
+                    fxa.c("GCMKS", "IV is invalid.");
+                    return bArr2;
+                } catch (InvalidKeyException e) {
+                    fxa.c("GCMKS", "InvalidKeyException : " + e.getMessage());
+                    return bArr2;
+                } catch (NoSuchAlgorithmException e2) {
+                    fxa.c("GCMKS", "NoSuchAlgorithmException : " + e2.getMessage());
+                    return bArr2;
+                } catch (BadPaddingException e3) {
+                    fxa.c("GCMKS", "BadPaddingException : " + e3.getMessage());
+                    return bArr2;
+                } catch (IllegalBlockSizeException e4) {
+                    fxa.c("GCMKS", "IllegalBlockSizeException : " + e4.getMessage());
+                    return bArr2;
+                } catch (NoSuchPaddingException e5) {
+                    fxa.c("GCMKS", "NoSuchPaddingException : " + e5.getMessage());
+                    return bArr2;
+                } catch (Exception e6) {
+                    fxa.c("GCMKS", "Exception: " + e6.getMessage());
+                    return bArr2;
+                }
             }
-            return createSocket;
         }
-        return (Socket) invokeLI.objValue;
+        return (byte[]) invokeLL.objValue;
     }
 
-    @Override // javax.net.SocketFactory
-    public Socket createSocket(String str, int i2, InetAddress inetAddress, int i3) throws IOException, UnknownHostException {
-        InterceptResult invokeCommon;
+    public static byte[] h(String str, byte[] bArr) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{str, Integer.valueOf(i2), inetAddress, Integer.valueOf(i3)})) == null) {
-            return createSocket(str, i2);
-        }
-        return (Socket) invokeCommon.objValue;
-    }
-
-    @Override // javax.net.SocketFactory
-    public Socket createSocket(InetAddress inetAddress, int i2) throws IOException {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, inetAddress, i2)) == null) {
-            return createSocket(inetAddress.getHostAddress(), i2);
-        }
-        return (Socket) invokeLI.objValue;
-    }
-
-    @Override // javax.net.SocketFactory
-    public Socket createSocket(InetAddress inetAddress, int i2, InetAddress inetAddress2, int i3) throws IOException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{inetAddress, Integer.valueOf(i2), inetAddress2, Integer.valueOf(i3)})) == null) {
-            return createSocket(inetAddress.getHostAddress(), i2);
-        }
-        return (Socket) invokeCommon.objValue;
-    }
-
-    @Override // javax.net.ssl.SSLSocketFactory
-    public Socket createSocket(Socket socket, String str, int i2, boolean z) throws IOException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{socket, str, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            lxa.e(j, "createSocket s host port autoClose");
-            Socket createSocket = this.a.getSocketFactory().createSocket(socket, str, i2, z);
-            if (createSocket instanceof SSLSocket) {
-                a(createSocket);
-                SSLSocket sSLSocket = (SSLSocket) createSocket;
-                this.b = sSLSocket;
-                this.d = (String[]) sSLSocket.getEnabledCipherSuites().clone();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, bArr)) == null) {
+            byte[] bArr2 = new byte[0];
+            if (!TextUtils.isEmpty(str) && bArr != null) {
+                if (!b()) {
+                    fxa.c("GCMKS", "sdk version is too low");
+                    return bArr2;
+                }
+                return i(c(str), bArr);
             }
-            return createSocket;
+            fxa.c("GCMKS", "alias or encrypt content is null");
+            return bArr2;
         }
-        return (Socket) invokeCommon.objValue;
-    }
-
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.c;
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    @Override // javax.net.ssl.SSLSocketFactory
-    public String[] getSupportedCipherSuites() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            String[] strArr = this.d;
-            if (strArr != null) {
-                return strArr;
-            }
-            return new String[0];
-        }
-        return (String[]) invokeV.objValue;
+        return (byte[]) invokeLL.objValue;
     }
 }

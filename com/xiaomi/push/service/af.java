@@ -7,7 +7,7 @@ import com.xiaomi.push.hy;
 import com.xiaomi.push.id;
 import com.xiaomi.push.ig;
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class af extends XMPushService.j {
     public final /* synthetic */ id a;
 

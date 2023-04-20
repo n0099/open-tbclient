@@ -80,42 +80,42 @@ public final class c implements x.b {
         public final boolean FY;
         public final boolean FZ;
 
-        public b(C0602c c0602c) {
-            this.FY = c0602c.FY;
-            this.FZ = c0602c.FZ;
-            this.FD = c0602c.FD;
-            this.FC = c0602c.FC;
+        public b(C0601c c0601c) {
+            this.FY = c0601c.FY;
+            this.FZ = c0601c.FZ;
+            this.FD = c0601c.FD;
+            this.FC = c0601c.FC;
         }
 
-        public /* synthetic */ b(C0602c c0602c, byte b) {
-            this(c0602c);
+        public /* synthetic */ b(C0601c c0601c, byte b) {
+            this(c0601c);
         }
     }
 
     /* renamed from: com.kwad.components.core.page.c$c  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C0602c {
+    public static class C0601c {
         public String FC;
         public String FD;
         public boolean FY = true;
         public boolean FZ = true;
 
-        public final C0602c aq(String str) {
+        public final C0601c aq(String str) {
             this.FC = str;
             return this;
         }
 
-        public final C0602c ar(String str) {
+        public final C0601c ar(String str) {
             this.FD = str;
             return this;
         }
 
-        public final C0602c as(boolean z) {
+        public final C0601c as(boolean z) {
             this.FY = true;
             return this;
         }
 
-        public final C0602c at(boolean z) {
+        public final C0601c at(boolean z) {
             this.FZ = false;
             return this;
         }
@@ -201,8 +201,8 @@ public final class c implements x.b {
         com.kwad.components.core.kwai.a aVar = new com.kwad.components.core.kwai.a(this.zO);
         this.mTitleBarHelper = aVar;
         aVar.a(new com.kwad.components.core.kwai.b(bl));
-        this.mTitleBarHelper.a(new a.InterfaceC0600a() { // from class: com.kwad.components.core.page.c.5
-            @Override // com.kwad.components.core.kwai.a.InterfaceC0600a
+        this.mTitleBarHelper.a(new a.InterfaceC0599a() { // from class: com.kwad.components.core.page.c.5
+            @Override // com.kwad.components.core.kwai.a.InterfaceC0599a
             public final void r(View view2) {
                 if (c.this.mAdWebView == null || !c.this.mAdWebView.canGoBack()) {
                     if (c.this.FP != null) {
@@ -217,7 +217,7 @@ public final class c implements x.b {
                 }
             }
 
-            @Override // com.kwad.components.core.kwai.a.InterfaceC0600a
+            @Override // com.kwad.components.core.kwai.a.InterfaceC0599a
             public final void s(View view2) {
                 if (c.this.mAdWebView == null || !c.this.mAdWebView.canGoBack()) {
                     if (c.this.FP != null) {

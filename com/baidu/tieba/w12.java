@@ -8,11 +8,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class w12 extends a12 {
+public class w12 extends b12 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
-    public float b;
+
+    @Override // com.baidu.tieba.b12
+    public void b(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+        }
+    }
 
     public w12() {
         Interceptable interceptable = $ic;
@@ -28,23 +33,18 @@ public class w12 extends a12 {
         }
     }
 
-    @Override // com.baidu.tieba.a12
-    public void a(b12 b12Var, Canvas canvas) {
+    @Override // com.baidu.tieba.b12
+    public void a(c12 c12Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, b12Var, canvas) == null) {
-            if (b12Var.a() == 0) {
-                b12Var.b(canvas.save());
+        if (interceptable == null || interceptable.invokeLL(1048576, this, c12Var, canvas) == null) {
+            try {
+                c12Var.f();
+                canvas.save();
+            } catch (CloneNotSupportedException e) {
+                if (fo1.a) {
+                    e.printStackTrace();
+                }
             }
-            canvas.scale(this.a, this.b);
-        }
-    }
-
-    @Override // com.baidu.tieba.a12
-    public void b(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 1) {
-            this.a = (float) jSONArray.optDouble(0);
-            this.b = (float) jSONArray.optDouble(1);
         }
     }
 }

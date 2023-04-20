@@ -8,9 +8,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.switchs.AsyncGetClipboardSwitch;
-import com.baidu.tieba.cr5;
-import com.baidu.tieba.fq5;
-import com.baidu.tieba.gr5;
+import com.baidu.tieba.dr5;
+import com.baidu.tieba.gq5;
+import com.baidu.tieba.hr5;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
 import com.baidu.tieba.yh;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -102,7 +102,7 @@ public class ForumBroadcastHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             if (AsyncGetClipboardSwitch.isOn() && TbadkCoreApplication.getInst().isMIUIRom()) {
-                gr5.b(new cr5<String>(this) { // from class: com.baidu.tbadk.core.util.ForumBroadcastHelper.1
+                hr5.b(new dr5<String>(this) { // from class: com.baidu.tbadk.core.util.ForumBroadcastHelper.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ ForumBroadcastHelper this$0;
@@ -126,7 +126,7 @@ public class ForumBroadcastHelper {
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.baidu.tieba.cr5
+                    @Override // com.baidu.tieba.dr5
                     public String doInBackground() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
@@ -135,7 +135,7 @@ public class ForumBroadcastHelper {
                         }
                         return (String) invokeV.objValue;
                     }
-                }, new fq5<String>(this) { // from class: com.baidu.tbadk.core.util.ForumBroadcastHelper.2
+                }, new gq5<String>(this) { // from class: com.baidu.tbadk.core.util.ForumBroadcastHelper.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ ForumBroadcastHelper this$0;
@@ -159,7 +159,7 @@ public class ForumBroadcastHelper {
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.baidu.tieba.fq5
+                    @Override // com.baidu.tieba.gq5
                     public void onReturnDataInUI(String str) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {

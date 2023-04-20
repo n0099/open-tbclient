@@ -10,7 +10,7 @@ import com.xiaomi.push.hr;
 import com.xiaomi.push.ig;
 import com.xiaomi.push.ir;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class bm implements eg {
     @Override // com.xiaomi.push.eg
     public void a(Context context, HashMap<String, String> hashMap) {

@@ -1,25 +1,894 @@
 package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.Array;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.Set;
 /* loaded from: classes4.dex */
-public class gm4<K, V> {
+public abstract class gm4<K, V> {
     public static /* synthetic */ Interceptable $ic;
-    public static Object[] d;
-    public static int e;
-    public static Object[] f;
-    public static int g;
     public transient /* synthetic */ FieldHolder $fh;
-    public int[] a;
-    public Object[] b;
-    public int c;
+    public gm4<K, V>.b a;
+    public gm4<K, V>.c b;
+    public gm4<K, V>.e c;
+
+    public abstract void a();
+
+    public abstract Object b(int i, int i2);
+
+    public abstract Map<K, V> c();
+
+    public abstract int d();
+
+    public abstract int e(Object obj);
+
+    public abstract int f(Object obj);
+
+    public abstract void g(K k, V v);
+
+    public abstract void h(int i);
+
+    public abstract V i(int i, V v);
+
+    /* loaded from: classes4.dex */
+    public final class a<T> implements Iterator<T> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final int a;
+        public int b;
+        public int c;
+        public boolean d;
+        public final /* synthetic */ gm4 e;
+
+        public a(gm4 gm4Var, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gm4Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = gm4Var;
+            this.d = false;
+            this.a = i;
+            this.b = gm4Var.d();
+        }
+
+        @Override // java.util.Iterator
+        public boolean hasNext() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.c < this.b) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // java.util.Iterator
+        public T next() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                T t = (T) this.e.b(this.c, this.a);
+                this.c++;
+                this.d = true;
+                return t;
+            }
+            return (T) invokeV.objValue;
+        }
+
+        @Override // java.util.Iterator
+        public void remove() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                if (this.d) {
+                    int i = this.c - 1;
+                    this.c = i;
+                    this.b--;
+                    this.d = false;
+                    this.e.h(i);
+                    return;
+                }
+                throw new IllegalStateException();
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public final class b implements Set<Map.Entry<K, V>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gm4 a;
+
+        public b(gm4 gm4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gm4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = gm4Var;
+        }
+
+        public boolean a(Map.Entry<K, V> entry) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, entry)) == null) {
+                throw new UnsupportedOperationException();
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // java.util.Set, java.util.Collection
+        public /* bridge */ /* synthetic */ boolean add(Object obj) {
+            a((Map.Entry) obj);
+            throw null;
+        }
+
+        @Override // java.util.Set, java.util.Collection
+        public boolean containsAll(Collection<?> collection) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, collection)) == null) {
+                Iterator<?> it = collection.iterator();
+                while (it.hasNext()) {
+                    if (!contains(it.next())) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // java.util.Set, java.util.Collection
+        public boolean equals(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
+                return gm4.k(this, obj);
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // java.util.Set, java.util.Collection
+        public boolean remove(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, obj)) == null) {
+                throw new UnsupportedOperationException();
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // java.util.Set, java.util.Collection
+        public boolean removeAll(Collection<?> collection) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, collection)) == null) {
+                throw new UnsupportedOperationException();
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // java.util.Set, java.util.Collection
+        public boolean retainAll(Collection<?> collection) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, collection)) == null) {
+                throw new UnsupportedOperationException();
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // java.util.Set, java.util.Collection
+        public <T> T[] toArray(T[] tArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, tArr)) == null) {
+                throw new UnsupportedOperationException();
+            }
+            return (T[]) ((Object[]) invokeL.objValue);
+        }
+
+        @Override // java.util.Set, java.util.Collection
+        public boolean addAll(Collection<? extends Map.Entry<K, V>> collection) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, collection)) == null) {
+                int d = this.a.d();
+                for (Map.Entry<K, V> entry : collection) {
+                    this.a.g(entry.getKey(), entry.getValue());
+                }
+                if (d != this.a.d()) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // java.util.Set, java.util.Collection
+        public boolean contains(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
+                if (!(obj instanceof Map.Entry)) {
+                    return false;
+                }
+                Map.Entry entry = (Map.Entry) obj;
+                int e = this.a.e(entry.getKey());
+                if (e < 0) {
+                    return false;
+                }
+                return dm4.b(this.a.b(e, 1), entry.getValue());
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // java.util.Set, java.util.Collection
+        public void clear() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                this.a.a();
+            }
+        }
+
+        @Override // java.util.Set, java.util.Collection
+        public boolean isEmpty() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                if (this.a.d() == 0) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // java.util.Set, java.util.Collection, java.lang.Iterable
+        public Iterator<Map.Entry<K, V>> iterator() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+                return new d(this.a);
+            }
+            return (Iterator) invokeV.objValue;
+        }
+
+        @Override // java.util.Set, java.util.Collection
+        public int size() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+                return this.a.d();
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // java.util.Set, java.util.Collection
+        public Object[] toArray() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+                throw new UnsupportedOperationException();
+            }
+            return (Object[]) invokeV.objValue;
+        }
+
+        @Override // java.util.Set, java.util.Collection
+        public int hashCode() {
+            InterceptResult invokeV;
+            int hashCode;
+            int hashCode2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                int i = 0;
+                for (int d = this.a.d() - 1; d >= 0; d--) {
+                    Object b = this.a.b(d, 0);
+                    Object b2 = this.a.b(d, 1);
+                    if (b == null) {
+                        hashCode = 0;
+                    } else {
+                        hashCode = b.hashCode();
+                    }
+                    if (b2 == null) {
+                        hashCode2 = 0;
+                    } else {
+                        hashCode2 = b2.hashCode();
+                    }
+                    i += hashCode ^ hashCode2;
+                }
+                return i;
+            }
+            return invokeV.intValue;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public final class c implements Set<K> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gm4 a;
+
+        public c(gm4 gm4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gm4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = gm4Var;
+        }
+
+        @Override // java.util.Set, java.util.Collection
+        public boolean add(K k) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k)) == null) {
+                throw new UnsupportedOperationException();
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // java.util.Set, java.util.Collection
+        public boolean addAll(Collection<? extends K> collection) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, collection)) == null) {
+                throw new UnsupportedOperationException();
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // java.util.Set, java.util.Collection
+        public boolean contains(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+                if (this.a.e(obj) >= 0) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // java.util.Set, java.util.Collection
+        public boolean containsAll(Collection<?> collection) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, collection)) == null) {
+                return gm4.j(this.a.c(), collection);
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // java.util.Set, java.util.Collection
+        public boolean equals(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+                return gm4.k(this, obj);
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // java.util.Set, java.util.Collection
+        public boolean remove(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, obj)) == null) {
+                int e = this.a.e(obj);
+                if (e >= 0) {
+                    this.a.h(e);
+                    return true;
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // java.util.Set, java.util.Collection
+        public boolean removeAll(Collection<?> collection) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, collection)) == null) {
+                return gm4.o(this.a.c(), collection);
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // java.util.Set, java.util.Collection
+        public boolean retainAll(Collection<?> collection) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, collection)) == null) {
+                return gm4.p(this.a.c(), collection);
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // java.util.Set, java.util.Collection
+        public <T> T[] toArray(T[] tArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, tArr)) == null) {
+                return (T[]) this.a.r(tArr, 0);
+            }
+            return (T[]) ((Object[]) invokeL.objValue);
+        }
+
+        @Override // java.util.Set, java.util.Collection
+        public void clear() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                this.a.a();
+            }
+        }
+
+        @Override // java.util.Set, java.util.Collection
+        public int hashCode() {
+            InterceptResult invokeV;
+            int hashCode;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                int i = 0;
+                for (int d = this.a.d() - 1; d >= 0; d--) {
+                    Object b = this.a.b(d, 0);
+                    if (b == null) {
+                        hashCode = 0;
+                    } else {
+                        hashCode = b.hashCode();
+                    }
+                    i += hashCode;
+                }
+                return i;
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // java.util.Set, java.util.Collection
+        public boolean isEmpty() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                if (this.a.d() == 0) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // java.util.Set, java.util.Collection, java.lang.Iterable
+        public Iterator<K> iterator() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                return new a(this.a, 0);
+            }
+            return (Iterator) invokeV.objValue;
+        }
+
+        @Override // java.util.Set, java.util.Collection
+        public int size() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+                return this.a.d();
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // java.util.Set, java.util.Collection
+        public Object[] toArray() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+                return this.a.q(0);
+            }
+            return (Object[]) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public final class d implements Iterator<Map.Entry<K, V>>, Map.Entry<K, V> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public int b;
+        public boolean c;
+        public final /* synthetic */ gm4 d;
+
+        public d(gm4 gm4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gm4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = gm4Var;
+            this.c = false;
+            this.a = gm4Var.d() - 1;
+            this.b = -1;
+        }
+
+        public Map.Entry<K, V> a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                this.b++;
+                this.c = true;
+                return this;
+            }
+            return (Map.Entry) invokeV.objValue;
+        }
+
+        @Override // java.util.Map.Entry
+        public K getKey() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                if (this.c) {
+                    return (K) this.d.b(this.b, 0);
+                }
+                throw new IllegalStateException("This container does not support retaining Map.Entry objects");
+            }
+            return (K) invokeV.objValue;
+        }
+
+        @Override // java.util.Map.Entry
+        public V getValue() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                if (this.c) {
+                    return (V) this.d.b(this.b, 1);
+                }
+                throw new IllegalStateException("This container does not support retaining Map.Entry objects");
+            }
+            return (V) invokeV.objValue;
+        }
+
+        @Override // java.util.Iterator
+        public boolean hasNext() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                if (this.b < this.a) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // java.util.Iterator
+        public /* bridge */ /* synthetic */ Object next() {
+            a();
+            return this;
+        }
+
+        @Override // java.util.Iterator
+        public void remove() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+                if (this.c) {
+                    this.d.h(this.b);
+                    this.b--;
+                    this.a--;
+                    this.c = false;
+                    return;
+                }
+                throw new IllegalStateException();
+            }
+        }
+
+        public final String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+                return getKey() + "=" + getValue();
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @Override // java.util.Map.Entry
+        public final boolean equals(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+                if (this.c) {
+                    if (!(obj instanceof Map.Entry)) {
+                        return false;
+                    }
+                    Map.Entry entry = (Map.Entry) obj;
+                    if (!dm4.b(entry.getKey(), this.d.b(this.b, 0)) || !dm4.b(entry.getValue(), this.d.b(this.b, 1))) {
+                        return false;
+                    }
+                    return true;
+                }
+                throw new IllegalStateException("This container does not support retaining Map.Entry objects");
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // java.util.Map.Entry
+        public final int hashCode() {
+            InterceptResult invokeV;
+            int hashCode;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                if (this.c) {
+                    int i = 0;
+                    Object b = this.d.b(this.b, 0);
+                    Object b2 = this.d.b(this.b, 1);
+                    if (b == null) {
+                        hashCode = 0;
+                    } else {
+                        hashCode = b.hashCode();
+                    }
+                    if (b2 != null) {
+                        i = b2.hashCode();
+                    }
+                    return hashCode ^ i;
+                }
+                throw new IllegalStateException("This container does not support retaining Map.Entry objects");
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // java.util.Map.Entry
+        public V setValue(V v) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, v)) == null) {
+                if (this.c) {
+                    return (V) this.d.i(this.b, v);
+                }
+                throw new IllegalStateException("This container does not support retaining Map.Entry objects");
+            }
+            return (V) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public final class e implements Collection<V> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gm4 a;
+
+        public e(gm4 gm4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gm4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = gm4Var;
+        }
+
+        @Override // java.util.Collection
+        public boolean add(V v) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, v)) == null) {
+                throw new UnsupportedOperationException();
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // java.util.Collection
+        public boolean addAll(Collection<? extends V> collection) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, collection)) == null) {
+                throw new UnsupportedOperationException();
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // java.util.Collection
+        public boolean contains(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+                if (this.a.f(obj) >= 0) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // java.util.Collection
+        public boolean containsAll(Collection<?> collection) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, collection)) == null) {
+                Iterator<?> it = collection.iterator();
+                while (it.hasNext()) {
+                    if (!contains(it.next())) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // java.util.Collection
+        public boolean remove(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, obj)) == null) {
+                int f = this.a.f(obj);
+                if (f >= 0) {
+                    this.a.h(f);
+                    return true;
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // java.util.Collection
+        public <T> T[] toArray(T[] tArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, tArr)) == null) {
+                return (T[]) this.a.r(tArr, 1);
+            }
+            return (T[]) ((Object[]) invokeL.objValue);
+        }
+
+        @Override // java.util.Collection
+        public void clear() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                this.a.a();
+            }
+        }
+
+        @Override // java.util.Collection
+        public boolean isEmpty() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                if (this.a.d() == 0) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // java.util.Collection, java.lang.Iterable
+        public Iterator<V> iterator() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return new a(this.a, 1);
+            }
+            return (Iterator) invokeV.objValue;
+        }
+
+        @Override // java.util.Collection
+        public int size() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+                return this.a.d();
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // java.util.Collection
+        public Object[] toArray() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+                return this.a.q(1);
+            }
+            return (Object[]) invokeV.objValue;
+        }
+
+        @Override // java.util.Collection
+        public boolean removeAll(Collection<?> collection) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, collection)) == null) {
+                int d = this.a.d();
+                int i = 0;
+                boolean z = false;
+                while (i < d) {
+                    if (collection.contains(this.a.b(i, 1))) {
+                        this.a.h(i);
+                        i--;
+                        d--;
+                        z = true;
+                    }
+                    i++;
+                }
+                return z;
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // java.util.Collection
+        public boolean retainAll(Collection<?> collection) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, collection)) == null) {
+                int d = this.a.d();
+                int i = 0;
+                boolean z = false;
+                while (i < d) {
+                    if (!collection.contains(this.a.b(i, 1))) {
+                        this.a.h(i);
+                        i--;
+                        d--;
+                        z = true;
+                    }
+                    i++;
+                }
+                return z;
+            }
+            return invokeL.booleanValue;
+        }
+    }
 
     public gm4() {
         Interceptable interceptable = $ic;
@@ -31,516 +900,153 @@ public class gm4<K, V> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = cm4.a;
-        this.b = cm4.b;
-        this.c = 0;
     }
 
-    public void clear() {
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (i = this.c) != 0) {
-            c(this.a, this.b, i);
-            this.a = cm4.a;
-            this.b = cm4.b;
-            this.c = 0;
-        }
-    }
-
-    public int hashCode() {
+    public Set<Map.Entry<K, V>> l() {
         InterceptResult invokeV;
-        int hashCode;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            int[] iArr = this.a;
-            Object[] objArr = this.b;
-            int i = this.c;
-            int i2 = 1;
-            int i3 = 0;
-            int i4 = 0;
-            while (i3 < i) {
-                Object obj = objArr[i2];
-                int i5 = iArr[i3];
-                if (obj == null) {
-                    hashCode = 0;
-                } else {
-                    hashCode = obj.hashCode();
-                }
-                i4 += hashCode ^ i5;
-                i3++;
-                i2 += 2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            if (this.a == null) {
+                this.a = new b(this);
             }
-            return i4;
+            return this.a;
         }
-        return invokeV.intValue;
+        return (Set) invokeV.objValue;
     }
 
-    public boolean isEmpty() {
+    public Set<K> m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            if (this.c <= 0) {
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            if (this.b == null) {
+                this.b = new c(this);
             }
-            return false;
+            return this.b;
         }
-        return invokeV.booleanValue;
+        return (Set) invokeV.objValue;
     }
 
-    public int size() {
+    public Collection<V> n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            if (this.c == null) {
+                this.c = new e(this);
+            }
             return this.c;
         }
-        return invokeV.intValue;
+        return (Collection) invokeV.objValue;
     }
 
-    public static void c(int[] iArr, Object[] objArr, int i) {
+    public static <K, V> boolean j(Map<K, V> map, Collection<?> collection) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65537, null, iArr, objArr, i) == null) {
-            if (iArr.length == 8) {
-                synchronized (bm4.class) {
-                    if (g < 10) {
-                        objArr[0] = f;
-                        objArr[1] = iArr;
-                        for (int i2 = (i << 1) - 1; i2 >= 2; i2--) {
-                            objArr[i2] = null;
-                        }
-                        f = objArr;
-                        g++;
-                    }
-                }
-            } else if (iArr.length == 4) {
-                synchronized (bm4.class) {
-                    if (e < 10) {
-                        objArr[0] = d;
-                        objArr[1] = iArr;
-                        for (int i3 = (i << 1) - 1; i3 >= 2; i3--) {
-                            objArr[i3] = null;
-                        }
-                        d = objArr;
-                        e++;
-                    }
-                }
-            }
-        }
-    }
-
-    public final void a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            if (i == 8) {
-                synchronized (bm4.class) {
-                    if (f != null) {
-                        Object[] objArr = f;
-                        this.b = objArr;
-                        f = (Object[]) objArr[0];
-                        this.a = (int[]) objArr[1];
-                        objArr[1] = null;
-                        objArr[0] = null;
-                        g--;
-                        return;
-                    }
-                }
-            } else if (i == 4) {
-                synchronized (bm4.class) {
-                    if (d != null) {
-                        Object[] objArr2 = d;
-                        this.b = objArr2;
-                        d = (Object[]) objArr2[0];
-                        this.a = (int[]) objArr2[1];
-                        objArr2[1] = null;
-                        objArr2[0] = null;
-                        e--;
-                        return;
-                    }
-                }
-            }
-            this.a = new int[i];
-            this.b = new Object[i << 1];
-        }
-    }
-
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            int[] iArr = this.a;
-            if (iArr.length < i) {
-                Object[] objArr = this.b;
-                a(i);
-                int i2 = this.c;
-                if (i2 > 0) {
-                    System.arraycopy(iArr, 0, this.a, 0, i2);
-                    System.arraycopy(objArr, 0, this.b, 0, this.c << 1);
-                }
-                c(iArr, objArr, this.c);
-            }
-        }
-    }
-
-    public boolean containsKey(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            if (e(obj) >= 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean containsValue(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
-            if (g(obj) >= 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int e(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
-            if (obj == null) {
-                return f();
-            }
-            return d(obj, obj.hashCode());
-        }
-        return invokeL.intValue;
-    }
-
-    public V get(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, obj)) == null) {
-            int e2 = e(obj);
-            if (e2 >= 0) {
-                return (V) this.b[(e2 << 1) + 1];
-            }
-            return null;
-        }
-        return (V) invokeL.objValue;
-    }
-
-    public K h(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
-            return (K) this.b[i << 1];
-        }
-        return (K) invokeI.objValue;
-    }
-
-    public V k(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
-            return (V) this.b[(i << 1) + 1];
-        }
-        return (V) invokeI.objValue;
-    }
-
-    public V remove(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, obj)) == null) {
-            int e2 = e(obj);
-            if (e2 >= 0) {
-                return i(e2);
-            }
-            return null;
-        }
-        return (V) invokeL.objValue;
-    }
-
-    public int d(Object obj, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, obj, i)) == null) {
-            int i2 = this.c;
-            if (i2 == 0) {
-                return -1;
-            }
-            int a = cm4.a(this.a, i2, i);
-            if (a < 0) {
-                return a;
-            }
-            if (obj.equals(this.b[a << 1])) {
-                return a;
-            }
-            int i3 = a + 1;
-            while (i3 < i2 && this.a[i3] == i) {
-                if (obj.equals(this.b[i3 << 1])) {
-                    return i3;
-                }
-                i3++;
-            }
-            for (int i4 = a - 1; i4 >= 0 && this.a[i4] == i; i4--) {
-                if (obj.equals(this.b[i4 << 1])) {
-                    return i4;
-                }
-            }
-            return ~i3;
-        }
-        return invokeLI.intValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj instanceof Map) {
-                Map map = (Map) obj;
-                if (size() != map.size()) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, map, collection)) == null) {
+            Iterator<?> it = collection.iterator();
+            while (it.hasNext()) {
+                if (!map.containsKey(it.next())) {
                     return false;
                 }
-                for (int i = 0; i < this.c; i++) {
-                    try {
-                        K h = h(i);
-                        V k = k(i);
-                        Object obj2 = map.get(h);
-                        if (k == null) {
-                            if (obj2 != null || !map.containsKey(h)) {
-                                return false;
-                            }
-                        } else if (!k.equals(obj2)) {
-                            return false;
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static <T> boolean k(Set<T> set, Object obj) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, set, obj)) == null) {
+            if (set == obj) {
+                return true;
+            }
+            if (obj instanceof Set) {
+                Set set2 = (Set) obj;
+                try {
+                    if (set.size() == set2.size()) {
+                        if (set.containsAll(set2)) {
+                            return true;
                         }
-                    } catch (ClassCastException | NullPointerException unused) {
                     }
+                    return false;
+                } catch (ClassCastException | NullPointerException unused) {
                 }
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static <K, V> boolean o(Map<K, V> map, Collection<?> collection) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, map, collection)) == null) {
+            int size = map.size();
+            Iterator<?> it = collection.iterator();
+            while (it.hasNext()) {
+                map.remove(it.next());
+            }
+            if (size != map.size()) {
                 return true;
             }
             return false;
         }
-        return invokeL.booleanValue;
+        return invokeLL.booleanValue;
     }
 
-    public int f() {
-        InterceptResult invokeV;
+    public static <K, V> boolean p(Map<K, V> map, Collection<?> collection) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            int i = this.c;
-            if (i == 0) {
-                return -1;
-            }
-            int a = cm4.a(this.a, i, 0);
-            if (a < 0) {
-                return a;
-            }
-            if (this.b[a << 1] == null) {
-                return a;
-            }
-            int i2 = a + 1;
-            while (i2 < i && this.a[i2] == 0) {
-                if (this.b[i2 << 1] == null) {
-                    return i2;
-                }
-                i2++;
-            }
-            for (int i3 = a - 1; i3 >= 0 && this.a[i3] == 0; i3--) {
-                if (this.b[i3 << 1] == null) {
-                    return i3;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, map, collection)) == null) {
+            int size = map.size();
+            Iterator<K> it = map.keySet().iterator();
+            while (it.hasNext()) {
+                if (!collection.contains(it.next())) {
+                    it.remove();
                 }
             }
-            return ~i2;
+            if (size != map.size()) {
+                return true;
+            }
+            return false;
         }
-        return invokeV.intValue;
+        return invokeLL.booleanValue;
     }
 
-    public int g(Object obj) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Multi-variable search result rejected for r5v9, resolved type: T[] */
+    /* JADX WARN: Multi-variable type inference failed */
+    public <T> T[] r(T[] tArr, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, obj)) == null) {
-            int i = this.c * 2;
-            Object[] objArr = this.b;
-            if (obj == null) {
-                for (int i2 = 1; i2 < i; i2 += 2) {
-                    if (objArr[i2] == null) {
-                        return i2 >> 1;
-                    }
-                }
-                return -1;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048589, this, tArr, i)) == null) {
+            int d2 = d();
+            if (tArr.length < d2) {
+                tArr = (T[]) ((Object[]) Array.newInstance(tArr.getClass().getComponentType(), d2));
             }
-            for (int i3 = 1; i3 < i; i3 += 2) {
-                if (obj.equals(objArr[i3])) {
-                    return i3 >> 1;
-                }
+            for (int i2 = 0; i2 < d2; i2++) {
+                tArr[i2] = b(i2, i);
             }
-            return -1;
+            if (tArr.length > d2) {
+                tArr[d2] = null;
+            }
+            return tArr;
         }
-        return invokeL.intValue;
+        return (T[]) ((Object[]) invokeLI.objValue);
     }
 
-    public V i(int i) {
+    public Object[] q(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
-            Object[] objArr = this.b;
-            int i2 = i << 1;
-            V v = (V) objArr[i2 + 1];
-            int i3 = this.c;
-            if (i3 <= 1) {
-                c(this.a, objArr, i3);
-                this.a = cm4.a;
-                this.b = cm4.b;
-                this.c = 0;
-            } else {
-                int[] iArr = this.a;
-                int i4 = 8;
-                if (iArr.length > 8 && i3 < iArr.length / 3) {
-                    if (i3 > 8) {
-                        i4 = i3 + (i3 >> 1);
-                    }
-                    int[] iArr2 = this.a;
-                    Object[] objArr2 = this.b;
-                    a(i4);
-                    this.c--;
-                    if (i > 0) {
-                        System.arraycopy(iArr2, 0, this.a, 0, i);
-                        System.arraycopy(objArr2, 0, this.b, 0, i2);
-                    }
-                    int i5 = this.c;
-                    if (i < i5) {
-                        int i6 = i + 1;
-                        System.arraycopy(iArr2, i6, this.a, i, i5 - i);
-                        System.arraycopy(objArr2, i6 << 1, this.b, i2, (this.c - i) << 1);
-                    }
-                } else {
-                    int i7 = this.c - 1;
-                    this.c = i7;
-                    if (i < i7) {
-                        int[] iArr3 = this.a;
-                        int i8 = i + 1;
-                        System.arraycopy(iArr3, i8, iArr3, i, i7 - i);
-                        Object[] objArr3 = this.b;
-                        System.arraycopy(objArr3, i8 << 1, objArr3, i2, (this.c - i) << 1);
-                    }
-                    Object[] objArr4 = this.b;
-                    int i9 = this.c;
-                    objArr4[i9 << 1] = null;
-                    objArr4[(i9 << 1) + 1] = null;
-                }
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
+            int d2 = d();
+            Object[] objArr = new Object[d2];
+            for (int i2 = 0; i2 < d2; i2++) {
+                objArr[i2] = b(i2, i);
             }
-            return v;
+            return objArr;
         }
-        return (V) invokeI.objValue;
-    }
-
-    public V j(int i, V v) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048591, this, i, v)) == null) {
-            int i2 = (i << 1) + 1;
-            Object[] objArr = this.b;
-            V v2 = (V) objArr[i2];
-            objArr[i2] = v;
-            return v2;
-        }
-        return (V) invokeIL.objValue;
-    }
-
-    public V put(K k, V v) {
-        InterceptResult invokeLL;
-        int i;
-        int d2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048593, this, k, v)) == null) {
-            if (k == null) {
-                d2 = f();
-                i = 0;
-            } else {
-                int hashCode = k.hashCode();
-                i = hashCode;
-                d2 = d(k, hashCode);
-            }
-            if (d2 >= 0) {
-                int i2 = (d2 << 1) + 1;
-                Object[] objArr = this.b;
-                V v2 = (V) objArr[i2];
-                objArr[i2] = v;
-                return v2;
-            }
-            int i3 = ~d2;
-            int i4 = this.c;
-            if (i4 >= this.a.length) {
-                int i5 = 4;
-                if (i4 >= 8) {
-                    i5 = (i4 >> 1) + i4;
-                } else if (i4 >= 4) {
-                    i5 = 8;
-                }
-                int[] iArr = this.a;
-                Object[] objArr2 = this.b;
-                a(i5);
-                int[] iArr2 = this.a;
-                if (iArr2.length > 0) {
-                    System.arraycopy(iArr, 0, iArr2, 0, iArr.length);
-                    System.arraycopy(objArr2, 0, this.b, 0, objArr2.length);
-                }
-                c(iArr, objArr2, this.c);
-            }
-            int i6 = this.c;
-            if (i3 < i6) {
-                int[] iArr3 = this.a;
-                int i7 = i3 + 1;
-                System.arraycopy(iArr3, i3, iArr3, i7, i6 - i3);
-                Object[] objArr3 = this.b;
-                System.arraycopy(objArr3, i3 << 1, objArr3, i7 << 1, (this.c - i3) << 1);
-            }
-            this.a[i3] = i;
-            Object[] objArr4 = this.b;
-            int i8 = i3 << 1;
-            objArr4[i8] = k;
-            objArr4[i8 + 1] = v;
-            this.c++;
-            return null;
-        }
-        return (V) invokeLL.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            if (isEmpty()) {
-                return StringUtil.EMPTY_ARRAY;
-            }
-            StringBuilder sb = new StringBuilder(this.c * 28);
-            sb.append('{');
-            for (int i = 0; i < this.c; i++) {
-                if (i > 0) {
-                    sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                }
-                K h = h(i);
-                if (h != this) {
-                    sb.append(h);
-                } else {
-                    sb.append("(this Map)");
-                }
-                sb.append('=');
-                V k = k(i);
-                if (k != this) {
-                    sb.append(k);
-                } else {
-                    sb.append("(this Map)");
-                }
-            }
-            sb.append('}');
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
+        return (Object[]) invokeI.objValue;
     }
 }

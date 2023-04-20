@@ -17,8 +17,8 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.topic.topictab.view.TopicPkView;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.nu7;
-import com.baidu.tieba.ru7;
+import com.baidu.tieba.ou7;
+import com.baidu.tieba.su7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -128,42 +128,42 @@ public class TopicDetailHeadView extends RelativeLayout {
         }
     }
 
-    public void setData(nu7 nu7Var) {
+    public void setData(ou7 ou7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, nu7Var) == null) {
-            if (nu7Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, ou7Var) == null) {
+            if (ou7Var == null) {
                 setVisibility(8);
                 return;
             }
             setVisibility(0);
-            if (nu7Var.e == null && StringUtils.isNull(nu7Var.c)) {
+            if (ou7Var.e == null && StringUtils.isNull(ou7Var.c)) {
                 ((LinearLayout.LayoutParams) this.c.getLayoutParams()).bottomMargin = ii.g(getContext(), R.dimen.tbds130);
             }
-            this.c.setText(nu7Var.b);
-            if (StringUtils.isNull(nu7Var.c)) {
+            this.c.setText(ou7Var.b);
+            if (StringUtils.isNull(ou7Var.c)) {
                 this.d.setVisibility(8);
                 this.b.setDefaultBgResource(R.drawable.obfuscated_res_0x7f0812b5);
             } else {
                 this.d.setVisibility(0);
-                this.e.N(nu7Var.c, 10, false);
+                this.e.N(ou7Var.c, 10, false);
                 this.b.setDefaultBgResource(R.drawable.obfuscated_res_0x7f0812b6);
             }
-            if (nu7Var.e == null) {
+            if (ou7Var.e == null) {
                 this.f.setVisibility(8);
                 this.g.setVisibility(8);
             } else {
                 this.f.setVisibility(0);
                 this.g.setVisibility(0);
-                this.g.setData(nu7Var.e);
+                this.g.setData(ou7Var.e);
             }
-            ru7 ru7Var = nu7Var.f;
-            if (ru7Var != null && !ListUtils.isEmpty(ru7Var.b)) {
+            su7 su7Var = ou7Var.f;
+            if (su7Var != null && !ListUtils.isEmpty(su7Var.b)) {
                 this.h.setVisibility(0);
-                this.h.setData(nu7Var.f);
+                this.h.setData(ou7Var.f);
             } else {
                 this.h.setVisibility(8);
             }
-            this.b.N(nu7Var.d, 10, false);
+            this.b.N(ou7Var.d, 10, false);
         }
     }
 

@@ -7,7 +7,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ac0;
+import com.baidu.tieba.bc0;
 /* loaded from: classes2.dex */
 public class ShowAllViewHolder extends RecyclerView.ViewHolder {
     public View a;
@@ -34,7 +34,7 @@ public class ShowAllViewHolder extends RecyclerView.ViewHolder {
         } else {
             this.e.setVisibility(0);
         }
-        String r = ac0.f().r();
+        String r = bc0.f().r();
         if ("day".equals(r)) {
             this.e.setImageResource(R.drawable.obfuscated_res_0x7f080d9b);
         } else if (LiveFeedPageSdk.UI_MODE_NIGHT.equals(r)) {

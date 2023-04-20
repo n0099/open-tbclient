@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 
-import android.app.Application;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.interfa.IHostAppRuntime;
-import com.baidu.nps.interfa.IHostAppRuntime_HostAppRuntimeManager_Provider;
+import com.baidu.nps.interfa.IAlertManager;
+import com.baidu.nps.interfa.IAlertManager_AlertManager_Provider;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -18,14 +18,14 @@ public class zc1 {
     public static zc1 b;
     public transient /* synthetic */ FieldHolder $fh;
     @Inject
-    public dj1<IHostAppRuntime> a;
+    public ej1<IAlertManager> a;
 
-    public void c() {
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            bj1 b2 = bj1.b();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            cj1 b2 = cj1.b();
             this.a = b2;
-            b2.a(new IHostAppRuntime_HostAppRuntimeManager_Provider());
+            b2.a(new IAlertManager_AlertManager_Provider());
         }
     }
 
@@ -58,10 +58,10 @@ public class zc1 {
                 return;
             }
         }
-        c();
+        b();
     }
 
-    public static zc1 b() {
+    public static zc1 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
@@ -70,12 +70,10 @@ public class zc1 {
         return (zc1) invokeV.objValue;
     }
 
-    public Application a() {
-        InterceptResult invokeV;
+    public void c(String str, String str2, View.OnClickListener onClickListener, String str3, View.OnClickListener onClickListener2, String str4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.get().getApplication();
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, onClickListener, str3, onClickListener2, str4}) == null) {
+            this.a.get().onAlert(str, str2, onClickListener, str3, onClickListener2, str4);
         }
-        return (Application) invokeV.objValue;
     }
 }

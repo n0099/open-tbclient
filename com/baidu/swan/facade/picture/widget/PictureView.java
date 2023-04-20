@@ -15,10 +15,10 @@ import com.baidu.mobstat.Config;
 import com.baidu.swan.facade.picture.widget.BdImageViewTouch;
 import com.baidu.swan.facade.picture.widget.BdImageViewTouchBase;
 import com.baidu.tieba.R;
-import com.baidu.tieba.br2;
-import com.baidu.tieba.ll3;
+import com.baidu.tieba.cr2;
 import com.baidu.tieba.ml3;
-import com.baidu.tieba.sk3;
+import com.baidu.tieba.nl3;
+import com.baidu.tieba.tk3;
 import com.facebook.common.executors.UiThreadImmediateExecutorService;
 import com.facebook.common.references.CloseableReference;
 import com.facebook.datasource.DataSource;
@@ -172,7 +172,7 @@ public class PictureView extends FrameLayout {
             if (drawable instanceof BitmapDrawable) {
                 return ((BitmapDrawable) drawable).getBitmap();
             }
-            return sk3.g(drawable);
+            return tk3.g(drawable);
         }
         return null;
     }
@@ -209,7 +209,7 @@ public class PictureView extends FrameLayout {
         String str = this.a;
         String str2 = this.b;
         String str3 = this.c;
-        Uri p = ml3.p(str);
+        Uri p = nl3.p(str);
         if (p == null) {
             z = true;
         } else {
@@ -238,8 +238,8 @@ public class PictureView extends FrameLayout {
             if (!TextUtils.isEmpty(str3)) {
                 hashMap.put("User-Agent", str3);
             }
-            ImageRequestBuilder resizeOptions = ImageRequestBuilder.newBuilderWithSource(p).setResizeOptions(new ResizeOptions(ll3.o(getContext()), ll3.o(getContext())));
-            br2.C().e(resizeOptions, hashMap);
+            ImageRequestBuilder resizeOptions = ImageRequestBuilder.newBuilderWithSource(p).setResizeOptions(new ResizeOptions(ml3.o(getContext()), ml3.o(getContext())));
+            cr2.C().e(resizeOptions, hashMap);
             Fresco.getImagePipeline().fetchDecodedImage(resizeOptions.build(), getContext()).subscribe(new b(), UiThreadImmediateExecutorService.getInstance());
         }
         return !z;

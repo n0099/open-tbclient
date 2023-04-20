@@ -1,40 +1,131 @@
 package com.baidu.tieba;
 
 import android.os.Bundle;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.config.QuickPersistConfigConst;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.core.container.NgWebView;
+import com.baidu.swan.apps.core.slave.SwanWebModeWidget;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class rx2 extends ProviderDelegation {
+public class rx2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public rx2() {
+    public static int a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        return i != 3 ? 100 : 118;
+                    }
+                    return 112;
+                }
+                return 100;
             }
+            return 82;
         }
+        return invokeI.intValue;
     }
 
-    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-    public Bundle execCall(Bundle bundle) {
-        InterceptResult invokeL;
+    public static int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-            Bundle bundle2 = new Bundle();
-            bundle2.putInt("font_size_level", br2.w().b(br2.c()));
-            return bundle2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            Bundle b = i43.b(sx2.class, null);
+            if (b == null) {
+                return 1;
+            }
+            return b.getInt("font_size_level", 1);
         }
-        return (Bundle) invokeL.objValue;
+        return invokeV.intValue;
+    }
+
+    public static int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b() + 1;
+        }
+        return invokeV.intValue;
+    }
+
+    public static boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return kl3.f("3.200.101");
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            SwanAppConfigData s = it2.U().s();
+            if (s == null) {
+                return false;
+            }
+            return TextUtils.equals("none", s.e.q);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static NgWebView c(b72 b72Var) {
+        InterceptResult invokeL;
+        HashMap<String, du1> V;
+        du1 du1Var;
+        cu1 r;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, b72Var)) == null) {
+            if (b72Var instanceof d72) {
+                bu1 r3 = ((d72) b72Var).r3();
+                if (r3 != null && r3.k() != null) {
+                    return (NgWebView) r3.k().r();
+                }
+                if (r3 == null) {
+                    return null;
+                }
+                return (NgWebView) r3.r();
+            } else if (!(b72Var instanceof i72) || (V = pe2.U().V()) == null || V.size() <= 0 || (du1Var = V.get(nn3.c().h())) == null || !(du1Var instanceof SwanWebModeWidget) || (r = du1Var.r()) == null || !(r instanceof NgWebView)) {
+                return null;
+            } else {
+                return (NgWebView) r;
+            }
+        }
+        return (NgWebView) invokeL.objValue;
+    }
+
+    public static void g(int i, int i2) {
+        SwanAppActivity w;
+        e72 Z;
+        b72 m;
+        NgWebView c;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeII(65542, null, i, i2) != null) || (w = u73.K().w()) == null || (Z = w.Z()) == null || (m = Z.m()) == null || (c = c(m)) == null) {
+            return;
+        }
+        if (!f()) {
+            c.getSettings().setTextZoom(a(i));
+            qx2.a(Integer.valueOf(i + 1), String.valueOf(i2));
+        }
+        h(i);
+    }
+
+    public static void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65543, null, i) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putInt(QuickPersistConfigConst.KEY_TEXT_SIZE, i);
+            l43.e().h(new n43(22, bundle));
+        }
     }
 }

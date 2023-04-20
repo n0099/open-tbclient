@@ -1,14 +1,8 @@
 package com.baidu.tieba;
 
-import android.content.ComponentName;
-import android.content.ServiceConnection;
 import android.os.Handler;
-import android.os.IBinder;
 import android.os.Looper;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dua;
-import com.baidu.tieba.hua;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,21 +10,48 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.hihonor.push.framework.aidl.IPushInvoke;
-import com.hihonor.push.sdk.internal.HonorPushErrorEnum;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes5.dex */
-public class nua implements ServiceConnection {
+public final class nua {
     public static /* synthetic */ Interceptable $ic;
-    public static final Object e;
+    public static final nua f;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ota a;
-    public a b;
-    public Handler c;
-    public boolean d;
+    public final int a;
+    public final int b;
+    public volatile Executor c;
+    public volatile ExecutorService d;
+    public final Object e;
 
     /* loaded from: classes5.dex */
-    public interface a {
+    public static class a implements Executor {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.util.concurrent.Executor
+        public final void execute(Runnable runnable) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
+                new Handler(Looper.getMainLooper()).post(runnable);
+            }
+        }
     }
 
     static {
@@ -46,28 +67,50 @@ public class nua implements ServiceConnection {
                 return;
             }
         }
-        e = new Object();
+        f = new nua();
     }
 
-    public final void a() {
+    public static Executor a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (e) {
-                Handler handler = this.c;
-                if (handler != null) {
-                    handler.removeMessages(1001);
-                    this.c = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            nua nuaVar = f;
+            if (nuaVar.c == null) {
+                synchronized (nuaVar.e) {
+                    if (nuaVar.c == null) {
+                        nuaVar.c = new a();
+                    }
                 }
             }
+            return nuaVar.c;
         }
+        return (Executor) invokeV.objValue;
     }
 
-    public nua(ota otaVar) {
+    public static ExecutorService d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return f.c();
+        }
+        return (ExecutorService) invokeV.objValue;
+    }
+
+    public final ExecutorService c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(this.a, this.b, 1L, TimeUnit.SECONDS, new LinkedBlockingQueue());
+            threadPoolExecutor.allowCoreThreadTimeOut(true);
+            return threadPoolExecutor;
+        }
+        return (ExecutorService) invokeV.objValue;
+    }
+
+    public nua() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {otaVar};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -77,103 +120,19 @@ public class nua implements ServiceConnection {
                 return;
             }
         }
-        this.c = null;
-        this.d = false;
-        this.a = otaVar;
+        this.e = new Object();
+        int availableProcessors = Runtime.getRuntime().availableProcessors();
+        this.a = availableProcessors + 1;
+        this.b = (availableProcessors * 2) + 1;
     }
 
-    @Override // android.content.ServiceConnection
-    public void onNullBinding(ComponentName componentName) {
+    public static void b(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, componentName) == null) {
-            Log.i("AIDLSrvConnection", "enter onNullBinding, than unBind.");
-            if (this.d) {
-                this.d = false;
-                return;
-            }
-            c();
-            a();
-            a aVar = this.b;
-            if (aVar != null) {
-                jua juaVar = (jua) aVar;
-                juaVar.a.a.set(1);
-                juaVar.a.a(8002005);
-                juaVar.a.b = null;
-            }
-        }
-    }
-
-    public final void b(int i) {
-        a aVar;
-        int i2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (aVar = this.b) != null) {
-            jua juaVar = (jua) aVar;
-            AtomicInteger atomicInteger = juaVar.a.a;
-            if (i == HonorPushErrorEnum.ERROR_SERVICE_TIME_OUT.statusCode) {
-                i2 = 2;
+        if (interceptable == null || interceptable.invokeL(65539, null, runnable) == null) {
+            if (Thread.currentThread() == Looper.getMainLooper().getThread()) {
+                runnable.run();
             } else {
-                i2 = 1;
-            }
-            atomicInteger.set(i2);
-            juaVar.a.a(i);
-            juaVar.a.b = null;
-        }
-    }
-
-    @Override // android.content.ServiceConnection
-    public void onServiceDisconnected(ComponentName componentName) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, componentName) == null) {
-            Log.i("AIDLSrvConnection", "enter onServiceDisconnected.");
-            a aVar = this.b;
-            if (aVar != null) {
-                jua juaVar = (jua) aVar;
-                juaVar.a.a.set(1);
-                juaVar.a.a(8002002);
-                juaVar.a.b = null;
-            }
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            try {
-                Log.i("AIDLSrvConnection", "trying to unbind service from " + this);
-                sta.e.a().unbindService(this);
-            } catch (Exception e2) {
-                String str = "on unBind service exception:" + e2.getMessage();
-            }
-        }
-    }
-
-    @Override // android.content.ServiceConnection
-    public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, componentName, iBinder) == null) {
-            Log.i("AIDLSrvConnection", "enter onServiceConnected.");
-            a();
-            a aVar = this.b;
-            if (aVar != null) {
-                jua juaVar = (jua) aVar;
-                juaVar.a.b = IPushInvoke.Stub.asInterface(iBinder);
-                if (juaVar.a.b == null) {
-                    juaVar.a.d.c();
-                    juaVar.a.a.set(1);
-                    juaVar.a.a(8002001);
-                    return;
-                }
-                juaVar.a.a.set(3);
-                hua.a aVar2 = juaVar.a.c;
-                if (aVar2 != null) {
-                    dua.a aVar3 = (dua.a) aVar2;
-                    if (Looper.myLooper() == aVar3.f.a.getLooper()) {
-                        aVar3.d();
-                    } else {
-                        aVar3.f.a.post(new aua(aVar3));
-                    }
-                }
+                a().execute(runnable);
             }
         }
     }

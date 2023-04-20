@@ -1,21 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-/* compiled from: ChatFloatEntranceService.java */
+import androidx.annotation.NonNull;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 /* loaded from: classes4.dex */
-public final /* synthetic */ class gi5 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface gi5 extends li5 {
+    @NonNull
+    public static final ServiceReference a = new ServiceReference("ImMessageCenter", "ChatBoxDialogService");
 
-    public static hi5 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return (hi5) ServiceManager.getService(hi5.a);
-        }
-        return (hi5) invokeV.objValue;
-    }
+    void onChangeSkinType(int i);
+
+    void onDestroy();
+
+    void onPause();
+
+    void onResume();
 }

@@ -29,10 +29,10 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.widget.CustomViewPager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.iq6;
 import com.baidu.tieba.jg;
-import com.baidu.tieba.lq6;
+import com.baidu.tieba.jq6;
 import com.baidu.tieba.mq6;
+import com.baidu.tieba.nq6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -53,7 +53,7 @@ public class HotUserRankView {
     public CustomViewPager g;
     public FragmentAdapter h;
     public List<e> i;
-    public iq6 j;
+    public jq6 j;
     public View k;
     public TextView l;
     public String m;
@@ -310,12 +310,12 @@ public class HotUserRankView {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof lq6) && customResponsedMessage.getOrginalMessage() != null && customResponsedMessage.getOrginalMessage().getTag() != null && customResponsedMessage.getOrginalMessage().getTag().equals(this.a.a.getUniqueId())) {
-                lq6 lq6Var = (lq6) customResponsedMessage.getData();
-                if (lq6Var.c == null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof mq6) && customResponsedMessage.getOrginalMessage() != null && customResponsedMessage.getOrginalMessage().getTag() != null && customResponsedMessage.getOrginalMessage().getTag().equals(this.a.a.getUniqueId())) {
+                mq6 mq6Var = (mq6) customResponsedMessage.getData();
+                if (mq6Var.c == null) {
                     return;
                 }
-                this.a.j.e(lq6Var);
+                this.a.j.e(mq6Var);
             }
         }
     }
@@ -388,7 +388,7 @@ public class HotUserRankView {
         this.h = fragmentAdapter;
         this.g.setAdapter(fragmentAdapter);
         this.d.setupWithViewPager(this.g);
-        this.j = new iq6(this.a.getPageContext(), this.b.findViewById(R.id.obfuscated_res_0x7f09045e));
+        this.j = new jq6(this.a.getPageContext(), this.b.findViewById(R.id.obfuscated_res_0x7f09045e));
         this.a.registerListener(this.u);
         this.n = this.b.findViewById(R.id.obfuscated_res_0x7f09266c);
         this.o = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09266d);
@@ -463,7 +463,7 @@ public class HotUserRankView {
         }
     }
 
-    public void l(List<mq6> list, long j, int i, String str) {
+    public void l(List<nq6> list, long j, int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{list, Long.valueOf(j), Integer.valueOf(i), str}) == null) {
             this.m = str;
@@ -482,14 +482,14 @@ public class HotUserRankView {
                 this.j.f(1);
                 return;
             }
-            for (mq6 mq6Var : list) {
+            for (nq6 nq6Var : list) {
                 this.d.d(this.d.z());
                 e eVar2 = new e(this);
                 HotUserRankFragment hotUserRankFragment2 = new HotUserRankFragment();
                 eVar2.a = hotUserRankFragment2;
-                hotUserRankFragment2.Q1(mq6Var.b);
+                hotUserRankFragment2.Q1(nq6Var.b);
                 eVar2.a.S1(this.q);
-                eVar2.b = mq6Var.a;
+                eVar2.b = nq6Var.a;
                 this.i.add(eVar2);
             }
             if (this.q) {

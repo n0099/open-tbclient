@@ -1,46 +1,75 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.impersonal.template.PersonalImageMsgTemplate;
-import com.baidu.tieba.impersonal.template.PersonalTextMsgTemplate;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
+import tbclient.NewFloorInfo;
 /* loaded from: classes6.dex */
-public final class v98 implements sz6 {
+public class v98 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public v98() {
+    public static void a(m98 m98Var, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if ((interceptable == null || interceptable.invokeLI(65536, null, m98Var, i) == null) && m98Var != null && m98Var.w() != null && !ListUtils.isEmpty(m98Var.k()) && m98Var.k().size() >= 2) {
+            List<NewFloorInfo> k = m98Var.k();
+            if (k.size() > 2) {
+                if (StringHelper.equals(m98Var.w().getUserId(), TbadkCoreApplication.getCurrentAccount())) {
+                    if (k.get(1) != null) {
+                        if (k.get(1).is_floor.intValue() == 0) {
+                            b(m98Var, 12, i);
+                            return;
+                        } else if (k.get(1).is_floor.intValue() == 1) {
+                            b(m98Var, 13, i);
+                            return;
+                        } else {
+                            return;
+                        }
+                    }
+                    return;
+                } else if (k.get(1) != null) {
+                    if (k.get(1).is_floor.intValue() == 0) {
+                        if (m98Var.s() != null) {
+                            if (StringHelper.equals(m98Var.s().getUserId(), TbadkCoreApplication.getCurrentAccount())) {
+                                b(m98Var, 14, i);
+                                return;
+                            } else {
+                                b(m98Var, 15, i);
+                                return;
+                            }
+                        }
+                        return;
+                    } else if (k.get(1).is_floor.intValue() == 1) {
+                        b(m98Var, 16, i);
+                        return;
+                    } else {
+                        return;
+                    }
+                } else {
+                    return;
+                }
             }
+            b(m98Var, 11, i);
         }
     }
 
-    @Override // com.baidu.tieba.sz6
-    public List<a07<?, ?>> a() {
-        InterceptResult invokeV;
+    public static void b(m98 m98Var, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new PersonalTextMsgTemplate("text_left"));
-            arrayList.add(new PersonalTextMsgTemplate("text_right"));
-            arrayList.add(new zb8("loading_left"));
-            arrayList.add(new ac8("voice_left"));
-            arrayList.add(new PersonalImageMsgTemplate("image_left"));
-            return arrayList;
+        if ((interceptable == null || interceptable.invokeLII(65537, null, m98Var, i, i2) == null) && m98Var != null && m98Var.u() != null && m98Var.l() != null) {
+            StatisticItem statisticItem = new StatisticItem("c12928");
+            statisticItem.param("tid", m98Var.l().f);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+            statisticItem.param("fid", m98Var.l().e);
+            statisticItem.param("fname", m98Var.l().d);
+            statisticItem.param("pid", m98Var.o());
+            statisticItem.param("obj_type", i);
+            statisticItem.param("obj_locate", i2);
+            TiebaStatic.log(statisticItem);
         }
-        return (List) invokeV.objValue;
     }
 }

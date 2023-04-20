@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.webkit.ValueCallback;
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.sailor.BdSailorConfig;
@@ -15,130 +16,120 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes4.dex */
-public final class d61 {
+public class d61 extends NadWebFeature {
     public static /* synthetic */ Interceptable $ic;
-    public static d61 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public HashMap<String, NadWebFeature> b;
+    public Map<Activity, c61> b;
 
-    public d61() {
+    @Override // com.baidu.nadcore.webarch.feature.NadWebFeature
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? BdSailorConfig.SAILOR_BASE_UPLOAD : (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public d61(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = false;
-        this.b = new HashMap<>(4);
+        this.b = new HashMap();
     }
 
-    public static synchronized d61 c() {
-        InterceptResult invokeV;
-        d61 d61Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (d61.class) {
-                if (c == null) {
-                    c = new d61();
-                }
-                d61Var = c;
-            }
-            return d61Var;
-        }
-        return (d61) invokeV.objValue;
-    }
-
-    @RequiresApi(api = 21)
-    public static boolean h(Activity activity, ValueCallback<Uri[]> valueCallback, a61 a61Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, activity, valueCallback, a61Var)) == null) {
-            if (valueCallback == null) {
-                return false;
-            }
-            if (activity == null) {
-                valueCallback.onReceiveValue(null);
-                return false;
-            }
-            NadWebFeature b = c().b(BdSailorConfig.SAILOR_BASE_UPLOAD);
-            if (b != null && b.c()) {
-                if (b instanceof c61) {
-                    return ((c61) b).h(activity, valueCallback, a61Var);
-                }
-                valueCallback.onReceiveValue(null);
-            } else {
-                valueCallback.onReceiveValue(null);
-            }
-            return false;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public NadWebFeature a(String str) {
+    public c61 d(Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return b(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity)) == null) {
+            Map<Activity, c61> map = this.b;
+            if (map != null) {
+                return map.get(activity);
+            }
+            return null;
         }
-        return (NadWebFeature) invokeL.objValue;
+        return (c61) invokeL.objValue;
     }
 
-    public NadWebFeature b(String str) {
+    public c61 e(Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return this.b.get(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity)) == null) {
+            c61 d = d(activity);
+            if (d == null) {
+                c61 c61Var = new c61(activity);
+                this.b.put(activity, c61Var);
+                return c61Var;
+            }
+            return d;
         }
-        return (NadWebFeature) invokeL.objValue;
-    }
-
-    public boolean d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            e(context);
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void e(Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, context) == null) && !this.a) {
-            c61 c61Var = new c61(context);
-            c61Var.a();
-            i(c61Var);
-            this.a = true;
-        }
+        return (c61) invokeL.objValue;
     }
 
     public void f(Activity activity) {
-        NadWebFeature a;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, activity) == null) && (a = a(BdSailorConfig.SAILOR_BASE_UPLOAD)) != null && a.c() && (a instanceof c61)) {
-            ((c61) a).f(activity);
+        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+            c61 d = d(activity);
+            if (activity != null && d != null) {
+                this.b.remove(activity);
+                if (!d.o()) {
+                    d.p(-1, null);
+                }
+            }
         }
     }
 
-    public final void i(NadWebFeature nadWebFeature) {
+    public void g(Activity activity, int i, Intent intent) {
+        c61 d;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, nadWebFeature) == null) && nadWebFeature != null) {
-            this.b.put(nadWebFeature.b(), nadWebFeature);
+        if ((interceptable == null || interceptable.invokeLIL(1048580, this, activity, i, intent) == null) && (d = d(activity)) != null) {
+            d.p(i, intent);
+            this.b.remove(activity);
         }
     }
 
-    public void g(Activity activity, int i, int i2, Intent intent) {
+    /* JADX WARN: Removed duplicated region for block: B:10:0x0014  */
+    @RequiresApi(api = 21)
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public boolean h(Activity activity, @NonNull ValueCallback<Uri[]> valueCallback, b61 b61Var) {
+        InterceptResult invokeLLL;
+        boolean z;
+        Map<Activity, c61> map;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{activity, Integer.valueOf(i), Integer.valueOf(i2), intent}) == null) && 11 == i && (a(BdSailorConfig.SAILOR_BASE_UPLOAD) instanceof c61)) {
-            ((c61) a(BdSailorConfig.SAILOR_BASE_UPLOAD)).g(activity, i2, intent);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, activity, valueCallback, b61Var)) == null) {
+            if (activity != null) {
+                c61 e = e(activity);
+                if (b61Var != null) {
+                    z = e.q(valueCallback, b61Var);
+                    if (!z) {
+                        valueCallback.onReceiveValue(null);
+                        if (activity != null && (map = this.b) != null) {
+                            map.remove(activity);
+                        }
+                    }
+                    return z;
+                }
+            }
+            z = false;
+            if (!z) {
+            }
+            return z;
         }
+        return invokeLLL.booleanValue;
     }
 }

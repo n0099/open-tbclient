@@ -1,62 +1,45 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ln3 extends r93 {
+public class ln3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ln3(UnitedSchemeBaseDispatcher unitedSchemeBaseDispatcher) {
-        super(unitedSchemeBaseDispatcher, "/swanAPI/debug/setWebDegradeDebugHost");
+    public static void a(@NonNull kn3 kn3Var, @NonNull by2 by2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {unitedSchemeBaseDispatcher};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLL(65536, null, kn3Var, by2Var) == null) {
+            kn3Var.f(by2Var.d());
+            kn3Var.g(by2Var.e());
+            if (by2Var.g()) {
+                kn3Var.a(1);
+            } else {
+                kn3Var.e(1);
             }
         }
     }
 
-    @Override // com.baidu.tieba.r93
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, u73 u73Var) {
-        InterceptResult invokeLLLL;
+    public static FrameLayout.LayoutParams b(@NonNull cu1 cu1Var, @NonNull by2 by2Var) {
+        InterceptResult invokeLL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, u73Var)) == null) {
-            JSONObject a = r93.a(unitedSchemeEntity, "params");
-            if (a == null) {
-                u42.c("Api-SetWebDegradeDebugHostAction", "params is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cu1Var, by2Var)) == null) {
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(by2Var.f(), by2Var.c());
+            int i2 = 0;
+            if (by2Var.g()) {
+                i2 = cu1Var.getWebViewScrollX();
+                i = cu1Var.getWebViewScrollY();
+            } else {
+                i = 0;
             }
-            String optString = a.optString("host");
-            if (TextUtils.isEmpty(optString)) {
-                ig3.a().edit().remove("web_mode_host_key").apply();
-                return true;
-            }
-            ig3.a().edit().putString("web_mode_host_key", optString).apply();
-            return true;
+            layoutParams.leftMargin = by2Var.d() + i2;
+            layoutParams.topMargin = by2Var.e() + i;
+            return layoutParams;
         }
-        return invokeLLLL.booleanValue;
+        return (FrameLayout.LayoutParams) invokeLL.objValue;
     }
 }

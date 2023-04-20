@@ -1,82 +1,139 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.NoDataItemViewHolder;
+import com.baidu.adp.widget.ListView.LoadingViewAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class dp7 extends um<qn, NoDataItemViewHolder> {
+public class dp7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public TbPageContext a;
+    public List<vm> b;
+    public on c;
+    public bp7 d;
+    public gp7 e;
+    public wo7 f;
+    public yo7 g;
+    public xo7 h;
+    public zo7 i;
+    public ap7 j;
+    public cp7 k;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dp7(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), qn.c);
+    public dp7(TbPageContext tbPageContext, on onVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {tbPageContext, onVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 3;
+        this.a = tbPageContext;
+        this.c = onVar;
+        b();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.um
-    /* renamed from: s */
-    public NoDataItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public List<in> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.adapter_no_data_item_layout, viewGroup, false);
-            inflate.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
-            return new NoDataItemViewHolder(inflate);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c.getData();
         }
-        return (NoDataItemViewHolder) invokeL.objValue;
+        return (List) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.um
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, qn qnVar, NoDataItemViewHolder noDataItemViewHolder) {
-        t(i, view2, viewGroup, qnVar, noDataItemViewHolder);
-        return view2;
-    }
-
-    public View t(int i, View view2, ViewGroup viewGroup, qn qnVar, NoDataItemViewHolder noDataItemViewHolder) {
-        InterceptResult invokeCommon;
+    public void c() {
+        on onVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, qnVar, noDataItemViewHolder})) == null) {
-            noDataItemViewHolder.a.setText(qnVar.a);
-            if (this.a != TbadkCoreApplication.getInst().getSkinType()) {
-                SkinManager.setImageResource(noDataItemViewHolder.b, qnVar.b);
-                SkinManager.setViewTextColor(noDataItemViewHolder.a, (int) R.color.CAM_X0109);
-                this.a = TbadkCoreApplication.getInst().getSkinType();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (onVar = this.c) != null) {
+            onVar.getListAdapter().notifyDataSetChanged();
+        }
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ArrayList arrayList = new ArrayList();
+            this.b = arrayList;
+            arrayList.add(new fp7(this.a));
+            this.b.add(new ep7(this.a));
+            this.b.add(new LoadingViewAdapter(this.a));
+            bp7 bp7Var = new bp7(this.a);
+            this.d = bp7Var;
+            bp7Var.x(this.c);
+            this.b.add(this.d);
+            gp7 gp7Var = new gp7(this.a);
+            this.e = gp7Var;
+            gp7Var.x(this.c);
+            this.b.add(this.e);
+            wo7 wo7Var = new wo7(this.a);
+            this.f = wo7Var;
+            wo7Var.x(this.c);
+            this.b.add(this.f);
+            yo7 yo7Var = new yo7(this.a);
+            this.g = yo7Var;
+            yo7Var.x(this.c);
+            this.b.add(this.g);
+            xo7 xo7Var = new xo7(this.a);
+            this.h = xo7Var;
+            xo7Var.x(this.c);
+            this.b.add(this.h);
+            zo7 zo7Var = new zo7(this.a);
+            this.i = zo7Var;
+            zo7Var.x(this.c);
+            this.b.add(this.i);
+            ap7 ap7Var = new ap7(this.a);
+            this.j = ap7Var;
+            ap7Var.x(this.c);
+            this.b.add(this.j);
+            TbPageContext tbPageContext = this.a;
+            cp7 cp7Var = new cp7(tbPageContext, ThreadData.TYPE_RECOMMEND_INFO, tbPageContext.getUniqueId());
+            this.k = cp7Var;
+            cp7Var.x(this.c);
+            this.b.add(this.k);
+            this.c.addAdapters(this.b);
+        }
+    }
+
+    public void d(List<in> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
+            this.c.setData(list);
+        }
+    }
+
+    public void e(av4 av4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, av4Var) == null) {
+            for (vm vmVar : this.b) {
+                if (vmVar instanceof vo7) {
+                    ((vo7) vmVar).u(av4Var);
+                }
             }
-            return view2;
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    public void f(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) {
+            for (vm vmVar : this.b) {
+                vmVar.setPageId(bdUniqueId);
+            }
+        }
     }
 }

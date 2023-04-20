@@ -1,20 +1,15 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class rl5 {
+public abstract class rl5 implements vl5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public int b;
-    public String c;
-    public Bundle d;
+
+    public abstract void a(byte b);
 
     public rl5() {
         Interceptable interceptable = $ic;
@@ -28,14 +23,5 @@ public class rl5 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "AliAuthResult{tag=" + this.a + ", resultCode=" + this.b + ", message='" + this.c + "', bundle=" + this.d + '}';
-        }
-        return (String) invokeV.objValue;
     }
 }

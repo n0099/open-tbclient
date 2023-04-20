@@ -38,7 +38,7 @@ import org.json.JSONObject;
 @KsAdSdkDynamicImpl(FeedDownloadActivity.class)
 @Keep
 /* loaded from: classes8.dex */
-public class KsFullScreenVideoActivityProxy extends com.kwad.components.core.g.b<k> implements a.InterfaceC0572a {
+public class KsFullScreenVideoActivityProxy extends com.kwad.components.core.g.b<k> implements a.InterfaceC0571a {
     public static final String KEY_TEMPLATE = "key_template_json";
     public static final String KEY_VIDEO_PLAY_CONFIG = "key_video_play_config";
     public static final String TAG = "FullScreenVideo";
@@ -216,7 +216,7 @@ public class KsFullScreenVideoActivityProxy extends com.kwad.components.core.g.b
         return "KsFullScreenVideoActivityProxy";
     }
 
-    @Override // com.kwad.components.ad.reward.j.a.InterfaceC0572a
+    @Override // com.kwad.components.ad.reward.j.a.InterfaceC0571a
     public boolean handledOnResume() {
         com.kwad.components.ad.fullscreen.b.b bVar = this.mFullScreenPresenter;
         if (bVar != null) {

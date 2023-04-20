@@ -24,9 +24,9 @@ import com.baidu.live.business.view.LiveStatusAnimView;
 import com.baidu.live.business.view.banner.BannerEntity;
 import com.baidu.live.business.view.banner.BannerView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ac0;
-import com.baidu.tieba.j90;
-import com.baidu.tieba.lb0;
+import com.baidu.tieba.bc0;
+import com.baidu.tieba.k90;
+import com.baidu.tieba.mb0;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
@@ -114,7 +114,7 @@ public class Live16Ratio9TopicView extends LiveBaseItemView {
             textView.setLineSpacing(3.0f, 1.0f);
             textView.setMaxLines(2);
             textView.setTextSize(1, 14.0f);
-            textView.setTextColor(ac0.f().a(Live16Ratio9TopicView.this.getContext(), Live16Ratio9TopicView.this.c, "color_white4"));
+            textView.setTextColor(bc0.f().a(Live16Ratio9TopicView.this.getContext(), Live16Ratio9TopicView.this.c, "color_white4"));
             textView.setEllipsize(TextUtils.TruncateAt.END);
             return textView;
         }
@@ -130,7 +130,7 @@ public class Live16Ratio9TopicView extends LiveBaseItemView {
             TextView textView = new TextView(Live16Ratio9TopicView.this.getContext());
             textView.setMaxLines(1);
             textView.setTextSize(1, 10.0f);
-            textView.setTextColor(ac0.f().a(Live16Ratio9TopicView.this.getContext(), Live16Ratio9TopicView.this.c, "color_858585"));
+            textView.setTextColor(bc0.f().a(Live16Ratio9TopicView.this.getContext(), Live16Ratio9TopicView.this.c, "color_858585"));
             textView.setEllipsize(TextUtils.TruncateAt.END);
             return textView;
         }
@@ -146,7 +146,7 @@ public class Live16Ratio9TopicView extends LiveBaseItemView {
             TextView textView = new TextView(Live16Ratio9TopicView.this.getContext());
             textView.setMaxLines(1);
             textView.setTextSize(1, 10.0f);
-            textView.setTextColor(ac0.f().a(Live16Ratio9TopicView.this.getContext(), Live16Ratio9TopicView.this.c, "color_858585"));
+            textView.setTextColor(bc0.f().a(Live16Ratio9TopicView.this.getContext(), Live16Ratio9TopicView.this.c, "color_858585"));
             textView.setEllipsize(TextUtils.TruncateAt.END);
             return textView;
         }
@@ -166,7 +166,7 @@ public class Live16Ratio9TopicView extends LiveBaseItemView {
 
     private void setCoverBannerData(List<LiveRoomEntity> list) {
         ArrayList arrayList = new ArrayList();
-        if (!lb0.c(list)) {
+        if (!mb0.c(list)) {
             for (LiveRoomEntity liveRoomEntity : list) {
                 LiveBannerEntity liveBannerEntity = new LiveBannerEntity();
                 liveBannerEntity.pic = liveRoomEntity.cover;
@@ -264,7 +264,7 @@ public class Live16Ratio9TopicView extends LiveBaseItemView {
     public final void r(Context context) {
         this.s = context;
         setNeedRatio(false);
-        int e2 = (int) (((j90.e(context) - (j90.b(context, 12.0f) * 2)) - j90.b(context, 7.0f)) / 2.0d);
+        int e2 = (int) (((k90.e(context) - (k90.b(context, 12.0f) * 2)) - k90.b(context, 7.0f)) / 2.0d);
         View inflate = RelativeLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0571, this);
         this.h = (BannerView) inflate.findViewById(R.id.obfuscated_res_0x7f0914c6);
         this.o = (ViewStub) inflate.findViewById(R.id.obfuscated_res_0x7f0914e2);
@@ -278,7 +278,7 @@ public class Live16Ratio9TopicView extends LiveBaseItemView {
         this.k = (TextSwitcher) inflate.findViewById(R.id.obfuscated_res_0x7f0914ce);
         this.j = (TextSwitcher) inflate.findViewById(R.id.obfuscated_res_0x7f0914ca);
         this.l = (TextSwitcher) inflate.findViewById(R.id.obfuscated_res_0x7f0914c4);
-        float b2 = j90.b(getContext(), 10.0f);
+        float b2 = k90.b(getContext(), 10.0f);
         this.r = new float[]{b2, b2, b2, b2, b2, b2, b2, b2};
         q();
         p();
@@ -288,7 +288,7 @@ public class Live16Ratio9TopicView extends LiveBaseItemView {
 
     public void s(String str) {
         GradientDrawable gradientDrawable = new GradientDrawable();
-        gradientDrawable.setColor(ac0.f().a(getContext(), this.c, "color_white2"));
+        gradientDrawable.setColor(bc0.f().a(getContext(), this.c, "color_white2"));
         gradientDrawable.setCornerRadii(this.r);
         setBackgroundDrawable(gradientDrawable);
         BannerView bannerView = this.h;
@@ -297,15 +297,15 @@ public class Live16Ratio9TopicView extends LiveBaseItemView {
         }
         TextSwitcher textSwitcher = this.k;
         if (textSwitcher != null && textSwitcher.getCurrentView() != null) {
-            ((TextView) this.k.getCurrentView()).setTextColor(ac0.f().a(getContext(), this.c, "color_white4"));
+            ((TextView) this.k.getCurrentView()).setTextColor(bc0.f().a(getContext(), this.c, "color_white4"));
         }
         TextSwitcher textSwitcher2 = this.j;
         if (textSwitcher2 != null && textSwitcher2.getCurrentView() != null) {
-            ((TextView) this.j.getCurrentView()).setTextColor(ac0.f().a(getContext(), this.c, "color_858585"));
+            ((TextView) this.j.getCurrentView()).setTextColor(bc0.f().a(getContext(), this.c, "color_858585"));
         }
         TextSwitcher textSwitcher3 = this.l;
         if (textSwitcher3 != null && textSwitcher3.getCurrentView() != null) {
-            ((TextView) this.l.getCurrentView()).setTextColor(ac0.f().a(getContext(), this.c, "color_858585"));
+            ((TextView) this.l.getCurrentView()).setTextColor(bc0.f().a(getContext(), this.c, "color_858585"));
         }
     }
 
@@ -381,9 +381,9 @@ public class Live16Ratio9TopicView extends LiveBaseItemView {
         }
         this.l.setVisibility(0);
         if (z) {
-            this.l.setText(j90.a(this.s, liveRoomEntity.audienceCount));
+            this.l.setText(k90.a(this.s, liveRoomEntity.audienceCount));
         } else {
-            this.l.setCurrentText(j90.a(this.s, liveRoomEntity.audienceCount));
+            this.l.setCurrentText(k90.a(this.s, liveRoomEntity.audienceCount));
         }
     }
 }

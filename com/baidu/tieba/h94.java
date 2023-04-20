@@ -2,8 +2,11 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.o74;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.v8engine.V8ExceptionInfo;
+import com.baidu.searchbox.v8engine.util.TimeUtils;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.tieba.ss2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,15 +14,59 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.List;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 /* loaded from: classes4.dex */
 public class h94 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
-    public static volatile h94 c;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public o74 a;
+
+    /* loaded from: classes4.dex */
+    public static class a extends b43 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ g94 c;
+
+        public a(g94 g94Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {g94Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = g94Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.b43, com.baidu.tieba.c43, com.baidu.tieba.a43
+        public void onEvent(@NonNull y33 y33Var) {
+            int i;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, y33Var) == null) {
+                if (!SwanAppNetworkUtils.i(null)) {
+                    i = -2;
+                } else if (y33Var.a() != null) {
+                    i = y33Var.a().getInt("net_quality");
+                } else {
+                    i = -1;
+                }
+                if (h94.a) {
+                    Log.d("StuckScreenReporter", "get NetworkQuality: " + i);
+                }
+                g94 g94Var = this.c;
+                g94Var.m = i;
+                oe3.x("976", g94Var);
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -34,145 +81,53 @@ public class h94 {
                 return;
             }
         }
-        b = eo1.a;
+        a = fo1.a;
     }
 
-    public h94() {
+    public static void b(g94 g94Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+        if ((interceptable != null && interceptable.invokeL(65538, null, g94Var) != null) || g94Var == null) {
+            return;
         }
+        q43.Q().X(null, jz2.class, new a(g94Var));
     }
 
-    public static h94 b() {
-        InterceptResult invokeV;
+    public static void c(jl1 jl1Var) {
+        V8ExceptionInfo a2;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (c == null) {
-                synchronized (h94.class) {
-                    if (c == null) {
-                        c = new h94();
-                    }
-                }
-            }
-            return c;
+        if ((interceptable != null && interceptable.invokeL(65539, null, jl1Var) != null) || jl1Var == null || (a2 = jl1Var.a()) == null) {
+            return;
         }
-        return (h94) invokeV.objValue;
-    }
-
-    public String a(String str) {
-        InterceptResult invokeL;
-        o74 o74Var;
-        o74.c cVar;
-        HashMap<String, String> hashMap;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            String c2 = c(str, 1);
-            if (TextUtils.isEmpty(c2) || (o74Var = this.a) == null || (cVar = o74Var.d) == null || (hashMap = cVar.a) == null) {
-                return null;
-            }
-            return hashMap.get(c2);
+        String str = a2.exceptionMsg;
+        String str2 = a2.exceptionTrace;
+        if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) {
+            return;
         }
-        return (String) invokeL.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:17:0x0023  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public String c(String str, int i) {
-        InterceptResult invokeLI;
-        o74 o74Var;
-        o74.b bVar;
-        List<o74.a> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
-            if (!TextUtils.isEmpty(str) && (o74Var = this.a) != null && (bVar = o74Var.c) != null && (list = bVar.a) != null) {
-                for (o74.a aVar : list) {
-                    if (TextUtils.equals(aVar.a, str) || TextUtils.equals(aVar.b, str)) {
-                        if (i != 0) {
-                            if (i != 1) {
-                                if (i != 2) {
-                                    if (i != 3) {
-                                        return aVar.b;
-                                    }
-                                    return aVar.d;
-                                }
-                                return aVar.c;
-                            }
-                            return aVar.b;
-                        }
-                        return aVar.a;
-                    }
-                    while (r0.hasNext()) {
-                    }
-                }
-            }
-            return null;
+        if (a) {
+            Log.d("StuckScreenReporter", String.format("LastTouchTime %s; exceptionTime %s", TimeUtils.logTimeOfDay(f44.a()), TimeUtils.logTimeOfDay(a2.exceptionTime)));
         }
-        return (String) invokeLI.objValue;
-    }
-
-    public void f(String str, boolean z) {
-        o74 o74Var;
-        o74.b bVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048580, this, str, z) == null) && !TextUtils.isEmpty(str) && (o74Var = this.a) != null && (bVar = o74Var.c) != null && bVar.b != null) {
-            if (b) {
-                Log.i("SubPackageDataHelper", "更新内存缓存信息: " + str + ": " + z);
-            }
-            this.a.c.b.put(str, Boolean.valueOf(z));
+        if (a2.exceptionTime >= f44.a()) {
+            return;
         }
-    }
-
-    public boolean d(String str) {
-        InterceptResult invokeL;
-        o74.b bVar;
-        HashMap<String, Boolean> hashMap;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            String c2 = c(str, 1);
-            if (TextUtils.isEmpty(c2)) {
-                return false;
-            }
-            o74 o74Var = this.a;
-            if (o74Var != null && (bVar = o74Var.c) != null && (hashMap = bVar.b) != null && hashMap.containsKey(c2)) {
-                if (b) {
-                    Log.i("SubPackageDataHelper", "内存中查询分包是否存在信息");
-                }
-                return this.a.c.b.get(c2).booleanValue();
-            }
-            if (b) {
-                Log.i("SubPackageDataHelper", "DB中查询分包是否存在信息");
-            }
-            String g0 = u73.g0();
-            if (u73.M() == null) {
-                return false;
-            }
-            String k0 = u73.M().k0();
-            if (TextUtils.isEmpty(g0) || TextUtils.isEmpty(k0)) {
-                return false;
-            }
-            boolean n = rf4.i().n(g0, k0, c2);
-            if (n) {
-                f(c2, true);
-            }
-            return n;
+        g94 g94Var = new g94();
+        g94Var.b = "stuck";
+        g94Var.e = "jserror";
+        g94Var.f = v73.g0();
+        if (v73.M() != null && v73.M().Y() != null) {
+            ss2.a Y = v73.M().Y();
+            g94Var.c = Y.T();
+            g94Var.a = oe3.n(Y.G());
         }
-        return invokeL.booleanValue;
-    }
-
-    public void e(o74 o74Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, o74Var) == null) {
-            this.a = o74Var;
+        g94Var.l = str + ParamableElem.DIVIDE_PARAM + str2;
+        if (s84.d()) {
+            i = 20;
+        } else {
+            i = 10;
         }
+        g94Var.k = i;
+        g94Var.n = f44.b();
+        g94Var.o = System.currentTimeMillis() - a2.exceptionTime;
+        b(g94Var);
     }
 }

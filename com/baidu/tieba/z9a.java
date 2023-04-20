@@ -1,39 +1,27 @@
 package com.baidu.tieba;
 
-import java.util.List;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public interface z9a {
-    boolean a();
+public class z9a {
+    public static /* synthetic */ Interceptable $ic;
+    public static volatile y9a a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    int b();
-
-    boolean c(String str);
-
-    boolean d();
-
-    int e();
-
-    int f();
-
-    boolean g();
-
-    String h();
-
-    List<String> i();
-
-    boolean isPeakTime();
-
-    boolean j();
-
-    boolean k();
-
-    boolean l();
-
-    boolean m();
-
-    boolean n();
-
-    boolean o();
-
-    boolean p();
+    public static synchronized y9a a() {
+        InterceptResult invokeV;
+        y9a y9aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (z9a.class) {
+                if (a == null) {
+                    a = new y9a();
+                }
+                y9aVar = a;
+            }
+            return y9aVar;
+        }
+        return (y9a) invokeV.objValue;
+    }
 }

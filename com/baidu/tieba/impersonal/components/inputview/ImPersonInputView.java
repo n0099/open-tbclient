@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.q25;
+import com.baidu.tieba.r25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -111,12 +111,12 @@ public class ImPersonInputView extends RelativeLayout {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            q25 d = q25.d(this.b);
+            r25 d = r25.d(this.b);
             d.l(R.color.CAM_X0340);
             d.m(R.dimen.L_X04);
             d.o(R.string.J_X01);
             d.h(SkinManager.getColor(0, (int) R.color.CAM_X0201));
-            q25.d(this.d).w(R.color.CAM_X0100);
+            r25.d(this.d).w(R.color.CAM_X0100);
         }
     }
 

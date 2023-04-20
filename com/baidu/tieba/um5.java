@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class um5 extends xa {
+public class um5 extends qa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -33,18 +33,18 @@ public class um5 extends xa {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ua
     /* renamed from: c */
-    public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
+    public HttpResponsedMessage a(HttpResponsedMessage httpResponsedMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage)) == null) {
-            if (socketResponsedMessage == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpResponsedMessage)) == null) {
+            if (httpResponsedMessage == null) {
                 return null;
             }
-            if (socketResponsedMessage.getError() == 2260104) {
-                hq5.a();
+            if (httpResponsedMessage.getError() == 2260104) {
+                iq5.a();
             }
-            return socketResponsedMessage;
+            return httpResponsedMessage;
         }
-        return (SocketResponsedMessage) invokeL.objValue;
+        return (HttpResponsedMessage) invokeL.objValue;
     }
 }

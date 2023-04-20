@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
 import android.view.View;
-import android.widget.TextView;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -13,19 +13,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class x69 extends yf6<u59> {
+public class x69 extends zf6<v59> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext i;
+    public TbImageView i;
     public View j;
-    public TbImageView k;
-    public TextView l;
+    public View k;
 
-    @Override // com.baidu.tieba.yf6
+    @Override // com.baidu.tieba.zf6
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0423 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01b8 : invokeV.intValue;
     }
 
     @Override // android.view.View.OnClickListener
@@ -55,48 +54,42 @@ public class x69 extends yf6<u59> {
         }
         View h = h();
         this.j = h;
-        this.i = tbPageContext;
-        h.setTag(this);
-        this.k = (TbImageView) this.j.findViewById(R.id.obfuscated_res_0x7f090dd0);
-        this.l = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f090dce);
+        this.i = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f090661);
+        this.k = this.j.findViewById(R.id.obfuscated_res_0x7f0916e9);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.yf6
+    @Override // com.baidu.tieba.zf6
     /* renamed from: r */
-    public void l(u59 u59Var) {
+    public void l(v59 v59Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, u59Var) == null) {
-            if (u59Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, v59Var) == null) {
+            if (v59Var == null) {
                 this.j.setVisibility(8);
-                return;
             }
-            m(this.i, TbadkCoreApplication.getInst().getSkinType());
-            this.k.N(u59Var.a, 10, false);
-            this.j.setOnClickListener(this);
-            if (u59Var.b > 0) {
-                this.l.setVisibility(0);
-                long j = u59Var.b;
-                if (j > 99) {
-                    this.l.setText("99");
-                    return;
-                } else {
-                    this.l.setText(String.valueOf(j));
-                    return;
+            ViewGroup.LayoutParams layoutParams = this.k.getLayoutParams();
+            if (layoutParams != null) {
+                if (layoutParams.width > 0) {
+                    layoutParams.width = v59Var.a;
+                }
+                if (layoutParams.height > 0) {
+                    layoutParams.height = v59Var.b;
                 }
             }
-            this.l.setVisibility(8);
+            this.k.setLayoutParams(layoutParams);
+            this.j.setVisibility(0);
+            m(this.b, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    @Override // com.baidu.tieba.yf6
+    @Override // com.baidu.tieba.zf6
     public void m(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            SkinManager.setBackgroundColor(this.j, R.color.CAM_X0201);
-            SkinManager.setBackgroundResource(this.k, R.drawable.item_gift_selector);
-            SkinManager.setBackgroundColor(this.l, R.color.common_color_10294);
-            SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0302);
+        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) != null) || this.a == i) {
+            return;
         }
+        this.a = i;
+        SkinManager.setImageResource(this.i, R.drawable.icon_mine_more);
+        SkinManager.setBackgroundResource(this.j, R.drawable.btn_look_more_selector);
     }
 }

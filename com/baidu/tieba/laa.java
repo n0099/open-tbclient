@@ -1,16 +1,10 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.File;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class laa {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface laa {
+    boolean a(JSONObject jSONObject, boolean z, boolean z2);
 
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            kaa.a();
-        }
-    }
+    boolean b(File file, long j, boolean z, boolean z2);
 }

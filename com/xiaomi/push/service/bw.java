@@ -6,7 +6,7 @@ import com.xiaomi.push.cy;
 import com.xiaomi.push.dv;
 import com.xiaomi.push.service.bv;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class bw extends am.b {
     public final /* synthetic */ bv a;
 

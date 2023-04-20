@@ -20,9 +20,9 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a9;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.pp5;
+import com.baidu.tieba.qp5;
 import com.baidu.tieba.video.VideoItemData;
-import com.baidu.tieba.ws4;
+import com.baidu.tieba.xs4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -252,13 +252,13 @@ public class VideoPlayModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONArray jSONArray = new JSONArray();
-            LinkedList<ws4> videoRecordList = TbSingleton.getInstance().getVideoRecordList();
+            LinkedList<xs4> videoRecordList = TbSingleton.getInstance().getVideoRecordList();
             if (videoRecordList != null) {
                 try {
                     if (videoRecordList.size() > 0) {
-                        Iterator<ws4> it = videoRecordList.iterator();
+                        Iterator<xs4> it = videoRecordList.iterator();
                         while (it.hasNext()) {
-                            ws4 next = it.next();
+                            xs4 next = it.next();
                             JSONObject jSONObject = new JSONObject();
                             jSONObject.put("tid", next.a());
                             jSONObject.put("duration", next.b());
@@ -299,7 +299,7 @@ public class VideoPlayModel extends BdBaseModel {
             httpMessage.addParam("ori_ugc_vid", videoItemData.baijiahaoData.oriUgcVid);
             httpMessage.addParam("ori_ugc_tid", videoItemData.baijiahaoData.oriUgcTid);
         }
-        httpMessage.addParam("app_transmit_data", pp5.a());
+        httpMessage.addParam("app_transmit_data", qp5.a());
         sendMessage(httpMessage);
     }
 
@@ -342,7 +342,7 @@ public class VideoPlayModel extends BdBaseModel {
                 httpMessage.addParam("ori_ugc_vid", videoItemData.baijiahaoData.oriUgcVid);
                 httpMessage.addParam("ori_ugc_tid", videoItemData.baijiahaoData.oriUgcTid);
             }
-            httpMessage.addParam("app_transmit_data", pp5.a());
+            httpMessage.addParam("app_transmit_data", qp5.a());
             sendMessage(httpMessage);
         }
     }

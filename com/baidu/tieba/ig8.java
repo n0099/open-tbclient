@@ -1,71 +1,126 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.widget.LinearLayout;
-import com.baidu.tbadk.editortools.RawLayout;
-import com.baidu.tieba.location.editortool.PbLocationInfoContainer;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.SelectForumActivityConfig;
+import com.baidu.tbadk.core.data.TransmitForumData;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class ig8 extends ad5 {
+public class ig8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext a;
+    public ArrayList<TransmitForumData> b;
+    public final CustomMessageListener c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ig8(Context context) {
-        super(context, (String) null, 8);
+    /* loaded from: classes4.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ig8 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(ig8 ig8Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ig8Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ig8Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ArrayList)) {
+                this.a.b.clear();
+                this.a.b.addAll((ArrayList) customResponsedMessage.getData());
+            }
+        }
+    }
+
+    public ig8(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.o = false;
-        this.n = 3;
-        this.m = new PbLocationInfoContainer(context);
-        this.p = new int[]{20, 19};
+        this.b = new ArrayList<>();
+        this.c = new a(this, 2016563);
+        this.a = tbPageContext;
+        MessageManager.getInstance().registerListener(this.c);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ig8(Context context, boolean z) {
-        super(context, (String) null, 8);
+    public List<TransmitForumData> b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ck6.c().i();
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.c);
+        }
+    }
+
+    public void e(long j, String str, ShareItem shareItem) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), str, shareItem}) == null) {
+            if (j <= 0 && TextUtils.isEmpty(str)) {
                 return;
             }
+            SelectForumActivityConfig selectForumActivityConfig = new SelectForumActivityConfig(this.a.getPageActivity(), 24007);
+            CustomMessage customMessage = new CustomMessage(2002001, selectForumActivityConfig);
+            selectForumActivityConfig.setFrom(1);
+            selectForumActivityConfig.setForumList(this.b);
+            selectForumActivityConfig.setLiveId(j);
+            selectForumActivityConfig.setYyAnchorBdUid(str);
+            shareItem.k(true);
+            MessageManager.getInstance().sendMessage(customMessage);
         }
-        this.o = false;
-        this.n = 3;
-        this.m = new PbLocationInfoContainer(context);
-        RawLayout.LayoutParams layoutParams = new RawLayout.LayoutParams(-2, ii.g(getContext(), R.dimen.obfuscated_res_0x7f0702cc));
-        ((LinearLayout.LayoutParams) layoutParams).leftMargin = ii.g(getContext(), R.dimen.obfuscated_res_0x7f070207);
-        ((LinearLayout.LayoutParams) layoutParams).rightMargin = ii.g(getContext(), R.dimen.obfuscated_res_0x7f070207);
-        ((LinearLayout.LayoutParams) layoutParams).bottomMargin = ii.g(getContext(), R.dimen.obfuscated_res_0x7f070273);
-        ((LinearLayout.LayoutParams) layoutParams).topMargin = ii.g(getContext(), R.dimen.obfuscated_res_0x7f070273);
-        ((PbLocationInfoContainer) this.m).setLayoutParams(layoutParams);
-        this.p = new int[]{20, 19};
     }
 }

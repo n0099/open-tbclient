@@ -1,84 +1,243 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.os.Build;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewParent;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.browser.exception.UnzipErrorException;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Method;
+import java.io.BufferedOutputStream;
+import java.io.Closeable;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.zip.CRC32;
+import java.util.zip.CheckedInputStream;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipException;
+import java.util.zip.ZipInputStream;
 /* loaded from: classes5.dex */
 public class lf6 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Bitmap a(Bitmap bitmap) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bitmap)) == null) {
-            if (bitmap == null) {
-                return Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947941005, "Lcom/baidu/tieba/lf6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return bitmap;
-        }
-        return (Bitmap) invokeL.objValue;
-    }
-
-    public static void c(View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, view2) != null) || view2 == null) {
-            return;
-        }
-        try {
-            ViewParent parent = view2.getParent();
-            if (parent instanceof ViewGroup) {
-                ((ViewGroup) parent).removeView(view2);
-            }
-        } catch (Exception unused) {
-        }
-    }
-
-    public static void b(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, view2) == null) {
-            try {
-                ViewParent parent = view2.getRootView().getParent();
-                Method declaredMethod = parent.getClass().getDeclaredMethod("handleDispatchDoneAnimating", new Class[0]);
-                declaredMethod.setAccessible(true);
-                declaredMethod.invoke(parent, new Object[0]);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public static void d(View view2) {
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, view2) == null) && (i = Build.VERSION.SDK_INT) <= 23 && i >= 17) {
-            if (i < 17) {
-                b(view2);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947941005, "Lcom/baidu/tieba/lf6;");
                 return;
             }
-            try {
-                ViewParent parent = view2.getRootView().getParent();
-                Method declaredMethod = parent.getClass().getDeclaredMethod("setDrawDuringWindowsAnimating", Boolean.TYPE);
-                declaredMethod.setAccessible(true);
-                declaredMethod.invoke(parent, Boolean.TRUE);
-            } catch (Exception e) {
-                e.printStackTrace();
+        }
+        a = new String[]{"../", "~/", "__MACOSX/"};
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:18:0x0048, code lost:
+        throw new com.baidu.tieba.browser.exception.UnzipErrorException("创建文件夹节点时出现错误，文件夹创建失败：" + r2.getPath());
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void a(@NonNull File file, @NonNull ZipInputStream zipInputStream) throws UnzipErrorException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, file, zipInputStream) == null) {
+            String str = null;
+            while (true) {
+                try {
+                    try {
+                        try {
+                            ZipEntry nextEntry = zipInputStream.getNextEntry();
+                            if (nextEntry != null) {
+                                str = nextEntry.getName();
+                                if (d(str)) {
+                                    File file2 = new File(file, str);
+                                    if (nextEntry.isDirectory()) {
+                                        if (!file2.exists() && !file2.mkdirs()) {
+                                            break;
+                                        }
+                                    } else {
+                                        b(file2, zipInputStream, true);
+                                    }
+                                }
+                            } else {
+                                try {
+                                    zipInputStream.closeEntry();
+                                    return;
+                                } catch (IOException unused) {
+                                    return;
+                                }
+                            }
+                        } catch (IOException e) {
+                            throw new UnzipErrorException("I/O error has occurred:" + str, e);
+                        }
+                    } catch (ZipException e2) {
+                        throw new UnzipErrorException("a ZIP file error has occurred:" + str, e2);
+                    }
+                } catch (Throwable th) {
+                    try {
+                        zipInputStream.closeEntry();
+                    } catch (IOException unused2) {
+                    }
+                    throw th;
+                }
             }
         }
     }
 
-    public static void e(@NonNull View view2, int i) {
+    public static void b(File file, ZipInputStream zipInputStream, boolean z) throws UnzipErrorException {
+        BufferedOutputStream bufferedOutputStream;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, view2, i) == null) && view2.getVisibility() != i) {
-            view2.setVisibility(i);
+        if (interceptable == null || interceptable.invokeLLZ(65538, null, file, zipInputStream, z) == null) {
+            byte[] bArr = new byte[1024];
+            FileOutputStream fileOutputStream = null;
+            try {
+                FileOutputStream fileOutputStream2 = new FileOutputStream(file);
+                try {
+                    bufferedOutputStream = new BufferedOutputStream(fileOutputStream2);
+                    while (true) {
+                        try {
+                            int read = zipInputStream.read(bArr, 0, 1024);
+                            if (read != -1) {
+                                bufferedOutputStream.write(bArr, 0, read);
+                            } else {
+                                bufferedOutputStream.flush();
+                                if6.a(fileOutputStream2, bufferedOutputStream);
+                                return;
+                            }
+                        } catch (Exception e) {
+                            e = e;
+                            fileOutputStream = fileOutputStream2;
+                            try {
+                                if (z) {
+                                    b(file, zipInputStream, false);
+                                    if6.a(fileOutputStream, bufferedOutputStream);
+                                    return;
+                                }
+                                throw new UnzipErrorException("解压后写入文件时错误：" + file, e);
+                            } catch (Throwable th) {
+                                th = th;
+                                if6.a(fileOutputStream, bufferedOutputStream);
+                                throw th;
+                            }
+                        } catch (Throwable th2) {
+                            th = th2;
+                            fileOutputStream = fileOutputStream2;
+                            if6.a(fileOutputStream, bufferedOutputStream);
+                            throw th;
+                        }
+                    }
+                } catch (Exception e2) {
+                    e = e2;
+                    bufferedOutputStream = null;
+                } catch (Throwable th3) {
+                    th = th3;
+                    bufferedOutputStream = null;
+                }
+            } catch (Exception e3) {
+                e = e3;
+                bufferedOutputStream = null;
+            } catch (Throwable th4) {
+                th = th4;
+                bufferedOutputStream = null;
+            }
         }
+    }
+
+    public static void c(File file, File file2) throws UnzipErrorException {
+        Closeable closeable;
+        Closeable closeable2;
+        InputStream inputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, file, file2) == null) {
+            if (file2 != null && file != null) {
+                if (file.exists() && file.isFile() && file.canRead()) {
+                    if (gf6.a(file2)) {
+                        Closeable closeable3 = null;
+                        try {
+                            inputStream = new FileInputStream(file);
+                            try {
+                                closeable = new CheckedInputStream(inputStream, new CRC32());
+                                try {
+                                    closeable2 = new ZipInputStream(closeable);
+                                } catch (FileNotFoundException e) {
+                                    e = e;
+                                    closeable2 = null;
+                                } catch (Throwable th) {
+                                    th = th;
+                                    closeable2 = null;
+                                }
+                            } catch (FileNotFoundException e2) {
+                                e = e2;
+                                closeable2 = null;
+                            } catch (Throwable th2) {
+                                th = th2;
+                                closeable = null;
+                                closeable2 = null;
+                            }
+                        } catch (FileNotFoundException e3) {
+                            e = e3;
+                            inputStream = null;
+                            closeable2 = null;
+                        } catch (Throwable th3) {
+                            th = th3;
+                            closeable = null;
+                            closeable2 = null;
+                            if6.a(closeable3, closeable, closeable2);
+                            throw th;
+                        }
+                        try {
+                            a(file2, closeable2);
+                            if6.a(inputStream, closeable, closeable2);
+                            return;
+                        } catch (FileNotFoundException e4) {
+                            e = e4;
+                            closeable3 = closeable;
+                            try {
+                                throw new UnzipErrorException("读取源文件时出现错误:" + file.getPath(), e);
+                            } catch (Throwable th4) {
+                                th = th4;
+                                closeable = closeable3;
+                                closeable3 = inputStream;
+                                if6.a(closeable3, closeable, closeable2);
+                                throw th;
+                            }
+                        } catch (Throwable th5) {
+                            th = th5;
+                            closeable3 = inputStream;
+                            if6.a(closeable3, closeable, closeable2);
+                            throw th;
+                        }
+                    }
+                    throw new UnzipErrorException("目标文件夹创建失败：" + file2.getPath());
+                }
+                throw new UnzipErrorException("源文件不存在或不可读：" + file.getPath());
+            }
+            throw new UnzipErrorException("参数传入错误：destFile == null || srcFile == null");
+        }
+    }
+
+    public static boolean d(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            for (String str2 : a) {
+                if (str.contains(str2)) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

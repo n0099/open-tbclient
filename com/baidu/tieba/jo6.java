@@ -1,7 +1,10 @@
 package com.baidu.tieba;
 
+import android.content.pm.PackageInfo;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.mvc.message.MvcHttpMessage;
 import com.baidu.tbadk.mvc.message.MvcHttpResponsedMessage;
 import com.baidu.tbadk.mvc.message.MvcNetMessage;
@@ -16,14 +19,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class jo6 extends eo6 implements NetModel.k {
+public class jo6 extends fo6 implements NetModel.k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public DownloadManagerNetModel b;
-    public ko6 c;
-    public lo6 d;
-    public ho6 e;
+    public final DownloadManagerNetModel b;
+    public lo6 c;
+    public mo6 d;
+    public List<String> e;
+    public io6 f;
+    public final List<do6> g;
+    public int h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public jo6(BaseFragment baseFragment, int i) {
@@ -44,7 +52,11 @@ public class jo6 extends eo6 implements NetModel.k {
                 return;
             }
         }
-        this.c = new ko6(1, i);
+        this.d = new mo6();
+        this.e = new ArrayList();
+        this.g = new ArrayList();
+        this.h = 0;
+        this.c = new lo6(1, i);
         DownloadManagerNetModel downloadManagerNetModel = new DownloadManagerNetModel(baseFragment.getPageContext(), this.c);
         this.b = downloadManagerNetModel;
         downloadManagerNetModel.s0(this);
@@ -57,82 +69,138 @@ public class jo6 extends eo6 implements NetModel.k {
         if ((interceptable != null && interceptable.invokeLLL(1048576, this, mvcHttpResponsedMessage, mvcHttpMessage, mvcNetMessage) != null) || mvcHttpResponsedMessage == null) {
             return;
         }
-        lo6 lo6Var = null;
+        mo6 mo6Var = null;
         if (!mvcHttpResponsedMessage.hasError() && (mvcHttpResponsedMessage instanceof DownloadManagerHttpResponseMessage)) {
-            lo6Var = (lo6) ((DownloadManagerHttpResponseMessage) mvcHttpResponsedMessage).getData();
+            mo6Var = (mo6) ((DownloadManagerHttpResponseMessage) mvcHttpResponsedMessage).getData();
         }
-        if (lo6Var != null && f(lo6Var)) {
+        if (mo6Var != null && i(mo6Var)) {
             return;
         }
-        e(mvcHttpResponsedMessage.getError(), mvcHttpResponsedMessage.getErrorString());
+        f(mvcHttpResponsedMessage.getError(), mvcHttpResponsedMessage.getErrorString());
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel.m
     public void w(MvcSocketResponsedMessage mvcSocketResponsedMessage, MvcSocketMessage mvcSocketMessage, MvcNetMessage mvcNetMessage) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(1048582, this, mvcSocketResponsedMessage, mvcSocketMessage, mvcNetMessage) != null) || mvcSocketResponsedMessage == null) {
+        if ((interceptable != null && interceptable.invokeLLL(1048585, this, mvcSocketResponsedMessage, mvcSocketMessage, mvcNetMessage) != null) || mvcSocketResponsedMessage == null) {
             return;
         }
-        lo6 lo6Var = null;
+        mo6 mo6Var = null;
         if (!mvcSocketResponsedMessage.hasError() && (mvcSocketResponsedMessage instanceof DownloadManagerSocketResponseMessage)) {
-            lo6Var = ((DownloadManagerSocketResponseMessage) mvcSocketResponsedMessage).getData();
+            mo6Var = ((DownloadManagerSocketResponseMessage) mvcSocketResponsedMessage).getData();
         }
-        if (lo6Var != null && f(lo6Var)) {
+        if (mo6Var != null && i(mo6Var)) {
             return;
         }
-        e(mvcSocketResponsedMessage.getError(), mvcSocketResponsedMessage.getErrorString());
+        f(mvcSocketResponsedMessage.getError(), mvcSocketResponsedMessage.getErrorString());
     }
 
-    @Override // com.baidu.tieba.eo6
+    @Override // com.baidu.tieba.fo6
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            e();
             this.c.c();
             this.b.loadData();
         }
     }
 
-    @Override // com.baidu.tieba.eo6
+    @Override // com.baidu.tieba.fo6
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            e();
+            this.d.a.clear();
+            this.e.clear();
             this.c.b();
             this.b.loadData();
         }
     }
 
-    @Override // com.baidu.tieba.eo6
-    public void d(ho6 ho6Var) {
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, ho6Var) == null) {
-            this.e = ho6Var;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.g.clear();
+            this.h = 0;
         }
     }
 
-    public final void e(int i, String str) {
+    @Override // com.baidu.tieba.fo6
+    public void d(io6 io6Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) && i != 0) {
-            this.e.b(i, str);
+        if (interceptable == null || interceptable.invokeL(1048579, this, io6Var) == null) {
+            this.f = io6Var;
         }
     }
 
-    public final boolean f(lo6 lo6Var) {
+    public final boolean i(mo6 mo6Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, lo6Var)) == null) {
-            if (lo6Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, mo6Var)) == null) {
+            if (mo6Var == null) {
                 return false;
             }
-            if (this.c.a() != 1) {
-                this.d.a(lo6Var);
-            } else {
-                this.d = lo6Var;
-            }
-            ho6 ho6Var = this.e;
-            lo6 lo6Var2 = this.d;
-            ho6Var.a(lo6Var2.a, lo6Var2.b, lo6Var2.c.intValue());
+            mo6 mo6Var2 = this.d;
+            mo6Var2.c = mo6Var.c;
+            mo6Var2.b = mo6Var.b;
+            g(mo6Var.a);
             return true;
         }
         return invokeL.booleanValue;
+    }
+
+    public final void f(int i, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIL(1048581, this, i, str) == null) && i != 0) {
+            this.f.b(i, str);
+        }
+    }
+
+    public void g(List<do6> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
+            for (do6 do6Var : list) {
+                PackageInfo a = vh7.a(do6Var.a.pkgName);
+                if (a != null) {
+                    if (a.versionCode < do6Var.a.apkDetail.version_code.intValue()) {
+                        List<do6> list2 = this.g;
+                        int i = this.h;
+                        this.h = i + 1;
+                        list2.add(i, do6Var);
+                    } else {
+                        this.g.add(do6Var);
+                    }
+                    this.e.add(do6Var.a.pkgName);
+                }
+            }
+            if (ListUtils.getCount(this.g) < 15 && this.d.c.intValue() != 0) {
+                this.c.c();
+                this.b.loadData();
+                return;
+            }
+            this.d.a.addAll(this.g);
+            if (ListUtils.getCount(this.d.a) <= 4) {
+                this.f.a(this.d.a, h(), this.d.c.intValue());
+                return;
+            }
+            io6 io6Var = this.f;
+            mo6 mo6Var = this.d;
+            io6Var.a(mo6Var.a, null, mo6Var.c.intValue());
+        }
+    }
+
+    public List<do6> h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (do6 do6Var : this.d.b) {
+                if (!this.e.contains(do6Var.a.pkgName)) {
+                    arrayList.add(do6Var);
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
     }
 }

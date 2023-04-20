@@ -1,92 +1,94 @@
 package com.baidu.tieba;
 
 import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.PorterDuff;
-import android.graphics.RectF;
-import android.view.ViewGroup;
+import android.graphics.Point;
 import android.widget.ImageView;
-import com.baidu.mapapi.map.BitmapDescriptor;
-import com.baidu.mapapi.map.BitmapDescriptorFactory;
-import com.baidu.mapapi.map.MarkerOptions;
-import com.baidu.mapapi.map.OverlayOptions;
-import com.baidu.mapapi.model.LatLng;
+import com.baidu.mapapi.map.MapViewLayoutParams;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.tieba.ou2;
+import com.baidu.tieba.sk3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class uc4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static OverlayOptions a(ed4 ed4Var, dd4 dd4Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, ed4Var, dd4Var)) == null) {
-            u42.i("map", "createLabel start");
-            if (dd4Var == null) {
-                return null;
-            }
-            ou2 ou2Var = dd4Var.a;
-            if (ou2Var != null && ou2Var.j != null && ou2Var.b != null) {
-                Paint paint = new Paint();
-                paint.setAntiAlias(true);
-                paint.setStyle(Paint.Style.FILL_AND_STROKE);
-                paint.setColor(ou2Var.j.b);
-                paint.setTextSize(ou2Var.j.c);
-                ou2.c cVar = ou2Var.j;
-                float f = cVar.e;
-                float f2 = cVar.j;
-                Paint paint2 = new Paint();
-                paint2.setAntiAlias(true);
-                paint2.setStyle(Paint.Style.FILL_AND_STROKE);
-                paint2.setColor(ou2Var.j.d);
-                String str = ou2Var.j.a;
-                float f3 = f * 2.0f;
-                float measureText = paint.measureText(str) + f3;
-                float f4 = (paint.getFontMetrics().bottom - paint.getFontMetrics().top) + f3;
-                if (f4 > 0.0f && measureText > 0.0f) {
-                    float f5 = ou2Var.j.h;
-                    Bitmap createBitmap = Bitmap.createBitmap((int) (measureText + f5 + 0.5d), (int) (f4 + f5 + 0.5d), Bitmap.Config.ARGB_8888);
-                    createBitmap.eraseColor(Color.argb(0, 0, 0, 0));
-                    Canvas canvas = new Canvas(createBitmap);
-                    canvas.drawColor(0, PorterDuff.Mode.CLEAR);
-                    RectF rectF = new RectF();
-                    float f6 = f5 / 2.0f;
-                    rectF.left = f6;
-                    rectF.top = f6;
-                    rectF.bottom = f4 + f6;
-                    rectF.right = measureText + f6;
-                    canvas.drawRoundRect(rectF, f2, f2, paint2);
-                    if (f5 > 0.0f) {
-                        paint2.setStyle(Paint.Style.STROKE);
-                        paint2.setColor(ou2Var.j.i);
-                        paint2.setStrokeWidth(f5);
-                        canvas.drawRoundRect(rectF, f2, f2, paint2);
-                    }
-                    canvas.drawText(str, f + f6, (-paint.getFontMetrics().top) + f + f6, paint);
-                    ImageView imageView = new ImageView(AppRuntime.getAppContext());
-                    imageView.setLayoutParams(new ViewGroup.LayoutParams(createBitmap.getWidth(), createBitmap.getHeight()));
-                    ou2.c cVar2 = ou2Var.j;
-                    imageView.setPadding((int) cVar2.f, (int) cVar2.g, 0, 0);
-                    imageView.setImageBitmap(createBitmap);
-                    BitmapDescriptor fromView = BitmapDescriptorFactory.fromView(imageView);
-                    MarkerOptions markerOptions = new MarkerOptions();
-                    nu2 nu2Var = ou2Var.b;
-                    MarkerOptions zIndex = markerOptions.position(new LatLng(nu2Var.a, nu2Var.b)).icon(fromView).anchor(0.0f, 0.0f).zIndex(66);
-                    u42.i("map", "createLabel end");
-                    return zIndex;
+    /* loaded from: classes6.dex */
+    public static class a implements sk3.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ nu2 a;
+        public final /* synthetic */ fd4 b;
+        public final /* synthetic */ bd4 c;
+
+        public a(nu2 nu2Var, fd4 fd4Var, bd4 bd4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nu2Var, fd4Var, bd4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                u42.c("map", "label heigth or width is 0");
-                return null;
             }
-            u42.c("map", "marker data error");
-            return null;
+            this.a = nu2Var;
+            this.b = fd4Var;
+            this.c = bd4Var;
         }
-        return (OverlayOptions) invokeLL.objValue;
+
+        @Override // com.baidu.tieba.sk3.b
+        public void a(String str, Bitmap bitmap) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, str, bitmap) == null) {
+                if (bitmap == null) {
+                    v42.o("map", " icon is null ");
+                }
+                if (bitmap != null) {
+                    int i = this.a.d.c;
+                    if (i == -1) {
+                        i = bitmap.getWidth();
+                    }
+                    int i2 = this.a.d.d;
+                    if (i2 == -1) {
+                        i2 = bitmap.getHeight();
+                    }
+                    MapViewLayoutParams.Builder builder = new MapViewLayoutParams.Builder();
+                    builder.layoutMode(MapViewLayoutParams.ELayoutMode.absoluteMode);
+                    builder.width(i);
+                    builder.height(i2);
+                    builder.align(1, 8);
+                    su2 su2Var = this.a.d;
+                    builder.point(new Point(su2Var.a, su2Var.b));
+                    ImageView imageView = new ImageView(AppRuntime.getAppContext());
+                    imageView.setImageBitmap(bitmap);
+                    imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+                    this.b.l.addView(imageView, builder.build());
+                    imageView.setOnClickListener(this.c);
+                    imageView.setClickable(this.a.c);
+                    dd4 dd4Var = new dd4();
+                    dd4Var.a = this.a;
+                    dd4Var.b = imageView;
+                    this.b.o.add(dd4Var);
+                }
+            }
+        }
+    }
+
+    public static void a(fd4 fd4Var, nu2 nu2Var, bd4 bd4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65536, null, fd4Var, nu2Var, bd4Var) == null) {
+            v42.i("map", "createControl start");
+            if (nu2Var != null && nu2Var.isValid()) {
+                sk3.e(nu2Var.b, new a(nu2Var, fd4Var, bd4Var));
+            }
+            v42.i("map", "createControl end");
+        }
     }
 }

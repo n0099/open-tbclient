@@ -10,16 +10,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import tbclient.GetVipInfo.VipThemeItem;
-import tbclient.GetVipInfo.VipThemeList;
+import tbclient.GetVipInfo.VipBannerItem;
+import tbclient.GetVipInfo.VipBannerList;
 /* loaded from: classes6.dex */
-public class sk8 implements hn {
+public class sk8 implements in {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId d;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public nk8 a;
-    public List<tk8> b;
-    public List<tk8> c;
+    public List<tk8> a;
 
     static {
         InterceptResult invokeClinit;
@@ -34,25 +32,25 @@ public class sk8 implements hn {
                 return;
             }
         }
-        d = BdUniqueId.gen();
+        b = BdUniqueId.gen();
     }
 
-    @Override // com.baidu.tieba.hn
+    @Override // com.baidu.tieba.in
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return d;
+            return b;
         }
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public sk8(VipThemeList vipThemeList) {
+    public sk8(VipBannerList vipBannerList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vipThemeList};
+            Object[] objArr = {vipBannerList};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -62,26 +60,11 @@ public class sk8 implements hn {
                 return;
             }
         }
-        if (vipThemeList == null) {
-            return;
-        }
-        String str = vipThemeList.card_id;
-        nk8 nk8Var = new nk8();
-        this.a = nk8Var;
-        nk8Var.e(2);
-        this.a.d(vipThemeList.class_name);
-        this.a.f(vipThemeList.class_url_name);
-        this.a.g(vipThemeList.class_url);
-        if (vipThemeList.item != null) {
-            this.b = new ArrayList();
-            for (VipThemeItem vipThemeItem : vipThemeList.item) {
-                this.b.add(new tk8(vipThemeItem));
-            }
-        }
-        if (vipThemeList.item_card != null) {
-            this.c = new ArrayList();
-            for (VipThemeItem vipThemeItem2 : vipThemeList.item_card) {
-                this.c.add(new tk8(vipThemeItem2));
+        if (vipBannerList != null && vipBannerList.item != null) {
+            String str = vipBannerList.card_id;
+            this.a = new ArrayList();
+            for (VipBannerItem vipBannerItem : vipBannerList.item) {
+                this.a.add(new tk8(vipBannerItem));
             }
         }
     }

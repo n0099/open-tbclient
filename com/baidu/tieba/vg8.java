@@ -1,75 +1,76 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.mainentrance.RequestSearchPersonHistoryReadMessage;
-import com.baidu.tieba.mainentrance.ResponseSearchPersonHistoryReadMessage;
-import com.baidu.tieba.me;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.log.TbLogManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class vg8 implements CustomMessageTask.CustomRunnable<Object> {
+public class vg8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final String b;
 
-    public vg8() {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public vg8(String str) {
+        this(str, "000");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((String) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static final List<String> a(List<me.b<String>> list) {
-        InterceptResult invokeL;
+    public vg8(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
-            LinkedList linkedList = new LinkedList();
-            if (list != null) {
-                for (me.b<String> bVar : list) {
-                    String str = bVar.a;
-                    if (!TextUtils.isEmpty(str)) {
-                        linkedList.add(str);
-                    }
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return linkedList;
         }
-        return (List) invokeL.objValue;
+        this.a = str;
+        this.b = str2;
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-        InterceptResult invokeL;
+    public void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage != null && (customMessage instanceof RequestSearchPersonHistoryReadMessage)) {
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                if (currentAccount == null) {
-                    currentAccount = "";
-                }
-                b05.d();
-                List<String> a = a(oi.b(b05.f("tb.searchperson_history", currentAccount)));
-                ResponseSearchPersonHistoryReadMessage responseSearchPersonHistoryReadMessage = new ResponseSearchPersonHistoryReadMessage();
-                responseSearchPersonHistoryReadMessage.datas.addAll(a);
-                return responseSearchPersonHistoryReadMessage;
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+            TbLogManager.log(this.a, TbLogManager.Level.DEBUG, this.b, str, str2);
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+    }
+
+    public void b(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
+            TbLogManager.log(this.a, TbLogManager.Level.ERROR, this.b, str, str2);
+        }
+    }
+
+    public void c(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
+            TbLogManager.log(this.a, TbLogManager.Level.INFO, this.b, str, str2);
+        }
     }
 }

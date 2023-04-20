@@ -35,7 +35,7 @@ public class b {
     public c.a Ce;
     public a Cf;
     @Nullable
-    public InterfaceC0556b Cg;
+    public InterfaceC0555b Cg;
     public KsAdWebView bF;
     public aa bI;
     @Nullable
@@ -78,7 +78,7 @@ public class b {
 
     /* renamed from: com.kwad.components.ad.i.b$b  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public interface InterfaceC0556b {
+    public interface InterfaceC0555b {
         void hk();
     }
 
@@ -183,8 +183,8 @@ public class b {
         this.Cf = aVar;
     }
 
-    public final void a(@Nullable InterfaceC0556b interfaceC0556b) {
-        this.Cg = interfaceC0556b;
+    public final void a(@Nullable InterfaceC0555b interfaceC0555b) {
+        this.Cg = interfaceC0555b;
         this.bS.setVisibility(4);
         this.bH = -1;
         String l = l(this.mAdTemplate);

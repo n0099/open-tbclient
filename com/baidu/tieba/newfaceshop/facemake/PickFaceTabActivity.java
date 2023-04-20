@@ -21,11 +21,11 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.R;
+import com.baidu.tieba.aq8;
 import com.baidu.tieba.face.data.EmotionImageData;
 import com.baidu.tieba.face.data.FaceData;
-import com.baidu.tieba.hv4;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.sp8;
+import com.baidu.tieba.iv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,7 +35,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Map;
 /* loaded from: classes5.dex */
-public class PickFaceTabActivity extends BaseFragmentActivity implements sp8 {
+public class PickFaceTabActivity extends BaseFragmentActivity implements aq8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout a;
@@ -176,7 +176,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements sp8 {
         this.k = new b(this);
     }
 
-    @Override // com.baidu.tieba.sp8
+    @Override // com.baidu.tieba.aq8
     public void H() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -185,7 +185,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements sp8 {
         }
     }
 
-    @Override // com.baidu.tieba.sp8
+    @Override // com.baidu.tieba.aq8
     public void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -197,7 +197,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements sp8 {
         }
     }
 
-    @Override // com.baidu.tieba.sp8
+    @Override // com.baidu.tieba.aq8
     public boolean s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -228,7 +228,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements sp8 {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            hv4 layoutMode = getLayoutMode();
+            iv4 layoutMode = getLayoutMode();
             if (i == 4) {
                 z = true;
             } else {

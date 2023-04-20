@@ -1,50 +1,86 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
 public class qr {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile qr a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public qr() {
+    /* JADX DEBUG: Multi-variable search result rejected for r1v6, resolved type: int */
+    /* JADX WARN: Multi-variable type inference failed */
+    public static lr a(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
+            lr lrVar = null;
+            if (bArr == null) {
+                return null;
             }
-        }
-    }
-
-    public static qr a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (qr.class) {
-                    if (a == null) {
-                        a = new qr();
-                    }
+            ByteBuffer wrap = ByteBuffer.wrap(bArr);
+            byte b = wrap.get();
+            byte b2 = wrap.get();
+            if (b == -27 && b2 == -89) {
+                lrVar = new lr();
+                wrap.get();
+                wrap.get();
+                lrVar.a(wrap.get());
+                lrVar.f(wrap.get());
+                int i = wrap.getShort();
+                lrVar.c(i);
+                int i2 = wrap.getInt();
+                lrVar.b(i2);
+                byte[] bArr2 = new byte[i];
+                wrap.get(bArr2, 0, i);
+                lrVar.j(bArr2);
+                if (i2 > 0) {
+                    byte[] bArr3 = new byte[i2];
+                    wrap.get(bArr3, 0, i2);
+                    lrVar.l(bArr3);
                 }
             }
-            return a;
+            return lrVar;
         }
-        return (qr) invokeV.objValue;
+        return (lr) invokeL.objValue;
     }
 
-    public void b(String str, sr srVar) {
+    public static byte[] b(lr lrVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, srVar) == null) {
-            vr.b().g(str, srVar);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, lrVar)) == null) {
+            if (lrVar == null) {
+                return null;
+            }
+            ByteBuffer allocate = ByteBuffer.allocate(lrVar.m() + 12 + lrVar.n());
+            allocate.put((byte) -27);
+            allocate.put((byte) -89);
+            if (lrVar.e() != null && lrVar.e().length == 2) {
+                allocate.put(lrVar.e()[0]);
+                allocate.put(lrVar.e()[1]);
+                allocate.put(lrVar.i());
+                allocate.put(lrVar.k());
+                if (lrVar.o() != null && lrVar.o().length != 0) {
+                    int length = lrVar.o().length;
+                    allocate.put((byte) ((length >> 8) & 255));
+                    allocate.put((byte) (length & 255));
+                    if (lrVar.p() != null && lrVar.p().length != 0) {
+                        allocate.putInt(lrVar.p().length);
+                    } else {
+                        allocate.putInt(0);
+                    }
+                    if (lrVar.o() != null) {
+                        allocate.put(lrVar.o());
+                    }
+                    if (lrVar.p() != null) {
+                        allocate.put(lrVar.p());
+                    }
+                    return allocate.array();
+                }
+            }
+            return null;
         }
+        return (byte[]) invokeL.objValue;
     }
 }

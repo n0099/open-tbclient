@@ -1,72 +1,115 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.ParameterizedType;
+import java.net.URLEncoder;
+import java.util.Map;
+@Autowired
 /* loaded from: classes5.dex */
-public abstract class lz6<V extends View, M> implements a07<V, M> {
+public class lz6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
 
-    public lz6(String str) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947960225, "Lcom/baidu/tieba/lz6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947960225, "Lcom/baidu/tieba/lz6;");
+                return;
+            }
+        }
+        kv4.e();
+    }
+
+    public lz6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = str;
     }
 
-    @Override // com.baidu.tieba.a07
-    @NonNull
-    public View a(@NonNull ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Inject
+    public static hz6 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            try {
-                return d().getConstructor(Context.class).newInstance(viewGroup.getContext());
-            } catch (Exception e) {
-                throw new IllegalStateException(e);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return ti6.a();
+        }
+        return (hz6) invokeV.objValue;
+    }
+
+    public static String a(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, str3)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                StringBuilder sb = new StringBuilder();
+                sb.append(str.trim());
+                try {
+                    sb.append("&");
+                    sb.append(URLEncoder.encode(str2, "UTF-8"));
+                    sb.append("=");
+                    sb.append(URLEncoder.encode(str3, "UTF-8"));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return sb.toString();
             }
+            return str;
         }
-        return (View) invokeL.objValue;
+        return (String) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.a07
-    @NonNull
-    public String c() {
-        InterceptResult invokeV;
+    public static String b(String str, Map<String, String> map) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, map)) == null) {
+            if (!TextUtils.isEmpty(str) && map != null && !map.isEmpty()) {
+                StringBuilder sb = new StringBuilder();
+                sb.append(str.trim());
+                try {
+                    for (String str2 : map.keySet()) {
+                        sb.append("&");
+                        sb.append(URLEncoder.encode(str2, "UTF-8"));
+                        sb.append("=");
+                        sb.append(URLEncoder.encode(map.get(str2), "UTF-8"));
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return sb.toString();
+            }
+            return str;
         }
-        return (String) invokeV.objValue;
+        return (String) invokeLL.objValue;
     }
 
-    public final Class<V> d() {
-        InterceptResult invokeV;
+    public static void c(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return (Class) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str) == null) {
+            d().a(context, str);
         }
-        return (Class) invokeV.objValue;
     }
 }

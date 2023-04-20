@@ -5,7 +5,7 @@ import com.xiaomi.push.hh;
 import com.xiaomi.push.ig;
 import com.xiaomi.push.ir;
 import java.lang.ref.WeakReference;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b extends aj.a {
     public ig a;
 

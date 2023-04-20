@@ -16,9 +16,9 @@ import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tbadk.switchs.UseHttpdnsSdkSwitch;
 import com.baidu.tieba.eh;
 import com.baidu.tieba.fg;
-import com.baidu.tieba.gq5;
 import com.baidu.tieba.hf;
 import com.baidu.tieba.hi;
+import com.baidu.tieba.hq5;
 import com.baidu.tieba.ii;
 import com.baidu.tieba.jf;
 import com.baidu.tieba.og;
@@ -221,7 +221,7 @@ public class ImageLogger {
         if ((interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{str, Boolean.valueOf(z), str2, bool, jfVar, str3, Long.valueOf(j), Boolean.valueOf(z2), Integer.valueOf(i)}) == null) && ii.F() && jfVar != null) {
             String str9 = "";
             String str10 = "";
-            boolean a = gq5.a(str2);
+            boolean a = hq5.a(str2);
             if (ICDNIPDirectConnect.getInstance() != null) {
                 if (!ICDNIPDirectConnect.getInstance().isAlreadyInit) {
                     ICDNIPDirectConnect.getInstance().init();

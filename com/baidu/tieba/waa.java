@@ -1,47 +1,25 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import com.baidu.android.util.KVStorageFactory;
-import com.baidu.android.util.sp.SharedPrefsWrapper;
-import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ubc.service.IPCService;
+@Singleton
+@Service
 /* loaded from: classes6.dex */
-public class waa extends SharedPrefsWrapper {
+public class waa implements iba {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public kba a;
+    public IPCService b;
+    public lba c;
 
-    /* loaded from: classes6.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final waa a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-322870219, "Lcom/baidu/tieba/waa$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-322870219, "Lcom/baidu/tieba/waa$a;");
-                    return;
-                }
-            }
-            a = new waa();
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public waa() {
-        super(KVStorageFactory.getSharedPreferences(UBCCloudControlProcessor.SP_UBC_FILE_NAME));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -49,20 +27,68 @@ public class waa extends SharedPrefsWrapper {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((SharedPreferences) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    public static waa d() {
+    @Override // com.baidu.tieba.iba
+    public fba a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.a == null) {
+                this.a = new kba();
+            }
+            return this.a;
         }
-        return (waa) invokeV.objValue;
+        return (fba) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.iba
+    public hba b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.b == null) {
+                this.b = new IPCService();
+            }
+            return this.b;
+        }
+        return (hba) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.iba
+    public haa c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return dba.b();
+        }
+        return (haa) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.iba
+    public laa d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return dba.c();
+        }
+        return (laa) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.iba
+    public gba e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.c == null) {
+                this.c = new lba();
+            }
+            return this.c;
+        }
+        return (gba) invokeV.objValue;
     }
 }

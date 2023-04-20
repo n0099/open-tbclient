@@ -8,42 +8,103 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-/* loaded from: classes3.dex */
-public class cp2 extends ol2<fq2> {
+import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
+/* loaded from: classes4.dex */
+public class cp2 implements ZeusPluginFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
-    @Override // com.baidu.tieba.ol2
-    @NonNull
-    public String b() {
+    @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
+    public String name() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "getCurrentPosition" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "inline_video" : (String) invokeV.objValue;
     }
 
-    public cp2() {
+    /* loaded from: classes4.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                long currentTimeMillis = System.currentTimeMillis();
+                gq2 b = cr2.D().b(null, null);
+                b.m0();
+                b.T();
+                b.C();
+                my1.e().t(b);
+                v42.i("【InlineFactory】", "pre-create video cost time ：" + (System.currentTimeMillis() - currentTimeMillis));
+            }
+        }
+    }
+
+    public cp2(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = str;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ol2
-    /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull fq2 fq2Var) {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, fq2Var) == null) {
-            command.ret = fq2Var.getCurrentPosition();
-            String str = command.what;
-            d(fq2Var, str, "Position: " + command.ret, false);
+        if ((interceptable != null && interceptable.invokeV(65537, null) != null) || cr2.D() == null) {
+            return;
         }
+        my1.e().c();
+        pk3.k(new a(), "PreCreateVideo");
+    }
+
+    @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
+    public ZeusPlugin create(ZeusPluginFactory.Invoker invoker) {
+        InterceptResult invokeL;
+        gq2 b;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, invoker)) == null) {
+            if (cr2.D() == null) {
+                return null;
+            }
+            if (my1.e().f()) {
+                v42.i("【InlineFactory】", "handleAppOnLaunch use cache inline video. ");
+                b = my1.e().d();
+                my1.e().s();
+                b.N(invoker);
+            } else {
+                v42.i("【InlineFactory】", "handleAppOnLaunch create cache inline video. ");
+                b = cr2.D().b(invoker, this.a);
+                b.H();
+            }
+            v42.i("【InlineFactory】", "Factory 「Hash:" + hashCode() + "」 is creating inline video「Hash:" + b.hashCode() + "」");
+            return new ap2(b);
+        }
+        return (ZeusPlugin) invokeL.objValue;
     }
 }

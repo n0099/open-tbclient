@@ -1,33 +1,50 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.widget.FrameLayout;
+import android.content.Intent;
+import android.net.Uri;
+import android.view.View;
 import androidx.annotation.NonNull;
-/* loaded from: classes5.dex */
+import com.baidu.swan.game.ad.downloader.model.DownloadParams;
+import java.io.File;
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
 public interface pw3 {
-    void a(FrameLayout frameLayout);
+    String a();
 
-    void d(boolean z);
+    boolean b(Context context, Intent intent, String str, String str2, String str3);
 
-    pw3 e(Context context, @NonNull lv3 lv3Var);
+    String c();
 
-    void g(jw3 jw3Var);
+    boolean d(@NonNull Context context, @NonNull JSONObject jSONObject, @NonNull DownloadParams.SwanAppDownloadType swanAppDownloadType, @NonNull wv3 wv3Var);
 
-    int getCurrentPosition();
+    String e();
 
-    int getDuration();
+    String f(String str);
 
-    void h(lv3 lv3Var);
+    String g();
 
-    boolean isEnd();
+    String getAppId();
 
-    boolean isPlaying();
+    String getAppKey();
 
-    void mute(boolean z);
+    String getScene();
 
-    void pause();
+    String getSdkVersion();
 
-    void resume();
+    int h();
 
-    void stop();
+    String i(String str);
+
+    int j();
+
+    int k();
+
+    Uri l(@NonNull Context context, @NonNull File file);
+
+    String m();
+
+    JSONObject n();
+
+    boolean o(View view2);
 }

@@ -10,8 +10,8 @@ import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a9;
-import com.baidu.tieba.al9;
 import com.baidu.tieba.gg;
+import com.baidu.tieba.il9;
 import com.baidu.tieba.za;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -177,8 +177,8 @@ public class ReplyMeModel extends BdBaseModel {
                 return;
             }
         }
-        al9.f(303010, CheckPostResponseMessage.class, false);
-        al9.c(303010, CmdConfigHttp.CMD_CHECK_POST, "c/f/check/checkpost", CheckPostHttpResponseMessage.class, true, true, false, false);
+        il9.f(303010, CheckPostResponseMessage.class, false);
+        il9.c(303010, CmdConfigHttp.CMD_CHECK_POST, "c/f/check/checkpost", CheckPostHttpResponseMessage.class, true, true, false, false);
     }
 
     public void S() {

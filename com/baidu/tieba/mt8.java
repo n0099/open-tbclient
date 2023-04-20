@@ -1,73 +1,62 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.PbPage.PbSortType;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class mt8 implements hn {
+public class mt8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId g;
-    public static final BdUniqueId h;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
+    public boolean a;
     public int b;
-    public boolean c;
-    public boolean d;
-    public List<PbSortType> e;
-    public boolean f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947984312, "Lcom/baidu/tieba/mt8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947984312, "Lcom/baidu/tieba/mt8;");
-                return;
-            }
-        }
-        g = BdUniqueId.gen();
-        h = BdUniqueId.gen();
-    }
-
-    @Override // com.baidu.tieba.hn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public mt8(BdUniqueId bdUniqueId) {
+    public mt8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bdUniqueId};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = h;
-        this.b = 0;
-        this.c = false;
-        this.a = bdUniqueId;
+    }
+
+    public static mt8 a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return null;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                mt8 mt8Var = new mt8();
+                mt8Var.a = jSONObject.optBoolean("show", false);
+                mt8Var.b = jSONObject.optInt(CriusAttrConstants.POSITION, -1);
+                return mt8Var;
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        return (mt8) invokeL.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "{\"show\":" + this.a + ",\"position\":" + this.b + '}';
+        }
+        return (String) invokeV.objValue;
     }
 }

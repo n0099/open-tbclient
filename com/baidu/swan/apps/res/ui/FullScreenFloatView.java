@@ -14,11 +14,11 @@ import android.widget.FrameLayout;
 import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
 import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.tieba.R;
-import com.baidu.tieba.eo1;
-import com.baidu.tieba.ll3;
+import com.baidu.tieba.fo1;
+import com.baidu.tieba.ml3;
 /* loaded from: classes3.dex */
 public class FullScreenFloatView extends FrameLayout {
-    public static final boolean n = eo1.a;
+    public static final boolean n = fo1.a;
     public View a;
     public int b;
     public int c;
@@ -190,7 +190,7 @@ public class FullScreenFloatView extends FrameLayout {
         if (this.a != null) {
             int dimensionPixelOffset = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070669);
             int dimensionPixelOffset2 = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07066a);
-            this.a.animate().x((ll3.o(getContext()) - dimensionPixelOffset) - this.b).y((ll3.n(getContext()) - dimensionPixelOffset2) - this.c).setInterpolator(new AccelerateInterpolator()).setDuration(300L).start();
+            this.a.animate().x((ml3.o(getContext()) - dimensionPixelOffset) - this.b).y((ml3.n(getContext()) - dimensionPixelOffset2) - this.c).setInterpolator(new AccelerateInterpolator()).setDuration(300L).start();
         }
     }
 

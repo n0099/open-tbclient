@@ -1,63 +1,26 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.Closeable;
+import java.io.IOException;
 /* loaded from: classes4.dex */
 public class if6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(String str, String str2) {
-        InterceptResult invokeLL;
+    public static void a(Closeable... closeableArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
-            xe6.b("lt-log", "基础版本：" + str + ",当前版本：" + str2);
-            if (TextUtils.equals(str, str2)) {
-                return true;
-            }
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+        if ((interceptable != null && interceptable.invokeL(65536, null, closeableArr) != null) || ef6.e(closeableArr)) {
+            return;
+        }
+        for (Closeable closeable : closeableArr) {
+            if (closeable != null) {
                 try {
-                    String[] split = str.split("[._]");
-                    String[] split2 = str2.split("[._]");
-                    int min = Math.min(split.length, split2.length);
-                    long j = 0;
-                    for (int i = 0; i < min; i++) {
-                        j = b(split2[i]).longValue() - b(split[i]).longValue();
-                        if (j != 0) {
-                            break;
-                        }
-                    }
-                    int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-                    if (i2 == 0) {
-                        if (split2.length > split.length) {
-                            return true;
-                        }
-                        return false;
-                    } else if (i2 > 0) {
-                        return true;
-                    } else {
-                        return false;
-                    }
-                } catch (Exception unused) {
+                    closeable.close();
+                } catch (IOException unused) {
                 }
             }
-            return false;
         }
-        return invokeLL.booleanValue;
-    }
-
-    public static Long b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            try {
-                return Long.valueOf(Long.parseLong(str));
-            } catch (NumberFormatException unused) {
-                return 0L;
-            }
-        }
-        return (Long) invokeL.objValue;
     }
 }

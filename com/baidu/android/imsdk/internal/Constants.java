@@ -197,7 +197,7 @@ public final class Constants {
     public static final String KEY_USER_SETTING_NOT_CONCERNED = "user_setting_not_concerned";
     public static final String KEY_VCODE = "imsdk_product_vcode";
     public static final String KEY_ZID = "imsdk_product_zid";
-    public static final String LITTLE_VERSION = "1";
+    public static final String LITTLE_VERSION = "5";
     public static final int LOGIN_STATE_LOGIN = 3;
     public static final int LOGIN_STATE_LOGINING = 1;
     public static final int LOGIN_STATE_LOGIN_FAILED = 2;

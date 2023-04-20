@@ -1,6 +1,9 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,17 +11,36 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.AlaLiveInfo;
+import tbclient.Userlike.UserFollowLive;
 /* loaded from: classes4.dex */
-public class gn7 implements hn {
+public class gn7 extends kw4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId f;
-    public static final BdUniqueId g;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public boolean c;
-    public boolean d;
-    public BdUniqueId e;
+    public final List<AlaLiveInfo> a;
+
+    @Override // com.baidu.tieba.kw4
+    public iy4 getNegFeedBackData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
+        }
+        return (iy4) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.kw4
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (ThreadData) invokeV.objValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -33,8 +55,7 @@ public class gn7 implements hn {
                 return;
             }
         }
-        f = BdUniqueId.gen();
-        g = BdUniqueId.gen();
+        b = BdUniqueId.gen();
     }
 
     public gn7() {
@@ -50,16 +71,35 @@ public class gn7 implements hn {
                 return;
             }
         }
-        this.e = g;
+        this.a = new ArrayList();
     }
 
-    @Override // com.baidu.tieba.hn
-    public BdUniqueId getType() {
+    public List<AlaLiveInfo> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
+            return this.a;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.in
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return b;
         }
         return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void d(UserFollowLive userFollowLive) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, userFollowLive) == null) {
+            this.a.clear();
+            if (userFollowLive != null && !ListUtils.isEmpty(userFollowLive.user_follow_live)) {
+                this.a.addAll(userFollowLive.user_follow_live);
+            }
+        }
     }
 }

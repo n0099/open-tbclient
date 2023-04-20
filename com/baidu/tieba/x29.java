@@ -1,78 +1,55 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UrlManager;
+import android.graphics.drawable.Drawable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class x29 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public String b;
+    public String c;
+    public String d;
+    public Drawable e;
+    public Drawable f;
+    public Drawable g;
+    public boolean h;
+    public String i;
 
-    public static void a(n29 n29Var, TbPageContext<?> tbPageContext) {
-        Uri parse;
-        String str;
+    public x29() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, n29Var, tbPageContext) == null) && n29Var != null && tbPageContext != null) {
-            int i = n29Var.m;
-            boolean z = false;
-            if (i == 1) {
-                if (!TextUtils.isEmpty(n29Var.g)) {
-                    UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{n29Var.g});
-                }
-            } else if (i == 2) {
-                if (!TextUtils.isEmpty(n29Var.g) && (parse = Uri.parse(n29Var.g)) != null) {
-                    String queryParameter = parse.getQueryParameter("paramfromna");
-                    if (!TextUtils.isEmpty(queryParameter)) {
-                        n29Var.g = b(n29Var.g, queryParameter);
-                    }
-                    if ("1".equalsIgnoreCase(parse.getQueryParameter("fixtitle"))) {
-                        str = parse.getQueryParameter("title");
-                        z = true;
-                    } else {
-                        str = "";
-                    }
-                    it4.F(z, tbPageContext.getPageActivity(), str, n29Var.g);
-                }
-            } else if (i == 3 && !TextUtils.isEmpty(n29Var.g)) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2921361, n29Var.g));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = false;
     }
 
-    public static String b(String str, String str2) {
-        InterceptResult invokeLL;
-        String[] split;
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            if (!TextUtils.isEmpty(str2) && (split = str2.split("#")) != null) {
-                StringBuilder sb = new StringBuilder(str);
-                boolean z = false;
-                for (String str3 : split) {
-                    if ("skin".equalsIgnoreCase(str3)) {
-                        sb.append("&skin=");
-                        sb.append(SkinManager.getCurrentSkinTypeString());
-                    } else if ("user_id".equalsIgnoreCase(str3)) {
-                        sb.append("&user_id=");
-                        sb.append(TbadkCoreApplication.getCurrentAccountId());
-                    } else if ("comparams".equalsIgnoreCase(str3)) {
-                        z = true;
-                    }
-                }
-                if (z) {
-                    return bl5.g(sb.toString());
-                }
-                return sb.toString();
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (String) invokeLL.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.a = z;
+        }
     }
 }

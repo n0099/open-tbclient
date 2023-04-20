@@ -12,7 +12,7 @@ import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
-import com.baidu.tieba.qka;
+import com.baidu.tieba.yka;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -117,7 +117,7 @@ public class CSSParser {
         public final a D() throws CSSParseException {
             InterceptResult invokeV;
             int i;
-            qka qkaVar;
+            yka ykaVar;
             int d;
             a aVar;
             Interceptable interceptable = $ic;
@@ -143,16 +143,16 @@ public class CSSParser {
                         } else {
                             i = 1;
                         }
-                        qka c = qka.c(this.a, this.b, this.c, false);
+                        yka c = yka.c(this.a, this.b, this.c, false);
                         if (c != null) {
                             this.b = c.a();
                         }
                         if (!f('n') && !f('N')) {
-                            qkaVar = c;
+                            ykaVar = c;
                             c = null;
                         } else {
                             if (c == null) {
-                                c = new qka(1L, this.b);
+                                c = new yka(1L, this.b);
                             }
                             A();
                             boolean f = f('+');
@@ -161,15 +161,15 @@ public class CSSParser {
                             }
                             if (f) {
                                 A();
-                                qkaVar = qka.c(this.a, this.b, this.c, false);
-                                if (qkaVar != null) {
-                                    this.b = qkaVar.a();
+                                ykaVar = yka.c(this.a, this.b, this.c, false);
+                                if (ykaVar != null) {
+                                    this.b = ykaVar.a();
                                 } else {
                                     this.b = i2;
                                     return null;
                                 }
                             } else {
-                                qkaVar = null;
+                                ykaVar = null;
                             }
                             int i5 = i3;
                             i3 = i;
@@ -180,8 +180,8 @@ public class CSSParser {
                         } else {
                             d = i3 * c.d();
                         }
-                        if (qkaVar != null) {
-                            i4 = i * qkaVar.d();
+                        if (ykaVar != null) {
+                            i4 = i * ykaVar.d();
                         }
                         aVar = new a(d, i4);
                     }

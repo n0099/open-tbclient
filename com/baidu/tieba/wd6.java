@@ -1,53 +1,27 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.webkit.JsPromptResult;
+import android.webkit.WebView;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.browser.core.webview.offline.data.OfflineBridgeData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class wd6 {
+public class wd6 implements se6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, de6> a;
-    public final Map<String, de6> b;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final wd6 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-321380638, "Lcom/baidu/tieba/wd6$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-321380638, "Lcom/baidu/tieba/wd6$b;");
-                    return;
-                }
-            }
-            a = new wd6(null);
-        }
+    @Override // com.baidu.tieba.se6
+    public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
+        re6.a(this, webView, str, jSONObject);
     }
 
     public wd6() {
@@ -60,115 +34,81 @@ public class wd6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new ConcurrentHashMap();
-        this.b = new ConcurrentHashMap();
-    }
-
-    public static wd6 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
-        }
-        return (wd6) invokeV.objValue;
-    }
-
-    public /* synthetic */ wd6(a aVar) {
-        this();
-    }
-
-    public de6 e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return this.b.get(str);
-        }
-        return (de6) invokeL.objValue;
-    }
-
-    public de6 f(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, uri)) == null) {
-            if (uri != null && !TextUtils.isEmpty(uri.getPath())) {
-                return this.a.get(uri.getPath());
-            }
-            return null;
-        }
-        return (de6) invokeL.objValue;
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.b.remove(str);
-        }
-    }
-
-    public void i(Map<String, de6> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, map) == null) {
-            this.a.clear();
-            if (!df6.b(map)) {
-                this.a.putAll(map);
             }
         }
     }
 
-    public void a(String str, de6 de6Var) {
+    @Override // com.baidu.tieba.se6
+    public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, de6Var) == null) {
-            this.b.put(str, de6Var);
-        }
-    }
-
-    public void j(String str, Map<String, de6> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, map) == null) {
-            h(str);
-            this.a.putAll(map);
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !df6.b(this.a)) {
-            for (String str : this.a.keySet()) {
-                de6 de6Var = this.a.get(str);
-                if (de6Var != null) {
-                    de6Var.g = true;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
+            if (TextUtils.equals("requestByNative", str2)) {
+                try {
+                    OfflineBridgeData offlineBridgeData = (OfflineBridgeData) OrmObject.objectWithJsonStr(str3, OfflineBridgeData.class);
+                    offlineBridgeData.begin = System.currentTimeMillis();
+                    vd6.g().j(webView, offlineBridgeData, offlineBridgeData.callBack);
+                    jsPromptResult.confirm();
+                    return true;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return false;
                 }
             }
+            return false;
         }
+        return invokeLLLLL.booleanValue;
     }
 
-    public void c(String str) {
+    public sm9 d(final WebView webView, String str, String str2, String str3, JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        for (String str2 : this.a.keySet()) {
-            de6 de6Var = this.a.get(str2);
-            if (de6Var != null && str.equals(de6Var.c)) {
-                de6Var.g = true;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, str2, str3, jSONObject)) == null) {
+            sm9 sm9Var = new sm9();
+            final OfflineBridgeData offlineBridgeData = new OfflineBridgeData();
+            offlineBridgeData.url = str;
+            offlineBridgeData.type = str2;
+            offlineBridgeData.module = str3;
+            if (jSONObject != null) {
+                HashMap hashMap = new HashMap();
+                Iterator<String> keys = jSONObject.keys();
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    hashMap.put(next, jSONObject.optString(next));
+                }
+                offlineBridgeData.data = hashMap;
             }
+            offlineBridgeData.begin = System.currentTimeMillis();
+            jg.a().post(new Runnable() { // from class: com.baidu.tieba.rd6
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        vd6.g().k(webView, r1, offlineBridgeData.callBack, true);
+                    }
+                }
+            });
+            sm9Var.w(str);
+            return sm9Var;
         }
+        return (sm9) invokeLLLLL.objValue;
     }
 
-    public void h(String str) {
+    public sm9 e(WebView webView, HashMap<String, String> hashMap) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        Iterator<String> it = this.a.keySet().iterator();
-        while (it.hasNext()) {
-            de6 de6Var = this.a.get(it.next());
-            if (de6Var != null && str.equals(de6Var.c)) {
-                it.remove();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, webView, hashMap)) == null) {
+            sm9 sm9Var = new sm9();
+            if (hashMap != null && hashMap.get("result") != null) {
+                sm9Var.o(hashMap.get("result"));
+                sm9Var.w(hashMap.get("NotificationKey"));
             }
+            sm9Var.z(true);
+            return sm9Var;
         }
+        return (sm9) invokeLL.objValue;
     }
 }

@@ -5,7 +5,7 @@ import com.baidu.bdtask.ctrl.model.TaskStatus;
 import com.baidu.bdtask.model.ITaskModelData;
 import com.baidu.bdtask.model.info.TaskInfo;
 import com.baidu.bdtask.model.response.NextActive;
-import com.baidu.tieba.hu;
+import com.baidu.tieba.iu;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -49,7 +49,7 @@ public final class UBCTaskInfo implements ITaskModelData {
         this.behavior = taskInfo.getBehavior();
         this.activeTime = taskStatus.getCurActiveTime();
         this.nextActiveUntilTime = taskInfo.getResponse().getNextActive().getUntil();
-        this.status = hu.a.d(taskStatus);
+        this.status = iu.a.d(taskStatus);
     }
 
     @Override // com.baidu.bdtask.model.ITaskModelData

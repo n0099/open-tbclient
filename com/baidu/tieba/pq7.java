@@ -6,6 +6,9 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,20 +16,21 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class pq7 extends um<vz5, CardViewHolder<rz5>> {
+public class pq7 extends vm<xr7, CardViewHolder<gg6>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public rz5 b;
+    public TbPageContext<?> a;
+    public gg6 b;
+    public BdUniqueId c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pq7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public pq7(TbPageContext<?> tbPageContext) {
+        super(tbPageContext.getPageActivity().getBaseContext(), zr7.f);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,36 +42,63 @@ public class pq7 extends um<vz5, CardViewHolder<rz5>> {
                 return;
             }
         }
-        this.b = null;
         this.a = tbPageContext;
+        gg6 gg6Var = new gg6(tbPageContext);
+        this.b = gg6Var;
+        gg6Var.I("c10714", "c10739", "c10712", "c10738");
+        this.b.setFrom(PersonPolymericActivityConfig.VIDEO_PERSON_FROM_HOME);
+    }
+
+    public void s(int i) {
+        gg6 gg6Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && (gg6Var = this.b) != null) {
+            gg6Var.m(this.a, i);
+        }
+    }
+
+    public void x(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) {
+            this.c = bdUniqueId;
+            gg6 gg6Var = this.b;
+            if (gg6Var != null) {
+                gg6Var.H(bdUniqueId);
+            }
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.um
-    /* renamed from: s */
-    public CardViewHolder<rz5> onCreateViewHolder(ViewGroup viewGroup) {
+    @Override // com.baidu.tieba.vm
+    /* renamed from: t */
+    public CardViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            this.b = new rz5(this.a);
-            return new CardViewHolder<>(this.b);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
+            if (this.b == null) {
+                gg6 gg6Var = new gg6(this.a);
+                this.b = gg6Var;
+                gg6Var.H(this.c);
+                this.b.I("c10714", "c10739", "c10712", "c10738");
+            }
+            return new CardViewHolder(this.b);
         }
         return (CardViewHolder) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.um
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, vz5 vz5Var, CardViewHolder<rz5> cardViewHolder) {
-        t(i, view2, viewGroup, vz5Var, cardViewHolder);
-        return view2;
-    }
-
-    public View t(int i, View view2, ViewGroup viewGroup, vz5 vz5Var, CardViewHolder<rz5> cardViewHolder) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.vm
+    /* renamed from: u */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, xr7 xr7Var, CardViewHolder cardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, vz5Var, cardViewHolder})) == null) {
-            cardViewHolder.a().l(vz5Var);
-            return view2;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, xr7Var, cardViewHolder})) == null) {
+            if (cardViewHolder.a() == null) {
+                return null;
+            }
+            cardViewHolder.a().l(xr7Var);
+            rg6.b().a(new StatisticItem("c10714").param(TiebaStatic.Params.OBJ_PARAM3, kg6.e()));
+            return cardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;
     }

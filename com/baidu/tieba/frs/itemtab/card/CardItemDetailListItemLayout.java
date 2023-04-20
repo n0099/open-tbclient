@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.g9;
 import com.baidu.tieba.hi;
-import com.baidu.tieba.pd7;
-import com.baidu.tieba.q25;
+import com.baidu.tieba.qd7;
+import com.baidu.tieba.r25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -215,12 +215,12 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
         c();
     }
 
-    public void setData(pd7 pd7Var) {
+    public void setData(qd7 qd7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pd7Var) == null) {
-            this.a.setText(pd7Var.a);
-            this.b.setText(pd7Var.b);
-            this.d = pd7Var.c;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qd7Var) == null) {
+            this.a.setText(qd7Var.a);
+            this.b.setText(qd7Var.b);
+            this.d = qd7Var.c;
         }
     }
 
@@ -255,13 +255,13 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            q25.d(this.a).w(R.color.CAM_X0108);
+            r25.d(this.a).w(R.color.CAM_X0108);
             if (hi.isEmpty(this.d)) {
-                q25 d = q25.d(this.b);
+                r25 d = r25.d(this.b);
                 d.y(R.dimen.M_T_X002);
                 d.w(R.color.CAM_X0105);
             } else {
-                q25 d2 = q25.d(this.b);
+                r25 d2 = r25.d(this.b);
                 d2.y(R.dimen.M_T_X002);
                 d2.w(R.color.CAM_X0304);
             }

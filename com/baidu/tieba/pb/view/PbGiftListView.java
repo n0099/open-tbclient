@@ -18,7 +18,7 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.g9;
 import com.baidu.tieba.gg;
-import com.baidu.tieba.ny4;
+import com.baidu.tieba.oy4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -150,60 +150,60 @@ public class PbGiftListView extends FrameLayout {
         h();
     }
 
-    public void g(ny4 ny4Var, String str, String str2, long j, long j2, long j3) {
+    public void g(oy4 oy4Var, String str, String str2, long j, long j2, long j3) {
         int size;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{ny4Var, str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{oy4Var, str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
             this.k = j;
             this.i = str;
             this.j = str2;
             this.m = j3;
             this.l = j2;
-            if (ny4Var != null && ny4Var.a() != null && ny4Var.a().size() > 0) {
-                if (ny4Var.a().size() > 4) {
+            if (oy4Var != null && oy4Var.a() != null && oy4Var.a().size() > 0) {
+                if (oy4Var.a().size() > 4) {
                     size = 4;
                 } else {
-                    size = ny4Var.a().size();
+                    size = oy4Var.a().size();
                 }
                 if (size != 1) {
                     if (size != 2) {
                         if (size != 3) {
                             if (size == 4) {
-                                this.c.N(ny4Var.a().get(0).a, 10, false);
-                                this.d.N(ny4Var.a().get(1).a, 10, false);
-                                this.e.N(ny4Var.a().get(2).a, 10, false);
-                                this.f.N(ny4Var.a().get(3).a, 10, false);
+                                this.c.N(oy4Var.a().get(0).a, 10, false);
+                                this.d.N(oy4Var.a().get(1).a, 10, false);
+                                this.e.N(oy4Var.a().get(2).a, 10, false);
+                                this.f.N(oy4Var.a().get(3).a, 10, false);
                                 this.c.setVisibility(0);
                                 this.d.setVisibility(0);
                                 this.e.setVisibility(0);
                                 this.f.setVisibility(0);
                             }
                         } else {
-                            this.c.N(ny4Var.a().get(0).a, 10, false);
-                            this.d.N(ny4Var.a().get(1).a, 10, false);
-                            this.e.N(ny4Var.a().get(2).a, 10, false);
+                            this.c.N(oy4Var.a().get(0).a, 10, false);
+                            this.d.N(oy4Var.a().get(1).a, 10, false);
+                            this.e.N(oy4Var.a().get(2).a, 10, false);
                             this.c.setVisibility(0);
                             this.d.setVisibility(0);
                             this.e.setVisibility(0);
                             this.f.setVisibility(8);
                         }
                     } else {
-                        this.c.N(ny4Var.a().get(0).a, 10, false);
-                        this.d.N(ny4Var.a().get(1).a, 10, false);
+                        this.c.N(oy4Var.a().get(0).a, 10, false);
+                        this.d.N(oy4Var.a().get(1).a, 10, false);
                         this.c.setVisibility(0);
                         this.d.setVisibility(0);
                         this.e.setVisibility(8);
                         this.f.setVisibility(8);
                     }
                 } else {
-                    this.c.N(ny4Var.a().get(0).a, 10, false);
+                    this.c.N(oy4Var.a().get(0).a, 10, false);
                     this.c.setVisibility(0);
                     this.d.setVisibility(8);
                     this.e.setVisibility(8);
                     this.f.setVisibility(8);
                 }
-                if (ny4Var.b() > 0) {
-                    this.g.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f081c), Integer.valueOf(ny4Var.b())));
+                if (oy4Var.b() > 0) {
+                    this.g.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f081c), Integer.valueOf(oy4Var.b())));
                     this.g.setVisibility(0);
                 } else {
                     this.g.setVisibility(8);

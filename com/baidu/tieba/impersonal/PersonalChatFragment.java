@@ -20,7 +20,7 @@ import com.baidu.tbadk.core.atomData.WriteMulitImageActivityConfig;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tbadk.widget.image.TbImage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hk6;
+import com.baidu.tieba.bc8;
 import com.baidu.tieba.ii;
 import com.baidu.tieba.ik6;
 import com.baidu.tieba.impersonal.PersonalChatFragment;
@@ -31,10 +31,10 @@ import com.baidu.tieba.impersonal.slices.ChatListSlice;
 import com.baidu.tieba.impersonal.slices.ChatNavSlice;
 import com.baidu.tieba.impersonal.slices.ChatReplySlice;
 import com.baidu.tieba.impersonal.slices.ChatSpriteSlice;
-import com.baidu.tieba.kk6;
+import com.baidu.tieba.jk6;
 import com.baidu.tieba.lk6;
-import com.baidu.tieba.pa8;
-import com.baidu.tieba.tb8;
+import com.baidu.tieba.mk6;
+import com.baidu.tieba.xa8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -61,13 +61,13 @@ public final class PersonalChatFragment extends AutoReleaseSliceFragment<Fragmen
     public final int l;
 
     /* loaded from: classes5.dex */
-    public static final class a extends lk6<pa8> {
+    public static final class a extends mk6<xa8> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonalChatFragment b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(PersonalChatFragment personalChatFragment, Class<pa8> cls) {
+        public a(PersonalChatFragment personalChatFragment, Class<xa8> cls) {
             super(cls);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -96,8 +96,8 @@ public final class PersonalChatFragment extends AutoReleaseSliceFragment<Fragmen
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.lk6
-        public void onEvent(pa8 event) {
+        @Override // com.baidu.tieba.mk6
+        public void onEvent(xa8 event) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
                 Intrinsics.checkNotNullParameter(event, "event");
@@ -111,7 +111,7 @@ public final class PersonalChatFragment extends AutoReleaseSliceFragment<Fragmen
                             FrameLayout frameLayout = PersonalChatFragment.J1(personalChatFragment2).g;
                             String string = this.b.getString(R.string.refresh_view_button_text);
                             final PersonalChatFragment personalChatFragment3 = this.b;
-                            personalChatFragment2.showNetRefreshView(frameLayout, null, null, string, false, new View.OnClickListener() { // from class: com.baidu.tieba.t98
+                            personalChatFragment2.showNetRefreshView(frameLayout, null, null, string, false, new View.OnClickListener() { // from class: com.baidu.tieba.ba8
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -157,7 +157,7 @@ public final class PersonalChatFragment extends AutoReleaseSliceFragment<Fragmen
                 return;
             }
         }
-        this.g = LazyKt__LazyJVMKt.lazy(new Function0<tb8>(this) { // from class: com.baidu.tieba.impersonal.PersonalChatFragment$repo$2
+        this.g = LazyKt__LazyJVMKt.lazy(new Function0<bc8>(this) { // from class: com.baidu.tieba.impersonal.PersonalChatFragment$repo$2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ PersonalChatFragment this$0;
@@ -186,15 +186,15 @@ public final class PersonalChatFragment extends AutoReleaseSliceFragment<Fragmen
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // kotlin.jvm.functions.Function0
-            public final tb8 invoke() {
+            public final bc8 invoke() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
                     Context requireContext = this.this$0.requireContext();
                     Intrinsics.checkNotNullExpressionValue(requireContext, "requireContext()");
-                    return new tb8(requireContext);
+                    return new bc8(requireContext);
                 }
-                return (tb8) invokeV.objValue;
+                return (bc8) invokeV.objValue;
             }
         });
         this.h = LazyKt__LazyJVMKt.lazy(PersonalChatFragment$wallRes$2.INSTANCE);
@@ -288,13 +288,13 @@ public final class PersonalChatFragment extends AutoReleaseSliceFragment<Fragmen
         return (String) invokeV.objValue;
     }
 
-    public final tb8 R1() {
+    public final bc8 R1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return (tb8) this.g.getValue();
+            return (bc8) this.g.getValue();
         }
-        return (tb8) invokeV.objValue;
+        return (bc8) invokeV.objValue;
     }
 
     public final String S1() {
@@ -309,7 +309,7 @@ public final class PersonalChatFragment extends AutoReleaseSliceFragment<Fragmen
     public final void T1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            I1().n.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.u98
+            I1().n.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ca8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -327,10 +327,10 @@ public final class PersonalChatFragment extends AutoReleaseSliceFragment<Fragmen
     public final void X1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            kk6 b = ik6.b();
+            lk6 b = jk6.b();
             TbPageContext<BaseFragmentActivity> pageContext = getPageContext();
             Intrinsics.checkNotNullExpressionValue(pageContext, "pageContext");
-            b.a(new hk6(pageContext, this), new a(this, pa8.class));
+            b.a(new ik6(pageContext, this), new a(this, xa8.class));
         }
     }
 

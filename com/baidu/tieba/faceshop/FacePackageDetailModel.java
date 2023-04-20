@@ -12,7 +12,7 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tieba.a9;
-import com.baidu.tieba.b05;
+import com.baidu.tieba.c05;
 import com.baidu.tieba.hi;
 import com.baidu.tieba.ii;
 import com.baidu.tieba.me;
@@ -78,8 +78,8 @@ public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivit
         public final void b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                b05.d();
-                me<String> e = b05.e("tb_face_package");
+                c05.d();
+                me<String> e = c05.e("tb_face_package");
                 if (e != null) {
                     e.e(TbadkCoreApplication.getCurrentAccount() + this.c.d, str, 604800000L);
                 }
@@ -126,8 +126,8 @@ public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivit
                     if (this.c.d == null || this.c.d.length() <= 0 || this.b) {
                         return null;
                     }
-                    b05.d();
-                    me<String> e = b05.e("tb_face_package");
+                    c05.d();
+                    me<String> e = c05.e("tb_face_package");
                     if (e != null) {
                         String str = e.get(TbadkCoreApplication.getCurrentAccount() + this.c.d);
                         if (!hi.isEmpty(str)) {

@@ -45,12 +45,12 @@ import com.baidu.tieba.fb;
 import com.baidu.tieba.ff;
 import com.baidu.tieba.ii;
 import com.baidu.tieba.l9;
-import com.baidu.tieba.ng8;
 import com.baidu.tieba.p9;
 import com.baidu.tieba.q9;
 import com.baidu.tieba.sa;
 import com.baidu.tieba.ta;
 import com.baidu.tieba.ua;
+import com.baidu.tieba.vg8;
 import com.baidu.tieba.wa;
 import com.baidu.tieba.za;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -1328,12 +1328,12 @@ public class MessageManager {
             message.setStartTime(System.currentTimeMillis());
             if (message instanceof HttpMessage) {
                 l9.h("Request_Http", message);
-                ng8 netLog = NetLog.getInstance();
+                vg8 netLog = NetLog.getInstance();
                 netLog.c("Request_Http", " ClientLogId : " + message.getClientLogID());
                 return this.mHttpManager.c((HttpMessage) message, null);
             } else if (message instanceof SocketMessage) {
                 l9.h("Request_Socket", message);
-                ng8 netLog2 = NetLog.getInstance();
+                vg8 netLog2 = NetLog.getInstance();
                 netLog2.c("Request_Http", " ClientLogId : " + message.getClientLogID());
                 return this.mSocketManager.c((SocketMessage) message, null);
             } else if (message instanceof CustomMessage) {
@@ -1380,12 +1380,12 @@ public class MessageManager {
             }
             if ((message instanceof HttpMessage) && (messageTask instanceof HttpMessageTask)) {
                 l9.h("Request_Http", message);
-                ng8 netLog = NetLog.getInstance();
+                vg8 netLog = NetLog.getInstance();
                 netLog.c("Request_Http", " ClientLogId : " + message.getClientLogID());
                 return this.mHttpManager.c((HttpMessage) message, (HttpMessageTask) messageTask);
             } else if ((message instanceof SocketMessage) && (messageTask instanceof SocketMessageTask)) {
                 l9.h("Request_Socket", message);
-                ng8 netLog2 = NetLog.getInstance();
+                vg8 netLog2 = NetLog.getInstance();
                 netLog2.c("Request_Http", " ClientLogId : " + message.getClientLogID());
                 return this.mSocketManager.c((SocketMessage) message, (SocketMessageTask) messageTask);
             } else if ((message instanceof CustomMessage) && (messageTask instanceof CustomMessageTask)) {

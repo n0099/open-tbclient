@@ -1,11 +1,10 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.WorkerThread;
-import com.baidu.android.imsdk.chatmessage.IChatRoomEnterListener;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import com.baidu.android.imsdk.chatmessage.response.SendMsgResponse;
 /* loaded from: classes5.dex */
 public interface nh5 {
-    @WorkerThread
-    void a(long j, int i, @NonNull String str, @Nullable IChatRoomEnterListener.ChatRoomInfo chatRoomInfo);
+    void a(ChatMsg chatMsg);
+
+    void b(int i, String str, SendMsgResponse sendMsgResponse);
 }

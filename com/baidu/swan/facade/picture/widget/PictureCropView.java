@@ -16,10 +16,10 @@ import android.view.MotionEvent;
 import com.baidu.swan.facade.picture.widget.BdImageViewTouchBase;
 import com.baidu.swan.facade.picture.widget.ZoomImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.eo1;
+import com.baidu.tieba.fo1;
 /* loaded from: classes3.dex */
 public class PictureCropView extends PictureView {
-    public static final boolean o = eo1.a;
+    public static final boolean o = fo1.a;
     public Drawable j;
     public final Rect k;
     public int l;

@@ -1,29 +1,67 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
+import android.webkit.URLUtil;
+import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.tieba.browser.core.webview.flyweight.FlyWeightConfig;
+import com.baidu.tieba.browser.core.webview.flyweight.loader.ImageLoader;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ByteArrayInputStream;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class nd6 {
+public class nd6 implements pd6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final WebResourceResponse a;
-    public final ByteArrayInputStream b;
-    public final int c;
+    public final md6 a;
 
-    public nd6(WebResourceResponse webResourceResponse, byte[] bArr) {
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public md6 a;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public pd6 b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new nd6(this);
+            }
+            return (pd6) invokeV.objValue;
+        }
+
+        public void c(md6 md6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, md6Var) == null) {
+                this.a = md6Var;
+            }
+        }
+    }
+
+    public nd6(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {webResourceResponse, bArr};
+            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,62 +71,75 @@ public class nd6 {
                 return;
             }
         }
-        this.a = webResourceResponse;
-        if (bArr != null) {
-            this.c = bArr.length;
-            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
-            this.b = byteArrayInputStream;
-            byteArrayInputStream.mark(0);
-            return;
-        }
-        this.c = 0;
-        this.b = null;
+        this.a = aVar.a;
     }
 
-    public WebResourceResponse a() {
-        InterceptResult invokeV;
+    public final WebResourceResponse b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.b != null && c()) {
-                this.b.reset();
-                this.a.setData(this.b);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            od6 od6Var = cd6.a().get(str);
+            if (od6Var != null) {
+                if (od6Var.b()) {
+                    cd6.a().remove(str);
+                }
+                if (od6Var.c()) {
+                    return od6Var.a();
+                }
+                cd6.a().remove(str);
+                return null;
             }
-            return this.a;
+            return null;
         }
-        return (WebResourceResponse) invokeV.objValue;
+        return (WebResourceResponse) invokeL.objValue;
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.pd6
+    public WebResourceResponse a(String str, WebResourceRequest webResourceRequest) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.a != null && this.b != null && d() > 0) {
-                return true;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, webResourceRequest)) == null) {
+            if (webResourceRequest == null || !TextUtils.equals("GET", webResourceRequest.getMethod())) {
+                return null;
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            WebResourceResponse webResourceResponse = this.a;
-            if (webResourceResponse != null && !df6.b(webResourceResponse.getResponseHeaders())) {
-                return TextUtils.equals(this.a.getResponseHeaders().get("tieba-response-via"), PrefetchEvent.MODULE);
+            String uri = webResourceRequest.getUrl().toString();
+            if (!URLUtil.isNetworkUrl(uri)) {
+                return null;
             }
-            return false;
+            md6 md6Var = this.a;
+            if (md6Var != null && !md6Var.a(str)) {
+                return null;
+            }
+            return c(str, uri, webResourceRequest.getRequestHeaders());
         }
-        return invokeV.booleanValue;
+        return (WebResourceResponse) invokeLL.objValue;
+    }
+
+    public final WebResourceResponse c(String str, String str2, Map<String, String> map) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, map)) == null) {
+            if (dd6.b().c(str2)) {
+                long currentTimeMillis = System.currentTimeMillis();
+                dd6.b().d(str2, 5000L);
+                ye6.b("lt-log", "fetch-url: waitTime = " + (System.currentTimeMillis() - currentTimeMillis) + " ms");
+                return b(str2);
+            } else if (cd6.a().contains(str2)) {
+                return b(str2);
+            } else {
+                if (FlyWeightConfig.c(str2, map)) {
+                    String c = kf6.c(str2);
+                    if (cd6.a().contains(c)) {
+                        return b(c);
+                    }
+                    return jd6.g().b(str, str2, map);
+                } else if (FlyWeightConfig.a(str2)) {
+                    return ImageLoader.c(str, str2, map);
+                } else {
+                    return null;
+                }
+            }
+        }
+        return (WebResourceResponse) invokeLLL.objValue;
     }
 }

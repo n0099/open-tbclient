@@ -6,7 +6,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ak6;
+import com.baidu.tieba.bk6;
 import com.baidu.tieba.hi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -20,7 +20,7 @@ public class WriteTipBubbleController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public ak6 b;
+    public bk6 b;
     public b c;
 
     /* loaded from: classes3.dex */
@@ -154,10 +154,10 @@ public class WriteTipBubbleController {
     }
 
     public void c() {
-        ak6 ak6Var;
+        bk6 bk6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (ak6Var = this.b) != null) {
-            ak6Var.d();
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bk6Var = this.b) != null) {
+            bk6Var.d();
         }
     }
 
@@ -165,9 +165,9 @@ public class WriteTipBubbleController {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, str, str2, anchor_view_from) == null) && this.a != null && view2 != null && !hi.isEmpty(str) && !hi.isEmpty(str2)) {
             if (this.b == null) {
-                ak6 ak6Var = new ak6(this.a, view2);
-                this.b = ak6Var;
-                ak6Var.C(R.drawable.pic_post_findlink);
+                bk6 bk6Var = new bk6(this.a, view2);
+                this.b = bk6Var;
+                bk6Var.C(R.drawable.pic_post_findlink);
                 this.b.o(2);
                 this.b.m(true);
                 this.b.B(19);

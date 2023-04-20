@@ -5,7 +5,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.hi;
-import com.baidu.tieba.hn;
+import com.baidu.tieba.in;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,7 +26,7 @@ public class CardHListViewData extends BaseCardInfo implements Serializable {
     public static final BdUniqueId TYPE;
     public static final long serialVersionUID = 6577771607010727691L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<hn> mList;
+    public final List<in> mList;
     public boolean showBottomDivider;
     public boolean showTopDivider;
     public String threadId;
@@ -66,7 +66,7 @@ public class CardHListViewData extends BaseCardInfo implements Serializable {
         this.mList = new ArrayList();
     }
 
-    public final List<hn> getDataList() {
+    public final List<in> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -75,7 +75,7 @@ public class CardHListViewData extends BaseCardInfo implements Serializable {
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.hn
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.in
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -20,8 +20,8 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.g9;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.ky4;
-import com.baidu.tieba.py4;
+import com.baidu.tieba.ly4;
+import com.baidu.tieba.qy4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -42,13 +42,13 @@ public class PbRecommendNovelHolder extends TypeAdapter.ViewHolder {
     public TbImageView i;
     public LinearLayout j;
     public View k;
-    public py4 l;
+    public qy4 l;
     public b m;
     public View.OnClickListener n;
 
     /* loaded from: classes5.dex */
     public interface b {
-        void a(py4 py4Var);
+        void a(qy4 qy4Var);
     }
 
     /* loaded from: classes5.dex */
@@ -89,9 +89,9 @@ public class PbRecommendNovelHolder extends TypeAdapter.ViewHolder {
                 PbRecommendNovelHolder pbRecommendNovelHolder = this.a;
                 if (view2 == pbRecommendNovelHolder.h) {
                     String str = pbRecommendNovelHolder.l.d1;
-                    ky4 ky4Var = new ky4();
+                    ly4 ly4Var = new ly4();
                     TbPageContext tbPageContext = (TbPageContext) g9.a(this.a.a.getPageActivity());
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001417, ky4Var));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001417, ly4Var));
                     TiebaStatic.log(new StatisticItem("c11387").param("obj_source", 6).param("obj_locate", "0").param("obj_param1", str));
                     TiebaStatic.log(new StatisticItem("c11442").param("obj_id", this.a.l.d1).param("obj_locate", "3"));
                 } else if (view2 == pbRecommendNovelHolder.j) {
@@ -145,19 +145,19 @@ public class PbRecommendNovelHolder extends TypeAdapter.ViewHolder {
         this.c.setOnClickListener(this.n);
     }
 
-    public void d(py4 py4Var) {
+    public void d(qy4 qy4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, py4Var) != null) || py4Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, qy4Var) != null) || qy4Var == null) {
             return;
         }
-        this.l = py4Var;
-        this.b.setText(py4Var.a1);
-        this.c.setText(py4Var.b1);
-        this.i.N(py4Var.i1, 10, false);
-        this.d.N(py4Var.e1, 10, false);
-        this.h.setText(py4Var.h1);
-        this.e.setText(py4Var.f1);
-        List<String> list = py4Var.g1;
+        this.l = qy4Var;
+        this.b.setText(qy4Var.a1);
+        this.c.setText(qy4Var.b1);
+        this.i.N(qy4Var.i1, 10, false);
+        this.d.N(qy4Var.e1, 10, false);
+        this.h.setText(qy4Var.h1);
+        this.e.setText(qy4Var.f1);
+        List<String> list = qy4Var.g1;
         if (list != null) {
             int size = list.size();
             if (size != 1) {

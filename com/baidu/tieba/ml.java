@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.ApsConstants;
 import com.baidu.adp.lib.util.BdNetTypeUtil;
@@ -15,6 +16,7 @@ import com.baidu.searchbox.pms.callback.PackageCallback;
 import com.baidu.searchbox.pms.download.DownloadOptions;
 import com.baidu.searchbox.pms.init.PmsManager;
 import com.baidu.searchbox.pms.init.RequestParams;
+import com.baidu.tieba.flutter.FlutterPluginManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,16 +25,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class ml {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean e;
+    public static boolean f;
     public transient /* synthetic */ FieldHolder $fh;
     public IPackageGetCallback a;
     public volatile ResultData b;
     public volatile ErrorInfo c;
     public RequestParams.Channel d;
+    public String e;
 
     static {
         InterceptResult invokeClinit;
@@ -86,7 +90,7 @@ public class ml {
         public void onFetchError(ErrorInfo errorInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, errorInfo) == null) {
-                this.b.n(errorInfo, this.a);
+                this.b.o(errorInfo, this.a);
             }
         }
 
@@ -94,7 +98,7 @@ public class ml {
         public void onResultData(ResultData resultData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, resultData) == null) {
-                this.b.o(resultData, this.a);
+                this.b.p(resultData, this.a);
             }
         }
     }
@@ -136,7 +140,7 @@ public class ml {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, errorInfo) == null) {
                 synchronized (this.a) {
                     this.a.c = errorInfo;
-                    this.a.p();
+                    this.a.q();
                 }
             }
         }
@@ -146,9 +150,9 @@ public class ml {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, resultData) == null) {
                 synchronized (this.a) {
-                    boolean unused = ml.e = true;
+                    boolean unused = ml.f = true;
                     this.a.b = resultData;
-                    this.a.p();
+                    this.a.q();
                 }
             }
         }
@@ -168,13 +172,22 @@ public class ml {
         }
     }
 
-    public static boolean m() {
+    public static boolean n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            return e;
+            return f;
         }
         return invokeV.booleanValue;
+    }
+
+    public String m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
     }
 
     public final PackageInfo h(IBundleInfo iBundleInfo) {
@@ -204,7 +217,7 @@ public class ml {
             if (z) {
                 synchronized (this) {
                     this.a = iPackageGetCallback;
-                    p();
+                    q();
                 }
                 return;
             }
@@ -212,20 +225,10 @@ public class ml {
         }
     }
 
-    public final void n(ErrorInfo errorInfo, IPackageGetCallback iPackageGetCallback) {
+    public final void o(ErrorInfo errorInfo, IPackageGetCallback iPackageGetCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, errorInfo, iPackageGetCallback) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048583, this, errorInfo, iPackageGetCallback) == null) {
             iPackageGetCallback.onBundleInfoGetFail(errorInfo.code, errorInfo.errorMsg);
-        }
-    }
-
-    public final void o(ResultData resultData, IPackageGetCallback iPackageGetCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, resultData, iPackageGetCallback) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.addAll(resultData.addList);
-            arrayList.addAll(resultData.updateList);
-            iPackageGetCallback.onBundleInfoGetSuccess(g(arrayList));
         }
     }
 
@@ -283,6 +286,27 @@ public class ml {
         }
     }
 
+    public final void p(ResultData resultData, IPackageGetCallback iPackageGetCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, resultData, iPackageGetCallback) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.addAll(resultData.addList);
+            arrayList.addAll(resultData.updateList);
+            Iterator<PackageInfo> it = arrayList.iterator();
+            while (true) {
+                if (!it.hasNext()) {
+                    break;
+                }
+                PackageInfo next = it.next();
+                if (next != null && !TextUtils.isEmpty(next.packageName) && next.packageName.equals(FlutterPluginManager.PLUGIN_PKG_NAME)) {
+                    this.e = next.minHostVersion;
+                    break;
+                }
+            }
+            iPackageGetCallback.onBundleInfoGetSuccess(g(arrayList));
+        }
+    }
+
     public RequestParams.Channel l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -301,17 +325,17 @@ public class ml {
         return (RequestParams.Channel) invokeV.objValue;
     }
 
-    public final void p() {
+    public final void q() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) != null) || this.a == null) {
+        if ((interceptable != null && interceptable.invokeV(1048585, this) != null) || this.a == null) {
             return;
         }
         if (this.c != null) {
-            n(this.c, this.a);
+            o(this.c, this.a);
             this.a = null;
             this.c = null;
         } else if (this.b != null) {
-            o(this.b, this.a);
+            p(this.b, this.a);
             this.a = null;
             this.b = null;
         }

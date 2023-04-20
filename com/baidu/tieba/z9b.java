@@ -1,88 +1,48 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.GridView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
-import tv.athena.revenue.payui.model.ThemeColorConfig;
 /* loaded from: classes7.dex */
-public final class z9b {
+public class z9b {
     public static /* synthetic */ Interceptable $ic;
-    public static final z9b a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948316198, "Lcom/baidu/tieba/z9b;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948316198, "Lcom/baidu/tieba/z9b;");
-                return;
-            }
-        }
-        a = new z9b();
-    }
-
-    public z9b() {
+    public static void a(int i, View view2, GridView gridView) {
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public final int a(PayUIKitConfig payUIKitConfig) {
-        InterceptResult invokeL;
-        ThemeColorConfig themeColorConfig;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, payUIKitConfig)) == null) {
-            if (payUIKitConfig != null && (themeColorConfig = payUIKitConfig.themeColorConfig) != null && themeColorConfig.getThemeResId() != null) {
-                Integer themeResId = payUIKitConfig.themeColorConfig.getThemeResId();
-                if (themeResId == null) {
-                    Intrinsics.throwNpe();
-                }
-                return themeResId.intValue();
-            }
-            return R.style.obfuscated_res_0x7f100155;
-        }
-        return invokeL.intValue;
-    }
-
-    public final boolean b(PayUIKitConfig payUIKitConfig) {
-        InterceptResult invokeL;
-        ThemeColorConfig themeColorConfig;
-        Integer num;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, payUIKitConfig)) == null) {
-            if (payUIKitConfig == null || (themeColorConfig = payUIKitConfig.themeColorConfig) == null) {
-                return true;
-            }
-            if (themeColorConfig != null) {
-                num = themeColorConfig.getThemeResId();
+        if ((interceptable == null || interceptable.invokeILL(65536, null, i, view2, gridView) == null) && i != 0 && gridView != null && view2 != null) {
+            if (i >= 3) {
+                i2 = 82;
             } else {
-                num = null;
+                i2 = 110;
             }
-            if (num != null && num.intValue() == R.style.obfuscated_res_0x7f100155) {
-                return true;
+            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            gridView.setNumColumns(3);
+                            layoutParams.width = r9b.a((i2 * 3) + 14);
+                        } else {
+                            gridView.setNumColumns(2);
+                            layoutParams.width = r9b.a((i2 * 2) + 7);
+                        }
+                    } else {
+                        gridView.setNumColumns(3);
+                        layoutParams.width = r9b.a((i2 * 3) + 14);
+                    }
+                } else {
+                    gridView.setNumColumns(2);
+                    layoutParams.width = r9b.a((i2 * 2) + 7);
+                }
+            } else {
+                gridView.setNumColumns(1);
+                layoutParams.width = r9b.a(i2);
             }
-            return false;
+            view2.setLayoutParams(layoutParams);
         }
-        return invokeL.booleanValue;
     }
 }

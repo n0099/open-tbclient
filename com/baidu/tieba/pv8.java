@@ -1,115 +1,173 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.SparseIntArray;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.adp.widget.ListView.TypeAdapter.ViewHolder;
+import android.graphics.Canvas;
+import android.graphics.Matrix;
+import android.widget.ImageView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.pb.pb.main.AbsPbActivity;
-import com.baidu.tieba.pb.pb.main.PbFragment;
-import com.baidu.tieba.pb.videopb.AbsVideoPbFragment;
+import com.baidu.tbadk.imageManager.TbImageMemoryCache;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public abstract class pv8<T, V extends TypeAdapter.ViewHolder> extends um<T, V> {
-    public static /* synthetic */ Interceptable $ic;
+/* loaded from: classes6.dex */
+public class pv8 extends xu5 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static double O = 0.5d;
     public transient /* synthetic */ FieldHolder $fh;
-    public yz8 a;
-    public PbFragment b;
-    public AbsVideoPbFragment c;
-    public int d;
-    public boolean e;
-    public SparseIntArray f;
 
-    /* JADX WARN: Illegal instructions before constructor call */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public pv8(yz8 yz8Var, BdUniqueId bdUniqueId) {
-        super(r0, bdUniqueId);
-        AbsPbActivity Q;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948075607, "Lcom/baidu/tieba/pv8;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948075607, "Lcom/baidu/tieba/pv8;");
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements TbImageView.h {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ pv8 a;
+
+        @Override // com.baidu.tbadk.widget.TbImageView.h
+        public void a(TbImageView tbImageView, Canvas canvas) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, tbImageView, canvas) == null) {
+            }
+        }
+
+        public a(pv8 pv8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pv8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = pv8Var;
+        }
+
+        @Override // com.baidu.tbadk.widget.TbImageView.h
+        public void b(TbImageView tbImageView, Canvas canvas) {
+            int i;
+            int i2;
+            float f;
+            float f2;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbImageView, canvas) == null) && tbImageView != null && tbImageView.getImageMatrix() != null && tbImageView.getScaleType() == ImageView.ScaleType.MATRIX) {
+                Matrix imageMatrix = tbImageView.getImageMatrix();
+                if (this.a.u) {
+                    i = 17;
+                } else {
+                    i = 18;
+                }
+                tm w = TbImageMemoryCache.s().w(cg.h().g(tbImageView.getUrl(), i));
+                int i3 = 0;
+                if (w != null) {
+                    i3 = w.r();
+                    i2 = w.m();
+                } else {
+                    i2 = 0;
+                }
+                if (i3 != 0 && i2 != 0) {
+                    int width = (tbImageView.getWidth() - tbImageView.getPaddingLeft()) - tbImageView.getPaddingRight();
+                    int height = (tbImageView.getHeight() - tbImageView.getPaddingTop()) - tbImageView.getPaddingBottom();
+                    if (i3 * height > width * i2) {
+                        f = height;
+                        f2 = i2;
+                    } else {
+                        f = width;
+                        f2 = i3;
+                    }
+                    float f3 = f / f2;
+                    imageMatrix.setScale(f3, f3);
+                    imageMatrix.postTranslate(0.0f, 0.0f);
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pv8(xu5 xu5Var) {
+        super(xu5Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {yz8Var, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {xu5Var};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((xu5) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        if (yz8Var == null) {
-            Q = null;
-        } else {
-            Q = yz8Var.Q();
-        }
-        this.d = 3;
-        this.e = false;
-        this.f = new SparseIntArray();
-        t(yz8Var);
+        l(true);
+        v();
+        p(TbConfig.getPostLineSpace(), 1.0f);
+        A(0);
+        m(ii.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds30));
+        n(ii.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds12));
+        j(ii.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48), ii.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48));
+        t(ii.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X004), ii.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X004));
+        k(ii.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X004));
+        this.J = ii.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds749);
+        this.K = ii.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
+        ii.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26);
+        this.M = new a(this);
     }
 
-    @Override // com.baidu.tieba.um
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, T t, V v) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.xu5
+    public int[] f(int i, int i2, int i3, int i4) {
+        InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), view2, viewGroup, t, v})) == null) {
-            this.d = TbadkCoreApplication.getInst().getSkinType();
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048576, this, i, i2, i3, i4)) == null) {
+            if (i2 > 0 && i > 0 && i3 > 0 && i4 > 0) {
+                if (this.v) {
+                    float f = xu5.N;
+                    if (f > 1.0f) {
+                        float f2 = i;
+                        if (f2 * f <= i3 * O) {
+                            i3 = (int) (f2 * f);
+                        }
+                        i2 = (i2 * i3) / i;
+                        if (i2 > 4096) {
+                            this.s = ImageView.ScaleType.MATRIX;
+                            i = i3;
+                            i2 = 4096;
+                        } else {
+                            this.s = ImageView.ScaleType.CENTER_CROP;
+                            i = i3;
+                        }
+                    }
+                }
+                return new int[]{i, i2};
+            }
             return null;
         }
-        return (View) invokeCommon.objValue;
-    }
-
-    public int s(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            int i2 = this.f.get(i, -1);
-            if (i2 != -1) {
-                return i2;
-            }
-            int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(i);
-            this.f.put(i, dimensionPixelSize);
-            return dimensionPixelSize;
-        }
-        return invokeI.intValue;
-    }
-
-    public void setFromCDN(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.e = z;
-        }
-    }
-
-    public void t(yz8 yz8Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, yz8Var) == null) && yz8Var != null) {
-            this.a = yz8Var;
-            this.b = yz8Var.w1();
-            AbsVideoPbFragment M = yz8Var.M();
-            this.c = M;
-            PbFragment pbFragment = this.b;
-            if (pbFragment != null) {
-                this.mContext = pbFragment.getActivity();
-            } else if (M != null) {
-                this.mContext = M.getActivity();
-            } else {
-                this.mContext = null;
-            }
-        }
+        return (int[]) invokeIIII.objValue;
     }
 }

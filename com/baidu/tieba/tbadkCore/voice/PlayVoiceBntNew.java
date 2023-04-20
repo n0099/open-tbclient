@@ -23,12 +23,12 @@ import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tbadk.widget.richText.TbRichTextVoiceInfo;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a9;
-import com.baidu.tieba.ao9;
 import com.baidu.tieba.g9;
 import com.baidu.tieba.hi;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.q25;
-import com.baidu.tieba.ti5;
+import com.baidu.tieba.io9;
+import com.baidu.tieba.r25;
+import com.baidu.tieba.ui5;
 import com.baidu.tieba.view.AudioAnimationView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -198,7 +198,7 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.i, V
             }
         }
         this.h = 0;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ao9.Voice_play_type);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, io9.Voice_play_type);
         obtainStyledAttributes.getInteger(0, 0);
         obtainStyledAttributes.recycle();
         h(context);
@@ -398,7 +398,7 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.i, V
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             d();
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0302);
-            q25 d = q25.d(this.b);
+            r25 d = r25.d(this.b);
             d.o(R.string.J_X05);
             d.m(R.dimen.L_X03);
             d.l(R.color.CAM_X0302);
@@ -479,9 +479,9 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.i, V
             this.f.setCertainColumnCount(getAudioVoiceColumnCount());
             this.f.f();
             this.f.setVisibility(4);
-            if (ti5.b().d()) {
-                ti5.b().n(false);
-                ti5.b().l(false);
+            if (ui5.b().d()) {
+                ui5.b().n(false);
+                ui5.b().l(false);
             }
             f(false);
             if (i == 1) {

@@ -21,7 +21,7 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.qp6;
+import com.baidu.tieba.rp6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -33,7 +33,7 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
     public LinearLayout a;
     public TextView b;
     public ImageView c;
-    public qp6 d;
+    public rp6 d;
     public int e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -120,9 +120,9 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            qp6 qp6Var = this.d;
-            if (qp6Var != null && qp6Var.a) {
-                if (qp6Var.b > 0) {
+            rp6 rp6Var = this.d;
+            if (rp6Var != null && rp6Var.a) {
+                if (rp6Var.b > 0) {
                     SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
                     SkinManager.setViewTextColor(this.b, (int) R.color.white_alpha50);
                     SkinManager.setBackgroundResource(this.a, R.drawable.enter_forum_search_ad_bg);
@@ -167,10 +167,10 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
         }
     }
 
-    public void setAdState(qp6 qp6Var) {
+    public void setAdState(rp6 rp6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, qp6Var) == null) {
-            this.d = qp6Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, rp6Var) == null) {
+            this.d = rp6Var;
             b();
         }
     }

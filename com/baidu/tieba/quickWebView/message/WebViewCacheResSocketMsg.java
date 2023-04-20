@@ -5,7 +5,7 @@ import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
-import com.baidu.tieba.x99;
+import com.baidu.tieba.fa9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ import tbclient.GetWebviewCacheInfo.Offpack;
 public class WebViewCacheResSocketMsg extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, x99> mModuleInfos;
+    public Map<String, fa9> mModuleInfos;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public WebViewCacheResSocketMsg() {
@@ -40,7 +40,7 @@ public class WebViewCacheResSocketMsg extends TbSocketReponsedMessage {
         }
     }
 
-    public Map<String, x99> getModuleInfos() {
+    public Map<String, fa9> getModuleInfos() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -65,9 +65,9 @@ public class WebViewCacheResSocketMsg extends TbSocketReponsedMessage {
                 this.mModuleInfos.clear();
                 for (Offpack offpack : getWebviewCacheInfoResIdl.data.offpack_list) {
                     if (offpack != null && !TextUtils.isEmpty(offpack.mod_name)) {
-                        x99 x99Var = new x99();
-                        x99Var.e(offpack);
-                        this.mModuleInfos.put(offpack.mod_name, x99Var);
+                        fa9 fa9Var = new fa9();
+                        fa9Var.e(offpack);
+                        this.mModuleInfos.put(offpack.mod_name, fa9Var);
                     }
                 }
             }

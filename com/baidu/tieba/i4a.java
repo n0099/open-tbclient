@@ -2,38 +2,45 @@ package com.baidu.tieba;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.VoiceData;
-import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.core.atomData.WriteActivityConfig;
+import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
+import com.baidu.tieba.t3a;
+import com.baidu.tieba.write.write.WriteImageGridView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class i4a extends l4a<i5a> {
+public class i4a extends t4a<j5a> implements w4a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
-    public View g;
+    public WriteImageGridView g;
     @Nullable
-    public PlayVoiceBntNew h;
-    @Nullable
-    public ImageView i;
+    public t3a h;
+    @NonNull
+    public final j6a i;
+    public final t3a.b j;
+
+    @Override // com.baidu.tieba.y4a
+    public void e(@NonNull WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, writeData) == null) {
+        }
+    }
 
     /* loaded from: classes4.dex */
-    public class a implements View.OnClickListener {
+    public class a implements t3a.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ i4a a;
@@ -56,24 +63,35 @@ public class i4a extends l4a<i5a> {
             this.a = i4aVar;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // com.baidu.tieba.t3a.b
+        public void a() {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
-                return;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.b != null) {
+                this.a.b.x(new int[]{10, 34});
             }
-            this.a.B();
+        }
+
+        @Override // com.baidu.tieba.t3a.b
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                if (this.a.b != null) {
+                    this.a.b.i();
+                }
+                i4a i4aVar = this.a;
+                i4aVar.y(i4aVar.d);
+            }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i4a(TbPageContext<?> tbPageContext) {
-        super(tbPageContext, i5a.class);
+    public i4a(TbPageContext<?> tbPageContext, @NonNull j6a j6aVar) {
+        super(tbPageContext, j5a.class);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {tbPageContext, j6aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -85,154 +103,196 @@ public class i4a extends l4a<i5a> {
                 return;
             }
         }
+        this.j = new a(this);
+        this.i = j6aVar;
+        j6aVar.c(this);
     }
 
-    @Override // com.baidu.tieba.q4a
+    @Override // com.baidu.tieba.y4a
     public void c(WriteData writeData) {
-        PlayVoiceBntNew playVoiceBntNew;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, writeData) != null) || (playVoiceBntNew = this.h) == null) {
-            return;
-        }
-        VoiceData.VoiceModel voiceModel = playVoiceBntNew.getVoiceModel();
-        writeData.setVoiceModel(voiceModel);
-        if (voiceModel != null) {
-            if (voiceModel.getId() != null) {
-                writeData.setVoice(voiceModel.getId());
-                writeData.setVoiceDuringTime(voiceModel.getDuration());
-                return;
-            }
-            writeData.setVoice(null);
-            writeData.setVoiceDuringTime(-1);
-            return;
-        }
-        writeData.setVoice(null);
-        writeData.setVoiceDuringTime(-1);
-    }
-
-    @Override // com.baidu.tieba.q4a
-    public void a(@NonNull WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, writeData) == null) && writeData.getVoiceModel() != null) {
-            A(writeData.getVoiceModel());
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, writeData) == null) {
+            this.i.d(writeData);
         }
     }
 
-    @Override // com.baidu.tieba.q4a
-    public void e(@NonNull WriteData writeData) {
-        PlayVoiceBntNew playVoiceBntNew;
+    @Override // com.baidu.tieba.w4a
+    public void i(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, writeData) != null) || (playVoiceBntNew = this.h) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            u(str);
         }
-        writeData.setVoiceModel(playVoiceBntNew.getVoiceModel());
     }
 
-    @Override // com.baidu.tieba.q4a
+    @Override // com.baidu.tieba.w4a
+    public void k(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            u(str);
+        }
+    }
+
+    @Override // com.baidu.tieba.y4a
     public void onChangeSkinType(int i) {
+        t3a t3aVar;
+        s3a s3aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            WebPManager.setPureDrawable(this.i, R.drawable.icon_pure_home_delete16, R.color.CAM_X0107, null);
-            PlayVoiceBntNew playVoiceBntNew = this.h;
-            if (playVoiceBntNew != null) {
-                playVoiceBntNew.e();
-            }
+        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) && (t3aVar = this.h) != null && (s3aVar = t3aVar.d) != null) {
+            s3aVar.notifyDataSetChanged();
         }
     }
 
-    @Override // com.baidu.tieba.l4a, com.baidu.tieba.q4a
-    public void r(pc5 pc5Var) {
+    @Override // com.baidu.tieba.t4a, com.baidu.tieba.y4a
+    public void onSaveInstanceState(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, pc5Var) == null) {
-            super.r(pc5Var);
-            int i = pc5Var.a;
-            if (i == 10) {
-                Object obj = pc5Var.c;
-                if (obj instanceof VoiceData.VoiceModel) {
-                    A((VoiceData.VoiceModel) obj);
+        if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
+            super.onSaveInstanceState(bundle);
+            this.i.o(bundle);
+        }
+    }
+
+    @Override // com.baidu.tieba.w4a
+    public void u(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048589, this, str) != null) || this.e == null) {
+            return;
+        }
+        F(str);
+    }
+
+    @Override // com.baidu.tieba.w4a
+    public void v(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048590, this, str) != null) || this.e == null) {
+            return;
+        }
+        F(str);
+    }
+
+    public final void F(String str) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && str != null && this.b != null && this.h != null && this.e != null) {
+            this.i.g().parseJson(str);
+            this.i.g().updateQuality();
+            this.h.u(this.i.g(), this.e.getFrom(), this.e.getForumId());
+            j5a j5aVar = (j5a) this.d;
+            if (this.h.o().getVisibility() == 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            j5aVar.a = z;
+            y(this.d);
+            this.b.w();
+            this.b.i();
+        }
+    }
+
+    @Override // com.baidu.tieba.t4a, com.baidu.tieba.y4a
+    public void r(qc5 qc5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, qc5Var) == null) {
+            super.r(qc5Var);
+            if (this.b != null && this.e != null && this.h != null && qc5Var.a == 24) {
+                Object obj = qc5Var.c;
+                if (!(obj instanceof f85)) {
+                    return;
                 }
-            } else if (i == 11) {
-                B();
+                f85 f85Var = (f85) obj;
+                if (EmotionGroupType.isSendAsPic(f85Var.getType()) && this.i.b(this.b, f85Var) != null) {
+                    this.b.i();
+                    this.b.x(new int[]{10, 34});
+                    this.h.u(this.i.g(), this.e.getFrom(), this.e.getForumId());
+                }
             }
         }
     }
 
-    public final void A(VoiceData.VoiceModel voiceModel) {
+    @Override // com.baidu.tieba.y4a
+    public void a(@NonNull WriteData writeData) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, voiceModel) == null) && this.g != null && this.h != null && voiceModel != null && this.e != null && !TextUtils.isEmpty(voiceModel.getVoiceId()) && voiceModel.getDuration() > 0) {
-            ((i5a) this.d).a = voiceModel;
-            this.e.setVoiceModel(voiceModel);
-            this.g.setVisibility(0);
-            this.h.setVoiceModel(voiceModel);
-            this.h.o();
-            s4a s4aVar = this.b;
-            if (s4aVar != null) {
-                s4aVar.i();
-                this.b.x(new int[]{34});
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, writeData) == null) && this.h != null && writeData.getWriteImagesInfo() != null) {
+            this.i.r(writeData.getWriteImagesInfo());
+            WriteData writeData2 = this.e;
+            if (writeData2 != null) {
+                writeData2.setWriteImagesInfo(writeData.getWriteImagesInfo());
+                this.h.u(this.i.g(), this.e.getFrom(), this.e.getForumId());
+            }
+            j5a j5aVar = (j5a) this.d;
+            if (this.h.o().getVisibility() == 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            j5aVar.a = z;
+            y(this.d);
+        }
+    }
+
+    @Override // com.baidu.tieba.t4a, com.baidu.tieba.y4a
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.d();
+            this.i.q(this);
+            t3a t3aVar = this.h;
+            if (t3aVar != null) {
+                t3aVar.n();
             }
         }
     }
 
-    @Override // com.baidu.tieba.q4a
+    @Override // com.baidu.tieba.t4a, com.baidu.tieba.y4a
+    public boolean t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            WriteImageGridView writeImageGridView = this.g;
+            if (writeImageGridView != null && writeImageGridView.getVisibility() == 0 && this.i.g().size() > 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.t4a, com.baidu.tieba.y4a
+    public void onActivityResult(int i, int i2, Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(1048583, this, i, i2, intent) == null) {
+            super.onActivityResult(i, i2, intent);
+            this.i.m(i, i2, intent);
+        }
+    }
+
+    @Override // com.baidu.tieba.y4a
     public View s(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0558, viewGroup, false);
-            this.g = inflate;
-            this.h = (PlayVoiceBntNew) inflate.findViewById(R.id.obfuscated_res_0x7f0904bb);
-            ImageView imageView = (ImageView) this.g.findViewById(R.id.obfuscated_res_0x7f091170);
-            this.i = imageView;
-            if (imageView != null) {
-                imageView.setOnClickListener(new a(this));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, viewGroup)) == null) {
+            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d04e1, viewGroup, false);
+            this.c = inflate;
+            this.g = (WriteImageGridView) inflate.findViewById(R.id.obfuscated_res_0x7f0928bb);
+            t3a t3aVar = new t3a(this.a, this.c);
+            this.h = t3aVar;
+            t3aVar.r(this.j);
+            WriteData writeData = this.e;
+            if (writeData != null) {
+                this.h.q(writeData.getDisableAudioMessage(), this.e.getFirstDir(), this.e.getSecondDir(), this.e.getPrefixData(), this.e.getStatisticFrom(), this.e.isVoiceEnable());
+                if (WriteActivityConfig.FROM_FORUM_SHARE.equals(this.e.getFrom())) {
+                    this.h.s(false);
+                } else {
+                    this.h.t(true);
+                }
+                if (this.e.getType() == 14) {
+                    this.h.p(true);
+                }
             }
-            return this.g;
+            this.h.u(this.i.g(), this.e.getFrom(), this.e.getForumId());
+            return this.c;
         }
         return (View) invokeL.objValue;
-    }
-
-    public final void B() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.g == null || this.h == null || this.e == null) {
-            return;
-        }
-        D d = this.d;
-        if (((i5a) d).a != null) {
-            w65.a(w65.b(((i5a) d).a.getVoiceId()));
-        }
-        ((i5a) this.d).a = null;
-        this.e.setVoiceModel(null);
-        this.g.setVisibility(8);
-        this.h.p();
-        this.h.setVoiceModel(null);
-        s4a s4aVar = this.b;
-        if (s4aVar != null) {
-            s4aVar.f();
-            this.b.i();
-            this.b.x(new int[]{34});
-        }
-    }
-
-    @Override // com.baidu.tieba.l4a, com.baidu.tieba.q4a
-    public void m(Bundle bundle, Intent intent, @NonNull WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048581, this, bundle, intent, writeData) == null) {
-            super.m(bundle, intent, writeData);
-        }
-    }
-
-    @Override // com.baidu.tieba.l4a, com.baidu.tieba.q4a
-    public boolean t() {
-        InterceptResult invokeV;
-        PlayVoiceBntNew playVoiceBntNew;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            View view2 = this.g;
-            if (view2 == null || view2.getVisibility() != 0 || (playVoiceBntNew = this.h) == null || playVoiceBntNew.getVoiceModel() == null) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
     }
 }

@@ -28,10 +28,10 @@ import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.image.TbImage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kt5;
+import com.baidu.tieba.hu9;
 import com.baidu.tieba.lt5;
-import com.baidu.tieba.p47;
-import com.baidu.tieba.zt9;
+import com.baidu.tieba.mt5;
+import com.baidu.tieba.q47;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -189,7 +189,7 @@ public final class FrsBannerHeaderView extends RelativeLayout implements View.On
                                 return;
                             }
                             tbImage.setVisibility(0);
-                            kt5 a = lt5.a.a();
+                            lt5 a = mt5.a.a();
                             Intrinsics.checkNotNullExpressionValue(iconUrl, "iconUrl");
                             a.a(iconUrl, tbImage);
                         }
@@ -305,7 +305,7 @@ public final class FrsBannerHeaderView extends RelativeLayout implements View.On
                                 return;
                             }
                             tbImage.setVisibility(0);
-                            kt5 a = lt5.a.a();
+                            lt5 a = mt5.a.a();
                             Intrinsics.checkNotNullExpressionValue(iconUrl, "iconUrl");
                             a.a(iconUrl, tbImage);
                         }
@@ -550,8 +550,8 @@ public final class FrsBannerHeaderView extends RelativeLayout implements View.On
                 themeColorInfo = null;
             }
             if (themeColorInfo != null) {
-                str2 = zt9.d(themeColorInfo);
-                str = zt9.e(themeColorInfo);
+                str2 = hu9.d(themeColorInfo);
+                str = hu9.e(themeColorInfo);
             } else {
                 str = null;
                 str2 = null;
@@ -735,7 +735,7 @@ public final class FrsBannerHeaderView extends RelativeLayout implements View.On
                     Context context = getContext();
                     if (context != null) {
                         TbPageContext<?> pageContext = ((TbPageContextSupport) context).getPageContext();
-                        if (pageContext == null || p47.f().i()) {
+                        if (pageContext == null || q47.f().i()) {
                             return;
                         }
                         UrlManager urlManager = UrlManager.getInstance();

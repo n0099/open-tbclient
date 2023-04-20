@@ -22,10 +22,10 @@ import com.baidu.tieba.im.widget.chatVoiceView.ChatVoiceView;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.VoiceMsg;
-import com.baidu.tieba.j58;
 import com.baidu.tieba.k58;
-import com.baidu.tieba.v48;
-import com.baidu.tieba.w65;
+import com.baidu.tieba.r58;
+import com.baidu.tieba.w48;
+import com.baidu.tieba.x65;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -83,16 +83,16 @@ public class VoiceAdapter extends BaseChatAdapter<VoiceMsg, ViewHolder> {
         }
 
         @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder
-        public void d(@NonNull j58 j58Var) {
+        public void d(@NonNull k58 k58Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, j58Var) == null) {
-                super.d(j58Var);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, k58Var) == null) {
+                super.d(k58Var);
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class a implements v48 {
+    public class a implements w48 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ViewGroup a;
@@ -119,7 +119,7 @@ public class VoiceAdapter extends BaseChatAdapter<VoiceMsg, ViewHolder> {
             this.b = voiceMsg;
         }
 
-        @Override // com.baidu.tieba.v48
+        @Override // com.baidu.tieba.w48
         public void a(Drawable drawable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, drawable) == null) {
@@ -127,7 +127,7 @@ public class VoiceAdapter extends BaseChatAdapter<VoiceMsg, ViewHolder> {
             }
         }
 
-        @Override // com.baidu.tieba.v48
+        @Override // com.baidu.tieba.w48
         public void onFailed() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -219,7 +219,7 @@ public class VoiceAdapter extends BaseChatAdapter<VoiceMsg, ViewHolder> {
             VoiceData.VoiceModel voiceModel = new VoiceData.VoiceModel();
             voiceMsg.setVoiceModel(voiceModel);
             voiceModel.setDuration(gg.e(voiceMsg.getDuring(), 0));
-            if (w65.b(voiceMsg.getVid()) == null && voiceMsg.getVoiceUrl() != null && (parse = Uri.parse(voiceMsg.getVoiceUrl())) != null) {
+            if (x65.b(voiceMsg.getVid()) == null && voiceMsg.getVoiceUrl() != null && (parse = Uri.parse(voiceMsg.getVoiceUrl())) != null) {
                 voiceMsg.setVid(parse.getLastPathSegment());
             }
             voiceModel.setVoiceId(voiceMsg.getVid());
@@ -238,9 +238,9 @@ public class VoiceAdapter extends BaseChatAdapter<VoiceMsg, ViewHolder> {
     public void O(int i, @NonNull ViewGroup viewGroup, @NonNull VoiceMsg voiceMsg, @NonNull ViewHolder viewHolder, @NonNull List<Object> list, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), viewGroup, voiceMsg, viewHolder, list, Integer.valueOf(i2)}) == null) {
-            k58.p(this.mType, voiceMsg, viewGroup, new a(this, viewGroup, voiceMsg));
+            r58.p(this.mType, voiceMsg, viewGroup, new a(this, viewGroup, voiceMsg));
             ChatVoiceView chatVoiceView = (ChatVoiceView) viewHolder.getView();
-            int q = k58.q(voiceMsg, i2);
+            int q = r58.q(voiceMsg, i2);
             if (q == 0) {
                 chatVoiceView.setVoicePureColor(0);
             } else {

@@ -1,57 +1,119 @@
 package com.baidu.tieba;
 
-import androidx.core.app.NotificationCompat;
-import com.baidu.adp.lib.util.BdLog;
+import android.content.Context;
+import android.view.View;
+import android.widget.AbsListView;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.view.NavigationBarShadowView;
+import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class w89 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<a> a;
-    public ly4 b;
+    public Context a;
+    public View b;
+    public BdTypeListView c;
+    public NoDataView d;
+    public qg5 e;
+    public NavigationBarShadowView f;
+    public s89 g;
+    public View.OnClickListener h;
+    public AbsListView.OnScrollListener i;
 
     /* loaded from: classes6.dex */
-    public static class a {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public long a;
-        public String b;
-        public long c;
-        public String d;
-        public String e;
-        public long f;
-        public int g;
-        public int h;
-        public String i;
+        public final /* synthetic */ w89 a;
 
-        public a() {
+        public a(w89 w89Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {w89Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = w89Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && BdNetTypeUtil.isNetworkAvailableForImmediately()) {
+                if (this.a.e != null) {
+                    this.a.e.dettachView(this.a.b);
+                    this.a.e = null;
+                }
+                if (this.a.g != null) {
+                    this.a.g.B();
                 }
             }
         }
     }
 
-    public w89() {
+    /* loaded from: classes6.dex */
+    public class b implements AbsListView.OnScrollListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ w89 a;
+
+        public b(w89 w89Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {w89Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = w89Var;
+        }
+
+        @Override // android.widget.AbsListView.OnScrollListener
+        public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+            View childAt;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLIII(1048576, this, absListView, i, i2, i3) == null) && i == 0 && (childAt = absListView.getChildAt(0)) != null && childAt.getTop() == 0) {
+                this.a.f.a();
+            }
+        }
+
+        @Override // android.widget.AbsListView.OnScrollListener
+        public void onScrollStateChanged(AbsListView absListView, int i) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absListView, i) == null) && i == 1) {
+                this.a.f.c();
+            }
+        }
+    }
+
+    public w89(Context context, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -61,95 +123,46 @@ public class w89 {
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.b = new ly4();
+        this.d = null;
+        this.h = new a(this);
+        this.i = new b(this);
+        this.a = context;
+        this.b = view2;
+        this.c = (BdTypeListView) view2.findViewById(R.id.obfuscated_res_0x7f091493);
+        this.f = (NavigationBarShadowView) view2.findViewById(R.id.obfuscated_res_0x7f0917d0);
+        this.c.setOnScrollListener(this.i);
     }
 
-    public boolean a() {
+    public void h(s89 s89Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, s89Var) == null) {
+            this.g = s89Var;
+        }
+    }
+
+    public void i(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048579, this, str, z) == null) {
+            u89.b(this.e, this.h, this.a, this.b, str, z);
+            this.c.setVisibility(8);
+        }
+    }
+
+    public BdTypeListView f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<a> list = this.a;
-            if (list != null && list.size() != 0) {
-                return true;
-            }
-            return false;
+            return this.c;
         }
-        return invokeV.booleanValue;
+        return (BdTypeListView) invokeV.objValue;
     }
 
-    public boolean b() {
+    public s89 g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ly4 ly4Var = this.b;
-            if (ly4Var != null && ly4Var.b() == 1) {
-                return true;
-            }
-            return false;
+            return this.g;
         }
-        return invokeV.booleanValue;
-    }
-
-    public void c(JSONObject jSONObject) {
-        JSONArray jSONArray;
-        String str;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            String str2 = "";
-            if (jSONObject == null) {
-                return;
-            }
-            try {
-                this.b.i(jSONObject.getJSONObject("page"));
-                JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
-                if (optJSONArray != null && optJSONArray.length() != 0) {
-                    this.a.clear();
-                    int i2 = 0;
-                    while (i2 < optJSONArray.length()) {
-                        JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
-                        if (jSONObject2 == null) {
-                            jSONArray = optJSONArray;
-                            str = str2;
-                            i = i2;
-                        } else {
-                            JSONObject jSONObject3 = jSONObject2.getJSONObject(NotificationCompat.CarExtender.KEY_AUTHOR);
-                            String optString = jSONObject3.optString("name_show", str2);
-                            jSONObject3.optString("name", str2);
-                            long optLong = jSONObject2.optLong("pid", 0L);
-                            String optString2 = jSONObject2.optString("title", str2);
-                            long optLong2 = jSONObject2.optLong("time", 0L) * 1000;
-                            String optString3 = jSONObject2.optString("content", str2);
-                            String optString4 = jSONObject2.optString("fname", str2);
-                            long optLong3 = jSONObject2.optLong("tid", 0L);
-                            jSONArray = optJSONArray;
-                            int optInt = jSONObject2.optInt("is_floor", 0);
-                            str = str2;
-                            int optInt2 = jSONObject2.optInt("is_replay", 0);
-                            i = i2;
-                            if (jSONObject2.optInt("thread_type", 0) != 33) {
-                                a aVar = new a();
-                                aVar.a = optLong;
-                                aVar.b = optString2;
-                                aVar.c = optLong2;
-                                aVar.d = optString3;
-                                aVar.e = optString4;
-                                aVar.f = optLong3;
-                                aVar.g = optInt;
-                                aVar.h = optInt2;
-                                aVar.i = optString;
-                                this.a.add(aVar);
-                            }
-                        }
-                        i2 = i + 1;
-                        optJSONArray = jSONArray;
-                        str2 = str;
-                    }
-                }
-            } catch (Exception e) {
-                BdLog.d(e.getMessage());
-            }
-        }
+        return (s89) invokeV.objValue;
     }
 }

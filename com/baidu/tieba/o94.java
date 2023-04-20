@@ -1,32 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.V8JavascriptField;
+import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class o94 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    public String value;
 
-    public o94(String str) {
+    public static void a(df2 df2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if ((interceptable == null || interceptable.invokeL(65536, null, df2Var) == null) && df2Var != null && df2Var.n().hasEventListener("audiointerruptionbegin") && y14.h().i()) {
+            df2Var.dispatchEvent(new JSEvent("audiointerruptionbegin"));
         }
-        this.value = str;
+    }
+
+    public static void b(df2 df2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65537, null, df2Var) == null) && df2Var != null && df2Var.n().hasEventListener("audiointerruptionend")) {
+            df2Var.dispatchEvent(new JSEvent("audiointerruptionend"));
+        }
     }
 }

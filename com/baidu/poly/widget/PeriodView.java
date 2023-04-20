@@ -14,9 +14,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.poly.widget.entitiy.InstallmentEntity;
 import com.baidu.poly.widget.entitiy.PayChannelExtInfoEntity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jg1;
-import com.baidu.tieba.mg1;
-import com.baidu.tieba.nh1;
+import com.baidu.tieba.kg1;
+import com.baidu.tieba.ng1;
+import com.baidu.tieba.oh1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,7 +38,7 @@ public class PeriodView extends FrameLayout {
     public TextView i;
     public TextView j;
     public PayChannelEntity k;
-    public nh1 l;
+    public oh1 l;
     public InstallmentEntity m;
     public String n;
 
@@ -241,13 +241,13 @@ public class PeriodView extends FrameLayout {
             this.g = (ListView) findViewById(R.id.obfuscated_res_0x7f091a48);
             this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0910b0);
             this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f09072f);
-            nh1 nh1Var = new nh1(getContext());
-            this.l = nh1Var;
-            this.g.setAdapter((ListAdapter) nh1Var);
+            oh1 oh1Var = new oh1(getContext());
+            this.l = oh1Var;
+            this.g.setAdapter((ListAdapter) oh1Var);
             setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-            jg1 jg1Var = new jg1("10");
-            jg1Var.a("type", this.n);
-            mg1.e(jg1Var);
+            kg1 kg1Var = new kg1("10");
+            kg1Var.a("type", this.n);
+            ng1.e(kg1Var);
         }
     }
 

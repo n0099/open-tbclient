@@ -2,7 +2,7 @@ package com.baidu.searchbox.task.async.homeready;
 
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.it4;
+import com.baidu.tieba.jt4;
 /* loaded from: classes2.dex */
 public class InitCookieTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
@@ -17,6 +17,6 @@ public class InitCookieTask extends LaunchTask {
 
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public void execute() {
-        it4.j(TbadkCoreApplication.getInst());
+        jt4.j(TbadkCoreApplication.getInst());
     }
 }

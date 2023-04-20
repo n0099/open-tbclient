@@ -31,7 +31,7 @@ import com.baidu.tieba.R;
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.badge.BadgeUtils;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class BottomNavigationItemView extends FrameLayout implements MenuView.ItemView {
     public static final int[] CHECKED_STATE_SET = {16842912};
     public static final int INVALID_ITEM_POSITION = -1;

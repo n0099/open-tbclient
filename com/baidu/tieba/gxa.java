@@ -1,35 +1,28 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.net.Uri;
 import android.os.Build;
-import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.huawei.hms.common.internal.TransactionIdCreater;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.security.MessageDigest;
+import com.baidu.webkit.internal.RC4;
+import com.yy.hiidostatis.inner.util.cipher.Coder;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Locale;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSocket;
+import org.apache.commons.codec.digest4util.MessageDigestAlgorithms;
 /* loaded from: classes4.dex */
-public class gxa {
+public abstract class gxa {
     public static /* synthetic */ Interceptable $ic;
-    public static final Uri a;
+    public static final String[] a;
     public static final String[] b;
+    public static final String[] c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,223 +38,140 @@ public class gxa {
                 return;
             }
         }
-        a = Uri.parse("content://com.huawei.hwid");
-        b = new String[]{"B92825C2BD5D6D6D1E7F39EECD17843B7D9016F611136B75441BC6F4D3F00F05", "E49D5C2C0E11B3B1B96CA56C6DE2A14EC7DAB5CCC3B5F300D03E5B4DBA44F539"};
+        a = new String[]{"TLS_DHE_DSS_WITH_AES_128_CBC_SHA", "TLS_DHE_RSA_WITH_AES_128_CBC_SHA", "TLS_DHE_DSS_WITH_AES_256_CBC_SHA", "TLS_DHE_RSA_WITH_AES_256_CBC_SHA", "TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA", "TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA", "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA", "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA"};
+        b = new String[]{"TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384", "TLS_DHE_RSA_WITH_AES_128_GCM_SHA256", "TLS_DHE_RSA_WITH_AES_256_GCM_SHA384", "TLS_DHE_DSS_WITH_AES_128_GCM_SHA256", "TLS_DHE_DSS_WITH_AES_256_GCM_SHA384"};
+        c = new String[]{"TLS_RSA", "CBC", "TEA", "SHA0", MessageDigestAlgorithms.MD2, "MD4", "RIPEMD", "NULL", RC4.LOGTAG, Coder.KEY_DES, "DESX", "DES40", "RC2", "MD5", "ANON", "TLS_EMPTY_RENEGOTIATION_INFO_SCSV"};
     }
 
-    public static int a(String str) {
+    public static boolean a(SSLSocket sSLSocket) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return -1;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, sSLSocket)) == null) {
+            if (sSLSocket == null) {
+                return false;
             }
-            File file = new File(str);
-            if (file.exists()) {
-                lxa.f("BksUtil", "The directory  has already exists");
-                return 1;
-            } else if (file.mkdirs()) {
-                lxa.b("BksUtil", "create directory  success");
-                return 0;
-            } else {
-                lxa.d("BksUtil", "create directory  failed");
-                return -1;
-            }
-        }
-        return invokeL.intValue;
-    }
-
-    public static String c(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
-            if (bArr != null && bArr.length != 0) {
-                StringBuilder sb = new StringBuilder();
-                for (byte b2 : bArr) {
-                    String hexString = Integer.toHexString(b2 & 255);
-                    if (hexString.length() == 1) {
-                        sb.append(TransactionIdCreater.FILL_BYTE);
-                    }
-                    sb.append(hexString);
-                }
-                return sb.toString();
-            }
-            return "";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String g(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, bArr)) == null) {
-            if (bArr == null) {
-                return "";
-            }
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
-                messageDigest.update(bArr);
-                return c(messageDigest.digest());
-            } catch (NoSuchAlgorithmException unused) {
-                lxa.d("BksUtil", "inputstraem exception");
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static boolean k(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
-            return new File(b(context) + File.separator + "hmsrootcas.bks").exists();
+            return b(sSLSocket, c);
         }
         return invokeL.booleanValue;
     }
 
-    public static InputStream n(Context context) {
+    public static void c(SSLSocket sSLSocket) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65539, null, sSLSocket) == null) && sSLSocket != null && !g(sSLSocket)) {
+            a(sSLSocket);
+        }
+    }
+
+    public static boolean g(SSLSocket sSLSocket) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) {
-            if (k(context)) {
-                lxa.e("BksUtil", "getFilesBksIS ");
-                try {
-                    return new FileInputStream(f(context));
-                } catch (FileNotFoundException unused) {
-                    lxa.d("BksUtil", "FileNotFoundExceptio: ");
-                    return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, sSLSocket)) == null) {
+            if (sSLSocket == null) {
+                return false;
+            }
+            if (Build.VERSION.SDK_INT > 19) {
+                return h(sSLSocket, b);
+            }
+            return h(sSLSocket, a);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean b(SSLSocket sSLSocket, String[] strArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, sSLSocket, strArr)) == null) {
+            if (sSLSocket == null) {
+                return false;
+            }
+            String[] enabledCipherSuites = sSLSocket.getEnabledCipherSuites();
+            ArrayList arrayList = new ArrayList();
+            int length = enabledCipherSuites.length;
+            int i = 0;
+            while (true) {
+                boolean z = true;
+                if (i >= length) {
+                    break;
                 }
-            }
-            return null;
-        }
-        return (InputStream) invokeL.objValue;
-    }
-
-    public static String b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (Build.VERSION.SDK_INT >= 24) {
-                return context.createDeviceProtectedStorageContext().getFilesDir() + File.separator + "aegis";
-            }
-            return context.getApplicationContext().getFilesDir() + File.separator + "aegis";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String j(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, bArr)) == null) {
-            if (bArr == null || bArr.length == 0) {
-                return "";
-            }
-            try {
-                return c(MessageDigest.getInstance("SHA-256").digest(bArr));
-            } catch (NoSuchAlgorithmException e) {
-                Log.e("BksUtil", "NoSuchAlgorithmException" + e.getMessage());
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void d(InputStream inputStream, Context context) {
-        FileOutputStream fileOutputStream;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, inputStream, context) == null) && inputStream != null && context != null) {
-            String b2 = b(context);
-            if (!new File(b2).exists()) {
-                a(b2);
-            }
-            File file = new File(b2, "hmsrootcas.bks");
-            if (file.exists()) {
-                file.delete();
-            }
-            FileOutputStream fileOutputStream2 = null;
-            try {
-                try {
-                    lxa.e("BksUtil", "write output stream ");
-                    fileOutputStream = new FileOutputStream(file);
-                } catch (Throwable th) {
-                    th = th;
-                }
-            } catch (IOException unused) {
-            }
-            try {
-                byte[] bArr = new byte[2048];
+                String str = enabledCipherSuites[i];
+                String upperCase = str.toUpperCase(Locale.ENGLISH);
+                int length2 = strArr.length;
+                int i2 = 0;
                 while (true) {
-                    int read = inputStream.read(bArr, 0, 2048);
-                    if (read != -1) {
-                        fileOutputStream.write(bArr, 0, read);
+                    if (i2 < length2) {
+                        if (upperCase.contains(strArr[i2].toUpperCase(Locale.ENGLISH))) {
+                            break;
+                        }
+                        i2++;
                     } else {
-                        kxa.c(fileOutputStream);
-                        return;
+                        z = false;
+                        break;
                     }
                 }
-            } catch (IOException unused2) {
-                fileOutputStream2 = fileOutputStream;
-                lxa.d("BksUtil", " IOException");
-                kxa.c(fileOutputStream2);
-            } catch (Throwable th2) {
-                th = th2;
-                fileOutputStream2 = fileOutputStream;
-                kxa.c(fileOutputStream2);
-                throw th;
-            }
-        }
-    }
-
-    public static byte[] e(Context context, String str) {
-        InterceptResult invokeLL;
-        PackageInfo packageInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, str)) == null) {
-            if (context != null && !TextUtils.isEmpty(str)) {
-                try {
-                    PackageManager packageManager = context.getPackageManager();
-                    if (packageManager != null && (packageInfo = packageManager.getPackageInfo(str, 64)) != null) {
-                        return packageInfo.signatures[0].toByteArray();
-                    }
-                } catch (PackageManager.NameNotFoundException e) {
-                    Log.e("BksUtil", "PackageManager.NameNotFoundException : " + e.getMessage());
-                } catch (Exception e2) {
-                    Log.e("BksUtil", "get pm exception : " + e2.getMessage());
+                if (!z) {
+                    arrayList.add(str);
                 }
-                return new byte[0];
+                i++;
             }
-            Log.e("BksUtil", "packageName is null or context is null");
-            return new byte[0];
-        }
-        return (byte[]) invokeLL.objValue;
-    }
-
-    public static String f(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-            return b(context) + File.separator + "hmsrootcas.bks";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static boolean h(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, context, str)) == null) {
-            return "E49D5C2C0E11B3B1B96CA56C6DE2A14EC7DAB5CCC3B5F300D03E5B4DBA44F539".equalsIgnoreCase(j(e(context, str)));
+            if (arrayList.isEmpty()) {
+                return false;
+            }
+            sSLSocket.setEnabledCipherSuites((String[]) arrayList.toArray(new String[arrayList.size()]));
+            return true;
         }
         return invokeLL.booleanValue;
     }
 
-    public static boolean l(Context context, String str) {
+    public static boolean h(SSLSocket sSLSocket, String[] strArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, context, str)) == null) {
-            byte[] e = e(context, str);
-            for (String str2 : b) {
-                if (str2.equalsIgnoreCase(j(e))) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, sSLSocket, strArr)) == null) {
+            if (sSLSocket == null) {
+                return false;
+            }
+            String[] enabledCipherSuites = sSLSocket.getEnabledCipherSuites();
+            ArrayList arrayList = new ArrayList();
+            List asList = Arrays.asList(strArr);
+            for (String str : enabledCipherSuites) {
+                if (asList.contains(str.toUpperCase(Locale.ENGLISH))) {
+                    arrayList.add(str);
+                }
+            }
+            if (arrayList.isEmpty()) {
+                return false;
+            }
+            sSLSocket.setEnabledCipherSuites((String[]) arrayList.toArray(new String[arrayList.size()]));
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static void d(SSLSocket sSLSocket) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, sSLSocket) != null) || sSLSocket == null) {
+            return;
+        }
+        if (Build.VERSION.SDK_INT >= 29) {
+            sSLSocket.setEnabledProtocols(new String[]{"TLSv1.3", "TLSv1.2"});
+        }
+        int i = Build.VERSION.SDK_INT;
+        if (i >= 16 && i < 29) {
+            sSLSocket.setEnabledProtocols(new String[]{"TLSv1.2"});
+        } else if (Build.VERSION.SDK_INT < 16) {
+            sSLSocket.setEnabledProtocols(new String[]{"TLSv1"});
+        }
+    }
+
+    public static boolean e(SSLSocket sSLSocket, String[] strArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, sSLSocket, strArr)) == null) {
+            if (sSLSocket != null && strArr != null) {
+                try {
+                    sSLSocket.setEnabledProtocols(strArr);
                     return true;
+                } catch (Exception e) {
+                    txa.d("SSLUtil", "setEnabledProtocols: exception : " + e.getMessage());
                 }
             }
             return false;
@@ -269,153 +179,19 @@ public class gxa {
         return invokeLL.booleanValue;
     }
 
-    public static boolean i(String str) {
-        InterceptResult invokeL;
-        int parseInt;
-        int i;
+    public static SSLContext f() throws NoSuchAlgorithmException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 29) {
+                return SSLContext.getInstance("TLSv1.3");
             }
-            lxa.e("BksUtil", "hms version code is : " + str);
-            String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
-            String[] split2 = "4.0.2.300".split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
-            int length = split.length;
-            int length2 = split2.length;
-            int max = Math.max(length, length2);
-            for (int i2 = 0; i2 < max; i2++) {
-                if (i2 < length) {
-                    try {
-                        parseInt = Integer.parseInt(split[i2]);
-                    } catch (Exception e) {
-                        lxa.d("BksUtil", " exception : " + e.getMessage());
-                        if (i2 < length2) {
-                            return false;
-                        }
-                        return true;
-                    }
-                } else {
-                    parseInt = 0;
-                }
-                if (i2 < length2) {
-                    i = Integer.parseInt(split2[i2]);
-                } else {
-                    i = 0;
-                }
-                if (parseInt < i) {
-                    return false;
-                }
-                if (parseInt > i) {
-                    return true;
-                }
+            if (i >= 16) {
+                return SSLContext.getInstance("TLSv1.2");
             }
-            return true;
+            return SSLContext.getInstance("TLS");
         }
-        return invokeL.booleanValue;
-    }
-
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:56:0x0100 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r2v18 */
-    /* JADX WARN: Type inference failed for: r2v19 */
-    /* JADX WARN: Type inference failed for: r2v6 */
-    /* JADX WARN: Type inference failed for: r2v7, types: [java.io.OutputStream] */
-    /* JADX WARN: Type inference failed for: r2v8, types: [java.io.OutputStream, java.io.ByteArrayOutputStream] */
-    public static synchronized InputStream m(Context context) {
-        InterceptResult invokeL;
-        InputStream inputStream;
-        ByteArrayInputStream byteArrayInputStream;
-        String a2;
-        String g;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, context)) == null) {
-            synchronized (gxa.class) {
-                lxa.e("BksUtil", "get bks from tss begin");
-                if (context != null) {
-                    ixa.b(context);
-                }
-                Context a3 = ixa.a();
-                ByteArrayInputStream byteArrayInputStream2 = null;
-                if (a3 == null) {
-                    lxa.d("BksUtil", "context is null");
-                    return null;
-                } else if (!i(mxa.a("com.huawei.hwid")) && !i(mxa.a("com.huawei.hms"))) {
-                    lxa.d("BksUtil", "hms version code is too low : " + mxa.a("com.huawei.hwid"));
-                    return null;
-                } else {
-                    boolean l = l(a3, "com.huawei.hwid");
-                    ?? r2 = l;
-                    if (!l) {
-                        boolean h = h(a3, "com.huawei.hms");
-                        r2 = h;
-                        if (!h) {
-                            lxa.d("BksUtil", "hms sign error");
-                            return null;
-                        }
-                    }
-                    try {
-                        r2 = new ByteArrayOutputStream();
-                        try {
-                            inputStream = a3.getContentResolver().openInputStream(Uri.withAppendedPath(a, "files/hmsrootcas.bks"));
-                            try {
-                                byte[] bArr = new byte[1024];
-                                while (true) {
-                                    int read = inputStream.read(bArr);
-                                    if (read <= -1) {
-                                        break;
-                                    }
-                                    r2.write(bArr, 0, read);
-                                }
-                                r2.flush();
-                                byteArrayInputStream = new ByteArrayInputStream(r2.toByteArray());
-                            } catch (Exception unused) {
-                            }
-                            try {
-                                a2 = nxa.a("bks_hash", "", a3);
-                                g = g(r2.toByteArray());
-                            } catch (Exception unused2) {
-                                byteArrayInputStream2 = byteArrayInputStream;
-                                lxa.d("BksUtil", "Get bks from HMS_VERSION_CODE exception : No content provider");
-                                kxa.b(inputStream);
-                                kxa.c(r2);
-                                kxa.b(byteArrayInputStream2);
-                                return n(a3);
-                            } catch (Throwable th) {
-                                th = th;
-                                byteArrayInputStream2 = byteArrayInputStream;
-                                kxa.b(inputStream);
-                                kxa.c(r2);
-                                kxa.b(byteArrayInputStream2);
-                                throw th;
-                            }
-                        } catch (Exception unused3) {
-                            inputStream = null;
-                        } catch (Throwable th2) {
-                            th = th2;
-                            inputStream = null;
-                        }
-                        if (k(a3) && a2.equals(g)) {
-                            lxa.e("BksUtil", "bks not update");
-                            kxa.b(inputStream);
-                            kxa.c(r2);
-                            kxa.b(byteArrayInputStream);
-                            return n(a3);
-                        }
-                        lxa.e("BksUtil", "update bks and sp");
-                        d(byteArrayInputStream, a3);
-                        nxa.c("bks_hash", g, a3);
-                        kxa.b(inputStream);
-                        kxa.c(r2);
-                        kxa.b(byteArrayInputStream);
-                        return n(a3);
-                    } catch (Throwable th3) {
-                        th = th3;
-                    }
-                }
-            }
-        } else {
-            return (InputStream) invokeL.objValue;
-        }
+        return (SSLContext) invokeV.objValue;
     }
 }

@@ -1,41 +1,44 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.text.TextUtils;
 import android.util.Pair;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ad3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class gy1 extends ay1 {
+public class gy1 extends by1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String f;
-    public nm3<Integer> g;
 
-    @Override // com.baidu.tieba.xv1
+    @Override // com.baidu.tieba.yv1
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "ExitFullScreenApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "DeviceInfoApi" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes4.dex */
-    public class a implements nm3<Integer> {
+    public class a implements om3<yc3<ad3.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gy1 a;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ gy1 c;
 
-        public a(gy1 gy1Var) {
+        public a(gy1 gy1Var, Context context, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {gy1Var};
+                Object[] objArr = {gy1Var, context, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -45,72 +48,86 @@ public class gy1 extends ay1 {
                     return;
                 }
             }
-            this.a = gy1Var;
+            this.c = gy1Var;
+            this.a = context;
+            this.b = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.nm3
+        @Override // com.baidu.tieba.om3
         /* renamed from: b */
-        public void a(Integer num) {
+        public void a(yc3<ad3.e> yc3Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, num) == null) {
-                if (num.intValue() != 1 && num.intValue() != 0) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yc3Var) == null) {
+                if (tc3.h(yc3Var)) {
+                    this.c.d(this.b, new vz1(0, this.c.z(this.a)));
                     return;
                 }
-                this.a.z();
+                int b = yc3Var.b();
+                tc3.f(b);
+                this.c.d(this.b, new vz1(b, tc3.f(b)));
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gy1(@NonNull vv1 vv1Var) {
-        super(vv1Var);
+    public gy1(@NonNull wv1 wv1Var) {
+        super(wv1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vv1Var};
+            Object[] objArr = {wv1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((vv1) newInitContext.callArgs[0]);
+                super((wv1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.g = new a(this);
     }
 
-    public uz1 y(String str) {
+    public final JSONObject z(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("oaid", at3.b.b(context));
+                jSONObject.put("androidId", at3.b.a(context));
+            } catch (JSONException e) {
+                p("#getDeviceInfo json put data fail", e, false);
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public vz1 y(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#exitFullScreen", false);
-            Pair<uz1, JSONObject> s = s(str);
-            uz1 uz1Var = (uz1) s.first;
-            if (!uz1Var.isSuccess()) {
-                return uz1Var;
+            q("#getDeviceInfo", false);
+            v73 b0 = v73.b0();
+            if (b0 == null) {
+                return new vz1(1001, "swan app is null");
+            }
+            Pair<vz1, JSONObject> s = s(str);
+            vz1 vz1Var = (vz1) s.first;
+            if (!vz1Var.isSuccess()) {
+                return vz1Var;
             }
             String optString = ((JSONObject) s.second).optString("cb");
-            this.f = optString;
             if (TextUtils.isEmpty(optString)) {
-                return new uz1(201);
+                return new vz1(202, "cb is empty");
             }
-            ly1.e().v(this.g);
-            ly1.e().m();
-            return uz1.f();
+            Context context = getContext();
+            b0.e0().g(context, "scope_get_device_info", new a(this, context, optString));
+            return vz1.f();
         }
-        return (uz1) invokeL.objValue;
-    }
-
-    public final void z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ly1.e().w();
-            ly1.e().p();
-            d(this.f, new uz1(0));
-        }
+        return (vz1) invokeL.objValue;
     }
 }

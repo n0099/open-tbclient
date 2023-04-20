@@ -26,12 +26,12 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a9;
-import com.baidu.tieba.ew7;
+import com.baidu.tieba.fw7;
 import com.baidu.tieba.g9;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.jw7;
+import com.baidu.tieba.kw7;
 import com.baidu.tieba.newdetail.HotTopicDetailActivity;
-import com.baidu.tieba.q25;
+import com.baidu.tieba.r25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -57,7 +57,7 @@ public class HotTopicDetailHeadView extends RelativeLayout {
     public View n;
     public TBLottieAnimationView o;
     public TextView p;
-    public ew7 q;
+    public fw7 q;
     public ValueAnimator r;
 
     @StringRes
@@ -216,14 +216,14 @@ public class HotTopicDetailHeadView extends RelativeLayout {
     }
 
     public void d(long j, long j2) {
-        ew7 ew7Var;
+        fw7 fw7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) && (ew7Var = this.q) != null && ew7Var.b != 1) {
+        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) && (fw7Var = this.q) != null && fw7Var.b != 1) {
             this.o.playAnimation();
             i();
-            ew7 ew7Var2 = this.q;
-            ew7Var2.b = 1;
-            ew7Var2.d = j2;
+            fw7 fw7Var2 = this.q;
+            fw7Var2.b = 1;
+            fw7Var2.d = j2;
         }
     }
 
@@ -290,7 +290,7 @@ public class HotTopicDetailHeadView extends RelativeLayout {
     public void h(int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048580, this, i) == null) && this.a != i) {
-            q25 d = q25.d(this.f);
+            r25 d = r25.d(this.f);
             d.n(1);
             d.o(R.string.J_X14);
             d.f(R.color.CAM_X0201);
@@ -302,9 +302,9 @@ public class HotTopicDetailHeadView extends RelativeLayout {
             SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0101);
             SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0101);
             SkinManager.setViewTextColor(this.p, (int) R.color.CAM_X0101);
-            ew7 ew7Var = this.q;
-            if (ew7Var != null) {
-                f(ew7Var.e);
+            fw7 fw7Var = this.q;
+            if (fw7Var != null) {
+                f(fw7Var.e);
             }
             this.a = i;
         }
@@ -366,11 +366,11 @@ public class HotTopicDetailHeadView extends RelativeLayout {
         }
     }
 
-    public void setBlessInfo(ew7 ew7Var) {
+    public void setBlessInfo(fw7 fw7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, ew7Var) == null) {
-            this.q = ew7Var;
-            if (ew7Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, fw7Var) == null) {
+            this.q = fw7Var;
+            if (fw7Var == null) {
                 this.o.setVisibility(8);
                 this.p.setVisibility(4);
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.h.getLayoutParams();
@@ -381,15 +381,15 @@ public class HotTopicDetailHeadView extends RelativeLayout {
                 this.j.setLayoutParams(layoutParams2);
                 return;
             }
-            this.p.setText(getContext().getResources().getString(e(ew7Var.e), StringHelper.numberUniformFormatExtraWithRoundInt(ew7Var.a)));
-            if (ew7Var.b == 1) {
+            this.p.setText(getContext().getResources().getString(e(fw7Var.e), StringHelper.numberUniformFormatExtraWithRoundInt(fw7Var.a)));
+            if (fw7Var.b == 1) {
                 this.o.setVisibility(8);
                 this.p.setVisibility(0);
                 this.p.setTranslationX(0.0f);
             } else {
                 this.o.setVisibility(0);
                 this.p.setVisibility(4);
-                f(ew7Var.e);
+                f(fw7Var.e);
                 this.o.cancelAnimation();
             }
             RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.h.getLayoutParams();
@@ -401,30 +401,30 @@ public class HotTopicDetailHeadView extends RelativeLayout {
         }
     }
 
-    public void setTopicInfo(jw7 jw7Var) {
+    public void setTopicInfo(kw7 kw7Var) {
         int i;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jw7Var) != null) || jw7Var == null) {
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, kw7Var) != null) || kw7Var == null) {
             return;
         }
         View view2 = this.e;
-        if (TextUtils.isEmpty(jw7Var.f)) {
+        if (TextUtils.isEmpty(kw7Var.f)) {
             i = 0;
         } else {
             i = 8;
         }
         view2.setVisibility(i);
-        this.g.N(jw7Var.e, 10, false);
-        this.c.N(jw7Var.f, 39, false);
-        this.h.setText(jw7Var.b);
-        if (jw7Var.i > 0) {
+        this.g.N(kw7Var.e, 10, false);
+        this.c.N(kw7Var.f, 39, false);
+        this.h.setText(kw7Var.b);
+        if (kw7Var.i > 0) {
             TextView textView = this.l;
             String string = getContext().getString(R.string.obfuscated_res_0x7f0f093f);
-            textView.setText(String.format(string, "" + jw7Var.i));
+            textView.setText(String.format(string, "" + kw7Var.i));
             this.l.setVisibility(0);
         } else {
             this.l.setVisibility(8);
         }
-        this.k.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f093d), StringHelper.numberUniformFormatExtraWithRoundInt(jw7Var.d)));
+        this.k.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f093d), StringHelper.numberUniformFormatExtraWithRoundInt(kw7Var.d)));
     }
 }

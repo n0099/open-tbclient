@@ -1,81 +1,30 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.sea;
-import com.baidu.tieba.zea;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.io.IOException;
 /* loaded from: classes6.dex */
-public class rea implements zea.a {
+public class rea extends kea implements fga {
     public static /* synthetic */ Interceptable $ic;
-    public static rea f;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, zea> a;
-    public qea b;
-    public ExecutorService c;
-    public xea d;
-    public Handler e;
-
-    public void delete(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-        }
-    }
+    public sea B;
+    public String C;
+    public Thread D;
+    public long E;
+    public long F;
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ rea b;
-
-        public a(rea reaVar, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {reaVar, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = reaVar;
-            this.a = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.a.containsKey(this.a)) {
-                this.b.a.remove(this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements Runnable {
+    public class a extends gga {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ rea a;
 
-        public b(rea reaVar) {
+        public a(rea reaVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -93,212 +42,226 @@ public class rea implements zea.a {
             this.a = reaVar;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.gga, com.baidu.tieba.fga
+        public void onExceptionThrown(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                for (zea zeaVar : this.a.a.values()) {
-                    if (zeaVar != null && zeaVar.isRunning()) {
-                        zeaVar.pause();
-                    }
-                }
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.a.z == null || this.a.l) {
+                return;
             }
+            this.a.z.onExceptionThrown(str);
         }
-    }
 
-    /* loaded from: classes6.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rea a;
-
-        public c(rea reaVar) {
+        @Override // com.baidu.tieba.gga
+        public void onFinishedWriting(boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {reaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+                this.a.k = true;
+                if (this.a.z == null || this.a.l) {
                     return;
                 }
-            }
-            this.a = reaVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                for (zea zeaVar : this.a.a.values()) {
-                    if (zeaVar != null && zeaVar.isRunning()) {
-                        zeaVar.cancel();
-                    }
-                }
+                this.a.z.onFinishedWriting(z);
             }
         }
     }
 
-    public rea() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public rea(String str, String str2, int[] iArr) throws Exception {
+        super(0, str, iArr);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, iArr};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), (String) objArr2[1], (int[]) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = new Handler(Looper.getMainLooper());
-        this.a = new LinkedHashMap();
-        i(new qea());
+        this.C = str2;
+        this.B.e(str2);
+        F(this);
     }
 
-    public void c(String str) {
+    @Override // com.baidu.tieba.kea
+    public void B(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            String e = e(str);
-            if (this.a.containsKey(e)) {
-                zea zeaVar = this.a.get(e);
-                if (zeaVar != null) {
-                    zeaVar.cancel();
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            long j2 = j * 1000;
+            if (j2 < 0) {
+                j2 = 0;
+            }
+            this.E = j2;
+            if (this.e != null) {
+                if (j2 > this.e.getDuration()) {
+                    j2 = this.e.getDuration();
                 }
-                this.a.remove(e);
-            }
-        }
-    }
-
-    public final String e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (str != null) {
-                return String.valueOf(str.hashCode());
-            }
-            throw new IllegalArgumentException("Tag can't be null!");
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final boolean j(String str) {
-        InterceptResult invokeL;
-        zea zeaVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            if (this.a.containsKey(str) && (zeaVar = this.a.get(str)) != null && zeaVar.isRunning()) {
-                jha.d("DownloadInfo has been started!");
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean k(String str) {
-        InterceptResult invokeL;
-        zea zeaVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            String e = e(str);
-            if (this.a.containsKey(e) && (zeaVar = this.a.get(e)) != null) {
-                return zeaVar.isRunning();
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static rea h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f == null) {
-                synchronized (rea.class) {
-                    if (f == null) {
-                        f = new rea();
-                    }
+                synchronized (this.c) {
+                    this.e.seek(j2);
                 }
             }
-            return f;
         }
-        return (rea) invokeV.objValue;
     }
 
-    public void d() {
+    @Override // com.baidu.tieba.kea
+    public void C() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.k) {
+            return;
+        }
+        long currentPosition = this.e.getCurrentPosition();
+        long j = this.E;
+        long j2 = currentPosition - j;
+        long j3 = this.F;
+        long duration = j3 > 0 ? j3 - j : this.e.getDuration();
+        double d = duration == 0 ? 0.0d : j2 / duration;
+        double d2 = d >= 0.0d ? d : 0.0d;
+        onProgressChanged(this.n, d2 > 1.0d ? 1.0d : d2, j2);
+    }
+
+    @Override // com.baidu.tieba.kea
+    public void I() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.e.post(new c(this));
+            super.I();
+            Thread thread = this.D;
+            if (thread == null || !thread.isAlive()) {
+                Thread thread2 = new Thread(this);
+                this.D = thread2;
+                thread2.start();
+            }
+            super.I();
         }
     }
 
-    public void m() {
+    public void R(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            long j2 = j * 1000;
+            this.F = j2;
+            if (this.e != null) {
+                if (j2 > this.e.getDuration()) {
+                    j2 = this.e.getDuration();
+                }
+                synchronized (this.c) {
+                    this.e.h(j2);
+                }
+            }
+        }
+    }
+
+    public void S(gga ggaVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, ggaVar) == null) {
+            this.z = ggaVar;
+            this.B.d(new a(this));
+        }
+    }
+
+    public void cancel() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.l = true;
+            this.k = true;
+            Thread thread = this.D;
+            if (thread != null) {
+                try {
+                    thread.interrupt();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                this.D = null;
+            }
+            try {
+                this.B.g();
+            } catch (Exception e2) {
+                lha.e("VideoMuxer", "cancel finishWriting error:" + e2.getMessage());
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.fga
+    public void onCancel() {
+        gga ggaVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (ggaVar = this.z) == null) {
+            return;
+        }
+        ggaVar.onCancel();
+    }
+
+    @Override // com.baidu.tieba.fga
+    public void onExceptionThrown(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || this.z == null || this.l) {
+            return;
+        }
+        this.z.onExceptionThrown(str);
+    }
+
+    @Override // com.baidu.tieba.fga
+    public void onProgressChanged(int i, double d, long j) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), Double.valueOf(d), Long.valueOf(j)}) == null) || this.z == null || this.l) {
+            return;
+        }
+        this.z.onProgressChanged(i, d, j);
+    }
+
+    @Override // com.baidu.tieba.fga
+    public void onTrackEnd(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            try {
+                this.B.b();
+            } catch (Exception e) {
+                lha.e("VideoMuxer", "onTrackEnd finishWriting error:" + e.getMessage());
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.kea
+    public oea p() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            sea seaVar = new sea(this.C, m(), i());
+            this.B = seaVar;
+            return seaVar;
+        }
+        return (oea) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.kea
+    public void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.e.post(new b(this));
         }
     }
 
-    @Override // com.baidu.tieba.zea.a
-    public void a(String str, zea zeaVar) {
+    @Override // com.baidu.tieba.kea
+    public void u() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, zeaVar) == null) {
-            this.e.post(new a(this, str));
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
         }
     }
 
-    public void f(sea seaVar, String str, uea ueaVar) {
+    @Override // com.baidu.tieba.kea
+    public void v() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048581, this, seaVar, str, ueaVar) == null) {
-            String e = e(str);
-            if (!j(e)) {
-                ffa ffaVar = new ffa(seaVar, new cfa(this.d, ueaVar), this.c, e, this.b, this);
-                this.a.put(e, ffaVar);
-                ffaVar.start();
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            if (this.D != null) {
+                this.D = null;
             }
-        }
-    }
-
-    public void g(String str, String str2, String str3, uea ueaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048582, this, str, str2, str3, ueaVar) == null) {
-            sea.b bVar = new sea.b();
-            bVar.d(str);
-            bVar.b(new File(str2));
-            bVar.c(str3);
-            f(bVar.a(), str, ueaVar);
-        }
-    }
-
-    public final void i(@NonNull qea qeaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, qeaVar) == null) {
-            if (qeaVar.b() <= qeaVar.a()) {
-                this.b = qeaVar;
-                this.c = Executors.newFixedThreadPool(qeaVar.a());
-                this.d = new dfa(this.e);
-                return;
-            }
-            throw new IllegalArgumentException("thread num must < max thread num");
-        }
-    }
-
-    public void l(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            String e = e(str);
-            if (this.a.containsKey(e)) {
-                zea zeaVar = this.a.get(e);
-                if (zeaVar != null && zeaVar.isRunning()) {
-                    zeaVar.pause();
-                }
-                this.a.remove(e);
+            try {
+                this.B.b();
+            } catch (Exception e) {
+                lha.e("VideoMuxer", "onStop finishWriting error:" + e.getMessage());
             }
         }
     }

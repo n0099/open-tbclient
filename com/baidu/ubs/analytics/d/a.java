@@ -26,7 +26,7 @@ public final class a {
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* renamed from: com.baidu.ubs.analytics.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static final class EnumC0506a {
+    public static final class EnumC0505a {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int aV = 1;
         public static final int aW = 2;
@@ -67,14 +67,14 @@ public final class a {
         b = a + "/baidu/ab/crash/";
         c = a + "/baidu/ab/sdklog/";
         String str = a + "/baidu/ab/sdkupdata/" + b() + "/";
-        d = EnumC0506a.aV;
+        d = EnumC0505a.aV;
     }
 
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (d == EnumC0506a.aV) {
+            if (d == EnumC0505a.aV) {
                 return true;
             }
             return false;

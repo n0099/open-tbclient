@@ -9,8 +9,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.tieba.R;
-import com.baidu.tieba.p45;
-import com.baidu.tieba.sn8;
+import com.baidu.tieba.ao8;
+import com.baidu.tieba.q45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -41,8 +41,8 @@ public class CollectUpdateReceiver extends BroadcastReceiver {
         if ((interceptable != null && interceptable.invokeLL(1048576, this, context, intent) != null) || !ACTION_NAME.equals(intent.getAction())) {
             return;
         }
-        sn8.b().g();
-        if (!p45.m().i("collect_update_flag_key" + TbadkCoreApplication.getCurrentAccount(), false)) {
+        ao8.b().g();
+        if (!q45.m().i("collect_update_flag_key" + TbadkCoreApplication.getCurrentAccount(), false)) {
             return;
         }
         try {

@@ -1,17 +1,16 @@
 package com.baidu.tieba;
 
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
 /* loaded from: classes6.dex */
 public class sj2 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    @V8JavascriptField
+    public static final String USER_DATA_PATH = "bdfile://usr";
     public transient /* synthetic */ FieldHolder $fh;
-    public tj2 a;
-    public String b;
-    public Map<String, Object> c;
 
     public sj2() {
         Interceptable interceptable = $ic;

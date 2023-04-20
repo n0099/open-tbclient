@@ -6,13 +6,13 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.fm5;
 import com.baidu.tieba.gg;
-import com.baidu.tieba.jm5;
+import com.baidu.tieba.gm5;
 import com.baidu.tieba.km5;
 import com.baidu.tieba.lm5;
 import com.baidu.tieba.mm5;
-import com.baidu.tieba.p45;
+import com.baidu.tieba.nm5;
+import com.baidu.tieba.q45;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -75,7 +75,7 @@ public class PerformanceLoggerHelper {
         this.isSmallFlow = false;
         this.maxIntervalForOnce = 86400L;
         this.smallFlowInterval = 0L;
-        this.startSmallFlowTime = p45.m().o(TB_PERFOR_SMALLFLOW_TIME, 0L);
+        this.startSmallFlowTime = q45.m().o(TB_PERFOR_SMALLFLOW_TIME, 0L);
         BdBaseApplication.getInst().setStartSmallFlowTime(this.startSmallFlowTime);
         this.smallFlowInterval = this.maxIntervalForOnce;
         BdBaseApplication.getInst().setSmallFlowInterval(this.smallFlowInterval);
@@ -360,7 +360,7 @@ public class PerformanceLoggerHelper {
         return (String) invokeV.objValue;
     }
 
-    public km5 getLoggerWithType(int i) {
+    public lm5 getLoggerWithType(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
@@ -369,57 +369,57 @@ public class PerformanceLoggerHelper {
             }
             switch (i) {
                 case 1000:
-                    mm5 mm5Var = new mm5();
-                    mm5Var.a = "frs";
-                    return mm5Var;
+                    nm5 nm5Var = new nm5();
+                    nm5Var.a = "frs";
+                    return nm5Var;
                 case 1001:
-                    mm5 mm5Var2 = new mm5();
-                    mm5Var2.a = "pb";
-                    return mm5Var2;
+                    nm5 nm5Var2 = new nm5();
+                    nm5Var2.a = "pb";
+                    return nm5Var2;
                 case 1002:
-                    jm5 jm5Var = new jm5();
-                    jm5Var.a = "im";
-                    return jm5Var;
+                    km5 km5Var = new km5();
+                    km5Var.a = "im";
+                    return km5Var;
                 case 1003:
                 case 1006:
                 case 1007:
                 default:
                     return null;
                 case 1004:
-                    mm5 mm5Var3 = new mm5();
-                    mm5Var3.a = "photo_live";
-                    return mm5Var3;
+                    nm5 nm5Var3 = new nm5();
+                    nm5Var3.a = "photo_live";
+                    return nm5Var3;
                 case 1005:
-                    fm5 fm5Var = new fm5();
-                    fm5Var.a = "home_page";
-                    return fm5Var;
+                    gm5 gm5Var = new gm5();
+                    gm5Var.a = "home_page";
+                    return gm5Var;
                 case 1008:
-                    mm5 mm5Var4 = new mm5();
-                    mm5Var4.a = "user_center";
-                    return mm5Var4;
+                    nm5 nm5Var4 = new nm5();
+                    nm5Var4.a = "user_center";
+                    return nm5Var4;
                 case 1009:
-                    mm5 mm5Var5 = new mm5();
-                    mm5Var5.a = "sign_all";
-                    return mm5Var5;
+                    nm5 nm5Var5 = new nm5();
+                    nm5Var5.a = "sign_all";
+                    return nm5Var5;
                 case 1010:
-                    mm5 mm5Var6 = new mm5();
-                    mm5Var6.a = "person_center";
-                    return mm5Var6;
+                    nm5 nm5Var6 = new nm5();
+                    nm5Var6.a = "person_center";
+                    return nm5Var6;
                 case 1011:
-                    mm5 mm5Var7 = new mm5();
-                    mm5Var7.a = "person_center_home";
-                    return mm5Var7;
+                    nm5 nm5Var7 = new nm5();
+                    nm5Var7.a = "person_center_home";
+                    return nm5Var7;
                 case 1012:
-                    mm5 mm5Var8 = new mm5();
-                    mm5Var8.a = "person_center_post";
-                    return mm5Var8;
+                    nm5 nm5Var8 = new nm5();
+                    nm5Var8.a = "person_center_post";
+                    return nm5Var8;
                 case 1013:
-                    mm5 mm5Var9 = new mm5();
-                    mm5Var9.a = "person_center_dynamic";
-                    return mm5Var9;
+                    nm5 nm5Var9 = new nm5();
+                    nm5Var9.a = "person_center_dynamic";
+                    return nm5Var9;
             }
         }
-        return (km5) invokeI.objValue;
+        return (lm5) invokeI.objValue;
     }
 
     public String getNetType() {
@@ -455,17 +455,17 @@ public class PerformanceLoggerHelper {
                 if (0 == j || currentTimeMillis - j >= this.smallFlowInterval) {
                     this.startSmallFlowTime = currentTimeMillis;
                     BdBaseApplication.getInst().setStartSmallFlowTime(this.startSmallFlowTime);
-                    p45.m().A(TB_PERFOR_SMALLFLOW_TIME, this.startSmallFlowTime);
+                    q45.m().A(TB_PERFOR_SMALLFLOW_TIME, this.startSmallFlowTime);
                 }
             } else {
                 this.startSmallFlowTime = 0L;
                 BdBaseApplication.getInst().setStartSmallFlowTime(0L);
-                p45.m().A(TB_PERFOR_SMALLFLOW_TIME, this.startSmallFlowTime);
+                q45.m().A(TB_PERFOR_SMALLFLOW_TIME, this.startSmallFlowTime);
             }
             this.isSmallFlow = z;
             BdBaseApplication.getInst().setIsSmallFlow(z);
             if (BdStatisticsManager.getInstance().isMainProcess()) {
-                lm5.b().f();
+                mm5.b().f();
             }
         }
     }

@@ -17,7 +17,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jr5;
+import com.baidu.tieba.kr5;
 import com.baidu.tieba.view.AlaPlayAnimationView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -149,8 +149,8 @@ public class AlaCardBottomUserInfoLayout extends LinearLayout {
             } else {
                 str = "";
             }
-            if (jr5.e(str) > 10) {
-                str = jr5.m(str, 10) + StringHelper.STRING_MORE;
+            if (kr5.e(str) > 10) {
+                str = kr5.m(str, 10) + StringHelper.STRING_MORE;
             }
             if (alaUserInfoData != null) {
                 this.alaCardUserHeadImg.N(alaUserInfoData.portrait, 28, false);

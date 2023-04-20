@@ -1,13 +1,55 @@
 package com.baidu.tieba;
 
-import org.json.JSONObject;
+import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes4.dex */
-public interface ija {
-    void a(String str, JSONObject jSONObject);
+public class ija {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(String str, JSONObject jSONObject);
+    public static String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
+            }
+            StringBuilder sb = new StringBuilder(str);
+            if (!str.contains("?")) {
+                sb.append("?");
+            }
+            sb.append("&");
+            sb.append("clientfrom=native");
+            sb.append("&");
+            sb.append("client=android");
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
 
-    void c(String str, int i, String str2, JSONObject jSONObject);
-
-    void d(String str, String str2, JSONObject jSONObject);
+    public static String b(String str, HashMap<String, String> hashMap) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, hashMap)) == null) {
+            if (TextUtils.isEmpty(str) || hashMap.isEmpty()) {
+                return str;
+            }
+            StringBuilder sb = new StringBuilder(str);
+            if (!str.contains("?")) {
+                sb.append("?");
+            }
+            for (Map.Entry<String, String> entry : hashMap.entrySet()) {
+                sb.append("&");
+                sb.append(entry.getKey());
+                sb.append("=");
+                sb.append(entry.getValue());
+            }
+            return sb.toString();
+        }
+        return (String) invokeLL.objValue;
+    }
 }

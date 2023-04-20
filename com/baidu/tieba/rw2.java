@@ -2,8 +2,6 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
@@ -15,10 +13,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
+import java.util.HashMap;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class rw2 extends ww2 {
+public class rw2 extends xw2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +36,7 @@ public class rw2 extends ww2 {
                 return;
             }
         }
-        boolean z = eo1.a;
+        b = fo1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -57,43 +59,44 @@ public class rw2 extends ww2 {
         }
     }
 
-    @Override // com.baidu.tieba.ww2
-    public boolean a(mw2 mw2Var, ow2 ow2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, u73 u73Var) {
+    public final int d(HashMap<String, String> hashMap) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap)) == null) {
+            String str = hashMap.get("params");
+            if (TextUtils.isEmpty(str)) {
+                return -1;
+            }
+            try {
+                return new JSONObject(str).optInt(HiAnalyticsConstant.HaKey.BI_KEY_DIRECTION, -1);
+            } catch (JSONException e) {
+                if (!b) {
+                    return -1;
+                }
+                e.printStackTrace();
+                return -1;
+            }
+        }
+        return invokeL.intValue;
+    }
+
+    @Override // com.baidu.tieba.xw2
+    public boolean a(nw2 nw2Var, pw2 pw2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, v73 v73Var) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{mw2Var, ow2Var, context, unitedSchemeEntity, callbackHandler, u73Var})) == null) {
-            u42.i("video", "open, video id:" + ow2Var.j + " slave id: " + ow2Var.c);
-            mw2Var.l();
-            d(mw2Var, ow2Var, unitedSchemeEntity, callbackHandler);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{nw2Var, pw2Var, context, unitedSchemeEntity, callbackHandler, v73Var})) == null) {
+            v42.i("video", "fullscreen, video id:" + pw2Var.j + " slave id: " + pw2Var.c);
+            e(nw2Var, pw2Var.s, unitedSchemeEntity, callbackHandler);
             return true;
         }
         return invokeCommon.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ww2
-    public mw2 b(@NonNull Context context, @Nullable String str, @Nullable String str2, @NonNull String str3, @NonNull JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
+    public final void e(nw2 nw2Var, boolean z, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        HashMap<String, String> params;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2, str3, jSONObject)) == null) {
-            if (TextUtils.isEmpty(str3)) {
-                return null;
-            }
-            su2 f = tu2.f(str, str2, str3);
-            if (f == null) {
-                return new mw2(context, ow2.h(jSONObject, new ow2()));
-            }
-            if (!(f.i() instanceof mw2)) {
-                return null;
-            }
-            return (mw2) f.i();
-        }
-        return (mw2) invokeLLLLL.objValue;
-    }
-
-    public final void d(mw2 mw2Var, ow2 ow2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, mw2Var, ow2Var, unitedSchemeEntity, callbackHandler) == null) {
-            mw2Var.o(ow2Var);
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{nw2Var, Boolean.valueOf(z), unitedSchemeEntity, callbackHandler}) == null) && (params = unitedSchemeEntity.getParams()) != null && !params.isEmpty()) {
+            nw2Var.u(z, d(params));
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         }
     }

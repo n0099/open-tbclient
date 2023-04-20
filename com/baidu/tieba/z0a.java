@@ -1,13 +1,9 @@
 package com.baidu.tieba;
 /* loaded from: classes7.dex */
 public interface z0a {
-    void b();
+    void g(String str);
 
-    boolean c();
+    void k(String str);
 
-    void d();
-
-    void e();
-
-    void play();
+    void n();
 }

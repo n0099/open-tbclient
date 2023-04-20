@@ -14,8 +14,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.appcompat.content.res.AppCompatResources;
 import com.baidu.tieba.R;
-import com.baidu.tieba.br2;
-import com.baidu.tieba.id3;
+import com.baidu.tieba.cr2;
+import com.baidu.tieba.jd3;
 /* loaded from: classes3.dex */
 public class CommonEmptyView extends RelativeLayout {
     public ImageView a;
@@ -27,7 +27,7 @@ public class CommonEmptyView extends RelativeLayout {
     public TextView g;
 
     /* loaded from: classes3.dex */
-    public class a implements id3 {
+    public class a implements jd3 {
         public a() {
         }
     }
@@ -97,13 +97,13 @@ public class CommonEmptyView extends RelativeLayout {
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        br2.M().f(this, new a());
+        cr2.M().f(this, new a());
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        br2.M().g(this);
+        cr2.M().g(this);
     }
 
     @Override // android.view.View

@@ -1,44 +1,65 @@
 package com.baidu.tieba;
 
+import androidx.annotation.DrawableRes;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class rt8 {
+public class rt8 extends am9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId f1;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<sl9> a;
-    public final List<Long> b;
-    public int c;
+    @DrawableRes
+    public int a1;
+    public String b1;
+    public int c1;
+    public int d1;
+    public int e1;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948133267, "Lcom/baidu/tieba/rt8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948133267, "Lcom/baidu/tieba/rt8;");
+                return;
+            }
+        }
+        f1 = BdUniqueId.gen();
+    }
 
     public rt8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.b = new ArrayList();
-        this.c = 0;
+        this.e1 = 0;
     }
 
-    public int a() {
+    @Override // com.baidu.tieba.am9, com.baidu.tieba.in
+    public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+            return f1;
         }
-        return invokeV.intValue;
+        return (BdUniqueId) invokeV.objValue;
     }
 }

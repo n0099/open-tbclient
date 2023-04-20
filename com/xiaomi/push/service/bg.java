@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class bg {
     public static bg a;
 
@@ -23,12 +23,12 @@ public class bg {
     /* renamed from: a  reason: collision with other field name */
     public List<a> f925a = new ArrayList();
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void a();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with other field name */
@@ -77,16 +77,16 @@ public class bg {
         public IBinder.DeathRecipient f928a = null;
 
         /* renamed from: a  reason: collision with other field name */
-        public final C0738b f932a = new C0738b();
+        public final C0737b f932a = new C0737b();
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes9.dex */
         public interface a {
             void a(c cVar, c cVar2, int i);
         }
 
         /* renamed from: com.xiaomi.push.service.bg$b$b  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        public class C0738b extends XMPushService.j {
+        /* loaded from: classes9.dex */
+        public class C0737b extends XMPushService.j {
 
             /* renamed from: a  reason: collision with other field name */
             public String f940a;
@@ -96,7 +96,7 @@ public class bg {
             public String f941b;
             public int c;
 
-            public C0738b() {
+            public C0737b() {
                 super(0);
             }
 
@@ -125,7 +125,7 @@ public class bg {
             }
         }
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes9.dex */
         public class c implements IBinder.DeathRecipient {
             public final Messenger a;
 
@@ -302,7 +302,7 @@ public class bg {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public enum c {
         unbind,
         binding,

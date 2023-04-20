@@ -7,9 +7,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.a9;
-import com.baidu.tieba.al9;
-import com.baidu.tieba.gr9;
-import com.baidu.tieba.is9;
+import com.baidu.tieba.il9;
+import com.baidu.tieba.or9;
+import com.baidu.tieba.qs9;
 import com.baidu.tieba.za;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -22,13 +22,13 @@ public class AvatarPendantModel extends BdBaseModel<AvatarPendantActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
-    public is9 b;
-    public List<gr9> c;
+    public qs9 b;
+    public List<or9> c;
     public za d;
 
     /* loaded from: classes6.dex */
     public interface b {
-        void a(int i, String str, is9 is9Var, List<gr9> list);
+        void a(int i, String str, qs9 qs9Var, List<or9> list);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -124,7 +124,7 @@ public class AvatarPendantModel extends BdBaseModel<AvatarPendantActivity> {
         }
     }
 
-    public List<gr9> V() {
+    public List<or9> V() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -154,8 +154,8 @@ public class AvatarPendantModel extends BdBaseModel<AvatarPendantActivity> {
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            al9.h(309371, AvatarPendantListSocketResponseMessage.class, false, false);
-            al9.c(309371, CmdConfigHttp.CMD_AVATAR_PENDANT_LIST, TbConfig.AVATAR_PENDANT, AvatarPendantListHttpResponseMessage.class, true, true, true, true);
+            il9.h(309371, AvatarPendantListSocketResponseMessage.class, false, false);
+            il9.c(309371, CmdConfigHttp.CMD_AVATAR_PENDANT_LIST, TbConfig.AVATAR_PENDANT, AvatarPendantListHttpResponseMessage.class, true, true, true, true);
         }
     }
 }

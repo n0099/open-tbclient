@@ -1,21 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.framework.message.Message;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import com.baidu.tieba.im.data.GroupInfoData;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class nq9 extends CustomMessageListener {
+public class nq9 extends HttpMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final uo9 a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public nq9(MainTabActivity mainTabActivity) {
-        super(2921764);
+        super(CmdConfigHttp.CMD_HTTP_SHARE_CONTENT_TO_CHAT_GROUP);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -31,22 +37,37 @@ public class nq9 extends CustomMessageListener {
                 return;
             }
         }
-        this.a = mainTabActivity.e;
+    }
+
+    public final void a(Message<?> message, String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(1048576, this, message, str, z) == null) {
+            int i = 4;
+            if (message instanceof HttpMessage) {
+                HttpMessage httpMessage = (HttpMessage) message;
+                if (httpMessage.getParams() != null) {
+                    Object obj = httpMessage.getParams().get(GroupInfoData.SHARE_KEY_TYPE);
+                    if (obj instanceof String) {
+                        i = pha.b((String) obj, 4);
+                    }
+                }
+            }
+            i28.a(str, z, i, 2, true);
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        uo9 uo9Var;
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (uo9Var = this.a) != null && uo9Var.f() != null && (customResponsedMessage.getData() instanceof Boolean)) {
-            if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                Runnable runnable = this.a.k().d;
-                jg.a().removeCallbacks(runnable);
-                jg.a().post(runnable);
-                return;
-            }
-            jg.a().removeCallbacks(this.a.k().d);
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpResponsedMessage) != null) || !(httpResponsedMessage instanceof JsonHttpResponsedMessage)) {
+            return;
+        }
+        JsonHttpResponsedMessage jsonHttpResponsedMessage = (JsonHttpResponsedMessage) httpResponsedMessage;
+        if (jsonHttpResponsedMessage.getError() != 0) {
+            a(httpResponsedMessage.getOrginalMessage(), uz7.a(jsonHttpResponsedMessage.getError(), jsonHttpResponsedMessage.getErrorString()), false);
+        } else {
+            a(httpResponsedMessage.getOrginalMessage(), TbadkCoreApplication.getInst().getResources().getString(R.string.share_success), true);
         }
     }
 }

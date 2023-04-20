@@ -13,10 +13,10 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hn;
-import com.baidu.tieba.hn7;
-import com.baidu.tieba.kn7;
-import com.baidu.tieba.mn7;
+import com.baidu.tieba.in;
+import com.baidu.tieba.in7;
+import com.baidu.tieba.ln7;
+import com.baidu.tieba.nn7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,8 +28,8 @@ import java.util.List;
 public class RecommendBarPageAdapter extends PagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<hn> a;
-    public List<mn7> b;
+    public List<in> a;
+    public List<nn7> b;
     public TbPageContext<?> c;
     public int d;
     public byte e;
@@ -62,11 +62,11 @@ public class RecommendBarPageAdapter extends PagerAdapter {
         this.a = new ArrayList(6);
         this.b = new ArrayList(6);
         for (int i3 = 0; i3 < 6; i3++) {
-            this.b.add(new mn7(LayoutInflater.from(this.c.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07c7, (ViewGroup) null, false), this.c, b));
+            this.b.add(new nn7(LayoutInflater.from(this.c.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07c7, (ViewGroup) null, false), this.c, b));
         }
     }
 
-    public hn b(int i) {
+    public in b(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
@@ -75,7 +75,7 @@ public class RecommendBarPageAdapter extends PagerAdapter {
             }
             return null;
         }
-        return (hn) invokeI.objValue;
+        return (in) invokeI.objValue;
     }
 
     public void c(int i) {
@@ -84,35 +84,35 @@ public class RecommendBarPageAdapter extends PagerAdapter {
             return;
         }
         this.d = i;
-        List<mn7> list = this.b;
+        List<nn7> list = this.b;
         if (list != null && list.size() > 0) {
-            for (mn7 mn7Var : this.b) {
-                mn7Var.l(i);
+            for (nn7 nn7Var : this.b) {
+                nn7Var.l(i);
             }
         }
     }
 
-    public void d(hn7 hn7Var) {
+    public void d(in7 in7Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hn7Var) == null) && hn7Var != null && !ListUtils.isEmpty(hn7Var.d())) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, in7Var) == null) && in7Var != null && !ListUtils.isEmpty(in7Var.d())) {
             this.a.clear();
-            this.a.addAll(hn7Var.d());
+            this.a.addAll(in7Var.d());
             for (int i = 0; i < this.a.size() && i < this.b.size(); i++) {
-                mn7 mn7Var = this.b.get(i);
-                mn7Var.m(!hn7Var.e());
-                mn7Var.c((hn) ListUtils.getItem(this.a, i));
+                nn7 nn7Var = this.b.get(i);
+                nn7Var.m(!in7Var.e());
+                nn7Var.c((in) ListUtils.getItem(this.a, i));
             }
             notifyDataSetChanged();
-            if (this.a.get(0) instanceof kn7) {
-                kn7 kn7Var = (kn7) this.a.get(0);
+            if (this.a.get(0) instanceof ln7) {
+                ln7 ln7Var = (ln7) this.a.get(0);
                 StatisticItem param = new StatisticItem("c14004").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", (int) this.e).param("obj_param1", 0);
-                if (!StringUtils.isNull(kn7Var.a)) {
-                    param = param.param("obj_name", kn7Var.a);
+                if (!StringUtils.isNull(ln7Var.a)) {
+                    param = param.param("obj_name", ln7Var.a);
                 }
                 TiebaStatic.log(param);
-                StatisticItem param2 = new StatisticItem("c13643").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", kn7Var.a()).param("obj_locate", (int) this.e);
-                if (!StringUtils.isNull(kn7Var.a)) {
-                    param2 = param2.param("obj_name", kn7Var.a);
+                StatisticItem param2 = new StatisticItem("c13643").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", ln7Var.a()).param("obj_locate", (int) this.e);
+                if (!StringUtils.isNull(ln7Var.a)) {
+                    param2 = param2.param("obj_name", ln7Var.a);
                 }
                 TiebaStatic.log(param2);
             }
@@ -133,15 +133,15 @@ public class RecommendBarPageAdapter extends PagerAdapter {
             return;
         }
         for (int i = 0; i < this.b.size(); i++) {
-            mn7 mn7Var = this.b.get(i);
-            kn7 j2 = mn7Var.j();
+            nn7 nn7Var = this.b.get(i);
+            ln7 j2 = nn7Var.j();
             if (j2 != null) {
                 int i2 = 0;
                 while (true) {
-                    kn7.a[] aVarArr = j2.d;
+                    ln7.a[] aVarArr = j2.d;
                     if (i2 < aVarArr.length) {
                         if (aVarArr[i2].e() == j) {
-                            mn7Var.n(i2, z);
+                            nn7Var.n(i2, z);
                         }
                         i2++;
                     }
@@ -156,20 +156,20 @@ public class RecommendBarPageAdapter extends PagerAdapter {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, viewGroup, i)) == null) {
-            List<mn7> list = this.b;
+            List<nn7> list = this.b;
             if (list == null) {
                 return super.instantiateItem(viewGroup, i);
             }
-            mn7 mn7Var = (mn7) ListUtils.getItem(list, i);
-            if (mn7Var == null) {
+            nn7 nn7Var = (nn7) ListUtils.getItem(list, i);
+            if (nn7Var == null) {
                 return super.instantiateItem(viewGroup, i);
             }
-            if (mn7Var.b().getParent() == null) {
-                viewGroup.addView(mn7Var.b(), new ViewGroup.LayoutParams(-2, -2));
+            if (nn7Var.b().getParent() == null) {
+                viewGroup.addView(nn7Var.b(), new ViewGroup.LayoutParams(-2, -2));
             }
-            mn7Var.b().setTag(Integer.valueOf(i));
-            mn7Var.c((hn) ListUtils.getItem(this.a, i));
-            return mn7Var.b();
+            nn7Var.b().setTag(Integer.valueOf(i));
+            nn7Var.c((in) ListUtils.getItem(this.a, i));
+            return nn7Var.b();
         }
         return invokeLI.objValue;
     }

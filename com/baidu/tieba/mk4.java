@@ -1,19 +1,15 @@
 package com.baidu.tieba;
 
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collection;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class mk4 {
+public class mk4 extends dj4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public rg4 a;
-    public rg4 b;
-    public pg4 c;
-    public Collection<wg4> d;
-    public Collection<vg4> e;
 
     public mk4() {
         Interceptable interceptable = $ic;
@@ -26,6 +22,17 @@ public class mk4 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
+        }
+    }
+
+    @Override // com.baidu.tieba.dj4, com.baidu.tieba.gj4
+    public void b(JSONObject jSONObject, qf4 qf4Var, @Nullable qf4 qf4Var2, @Nullable qf4 qf4Var3) {
+        JSONObject optJSONObject;
+        jk4 a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLL(1048576, this, jSONObject, qf4Var, qf4Var2, qf4Var3) == null) && jSONObject != null && (optJSONObject = jSONObject.optJSONObject("base_info")) != null && (a = jk4.a(optJSONObject)) != null) {
+            kk4.e().i(a);
+            kk4.e().j(a.k);
         }
     }
 }

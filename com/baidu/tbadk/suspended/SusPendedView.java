@@ -15,8 +15,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.an5;
 import com.baidu.tieba.bn5;
+import com.baidu.tieba.cn5;
 import com.baidu.tieba.ii;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -30,7 +30,7 @@ public class SusPendedView extends LinearLayout {
     public LinearLayout a;
     public TranView b;
     public LinearLayout c;
-    public bn5 d;
+    public cn5 d;
     public float e;
     public float f;
     public boolean g;
@@ -191,10 +191,10 @@ public class SusPendedView extends LinearLayout {
         }
     }
 
-    public void setContentViewTop(bn5 bn5Var) {
+    public void setContentViewTop(cn5 cn5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, bn5Var) == null) {
-            this.d = bn5Var;
+        if (interceptable == null || interceptable.invokeL(1048591, this, cn5Var) == null) {
+            this.d = cn5Var;
         }
     }
 
@@ -230,11 +230,11 @@ public class SusPendedView extends LinearLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            bn5 bn5Var = this.d;
-            if (bn5Var == null) {
+            cn5 cn5Var = this.d;
+            if (cn5Var == null) {
                 return false;
             }
-            return bn5Var.z();
+            return cn5Var.z();
         }
         return invokeV.booleanValue;
     }
@@ -403,9 +403,9 @@ public class SusPendedView extends LinearLayout {
                 float f = this.f;
                 float f2 = this.e;
                 if (f > f2 && this.g) {
-                    bn5 bn5Var = this.d;
-                    if (bn5Var instanceof an5) {
-                        ((an5) bn5Var).O(f - f2);
+                    cn5 cn5Var = this.d;
+                    if (cn5Var instanceof bn5) {
+                        ((bn5) cn5Var).O(f - f2);
                     }
                     LinearLayout linearLayout = this.a;
                     float f3 = this.f;

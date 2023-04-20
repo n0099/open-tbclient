@@ -1,7 +1,8 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.newfaceshop.message.GetCloudFaceGroupMessage;
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes5.dex */
 public interface jp8 {
-    void a(GetCloudFaceGroupMessage getCloudFaceGroupMessage);
+    public static final BdUniqueId a = BdUniqueId.gen();
+    public static final BdUniqueId b = BdUniqueId.gen();
 }

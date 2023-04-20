@@ -19,7 +19,7 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class BotsDTO extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -313586391413374981L;
@@ -29,7 +29,7 @@ public class BotsDTO extends OrmObject implements Serializable {
     @SerializedName("guide")
     public String guide;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class BotListDTO extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -44,7 +44,7 @@ public class BotsDTO extends OrmObject implements Serializable {
         @SerializedName("user")
         public UserDTO user;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes5.dex */
         public static class SkillDTO extends OrmObject implements Serializable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final String ALIAS = "alias";
@@ -81,7 +81,7 @@ public class BotsDTO extends OrmObject implements Serializable {
             @SerializedName("type")
             public int type;
 
-            /* loaded from: classes4.dex */
+            /* loaded from: classes5.dex */
             public static class ItemsDTO extends OrmObject implements Serializable {
                 public static /* synthetic */ Interceptable $ic = null;
                 public static final String FORMAT = "\\$\\{%1$s.key.%2$s\\}";
@@ -101,7 +101,7 @@ public class BotsDTO extends OrmObject implements Serializable {
                 @SerializedName("value")
                 public String value;
 
-                /* loaded from: classes4.dex */
+                /* loaded from: classes5.dex */
                 public static class OptsDTO extends OrmObject implements Serializable {
                     public static /* synthetic */ Interceptable $ic = null;
                     public static final String FORMAT = "\\$\\{%1$s.value.%2$s\\}";
@@ -119,7 +119,7 @@ public class BotsDTO extends OrmObject implements Serializable {
                     @SerializedName(MediaTrackConfig.AE_IMPORT_TEMPLATE)
                     public String showTemplate;
 
-                    /* loaded from: classes4.dex */
+                    /* loaded from: classes5.dex */
                     public static class Ext extends OrmObject implements Serializable {
                         public static /* synthetic */ Interceptable $ic = null;
                         public static final long serialVersionUID = -3301778482938927776L;
@@ -784,7 +784,7 @@ public class BotsDTO extends OrmObject implements Serializable {
             }
         }
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes5.dex */
         public static class UserDTO extends OrmObject implements Serializable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;

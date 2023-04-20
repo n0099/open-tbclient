@@ -1,24 +1,67 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.PbGoodsData;
-import com.baidu.tbadk.core.data.PbLinkData;
-import com.baidu.tbadk.core.view.MultiLinkCardView;
-import com.baidu.tieba.av6;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.data.ItemData;
+import com.baidu.tbadk.core.util.ItemClickJumpUtil;
+import com.baidu.tbadk.core.view.ItemCardView;
+import com.baidu.tieba.bv6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class ni6 implements av6.g {
+public class ni6 implements bv6.f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ aw6 a;
+        public final /* synthetic */ ItemData b;
+
+        public a(ni6 ni6Var, aw6 aw6Var, ItemData itemData) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ni6Var, aw6Var, itemData};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = aw6Var;
+            this.b = itemData;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                int i = 2;
+                int i2 = 0;
+                if (ImageViewerConfig.FROM_CONCERN.equals(this.a.c().b)) {
+                    i2 = 2;
+                } else {
+                    i = 0;
+                }
+                ItemData itemData = this.b;
+                ItemClickJumpUtil.itemClickJump(itemData.forumName, String.valueOf(itemData.itemId), i, Integer.valueOf(i2));
+            }
+        }
+    }
 
     public ni6() {
         Interceptable interceptable = $ic;
@@ -34,58 +77,60 @@ public class ni6 implements av6.g {
         }
     }
 
-    @Override // com.baidu.tieba.av6.l
+    @Override // com.baidu.tieba.bv6.l
     public void a(@NonNull ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) && (viewGroup instanceof MultiLinkCardView)) {
-            ((MultiLinkCardView) viewGroup).b();
+        if ((interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) && (viewGroup instanceof ItemCardView)) {
+            ((ItemCardView) viewGroup).G();
         }
     }
 
-    @Override // com.baidu.tieba.av6.g
+    @Override // com.baidu.tieba.bv6.f
     @NonNull
     public ViewGroup create(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            return new MultiLinkCardView(context);
+            return new ItemCardView(context);
         }
         return (ViewGroup) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.av6.g
+    @Override // com.baidu.tieba.bv6.f
     public void update(@NonNull ViewGroup viewGroup, @NonNull aw6 aw6Var) {
+        String str;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, viewGroup, aw6Var) == null) && (viewGroup instanceof MultiLinkCardView)) {
-            List<jx6> d = aw6Var.d();
-            ArrayList arrayList = new ArrayList();
-            ArrayList arrayList2 = new ArrayList();
-            for (jx6 jx6Var : d) {
-                if (jx6Var.i() == 6) {
-                    PbGoodsData pbGoodsData = new PbGoodsData();
-                    pbGoodsData.title = jx6Var.h();
-                    pbGoodsData.picUrl = jx6Var.f();
-                    pbGoodsData.price = jx6Var.c();
-                    pbGoodsData.linkUrl = jx6Var.e();
-                    pbGoodsData.sort = jx6Var.g();
-                    pbGoodsData.linkFrom = jx6Var.d();
-                    pbGoodsData.goodsUrlH5 = jx6Var.a();
-                    arrayList2.add(pbGoodsData);
-                } else {
-                    PbLinkData pbLinkData = new PbLinkData();
-                    pbLinkData.title = jx6Var.h();
-                    pbLinkData.linkUrl = jx6Var.e();
-                    pbLinkData.picUrl = jx6Var.f();
-                    pbLinkData.linkFrom = jx6Var.d();
-                    pbLinkData.extTxt = jx6Var.c();
-                    pbLinkData.sort = jx6Var.g();
-                    pbLinkData.urlType = jx6Var.i();
-                    pbLinkData.content1 = jx6Var.a();
-                    pbLinkData.content2 = jx6Var.b();
-                    arrayList.add(pbLinkData);
-                }
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, viewGroup, aw6Var) == null) && viewGroup != null && aw6Var != null && aw6Var.a() != null) {
+            ox6 a2 = aw6Var.a();
+            ItemData itemData = new ItemData();
+            itemData.itemId = a2.a;
+            itemData.buttonName = a2.h;
+            itemData.buttonLink = a2.i;
+            itemData.buttonLinkType = 2;
+            itemData.mIconUrl = a2.b;
+            itemData.mTitle = a2.d;
+            itemData.mTags = a2.g;
+            itemData.mScore = a2.f;
+            itemData.mStar = a2.e;
+            itemData.mIconSize = a2.c;
+            itemData.forumName = a2.k;
+            int i = a2.j;
+            if (i != 0) {
+                ((ItemCardView) viewGroup).setBackGroundColor(i);
             }
-            ((MultiLinkCardView) viewGroup).a(arrayList, arrayList2);
+            if (aw6Var.c() != null) {
+                str = aw6Var.c().a;
+            } else {
+                str = "";
+            }
+            ItemCardView itemCardView = (ItemCardView) viewGroup;
+            itemCardView.setIsShowRightBtn(true);
+            itemCardView.setData(itemData, 13, str);
+            if (aw6Var.b()) {
+                viewGroup.setOnClickListener(new a(this, aw6Var, itemData));
+            } else {
+                viewGroup.setClickable(false);
+            }
         }
     }
 }

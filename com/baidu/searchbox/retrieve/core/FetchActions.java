@@ -5,18 +5,18 @@ import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.retrieve.inter.IFetchJob;
 import com.baidu.searchbox.retrieve.inter.IFetchJob_FetchActions_ListProvider;
-import com.baidu.tieba.cj1;
-import com.baidu.tieba.ej1;
+import com.baidu.tieba.dj1;
+import com.baidu.tieba.fj1;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class FetchActions {
     public static final boolean DEBUG = AppConfig.isDebug();
     @Inject
-    public ej1<IFetchJob> mFetchCommandList;
+    public fj1<IFetchJob> mFetchCommandList;
 
     public void initmFetchCommandList() {
-        cj1 b = cj1.b();
+        dj1 b = dj1.b();
         this.mFetchCommandList = b;
         b.a(new IFetchJob_FetchActions_ListProvider());
     }
@@ -40,8 +40,8 @@ public class FetchActions {
 
     public List<IFetchJob> getFetchCommandList() {
         List<IFetchJob> list;
-        ej1<IFetchJob> ej1Var = this.mFetchCommandList;
-        if (ej1Var == null || (list = ej1Var.getList()) == null || list.size() == 0) {
+        fj1<IFetchJob> fj1Var = this.mFetchCommandList;
+        if (fj1Var == null || (list = fj1Var.getList()) == null || list.size() == 0) {
             return null;
         }
         ArrayList arrayList = new ArrayList();

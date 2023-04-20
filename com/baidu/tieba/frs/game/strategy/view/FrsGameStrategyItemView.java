@@ -13,16 +13,16 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.um9;
-import com.baidu.tieba.xa7;
-import com.baidu.tieba.yf6;
+import com.baidu.tieba.cn9;
+import com.baidu.tieba.ya7;
+import com.baidu.tieba.zf6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class FrsGameStrategyItemView extends yf6<xa7> {
+public class FrsGameStrategyItemView extends zf6<ya7> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext i;
@@ -33,7 +33,7 @@ public class FrsGameStrategyItemView extends yf6<xa7> {
     public TextView n;
     public TextView o;
 
-    @Override // com.baidu.tieba.yf6
+    @Override // com.baidu.tieba.zf6
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -98,7 +98,7 @@ public class FrsGameStrategyItemView extends yf6<xa7> {
         r();
     }
 
-    @Override // com.baidu.tieba.yf6
+    @Override // com.baidu.tieba.zf6
     public void m(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
@@ -124,14 +124,14 @@ public class FrsGameStrategyItemView extends yf6<xa7> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.yf6
+    @Override // com.baidu.tieba.zf6
     /* renamed from: s */
-    public void l(xa7 xa7Var) {
+    public void l(ya7 ya7Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, xa7Var) == null) && xa7Var != null && xa7Var.getThreadData() != null) {
-            ThreadData threadData = xa7Var.getThreadData();
+        if ((interceptable == null || interceptable.invokeL(1048581, this, ya7Var) == null) && ya7Var != null && ya7Var.getThreadData() != null) {
+            ThreadData threadData = ya7Var.getThreadData();
             this.m.setText(threadData.getTitle());
-            um9 readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
+            cn9 readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
             if (readThreadHistory != null && readThreadHistory.d(threadData.getId())) {
                 SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0108);
             } else {

@@ -23,20 +23,20 @@ import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.util.DeviceInfoUtil;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cr5;
-import com.baidu.tieba.fq5;
+import com.baidu.tieba.dr5;
 import com.baidu.tieba.gg;
-import com.baidu.tieba.gr5;
+import com.baidu.tieba.gq5;
+import com.baidu.tieba.hr5;
 import com.baidu.tieba.ii;
 import com.baidu.tieba.im.chat.AbsMsglistView;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.message.MemoryChangedMessage;
-import com.baidu.tieba.k88;
-import com.baidu.tieba.kz7;
-import com.baidu.tieba.pc5;
-import com.baidu.tieba.py7;
-import com.baidu.tieba.q25;
+import com.baidu.tieba.lz7;
 import com.baidu.tieba.qc5;
+import com.baidu.tieba.qy7;
+import com.baidu.tieba.r25;
+import com.baidu.tieba.rc5;
+import com.baidu.tieba.s88;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
 import com.baidu.tieba.view.RoundRelativeLayout;
 import com.baidu.tieba.view.gameim.GameContactsView;
@@ -52,15 +52,15 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class GamePersonalChatView extends PersonalChatView {
     public static /* synthetic */ Interceptable $ic;
     public static final int E;
     public transient /* synthetic */ FieldHolder $fh;
     public String A;
     public String B;
-    public py7 C;
-    public qc5 D;
+    public qy7 C;
+    public rc5 D;
     public final GamePersonalChatActivity r;
     public boolean s;
     public GameContactsView t;
@@ -71,8 +71,8 @@ public class GamePersonalChatView extends PersonalChatView {
     public int y;
     public String z;
 
-    /* loaded from: classes4.dex */
-    public class a implements fq5<Void> {
+    /* loaded from: classes5.dex */
+    public class a implements gq5<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UserData a;
@@ -98,7 +98,7 @@ public class GamePersonalChatView extends PersonalChatView {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.fq5
+        @Override // com.baidu.tieba.gq5
         /* renamed from: a */
         public void onReturnDataInUI(Void r5) {
             Interceptable interceptable = $ic;
@@ -108,7 +108,7 @@ public class GamePersonalChatView extends PersonalChatView {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -143,7 +143,7 @@ public class GamePersonalChatView extends PersonalChatView {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class c extends m {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -180,7 +180,7 @@ public class GamePersonalChatView extends PersonalChatView {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class d extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -232,7 +232,7 @@ public class GamePersonalChatView extends PersonalChatView {
                         this.a.z0();
                         return;
                     }
-                    List<py7> h = py7.h(hashMap);
+                    List<qy7> h = qy7.h(hashMap);
                     if (!h.isEmpty()) {
                         this.a.D0(h);
                         return;
@@ -246,7 +246,7 @@ public class GamePersonalChatView extends PersonalChatView {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class e extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -284,7 +284,7 @@ public class GamePersonalChatView extends PersonalChatView {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class f implements GameContactsView.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -309,25 +309,25 @@ public class GamePersonalChatView extends PersonalChatView {
         }
 
         @Override // com.baidu.tieba.view.gameim.GameContactsView.a
-        public void a(View view2, py7 py7Var, int i) {
+        public void a(View view2, qy7 qy7Var, int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLLI(1048576, this, view2, py7Var, i) != null) || py7Var == null) {
+            if ((interceptable != null && interceptable.invokeLLI(1048576, this, view2, qy7Var, i) != null) || qy7Var == null) {
                 return;
             }
-            this.a.C = py7Var;
+            this.a.C = qy7Var;
             if (i != 3) {
-                this.a.u.h(py7Var);
+                this.a.u.h(qy7Var);
                 this.a.r.K = false;
-                this.a.K0(py7Var);
-                k88.h(this.a.B, this.a.A, py7Var.d(), py7Var.b(), py7Var.e());
+                this.a.K0(qy7Var);
+                s88.h(this.a.B, this.a.A, qy7Var.d(), qy7Var.b(), qy7Var.e());
             }
             if (i != 1) {
-                k88.e(this.a.B, this.a.A, py7Var.d(), py7Var.b(), py7Var.e());
+                s88.e(this.a.B, this.a.A, qy7Var.d(), qy7Var.b(), qy7Var.e());
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class g implements GamePersonalChatTitleView.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -352,23 +352,23 @@ public class GamePersonalChatView extends PersonalChatView {
         }
 
         @Override // com.baidu.tieba.view.gameim.GamePersonalChatTitleView.b
-        public void a(@NonNull py7 py7Var) {
+        public void a(@NonNull qy7 qy7Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, py7Var) == null) {
-                k88.a(this.a.B, this.a.A, py7Var.d(), py7Var.b(), py7Var.e());
-                if (py7Var.e()) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, qy7Var) == null) {
+                s88.a(this.a.B, this.a.A, qy7Var.d(), qy7Var.b(), qy7Var.e());
+                if (qy7Var.e()) {
                     if (this.a.r.C1() != null && !TextUtils.isEmpty(this.a.z)) {
                         this.a.r.C1().sendTextMessage(this.a.z);
                         return;
                     }
                     return;
                 }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921713, py7Var));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921713, qy7Var));
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class h extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -399,9 +399,9 @@ public class GamePersonalChatView extends PersonalChatView {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Object obj;
-            py7 g;
+            qy7 g;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2921712 || !(customResponsedMessage.getData() instanceof HashMap) || (obj = ((HashMap) customResponsedMessage.getData()).get("imUser")) == null || (g = py7.g(obj)) == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2921712 || !(customResponsedMessage.getData() instanceof HashMap) || (obj = ((HashMap) customResponsedMessage.getData()).get("imUser")) == null || (g = qy7.g(obj)) == null) {
                 return;
             }
             if (this.a.t.b(g)) {
@@ -415,7 +415,7 @@ public class GamePersonalChatView extends PersonalChatView {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class i extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -466,8 +466,8 @@ public class GamePersonalChatView extends PersonalChatView {
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class j implements qc5 {
+    /* loaded from: classes5.dex */
+    public class j implements rc5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ GamePersonalChatView a;
@@ -490,18 +490,18 @@ public class GamePersonalChatView extends PersonalChatView {
             this.a = gamePersonalChatView;
         }
 
-        @Override // com.baidu.tieba.qc5
-        public void C(pc5 pc5Var) {
+        @Override // com.baidu.tieba.rc5
+        public void C(qc5 qc5Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, pc5Var) == null) && pc5Var != null && this.a.C != null) {
-                int i = pc5Var.a;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, qc5Var) == null) && qc5Var != null && this.a.C != null) {
+                int i = qc5Var.a;
                 if (i == 14) {
-                    k88.d(this.a.B, this.a.A, this.a.C.b(), this.a.C.e());
+                    s88.d(this.a.B, this.a.A, this.a.C.b(), this.a.C.e());
                     return;
                 }
                 int i2 = 1;
                 if (i == 63) {
-                    Object obj = pc5Var.c;
+                    Object obj = qc5Var.c;
                     if (obj instanceof Boolean) {
                         boolean booleanValue = ((Boolean) obj).booleanValue();
                         String str = this.a.B;
@@ -511,10 +511,10 @@ public class GamePersonalChatView extends PersonalChatView {
                         if (!booleanValue) {
                             i2 = 2;
                         }
-                        k88.f(str, str2, b, e, i2);
+                        s88.f(str, str2, b, e, i2);
                     }
                 } else if (i == 62) {
-                    Object obj2 = pc5Var.c;
+                    Object obj2 = qc5Var.c;
                     if (obj2 instanceof Boolean) {
                         boolean booleanValue2 = ((Boolean) obj2).booleanValue();
                         String str3 = this.a.B;
@@ -524,16 +524,16 @@ public class GamePersonalChatView extends PersonalChatView {
                         if (!booleanValue2) {
                             i2 = 2;
                         }
-                        k88.c(str3, str4, b2, e2, i2);
+                        s88.c(str3, str4, b2, e2, i2);
                     }
                 } else if (i == 64) {
-                    k88.b(this.a.B, this.a.A, this.a.C.b(), this.a.C.e());
+                    s88.b(this.a.B, this.a.A, this.a.C.b(), this.a.C.e());
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class k implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -568,8 +568,8 @@ public class GamePersonalChatView extends PersonalChatView {
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class l extends cr5<Void> {
+    /* loaded from: classes5.dex */
+    public class l extends dr5<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LinkedList a;
@@ -593,19 +593,19 @@ public class GamePersonalChatView extends PersonalChatView {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.cr5
+        @Override // com.baidu.tieba.dr5
         /* renamed from: a */
         public Void doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return kz7.w().a(this.a);
+                return lz7.w().a(this.a);
             }
             return (Void) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class m implements Animator.AnimatorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -718,7 +718,7 @@ public class GamePersonalChatView extends PersonalChatView {
         B0();
     }
 
-    public final void D0(@NonNull List<py7> list) {
+    public final void D0(@NonNull List<qy7> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
             this.t.a(list);
@@ -739,7 +739,7 @@ public class GamePersonalChatView extends PersonalChatView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
             super.onChangeSkinType(i2);
-            q25.d(this.t).f(R.color.CAM_X0204);
+            r25.d(this.t).f(R.color.CAM_X0204);
             this.u.g();
         }
     }
@@ -835,7 +835,7 @@ public class GamePersonalChatView extends PersonalChatView {
         }
         GamePersonalChatActivity gamePersonalChatActivity = this.r;
         ii.z(gamePersonalChatActivity, gamePersonalChatActivity.getCurrentFocus());
-        this.mTool.C(new pc5(5, -1, null));
+        this.mTool.C(new qc5(5, -1, null));
     }
 
     public final void C0() {
@@ -916,17 +916,17 @@ public class GamePersonalChatView extends PersonalChatView {
         this.z = sb2.toString();
     }
 
-    public final void K0(@NonNull py7 py7Var) {
+    public final void K0(@NonNull qy7 qy7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, py7Var) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, qy7Var) == null) {
             UserData userData = new UserData();
-            userData.setPortrait(py7Var.a());
-            userData.setName_show(py7Var.c());
-            userData.setUserId(py7Var.d());
-            userData.setUserIdLong(gg.g(py7Var.d(), 0L));
+            userData.setPortrait(qy7Var.a());
+            userData.setName_show(qy7Var.c());
+            userData.setUserId(qy7Var.d());
+            userData.setUserIdLong(gg.g(qy7Var.d(), 0L));
             LinkedList linkedList = new LinkedList();
             linkedList.add(String.valueOf(userData.getUserId()));
-            gr5.c(new l(this, linkedList), new a(this, userData));
+            hr5.c(new l(this, linkedList), new a(this, userData));
         }
     }
 

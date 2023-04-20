@@ -9,8 +9,8 @@ import android.text.TextUtils;
 import android.view.Surface;
 import androidx.annotation.IntRange;
 import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
-import com.baidu.tieba.iha;
-import com.baidu.tieba.pea;
+import com.baidu.tieba.qha;
+import com.baidu.tieba.xea;
 import com.baidu.ugc.editvideo.record.source.multimedia.exoplayer.VLogSimplePlayer;
 import com.baidu.ugc.editvideo.record.source.multimedia.utils.MultiDataSourceUtil;
 import com.google.gson.reflect.TypeToken;
@@ -152,7 +152,7 @@ public class MultiMediaData implements Parcelable, Serializable, Cloneable {
     }
 
     public static String arratToJson(List<MultiMediaData> list) {
-        if (iha.e(list)) {
+        if (qha.e(list)) {
             return "";
         }
         ArrayList arrayList = new ArrayList();
@@ -161,11 +161,11 @@ public class MultiMediaData implements Parcelable, Serializable, Cloneable {
             multiMediaData.textureId = 0;
             arrayList.add(multiMediaData);
         }
-        return iha.e(arrayList) ? "" : new pea().a(arrayList);
+        return qha.e(arrayList) ? "" : new xea().a(arrayList);
     }
 
     public static List<String> getExtList(List<MultiMediaData> list, String str) {
-        if (iha.e(list) || TextUtils.isEmpty(str)) {
+        if (qha.e(list) || TextUtils.isEmpty(str)) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
@@ -186,7 +186,7 @@ public class MultiMediaData implements Parcelable, Serializable, Cloneable {
         }
         new ArrayList();
         try {
-            return (List) new pea().c(str, new TypeToken<List<MultiMediaData>>() { // from class: com.baidu.ugc.editvideo.data.MultiMediaData.2
+            return (List) new xea().c(str, new TypeToken<List<MultiMediaData>>() { // from class: com.baidu.ugc.editvideo.data.MultiMediaData.2
             }.getType());
         } catch (Exception unused) {
             return null;

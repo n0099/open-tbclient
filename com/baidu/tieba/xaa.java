@@ -1,29 +1,40 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-/* loaded from: classes6.dex */
-public interface xaa {
-    void a(int i);
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ubc.UBCManager;
+/* loaded from: classes7.dex */
+public class xaa extends rj1<UBCManager> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    String b(boolean z);
+    public xaa() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    String c(String str);
-
-    int d();
-
-    String e(String str);
-
-    Context getAppContext();
-
-    int getInt(String str, int i);
-
-    long getLong(String str, long j);
-
-    boolean isDebug();
-
-    void putInt(String str, int i);
-
-    void putLong(String str, long j);
-
-    void putString(String str, String str2);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.rj1
+    /* renamed from: a */
+    public UBCManager createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new yaa();
+        }
+        return (UBCManager) invokeV.objValue;
+    }
 }

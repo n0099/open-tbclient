@@ -1,10 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.game.ad.downloader.exception.DownloadException;
+import android.net.Uri;
+import androidx.annotation.NonNull;
 import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
+import com.baidu.tieba.qv3;
 /* loaded from: classes7.dex */
 public interface zv3 {
-    void a(DownloadException downloadException);
+    void a(DownloadInfo downloadInfo);
 
     void b(DownloadInfo downloadInfo);
+
+    void c(DownloadInfo downloadInfo);
+
+    void d(DownloadInfo downloadInfo);
+
+    void destroy();
+
+    void f(@NonNull String str, @NonNull Uri uri, @NonNull qv3.d<Boolean> dVar);
+
+    DownloadInfo g(String str);
 }

@@ -3,13 +3,13 @@ package com.baidu.swan.apps.adlanding.customer;
 import android.content.Context;
 import android.view.MotionEvent;
 import android.widget.ScrollView;
-import com.baidu.tieba.ru1;
+import com.baidu.tieba.su1;
 /* loaded from: classes3.dex */
 public class CustomerAdScrollView extends ScrollView {
     public boolean a;
     public boolean b;
     public float c;
-    public ru1 d;
+    public su1 d;
 
     public CustomerAdScrollView(Context context) {
         super(context);
@@ -47,16 +47,16 @@ public class CustomerAdScrollView extends ScrollView {
         this.a = z;
     }
 
-    public void setScrollViewListener(ru1 ru1Var) {
-        this.d = ru1Var;
+    public void setScrollViewListener(su1 su1Var) {
+        this.d = su1Var;
     }
 
     @Override // android.view.View
     public void onScrollChanged(int i, int i2, int i3, int i4) {
         super.onScrollChanged(i, i2, i3, i4);
-        ru1 ru1Var = this.d;
-        if (ru1Var != null) {
-            ru1Var.onScrollChanged(i, i2, i3, i4);
+        su1 su1Var = this.d;
+        if (su1Var != null) {
+            su1Var.onScrollChanged(i, i2, i3, i4);
         }
     }
 }

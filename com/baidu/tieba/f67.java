@@ -1,11 +1,11 @@
 package com.baidu.tieba;
 /* loaded from: classes4.dex */
 public interface f67 {
-    void I(int i, int i2, p67 p67Var);
+    void F();
 
-    void N(j67 j67Var);
+    void V();
 
-    void init();
+    void g0();
 
-    void q();
+    void u();
 }

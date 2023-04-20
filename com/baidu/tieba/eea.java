@@ -1,155 +1,83 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class eea implements lea {
+public class eea {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public rda a;
-    public int b;
-    public int c;
-    public boolean d;
+    public List<aea> a;
+    public int[] b;
 
-    public eea() {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public eea(List<aea> list) {
+        this(list, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((List) objArr2[0], (int[]) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = true;
     }
 
-    @Override // com.baidu.tieba.lea
-    public int a(byte[] bArr, int i) {
-        InterceptResult invokeLI;
+    public eea(List<aea> list, int[] iArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, bArr, i)) == null) {
-            rda rdaVar = this.a;
-            if (rdaVar == null || bArr == null) {
-                return 0;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list, iArr};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            this.b += bArr.length;
-            rdaVar.putBytes(bArr, i);
-            return this.b;
         }
-        return invokeLI.intValue;
+        this.a = list;
+        c(iArr);
     }
 
-    @Override // com.baidu.tieba.lea
-    public boolean a() {
+    public List<aea> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b() && this.d && this.a.available() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.lea
-    public boolean a(int i, int i2, int i3, int i4) {
-        InterceptResult invokeIIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4)) == null) {
-            if (this.a == null) {
-                this.a = (rda) tha.a("com.baidu.ugc.audioedit.AudioChangeOperator");
-            }
-            rda rdaVar = this.a;
-            if (rdaVar != null) {
-                rdaVar.initVoiceChanger(i, i2, i3, i4);
-            }
-            return this.a != null;
-        }
-        return invokeIIII.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.lea
-    public byte[] a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            rda rdaVar = this.a;
-            if (rdaVar == null || rdaVar.availableBytes() <= 0) {
-                return new byte[0];
-            }
-            byte[] bArr = new byte[4096];
-            int bytes = this.a.getBytes(bArr, 4096);
-            this.c += bytes;
-            if (bytes == 0) {
-                return null;
-            }
-            if (4096 == bytes) {
-                return bArr;
-            }
-            byte[] bArr2 = new byte[bytes];
-            System.arraycopy(bArr, 0, bArr2, 0, bytes);
-            return bArr2;
-        }
-        return (byte[]) invokeI.objValue;
-    }
-
-    public void b(int[] iArr) {
-        rda rdaVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, iArr) == null) || (rdaVar = this.a) == null) {
-            return;
-        }
-        rdaVar.setVoiceChangeType(iArr);
-    }
-
-    @Override // com.baidu.tieba.lea
-    public boolean b() {
+    public int[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (int[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.lea
-    public void c() {
-        rda rdaVar;
+    public void c(int[] iArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (rdaVar = this.a) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iArr) == null) {
+            this.b = iArr;
+            if (qha.e(this.a)) {
+                return;
+            }
+            for (aea aeaVar : this.a) {
+                if (aeaVar.b() != null) {
+                    aeaVar.b().mSoundTypes = iArr;
+                }
+            }
         }
-        rdaVar.flush();
-    }
-
-    public void c(int[] iArr, int[] iArr2, double[] dArr) {
-        rda rdaVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048583, this, iArr, iArr2, dArr) == null) || (rdaVar = this.a) == null) {
-            return;
-        }
-        rdaVar.setVoiceChangeType(iArr, iArr2, dArr);
-    }
-
-    @Override // com.baidu.tieba.lea
-    public void d() {
-        rda rdaVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (rdaVar = this.a) == null) {
-            return;
-        }
-        rdaVar.close();
-        this.a = null;
-    }
-
-    @Override // com.baidu.tieba.lea
-    public void e() {
-        rda rdaVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (rdaVar = this.a) == null) {
-            return;
-        }
-        rdaVar.clearQueues();
     }
 }

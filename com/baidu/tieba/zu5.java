@@ -1,155 +1,119 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.graphics.ColorMatrix;
-import android.graphics.ColorMatrixColorFilter;
-import android.graphics.Matrix;
 import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.drawable.BitmapDrawable;
+import android.graphics.RectF;
+import android.text.style.ReplacementSpan;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tbadk.imageManager.TbImageMemoryCache;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class zu5 extends BitmapDrawable {
+public class zu5 extends ReplacementSpan {
     public static /* synthetic */ Interceptable $ic;
+    public static final int j;
+    public static final int k;
+    public static final int l;
+    public static final int m;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public Context b;
-    public Rect c;
-    public String d;
-    public Matrix e;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
     public int f;
     public int g;
-    public float h;
+    public int h;
+    public int i;
 
-    public zu5(Context context, int i) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948372463, "Lcom/baidu/tieba/zu5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948372463, "Lcom/baidu/tieba/zu5;");
+                return;
+            }
+        }
+        j = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds5);
+        k = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds11);
+        l = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds12);
+        m = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44);
+    }
+
+    public zu5(yu5 yu5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            Object[] objArr = {yu5Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = 0;
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.e = null;
+        this.a = TbadkCoreApplication.getInst().getResources().getColor(R.color.white_alpha100);
+        this.b = R.color.CAM_X0305;
+        this.c = j;
+        this.d = k;
+        this.e = m;
         this.f = 0;
-        this.g = 0;
-        this.h = 0.9f;
-        this.b = context;
-        this.a = i;
-        this.d = String.valueOf(i);
-    }
-
-    public void a(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
-            this.f = i;
-            this.g = i2;
-            Rect rect = this.c;
-            if (rect == null) {
-                return;
-            }
-            super.setBounds(rect.left, rect.top + i2, rect.right, rect.bottom);
+        this.g = l;
+        this.h = 0;
+        if (yu5Var != null) {
+            this.a = yu5Var.a;
+            this.b = yu5Var.b;
+            this.c = yu5Var.c;
+            this.e = yu5Var.d;
+            this.d = yu5Var.e;
+            this.f = yu5Var.f;
+            this.g = yu5Var.g;
+            this.h = yu5Var.h;
         }
     }
 
-    @Override // android.graphics.drawable.BitmapDrawable, android.graphics.drawable.Drawable
-    public void draw(Canvas canvas) {
-        sm smVar;
-        String str;
-        String str2;
+    @Override // android.text.style.ReplacementSpan
+    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) && this.a > 0 && this.b != null) {
-            Paint paint = new Paint();
-            ColorMatrix colorMatrix = new ColorMatrix();
-            TbImageMemoryCache s = TbImageMemoryCache.s();
-            if (s != null && (str2 = this.d) != null) {
-                smVar = s.w(str2);
-            } else {
-                smVar = null;
-            }
-            if (smVar == null) {
-                Bitmap resBitmap = BitmapHelper.getResBitmap(this.b, this.a);
-                if (resBitmap != null) {
-                    smVar = new sm(resBitmap, false, (String) null);
-                }
-                if (s != null && smVar != null && (str = this.d) != null) {
-                    s.k(str, smVar);
-                }
-            }
-            if (smVar != null) {
-                int r = smVar.r();
-                int m = smVar.m();
-                if (r > 0 && m > 0 && this.c != null) {
-                    canvas.save();
-                    canvas.clipRect(super.getBounds());
-                    if (m <= 0 && r <= 0 && this.f == 0 && this.g == 0) {
-                        smVar.e(canvas, 0.0f, 0.0f, null);
-                    } else {
-                        if (this.e == null) {
-                            Matrix matrix = new Matrix();
-                            this.e = matrix;
-                            matrix.postTranslate(this.f, this.g);
-                            Rect rect = this.c;
-                            float f = (rect.right - rect.left) / r;
-                            float f2 = (rect.bottom - rect.top) / m;
-                            if (f >= f2) {
-                                f = f2;
-                            }
-                            if (f < 1.0f) {
-                                this.e.postScale(f, f);
-                            }
-                        }
-                        if (TbadkCoreApplication.getInst().getSkinType() == 4) {
-                            float f3 = this.h;
-                            colorMatrix.setScale(f3, f3, f3, 1.0f);
-                            paint.setColorFilter(new ColorMatrixColorFilter(colorMatrix));
-                            smVar.f(canvas, this.e, paint);
-                        } else {
-                            smVar.f(canvas, this.e, null);
-                        }
-                    }
-                    canvas.restore();
-                }
-            }
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
+            canvas.save();
+            canvas.translate(0.0f, this.h);
+            paint.setColor(SkinManager.getColor(this.b));
+            paint.setAntiAlias(true);
+            float descent = this.e - (paint.descent() - paint.ascent());
+            float f2 = i4;
+            RectF rectF = new RectF(this.f + f, (paint.ascent() + f2) - descent, this.f + f + this.i + (this.d * 2), paint.descent() + f2);
+            int i6 = this.c;
+            canvas.drawRoundRect(rectF, i6, i6, paint);
+            paint.setColor(this.a);
+            canvas.drawText(charSequence, i, i2, this.d + f + this.f, f2 - (descent / 2.0f), paint);
+            canvas.restore();
         }
     }
 
-    @Override // android.graphics.drawable.Drawable
-    public void setBounds(int i, int i2, int i3, int i4) {
+    @Override // android.text.style.ReplacementSpan
+    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4) == null) {
-            this.c = new Rect(i, i2, i3, i4);
-            this.e = null;
-            super.setBounds(i, i2, i3, i4);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
+            int measureText = (int) paint.measureText(charSequence, i, i2);
+            this.i = measureText;
+            return measureText + (this.d * 2) + this.f + this.g;
         }
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void setBounds(Rect rect) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, rect) == null) {
-            this.c = new Rect(rect);
-            this.e = null;
-            super.setBounds(rect);
-        }
+        return invokeCommon.intValue;
     }
 }

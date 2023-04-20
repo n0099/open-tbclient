@@ -17,10 +17,10 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ea8;
 import com.baidu.tieba.impersonal.data.QuickReplyData;
 import com.baidu.tieba.impersonal.databinding.ItemQuickChatReplyBinding;
-import com.baidu.tieba.q25;
-import com.baidu.tieba.w98;
+import com.baidu.tieba.r25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -93,7 +93,7 @@ public final class ChatReplyAdapter extends RecyclerView.Adapter<ViewHolder> {
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.b != (skinType = TbadkCoreApplication.getInst().getSkinType())) {
                 this.b = skinType;
                 this.a.c.setBackground(this.c);
-                q25 d = q25.d(this.a.d);
+                r25 d = r25.d(this.a.d);
                 d.n(0);
                 d.o(R.string.J_X01);
                 d.f(R.color.CAM_X0205);
@@ -115,7 +115,7 @@ public final class ChatReplyAdapter extends RecyclerView.Adapter<ViewHolder> {
                 if (!StringUtils.isNull(data.getTextColor())) {
                     this.a.b.setTextColor(Color.parseColor(data.getTextColor()));
                 } else {
-                    q25 d = q25.d(this.a.b);
+                    r25 d = r25.d(this.a.b);
                     d.B(R.dimen.T_X07);
                     d.C(R.string.F_X01);
                     this.a.b.setTextColor(SkinManager.getColor(0, (int) R.color.sprite_chat_reply_text_color));
@@ -200,7 +200,7 @@ public final class ChatReplyAdapter extends RecyclerView.Adapter<ViewHolder> {
             holder.c(questionData);
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             Intrinsics.checkNotNullExpressionValue(currentAccount, "getCurrentAccount()");
-            w98.a("c15229", currentAccount, questionData.getQuestion());
+            ea8.a("c15229", currentAccount, questionData.getQuestion());
             holder.b();
         }
     }

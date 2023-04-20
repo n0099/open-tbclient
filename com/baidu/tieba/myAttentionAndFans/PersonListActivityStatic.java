@@ -11,9 +11,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.forbidden.fans.MyForbiddenFansActivity;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.ks4;
 import com.baidu.tieba.ls4;
 import com.baidu.tieba.ms4;
+import com.baidu.tieba.ns4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +27,7 @@ public class PersonListActivityStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public static class a implements ms4 {
+    public static class a implements ns4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -45,12 +45,12 @@ public class PersonListActivityStatic {
             }
         }
 
-        @Override // com.baidu.tieba.ms4
+        @Override // com.baidu.tieba.ns4
         public View a(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                TextView a = ls4.a(context);
+                TextView a = ms4.a(context);
                 if (a != null) {
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                     SkinManager.setViewTextColor(a, (int) R.color.CAM_X0302);
@@ -99,7 +99,7 @@ public class PersonListActivityStatic {
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            ks4.b().c(5, new a());
+            ls4.b().c(5, new a());
         }
     }
 }

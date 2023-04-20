@@ -2,7 +2,7 @@ package com.xiaomi.push.service;
 
 import android.content.ComponentName;
 import android.content.pm.PackageManager;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class cn implements Runnable {
     public final /* synthetic */ XMPushService a;
 

@@ -1,126 +1,261 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
-import android.text.style.ImageSpan;
+import android.graphics.RectF;
+import android.text.TextUtils;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import com.facebook.drawee.debug.DebugControllerOverlayDrawable;
 /* loaded from: classes4.dex */
-public class hs5 extends ImageSpan {
+public class hs5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public WeakReference<Drawable> d;
+    public final Paint a;
+    public final Paint b;
+    public final Paint c;
+    public final View d;
+    public int e;
+    public int f;
+    public int g;
+    public int h;
+    public int i;
+    public int j;
+    public int k;
+    public float l;
+    public final Paint m;
+    public int n;
+    public int o;
+    public int p;
+    public int q;
+    public int r;
+    public int s;
+    public int t;
+    public float[] u;
+    public int v;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hs5(Drawable drawable) {
-        super(drawable);
+    public hs5(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {drawable};
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Drawable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 0;
+        this.a = new Paint();
+        this.b = new Paint();
+        this.c = new Paint();
+        this.e = 16;
+        this.f = 16;
+        this.g = -1;
+        this.h = DebugControllerOverlayDrawable.TEXT_BACKGROUND_COLOR;
+        this.i = 20;
+        this.j = 20;
+        this.k = 36;
+        this.l = 0.0f;
+        this.m = new Paint();
+        this.n = 3;
+        this.o = R.color.CAM_X0101;
+        this.p = R.color.CAM_X0305;
+        this.q = 20;
+        this.r = 20;
+        this.s = 36;
+        this.t = 0;
+        this.v = 0;
+        this.d = view2;
+        int color = getContext().getResources().getColor(R.color.black_alpha40);
+        this.h = color;
+        this.b.setColor(color);
+        this.b.setAntiAlias(true);
+        this.i = (int) getContext().getResources().getDimension(R.dimen.tbfontsize26);
+        int color2 = getContext().getResources().getColor(R.color.CAM_X0101);
+        this.g = color2;
+        this.a.setColor(color2);
+        this.a.setTextSize(this.i);
+        this.a.setAntiAlias(true);
+        this.a.setTypeface(p25.K(p25.H(R.string.F_X02)));
+        this.e = ii.g(getContext(), R.dimen.tbds16);
+        this.f = ii.g(getContext(), R.dimen.tbds16);
+        this.j = ii.g(getContext(), R.dimen.tbds22);
+        this.k = ii.g(getContext(), R.dimen.tbds40);
+        this.l = p25.B(R.string.J_X01)[0];
+        int dimension = (int) getContext().getResources().getDimension(R.dimen.tbfontsize26);
+        this.q = dimension;
+        this.c.setTextSize(dimension);
+        this.a.setAntiAlias(true);
+        this.m.setAntiAlias(true);
+        this.r = ii.g(getContext(), R.dimen.tbds16);
+        this.s = ii.g(getContext(), R.dimen.tbds22);
+        this.t = ii.g(getContext(), R.dimen.tbds5);
+        this.v = ii.g(getContext(), R.dimen.M_W_X006);
+        ii.g(getContext(), R.dimen.M_H_X004);
+        i(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public final Drawable a() {
+    private Context getContext() {
         InterceptResult invokeV;
-        Drawable drawable;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            WeakReference<Drawable> weakReference = this.d;
-            if (weakReference != null) {
-                drawable = weakReference.get();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+            View view2 = this.d;
+            if (view2 != null && view2.getContext() != null) {
+                return this.d.getContext();
+            }
+            return TbadkCoreApplication.getInst().getContext();
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    public final void e() {
+        View view2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (view2 = this.d) != null) {
+            view2.invalidate();
+        }
+    }
+
+    public void a(Canvas canvas, String str, boolean z) {
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLZ(1048576, this, canvas, str, z) == null) && canvas != null && this.d != null && !TextUtils.isEmpty(str)) {
+            int save = canvas.save();
+            this.d.getPaddingLeft();
+            int paddingRight = this.d.getPaddingRight();
+            this.d.getPaddingTop();
+            int paddingBottom = this.d.getPaddingBottom();
+            int left = this.d.getLeft();
+            int right = this.d.getRight();
+            int top = this.d.getTop();
+            int bottom = this.d.getBottom();
+            float measureText = this.a.measureText(str);
+            Paint.FontMetrics fontMetrics = this.a.getFontMetrics();
+            if (z) {
+                if (this.u == null) {
+                    this.u = p25.E(R.array.S_O_X001);
+                }
+                float[] fArr = this.u;
+                if (fArr != null && fArr.length >= 4) {
+                    i = save;
+                    this.a.setShadowLayer(fArr[1], fArr[2], fArr[3], (int) fArr[0]);
+                } else {
+                    i = save;
+                }
+                int i2 = this.v;
+                canvas.drawText(str, (((right - left) - paddingRight) - i2) - measureText, (((bottom - top) - paddingBottom) - i2) + ((Math.abs(fontMetrics.ascent) - fontMetrics.descent) / 2.0f), this.a);
             } else {
-                drawable = null;
+                i = save;
+                float f = this.k + measureText;
+                float f2 = this.i + this.j;
+                canvas.translate((((right - left) - paddingRight) - f) - this.f, (((bottom - top) - paddingBottom) - f2) - this.e);
+                RectF rectF = new RectF(0.0f, 0.0f, f, f2);
+                float f3 = this.l;
+                if (f3 < 1.0f) {
+                    this.l = f3 * f2;
+                }
+                float f4 = this.l;
+                canvas.drawRoundRect(rectF, f4, f4, this.b);
+                this.a.clearShadowLayer();
+                canvas.drawText(str, (rectF.width() - measureText) / 2.0f, (rectF.height() / 2.0f) + ((Math.abs(fontMetrics.ascent) - fontMetrics.descent) / 2.0f), this.a);
             }
-            if (drawable == null) {
-                Drawable drawable2 = getDrawable();
-                this.d = new WeakReference<>(drawable2);
-                return drawable2;
+            int i3 = i;
+            if (i3 >= 1 && i3 <= canvas.getSaveCount()) {
+                canvas.restoreToCount(i3);
             }
-            return drawable;
-        }
-        return (Drawable) invokeV.objValue;
-    }
-
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.b = i;
         }
     }
 
-    public void c(int i) {
+    public void b(Canvas canvas, String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.c = i;
+        if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, str, i) == null) && canvas != null && this.d != null && !TextUtils.isEmpty(str)) {
+            if (i != 0) {
+                this.p = i;
+                this.m.setColor(SkinManager.getColor(i));
+            }
+            int save = canvas.save();
+            int paddingLeft = this.d.getPaddingLeft();
+            this.d.getPaddingRight();
+            int paddingTop = this.d.getPaddingTop();
+            this.d.getPaddingBottom();
+            float measureText = this.c.measureText(str);
+            canvas.translate(paddingLeft, paddingTop);
+            RectF rectF = new RectF(0.0f, 0.0f, this.s + measureText, this.q + this.r);
+            int i2 = this.t;
+            canvas.drawRoundRect(rectF, i2, i2, this.m);
+            Paint.FontMetrics fontMetrics = this.c.getFontMetrics();
+            canvas.drawText(str, (rectF.width() - measureText) / 2.0f, (rectF.height() / 2.0f) + ((Math.abs(fontMetrics.ascent) - fontMetrics.descent) / 2.0f), this.c);
+            if (save >= 1 && save <= canvas.getSaveCount()) {
+                canvas.restoreToCount(save);
+            }
         }
     }
 
-    public void d(int i) {
+    public float c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.a = i;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return ii.G(this.a, str).height() + this.j;
+        }
+        return invokeL.floatValue;
+    }
+
+    public float d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return ii.H(this.a, str) + this.k;
+        }
+        return invokeL.floatValue;
+    }
+
+    public void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.g = i;
+            this.a.setColor(i);
+            e();
         }
     }
 
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-        Drawable a;
+    public void h(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048580, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) != null) || (a = a()) == null) {
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.i = i;
+            this.a.setTextSize(i);
+            e();
+        }
+    }
+
+    public void i(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) != null) || this.n == i) {
             return;
         }
-        canvas.save();
-        canvas.translate(f + this.b, ((((i5 - i3) - a.getBounds().bottom) / 2) + i3) - this.a);
-        a.draw(canvas);
-        canvas.restore();
+        this.n = i;
+        this.c.setColor(SkinManager.getColor(i, this.o));
+        this.m.setColor(SkinManager.getColor(i, this.p));
     }
 
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        InterceptResult invokeCommon;
+    public void f(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
-            Drawable a = a();
-            if (a == null) {
-                return super.getSize(paint, charSequence, i, i2, fontMetricsInt);
-            }
-            Rect bounds = a.getBounds();
-            if (fontMetricsInt != null) {
-                Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
-                int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
-                int i4 = (bounds.bottom - bounds.top) / 2;
-                int i5 = i3 / 4;
-                int i6 = i4 - i5;
-                int i7 = -(i4 + i5);
-                fontMetricsInt.ascent = i7;
-                fontMetricsInt.top = i7;
-                fontMetricsInt.bottom = i6;
-                fontMetricsInt.descent = i6;
-            }
-            return bounds.right + this.b + this.c;
+        if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
+            this.f = i;
+            this.e = i2;
+            e();
         }
-        return invokeCommon.intValue;
     }
 }

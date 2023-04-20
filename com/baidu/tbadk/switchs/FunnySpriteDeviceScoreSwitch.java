@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.p45;
+import com.baidu.tieba.q45;
 import com.baidu.tieba.te;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -125,7 +125,7 @@ public final class FunnySpriteDeviceScoreSwitch extends te {
             }
         }
         Companion = new Companion(null);
-        deviceScore = p45.m().n(KEY, 0);
+        deviceScore = q45.m().n(KEY, 0);
     }
 
     public FunnySpriteDeviceScoreSwitch() {

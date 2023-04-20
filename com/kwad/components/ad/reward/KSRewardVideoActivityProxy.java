@@ -37,7 +37,7 @@ import java.util.HashMap;
 @KsAdSdkDynamicImpl(KsRewardVideoActivity.class)
 @Keep
 /* loaded from: classes8.dex */
-public class KSRewardVideoActivityProxy extends com.kwad.components.core.g.b<k> implements com.kwad.components.ad.reward.g.c, a.InterfaceC0572a, p.a, d.b, c.a {
+public class KSRewardVideoActivityProxy extends com.kwad.components.core.g.b<k> implements com.kwad.components.ad.reward.g.c, a.InterfaceC0571a, p.a, d.b, c.a {
     public static final String KEY_REWARD_TYPE = "key_template_reward_type";
     public static final String KEY_TEMPLATE = "key_template_json";
     public static final String KEY_TEMPLATE_PLAY_AGAIN = "key_template_json_play_again";
@@ -395,7 +395,7 @@ public class KSRewardVideoActivityProxy extends com.kwad.components.core.g.b<k> 
         return "KSRewardLandScapeVideoActivityProxy";
     }
 
-    @Override // com.kwad.components.ad.reward.j.a.InterfaceC0572a
+    @Override // com.kwad.components.ad.reward.j.a.InterfaceC0571a
     public boolean handledOnResume() {
         if (((k) this.mCallerContext).mx || isRefluxVisible()) {
             return true;

@@ -32,20 +32,20 @@ import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.b28;
-import com.baidu.tieba.bw4;
-import com.baidu.tieba.ca5;
-import com.baidu.tieba.ga5;
-import com.baidu.tieba.ge9;
-import com.baidu.tieba.ie9;
-import com.baidu.tieba.qs9;
+import com.baidu.tieba.c28;
+import com.baidu.tieba.cf9;
+import com.baidu.tieba.cw4;
+import com.baidu.tieba.da5;
+import com.baidu.tieba.df9;
+import com.baidu.tieba.ef9;
+import com.baidu.tieba.ff9;
+import com.baidu.tieba.g2a;
+import com.baidu.tieba.gf9;
+import com.baidu.tieba.ha5;
+import com.baidu.tieba.oe9;
+import com.baidu.tieba.qe9;
 import com.baidu.tieba.share.ImplicitShareMessage;
-import com.baidu.tieba.ue9;
-import com.baidu.tieba.ve9;
-import com.baidu.tieba.we9;
-import com.baidu.tieba.xe9;
-import com.baidu.tieba.y1a;
-import com.baidu.tieba.ye9;
+import com.baidu.tieba.ys9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -98,26 +98,26 @@ public class ShareStatic {
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getOrginalMessage() != null && (httpResponsedMessage instanceof CommandShareHttpResMsg) && !httpResponsedMessage.hasError() && httpResponsedMessage.getError() == 0) {
                 CommandShareHttpResMsg commandShareHttpResMsg = (CommandShareHttpResMsg) httpResponsedMessage;
                 Object extra = commandShareHttpResMsg.getOrginalMessage().getExtra();
-                if ((extra instanceof bw4) && !TextUtils.isEmpty(commandShareHttpResMsg.token)) {
-                    bw4 bw4Var = (bw4) extra;
-                    String replace = bw4Var.a.E0.replace(Tun2tornado.ENV_TOKEN, commandShareHttpResMsg.token);
-                    ShareItem shareItem = bw4Var.a;
+                if ((extra instanceof cw4) && !TextUtils.isEmpty(commandShareHttpResMsg.token)) {
+                    cw4 cw4Var = (cw4) extra;
+                    String replace = cw4Var.a.E0.replace(Tun2tornado.ENV_TOKEN, commandShareHttpResMsg.token);
+                    ShareItem shareItem = cw4Var.a;
                     shareItem.E0 = replace;
-                    int i = bw4Var.c;
+                    int i = cw4Var.c;
                     if (i == 0) {
-                        ShareDialogConfig shareDialogConfig = new ShareDialogConfig(bw4Var.b, bw4Var.a, false);
-                        shareDialogConfig.onCancelListener = bw4Var.d;
+                        ShareDialogConfig shareDialogConfig = new ShareDialogConfig(cw4Var.b, cw4Var.a, false);
+                        shareDialogConfig.onCancelListener = cw4Var.d;
                         MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
                         return;
                     }
-                    ca5.f(shareItem, bw4Var.b, i, bw4Var.d);
+                    da5.f(shareItem, cw4Var.b, i, cw4Var.d);
                 }
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class b implements CustomMessageTask.CustomRunnable<ga5> {
+    public static class b implements CustomMessageTask.CustomRunnable<ha5> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -137,11 +137,11 @@ public class ShareStatic {
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<ga5> run(CustomMessage<ga5> customMessage) {
+        public CustomResponsedMessage<ha5> run(CustomMessage<ha5> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                return new CustomResponsedMessage<>(2001445, new ie9());
+                return new CustomResponsedMessage<>(2001445, new qe9());
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
@@ -169,7 +169,7 @@ public class ShareStatic {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<?> run(CustomMessage<ShareDialogConfig> customMessage) {
             InterceptResult invokeL;
-            xe9 xe9Var;
+            ff9 ff9Var;
             ShareItem[] shareItemArr;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
@@ -185,7 +185,7 @@ public class ShareStatic {
                     if (!data.mIsShowTransmitShare && !data.mShowMoreForumShare) {
                         if (!data.isAlaLiveRoomShare()) {
                             if (data instanceof PbPostShareDialogConfig) {
-                                xe9Var = new we9(data.getContext(), data.isLandscape, data.hideMode, ((PbPostShareDialogConfig) data).getPbPostData());
+                                ff9Var = new ef9(data.getContext(), data.isLandscape, data.hideMode, ((PbPostShareDialogConfig) data).getPbPostData());
                             } else if (data instanceof StampShareDialogConfig) {
                                 ShareItem shareItem = data.shareItem;
                                 if (shareItem != null) {
@@ -196,18 +196,18 @@ public class ShareStatic {
                                     f.putInt("obj_locate", 20);
                                     data.shareItem.l(f);
                                 }
-                                xe9Var = new ye9(data.getContext(), data.isLandscape, data.hideMode, ((StampShareDialogConfig) data).getStampShareData());
+                                ff9Var = new gf9(data.getContext(), data.isLandscape, data.hideMode, ((StampShareDialogConfig) data).getStampShareData());
                             } else if (data.isImageViewerDialog) {
-                                xe9Var = new ve9(data.getContext(), data.originImgText, data.showAddEmotion, data.showQRCode, data.dialogSaveToDiskListener, data.dialogAddToExpressionListener, data.dialogDownloadOriginListener, data.dialogRecognizePicListener, data.qrCodeClickListener, data.onWeChatEmotionShareListener);
+                                ff9Var = new df9(data.getContext(), data.originImgText, data.showAddEmotion, data.showQRCode, data.dialogSaveToDiskListener, data.dialogAddToExpressionListener, data.dialogDownloadOriginListener, data.dialogRecognizePicListener, data.qrCodeClickListener, data.onWeChatEmotionShareListener);
                                 if (data.shareItem != null) {
                                     Bundle bundle = new Bundle();
                                     bundle.putInt("obj_locate", 13);
                                     data.shareItem.l(bundle);
                                 }
                             } else {
-                                xe9Var = new xe9(data.getContext(), data.isLandscape, data.hideMode);
+                                ff9Var = new ff9(data.getContext(), data.isLandscape, data.hideMode);
                             }
-                            xe9Var.g0(data.shareItem, data.showLocation);
+                            ff9Var.g0(data.shareItem, data.showLocation);
                             if (data.hasSpecialItem && (shareItemArr = data.specialShareItems) != null && shareItemArr.length > 0) {
                                 int i = 0;
                                 while (true) {
@@ -217,45 +217,45 @@ public class ShareStatic {
                                     }
                                     ShareItem shareItem2 = shareItemArr2[i];
                                     if (shareItem2 != null) {
-                                        xe9Var.h0(i, shareItem2, data.showLocation);
+                                        ff9Var.h0(i, shareItem2, data.showLocation);
                                     }
                                     i++;
                                 }
                             }
                             SparseArray<String> sparseArray = data.mtjStatistics;
                             if (sparseArray != null) {
-                                xe9Var.d0(sparseArray);
+                                ff9Var.d0(sparseArray);
                             }
-                            xe9Var.b0(data.isCopyLink);
+                            ff9Var.b0(data.isCopyLink);
                             int i2 = data.copyTitleId;
                             if (i2 != 0) {
-                                xe9Var.Z(i2);
+                                ff9Var.Z(i2);
                             }
                             View.OnClickListener onClickListener = data.copyLinkListener;
                             if (onClickListener != null) {
-                                xe9Var.Y(onClickListener);
+                                ff9Var.Y(onClickListener);
                             }
                             DialogInterface.OnDismissListener onDismissListener = data.onDismissListener;
                             if (onDismissListener != null) {
-                                xe9Var.H(onDismissListener);
+                                ff9Var.H(onDismissListener);
                             }
-                            xe9Var.e0(data.onCancelListener);
+                            ff9Var.e0(data.onCancelListener);
                             ArrayList<Pair<Integer, Pair<Integer, View.OnClickListener>>> arrayList = data.textViewList;
                             if (arrayList != null && arrayList.size() > 0) {
                                 Iterator<Pair<Integer, Pair<Integer, View.OnClickListener>>> it = data.textViewList.iterator();
                                 while (it.hasNext()) {
                                     Pair<Integer, Pair<Integer, View.OnClickListener>> next = it.next();
-                                    xe9Var.n(xe9Var.I(((Integer) next.first).intValue(), ((Integer) ((Pair) next.second).first).intValue()), xe9Var.A(), (View.OnClickListener) ((Pair) next.second).second);
+                                    ff9Var.n(ff9Var.I(((Integer) next.first).intValue(), ((Integer) ((Pair) next.second).first).intValue()), ff9Var.A(), (View.OnClickListener) ((Pair) next.second).second);
                                 }
                             }
-                            xe9Var.c0(data.isShowPersonalLetter);
-                            xe9Var.a0(data.experimentId);
+                            ff9Var.c0(data.isShowPersonalLetter);
+                            ff9Var.a0(data.experimentId);
                             if (data.getPersonalLetterListener() != null) {
-                                xe9Var.f0(data.getPersonalLetterListener());
+                                ff9Var.f0(data.getPersonalLetterListener());
                             }
-                            xe9Var.W(data.msgNum, data.isShowMsg);
-                            xe9Var.V(data.getFrom());
-                            xe9Var.p0();
+                            ff9Var.W(data.msgNum, data.isShowMsg);
+                            ff9Var.V(data.getFrom());
+                            ff9Var.p0();
                             return null;
                         }
                         ShareStatic.r(data);
@@ -297,7 +297,7 @@ public class ShareStatic {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2921438, TbadkCoreApplication.getInst().getApp()));
                     ImplicitShareMessage implicitShareMessage = (ImplicitShareMessage) customMessage;
                     if (implicitShareMessage.getContext() != null && implicitShareMessage.getData() != null) {
-                        new ge9(implicitShareMessage.getContext()).c(implicitShareMessage.getChannel(), implicitShareMessage.getData(), implicitShareMessage.isShowLocation());
+                        new oe9(implicitShareMessage.getContext()).c(implicitShareMessage.getChannel(), implicitShareMessage.getData(), implicitShareMessage.isShowLocation());
                     }
                 }
                 return null;
@@ -384,7 +384,7 @@ public class ShareStatic {
     }
 
     /* loaded from: classes6.dex */
-    public static class g extends BdAsyncTask<String, Integer, y1a> {
+    public static class g extends BdAsyncTask<String, Integer, g2a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
@@ -429,7 +429,7 @@ public class ShareStatic {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public y1a doInBackground(String... strArr) {
+        public g2a doInBackground(String... strArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
@@ -439,28 +439,28 @@ public class ShareStatic {
                 this.a.addPostData("from", "3");
                 String postNetData = this.a.postNetData();
                 if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                    y1a y1aVar = new y1a();
-                    y1aVar.d(postNetData);
-                    return y1aVar;
+                    g2a g2aVar = new g2a();
+                    g2aVar.d(postNetData);
+                    return g2aVar;
                 }
                 return null;
             }
-            return (y1a) invokeL.objValue;
+            return (g2a) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(y1a y1aVar) {
+        public void onPostExecute(g2a g2aVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, y1aVar) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, g2aVar) == null) {
                 g unused = ShareStatic.a = null;
                 if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                    b28.b(y1aVar.c());
+                    c28.b(g2aVar.c());
                 } else {
                     BdLog.d("request = error");
                 }
-                super.onPostExecute(y1aVar);
+                super.onPostExecute(g2aVar);
             }
         }
     }
@@ -587,25 +587,25 @@ public class ShareStatic {
     public static void r(ShareDialogConfig shareDialogConfig) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65555, null, shareDialogConfig) == null) {
-            ue9 ue9Var = new ue9(shareDialogConfig.getContext(), shareDialogConfig.isLandscape, shareDialogConfig.hideMode);
-            ue9Var.t(shareDialogConfig.shareItem, shareDialogConfig.showLocation);
+            cf9 cf9Var = new cf9(shareDialogConfig.getContext(), shareDialogConfig.isLandscape, shareDialogConfig.hideMode);
+            cf9Var.t(shareDialogConfig.shareItem, shareDialogConfig.showLocation);
             View.OnClickListener onClickListener = shareDialogConfig.copyLinkListener;
             if (onClickListener != null) {
-                ue9Var.s(onClickListener);
+                cf9Var.s(onClickListener);
             }
             DialogInterface.OnDismissListener onDismissListener = shareDialogConfig.onDismissListener;
             if (onDismissListener != null) {
-                ue9Var.k(onDismissListener);
+                cf9Var.k(onDismissListener);
             }
             ArrayList<Pair<Integer, Pair<Integer, View.OnClickListener>>> arrayList = shareDialogConfig.textViewList;
             if (arrayList != null && arrayList.size() > 0) {
                 Iterator<Pair<Integer, Pair<Integer, View.OnClickListener>>> it = shareDialogConfig.textViewList.iterator();
                 while (it.hasNext()) {
                     Pair<Integer, Pair<Integer, View.OnClickListener>> next = it.next();
-                    ue9Var.c(ue9Var.l(((Integer) next.first).intValue(), ((Integer) ((Pair) next.second).first).intValue()), ue9Var.g(), (View.OnClickListener) ((Pair) next.second).second);
+                    cf9Var.c(cf9Var.l(((Integer) next.first).intValue(), ((Integer) ((Pair) next.second).first).intValue()), cf9Var.g(), (View.OnClickListener) ((Pair) next.second).second);
                 }
             }
-            ue9Var.u();
+            cf9Var.u();
         }
     }
 
@@ -623,7 +623,7 @@ public class ShareStatic {
         boolean z3;
         boolean z4;
         boolean z5;
-        qs9 qs9Var;
+        ys9 ys9Var;
         ShareItem shareItem3;
         ThreadData threadData;
         ThreadData threadData2;
@@ -660,15 +660,15 @@ public class ShareStatic {
                 } else {
                     z5 = false;
                 }
-                qs9Var = new qs9(shareDialogConfig.getContext(), z4);
-                qs9Var.m((TbadkCoreApplication.isLogin() || shareDialogConfig.mIsAd || shareDialogConfig.mIsAlaLive || shareDialogConfig.mIsVoiceRoom || shareDialogConfig.shareItem.g()) ? false : false);
-                qs9Var.l(shareDialogConfig, z5);
-                qs9Var.k(shareDialogConfig.onDismissListener);
+                ys9Var = new ys9(shareDialogConfig.getContext(), z4);
+                ys9Var.m((TbadkCoreApplication.isLogin() || shareDialogConfig.mIsAd || shareDialogConfig.mIsAlaLive || shareDialogConfig.mIsVoiceRoom || shareDialogConfig.shareItem.g()) ? false : false);
+                ys9Var.l(shareDialogConfig, z5);
+                ys9Var.k(shareDialogConfig.onDismissListener);
                 shareItem3 = shareDialogConfig.shareItem;
                 if (shareItem3 != null && shareItem3.o0) {
-                    qs9Var.i(shareDialogConfig.getFrom());
+                    ys9Var.i(shareDialogConfig.getFrom());
                 }
-                qs9Var.n();
+                ys9Var.n();
             }
             z2 = false;
             shareItem2 = shareDialogConfig.shareItem;
@@ -681,15 +681,15 @@ public class ShareStatic {
             if (z) {
             }
             z5 = false;
-            qs9Var = new qs9(shareDialogConfig.getContext(), z4);
-            qs9Var.m((TbadkCoreApplication.isLogin() || shareDialogConfig.mIsAd || shareDialogConfig.mIsAlaLive || shareDialogConfig.mIsVoiceRoom || shareDialogConfig.shareItem.g()) ? false : false);
-            qs9Var.l(shareDialogConfig, z5);
-            qs9Var.k(shareDialogConfig.onDismissListener);
+            ys9Var = new ys9(shareDialogConfig.getContext(), z4);
+            ys9Var.m((TbadkCoreApplication.isLogin() || shareDialogConfig.mIsAd || shareDialogConfig.mIsAlaLive || shareDialogConfig.mIsVoiceRoom || shareDialogConfig.shareItem.g()) ? false : false);
+            ys9Var.l(shareDialogConfig, z5);
+            ys9Var.k(shareDialogConfig.onDismissListener);
             shareItem3 = shareDialogConfig.shareItem;
             if (shareItem3 != null) {
-                qs9Var.i(shareDialogConfig.getFrom());
+                ys9Var.i(shareDialogConfig.getFrom());
             }
-            qs9Var.n();
+            ys9Var.n();
         }
     }
 }

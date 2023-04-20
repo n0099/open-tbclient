@@ -9,9 +9,9 @@ import com.baidu.tbadk.core.atomData.AddressListActivityConfig;
 import com.baidu.tieba.addresslist.im.newFriend.NewFriendsActivity;
 import com.baidu.tieba.addresslist.im.newFriend.NewFriendsActivityConfig;
 import com.baidu.tieba.addresslist.im.newFriend.ResponsePassFriendMessage;
-import com.baidu.tieba.b06;
 import com.baidu.tieba.c06;
-import com.baidu.tieba.ex7;
+import com.baidu.tieba.d06;
+import com.baidu.tieba.fx7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -48,7 +48,7 @@ public class TaskRegisterStatic {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                return new CustomResponsedMessage<>(2001322, new b06());
+                return new CustomResponsedMessage<>(2001322, new c06());
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
@@ -69,8 +69,8 @@ public class TaskRegisterStatic {
         }
         TbadkCoreApplication.getInst().RegisterIntent(AddressListActivityConfig.class, AddressListActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(NewFriendsActivityConfig.class, NewFriendsActivity.class);
-        ex7.b(304101, ResponsePassFriendMessage.class, false);
-        MessageManager.getInstance().addResponsedMessageRule(new c06());
+        fx7.b(304101, ResponsePassFriendMessage.class, false);
+        MessageManager.getInstance().addResponsedMessageRule(new d06());
         CustomMessageTask customMessageTask = new CustomMessageTask(2001322, new a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);

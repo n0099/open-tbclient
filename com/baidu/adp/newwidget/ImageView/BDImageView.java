@@ -24,7 +24,7 @@ import com.baidu.tieba.jk;
 import com.baidu.tieba.mk;
 import com.baidu.tieba.nk;
 import com.baidu.tieba.qk;
-import com.baidu.tieba.sm;
+import com.baidu.tieba.tm;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -60,9 +60,9 @@ public abstract class BDImageView extends ImageView implements ViewTreeObserver.
         }
     }
 
-    public abstract sm getBdImage();
+    public abstract tm getBdImage();
 
-    public abstract sm getDefaultBdImage();
+    public abstract tm getDefaultBdImage();
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BDImageView(Context context) {

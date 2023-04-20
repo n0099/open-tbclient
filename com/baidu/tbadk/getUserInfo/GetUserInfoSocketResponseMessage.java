@@ -5,8 +5,8 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
-import com.baidu.tieba.kf5;
 import com.baidu.tieba.lf5;
+import com.baidu.tieba.mf5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +19,7 @@ import tbclient.GetUserInfo.GetUserInfoResIdl;
 public class GetUserInfoSocketResponseMessage extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public kf5 mData;
+    public lf5 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetUserInfoSocketResponseMessage() {
@@ -39,13 +39,13 @@ public class GetUserInfoSocketResponseMessage extends TbSocketReponsedMessage {
         }
     }
 
-    public kf5 getData() {
+    public lf5 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.mData;
         }
-        return (kf5) invokeV.objValue;
+        return (lf5) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -54,9 +54,9 @@ public class GetUserInfoSocketResponseMessage extends TbSocketReponsedMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             super.afterDispatchInBackGround(i, (int) bArr);
-            kf5 kf5Var = this.mData;
-            if (kf5Var != null && kf5Var.a() != null) {
-                lf5.d().i(this.mData.a());
+            lf5 lf5Var = this.mData;
+            if (lf5Var != null && lf5Var.a() != null) {
+                mf5.d().i(this.mData.a());
             } else {
                 MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001247));
             }
@@ -82,9 +82,9 @@ public class GetUserInfoSocketResponseMessage extends TbSocketReponsedMessage {
             if (getError() != 0) {
                 return getUserInfoResIdl;
             }
-            kf5 kf5Var = new kf5();
-            this.mData = kf5Var;
-            kf5Var.b(getUserInfoResIdl.data);
+            lf5 lf5Var = new lf5();
+            this.mData = lf5Var;
+            lf5Var.b(getUserInfoResIdl.data);
             return getUserInfoResIdl;
         }
         return invokeIL.objValue;

@@ -1,7 +1,17 @@
 package com.baidu.tieba;
 
+import android.animation.ObjectAnimator;
+import android.app.Dialog;
 import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
+import android.content.DialogInterface;
+import android.view.KeyEvent;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,66 +20,247 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.IRevenue;
-import com.yy.mobile.framework.revenuesdk.RevenueConfig;
-import com.yy.mobile.framework.revenuesdk.RevenueConfigCenter;
-import com.yy.mobile.framework.revenuesdk.RevenueSdk;
-import com.yy.mobile.framework.revenuesdk.baseapi.Env;
-import com.yy.mobile.framework.revenuesdk.baseapi.ProtocolType;
-import com.yy.mobile.framework.revenuesdk.baseapi.data.DataSenderConfig;
-import com.yy.mobile.framework.revenuesdk.baseapi.data.IDataSenderAdapter;
-import com.yy.mobile.framework.revenuesdk.baseapi.data.IRevenueDataSender;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.IRLogDelegate;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.baseapi.reporter.IPayNetStateStatistics;
-import com.yy.mobile.framework.revenuesdk.baseapi.utils.XorUtil;
-import com.yy.mobile.framework.revenuesdk.payapi.utils.HiidoUtils;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import tv.athena.revenue.api.IMiddleRevenue;
-import tv.athena.revenue.api.MiddleRevenueConfig;
-import tv.athena.revenue.http.HttpDataSenderAdapter;
-/* loaded from: classes6.dex */
-public class xab implements e6b {
-    public static /* synthetic */ Interceptable $ic;
-    public static Map<String, MiddleRevenueConfig> a;
+import kotlin.jvm.internal.Intrinsics;
+import tv.athena.revenue.api.pay.params.PayFlowType;
+import tv.athena.revenue.payui.model.PayViewInfo;
+import tv.athena.revenue.payui.view.IViewEventListener;
+import tv.athena.revenue.payui.view.dialog.CancelType;
+import tv.athena.revenue.payui.view.dialog.PayDialogType;
+/* loaded from: classes7.dex */
+public final class xab {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String a = "CenterDialogManager";
+    public static final xab b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public class a implements IPayNetStateStatistics {
+    /* loaded from: classes7.dex */
+    public static final class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ xab c;
+        public final /* synthetic */ PayDialogType a;
+        public final /* synthetic */ Dialog b;
+        public final /* synthetic */ IViewEventListener c;
+        public final /* synthetic */ yab d;
 
-        public a(xab xabVar, int i, int i2) {
+        public a(PayDialogType payDialogType, Dialog dialog, IViewEventListener iViewEventListener, yab yabVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {xabVar, Integer.valueOf(i), Integer.valueOf(i2)};
+                Object[] objArr = {payDialogType, dialog, iViewEventListener, yabVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.c = xabVar;
-            this.a = i;
-            this.b = i2;
+            this.a = payDialogType;
+            this.b = dialog;
+            this.c = iViewEventListener;
+            this.d = yabVar;
         }
 
-        @Override // com.yy.mobile.framework.revenuesdk.baseapi.reporter.IPayNetStateStatistics
-        public void reportPayNetEvent(String str, String str2, String str3) {
+        @Override // android.view.View.OnClickListener
+        public final void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) {
-                this.c.d(this.a, this.b, str, str2, str3);
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                String a = xab.a(xab.b);
+                RLog.info(a, "empty click payDialogType:" + this.a.name());
+                PayViewInfo payViewInfo = new PayViewInfo();
+                payViewInfo.clickArea = CancelType.EMPTY_AREA_CLICK;
+                payViewInfo.payDialogType = this.a;
+                payViewInfo.viewDialog = this.b;
+                IViewEventListener iViewEventListener = this.c;
+                if (iViewEventListener != null && iViewEventListener.onInterceptView(payViewInfo)) {
+                    return;
+                }
+                yab yabVar = this.d;
+                if (yabVar != null) {
+                    yabVar.a(CancelType.EMPTY_AREA_CLICK);
+                }
+                this.b.dismiss();
             }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ PayDialogType a;
+        public final /* synthetic */ Dialog b;
+        public final /* synthetic */ IViewEventListener c;
+        public final /* synthetic */ yab d;
+
+        public b(PayDialogType payDialogType, Dialog dialog, IViewEventListener iViewEventListener, yab yabVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {payDialogType, dialog, iViewEventListener, yabVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = payDialogType;
+            this.b = dialog;
+            this.c = iViewEventListener;
+            this.d = yabVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public final void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                String a = xab.a(xab.b);
+                RLog.info(a, "btn close payDialogType:" + this.a.name());
+                PayViewInfo payViewInfo = new PayViewInfo();
+                payViewInfo.clickArea = CancelType.BUTTOM_AREA_CLICK;
+                payViewInfo.payDialogType = this.a;
+                payViewInfo.viewDialog = this.b;
+                IViewEventListener iViewEventListener = this.c;
+                if (iViewEventListener != null && iViewEventListener.onInterceptView(payViewInfo)) {
+                    return;
+                }
+                yab yabVar = this.d;
+                if (yabVar != null) {
+                    yabVar.a(CancelType.BUTTOM_AREA_CLICK);
+                }
+                this.b.dismiss();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class c implements DialogInterface.OnDismissListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yab a;
+        public final /* synthetic */ bbb b;
+
+        public c(yab yabVar, bbb bbbVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yabVar, bbbVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = yabVar;
+            this.b = bbbVar;
+        }
+
+        @Override // android.content.DialogInterface.OnDismissListener
+        public final void onDismiss(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                yab yabVar = this.a;
+                if (yabVar != null) {
+                    yabVar.a(CancelType.ON_DIALOG_DISMISS);
+                }
+                xab.b.c(this.b);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class d implements DialogInterface.OnCancelListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yab a;
+        public final /* synthetic */ bbb b;
+
+        public d(yab yabVar, bbb bbbVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yabVar, bbbVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = yabVar;
+            this.b = bbbVar;
+        }
+
+        @Override // android.content.DialogInterface.OnCancelListener
+        public final void onCancel(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                yab yabVar = this.a;
+                if (yabVar != null) {
+                    yabVar.a(CancelType.ON_DIALOG_CANCEL);
+                }
+                xab.b.c(this.b);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class e implements DialogInterface.OnKeyListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yab a;
+
+        public e(yab yabVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yabVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = yabVar;
+        }
+
+        @Override // android.content.DialogInterface.OnKeyListener
+        public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
+            InterceptResult invokeLIL;
+            yab yabVar;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, dialogInterface, i, keyEvent)) == null) {
+                String a = xab.a(xab.b);
+                RLog.info(a, "onKey keyCode:" + i);
+                if (keyEvent.getAction() == 0 && i == 4 && (yabVar = this.a) != null) {
+                    if (yabVar == null) {
+                        Intrinsics.throwNpe();
+                    }
+                    if (yabVar.b(dialogInterface, CancelType.ON_DIALOG_CANCEL)) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            return invokeLIL.booleanValue;
         }
     }
 
@@ -86,7 +277,7 @@ public class xab implements e6b {
                 return;
             }
         }
-        a = new HashMap();
+        b = new xab();
     }
 
     public xab() {
@@ -103,185 +294,74 @@ public class xab implements e6b {
         }
     }
 
-    @Override // com.baidu.tieba.e6b
-    public List<IRevenue> getAllRevenue() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return RevenueSdk.getAllRevenue();
-        }
-        return (List) invokeV.objValue;
+    public static final /* synthetic */ String a(xab xabVar) {
+        return a;
     }
 
-    public static String c(int i, int i2) {
-        InterceptResult invokeII;
+    public final void c(Dialog dialog) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i, i2)) == null) {
-            return i + "-" + i2;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, dialog) != null) || dialog == null) {
+            return;
         }
-        return (String) invokeII.objValue;
-    }
-
-    public final IPayNetStateStatistics b(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2)) == null) {
-            return new a(this, i, i2);
-        }
-        return (IPayNetStateStatistics) invokeII.objValue;
-    }
-
-    @Override // com.baidu.tieba.e6b
-    public IRevenue getRevenue(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2)) == null) {
-            return RevenueSdk.getRevenue(i, i2);
-        }
-        return (IRevenue) invokeII.objValue;
-    }
-
-    @Override // com.baidu.tieba.e6b
-    public synchronized void addLogDelegate(IRLogDelegate iRLogDelegate) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, iRLogDelegate) == null) {
-            synchronized (this) {
-                RLog.debug("RevenueService", "addLogDelegate");
-                RevenueSdk.addLogDelegate(iRLogDelegate);
+        Window window = dialog.getWindow();
+        Intrinsics.checkExpressionValueIsNotNull(window, "dialog.getWindow()");
+        ViewGroup viewGroup = (ViewGroup) window.findViewById(R.id.root_loading);
+        ImageView imageView = (ImageView) window.findViewById(R.id.iv_loading_circle);
+        if (viewGroup != null && imageView != null) {
+            viewGroup.setVisibility(8);
+            Object tag = imageView.getTag();
+            if (!(tag instanceof ObjectAnimator)) {
+                tag = null;
+            }
+            ObjectAnimator objectAnimator = (ObjectAnimator) tag;
+            if (objectAnimator != null) {
+                objectAnimator.cancel();
+                imageView.setTag(null);
+                RLog.debug(a, "hideDialogLoading->oldRotateAnimator.cancel()");
             }
         }
     }
 
-    @Override // com.baidu.tieba.e6b
-    public synchronized void addRevenueConfig(MiddleRevenueConfig middleRevenueConfig) {
+    public final void d(Context context, String str, View view2, yab yabVar, IViewEventListener iViewEventListener, PayDialogType payDialogType, Dialog dialog) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, middleRevenueConfig) == null) {
-            synchronized (this) {
-                if (middleRevenueConfig == null) {
-                    RLog.debug("RevenueService", "addRevenueConfig fail! config == null");
-                    return;
-                }
-                RLog.info("RevenueService", "addRevenueConfig versionName:4.3.36-bdpay config:" + middleRevenueConfig.toString());
-                String c = c(middleRevenueConfig.getAppId(), middleRevenueConfig.getUseChannel());
-                if (a.get(c) != null) {
-                    RLog.error("RevenueService", "addRevenueConfig fail! duplicate init revenue  appId:" + middleRevenueConfig.getAppId() + " usechanel:" + middleRevenueConfig.getUseChannel(), new Object[0]);
-                    return;
-                }
-                a.put(c, middleRevenueConfig);
-                RLog.debug("RevenueService", "addRevenueConfig mapKey=" + c + " mapSize=" + a.size());
-                Env.instance().init(middleRevenueConfig.isTestEnv(), middleRevenueConfig.getHttpUrl());
-                f(middleRevenueConfig.getAppId(), middleRevenueConfig.getAppContext(), middleRevenueConfig.getUid(), middleRevenueConfig.getUseChannel(), middleRevenueConfig.getCurrencyType(), middleRevenueConfig.getPackageName(), middleRevenueConfig.getVersion(), middleRevenueConfig.getAuthType(), middleRevenueConfig.getProtoType(), e(middleRevenueConfig), middleRevenueConfig.getAppName(), middleRevenueConfig.getDeviceId());
-            }
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, str, view2, yabVar, iViewEventListener, payDialogType, dialog}) == null) {
+            Window window = dialog.getWindow();
+            Intrinsics.checkExpressionValueIsNotNull(window, "centerDialog.getWindow()");
+            window.setGravity(17);
+            WindowManager.LayoutParams attributes = window.getAttributes();
+            Intrinsics.checkExpressionValueIsNotNull(attributes, "window.getAttributes()");
+            attributes.width = -2;
+            attributes.height = -2;
+            window.setAttributes(attributes);
+            window.setWindowAnimations(R.style.obfuscated_res_0x7f100157);
+            window.setContentView(R.layout.pay_ui_center_dialog_pay_common);
+            View findViewById = window.findViewById(R.id.tv_title);
+            Intrinsics.checkExpressionValueIsNotNull(findViewById, "window.findViewById<TextView>(R.id.tv_title)");
+            ((TextView) findViewById).setText(str);
+            window.findViewById(R.id.obfuscated_res_0x7f091e03).setOnClickListener(new a(payDialogType, dialog, iViewEventListener, yabVar));
+            ((Button) window.findViewById(R.id.btn_close)).setOnClickListener(new b(payDialogType, dialog, iViewEventListener, yabVar));
+            ((ViewGroup) window.findViewById(R.id.obfuscated_res_0x7f090772)).addView(view2);
         }
     }
 
-    public final void d(int i, int i2, String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, str2, str3}) == null) {
-            IRevenue revenue = getRevenue(i, i2);
-            if (revenue != null && revenue.getPayEventStatistic() != null) {
-                RLog.info("RevenueService", "reportPayNetEvent event:" + str + " code:" + str2 + " msg:" + str3);
-                revenue.getPayEventStatistic().reportPayFlowEvent(str, str2, str3, "", "", "", "", "");
-                return;
-            }
-            RLog.error("RevenueService", "handleReportPayNetEvent object null", new Object[0]);
-        }
-    }
-
-    public final IDataSenderAdapter e(MiddleRevenueConfig middleRevenueConfig) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, middleRevenueConfig)) == null) {
-            HttpDataSenderAdapter httpDataSenderAdapter = new HttpDataSenderAdapter();
-            DataSenderConfig dataSenderConfig = new DataSenderConfig();
-            dataSenderConfig.hostId = middleRevenueConfig.getHostId();
-            dataSenderConfig.pakageName = middleRevenueConfig.getPackageName();
-            dataSenderConfig.version = middleRevenueConfig.getVersion();
-            dataSenderConfig.httpUrl = Env.instance().REVENUE_HTTP_URL;
-            dataSenderConfig.protoType = middleRevenueConfig.getProtoType();
-            dataSenderConfig.authType = middleRevenueConfig.getAuthType();
-            dataSenderConfig.appContext = middleRevenueConfig.getAppContext();
-            dataSenderConfig.gslbAppId = middleRevenueConfig.getGslbAppId();
-            dataSenderConfig.hdid = HiidoUtils.getHdid(middleRevenueConfig.getAppContext());
-            dataSenderConfig.payNetReporter = b(middleRevenueConfig.getAppId(), middleRevenueConfig.getUseChannel());
-            httpDataSenderAdapter.init(dataSenderConfig);
-            return httpDataSenderAdapter;
-        }
-        return (IDataSenderAdapter) invokeL.objValue;
-    }
-
-    public final IRevenue f(int i, Context context, long j, int i2, int i3, String str, String str2, int i4, ProtocolType protocolType, IRevenueDataSender iRevenueDataSender, String str3, String str4) {
+    public final Dialog e(Context context, String str, View view2, yab yabVar, IViewEventListener iViewEventListener, PayDialogType payDialogType, PayFlowType payFlowType) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), context, Long.valueOf(j), Integer.valueOf(i2), Integer.valueOf(i3), str, str2, Integer.valueOf(i4), protocolType, iRevenueDataSender, str3, str4})) == null) {
-            RLog.info("RevenueService", "initRevenue: appId = %d, uid = %s, usedChannel = %d, currencyType = %d, authType = %s", Integer.valueOf(i), XorUtil.encode(String.valueOf(j)), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4));
-            return RevenueSdk.addRevenueConfig(i, i2, RevenueConfig.RevenueConfigBuilder.aRevenueConfig().setUid(j).setAppId(i).setUsedChannel(i2).setCurrencyType(i3).setDataSender(iRevenueDataSender).setContext(context).setProtoType(protocolType).setPakageName(str).setClientVersion(str2).setAppName(str3).setAuthType(i4).setDeviceId(str4).build());
-        }
-        return (IRevenue) invokeCommon.objValue;
-    }
-
-    @Override // com.baidu.tieba.e6b
-    public synchronized IMiddleRevenue getMiddleRevenue(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048583, this, i, i2)) == null) {
-            synchronized (this) {
-                MiddleRevenueConfig middleRevenueConfig = a.get(c(i, i2));
-                if (middleRevenueConfig == null) {
-                    RLog.info("RevenueService", "getMiddleRevenue fail,not yet config appId:" + i + " usechanel:" + i2);
-                    return null;
-                }
-                IRevenue revenue = getRevenue(middleRevenueConfig.getAppId(), middleRevenueConfig.getUseChannel());
-                if (revenue == null) {
-                    RLog.error("RevenueService", "getMiddleRevenue revenue null appId:" + i + " usechanel:" + i2, new Object[0]);
-                    return null;
-                }
-                return new m6b(middleRevenueConfig, revenue);
-            }
-        }
-        return (IMiddleRevenue) invokeII.objValue;
-    }
-
-    @Override // com.baidu.tieba.e6b
-    public f6b getYYPayMiddleService(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048585, this, i, i2)) == null) {
-            MiddleRevenueConfig middleRevenueConfig = a.get(c(i, i2));
-            if (middleRevenueConfig == null) {
-                RLog.info("RevenueService", "getMiddleRevenue fail,not yet config appId:" + i + " usechanel:" + i2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, str, view2, yabVar, iViewEventListener, payDialogType, payFlowType})) == null) {
+            if (!jab.a.a(context)) {
+                RLog.info(a, "showDialog ActivityInvalid....");
                 return null;
             }
-            IMiddleRevenue middleRevenue = getMiddleRevenue(i, i2);
-            if (middleRevenue == null) {
-                RLog.info("RevenueService", "getMiddleRevenue middleRevenue null appId:" + i + " usechanel:" + i2);
-                return null;
-            }
-            return new o6b(middleRevenueConfig, middleRevenue);
+            bbb bbbVar = new bbb(context, R.style.obfuscated_res_0x7f10015a, payFlowType);
+            bbbVar.setCancelable(true);
+            bbbVar.setCanceledOnTouchOutside(false);
+            bbbVar.show();
+            bbbVar.setOnDismissListener(new c(yabVar, bbbVar));
+            bbbVar.setOnCancelListener(new d(yabVar, bbbVar));
+            bbbVar.setOnKeyListener(new e(yabVar));
+            d(context, str, view2, yabVar, iViewEventListener, payDialogType, bbbVar);
+            return bbbVar;
         }
-        return (f6b) invokeII.objValue;
-    }
-
-    @Override // com.baidu.tieba.e6b
-    public synchronized void removeRevenueConfig(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048586, this, i, i2) == null) {
-            synchronized (this) {
-                String c = c(i, i2);
-                a.remove(c);
-                RLog.info("RevenueService", "removeRevenueConfig mapKey=" + c + " mapSize:" + a.size());
-                RevenueSdk.removeRevenueConfig(i, i2);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.e6b
-    public void updateMiddleRevenueConfig(int i, int i2, Long l, String str) {
-        RevenueConfig config;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), l, str}) == null) && (config = RevenueConfigCenter.getConfig(i, i2)) != null) {
-            config.setUid(l.longValue());
-            getRevenue(i, i2).updateConfig(config);
-        }
+        return (Dialog) invokeCommon.objValue;
     }
 }

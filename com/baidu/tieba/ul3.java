@@ -1,15 +1,14 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Application;
-import android.content.ComponentName;
-import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.annotation.AnyThread;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.pms.model.PMSException;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,44 +17,34 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ul3 {
+public class ul3 implements om3<Exception> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
-    public static c g;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final Application a;
-    @Nullable
-    public ct2 b;
-    public boolean c;
-    public boolean d;
-    public int e;
+    public long a;
+    public final Handler b;
+    public Runnable c;
+    public volatile boolean d;
 
     /* loaded from: classes6.dex */
-    public interface c {
-        void a(boolean z, int i);
-    }
-
-    /* loaded from: classes6.dex */
-    public class a extends ct2 {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ul3 a;
 
         /* renamed from: com.baidu.tieba.ul3$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0449a implements Runnable {
+        public class RunnableC0436a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ Activity a;
-            public final /* synthetic */ a b;
+            public final /* synthetic */ a a;
 
-            public RunnableC0449a(a aVar, Activity activity) {
+            public RunnableC0436a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, activity};
+                    Object[] objArr = {aVar};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -65,39 +54,18 @@ public class ul3 {
                         return;
                     }
                 }
-                this.b = aVar;
-                this.a = activity;
+                this.a = aVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                boolean u;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    Intent intent = this.a.getIntent();
-                    es1 o = br2.o();
-                    ComponentName component = intent.getComponent();
-                    if (this.b.a.c && intent.hasCategory("android.intent.category.LAUNCHER") && "android.intent.action.MAIN".equals(intent.getAction()) && o != null && component != null && TextUtils.equals(o.A(), component.getClassName())) {
-                        if (this.b.a.d) {
-                            if (ul3.f) {
-                                Log.w("SwanHomeScreenLaunch", "SwanApp is Foreground Now");
-                                return;
-                            }
-                            return;
-                        }
-                        ak3 m = ak3.m();
-                        if (bk3.a() && ak3.k()) {
-                            u = m.w(this.a, this.b.a.e, false);
-                        } else {
-                            u = m.u(this.b.a.e, false, false);
-                        }
-                        if (ul3.f) {
-                            Log.d("SwanHomeScreenLaunch", "moveTaskToFront " + u + ", taskId=" + this.b.a.e);
-                        }
-                        m.i();
+                    if (ul3.e) {
+                        Log.d("SwanH2HeartBeatManager", "do updateCore, isStop=" + this.a.a.d);
                     }
-                    if (ul3.f) {
-                        Log.d("SwanHomeScreenLaunch", "class=" + this.a + ", swanAppForeground=" + this.b.a.c + ", flag=" + intent.getFlags() + ", ComponentName=" + component);
+                    if (!this.a.a.d) {
+                        this.a.a.j();
                     }
                 }
             }
@@ -121,42 +89,33 @@ public class ul3 {
             this.a = ul3Var;
         }
 
-        @Override // com.baidu.tieba.ct2, android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityStarted(Activity activity) {
-            boolean z;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-                super.onActivityStarted(activity);
-                ul3 ul3Var = this.a;
-                if (ul3Var.c && activity != null && activity.getTaskId() == this.a.e) {
-                    z = true;
-                } else {
-                    z = false;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (!ProcessUtils.isMainProcess()) {
+                    i43.c(c.class, null);
+                    return;
                 }
-                ul3Var.c = z;
-            }
-        }
-
-        @Override // com.baidu.tieba.ct2, android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityCreated(Activity activity, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLL(1048576, this, activity, bundle) != null) || !ak3.j()) {
-                return;
-            }
-            super.onActivityCreated(activity, bundle);
-            if (activity != null && activity.getIntent() != null) {
-                RunnableC0449a runnableC0449a = new RunnableC0449a(this, activity);
-                if (bk3.a()) {
-                    runnableC0449a.run();
-                } else {
-                    ok3.j(runnableC0449a, "moveTaskToFront");
+                this.a.d = false;
+                synchronized (ul3.class) {
+                    this.a.a = System.currentTimeMillis();
+                    if (this.a.c != null) {
+                        this.a.b.removeCallbacks(this.a.c);
+                    }
+                    this.a.c = new RunnableC0436a(this);
+                    long a = bk4.a(300) * 1000;
+                    this.a.b.postDelayed(this.a.c, a);
+                    if (ul3.e) {
+                        Log.d("SwanH2HeartBeatManager", "wait next heart beat: " + a);
+                    }
                 }
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements c {
+    public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ul3 a;
@@ -179,20 +138,66 @@ public class ul3 {
             this.a = ul3Var;
         }
 
-        @Override // com.baidu.tieba.ul3.c
-        public void a(boolean z, int i) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-                if (!z) {
-                    if (this.a.c && i == 1) {
-                        this.a.c = false;
-                    }
-                } else {
-                    this.a.c = true;
-                    this.a.e = i;
-                }
-                this.a.d = z;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                ff4.l(new cj4(0), new ya2(this.a, true));
             }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class c extends ProviderDelegation {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+        public Bundle execCall(Bundle bundle) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+                ul3.k().m();
+                return null;
+            }
+            return (Bundle) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class d {
+        public static /* synthetic */ Interceptable $ic;
+        public static final ul3 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-371340083, "Lcom/baidu/tieba/ul3$d;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-371340083, "Lcom/baidu/tieba/ul3$d;");
+                    return;
+                }
+            }
+            a = new ul3(null);
         }
     }
 
@@ -209,23 +214,13 @@ public class ul3 {
                 return;
             }
         }
-        f = eo1.a;
+        e = fo1.a;
     }
 
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            g = null;
-            this.a.unregisterActivityLifecycleCallbacks(this.b);
-        }
-    }
-
-    public ul3(@NonNull Application application) {
+    public ul3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {application};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -235,17 +230,79 @@ public class ul3 {
                 return;
             }
         }
-        this.a = application;
-        this.b = new a(this);
-        g = new b(this);
-        application.registerActivityLifecycleCallbacks(this.b);
+        this.d = false;
+        this.b = new Handler(Looper.getMainLooper());
     }
 
-    public static void h(boolean z, int i) {
-        c cVar;
+    public static ul3 k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) && (cVar = g) != null) {
-            cVar.a(z, i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            return d.a;
+        }
+        return (ul3) invokeV.objValue;
+    }
+
+    @AnyThread
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            pk3.l(new b(this), "SwanH2HeartBeatManager");
+        }
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || !bk4.a) {
+            return;
+        }
+        if (e) {
+            Log.d("SwanH2HeartBeatManager", "startHeartBeat");
+        }
+        pk3.l(new a(this), "SwanH2HeartBeatManager");
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || !bk4.a) {
+            return;
+        }
+        if (e) {
+            Log.d("SwanH2HeartBeatManager", "stopHeartBeat");
+        }
+        this.d = true;
+        Runnable runnable = this.c;
+        if (runnable != null) {
+            this.b.removeCallbacks(runnable);
+        }
+        this.c = null;
+    }
+
+    public /* synthetic */ ul3(a aVar) {
+        this();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.om3
+    /* renamed from: l */
+    public void a(Exception exc) {
+        pg4 pmsError;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
+            this.c = null;
+            if (e) {
+                Log.w("SwanH2HeartBeatManager", "onCallback", exc);
+            }
+            if (exc != null) {
+                Throwable cause = exc.getCause();
+                if ((cause instanceof PMSException) && (pmsError = ((PMSException) cause).getPmsError()) != null && pmsError.f >= 500) {
+                    n();
+                    bk4.a = false;
+                    v42.k("SwanH2HeartBeatManager", "update core heartBeat exception: code=" + pmsError.f);
+                    return;
+                }
+                m();
+            }
         }
     }
 }

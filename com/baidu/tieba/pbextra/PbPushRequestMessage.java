@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.qq5;
+import com.baidu.tieba.rq5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -58,7 +58,7 @@ public class PbPushRequestMessage extends NetMessage {
             builder.push_type = Integer.valueOf(this.mPushType);
             builder.user_id = Long.valueOf(this.mUserId);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                qq5.a(builder, true);
+                rq5.a(builder, true);
             }
             PushThreadReqIdl.Builder builder2 = new PushThreadReqIdl.Builder();
             builder2.data = builder.build(false);

@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.editortools.view.CommonTabWidgetView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cf5;
-import com.baidu.tieba.pc5;
+import com.baidu.tieba.df5;
+import com.baidu.tieba.qc5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +29,7 @@ public class CommonTabHost extends ICommonTabHost implements CommonTabWidgetView
     public CommonTabContentView b;
     public CommonTabWidgetView c;
     public ProgressBar d;
-    public ArrayList<cf5> e;
+    public ArrayList<df5> e;
     public int f;
     public int g;
     public Context h;
@@ -42,7 +42,7 @@ public class CommonTabHost extends ICommonTabHost implements CommonTabWidgetView
     public interface b {
         void a();
 
-        void b(cf5 cf5Var);
+        void b(df5 df5Var);
 
         void onLoadFail();
     }
@@ -96,16 +96,16 @@ public class CommonTabHost extends ICommonTabHost implements CommonTabWidgetView
         }
 
         @Override // com.baidu.tbadk.editortools.view.CommonTabHost.b
-        public void b(cf5 cf5Var) {
+        public void b(df5 df5Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cf5Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, df5Var) == null) {
                 this.a.j();
                 this.a.c.e();
                 this.a.c.setDatas(this.a.e);
                 int size = this.a.e.size();
                 boolean z = false;
                 for (int i = 0; i < size; i++) {
-                    cf5.b f = ((cf5) this.a.e.get(i)).f();
+                    df5.b f = ((df5) this.a.e.get(i)).f();
                     if (f != null) {
                         this.a.i(f);
                         z = true;
@@ -183,7 +183,7 @@ public class CommonTabHost extends ICommonTabHost implements CommonTabWidgetView
                 return;
             }
             this.l = true;
-            Iterator<cf5> it = this.e.iterator();
+            Iterator<df5> it = this.e.iterator();
             while (it.hasNext()) {
                 it.next().n(this.h);
             }
@@ -219,22 +219,22 @@ public class CommonTabHost extends ICommonTabHost implements CommonTabWidgetView
         k(context);
     }
 
-    public void C(pc5 pc5Var) {
+    public void C(qc5 qc5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, pc5Var) == null) {
-            Iterator<cf5> it = this.e.iterator();
+        if (interceptable == null || interceptable.invokeL(1048576, this, qc5Var) == null) {
+            Iterator<df5> it = this.e.iterator();
             while (it.hasNext()) {
-                it.next().C(pc5Var);
+                it.next().C(qc5Var);
             }
         }
     }
 
-    @Override // com.baidu.tieba.bd5
-    public void H(pc5 pc5Var) {
+    @Override // com.baidu.tieba.cd5
+    public void H(qc5 qc5Var) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pc5Var) == null) && (editorTools = this.a) != null) {
-            editorTools.C(pc5Var);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qc5Var) == null) && (editorTools = this.a) != null) {
+            editorTools.C(qc5Var);
         }
     }
 
@@ -246,23 +246,23 @@ public class CommonTabHost extends ICommonTabHost implements CommonTabWidgetView
         }
     }
 
-    public void h(cf5 cf5Var) {
+    public void h(df5 df5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, cf5Var) == null) {
-            cf5Var.p(this.k);
-            cf5Var.setEditorTools(this.a);
-            this.e.add(cf5Var);
+        if (interceptable == null || interceptable.invokeL(1048581, this, df5Var) == null) {
+            df5Var.p(this.k);
+            df5Var.setEditorTools(this.a);
+            this.e.add(df5Var);
         }
     }
 
-    public final void i(cf5.b bVar) {
+    public final void i(df5.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) {
             this.c.b(bVar);
         }
     }
 
-    @Override // com.baidu.tieba.bd5
+    @Override // com.baidu.tieba.cd5
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
@@ -296,7 +296,7 @@ public class CommonTabHost extends ICommonTabHost implements CommonTabWidgetView
         }
     }
 
-    @Override // com.baidu.tbadk.editortools.view.ICommonTabHost, com.baidu.tieba.bd5
+    @Override // com.baidu.tbadk.editortools.view.ICommonTabHost, com.baidu.tieba.cd5
     public void setToolId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
@@ -311,7 +311,7 @@ public class CommonTabHost extends ICommonTabHost implements CommonTabWidgetView
         }
     }
 
-    @Override // com.baidu.tbadk.editortools.view.ICommonTabHost, com.baidu.tieba.bd5
+    @Override // com.baidu.tbadk.editortools.view.ICommonTabHost, com.baidu.tieba.cd5
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -321,7 +321,7 @@ public class CommonTabHost extends ICommonTabHost implements CommonTabWidgetView
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.bd5
+    @Override // com.baidu.tieba.cd5
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
@@ -348,21 +348,21 @@ public class CommonTabHost extends ICommonTabHost implements CommonTabWidgetView
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.onDetachedFromWindow();
-            Iterator<cf5> it = this.e.iterator();
+            Iterator<df5> it = this.e.iterator();
             while (it.hasNext()) {
                 it.next().a();
             }
         }
     }
 
-    @Override // com.baidu.tbadk.editortools.view.ICommonTabHost, com.baidu.tieba.bd5
+    @Override // com.baidu.tbadk.editortools.view.ICommonTabHost, com.baidu.tieba.cd5
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, editorTools) == null) {
             this.a = editorTools;
-            ArrayList<cf5> arrayList = this.e;
+            ArrayList<df5> arrayList = this.e;
             if (arrayList != null && arrayList.size() != 0) {
-                Iterator<cf5> it = this.e.iterator();
+                Iterator<df5> it = this.e.iterator();
                 while (it.hasNext()) {
                     it.next().setEditorTools(this.a);
                 }

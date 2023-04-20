@@ -32,7 +32,9 @@ public class eo3 extends ProviderDelegation {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
             Bundle bundle2 = new Bundle();
-            bundle2.putBoolean("result", vn3.E(getAgent().getContext()));
+            wo3 A = wn3.A(getAgent().getContext());
+            bundle2.putString("NICK_NAME", A.a);
+            bundle2.putString("AVATAR_URL", A.b);
             return bundle2;
         }
         return (Bundle) invokeL.objValue;

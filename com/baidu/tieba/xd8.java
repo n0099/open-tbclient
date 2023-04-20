@@ -1,165 +1,232 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.lego.card.model.BaseLegoCardInfo;
+import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Set;
-/* loaded from: classes6.dex */
-public class xd8 extends yr4 {
+import java.util.List;
+/* loaded from: classes7.dex */
+public class xd8 implements td8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final StatisticItem a;
 
-    @Override // com.baidu.tieba.yr4
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "post" : (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes6.dex */
-    public class a extends BdAsyncTask<Object, Integer, ds4> {
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public volatile NetWork a;
-        public String b;
-        public String c;
-        public HashMap<String, String> d;
-        public z8 e;
+    }
 
-        public a(xd8 xd8Var, String str, String str2, HashMap<String, String> hashMap, z8 z8Var) {
+    /* loaded from: classes7.dex */
+    public static class b implements td8 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.td8
+        public void a(ICardInfo iCardInfo) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, iCardInfo) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.td8
+        public td8 b(String str, int i) {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) ? this : (td8) invokeLI.objValue;
+        }
+
+        @Override // com.baidu.tieba.td8
+        public td8 c(String str, long j) {
+            InterceptResult invokeLJ;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j)) == null) ? this : (td8) invokeLJ.objValue;
+        }
+
+        @Override // com.baidu.tieba.td8
+        public td8 d(String str, String str2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) ? this : (td8) invokeLL.objValue;
+        }
+
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xd8Var, str, str2, hashMap, z8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
-            }
-            this.a = null;
-            this.b = str;
-            this.c = str2;
-            this.d = hashMap;
-            this.e = z8Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public ds4 doInBackground(Object... objArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
-                ds4 ds4Var = new ds4();
-                try {
-                    this.a = new NetWork(TbConfig.SERVER_ADDRESS + this.c);
-                    Set<String> keySet = this.d.keySet();
-                    if (keySet.size() > 0) {
-                        for (String str : keySet) {
-                            if (!"url".equalsIgnoreCase(str)) {
-                                this.a.addPostData(str, this.d.get(str));
-                            }
-                        }
-                    }
-                    this.a.addPostData("user_name", TbadkCoreApplication.getCurrentAccountName());
-                    this.a.addPostData("user_id", TbadkCoreApplication.getCurrentAccount());
-                    boolean z = true;
-                    this.a.getNetContext().getRequest().mIsNeedTbs = true;
-                    String postNetData = this.a.postNetData();
-                    if (!this.a.getNetContext().getResponse().isNetSuccess()) {
-                        ds4Var.b = this.a.getNetErrorCode();
-                        ds4Var.c = this.a.getNetString();
-                    } else {
-                        ds4Var.b = this.a.getServerErrorCode();
-                        ds4Var.c = this.a.getErrorString();
-                    }
-                    if (this.a.getNetContext().getResponse().isRequestSuccess() && postNetData != null) {
-                        if (ds4Var.b != 0) {
-                            z = false;
-                        }
-                        ds4Var.a = z;
-                        return ds4Var;
-                    }
-                } catch (Exception e) {
-                    BdLog.e(e.getMessage());
-                }
-                ds4Var.a = false;
-                return ds4Var;
-            }
-            return (ds4) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(ds4 ds4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ds4Var) == null) {
-                z8 z8Var = this.e;
-                if (z8Var != null) {
-                    z8Var.c(ds4Var);
-                }
-                td8.a().d(this.c, this.d, ds4Var);
             }
         }
 
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void cancel() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                if (this.a != null) {
-                    this.a.cancelNetConnect();
-                    this.a = null;
-                }
-                super.cancel(true);
-                z8 z8Var = this.e;
-                if (z8Var != null) {
-                    z8Var.c(null);
-                }
-            }
+        public /* synthetic */ b(a aVar) {
+            this();
         }
     }
 
-    public xd8() {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public xd8(BaseLegoCardInfo baseLegoCardInfo) {
+        this(baseLegoCardInfo.getStatistics(), baseLegoCardInfo.getStatTab(), baseLegoCardInfo.getCardType(), baseLegoCardInfo.getItemId());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseLegoCardInfo};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), (String) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.yr4, com.baidu.tieba.bs4
-    public void a(Object obj, HashMap<String, String> hashMap, String str, z8 z8Var) {
+    public xd8(String str, int i, int i2, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(1048576, this, obj, hashMap, str, z8Var) == null) && hashMap != null && !hashMap.isEmpty() && hashMap.containsKey("url")) {
-            String str2 = hashMap.get("url");
-            if (TextUtils.isEmpty(str2)) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), str2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            a aVar = new a(this, str, str2, hashMap, z8Var);
-            aVar.setPriority(2);
-            aVar.execute(new Object[0]);
+        }
+        StatisticItem statisticItem = new StatisticItem(str);
+        this.a = statisticItem;
+        statisticItem.param("obj_source", i);
+        this.a.param("obj_type", i2);
+        if (!TextUtils.isEmpty(str2)) {
+            this.a.param("obj_card", str2);
+        }
+    }
+
+    public static td8 e(BaseLegoCardInfo baseLegoCardInfo) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, baseLegoCardInfo)) == null) {
+            if (baseLegoCardInfo != null && !TextUtils.isEmpty(baseLegoCardInfo.getStatistics())) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
+                return new xd8(baseLegoCardInfo);
+            }
+            return new b(null);
+        }
+        return (td8) invokeL.objValue;
+    }
+
+    public static td8 f(String str, int i, int i2, String str2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), str2})) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                return new xd8(str, i, i2, str2);
+            }
+            return new b(null);
+        }
+        return (td8) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.tieba.td8
+    public void a(ICardInfo iCardInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, iCardInfo) == null) {
+            g(iCardInfo);
+            TiebaStatic.log(this.a);
+        }
+    }
+
+    @Override // com.baidu.tieba.td8
+    public td8 b(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                this.a.param(str, i);
+            }
+            return this;
+        }
+        return (td8) invokeLI.objValue;
+    }
+
+    @Override // com.baidu.tieba.td8
+    public td8 c(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                this.a.param(str, String.valueOf(j));
+            }
+            return this;
+        }
+        return (td8) invokeLJ.objValue;
+    }
+
+    @Override // com.baidu.tieba.td8
+    public td8 d(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                this.a.param(str, str2);
+            }
+            return this;
+        }
+        return (td8) invokeLL.objValue;
+    }
+
+    public final void g(ICardInfo iCardInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, iCardInfo) == null) {
+            BaseLegoCardInfo baseLegoCardInfo = (BaseLegoCardInfo) iCardInfo;
+            if (!TextUtils.isEmpty(baseLegoCardInfo.getStatistics()) && !TextUtils.isEmpty(baseLegoCardInfo.getsExtras())) {
+                List<Object> params = this.a.getParams();
+                for (String str : baseLegoCardInfo.getsExtras().split("&")) {
+                    String[] split = str.split("=");
+                    if (split.length == 2) {
+                        String str2 = split[0];
+                        String str3 = split[1];
+                        boolean z = false;
+                        for (int i = 0; i < params.size() && !z; i += 2) {
+                            if (TextUtils.equals(str2, params.get(i).toString())) {
+                                int i2 = i + 1;
+                                if (i2 < params.size()) {
+                                    params.set(i2, str3);
+                                }
+                                z = true;
+                            }
+                        }
+                        if (!z) {
+                            this.a.param(str2, str3);
+                        }
+                    }
+                }
+                d(TiebaStatic.Params.OBJ_PARAM3, kg6.e());
+            }
         }
     }
 }

@@ -1,115 +1,63 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Application;
-import android.content.Context;
-import android.os.Build;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
 public final class ica {
     public static /* synthetic */ Interceptable $ic;
-    public static final ica c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Set<a> a;
-    public boolean b;
-
-    /* loaded from: classes4.dex */
-    public interface a {
-        void U();
-
-        void a(Activity activity);
-
-        void b();
-
-        void onActivityDestroyed(Activity activity);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947850082, "Lcom/baidu/tieba/ica;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947850082, "Lcom/baidu/tieba/ica;");
-                return;
-            }
-        }
-        c = new ica();
-    }
+    public SQLiteDatabase a;
 
     public ica() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new LinkedHashSet();
+        this.a = hca.a().c();
     }
 
-    public static ica a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return c;
-        }
-        return (ica) invokeV.objValue;
-    }
-
-    public final Set<a> b() {
+    public final List<com.baidu.ubs.analytics.a.i> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            Cursor rawQuery = this.a.rawQuery("SELECT * FROM tb_ab_netlog order by _id ", null);
+            ArrayList arrayList = new ArrayList();
+            while (rawQuery.moveToNext()) {
+                com.baidu.ubs.analytics.a.i iVar = new com.baidu.ubs.analytics.a.i();
+                iVar.setUrl(rawQuery.getString(rawQuery.getColumnIndex("_url")));
+                iVar.setType(rawQuery.getString(rawQuery.getColumnIndex("_type")));
+                iVar.u(rawQuery.getString(rawQuery.getColumnIndex("_timeStamp")));
+                iVar.setParameters(rawQuery.getString(rawQuery.getColumnIndex("_parameters")));
+                iVar.x(rawQuery.getString(rawQuery.getColumnIndex("_sessionId")));
+                iVar.setId(rawQuery.getInt(rawQuery.getColumnIndex("_id")));
+                arrayList.add(iVar);
+            }
+            rawQuery.close();
+            return arrayList;
         }
-        return (Set) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public final void c() {
+    public final void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this.a) {
-                this.a.clear();
-            }
-        }
-    }
-
-    public final void d(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            synchronized (this.a) {
-                this.a.add(aVar);
-            }
-        }
-    }
-
-    public final void e(Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, context) == null) && !this.b && Build.VERSION.SDK_INT >= 14) {
-            try {
-                ((Application) context.getApplicationContext()).registerActivityLifecycleCallbacks(new pca(this));
-            } catch (Exception unused) {
-                dda.b("registerActivityLifecycleCallbacks encounter exception");
-            }
-            this.b = true;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.a.execSQL("delete from tb_ab_netlog where _id <= " + i);
         }
     }
 }

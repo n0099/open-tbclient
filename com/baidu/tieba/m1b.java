@@ -1,7 +1,9 @@
 package com.baidu.tieba;
 /* loaded from: classes5.dex */
 public interface m1b {
-    boolean isUnsubscribed();
+    void onCompleted();
 
-    void unsubscribe();
+    void onError(Throwable th);
+
+    void onSubscribe(u1b u1bVar);
 }

@@ -1,51 +1,49 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.io.IOException;
+import java.io.InputStream;
+import java.math.BigDecimal;
+import java.util.Iterator;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class yva {
+public class yva implements uva {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<Class<?>, uva> b;
-    public static Map<Class<?>, Object> c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<Class<?>, uva> a;
+    public final JSONObject a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948344997, "Lcom/baidu/tieba/yva;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948344997, "Lcom/baidu/tieba/yva;");
-                return;
-            }
-        }
-        b = new HashMap();
-        c = new HashMap();
-    }
-
-    public yva(List<uva> list, Context context) {
+    public yva(InputStream inputStream) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {list, context};
+            Object[] objArr = {inputStream};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = b(inputStream);
+    }
+
+    public yva(InputStream inputStream, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {inputStream, str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -55,87 +53,130 @@ public final class yva {
                 return;
             }
         }
-        this.a = new HashMap();
-        new HashMap();
-        c(list, context);
+        this.a = b(inputStream);
+        c(str);
     }
 
-    public static Constructor a(Class cls, Class... clsArr) {
+    @Override // com.baidu.tieba.uva
+    public String a(String str, String str2) {
         InterceptResult invokeLL;
-        Constructor<?>[] declaredConstructors;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, cls, clsArr)) == null) {
-            boolean z = false;
-            for (Constructor<?> constructor : cls.getDeclaredConstructors()) {
-                Class<?>[] parameterTypes = constructor.getParameterTypes();
-                if (parameterTypes.length == clsArr.length) {
-                    for (int i = 0; i < clsArr.length; i++) {
-                        z = parameterTypes[i] == clsArr[i];
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            if (str.endsWith("/")) {
+                return str2;
+            }
+            String[] split = str.split("/");
+            try {
+                JSONObject jSONObject = this.a;
+                for (int i = 1; i < split.length; i++) {
+                    if (i == split.length - 1) {
+                        str = jSONObject.get(split[i]).toString();
+                        return str;
                     }
-                    if (z) {
-                        return constructor;
+                    jSONObject = jSONObject.getJSONObject(split[i]);
+                }
+            } catch (JSONException unused) {
+                Log.w("InputStreamReader", "JSONException when reading 'path': " + str);
+            }
+            return str2;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public final JSONObject b(InputStream inputStream) {
+        InterceptResult invokeL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, inputStream)) == null) {
+            if (inputStream != null) {
+                try {
+                    return new JSONObject(qva.g(inputStream, "UTF-8"));
+                } catch (IOException unused) {
+                    str = "IOException when reading the 'Config' from InputStream.";
+                    Log.e("InputStreamReader", str);
+                    return new JSONObject();
+                } catch (JSONException unused2) {
+                    str = "JSONException when reading the 'Config' from InputStream.";
+                    Log.e("InputStreamReader", str);
+                    return new JSONObject();
+                }
+            }
+            return new JSONObject();
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public final void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            try {
+                JSONObject e = e(str);
+                if (e == null) {
+                    return;
+                }
+                String a = a("/configuration_version", "");
+                BigDecimal bigDecimal = new BigDecimal("0.0");
+                try {
+                    bigDecimal = BigDecimal.valueOf(Double.parseDouble(a));
+                } catch (NumberFormatException unused) {
+                    Log.d("InputStreamReader", "configuration_version to double error");
+                }
+                if (bigDecimal.compareTo(new BigDecimal("2.0")) == 0) {
+                    this.a.getJSONObject("client").put("app_id", e.getString("app_id"));
+                } else if (bigDecimal.compareTo(new BigDecimal("3.0")) >= 0) {
+                    Iterator<String> keys = e.keys();
+                    while (keys.hasNext()) {
+                        String next = keys.next();
+                        if (!"package_name".equals(next)) {
+                            d(next, e.get(next), this.a);
+                        }
                     }
+                }
+            } catch (JSONException unused2) {
+                Log.d("InputStreamReader", "JSONException when reading the 'appInfos' from InputStream.");
+            }
+        }
+    }
+
+    public final void d(String str, Object obj, JSONObject jSONObject) throws JSONException {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(1048579, this, str, obj, jSONObject) == null) || str == null || obj == null || jSONObject == null) {
+            return;
+        }
+        if (!(obj instanceof JSONObject)) {
+            jSONObject.put(str, obj);
+            return;
+        }
+        JSONObject jSONObject2 = (JSONObject) obj;
+        Iterator<String> keys = jSONObject2.keys();
+        while (keys.hasNext()) {
+            String next = keys.next();
+            d(next, jSONObject2.get(next), jSONObject.getJSONObject(str));
+        }
+    }
+
+    public final JSONObject e(String str) throws JSONException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            JSONArray jSONArray = this.a.getJSONArray("appInfos");
+            for (int i = 0; i < jSONArray.length(); i++) {
+                JSONObject jSONObject = jSONArray.getJSONObject(i);
+                if (jSONObject.getString("package_name").equals(str)) {
+                    return jSONObject;
                 }
             }
             return null;
         }
-        return (Constructor) invokeLL.objValue;
+        return (JSONObject) invokeL.objValue;
     }
 
-    public final void b(String str, Exception exc) {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, exc) == null) {
-            Log.e("ServiceRepository", "Instantiate shared service " + str + exc.getLocalizedMessage());
-            StringBuilder sb = new StringBuilder();
-            sb.append("cause message:");
-            sb.append(exc.getCause() != null ? exc.getCause().getMessage() : "");
-            Log.e("ServiceRepository", sb.toString());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return "InputStreamReader{config=" + this.a.toString().hashCode() + '}';
         }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:24:0x005f A[Catch: InvocationTargetException -> 0x007a, InstantiationException -> 0x007e, IllegalAccessException -> 0x0082, TryCatch #2 {IllegalAccessException -> 0x0082, InstantiationException -> 0x007e, InvocationTargetException -> 0x007a, blocks: (B:22:0x004d, B:24:0x005f, B:26:0x0070, B:25:0x0068), top: B:39:0x004d }] */
-    /* JADX WARN: Removed duplicated region for block: B:25:0x0068 A[Catch: InvocationTargetException -> 0x007a, InstantiationException -> 0x007e, IllegalAccessException -> 0x0082, TryCatch #2 {IllegalAccessException -> 0x0082, InstantiationException -> 0x007e, InvocationTargetException -> 0x007a, blocks: (B:22:0x004d, B:24:0x005f, B:26:0x0070, B:25:0x0068), top: B:39:0x004d }] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void c(List<uva> list, Context context) {
-        Map<Class<?>, uva> map;
-        String str;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, context) == null) || list == null) {
-            return;
-        }
-        for (uva uvaVar : list) {
-            if (uvaVar.c()) {
-                if (!b.containsKey(uvaVar.a())) {
-                    map = b;
-                }
-                if (uvaVar.b() && uvaVar.getType() != null && !c.containsKey(uvaVar.a())) {
-                    try {
-                        Constructor a = a(uvaVar.getType(), Context.class);
-                        c.put(uvaVar.a(), a == null ? a.newInstance(context) : uvaVar.getType().newInstance());
-                    } catch (IllegalAccessException e) {
-                        e = e;
-                        str = "AccessException";
-                        b(str, e);
-                    } catch (InstantiationException e2) {
-                        e = e2;
-                        str = "InstantiationException";
-                        b(str, e);
-                    } catch (InvocationTargetException e3) {
-                        e = e3;
-                        str = "TargetException";
-                        b(str, e);
-                    }
-                }
-            } else {
-                map = this.a;
-            }
-            map.put(uvaVar.a(), uvaVar);
-            if (uvaVar.b()) {
-                Constructor a2 = a(uvaVar.getType(), Context.class);
-                c.put(uvaVar.a(), a2 == null ? a2.newInstance(context) : uvaVar.getType().newInstance());
-            }
-        }
+        return (String) invokeV.objValue;
     }
 }

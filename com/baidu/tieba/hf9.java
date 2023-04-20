@@ -1,27 +1,42 @@
 package com.baidu.tieba;
 
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.aperf.param.IAperfOverlayContext;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes4.dex */
-public class hf9 {
+public class hf9 implements IAperfOverlayContext {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile gf9 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized gf9 a() {
-        InterceptResult invokeV;
-        gf9 gf9Var;
+    public hf9() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (hf9.class) {
-                if (a == null) {
-                    a = new gf9();
-                }
-                gf9Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return gf9Var;
         }
-        return (gf9) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.aperf.param.IAperfOverlayContext
+    public String getAppVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return TbConfig.getVersion();
+        }
+        return (String) invokeV.objValue;
     }
 }

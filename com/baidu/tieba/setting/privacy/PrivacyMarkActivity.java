@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PrivacyMarkActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fe9;
-import com.baidu.tieba.p45;
+import com.baidu.tieba.ne9;
+import com.baidu.tieba.q45;
 import com.baidu.tieba.setting.im.more.PrivacySettingMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fe9 a;
+    public ne9 a;
     public HttpMessageListener b;
 
     /* loaded from: classes6.dex */
@@ -64,7 +64,7 @@ public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
                 int type = privacySettingMessage.getType();
                 if (httpResponsedMessage.getError() == 0 && !httpResponsedMessage.hasError()) {
                     String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                    p45 m = p45.m();
+                    q45 m = q45.m();
                     m.z(operation + currentAccount, type);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921499, null));
                     return;
@@ -121,9 +121,9 @@ public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
             if (intExtra2 != 1 && intExtra2 != 3) {
                 intExtra2 = 1;
             }
-            fe9 fe9Var = new fe9(getPageContext(), (intExtra << 2) | intExtra2);
-            this.a = fe9Var;
-            setContentView(fe9Var.B());
+            ne9 ne9Var = new ne9(getPageContext(), (intExtra << 2) | intExtra2);
+            this.a = ne9Var;
+            setContentView(ne9Var.B());
             registerListener(this.b);
         }
     }

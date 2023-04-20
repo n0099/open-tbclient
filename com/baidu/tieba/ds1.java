@@ -1,7 +1,12 @@
 package com.baidu.tieba;
+
+import android.content.Context;
+import org.json.JSONArray;
 /* loaded from: classes4.dex */
 public interface ds1 {
-    float a();
+    long a(Context context);
 
-    String processUrl(String str);
+    void b(Context context, String str, om3<String> om3Var);
+
+    void c(Context context, JSONArray jSONArray, om3<String> om3Var);
 }

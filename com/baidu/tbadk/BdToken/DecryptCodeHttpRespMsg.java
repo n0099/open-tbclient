@@ -3,7 +3,7 @@ package com.baidu.tbadk.BdToken;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.eq4;
+import com.baidu.tieba.fq4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import tbclient.DecryptCode.DecryptCodeResIdl;
 public class DecryptCodeHttpRespMsg extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public eq4 decryptData;
+    public fq4 decryptData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DecryptCodeHttpRespMsg(int i) {
@@ -45,9 +45,9 @@ public class DecryptCodeHttpRespMsg extends HttpResponsedMessage {
             try {
                 DecryptCodeResIdl decryptCodeResIdl = (DecryptCodeResIdl) new Wire(new Class[0]).parseFrom(bArr, DecryptCodeResIdl.class);
                 if (decryptCodeResIdl != null) {
-                    eq4 eq4Var = new eq4();
-                    this.decryptData = eq4Var;
-                    eq4Var.h(decryptCodeResIdl.data);
+                    fq4 fq4Var = new fq4();
+                    this.decryptData = fq4Var;
+                    fq4Var.h(decryptCodeResIdl.data);
                 }
             } catch (Throwable th) {
                 BdLog.e(th);
@@ -55,12 +55,12 @@ public class DecryptCodeHttpRespMsg extends HttpResponsedMessage {
         }
     }
 
-    public eq4 getDecryptData() {
+    public fq4 getDecryptData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.decryptData;
         }
-        return (eq4) invokeV.objValue;
+        return (fq4) invokeV.objValue;
     }
 }

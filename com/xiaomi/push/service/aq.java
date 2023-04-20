@@ -3,7 +3,7 @@ package com.xiaomi.push.service;
 import com.xiaomi.push.fi;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class aq implements Runnable {
     public final /* synthetic */ List a;
 

@@ -30,11 +30,11 @@ public class yk {
     public volatile ml a;
 
     /* loaded from: classes7.dex */
-    public static class a implements id1 {
+    public static class a implements jd1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        @Override // com.baidu.tieba.id1
+        @Override // com.baidu.tieba.jd1
         public void onProgress(long j, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
@@ -55,7 +55,7 @@ public class yk {
             }
         }
 
-        @Override // com.baidu.tieba.id1
+        @Override // com.baidu.tieba.jd1
         public void onResult(int i, String str) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) && BdBaseApplication.getInst().isDebugMode()) {
@@ -96,7 +96,7 @@ public class yk {
 
     public static void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && !c && ml.m()) {
+        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && !c && ml.n()) {
             c = true;
             NPSPackageManager.getInstance().downloadAllBundles();
         }
@@ -111,7 +111,7 @@ public class yk {
         NPSPackageManager.getInstance().fetchBundleInfo();
     }
 
-    public static yk e() {
+    public static yk f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
@@ -120,7 +120,7 @@ public class yk {
         return (yk) invokeV.objValue;
     }
 
-    public static void h() {
+    public static void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, null) == null) {
             a();
@@ -131,25 +131,37 @@ public class yk {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            g();
+            h();
             return this.a.l();
         }
         return (RequestParams.Channel) invokeV.objValue;
     }
 
-    public ml f() {
+    public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            g();
+            if (this.a == null) {
+                return "0";
+            }
+            return this.a.m();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public ml g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            h();
             return this.a;
         }
         return (ml) invokeV.objValue;
     }
 
-    public final synchronized void g() {
+    public final synchronized void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             synchronized (this) {
                 if (this.a == null) {
                     this.a = new ml();
@@ -158,7 +170,7 @@ public class yk {
         }
     }
 
-    public static void i(String str) {
+    public static void j(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, null, str) == null) {
             if (str != null && str.trim().length() != 0) {

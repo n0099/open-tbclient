@@ -14,8 +14,8 @@ import com.baidu.nadcore.component.api.IComponentPlugin;
 import com.baidu.nps.main.manager.Bundle;
 import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tieba.gi0;
 import com.baidu.tieba.hi0;
+import com.baidu.tieba.ii0;
 import java.util.Iterator;
 import java.util.concurrent.CopyOnWriteArrayList;
 import kotlin.Metadata;
@@ -24,7 +24,7 @@ import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes2.dex */
 public class ComponentArchManager implements LifecycleObserver {
     public final CopyOnWriteArrayList<IComponentPlugin> a;
-    public final SimpleArrayMap<Class<? extends hi0>, hi0> b;
+    public final SimpleArrayMap<Class<? extends ii0>, ii0> b;
     public final Context c;
     public final Lifecycle d;
 
@@ -58,7 +58,7 @@ public class ComponentArchManager implements LifecycleObserver {
         this.a.add(component);
     }
 
-    public final void r(Class<? extends hi0> clazz, hi0 componentService) {
+    public final void r(Class<? extends ii0> clazz, ii0 componentService) {
         Intrinsics.checkNotNullParameter(clazz, "clazz");
         Intrinsics.checkNotNullParameter(componentService, "componentService");
         this.b.put(clazz, componentService);
@@ -100,7 +100,7 @@ public class ComponentArchManager implements LifecycleObserver {
         iComponentPlugin.m();
     }
 
-    public final void g(gi0 event) {
+    public final void g(hi0 event) {
         Intrinsics.checkNotNullParameter(event, "event");
         for (IComponentPlugin iComponentPlugin : this.a) {
             iComponentPlugin.u(event);
@@ -118,13 +118,13 @@ public class ComponentArchManager implements LifecycleObserver {
         }
     }
 
-    public <T extends hi0> T o(Class<T> clazz) {
+    public <T extends ii0> T o(Class<T> clazz) {
         Intrinsics.checkNotNullParameter(clazz, "clazz");
-        hi0 hi0Var = this.b.get(clazz);
-        if (!(hi0Var instanceof hi0)) {
-            hi0Var = null;
+        ii0 ii0Var = this.b.get(clazz);
+        if (!(ii0Var instanceof ii0)) {
+            ii0Var = null;
         }
-        return (T) hi0Var;
+        return (T) ii0Var;
     }
 
     public final void t(IComponentPlugin componentPlugin) {

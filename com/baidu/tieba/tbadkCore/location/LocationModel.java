@@ -11,12 +11,12 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.mutiprocess.location.LocationEvent;
 import com.baidu.tieba.a9;
-import com.baidu.tieba.al9;
 import com.baidu.tieba.bb;
 import com.baidu.tieba.cf;
-import com.baidu.tieba.p45;
-import com.baidu.tieba.qm9;
+import com.baidu.tieba.il9;
+import com.baidu.tieba.q45;
 import com.baidu.tieba.tbadkCore.location.LocationData;
+import com.baidu.tieba.ym9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -179,7 +179,7 @@ public class LocationModel extends BdBaseModel {
     public static void W() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            al9.h(303017, LocationSocketResponsedMessage.class, false, false);
+            il9.h(303017, LocationSocketResponsedMessage.class, false, false);
         }
     }
 
@@ -226,8 +226,8 @@ public class LocationModel extends BdBaseModel {
     public void Y(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            qm9.a().e(z);
-            p45.m().w("no_longer_show_address", qm9.a().c());
+            ym9.a().e(z);
+            q45.m().w("no_longer_show_address", ym9.a().c());
         }
     }
 
@@ -241,7 +241,7 @@ public class LocationModel extends BdBaseModel {
     public void X(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-            LocationData b2 = qm9.a().b();
+            LocationData b2 = ym9.a().b();
             if (b2 != null) {
                 b2.setFormatted_address(str);
                 b2.setSn(str2);
@@ -297,8 +297,8 @@ public class LocationModel extends BdBaseModel {
                 return;
             }
             T(locationData);
-            qm9.a().f(System.currentTimeMillis());
-            qm9.a().d(locationData);
+            ym9.a().f(System.currentTimeMillis());
+            ym9.a().d(locationData);
             c cVar2 = this.a;
             if (cVar2 != null) {
                 cVar2.a(locationData);

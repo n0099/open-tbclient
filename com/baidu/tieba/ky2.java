@@ -6,19 +6,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ky2 extends ly2 {
+public class ky2 extends my2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean e;
+    public s63 e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ky2(boolean z) {
-        super(4);
+    public ky2(s63 s63Var) {
+        super(5);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
+            Object[] objArr = {s63Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,14 +29,18 @@ public class ky2 extends ly2 {
                 return;
             }
         }
-        this.e = z;
+        this.e = s63Var;
     }
 
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
+            s63 s63Var = this.e;
+            if (s63Var != null && "show".equals(s63Var.a())) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }

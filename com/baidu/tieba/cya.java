@@ -1,104 +1,111 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.opensource.svgaplayer.proto.AudioEntity;
+import java.lang.reflect.Method;
 /* loaded from: classes4.dex */
-public final class cya {
+public class cya {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final int b;
-    public Integer c;
-    public Integer d;
 
-    public cya(AudioEntity audioEntity) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {audioEntity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes4.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static Object a;
+        public static Class<?> b;
+        public static Method c;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-873288735, "Lcom/baidu/tieba/cya$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-873288735, "Lcom/baidu/tieba/cya$a;");
+                    return;
+                }
+            }
+            try {
+                Class<?> cls = Class.forName("com.android.id.impl.IdProviderImpl");
+                b = cls;
+                a = cls.newInstance();
+                b.getMethod("getUDID", Context.class);
+                c = b.getMethod("getOAID", Context.class);
+                b.getMethod("getVAID", Context.class);
+                b.getMethod("getAAID", Context.class);
+            } catch (Throwable th) {
+                Log.e("XiaomiId", "xiaomi init error", th);
             }
         }
-        String str = audioEntity.audioKey;
-        Integer num = audioEntity.startFrame;
-        if (num != null) {
-            i = num.intValue();
-        } else {
-            i = 0;
+
+        public static String a(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+                return b(context, c);
+            }
+            return (String) invokeL.objValue;
         }
-        this.a = i;
-        Integer num2 = audioEntity.endFrame;
-        this.b = num2 != null ? num2.intValue() : 0;
-        Integer num3 = audioEntity.startTime;
-        if (num3 != null) {
-            num3.intValue();
+
+        public static String b(Context context, Method method) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, method)) == null) {
+                Object obj = a;
+                if (obj != null && method != null) {
+                    try {
+                        Object invoke = method.invoke(obj, context);
+                        if (invoke != null) {
+                            return (String) invoke;
+                        }
+                        return null;
+                    } catch (Exception e) {
+                        Log.e("XiaomiId", "invoke method error", e);
+                        return null;
+                    }
+                }
+                return null;
+            }
+            return (String) invokeLL.objValue;
         }
-        Integer num4 = audioEntity.totalTime;
-        if (num4 != null) {
-            num4.intValue();
+
+        public static boolean c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                if (b != null && a != null) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
         }
     }
 
-    public final int a() {
+    public static String a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            return a.a(context.getApplicationContext());
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a.c();
         }
-        return invokeV.intValue;
-    }
-
-    public final Integer b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
-        }
-        return (Integer) invokeV.objValue;
-    }
-
-    public final Integer c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return (Integer) invokeV.objValue;
-    }
-
-    public final int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public final void e(Integer num) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, num) == null) {
-            this.d = num;
-        }
-    }
-
-    public final void f(Integer num) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, num) == null) {
-            this.c = num;
-        }
+        return invokeV.booleanValue;
     }
 }

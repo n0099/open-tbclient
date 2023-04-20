@@ -19,7 +19,7 @@ public final class b extends AlertDialog {
     @Nullable
     public static b DG;
     @NonNull
-    public final C0596b DH;
+    public final C0595b DH;
     public com.kwad.components.core.c.kwai.a DK;
     public boolean DL;
 
@@ -59,17 +59,17 @@ public final class b extends AlertDialog {
             return this;
         }
 
-        public final C0596b ms() {
+        public final C0595b ms() {
             if (com.kwad.components.core.a.aw.booleanValue() && (this.context == null || this.adTemplate == null || TextUtils.isEmpty(this.url))) {
                 throw new IllegalArgumentException("param is error, please check it");
             }
-            return new C0596b(this, (byte) 0);
+            return new C0595b(this, (byte) 0);
         }
     }
 
     /* renamed from: com.kwad.components.core.c.kwai.b$b  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C0596b {
+    public static class C0595b {
         @Nullable
         public DialogInterface.OnShowListener DN;
         @Nullable
@@ -78,7 +78,7 @@ public final class b extends AlertDialog {
         public Context context;
         public String url;
 
-        public C0596b(a aVar) {
+        public C0595b(a aVar) {
             this.context = aVar.context;
             this.adTemplate = aVar.adTemplate;
             this.url = aVar.url;
@@ -86,36 +86,36 @@ public final class b extends AlertDialog {
             this.DO = aVar.DO;
         }
 
-        public /* synthetic */ C0596b(a aVar, byte b) {
+        public /* synthetic */ C0595b(a aVar, byte b) {
             this(aVar);
         }
     }
 
-    public b(Activity activity, C0596b c0596b) {
+    public b(Activity activity, C0595b c0595b) {
         super(activity);
         this.DL = false;
         setOwnerActivity(activity);
-        this.DH = c0596b;
-        c0596b.context = Wrapper.wrapContextIfNeed(c0596b.context);
+        this.DH = c0595b;
+        c0595b.context = Wrapper.wrapContextIfNeed(c0595b.context);
         if (com.kwad.sdk.b.kwai.a.a(activity)) {
             getWindow().addFlags(1024);
         }
-        setOnShowListener(c0596b.DN);
-        setOnDismissListener(c0596b.DO);
+        setOnShowListener(c0595b.DN);
+        setOnDismissListener(c0595b.DO);
     }
 
-    public static boolean a(C0596b c0596b) {
+    public static boolean a(C0595b c0595b) {
         Activity dB;
         b bVar = DG;
-        if ((bVar != null && bVar.isShowing()) || (dB = bj.dB(c0596b.context)) == null || dB.isFinishing()) {
+        if ((bVar != null && bVar.isShowing()) || (dB = bj.dB(c0595b.context)) == null || dB.isFinishing()) {
             return false;
         }
         com.kwad.sdk.kwai.kwai.c.rd().dismiss();
         try {
-            b bVar2 = new b(dB, c0596b);
+            b bVar2 = new b(dB, c0595b);
             DG = bVar2;
             bVar2.show();
-            com.kwad.sdk.core.report.a.c(c0596b.adTemplate, 86, (JSONObject) null);
+            com.kwad.sdk.core.report.a.c(c0595b.adTemplate, 86, (JSONObject) null);
             return true;
         } catch (Throwable th) {
             com.kwad.sdk.core.e.b.printStackTrace(th);
@@ -163,8 +163,8 @@ public final class b extends AlertDialog {
         if (this.DK == null) {
             com.kwad.components.core.c.kwai.a aVar = new com.kwad.components.core.c.kwai.a(this, this.DH);
             this.DK = aVar;
-            aVar.setChangeListener(new a.InterfaceC0595a() { // from class: com.kwad.components.core.c.kwai.b.1
-                @Override // com.kwad.components.core.c.kwai.a.InterfaceC0595a
+            aVar.setChangeListener(new a.InterfaceC0594a() { // from class: com.kwad.components.core.c.kwai.b.1
+                @Override // com.kwad.components.core.c.kwai.a.InterfaceC0594a
                 public final void mp() {
                     b.this.dismiss();
                 }

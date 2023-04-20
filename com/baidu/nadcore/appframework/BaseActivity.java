@@ -18,15 +18,15 @@ import com.baidu.nadcore.widget.SlideHelper;
 import com.baidu.nadcore.widget.SlideInterceptor;
 import com.baidu.nadcore.widget.SlidingPaneLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a41;
-import com.baidu.tieba.ab1;
-import com.baidu.tieba.e31;
-import com.baidu.tieba.p41;
-import com.baidu.tieba.tf0;
-import com.baidu.tieba.um0;
-import com.baidu.tieba.vf0;
-import com.baidu.tieba.xi0;
-import com.baidu.tieba.ya1;
+import com.baidu.tieba.b41;
+import com.baidu.tieba.bb1;
+import com.baidu.tieba.f31;
+import com.baidu.tieba.q41;
+import com.baidu.tieba.uf0;
+import com.baidu.tieba.vm0;
+import com.baidu.tieba.wf0;
+import com.baidu.tieba.yi0;
+import com.baidu.tieba.za1;
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -101,8 +101,8 @@ public class BaseActivity extends FragmentActivity {
     }
 
     /* loaded from: classes2.dex */
-    public class a implements ya1 {
-        @Override // com.baidu.tieba.ya1
+    public class a implements za1 {
+        @Override // com.baidu.tieba.za1
         public void onTranslucent(boolean z) {
         }
 
@@ -129,7 +129,7 @@ public class BaseActivity extends FragmentActivity {
             }
             if (!BaseActivity.this.g && !BaseActivity.this.i && this.a) {
                 this.a = false;
-                ab1.c(BaseActivity.this, null);
+                bb1.c(BaseActivity.this, null);
             }
             BaseActivity.this.T1(0.0f);
         }
@@ -166,7 +166,7 @@ public class BaseActivity extends FragmentActivity {
             }
             if (!BaseActivity.this.g && !BaseActivity.this.i && !this.a) {
                 this.a = true;
-                ab1.d(BaseActivity.this, null);
+                bb1.d(BaseActivity.this, null);
             }
             float f3 = this.b >> 2;
             BaseActivity.this.T1((f * f3) - f3);
@@ -278,7 +278,7 @@ public class BaseActivity extends FragmentActivity {
     }
 
     public void setCurrentActivityNoTransparent() {
-        ab1.c(this, new a());
+        bb1.c(this, new a());
     }
 
     public static void P1(boolean z) {
@@ -291,7 +291,7 @@ public class BaseActivity extends FragmentActivity {
 
     @Override // android.content.ContextWrapper, android.content.Context
     public int checkSelfPermission(String str) {
-        if (a41.b.d()) {
+        if (b41.b.d()) {
             return super.checkSelfPermission(str);
         }
         return 0;
@@ -325,9 +325,9 @@ public class BaseActivity extends FragmentActivity {
     public void onMultiWindowModeChanged(boolean z) {
         super.onMultiWindowModeChanged(z);
         if (z && !s) {
-            e31.a().b(getApplicationContext(), R.string.nad_androidn_multiwindow_user_toast, 1);
+            f31.a().b(getApplicationContext(), R.string.nad_androidn_multiwindow_user_toast, 1);
             P1(true);
-        } else if (!z && !a41.c()) {
+        } else if (!z && !b41.c()) {
             P1(false);
         }
     }
@@ -360,7 +360,7 @@ public class BaseActivity extends FragmentActivity {
 
     @Override // android.app.Activity
     public boolean shouldShowRequestPermissionRationale(@NonNull String str) {
-        if (a41.b.d() && super.shouldShowRequestPermissionRationale(str)) {
+        if (b41.b.d() && super.shouldShowRequestPermissionRationale(str)) {
             return true;
         }
         return false;
@@ -408,7 +408,7 @@ public class BaseActivity extends FragmentActivity {
             str = "0";
         }
         if ((this.e || TextUtils.equals("1", str)) && findViewById(16908290) != null) {
-            xi0.b(new c());
+            yi0.b(new c());
         }
     }
 
@@ -445,7 +445,7 @@ public class BaseActivity extends FragmentActivity {
         try {
             E1(intent);
         } catch (Throwable th) {
-            if (!tf0.a) {
+            if (!uf0.a) {
                 finish();
                 return;
             }
@@ -456,10 +456,10 @@ public class BaseActivity extends FragmentActivity {
     public final void T1(float f) {
         try {
             if (this.m == null || this.m.get() == null) {
-                this.m = new WeakReference<>(um0.d());
+                this.m = new WeakReference<>(vm0.d());
             }
             if (this.m.get() != null) {
-                Activity e = um0.e();
+                Activity e = vm0.e();
                 Activity activity = this.m.get();
                 if (e != null && activity != null && e.getLocalClassName().equals(activity.getLocalClassName())) {
                     S1(activity, 0.0f);
@@ -479,32 +479,32 @@ public class BaseActivity extends FragmentActivity {
 
     @Override // androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public final void onCreate(Bundle bundle) {
-        if (vf0.a(this)) {
+        if (wf0.a(this)) {
             return;
         }
         try {
             if (!L1(bundle)) {
-                if (!tf0.a) {
+                if (!uf0.a) {
                     finish();
                     return;
                 }
                 throw new RuntimeException("Class " + getClass() + " failed at preCreate");
             }
-            int d2 = p41.d(this);
+            int d2 = q41.d(this);
             super.onCreate(bundle);
-            p41.a(this, d2);
+            q41.a(this, d2);
             M1();
             try {
                 B1(bundle);
             } catch (Throwable th) {
-                if (!tf0.a) {
+                if (!uf0.a) {
                     finish();
                     return;
                 }
                 throw new RuntimeException(th);
             }
         } catch (Throwable unused) {
-            if (!tf0.a) {
+            if (!uf0.a) {
                 finish();
                 return;
             }
@@ -522,7 +522,7 @@ public class BaseActivity extends FragmentActivity {
             if (this.h || !isTaskRoot()) {
                 z2 = z;
             }
-            int e = a41.c.e(this);
+            int e = b41.c.e(this);
             SlideHelper slideHelper = new SlideHelper();
             this.k = slideHelper;
             slideHelper.attachSlideView(this, findViewById(16908290));

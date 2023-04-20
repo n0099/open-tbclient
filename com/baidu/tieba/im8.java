@@ -1,29 +1,30 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.memberCenter.tail.privilegetool.PrivilegeDeskView;
+import com.baidu.tieba.memberCenter.tail.edit.color.TailEditColorToolHost;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class im8 extends ad5 {
+public class im8 extends bd5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public im8(Context context) {
-        super(context, null, 18, 0);
+    public im8(TbPageContext<?> tbPageContext, int i, String str) {
+        super(tbPageContext.getPageActivity(), TbadkCoreApplication.getInst().getString(R.string.tail_web_view_title), 17, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {tbPageContext, Integer.valueOf(i), str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
@@ -31,13 +32,10 @@ public class im8 extends ad5 {
                 return;
             }
         }
-        this.b = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0b74);
-        this.m = new PrivilegeDeskView(context);
+        this.d = R.drawable.tail_edit_tool_color_selector;
+        this.h = R.drawable.icon_pure_post_more_bubble64;
+        this.m = new TailEditColorToolHost(tbPageContext, str);
         this.o = true;
-        this.i = false;
-        this.j = true;
-        this.d = R.drawable.icon_pure_post_vip24;
-        this.e = R.drawable.icon_pure_post_vip24_selection;
         this.n = 6;
         this.p = new int[]{1};
     }

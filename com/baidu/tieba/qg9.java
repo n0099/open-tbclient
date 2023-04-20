@@ -1,45 +1,69 @@
 package com.baidu.tieba;
 
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.http.statistics.NetworkInfoRecord;
+import com.baidu.searchbox.http.statistics.NetworkStatRecord;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ubc.UBC;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class qg9 {
+public class qg9 implements NetworkInfoRecord {
     public static /* synthetic */ Interceptable $ic;
-    public static final String c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public NetWork b;
+    public tg9 a;
+    public tg9 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948091014, "Lcom/baidu/tieba/qg9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948091014, "Lcom/baidu/tieba/qg9;");
-                return;
-            }
-        }
-        c = TbConfig.SERVER_ADDRESS + "c/c/forum/msign";
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "850" : (String) invokeV.objValue;
     }
 
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "94" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.http.statistics.NetworkInfoRecord
+    public boolean shouldRecord() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public qg9() {
+        this(new rg9(10, 100));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                this((tg9) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public qg9(tg9 tg9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tg9Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -49,86 +73,38 @@ public class qg9 {
                 return;
             }
         }
-        this.b = null;
+        this.a = tg9Var;
+        this.b = new sg9();
     }
 
-    public void a() {
-        NetWork netWork;
+    @Override // com.baidu.searchbox.http.statistics.NetworkInfoRecord
+    public void doRecord(NetworkStatRecord networkStatRecord) {
+        JSONObject uBCJson;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (netWork = this.b) != null) {
-            netWork.cancelNetConnect();
-        }
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            NetWork netWork = this.b;
-            if (netWork != null) {
-                return netWork.getErrorString();
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, networkStatRecord) == null) && networkStatRecord != null && (uBCJson = networkStatRecord.toUBCJson()) != null) {
+            String jSONObject = uBCJson.toString();
+            pg9 a = pg9.a();
+            if (a.g()) {
+                a.c(jSONObject);
             }
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            NetWork netWork = this.b;
-            if (netWork != null) {
-                return netWork.getNetContext().getResponse().isRequestSuccess();
+            if (a.f(networkStatRecord)) {
+                a.b(jSONObject);
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.a = str;
-        }
-    }
-
-    public String e(String str) {
-        InterceptResult invokeL;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-            if (currentAccountObj != null) {
-                str2 = currentAccountObj.getID();
-            } else {
-                str2 = null;
+            tg9 tg9Var = this.a;
+            if (tg9Var != null && tg9Var.a(networkStatRecord)) {
+                int i = 0;
+                if (eg9.a) {
+                    i = 64;
+                }
+                UBC.onEvent(b(), jSONObject, i);
             }
-            NetWork netWork = new NetWork(c);
-            this.b = netWork;
-            netWork.addPostData("user_id", str2);
-            this.b.addPostData("forum_ids", str);
-            this.b.addPostData("authsid", this.a);
-            this.b.getNetContext().getRequest().mNeedBackgroundLogin = true;
-            this.b.getNetContext().getRequest().mIsNeedTbs = true;
-            this.b.setNeedSig(true);
-            return this.b.postNetData();
+            if (eg9.a && networkStatRecord.from != 3 && networkStatRecord.netEngine < 0) {
+                Log.i("SearchBoxNetRecord", "baidu_networkSearchBoxNetRecord onFinishRecord UBC.onEvent!UbcEventId:" + b() + "，ubcJson:" + uBCJson);
+            }
+            tg9 tg9Var2 = this.b;
+            if (tg9Var2 != null && tg9Var2.a(networkStatRecord)) {
+                UBC.onEvent(a(), jSONObject);
+            }
         }
-        return (String) invokeL.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            NetWork netWork = new NetWork(c);
-            this.b = netWork;
-            netWork.addPostData("authsid", this.a);
-            this.b.getNetContext().getRequest().mNeedBackgroundLogin = true;
-            this.b.getNetContext().getRequest().mIsNeedTbs = true;
-            this.b.setNeedSig(true);
-            return this.b.postNetData();
-        }
-        return (String) invokeV.objValue;
     }
 }

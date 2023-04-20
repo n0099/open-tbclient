@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class o {
     @SuppressLint({"StaticFieldLeak"})
     public static volatile o a;
@@ -52,7 +52,7 @@ public class o {
     /* renamed from: a  reason: collision with other field name */
     public int f982a = -1;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public static String a() {
             return "support_wifi_digest";

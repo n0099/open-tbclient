@@ -2,9 +2,9 @@ package com.baidu.tieba;
 
 import android.os.MessageQueue;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.mvc.message.MvcHttpMessage;
+import com.baidu.tbadk.mvc.message.MvcHttpResponsedMessage;
 import com.baidu.tbadk.mvc.message.MvcNetMessage;
-import com.baidu.tbadk.mvc.message.MvcSocketMessage;
-import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.tieba.frs.mc.FrsModelController;
 import com.baidu.tieba.tbadkCore.FrsRequestData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,10 +18,10 @@ public class je7 implements MessageQueue.IdleHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public WeakReference<FrsModelController> a;
-    public MvcSocketResponsedMessage<hk9, ?> b;
-    public MvcSocketMessage<FrsRequestData, hk9> c;
-    public MvcNetMessage<FrsRequestData, hk9> d;
-    public ok9 e;
+    public MvcHttpResponsedMessage<pk9> b;
+    public MvcHttpMessage<FrsRequestData, pk9> c;
+    public MvcNetMessage<FrsRequestData, pk9> d;
+    public wk9 e;
 
     public je7() {
         Interceptable interceptable = $ic;
@@ -46,10 +46,10 @@ public class je7 implements MessageQueue.IdleHandler {
             if (frsModelController == null) {
                 return false;
             }
-            frsModelController.W0(this.b, this.c, this.d);
-            ok9 ok9Var = this.e;
-            if (ok9Var != null) {
-                ok9Var.b();
+            frsModelController.U0(this.b, this.c, this.d);
+            wk9 wk9Var = this.e;
+            if (wk9Var != null) {
+                wk9Var.b();
             }
             return false;
         }
@@ -63,31 +63,31 @@ public class je7 implements MessageQueue.IdleHandler {
         }
     }
 
-    public void b(ok9 ok9Var) {
+    public void b(wk9 wk9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ok9Var) == null) {
-            this.e = ok9Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wk9Var) == null) {
+            this.e = wk9Var;
         }
     }
 
-    public void c(MvcSocketMessage<FrsRequestData, hk9> mvcSocketMessage) {
+    public void c(MvcHttpMessage<FrsRequestData, pk9> mvcHttpMessage) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mvcSocketMessage) == null) {
-            this.c = mvcSocketMessage;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mvcHttpMessage) == null) {
+            this.c = mvcHttpMessage;
         }
     }
 
-    public void d(MvcNetMessage<FrsRequestData, hk9> mvcNetMessage) {
+    public void d(MvcNetMessage<FrsRequestData, pk9> mvcNetMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, mvcNetMessage) == null) {
             this.d = mvcNetMessage;
         }
     }
 
-    public void e(MvcSocketResponsedMessage<hk9, ?> mvcSocketResponsedMessage) {
+    public void e(MvcHttpResponsedMessage<pk9> mvcHttpResponsedMessage) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, mvcSocketResponsedMessage) == null) {
-            this.b = mvcSocketResponsedMessage;
+        if (interceptable == null || interceptable.invokeL(1048580, this, mvcHttpResponsedMessage) == null) {
+            this.b = mvcHttpResponsedMessage;
         }
     }
 }

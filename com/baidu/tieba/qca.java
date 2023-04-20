@@ -1,324 +1,115 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.app.Application;
 import android.content.Context;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.net.wifi.WifiInfo;
-import android.net.wifi.WifiManager;
-import android.telephony.TelephonyManager;
-import android.text.TextUtils;
-import android.util.DisplayMetrics;
-import android.view.WindowManager;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.mobstat.Config;
-import com.baidu.tbadk.core.util.ApiReplaceUtil;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import android.os.Build;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.StringWriter;
-import java.net.NetworkInterface;
-import java.util.Collections;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedHashSet;
+import java.util.Set;
 /* loaded from: classes6.dex */
 public final class qca {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
-    public static String b;
-    public static String c;
+    public static final qca c;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Set<a> a;
+    public boolean b;
 
-    public static String a() {
+    /* loaded from: classes6.dex */
+    public interface a {
+        void U();
+
+        void a(Activity activity);
+
+        void b();
+
+        void onActivityDestroyed(Activity activity);
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948088410, "Lcom/baidu/tieba/qca;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948088410, "Lcom/baidu/tieba/qca;");
+                return;
+            }
+        }
+        c = new qca();
+    }
+
+    public qca() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new LinkedHashSet();
+    }
+
+    public static qca a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (TextUtils.isEmpty(c)) {
-                k(uba.h().getContext());
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             return c;
         }
-        return (String) invokeV.objValue;
+        return (qca) invokeV.objValue;
     }
 
-    public static String m() {
+    public final Set<a> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            if (TextUtils.isEmpty(a)) {
-                k(uba.h().getContext());
-            }
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (String) invokeV.objValue;
+        return (Set) invokeV.objValue;
     }
 
-    public static String n() {
-        InterceptResult invokeV;
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            if (TextUtils.isEmpty(b)) {
-                k(uba.h().getContext());
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this.a) {
+                this.a.clear();
             }
-            return b;
         }
-        return (String) invokeV.objValue;
     }
 
-    public static String b(WifiManager wifiManager) throws Exception {
-        InterceptResult invokeL;
-        boolean z;
+    public final void d(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, wifiManager)) == null) {
-            String str = "";
-            if (3 == wifiManager.getWifiState()) {
-                z = true;
-            } else {
-                z = false;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            synchronized (this.a) {
+                this.a.add(aVar);
             }
+        }
+    }
+
+    public final void e(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, context) == null) && !this.b && Build.VERSION.SDK_INT >= 14) {
             try {
-                wifiManager.setWifiEnabled(true);
-                FileInputStream fileInputStream = new FileInputStream(new File("/sys/class/net/wlan0/address"));
-                str = c(fileInputStream);
-                fileInputStream.close();
-            } catch (Exception e) {
-                dda.d(e);
-            }
-            wifiManager.setWifiEnabled(z);
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String c(InputStream inputStream) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, inputStream)) == null) {
-            StringWriter stringWriter = new StringWriter();
-            char[] cArr = new char[2048];
-            try {
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
-                while (true) {
-                    int read = bufferedReader.read(cArr);
-                    if (read != -1) {
-                        stringWriter.write(cArr, 0, read);
-                    } else {
-                        inputStream.close();
-                        return stringWriter.toString();
-                    }
-                }
-            } catch (Throwable th) {
-                inputStream.close();
-                throw th;
-            }
-        } else {
-            return (String) invokeL.objValue;
-        }
-    }
-
-    public static String j(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
-            try {
-                PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 1);
-                if (packageInfo != null) {
-                    if (packageInfo.versionName == null) {
-                        return StringUtil.NULL_STRING;
-                    }
-                    return packageInfo.versionName;
-                }
-                return "";
-            } catch (PackageManager.NameNotFoundException e) {
-                dda.d(e);
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void k(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, null, context) == null) {
-            DisplayMetrics displayMetrics = new DisplayMetrics();
-            ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
-            a = String.valueOf(displayMetrics.widthPixels);
-            b = String.valueOf(displayMetrics.heightPixels);
-            c = String.valueOf(displayMetrics.density);
-        }
-    }
-
-    public static String l(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
-            try {
-                return context.getResources().getString(context.getPackageManager().getPackageInfo(context.getPackageName(), 0).applicationInfo.labelRes);
-            } catch (PackageManager.NameNotFoundException e) {
-                dda.d(e);
-                return null;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            try {
-                for (NetworkInterface networkInterface : Collections.list(NetworkInterface.getNetworkInterfaces())) {
-                    if (networkInterface.getName().equalsIgnoreCase("wlan0")) {
-                        byte[] hardwareAddress = ApiReplaceUtil.getHardwareAddress(networkInterface);
-                        if (hardwareAddress == null) {
-                            return "";
-                        }
-                        StringBuilder sb = new StringBuilder();
-                        int length = hardwareAddress.length;
-                        for (int i = 0; i < length; i++) {
-                            sb.append(String.format("%02X:", Byte.valueOf(hardwareAddress[i])));
-                        }
-                        if (sb.length() > 0) {
-                            sb.deleteCharAt(sb.length() - 1);
-                        }
-                        return sb.toString();
-                    }
-                }
-                return null;
-            } catch (Exception e) {
-                dda.d(e);
-                return null;
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String e(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            try {
-                return ApiReplaceUtil.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
-            } catch (Exception e) {
-                dda.d(e);
-                return "NA";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String g(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-            try {
-                String deviceId = ApiReplaceUtil.getDeviceId((TelephonyManager) context.getSystemService("phone"));
-                if (deviceId == null) {
-                    return "";
-                }
-                return zca.a(deviceId);
+                ((Application) context.getApplicationContext()).registerActivityLifecycleCallbacks(new xca(this));
             } catch (Exception unused) {
-                return "";
+                lda.b("registerActivityLifecycleCallbacks encounter exception");
             }
+            this.b = true;
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static String i(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
-            int i = 0;
-            try {
-                i = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
-            } catch (PackageManager.NameNotFoundException e) {
-                dda.d(e);
-            }
-            return String.valueOf(i);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static int f(Context context) {
-        InterceptResult invokeL;
-        NetworkInfo activeNetworkInfo;
-        NetworkInfo.State state;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-            if (connectivityManager != null && (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) != null && activeNetworkInfo.isAvailable()) {
-                NetworkInfo networkInfo = connectivityManager.getNetworkInfo(1);
-                if (networkInfo != null && (state = networkInfo.getState()) != null && (state == NetworkInfo.State.CONNECTED || state == NetworkInfo.State.CONNECTING)) {
-                    return 1;
-                }
-                NetworkInfo networkInfo2 = connectivityManager.getNetworkInfo(0);
-                if (networkInfo2 != null) {
-                    NetworkInfo.State state2 = networkInfo2.getState();
-                    String subtypeName = networkInfo2.getSubtypeName();
-                    if (state2 != null && (state2 == NetworkInfo.State.CONNECTED || state2 == NetworkInfo.State.CONNECTING)) {
-                        switch (activeNetworkInfo.getSubtype()) {
-                            case 1:
-                            case 2:
-                            case 4:
-                            case 7:
-                            case 11:
-                                return 2;
-                            case 3:
-                            case 5:
-                            case 6:
-                            case 8:
-                            case 9:
-                            case 10:
-                            case 12:
-                            case 14:
-                            case 15:
-                                return 3;
-                            case 13:
-                                return 4;
-                            default:
-                                if (subtypeName.equalsIgnoreCase("TD-SCDMA") || subtypeName.equalsIgnoreCase("WCDMA") || subtypeName.equalsIgnoreCase("CDMA2000")) {
-                                    return 3;
-                                }
-                                return 5;
-                        }
-                    }
-                }
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
-    public static String h(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
-            WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
-            WifiInfo connectionInfo = wifiManager.getConnectionInfo();
-            if (connectionInfo != null && Config.DEF_MAC_ID.equals(ApiReplaceUtil.getMacAddress(connectionInfo))) {
-                try {
-                    String d = d();
-                    if (d != null) {
-                        return zca.a(d);
-                    }
-                    return zca.a(b(wifiManager));
-                } catch (Exception e) {
-                    dda.d(e);
-                    return zca.a(Config.DEF_MAC_ID);
-                }
-            } else if (connectionInfo != null && ApiReplaceUtil.getMacAddress(connectionInfo) != null) {
-                return zca.a(ApiReplaceUtil.getMacAddress(connectionInfo));
-            } else {
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
     }
 }

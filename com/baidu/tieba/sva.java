@@ -1,30 +1,38 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.content.res.Resources;
-import android.text.TextUtils;
-import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.mva;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.UnsupportedEncodingException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import java.io.InputStream;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class sva implements mva {
+public class sva implements kva {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    public final String b;
+    public final String a;
+    public final Context b;
+    public final String c;
+    public final hva d;
+    public final uva e;
+    public final vva f;
+    public final Map<String, String> g;
+    public final List<cwa> h;
+    public final Map<String, String> i;
 
-    public sva(Context context, String str) {
+    public sva(Context context, String str, hva hvaVar, InputStream inputStream, Map<String, String> map, List<cwa> list, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
+            Object[] objArr = {context, str, hvaVar, inputStream, map, list, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,45 +42,115 @@ public class sva implements mva {
                 return;
             }
         }
-        this.a = context;
-        this.b = str;
+        this.i = new HashMap();
+        context = context.getApplicationContext() != null ? context.getApplicationContext() : context;
+        this.b = context;
+        str = str == null ? context.getPackageName() : str;
+        this.c = str;
+        if (inputStream != null) {
+            this.e = new yva(inputStream, str);
+            qva.a(inputStream);
+        } else {
+            this.e = new bwa(this.b, str);
+        }
+        this.f = new vva(this.e);
+        if (hvaVar != hva.b && "1.0".equals(this.e.a("/configuration_version", null))) {
+            throw new RuntimeException("The file version does not match,please download the latest agconnect-services.json from the AGC website.");
+        }
+        this.d = (hvaVar == null || hvaVar == hva.b) ? qva.f(this.e.a("/region", null), this.e.a("/agcgw/url", null)) : hvaVar;
+        this.g = qva.d(map);
+        this.h = list;
+        this.a = str2 == null ? e() : str2;
     }
 
-    public static String a(String str) {
+    @Override // com.baidu.tieba.kva
+    public String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            try {
-                return "agc_" + hva.c(b(str.getBytes("UTF-8")));
-            } catch (UnsupportedEncodingException | NoSuchAlgorithmException unused) {
-                return "";
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? f(str, null) : (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.kva
+    public hva b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            hva hvaVar = this.d;
+            return hvaVar == null ? hva.b : hvaVar;
+        }
+        return (hva) invokeV.objValue;
+    }
+
+    public final String c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            Map<String, mva.a> a = mva.a();
+            if (a.containsKey(str)) {
+                if (this.i.containsKey(str)) {
+                    return this.i.get(str);
+                }
+                mva.a aVar = a.get(str);
+                if (aVar == null) {
+                    return null;
+                }
+                String a2 = aVar.a(this);
+                this.i.put(str, a2);
+                return a2;
             }
+            return null;
         }
         return (String) invokeL.objValue;
     }
 
-    public static byte[] b(byte[] bArr) throws NoSuchAlgorithmException {
-        InterceptResult invokeL;
+    public List<cwa> d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) ? MessageDigest.getInstance("SHA-256").digest(bArr) : (byte[]) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.h : (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.mva
-    public String a(String str, String str2) {
-        InterceptResult invokeLL;
-        int identifier;
+    public final String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            String a = a(str);
-            if (TextUtils.isEmpty(a) || (identifier = this.a.getResources().getIdentifier(a, EMABTest.TYPE_STRING, this.b)) == 0) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return String.valueOf(("{packageName='" + this.c + "', routePolicy=" + this.d + ", reader=" + this.e.toString().hashCode() + ", customConfigMap=" + new JSONObject(this.g).toString().hashCode() + '}').hashCode());
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String f(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
+            if (str == null) {
                 return str2;
             }
-            try {
-                return this.a.getResources().getString(identifier);
-            } catch (Resources.NotFoundException unused) {
-                return str2;
+            String e = qva.e(str);
+            String str3 = this.g.get(e);
+            if (str3 != null) {
+                return str3;
             }
+            String c = c(e);
+            if (c != null) {
+                return c;
+            }
+            String a = this.e.a(e, str2);
+            return vva.c(a) ? this.f.a(a, str2) : a;
         }
         return (String) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.kva
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : (Context) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.kva
+    public String getIdentifier() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 }

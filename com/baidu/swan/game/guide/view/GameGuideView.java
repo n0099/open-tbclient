@@ -27,8 +27,8 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.swan.game.guide.view.GameGuideProgressView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.eo1;
-import com.baidu.tieba.tx3;
+import com.baidu.tieba.fo1;
+import com.baidu.tieba.ux3;
 import com.sina.weibo.sdk.constant.WBConstants;
 import java.util.HashMap;
 import kotlin.Metadata;
@@ -315,11 +315,11 @@ public final class GameGuideView extends FrameLayout {
 
     public final boolean i(long j) {
         if (j < 0) {
-            if (eo1.a) {
+            if (fo1.a) {
                 Log.d("GameTimeView", "传入的时间不能小于0");
             }
             return false;
-        } else if (j > SapiWebView.DEFAULT_TIMEOUT_MILLIS && eo1.a) {
+        } else if (j > SapiWebView.DEFAULT_TIMEOUT_MILLIS && fo1.a) {
             Log.d("GameTimeView", "传入的时间大于最大值 90000");
             return false;
         } else {
@@ -397,7 +397,7 @@ public final class GameGuideView extends FrameLayout {
 
     public final void j() {
         boolean z;
-        if (!tx3.o.L()) {
+        if (!ux3.o.L()) {
             if (this.h.length() > 0) {
                 z = true;
             } else {
@@ -410,7 +410,7 @@ public final class GameGuideView extends FrameLayout {
                 TextView tips2 = (TextView) a(R.id.obfuscated_res_0x7f0923ef);
                 Intrinsics.checkNotNullExpressionValue(tips2, "tips");
                 tips2.setText(this.h);
-                tx3.o.b0();
+                ux3.o.b0();
             }
         }
     }
@@ -449,7 +449,7 @@ public final class GameGuideView extends FrameLayout {
             try {
                 ((GameGuideProgressView) a(R.id.obfuscated_res_0x7f091c4b)).setProgressColor(Color.parseColor(this.g));
             } catch (Exception e2) {
-                if (eo1.a) {
+                if (fo1.a) {
                     throw e2;
                 }
             }
@@ -490,7 +490,7 @@ public final class GameGuideView extends FrameLayout {
             return;
         }
         if (this.e) {
-            if (eo1.a) {
+            if (fo1.a) {
                 Log.e("GameTimeView", "已经在计时当中");
                 return;
             }
@@ -498,7 +498,7 @@ public final class GameGuideView extends FrameLayout {
         }
         s(j);
         if (j >= SapiWebView.DEFAULT_TIMEOUT_MILLIS) {
-            if (eo1.a) {
+            if (fo1.a) {
                 Log.d("GameTimeView", "已经达到了最大的计时");
             }
             ((GameGuideProgressView) a(R.id.obfuscated_res_0x7f091c4b)).i(1.0f);

@@ -8,17 +8,17 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.br2;
-import com.baidu.tieba.bu1;
-import com.baidu.tieba.du1;
-import com.baidu.tieba.eo1;
-import com.baidu.tieba.f92;
-import com.baidu.tieba.ll3;
-import com.baidu.tieba.tk3;
+import com.baidu.tieba.cr2;
+import com.baidu.tieba.cu1;
+import com.baidu.tieba.eu1;
+import com.baidu.tieba.fo1;
+import com.baidu.tieba.g92;
+import com.baidu.tieba.ml3;
+import com.baidu.tieba.uk3;
 /* loaded from: classes3.dex */
 public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
-    public static final boolean q = eo1.a;
-    public bu1 m;
+    public static final boolean q = fo1.a;
+    public cu1 m;
     public String n;
     public int o = 0;
     public int p = 0;
@@ -35,11 +35,11 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
     }
 
     /* loaded from: classes3.dex */
-    public class b extends f92 {
+    public class b extends g92 {
         public b() {
         }
 
-        @Override // com.baidu.tieba.f92, com.baidu.tieba.i92
+        @Override // com.baidu.tieba.g92, com.baidu.tieba.j92
         public void d(String str) {
             super.d(str);
             if (!TextUtils.isEmpty(str)) {
@@ -69,20 +69,20 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
     @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        bu1 bu1Var = this.m;
-        if (bu1Var != null) {
-            bu1Var.destroy();
+        cu1 cu1Var = this.m;
+        if (cu1Var != null) {
+            cu1Var.destroy();
             this.m = null;
         }
         this.n = null;
     }
 
-    /* JADX WARN: Type inference failed for: r1v1, types: [com.baidu.tieba.bu1] */
+    /* JADX WARN: Type inference failed for: r1v1, types: [com.baidu.tieba.cu1] */
     public final void D() {
         if (TextUtils.isEmpty(this.n)) {
             return;
         }
-        du1 c = br2.F0().c(this);
+        eu1 c = cr2.F0().c(this);
         c.Y(new b());
         this.m = c.r();
         c.loadUrl(this.n);
@@ -93,18 +93,18 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
         if (intent == null) {
             return;
         }
-        this.n = tk3.h(intent, "url");
+        this.n = uk3.h(intent, "url");
         if (q) {
             Log.d("ScopeDetailActivity", "mUrl=" + this.n);
         }
     }
 
-    @Override // com.baidu.swan.apps.SwanAppBaseActivity, com.baidu.swan.support.v4.app.FragmentActivity, com.baidu.tieba.kl4, android.app.Activity
+    @Override // com.baidu.swan.apps.SwanAppBaseActivity, com.baidu.swan.support.v4.app.FragmentActivity, com.baidu.tieba.ll4, android.app.Activity
     public void onCreate(Bundle bundle) {
         F(R.anim.obfuscated_res_0x7f01001c, R.anim.obfuscated_res_0x7f010025);
         super.onCreate(bundle);
         setContentView(R.layout.obfuscated_res_0x7f0d089f);
-        ll3.a(this);
+        ml3.a(this);
         E(getIntent());
         C();
         D();

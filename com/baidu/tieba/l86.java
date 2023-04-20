@@ -1,125 +1,114 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.View;
+import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tbadk.mainTab.FragmentTabIndicator;
+import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
+import com.baidu.tieba.ala.personcenter.AlaPersonCenterFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class l86 extends um<b96, CardViewHolder<ha6>> {
+public class l86 extends vg5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
+    public AlaPersonCenterFragment c;
 
-    /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b96 a;
-        public final /* synthetic */ l86 b;
-
-        public a(l86 l86Var, b96 b96Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {l86Var, b96Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = l86Var;
-            this.a = b96Var;
+    @Override // com.baidu.tieba.vg5
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return true;
         }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.b.u(this.a);
-            }
-        }
+        return invokeV.booleanValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public l86(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), b96.b);
+    public l86() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
+        this.c = new AlaPersonCenterFragment();
+        b().a = this.c;
     }
 
-    public final void u(b96 b96Var) {
+    @Override // com.baidu.tieba.vg5
+    public wg5 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, b96Var) == null) && b96Var != null && b96Var.c() != null && b96Var.c().h != null) {
-            p96 p96Var = b96Var.c().h;
-            it4.E(this.a.getPageActivity(), true, p96Var.b, p96Var.a);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            wg5 wg5Var = new wg5();
+            wg5Var.e = 5;
+            wg5Var.b = R.string.ala_live;
+            wg5Var.i = wg5.k;
+            return wg5Var;
         }
+        return (wg5) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.um
-    /* renamed from: x */
-    public CardViewHolder<ha6> onCreateViewHolder(ViewGroup viewGroup) {
+    @Override // com.baidu.tieba.vg5
+    public TbFragmentTabIndicator c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
-            return new CardViewHolder<>(new ha6(this.a));
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
+            this.b = fragmentTabIndicator;
+            fragmentTabIndicator.setTextSize(2.0f);
+            return this.b;
         }
-        return (CardViewHolder) invokeL.objValue;
+        return (TbFragmentTabIndicator) invokeL.objValue;
     }
 
-    public final void t(b96 b96Var, ha6 ha6Var) {
-        a96 c;
+    public void g(z57 z57Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, b96Var, ha6Var) == null) && (c = b96Var.c()) != null && c.h != null) {
-            ha6Var.y(8);
-            ha6Var.z(c.h.a);
-            ha6Var.m(this.a, TbadkCoreApplication.getInst().getSkinType());
+        if ((interceptable != null && interceptable.invokeL(1048579, this, z57Var) != null) || z57Var == null || !z57Var.h(5)) {
+            return;
+        }
+        z57Var.a(this);
+    }
+
+    public void h(String str) {
+        AlaPersonCenterFragment alaPersonCenterFragment;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (alaPersonCenterFragment = this.c) != null) {
+            alaPersonCenterFragment.E1(str);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.um
-    /* renamed from: y */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, b96 b96Var, CardViewHolder<ha6> cardViewHolder) {
-        InterceptResult invokeCommon;
+    public void i(String str) {
+        AlaPersonCenterFragment alaPersonCenterFragment;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, b96Var, cardViewHolder})) == null) {
-            if (cardViewHolder.a() == null) {
-                return null;
-            }
-            t(b96Var, cardViewHolder.a());
-            cardViewHolder.a().h().setOnClickListener(new a(this, b96Var));
-            return cardViewHolder.a().h();
+        if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && (alaPersonCenterFragment = this.c) != null) {
+            alaPersonCenterFragment.F1(str);
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    public void j(String str) {
+        AlaPersonCenterFragment alaPersonCenterFragment;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && (alaPersonCenterFragment = this.c) != null) {
+            alaPersonCenterFragment.G1(str);
+        }
+    }
+
+    public void k(String str) {
+        AlaPersonCenterFragment alaPersonCenterFragment;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, str) == null) && (alaPersonCenterFragment = this.c) != null) {
+            alaPersonCenterFragment.H1(str);
+        }
     }
 }

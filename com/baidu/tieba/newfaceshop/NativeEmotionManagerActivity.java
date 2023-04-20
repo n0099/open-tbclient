@@ -19,13 +19,13 @@ import com.baidu.tbadk.core.view.CommonPagerSlidingTabStrip;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.viewpager.BdBaseViewPager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hv4;
+import com.baidu.tieba.eq8;
+import com.baidu.tieba.gq8;
 import com.baidu.tieba.ii;
+import com.baidu.tieba.iv4;
 import com.baidu.tieba.newfaceshop.nativemotionmanager.CreateNewEmotionFragment;
 import com.baidu.tieba.newfaceshop.nativemotionmanager.MyEmotionManagerFragment;
 import com.baidu.tieba.newfaceshop.nativemotionmanager.SingleThreadEmotionFragment;
-import com.baidu.tieba.wp8;
-import com.baidu.tieba.yp8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,7 +34,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class NativeEmotionManagerActivity extends BaseFragmentActivity implements yp8<Boolean> {
+public class NativeEmotionManagerActivity extends BaseFragmentActivity implements gq8<Boolean> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public FragmentPagerAdapter a;
@@ -189,7 +189,7 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.yp8
+    @Override // com.baidu.tieba.gq8
     /* renamed from: z1 */
     public void onUpdate(Boolean bool) {
         Interceptable interceptable = $ic;
@@ -206,7 +206,7 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             this.mSkinType = i;
-            hv4 layoutMode = getLayoutMode();
+            iv4 layoutMode = getLayoutMode();
             if (i == 4) {
                 z = true;
             } else {
@@ -234,8 +234,8 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
             super.onClick(view2);
             if (view2 == this.i) {
-                boolean z = !wp8.b().a();
-                wp8.b().d(z);
+                boolean z = !eq8.b().a();
+                eq8.b().d(z);
                 if (z) {
                     this.i.setText(R.string.obfuscated_res_0x7f0f0599);
                 } else {

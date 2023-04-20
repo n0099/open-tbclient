@@ -1,43 +1,63 @@
 package com.baidu.tieba;
 
-import android.os.Environment;
-import android.os.Looper;
-import androidx.core.view.InputDeviceCompat;
+import android.app.Activity;
+import android.content.Context;
+import android.view.ViewGroup;
+import androidx.annotation.GuardedBy;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.yra;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FilenameFilter;
+import com.fun.ad.sdk.CacheStatistic;
+import com.fun.ad.sdk.FunAdFactory;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.FunAdLoadListener;
+import com.fun.ad.sdk.FunAdLoader;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunNativeAd2;
+import com.fun.ad.sdk.FunSplashAd;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public final class ura {
+public final class ura implements FunAdFactory {
     public static /* synthetic */ Interceptable $ic;
-    public static ura e;
-    public static tra f;
+    public static final /* synthetic */ boolean f;
     public transient /* synthetic */ FieldHolder $fh;
-    public yra a;
-    public asa b;
-    public zra c;
-    public List<vra> d;
+    public final Map<String, LinkedHashMap<kma, FunAdLoader>> a;
+    public final Object b;
+    @GuardedBy("mInitializeLock")
+    public final LinkedList<a> c;
+    @GuardedBy("mInitializeLock")
+    public int d;
+    @GuardedBy("mInitializeLock")
+    public vla e;
 
     /* loaded from: classes6.dex */
-    public class a implements yra.b {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ura a;
+        public final Context a;
+        public final FunAdSlot b;
+        public final FunAdLoadListener c;
 
-        public a(ura uraVar) {
+        public a(Context context, FunAdSlot funAdSlot, FunAdLoadListener funAdLoadListener) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {uraVar};
+                Object[] objArr = {context, funAdSlot, funAdLoadListener};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -47,210 +67,245 @@ public final class ura {
                     return;
                 }
             }
-            this.a = uraVar;
-        }
-
-        @Override // com.baidu.tieba.yra.b
-        public void a(long j, long j2, long j3, long j4) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)}) == null) {
-                ArrayList<String> e = this.a.b.e(j, j2);
-                if (!e.isEmpty()) {
-                    bsa b = bsa.b();
-                    b.c(j, j2, j3, j4);
-                    b.d(this.a.c.e());
-                    b.e(e);
-                    b.a();
-                    if (ura.getContext().displayNotification()) {
-                        xra.c(b.toString());
-                    }
-                    if (this.a.d.size() != 0) {
-                        for (vra vraVar : this.a.d) {
-                            vraVar.onBlock(ura.getContext().provideContext(), b);
-                        }
-                    }
-                }
-            }
+            this.a = context;
+            this.b = funAdSlot;
+            this.c = funAdLoadListener;
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static class b implements FilenameFilter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-
-        public b() {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948221989, "Lcom/baidu/tieba/ura;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = ".log";
-        }
-
-        @Override // java.io.FilenameFilter
-        public boolean accept(File file, String str) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, str)) == null) {
-                return str.endsWith(this.a);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948221989, "Lcom/baidu/tieba/ura;");
+                return;
             }
-            return invokeLL.booleanValue;
         }
+        f = !ura.class.desiredAssertionStatus();
     }
 
     public ura() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.d = new LinkedList();
-        this.b = new asa(Looper.getMainLooper().getThread(), f.provideDumpInterval());
-        this.c = new zra(f.provideDumpInterval());
-        l(new yra(new a(this), getContext().provideBlockThreshold(), getContext().stopWhenDebugging()));
-        xra.b();
+        this.a = new HashMap();
+        this.b = new Object();
+        this.c = new LinkedList<>();
+        this.d = 0;
     }
 
-    public static String h() {
-        InterceptResult invokeV;
-        String providePath;
+    @Override // com.fun.ad.sdk.FunAdFactory
+    public void destroyAd(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            String externalStorageState = Environment.getExternalStorageState();
-            if (getContext() == null) {
-                providePath = "";
-            } else {
-                providePath = getContext().providePath();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            synchronized (this.b) {
+                this.c.clear();
             }
-            if ("mounted".equals(externalStorageState) && Environment.getExternalStorageDirectory().canWrite()) {
-                return Environment.getExternalStorageDirectory().getPath() + providePath;
+            synchronized (this.a) {
+                kma b = bma.b(str);
+                if (b == null) {
+                    LogPrinter.e("No SlotId found for sid:%s when destroyAd", str);
+                    return;
+                }
+                LinkedHashMap<kma, FunAdLoader> linkedHashMap = this.a.get(str);
+                if (linkedHashMap == null) {
+                    LogPrinter.e("No slotIdLoaderMap found for sid:%s when destroyAd", str);
+                    return;
+                }
+                HashSet hashSet = new HashSet();
+                for (Map.Entry<kma, FunAdLoader> entry : linkedHashMap.entrySet()) {
+                    kma key = entry.getKey();
+                    entry.getValue().destroy();
+                    if (!b.equals(key)) {
+                        LogPrinter.d("Remove redundant loader for sid:%s", str);
+                        hashSet.add(key);
+                    }
+                }
+                Iterator it = hashSet.iterator();
+                while (it.hasNext()) {
+                    linkedHashMap.remove((kma) it.next());
+                }
             }
-            return getContext().provideContext().getFilesDir() + getContext().providePath();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static void k(tra traVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, traVar) == null) {
-            f = traVar;
         }
     }
 
-    public void b(vra vraVar) {
+    @Override // com.fun.ad.sdk.FunAdFactory
+    public List<CacheStatistic> getCacheStatistics(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, vraVar) == null) {
-            this.d.add(vraVar);
-        }
-    }
-
-    public final void l(yra yraVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, yraVar) == null) {
-            this.a = yraVar;
-        }
-    }
-
-    public static File c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            File file = new File(h());
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            return file;
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public static ura e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (e == null) {
-                synchronized (ura.class) {
-                    if (e == null) {
-                        e = new ura();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            List<FunAdLoader> a2 = a(str);
+            if (a2 != null) {
+                LogPrinter.d("No Loader found for sid:%s", str);
+                for (FunAdLoader funAdLoader : a2) {
+                    List<CacheStatistic> cacheStatistics = funAdLoader.getCacheStatistics(str);
+                    if (!cacheStatistics.isEmpty()) {
+                        return cacheStatistics;
                     }
                 }
             }
-            return e;
+            return new ArrayList();
         }
-        return (ura) invokeV.objValue;
+        return (List) invokeL.objValue;
     }
 
-    public static File[] f() {
-        InterceptResult invokeV;
+    @Override // com.fun.ad.sdk.FunAdFactory
+    public FunNativeAd2 getNativeAd2(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            File c = c();
-            if (c.exists() && c.isDirectory()) {
-                return c.listFiles(new b());
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, str)) == null) {
+            List<FunAdLoader> a2 = a(str);
+            if (a2 == null) {
+                LogPrinter.d("No Loader found for sid:%s", str);
+                return null;
+            }
+            for (FunAdLoader funAdLoader : a2) {
+                FunNativeAd2 nativeAd2 = funAdLoader.getNativeAd2(context);
+                if (nativeAd2 != null) {
+                    return nativeAd2;
+                }
             }
             return null;
         }
-        return (File[]) invokeV.objValue;
+        return (FunNativeAd2) invokeLL.objValue;
     }
 
-    public static tra getContext() {
-        InterceptResult invokeV;
+    @Override // com.fun.ad.sdk.FunAdFactory
+    public boolean isAdReady(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return f;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            List<FunAdLoader> a2 = a(str);
+            if (a2 == null) {
+                LogPrinter.d("No Loader found for sid:%s", str);
+                return false;
+            }
+            for (FunAdLoader funAdLoader : a2) {
+                if (funAdLoader.isReady()) {
+                    return true;
+                }
+            }
+            return false;
         }
-        return (tra) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 
-    public zra d() {
-        InterceptResult invokeV;
+    @Override // com.fun.ad.sdk.FunAdFactory
+    public void loadAd(Context context, FunAdSlot funAdSlot, FunAdLoadListener funAdLoadListener) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+        if (interceptable == null || interceptable.invokeLLL(1048581, this, context, funAdSlot, funAdLoadListener) == null) {
+            synchronized (this.b) {
+                i = this.d;
+            }
+            if (i == -1) {
+                LogPrinter.e("loadAd err because of AdSdks initialized failed", new Object[0]);
+                funAdLoadListener.onError(funAdSlot.getSid());
+            } else if (i == 0) {
+                synchronized (this.b) {
+                    this.c.add(new a(context, funAdSlot, funAdLoadListener));
+                }
+            } else if (i != 1) {
+                throw new RuntimeException("Unknown st:" + i);
+            } else {
+                List<FunAdLoader> a2 = a(funAdSlot.getSid());
+                if (a2 == null) {
+                    LogPrinter.d("No Loader found for sid:%s", funAdSlot.getSid());
+                    funAdLoadListener.onError(funAdSlot.getSid());
+                    return;
+                }
+                Iterator<FunAdLoader> it = a2.iterator();
+                FunAdLoader next = it.next();
+                while (it.hasNext()) {
+                    it.next().recycleListener();
+                }
+                next.load(context, funAdSlot, funAdLoadListener);
+            }
         }
-        return (zra) invokeV.objValue;
     }
 
-    public yra g() {
-        InterceptResult invokeV;
+    @Override // com.fun.ad.sdk.FunAdFactory
+    public void showAd(Activity activity, ViewGroup viewGroup, String str, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeLLLL(1048582, this, activity, viewGroup, str, funAdInteractionListener) == null) {
+            List<FunAdLoader> a2 = a(str);
+            if (a2 == null) {
+                LogPrinter.d("No Loader found for sid:%s", str);
+                funAdInteractionListener.onAdError(str);
+                return;
+            }
+            Iterator<FunAdLoader> it = a2.iterator();
+            while (it.hasNext()) {
+                FunAdLoader next = it.next();
+                if (!it.hasNext()) {
+                    next.show(activity, viewGroup, str, funAdInteractionListener);
+                    return;
+                } else if (next.isReady()) {
+                    next.show(activity, viewGroup, str, funAdInteractionListener);
+                    return;
+                }
+            }
         }
-        return (yra) invokeV.objValue;
     }
 
-    public long i() {
-        InterceptResult invokeV;
+    @Override // com.fun.ad.sdk.FunAdFactory
+    public FunSplashAd showSplash(Activity activity, ViewGroup viewGroup, String str, FunAdInteractionListener funAdInteractionListener) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return getContext().provideBlockThreshold() * 0.8f;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, activity, viewGroup, str, funAdInteractionListener)) == null) {
+            List<FunAdLoader> a2 = a(str);
+            if (a2 == null) {
+                LogPrinter.d("No Loader found for sid:%s", str);
+                funAdInteractionListener.onAdError(str);
+                return null;
+            }
+            for (FunAdLoader funAdLoader : a2) {
+                FunSplashAd showSplash = funAdLoader.showSplash(activity, viewGroup, str, funAdInteractionListener);
+                if (showSplash != null) {
+                    return showSplash;
+                }
+            }
+            return null;
         }
-        return invokeV.longValue;
+        return (FunSplashAd) invokeLLLL.objValue;
     }
 
-    public asa j() {
-        InterceptResult invokeV;
+    public final List<FunAdLoader> a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            synchronized (this.a) {
+                kma b = bma.b(str);
+                if (b == null) {
+                    return null;
+                }
+                LinkedHashMap<kma, FunAdLoader> linkedHashMap = this.a.get(str);
+                if (linkedHashMap == null) {
+                    linkedHashMap = new LinkedHashMap<>();
+                    this.a.put(str, linkedHashMap);
+                }
+                if (linkedHashMap.get(b) == null) {
+                    linkedHashMap.put(b, b.a.a(this.e));
+                }
+                ArrayList arrayList = new ArrayList(linkedHashMap.values());
+                Collections.reverse(arrayList);
+                return arrayList;
+            }
         }
-        return (asa) invokeV.objValue;
+        return (List) invokeL.objValue;
     }
 }

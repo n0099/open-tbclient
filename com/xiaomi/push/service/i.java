@@ -1,19 +1,19 @@
 package com.xiaomi.push.service;
 
 import com.xiaomi.push.ig;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class i {
     public static a a;
 
     /* renamed from: a  reason: collision with other field name */
     public static b f981a;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         boolean a(ig igVar);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface b {
     }
 

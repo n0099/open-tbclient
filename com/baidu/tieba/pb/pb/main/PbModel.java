@@ -46,41 +46,41 @@ import com.baidu.tbadk.editortools.pb.DataModel;
 import com.baidu.tbadk.switchs.PBCacheBlockSwitch;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.a57;
 import com.baidu.tieba.a9;
-import com.baidu.tieba.e45;
-import com.baidu.tieba.ew8;
-import com.baidu.tieba.fc5;
-import com.baidu.tieba.fw8;
+import com.baidu.tieba.ak9;
+import com.baidu.tieba.am9;
+import com.baidu.tieba.db9;
+import com.baidu.tieba.f45;
+import com.baidu.tieba.gc5;
 import com.baidu.tieba.gg;
+import com.baidu.tieba.gt8;
 import com.baidu.tieba.hi;
-import com.baidu.tieba.i70;
-import com.baidu.tieba.ic9;
+import com.baidu.tieba.hm9;
+import com.baidu.tieba.ht8;
 import com.baidu.tieba.ii;
+import com.baidu.tieba.j70;
 import com.baidu.tieba.jg;
-import com.baidu.tieba.lb5;
-import com.baidu.tieba.ly4;
+import com.baidu.tieba.mb5;
 import com.baidu.tieba.model.CheckRealNameModel;
-import com.baidu.tieba.mv8;
+import com.baidu.tieba.mw8;
+import com.baidu.tieba.my4;
 import com.baidu.tieba.ng;
-import com.baidu.tieba.nt8;
-import com.baidu.tieba.ow8;
-import com.baidu.tieba.p45;
+import com.baidu.tieba.nw8;
 import com.baidu.tieba.pb.PbPageRequestMessage;
 import com.baidu.tieba.pb.pb.main.emotion.model.GetSugMatchWordsModel;
 import com.baidu.tieba.pb.pb.main.emotion.model.SuggestEmotionModel;
-import com.baidu.tieba.qv8;
-import com.baidu.tieba.rl9;
-import com.baidu.tieba.rt8;
+import com.baidu.tieba.q45;
+import com.baidu.tieba.qc9;
 import com.baidu.tieba.share.AddExperiencedModel;
-import com.baidu.tieba.sj9;
-import com.baidu.tieba.sl9;
 import com.baidu.tieba.tbadkCore.data.WorksInfoData;
-import com.baidu.tieba.va9;
-import com.baidu.tieba.ys8;
-import com.baidu.tieba.z47;
+import com.baidu.tieba.uv8;
+import com.baidu.tieba.vt8;
+import com.baidu.tieba.ww8;
+import com.baidu.tieba.yv8;
 import com.baidu.tieba.za;
 import com.baidu.tieba.zl9;
-import com.baidu.tieba.zs8;
+import com.baidu.tieba.zt8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -125,19 +125,19 @@ public class PbModel extends DataModel {
     public boolean C;
     public String C0;
     public long D;
-    public sl9 D0;
+    public am9 D0;
     public boolean E;
-    public sl9 E0;
+    public am9 E0;
     public String F;
     public int F0;
-    public zs8 G;
+    public ht8 G;
     public int G0;
     public int H;
     public boolean H0;
     public boolean I;
     public String I0;
     public boolean J;
-    public rl9 J0;
+    public zl9 J0;
     public boolean K;
     public boolean K0;
     public boolean L;
@@ -160,7 +160,7 @@ public class PbModel extends DataModel {
     public String T0;
     public boolean U;
     public String U0;
-    public zl9 V;
+    public hm9 V;
     public String V0;
     public BaseFragmentActivity W;
     public boolean W0;
@@ -219,17 +219,17 @@ public class PbModel extends DataModel {
     public int q;
     public za q1;
     public long r;
-    public ys8 r0;
+    public gt8 r0;
     public CustomMessageListener r1;
     public int s;
-    public final ew8 s0;
+    public final mw8 s0;
     public CustomMessageListener s1;
     public String showReplyPanel;
     public int t;
-    public final qv8 t0;
+    public final yv8 t0;
     public PraiseData t1;
     public int u;
-    public final fw8 u0;
+    public final nw8 u0;
     public int v;
     public String v0;
     public boolean w;
@@ -245,9 +245,9 @@ public class PbModel extends DataModel {
     public interface h {
         void a(int i, boolean z, ResponsedMessage<?> responsedMessage, boolean z2, long j);
 
-        void b(zs8 zs8Var);
+        void b(ht8 ht8Var);
 
-        void c(boolean z, int i, int i2, int i3, zs8 zs8Var, String str, int i4);
+        void c(boolean z, int i, int i2, int i3, ht8 ht8Var, String str, int i4);
     }
 
     static {
@@ -287,7 +287,7 @@ public class PbModel extends DataModel {
     }
 
     /* loaded from: classes5.dex */
-    public class g implements i70.b {
+    public class g implements j70.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
@@ -321,7 +321,7 @@ public class PbModel extends DataModel {
 
             @Override // java.lang.Runnable
             public void run() {
-                zs8 pbData;
+                ht8 pbData;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     ResponsedMessage responsedMessage = this.a;
@@ -394,7 +394,7 @@ public class PbModel extends DataModel {
             this.a = i;
         }
 
-        @Override // com.baidu.tieba.i70.b
+        @Override // com.baidu.tieba.j70.b
         public void a(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
@@ -402,7 +402,7 @@ public class PbModel extends DataModel {
             }
         }
 
-        @Override // com.baidu.tieba.i70.b
+        @Override // com.baidu.tieba.j70.b
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -546,7 +546,7 @@ public class PbModel extends DataModel {
                 if (!z2 && !(responsedMessage instanceof pbPageHttpResponseMessage)) {
                     return;
                 }
-                if (responsedMessage.getOrginalMessage().getTag() != this.a.getUniqueId() && responsedMessage.getOrginalMessage().getTag() != i70.d) {
+                if (responsedMessage.getOrginalMessage().getTag() != this.a.getUniqueId() && responsedMessage.getOrginalMessage().getTag() != j70.d) {
                     return;
                 }
                 if (responsedMessage.hasError() && BdNetTypeUtil.isNetWorkAvailable()) {
@@ -587,7 +587,7 @@ public class PbModel extends DataModel {
                     objArr[3] = str2;
                     objArr[4] = PushConstants.SEQ_ID;
                     objArr[5] = Long.valueOf(j);
-                    e45.a("pb", clientLogID, cmd, "resp", error, errorString, objArr);
+                    f45.a("pb", clientLogID, cmd, "resp", error, errorString, objArr);
                 }
                 if (!this.a.X || !this.a.Y) {
                     if (!this.a.X) {
@@ -636,8 +636,8 @@ public class PbModel extends DataModel {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Long)) {
                 String valueOf = String.valueOf(customResponsedMessage.getData());
-                zs8 zs8Var = this.a.G;
-                if (zs8Var != null && zs8Var.g() != null && this.a.G.g().b() != null && this.a.G.g().b().equals(valueOf)) {
+                ht8 ht8Var = this.a.G;
+                if (ht8Var != null && ht8Var.g() != null && this.a.G.g().b() != null && this.a.G.g().b().equals(valueOf)) {
                     this.a.G.g().k(false);
                 }
             }
@@ -677,8 +677,8 @@ public class PbModel extends DataModel {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Long)) {
                 String valueOf = String.valueOf(customResponsedMessage.getData());
-                zs8 zs8Var = this.a.G;
-                if (zs8Var != null && zs8Var.g() != null && this.a.G.g().b() != null && this.a.G.g().b().equals(valueOf)) {
+                ht8 ht8Var = this.a.G;
+                if (ht8Var != null && ht8Var.g() != null && this.a.G.g().b() != null && this.a.G.g().b().equals(valueOf)) {
                     this.a.G.g().k(true);
                 }
             }
@@ -689,15 +689,15 @@ public class PbModel extends DataModel {
     public class f implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zs8 a;
+        public final /* synthetic */ ht8 a;
         public final /* synthetic */ PbModel b;
 
-        public f(PbModel pbModel, zs8 zs8Var) {
+        public f(PbModel pbModel, ht8 ht8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {pbModel, zs8Var};
+                Object[] objArr = {pbModel, ht8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -708,7 +708,7 @@ public class PbModel extends DataModel {
                 }
             }
             this.b = pbModel;
-            this.a = zs8Var;
+            this.a = ht8Var;
         }
 
         @Override // java.lang.Runnable
@@ -812,13 +812,13 @@ public class PbModel extends DataModel {
         this.r1 = new d(this, 2001336);
         this.s1 = new e(this, 2001335);
         this.t1 = null;
-        zs8 zs8Var = new zs8();
-        this.G = zs8Var;
-        zs8Var.C0(0);
+        ht8 ht8Var = new ht8();
+        this.G = ht8Var;
+        ht8Var.C0(0);
         this.W = baseFragmentActivity;
-        this.s0 = new ew8();
-        this.t0 = new qv8(this, this.W);
-        this.u0 = new fw8(this, this.W);
+        this.s0 = new mw8();
+        this.t0 = new yv8(this, this.W);
+        this.u0 = new nw8(this, this.W);
         this.w0 = new CheckRealNameModel(this.W.getPageContext());
         this.y0 = new SuggestEmotionModel();
         this.x0 = new AddExperiencedModel(this.W.getPageContext());
@@ -939,15 +939,15 @@ public class PbModel extends DataModel {
         }
     }
 
-    public void E0(zs8 zs8Var) {
+    public void E0(ht8 ht8Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048588, this, zs8Var) != null) || zs8Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048588, this, ht8Var) != null) || ht8Var == null) {
             return;
         }
         if (this.K || this.I || this.J) {
-            zs8Var = h3(zs8Var);
+            ht8Var = h3(ht8Var);
         }
-        G2(zs8Var);
+        G2(ht8Var);
     }
 
     public void M2(int i) {
@@ -1016,10 +1016,10 @@ public class PbModel extends DataModel {
     }
 
     public void c3(int i) {
-        zs8 zs8Var;
+        ht8 ht8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048671, this, i) == null) && (zs8Var = this.G) != null) {
-            zs8Var.N0(i);
+        if ((interceptable == null || interceptable.invokeI(1048671, this, i) == null) && (ht8Var = this.G) != null) {
+            ht8Var.N0(i);
         }
     }
 
@@ -1038,31 +1038,31 @@ public class PbModel extends DataModel {
     }
 
     public void i3(boolean z) {
-        zs8 zs8Var;
+        ht8 ht8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048696, this, z) == null) && (zs8Var = this.G) != null) {
-            zs8Var.G0(z);
+        if ((interceptable == null || interceptable.invokeZ(1048696, this, z) == null) && (ht8Var = this.G) != null) {
+            ht8Var.G0(z);
         }
     }
 
-    public final void n3(@NonNull zs8 zs8Var) {
-        zs8 zs8Var2;
+    public final void n3(@NonNull ht8 ht8Var) {
+        ht8 ht8Var2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048714, this, zs8Var) == null) && (zs8Var2 = this.G) != null) {
-            zs8Var2.d().clear();
-            this.G.d().addAll(zs8Var.d());
+        if ((interceptable == null || interceptable.invokeL(1048714, this, ht8Var) == null) && (ht8Var2 = this.G) != null) {
+            ht8Var2.d().clear();
+            this.G.d().addAll(ht8Var.d());
         }
     }
 
     public boolean q2(boolean z) {
         InterceptResult invokeZ;
-        zs8 zs8Var;
+        ht8 ht8Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048722, this, z)) == null) {
-            if (this.b == null || (zs8Var = this.G) == null) {
+            if (this.b == null || (ht8Var = this.G) == null) {
                 return false;
             }
-            if (!z && zs8Var.y().b() == 0) {
+            if (!z && ht8Var.y().b() == 0) {
                 return false;
             }
             return P2(1);
@@ -1170,9 +1170,9 @@ public class PbModel extends DataModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            zs8 zs8Var = this.G;
-            if (zs8Var != null) {
-                return zs8Var.J();
+            ht8 ht8Var = this.G;
+            if (ht8Var != null) {
+                return ht8Var.J();
             }
             return 1;
         }
@@ -1252,13 +1252,13 @@ public class PbModel extends DataModel {
         }
     }
 
-    public ys8 K0() {
+    public gt8 K0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
             return this.r0;
         }
-        return (ys8) invokeV.objValue;
+        return (gt8) invokeV.objValue;
     }
 
     public int K1() {
@@ -1283,8 +1283,8 @@ public class PbModel extends DataModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
-            zs8 zs8Var = this.G;
-            if (zs8Var != null && zs8Var.M() != null) {
+            ht8 ht8Var = this.G;
+            if (ht8Var != null && ht8Var.M() != null) {
                 return this.G.M().getBaijiahaoData();
             }
             return null;
@@ -1301,13 +1301,13 @@ public class PbModel extends DataModel {
         return invokeV.booleanValue;
     }
 
-    public rl9 N0() {
+    public zl9 N0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
             return this.J0;
         }
-        return (rl9) invokeV.objValue;
+        return (zl9) invokeV.objValue;
     }
 
     public String N1() {
@@ -1340,31 +1340,31 @@ public class PbModel extends DataModel {
         return (String) invokeV.objValue;
     }
 
-    public qv8 P0() {
+    public yv8 P0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) {
             return this.t0;
         }
-        return (qv8) invokeV.objValue;
+        return (yv8) invokeV.objValue;
     }
 
-    public sl9 P1() {
+    public am9 P1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) {
             return this.D0;
         }
-        return (sl9) invokeV.objValue;
+        return (am9) invokeV.objValue;
     }
 
-    public sl9 Q1() {
+    public am9 Q1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) {
             return this.E0;
         }
-        return (sl9) invokeV.objValue;
+        return (am9) invokeV.objValue;
     }
 
     public String R1() {
@@ -1400,8 +1400,8 @@ public class PbModel extends DataModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) {
-            zs8 zs8Var = this.G;
-            if (zs8Var != null && zs8Var.M() != null) {
+            ht8 ht8Var = this.G;
+            if (ht8Var != null && ht8Var.M() != null) {
                 return this.G.M().worksInfoData;
             }
             return null;
@@ -1460,8 +1460,8 @@ public class PbModel extends DataModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048640, this)) == null) {
-            zs8 zs8Var = this.G;
-            if (zs8Var != null && !ListUtils.isEmpty(zs8Var.F())) {
+            ht8 ht8Var = this.G;
+            if (ht8Var != null && !ListUtils.isEmpty(ht8Var.F())) {
                 return true;
             }
             return false;
@@ -1519,7 +1519,7 @@ public class PbModel extends DataModel {
     public void Y1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048655, this) == null) {
-            mv8.b().d(R0(), this.A);
+            uv8.b().d(R0(), this.A);
         }
     }
 
@@ -1635,8 +1635,8 @@ public class PbModel extends DataModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048673, this)) == null) {
-            zs8 zs8Var = this.G;
-            if (zs8Var != null && zs8Var.k() != null && this.G.M() != null) {
+            ht8 ht8Var = this.G;
+            if (ht8Var != null && ht8Var.k() != null && this.G.M() != null) {
                 return true;
             }
             return false;
@@ -1684,11 +1684,11 @@ public class PbModel extends DataModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048681, this)) == null) {
-            zs8 zs8Var = this.G;
-            if (zs8Var == null) {
+            ht8 ht8Var = this.G;
+            if (ht8Var == null) {
                 return false;
             }
-            return zs8Var.q();
+            return ht8Var.q();
         }
         return invokeV.booleanValue;
     }
@@ -1819,11 +1819,11 @@ public class PbModel extends DataModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048699, this)) == null) {
-            zs8 zs8Var = this.G;
-            if (zs8Var == null) {
+            ht8 ht8Var = this.G;
+            if (ht8Var == null) {
                 return false;
             }
-            return zs8Var.u0();
+            return ht8Var.u0();
         }
         return invokeV.booleanValue;
     }
@@ -1901,8 +1901,8 @@ public class PbModel extends DataModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048718, this)) == null) {
-            zs8 zs8Var = this.G;
-            if (zs8Var != null && zs8Var.q()) {
+            ht8 ht8Var = this.G;
+            if (ht8Var != null && ht8Var.q()) {
                 return this.G.u();
             }
             return null;
@@ -1910,13 +1910,13 @@ public class PbModel extends DataModel {
         return (String) invokeV.objValue;
     }
 
-    public fw8 q1() {
+    public nw8 q1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048721, this)) == null) {
             return this.u0;
         }
-        return (fw8) invokeV.objValue;
+        return (nw8) invokeV.objValue;
     }
 
     public boolean r2() {
@@ -1935,17 +1935,17 @@ public class PbModel extends DataModel {
         return invokeV.booleanValue;
     }
 
-    public ly4 s1() {
+    public my4 s1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048727, this)) == null) {
-            zs8 zs8Var = this.G;
-            if (zs8Var == null) {
+            ht8 ht8Var = this.G;
+            if (ht8Var == null) {
                 return null;
             }
-            return zs8Var.y();
+            return ht8Var.y();
         }
-        return (ly4) invokeV.objValue;
+        return (my4) invokeV.objValue;
     }
 
     public int t1() {
@@ -1957,13 +1957,13 @@ public class PbModel extends DataModel {
         return invokeV.intValue;
     }
 
-    public zs8 u1() {
+    public ht8 u1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048733, this)) == null) {
             return this.G;
         }
-        return (zs8) invokeV.objValue;
+        return (ht8) invokeV.objValue;
     }
 
     public boolean u2() {
@@ -1979,28 +1979,28 @@ public class PbModel extends DataModel {
         return invokeV.booleanValue;
     }
 
-    public zs8 v1() {
+    public ht8 v1() {
         InterceptResult invokeV;
-        rl9 rl9Var;
+        zl9 zl9Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048736, this)) == null) {
-            zs8 zs8Var = this.G;
-            if (zs8Var == null) {
-                return zs8Var;
+            ht8 ht8Var = this.G;
+            if (ht8Var == null) {
+                return ht8Var;
             }
-            if (!V1() && (rl9Var = this.J0) != null) {
-                this.G.K0(rl9Var);
+            if (!V1() && (zl9Var = this.J0) != null) {
+                this.G.K0(zl9Var);
             }
             return this.G;
         }
-        return (zs8) invokeV.objValue;
+        return (ht8) invokeV.objValue;
     }
 
     public final void v2() {
-        zl9 zl9Var;
+        hm9 hm9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048737, this) == null) && (zl9Var = this.V) != null) {
-            zl9Var.a();
+        if ((interceptable == null || interceptable.invokeV(1048737, this) == null) && (hm9Var = this.V) != null) {
+            hm9Var.a();
             this.V = null;
         }
     }
@@ -2052,12 +2052,12 @@ public class PbModel extends DataModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             F2(i);
-            ArrayList<sl9> F = this.G.F();
+            ArrayList<am9> F = this.G.F();
             boolean z = false;
             this.a0 = false;
             if (i == 1) {
                 boolean z2 = false;
-                while (F.size() + 30 > lb5.a()) {
+                while (F.size() + 30 > mb5.a()) {
                     F.remove(0);
                     z2 = true;
                 }
@@ -2071,7 +2071,7 @@ public class PbModel extends DataModel {
                 this.Z = System.currentTimeMillis();
                 this.a0 = true;
             } else if (i == 2) {
-                while (F.size() + 30 > lb5.a()) {
+                while (F.size() + 30 > mb5.a()) {
                     F.remove(F.size() - 1);
                     z = true;
                 }
@@ -2087,8 +2087,8 @@ public class PbModel extends DataModel {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048650, this, str)) == null) {
-            zs8 zs8Var = this.G;
-            if (zs8Var != null && zs8Var.M() != null && this.G.k() != null) {
+            ht8 ht8Var = this.G;
+            if (ht8Var != null && ht8Var.M() != null && this.G.k() != null) {
                 WriteData writeData = new WriteData();
                 if (this.G.M().isMutiForumThread()) {
                     writeData.setForumId("0");
@@ -2115,25 +2115,25 @@ public class PbModel extends DataModel {
         return (WriteData) invokeL.objValue;
     }
 
-    public MarkData o1(sl9 sl9Var) {
+    public MarkData o1(am9 am9Var) {
         InterceptResult invokeL;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048715, this, sl9Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048715, this, am9Var)) == null) {
             MarkData markData = new MarkData();
             Date date = new Date();
             markData.setAccount(TbadkCoreApplication.getCurrentAccount());
             markData.setThreadId(this.b);
-            markData.setPostId(sl9Var.O());
+            markData.setPostId(am9Var.O());
             markData.setTime(date.getTime());
             markData.setHostMode(this.j);
             markData.setSequence(Boolean.valueOf(k2()));
             markData.setId(this.b);
-            markData.setFloor(sl9Var.E());
+            markData.setFloor(am9Var.E());
             markData.setForumId(this.e);
-            if (sl9Var instanceof rl9) {
-                rl9 rl9Var = (rl9) sl9Var;
-                if (rl9Var.getAdvertAppInfo() != null && rl9Var.getAdvertAppInfo().e()) {
+            if (am9Var instanceof zl9) {
+                zl9 zl9Var = (zl9) am9Var;
+                if (zl9Var.getAdvertAppInfo() != null && zl9Var.getAdvertAppInfo().e()) {
                     z = true;
                 } else {
                     z = false;
@@ -2181,16 +2181,16 @@ public class PbModel extends DataModel {
         }
     }
 
-    public String I2(zs8 zs8Var) {
+    public String I2(ht8 ht8Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, zs8Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, ht8Var)) == null) {
             String str = null;
-            if (zs8Var == null) {
+            if (ht8Var == null) {
                 return null;
             }
-            if (zs8Var.M() != null && zs8Var.M().getAuthor() != null) {
-                str = zs8Var.M().getAuthor().getUserId();
+            if (ht8Var.M() != null && ht8Var.M().getAuthor() != null) {
+                str = ht8Var.M().getAuthor().getUserId();
             }
             if (str == null) {
                 return "";
@@ -2207,11 +2207,11 @@ public class PbModel extends DataModel {
             if (i < 0) {
                 i = 0;
             }
-            zs8 zs8Var = this.G;
-            if (zs8Var == null) {
+            ht8 ht8Var = this.G;
+            if (ht8Var == null) {
                 return null;
             }
-            ArrayList<sl9> F = zs8Var.F();
+            ArrayList<am9> F = ht8Var.F();
             if (ListUtils.isEmpty(F)) {
                 return null;
             }
@@ -2242,14 +2242,14 @@ public class PbModel extends DataModel {
         return invokeI.booleanValue;
     }
 
-    public zs8 h3(zs8 zs8Var) {
+    public ht8 h3(ht8 ht8Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048693, this, zs8Var)) == null) {
-            if (zs8Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048693, this, ht8Var)) == null) {
+            if (ht8Var == null) {
                 return null;
             }
-            ThreadData M = zs8Var.M();
+            ThreadData M = ht8Var.M();
             M.setIs_good(this.p);
             M.setIs_top(this.q);
             long j = this.r;
@@ -2257,9 +2257,9 @@ public class PbModel extends DataModel {
                 M.setLast_time_int(j);
             }
             G0(M);
-            return zs8Var;
+            return ht8Var;
         }
-        return (zs8) invokeL.objValue;
+        return (ht8) invokeL.objValue;
     }
 
     public boolean k3(String str) {
@@ -2278,7 +2278,7 @@ public class PbModel extends DataModel {
         return invokeL.booleanValue;
     }
 
-    public final String l1(ArrayList<sl9> arrayList) {
+    public final String l1(ArrayList<am9> arrayList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048705, this, arrayList)) == null) {
@@ -2287,9 +2287,9 @@ public class PbModel extends DataModel {
                 return null;
             }
             for (int i = count - 1; i >= 0; i--) {
-                sl9 sl9Var = (sl9) ListUtils.getItem(arrayList, i);
-                if (sl9Var != null && !StringUtils.isNull(sl9Var.O())) {
-                    return sl9Var.O();
+                am9 am9Var = (am9) ListUtils.getItem(arrayList, i);
+                if (am9Var != null && !StringUtils.isNull(am9Var.O())) {
+                    return am9Var.O();
                 }
             }
             return null;
@@ -2297,26 +2297,26 @@ public class PbModel extends DataModel {
         return (String) invokeL.objValue;
     }
 
-    public void q3(zs8 zs8Var) {
+    public void q3(ht8 ht8Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048723, this, zs8Var) != null) || zs8Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048723, this, ht8Var) != null) || ht8Var == null) {
             return;
         }
-        zs8Var.R0(this.G.X());
-        zs8 zs8Var2 = this.G;
-        if (!zs8Var2.W && zs8Var.W && zs8Var2.h() != null) {
-            zs8Var.F0(this.G.h());
+        ht8Var.R0(this.G.X());
+        ht8 ht8Var2 = this.G;
+        if (!ht8Var2.W && ht8Var.W && ht8Var2.h() != null) {
+            ht8Var.F0(this.G.h());
         }
-        this.G = zs8Var;
-        M2(zs8Var.y().a());
+        this.G = ht8Var;
+        M2(ht8Var.y().a());
     }
 
     public boolean s2(boolean z) {
         InterceptResult invokeZ;
-        zs8 zs8Var;
+        ht8 ht8Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048728, this, z)) == null) {
-            if (this.b == null || (zs8Var = this.G) == null || ((!z && zs8Var.y().c() == 0) || this.G.F() == null || this.G.F().size() < 1)) {
+            if (this.b == null || (ht8Var = this.G) == null || ((!z && ht8Var.y().c() == 0) || this.G.F() == null || this.G.F().size() < 1)) {
                 return false;
             }
             return P2(2);
@@ -2324,27 +2324,27 @@ public class PbModel extends DataModel {
         return invokeZ.booleanValue;
     }
 
-    public void x0(ly4 ly4Var) {
+    public void x0(my4 my4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048741, this, ly4Var) == null) {
-            if (ly4Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048741, this, my4Var) == null) {
+            if (my4Var == null) {
                 M2(1);
                 return;
             }
-            if (this.t < ly4Var.a()) {
-                this.t = ly4Var.a();
+            if (this.t < my4Var.a()) {
+                this.t = my4Var.a();
             }
-            if (this.u > ly4Var.a()) {
-                this.u = ly4Var.a();
+            if (this.u > my4Var.a()) {
+                this.u = my4Var.a();
             }
-            this.v = ly4Var.h();
+            this.v = my4Var.h();
         }
     }
 
-    public final void z0(zs8 zs8Var) {
+    public final void z0(ht8 ht8Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048747, this, zs8Var) == null) && zs8Var != null && zs8Var.z() != null && zs8Var.z().getAdvertAppInfo() != null && zs8Var.z().u1() && zs8Var.z().getAdvertAppInfo().c != 1001) {
-            this.J0 = zs8Var.z();
+        if ((interceptable == null || interceptable.invokeL(1048747, this, ht8Var) == null) && ht8Var != null && ht8Var.z() != null && ht8Var.z().getAdvertAppInfo() != null && ht8Var.z().u1() && ht8Var.z().getAdvertAppInfo().c != 1001) {
+            this.J0 = ht8Var.z();
         }
     }
 
@@ -2364,32 +2364,32 @@ public class PbModel extends DataModel {
 
     public final void X2(PbPageRequestMessage pbPageRequestMessage) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048653, this, pbPageRequestMessage) != null) || TextUtils.isEmpty(T0()) || va9.l().b() == null) {
+        if ((interceptable != null && interceptable.invokeL(1048653, this, pbPageRequestMessage) != null) || TextUtils.isEmpty(T0()) || db9.l().b() == null) {
             return;
         }
-        pbPageRequestMessage.setLoadCount(va9.l().b().e(T0(), true) + 1);
-        pbPageRequestMessage.setRefreshCount(va9.l().b().d(T0(), true));
+        pbPageRequestMessage.setLoadCount(db9.l().b().e(T0(), true) + 1);
+        pbPageRequestMessage.setRefreshCount(db9.l().b().d(T0(), true));
     }
 
-    public final boolean Z1(zs8 zs8Var) {
+    public final boolean Z1(ht8 ht8Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048659, this, zs8Var)) == null) {
-            if (zs8Var == null || ListUtils.isEmpty(zs8Var.F()) || this.G.M() == null || TextUtils.isEmpty(this.G.M().getFirstPostId())) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048659, this, ht8Var)) == null) {
+            if (ht8Var == null || ListUtils.isEmpty(ht8Var.F()) || this.G.M() == null || TextUtils.isEmpty(this.G.M().getFirstPostId())) {
                 return false;
             }
-            return TextUtils.equals(this.G.M().getFirstPostId(), zs8Var.F().get(0).O());
+            return TextUtils.equals(this.G.M().getFirstPostId(), ht8Var.F().get(0).O());
         }
         return invokeL.booleanValue;
     }
 
     public final void b3(PbPageRequestMessage pbPageRequestMessage) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048668, this, pbPageRequestMessage) != null) || TextUtils.isEmpty(T0()) || va9.l().b() == null) {
+        if ((interceptable != null && interceptable.invokeL(1048668, this, pbPageRequestMessage) != null) || TextUtils.isEmpty(T0()) || db9.l().b() == null) {
             return;
         }
-        pbPageRequestMessage.setRefreshCount(va9.l().b().d(T0(), true) + 1);
-        pbPageRequestMessage.setLoadCount(va9.l().b().e(T0(), true));
+        pbPageRequestMessage.setRefreshCount(db9.l().b().d(T0(), true) + 1);
+        pbPageRequestMessage.setLoadCount(db9.l().b().e(T0(), true));
     }
 
     public void e3(Uri uri) {
@@ -2425,7 +2425,7 @@ public class PbModel extends DataModel {
                 return false;
             }
             if (i != 1) {
-                p45.m().z("key_pb_current_sort_type", i);
+                q45.m().z("key_pb_current_sort_type", i);
             }
             boolean z = this.l;
             this.k = z;
@@ -2481,175 +2481,175 @@ public class PbModel extends DataModel {
         pbPageRequestMessage.setAfterAdThreadCount(i);
     }
 
-    public void D2(zs8 zs8Var, int i, boolean z, int i2, String str, boolean z2, int i3, long j, long j2) {
-        zs8 zs8Var2;
+    public void D2(ht8 ht8Var, int i, boolean z, int i2, String str, boolean z2, int i3, long j, long j2) {
+        ht8 ht8Var2;
         int i4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{zs8Var, Integer.valueOf(i), Boolean.valueOf(z), Integer.valueOf(i2), str, Boolean.valueOf(z2), Integer.valueOf(i3), Long.valueOf(j), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{ht8Var, Integer.valueOf(i), Boolean.valueOf(z), Integer.valueOf(i2), str, Boolean.valueOf(z2), Integer.valueOf(i3), Long.valueOf(j), Long.valueOf(j2)}) == null) {
             if (z) {
                 i4 = i2;
-                zs8Var2 = null;
+                ht8Var2 = null;
             } else {
-                zs8Var2 = zs8Var;
+                ht8Var2 = ht8Var;
                 i4 = i2;
             }
             this.j0 = i4;
             this.isLoading = false;
-            if (zs8Var2 != null) {
-                E0(zs8Var2);
+            if (ht8Var2 != null) {
+                E0(ht8Var2);
             }
-            z0(zs8Var2);
-            rl9 rl9Var = this.J0;
-            if (rl9Var != null && rl9Var.u1()) {
-                TiebaStatic.log(sj9.e("a005", "common_fill", true, 1));
+            z0(ht8Var2);
+            zl9 zl9Var = this.J0;
+            if (zl9Var != null && zl9Var.u1()) {
+                TiebaStatic.log(ak9.e("a005", "common_fill", true, 1));
             }
-            E2(zs8Var2, i, z, i2, str, z2, i3, j, j2, false);
+            E2(ht8Var2, i, z, i2, str, z2, i3, j, j2, false);
         }
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public void E2(zs8 zs8Var, int i, boolean z, int i2, String str, boolean z2, int i3, long j, long j2, boolean z3) {
+    public void E2(ht8 ht8Var, int i, boolean z, int i2, String str, boolean z2, int i3, long j, long j2, boolean z3) {
         int i4;
         boolean z4;
         int i5;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{zs8Var, Integer.valueOf(i), Boolean.valueOf(z), Integer.valueOf(i2), str, Boolean.valueOf(z2), Integer.valueOf(i3), Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{ht8Var, Integer.valueOf(i), Boolean.valueOf(z), Integer.valueOf(i2), str, Boolean.valueOf(z2), Integer.valueOf(i3), Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z3)}) == null) {
             boolean z5 = true;
             boolean z6 = !z;
             this.h0 = z3;
-            zl9 zl9Var = this.V;
-            if (zl9Var != null && !z3) {
-                zl9Var.b(z2, z6, i2, str, i3, j, j2);
+            hm9 hm9Var = this.V;
+            if (hm9Var != null && !z3) {
+                hm9Var.b(z2, z6, i2, str, i3, j, j2);
                 this.V = null;
             }
-            zs8 zs8Var2 = this.G;
-            if (zs8Var2 != null) {
-                zs8Var2.Z = z3;
-                zs8Var2.a0 = i;
+            ht8 ht8Var2 = this.G;
+            if (ht8Var2 != null) {
+                ht8Var2.Z = z3;
+                ht8Var2.a0 = i;
             }
-            if (z6 && !z3 && !TextUtils.isEmpty(T0()) && va9.l().b() != null) {
-                va9.l().b().g(T0(), L2(E1()), true);
+            if (z6 && !z3 && !TextUtils.isEmpty(T0()) && db9.l().b() != null) {
+                db9.l().b().g(T0(), L2(E1()), true);
             }
-            if (zs8Var != null && (this.s != 1 || i != 5 || zs8Var.F() == null || zs8Var.F().size() >= 1)) {
+            if (ht8Var != null && (this.s != 1 || i != 5 || ht8Var.F() == null || ht8Var.F().size() >= 1)) {
                 this.k = this.l;
                 if (i != 8) {
                     this.n = this.m;
-                    this.m = zs8Var.g;
+                    this.m = ht8Var.g;
                 }
-                List<PbSortType> list = zs8Var.f;
+                List<PbSortType> list = ht8Var.f;
                 if (list != null && list.isEmpty()) {
                     PbSortType.Builder builder = new PbSortType.Builder();
                     builder.sort_name = this.W.getResources().getString(R.string.default_sort);
                     builder.sort_type = 0;
                     ArrayList arrayList = new ArrayList();
-                    zs8Var.f = arrayList;
+                    ht8Var.f = arrayList;
                     arrayList.add(builder.build(false));
                     PbSortType.Builder builder2 = new PbSortType.Builder();
                     builder2.sort_name = this.W.getResources().getString(R.string.view_reverse);
                     builder2.sort_type = 1;
-                    zs8Var.f.add(builder2.build(false));
+                    ht8Var.f.add(builder2.build(false));
                     int i6 = this.n;
                     this.m = i6;
-                    zs8Var.g = i6;
+                    ht8Var.g = i6;
                 }
                 this.E = false;
-                if (zs8Var.y() != null && (this.m != 2 || i != 8)) {
-                    x0(zs8Var.y());
+                if (ht8Var.y() != null && (this.m != 2 || i != 8)) {
+                    x0(ht8Var.y());
                 }
                 int i7 = this.v;
                 if (i7 < 1) {
                     i7 = 1;
                 }
                 this.v = i7;
-                ArrayList<sl9> F = this.G.F();
+                ArrayList<am9> F = this.G.F();
                 switch (i) {
                     case 1:
-                        this.G.J0(zs8Var.y(), 1);
-                        p3(zs8Var, F);
-                        n3(zs8Var);
+                        this.G.J0(ht8Var.y(), 1);
+                        p3(ht8Var, F);
+                        n3(ht8Var);
                         i4 = 0;
                         break;
                     case 2:
-                        if (zs8Var.F() != null) {
-                            i4 = zs8Var.F().size() + 1;
-                            sl9 sl9Var = (sl9) ListUtils.getItem(F, 0);
-                            sl9 sl9Var2 = (sl9) ListUtils.getItem(zs8Var.F(), ListUtils.getCount(zs8Var.F()) - 1);
-                            if (sl9Var != null && sl9Var2 != null && sl9Var.O().equals(sl9Var2.O())) {
-                                zs8Var.F().remove(sl9Var2);
+                        if (ht8Var.F() != null) {
+                            i4 = ht8Var.F().size() + 1;
+                            am9 am9Var = (am9) ListUtils.getItem(F, 0);
+                            am9 am9Var2 = (am9) ListUtils.getItem(ht8Var.F(), ListUtils.getCount(ht8Var.F()) - 1);
+                            if (am9Var != null && am9Var2 != null && am9Var.O().equals(am9Var2.O())) {
+                                ht8Var.F().remove(am9Var2);
                                 i4--;
                             }
                             if (b2()) {
                                 u1 = F.get(1).O();
                             }
-                            F.addAll(0, zs8Var.F());
+                            F.addAll(0, ht8Var.F());
                         } else {
                             i4 = 0;
                         }
-                        n3(zs8Var);
-                        this.G.J0(zs8Var.y(), 2);
+                        n3(ht8Var);
+                        this.G.J0(ht8Var.y(), 2);
                         break;
                     case 3:
-                        if (this.m == 1 && zs8Var.y() != null) {
-                            zs8Var.y().k(zs8Var.y().h());
+                        if (this.m == 1 && ht8Var.y() != null) {
+                            ht8Var.y().k(ht8Var.y().h());
                         }
-                        q3(zs8Var);
+                        q3(ht8Var);
                         i4 = 0;
                         break;
                     case 4:
-                        q3(zs8Var);
+                        q3(ht8Var);
                         i4 = 0;
                         break;
                     case 5:
-                        q3(zs8Var);
+                        q3(ht8Var);
                         i4 = 0;
                         break;
                     case 6:
-                        q3(zs8Var);
+                        q3(ht8Var);
                         i4 = 0;
                         break;
                     case 7:
-                        q3(zs8Var);
+                        q3(ht8Var);
                         i4 = 0;
                         break;
                     case 8:
-                        if (Z1(zs8Var)) {
+                        if (Z1(ht8Var)) {
                             return;
                         }
-                        if (zs8Var != null && !ListUtils.isEmpty(zs8Var.F()) && this.G != null && (!this.j || I2(zs8Var).equals(zs8Var.F().get(0).q().getUserId()))) {
+                        if (ht8Var != null && !ListUtils.isEmpty(ht8Var.F()) && this.G != null && (!this.j || I2(ht8Var).equals(ht8Var.F().get(0).q().getUserId()))) {
                             if (this.G.y().b() == 0) {
                                 this.G.y().l(1);
                             }
                             N2();
-                            this.D0 = zs8Var.F().get(0);
+                            this.D0 = ht8Var.F().get(0);
                             if (!k2() && !this.G.h0()) {
                                 if (this.F0 - this.G0 >= 3) {
-                                    sl9 sl9Var3 = new sl9();
-                                    this.E0 = sl9Var3;
-                                    sl9Var3.D = false;
-                                    sl9Var3.a1(53);
+                                    am9 am9Var3 = new am9();
+                                    this.E0 = am9Var3;
+                                    am9Var3.D = false;
+                                    am9Var3.a1(53);
                                     this.G.F().add(0, this.E0);
                                 }
                                 this.G.F().add(0, this.D0);
                                 i5 = 0;
                             } else {
                                 if (this.G.F().size() - this.F0 >= 3) {
-                                    sl9 sl9Var4 = new sl9();
-                                    this.E0 = sl9Var4;
-                                    sl9Var4.D = true;
-                                    sl9Var4.a1(53);
+                                    am9 am9Var4 = new am9();
+                                    this.E0 = am9Var4;
+                                    am9Var4.D = true;
+                                    am9Var4.a1(53);
                                     this.G.F().add(this.E0);
                                 }
                                 this.G.F().add(this.D0);
                                 i5 = this.G.F().size() - 1;
                             }
-                            if (!StringHelper.isTaday(p45.m().o("pb_post_recommend_live_date_" + TbadkCoreApplication.getCurrentAccount(), 0L))) {
+                            if (!StringHelper.isTaday(q45.m().o("pb_post_recommend_live_date_" + TbadkCoreApplication.getCurrentAccount(), 0L))) {
                                 this.D0.T = this.G.I();
-                                p45.m().A("pb_post_recommend_live_date_" + TbadkCoreApplication.getCurrentAccount(), System.currentTimeMillis());
+                                q45.m().A("pb_post_recommend_live_date_" + TbadkCoreApplication.getCurrentAccount(), System.currentTimeMillis());
                             }
                         } else {
                             i5 = 0;
                         }
-                        n3(zs8Var);
+                        n3(ht8Var);
                         i4 = i5;
                         break;
                         break;
@@ -2657,8 +2657,8 @@ public class PbModel extends DataModel {
                         i4 = 0;
                         break;
                 }
-                zs8 zs8Var3 = this.G;
-                if (zs8Var3 != null && zs8Var3.M() != null) {
+                ht8 ht8Var3 = this.G;
+                if (ht8Var3 != null && ht8Var3.M() != null) {
                     PraiseData praise = this.G.M().getPraise();
                     if (this.t1 != null && !praise.isPriaseDataValid()) {
                         this.G.M().setPraise(this.t1);
@@ -2667,34 +2667,34 @@ public class PbModel extends DataModel {
                         this.t1 = praise2;
                         praise2.setPostId(this.G.M().getFirstPostId());
                     }
-                    if (zs8Var.y() != null && zs8Var.y().a() == 1 && zs8Var.M() != null && zs8Var.M().getActDatas() != null && zs8Var.M().getActDatas().size() > 0) {
-                        this.G.M().setActDatas(zs8Var.M().getActDatas());
+                    if (ht8Var.y() != null && ht8Var.y().a() == 1 && ht8Var.M() != null && ht8Var.M().getActDatas() != null && ht8Var.M().getActDatas().size() > 0) {
+                        this.G.M().setActDatas(ht8Var.M().getActDatas());
                     }
-                    this.G.M().setReply_num(zs8Var.M().getReply_num());
-                    this.G.M().setAnchorLevel(zs8Var.M().getAnchorLevel());
-                    this.G.M().setCopyThreadRemindType(zs8Var.M().getCopyThreadRemindType());
-                    if (zs8Var != null && zs8Var.M() != null) {
-                        this.G.M().updateIsNotitle(zs8Var.M().getIsNoTitle());
+                    this.G.M().setReply_num(ht8Var.M().getReply_num());
+                    this.G.M().setAnchorLevel(ht8Var.M().getAnchorLevel());
+                    this.G.M().setCopyThreadRemindType(ht8Var.M().getCopyThreadRemindType());
+                    if (ht8Var != null && ht8Var.M() != null) {
+                        this.G.M().updateIsNotitle(ht8Var.M().getIsNoTitle());
                     }
                 }
-                zs8 zs8Var4 = this.G;
-                if (zs8Var4 != null && zs8Var4.T() != null && zs8Var.T() != null) {
-                    this.G.T().setBimg_end_time(zs8Var.T().getBimg_end_time());
-                    this.G.T().setBimg_url(zs8Var.T().getBimg_url());
-                    this.G.T().setDynamicUrl(zs8Var.T().getDynamicUrl());
+                ht8 ht8Var4 = this.G;
+                if (ht8Var4 != null && ht8Var4.T() != null && ht8Var.T() != null) {
+                    this.G.T().setBimg_end_time(ht8Var.T().getBimg_end_time());
+                    this.G.T().setBimg_url(ht8Var.T().getBimg_url());
+                    this.G.T().setDynamicUrl(ht8Var.T().getDynamicUrl());
                 }
-                if (zs8Var.y() != null && zs8Var.y().a() == 1 && zs8Var.W() != null) {
-                    this.G.Q0(zs8Var.W());
+                if (ht8Var.y() != null && ht8Var.y().a() == 1 && ht8Var.W() != null) {
+                    this.G.Q0(ht8Var.W());
                 }
                 if (this.h0) {
                     if (this.G.M() != null && this.G.M().getAuthor() != null && this.G.F() != null && ListUtils.getItem(this.G.F(), 0) != null) {
-                        sl9 sl9Var5 = (sl9) ListUtils.getItem(this.G.F(), 0);
+                        am9 am9Var5 = (am9) ListUtils.getItem(this.G.F(), 0);
                         MetaData author = this.G.M().getAuthor();
-                        if (sl9Var5.q() != null && sl9Var5.q().getGodUserData() != null) {
+                        if (am9Var5.q() != null && am9Var5.q().getGodUserData() != null) {
                             int i8 = this.S;
                             if (i8 != -1) {
                                 author.setFansNum(i8);
-                                sl9Var5.q().setFansNum(this.S);
+                                am9Var5.q().setFansNum(this.S);
                             }
                             if (this.T != -1) {
                                 GodUserData godUserData = author.getGodUserData();
@@ -2704,19 +2704,19 @@ public class PbModel extends DataModel {
                                     z4 = false;
                                 }
                                 godUserData.setIsLike(z4);
-                                GodUserData godUserData2 = sl9Var5.q().getGodUserData();
+                                GodUserData godUserData2 = am9Var5.q().getGodUserData();
                                 if (this.T != 1) {
                                     z5 = false;
                                 }
                                 godUserData2.setIsLike(z5);
                                 author.getGodUserData().setIsFromNetWork(false);
-                                sl9Var5.q().getGodUserData().setIsFromNetWork(false);
+                                am9Var5.q().getGodUserData().setIsFromNetWork(false);
                             }
                         }
                     }
-                    zs8 zs8Var5 = this.G;
-                    zs8Var5.e = -1;
-                    zs8Var5.d = -1;
+                    ht8 ht8Var5 = this.G;
+                    ht8Var5.e = -1;
+                    ht8Var5.d = -1;
                 }
                 h hVar = this.N;
                 if (hVar != null) {
@@ -2729,8 +2729,8 @@ public class PbModel extends DataModel {
                 }
                 this.N.c(false, i2, i, 0, null, str, 1);
             }
-            zs8 zs8Var6 = this.G;
-            if (zs8Var6 != null && zs8Var6.M() != null && this.G.k() != null && !this.G.h0()) {
+            ht8 ht8Var6 = this.G;
+            if (ht8Var6 != null && ht8Var6.M() != null && this.G.k() != null && !this.G.h0()) {
                 HistoryMessage historyMessage = new HistoryMessage();
                 historyMessage.Activity = this.W.getPageContext();
                 historyMessage.threadId = u1().M().getId();
@@ -2753,19 +2753,19 @@ public class PbModel extends DataModel {
         }
     }
 
-    public zs8 F0(ThreadData threadData) {
+    public ht8 F0(ThreadData threadData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, threadData)) == null) {
-            zs8 zs8Var = new zs8();
-            zs8Var.C0(3);
+            ht8 ht8Var = new ht8();
+            ht8Var.C0(3);
             if (threadData == null) {
                 return null;
             }
-            zs8Var.O0(threadData);
+            ht8Var.O0(threadData);
             if (threadData.getForumData() != null) {
-                zs8Var.D0(threadData.getForumData());
-                ForumData k = zs8Var.k();
+                ht8Var.D0(threadData.getForumData());
+                ForumData k = ht8Var.k();
                 k.setId(threadData.getForumData().b());
                 k.setName(threadData.getForumData().d());
                 k.setUser_level(threadData.getForumData().c());
@@ -2773,33 +2773,33 @@ public class PbModel extends DataModel {
                 k.setPost_num(threadData.getForumData().g);
                 k.setMember_num(threadData.getForumData().h);
             } else {
-                ForumData k2 = zs8Var.k();
+                ForumData k2 = ht8Var.k();
                 k2.setId(String.valueOf(threadData.getFid()));
                 k2.setName(threadData.getForum_name());
             }
-            sl9 sl9Var = new sl9();
-            sl9Var.K0(1);
-            sl9Var.g1(threadData.getCreateTime());
-            sl9Var.H0(threadData.getAuthor());
+            am9 am9Var = new am9();
+            am9Var.K0(1);
+            am9Var.g1(threadData.getCreateTime());
+            am9Var.H0(threadData.getAuthor());
             MetaData author = threadData.getAuthor();
             HashMap<String, MetaData> hashMap = new HashMap<>();
             hashMap.put(author.getUserId(), author);
-            sl9Var.j1(hashMap);
-            sl9Var.c1(TbRichTextView.a0(threadData.getFirstFloorList(), N1(), false));
-            zs8Var.E0(sl9Var);
-            zs8Var.F().add(sl9Var);
-            zs8Var.L0(new nt8(threadData, null));
-            zs8Var.m = true;
-            zs8Var.H0(1);
-            return zs8Var;
+            am9Var.j1(hashMap);
+            am9Var.c1(TbRichTextView.a0(threadData.getFirstFloorList(), N1(), false));
+            ht8Var.E0(am9Var);
+            ht8Var.F().add(am9Var);
+            ht8Var.L0(new vt8(threadData, null));
+            ht8Var.m = true;
+            ht8Var.H0(1);
+            return ht8Var;
         }
-        return (zs8) invokeL.objValue;
+        return (ht8) invokeL.objValue;
     }
 
     public void o3(UserPendantData userPendantData) {
-        zs8 zs8Var;
+        ht8 ht8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048717, this, userPendantData) == null) && userPendantData != null && (zs8Var = this.G) != null && zs8Var.F() != null && this.G.F().size() > 0) {
+        if ((interceptable == null || interceptable.invokeL(1048717, this, userPendantData) == null) && userPendantData != null && (ht8Var = this.G) != null && ht8Var.F() != null && this.G.F().size() > 0) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (StringUtils.isNull(currentAccount)) {
                 return;
@@ -2815,12 +2815,12 @@ public class PbModel extends DataModel {
     }
 
     public final void F2(int i) {
-        zs8 zs8Var;
+        ht8 ht8Var;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048593, this, i) == null) && i != 8) {
             this.C0 = "";
             if (this.D0 != null) {
-                if (i == 1 && (zs8Var = this.G) != null && zs8Var.h0()) {
+                if (i == 1 && (ht8Var = this.G) != null && ht8Var.h0()) {
                     if (this.E0 != null) {
                         u1().F().remove(this.E0);
                     }
@@ -2841,23 +2841,23 @@ public class PbModel extends DataModel {
         }
     }
 
-    public void G2(zs8 zs8Var) {
+    public void G2(ht8 ht8Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048596, this, zs8Var) != null) || zs8Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048596, this, ht8Var) != null) || ht8Var == null) {
             return;
         }
-        String I2 = I2(zs8Var);
-        for (int i = 0; i < zs8Var.F().size(); i++) {
-            sl9 sl9Var = zs8Var.F().get(i);
-            for (int i2 = 0; i2 < sl9Var.e0().size(); i2++) {
-                sl9Var.e0().get(i2).n1(this.W.getPageContext(), I2.equals(sl9Var.e0().get(i2).q().getUserId()));
+        String I2 = I2(ht8Var);
+        for (int i = 0; i < ht8Var.F().size(); i++) {
+            am9 am9Var = ht8Var.F().get(i);
+            for (int i2 = 0; i2 < am9Var.e0().size(); i2++) {
+                am9Var.e0().get(i2).n1(this.W.getPageContext(), I2.equals(am9Var.e0().get(i2).q().getUserId()));
             }
         }
-        rt8 R = zs8Var.R();
+        zt8 R = ht8Var.R();
         if (R != null && !ListUtils.isEmpty(R.a)) {
-            for (sl9 sl9Var2 : R.a) {
-                for (int i3 = 0; i3 < sl9Var2.e0().size(); i3++) {
-                    sl9Var2.e0().get(i3).n1(this.W.getPageContext(), I2.equals(sl9Var2.e0().get(i3).q().getUserId()));
+            for (am9 am9Var2 : R.a) {
+                for (int i3 = 0; i3 < am9Var2.e0().size(); i3++) {
+                    am9Var2.e0().get(i3).n1(this.W.getPageContext(), I2.equals(am9Var2.e0().get(i3).q().getUserId()));
                 }
             }
         }
@@ -2874,15 +2874,15 @@ public class PbModel extends DataModel {
             }
             this.isLoading = true;
             A2(i);
-            zs8 f2 = ow8.b().f();
+            ht8 f2 = ww8.b().f();
             if (f2 != null && f2.M() != null) {
                 f2.M().setCopyThreadRemindType(0);
-                this.l = ow8.b().i();
-                this.j = ow8.b().a();
-                this.o = ow8.b().c();
-                this.D0 = ow8.b().g();
-                this.E0 = ow8.b().h();
-                this.F0 = ow8.b().d();
+                this.l = ww8.b().i();
+                this.j = ww8.b().a();
+                this.o = ww8.b().c();
+                this.D0 = ww8.b().g();
+                this.E0 = ww8.b().h();
+                this.F0 = ww8.b().d();
                 boolean z2 = this.j;
                 this.A0 = z2;
                 if (z2 || this.A) {
@@ -2904,7 +2904,7 @@ public class PbModel extends DataModel {
                 Q2(R0, z, this.d, 3);
             }
             this.b0 = false;
-            i70.d(CmdConfigHttp.PB_PAGE_HTTP_CMD, new g(this, i));
+            j70.d(CmdConfigHttp.PB_PAGE_HTTP_CMD, new g(this, i));
             return true;
         }
         return invokeI.booleanValue;
@@ -2950,18 +2950,18 @@ public class PbModel extends DataModel {
         return (String) invokeV.objValue;
     }
 
-    public void H2(zs8 zs8Var, int i) {
+    public void H2(ht8 ht8Var, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(1048599, this, zs8Var, i) != null) || zs8Var == null) {
+        if ((interceptable != null && interceptable.invokeLI(1048599, this, ht8Var, i) != null) || ht8Var == null) {
             return;
         }
-        String I2 = I2(zs8Var);
-        rt8 R = zs8Var.R();
+        String I2 = I2(ht8Var);
+        zt8 R = ht8Var.R();
         if (R != null && !ListUtils.isEmpty(R.a)) {
-            List<sl9> list = R.a;
-            for (sl9 sl9Var : list.subList(i, list.size())) {
-                for (int i2 = 0; i2 < sl9Var.e0().size(); i2++) {
-                    sl9Var.e0().get(i2).n1(this.W.getPageContext(), I2.equals(sl9Var.e0().get(i2).q().getUserId()));
+            List<am9> list = R.a;
+            for (am9 am9Var : list.subList(i, list.size())) {
+                for (int i2 = 0; i2 < am9Var.e0().size(); i2++) {
+                    am9Var.e0().get(i2).n1(this.W.getPageContext(), I2.equals(am9Var.e0().get(i2).q().getUserId()));
                 }
             }
         }
@@ -2975,11 +2975,11 @@ public class PbModel extends DataModel {
             if (u1().F() == null) {
                 return 0;
             }
-            ArrayList<sl9> F = u1().F();
+            ArrayList<am9> F = u1().F();
             for (int size = F.size() - 1; size >= 0; size--) {
-                sl9 sl9Var = F.get(size);
-                if (sl9Var instanceof rl9) {
-                    if (sl9Var.getType() != AdvertAppInfo.x) {
+                am9 am9Var = F.get(size);
+                if (am9Var instanceof zl9) {
+                    if (am9Var.getType() != AdvertAppInfo.x) {
                         return i;
                     }
                 } else {
@@ -3023,7 +3023,7 @@ public class PbModel extends DataModel {
                 i2 = 0;
             }
             pbPageRequestMessage.setIsReqAd(i2);
-            pbPageRequestMessage.setLastids(fc5.l);
+            pbPageRequestMessage.setLastids(gc5.l);
             if (this.j || this.A) {
                 this.U = false;
             }
@@ -3176,9 +3176,9 @@ public class PbModel extends DataModel {
     }
 
     public void N2() {
-        zs8 zs8Var;
+        ht8 ht8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048617, this) == null) && (zs8Var = this.G) != null && !ListUtils.isEmpty(zs8Var.F())) {
+        if ((interceptable == null || interceptable.invokeV(1048617, this) == null) && (ht8Var = this.G) != null && !ListUtils.isEmpty(ht8Var.F())) {
             if (this.E0 != null) {
                 this.G.F().remove(this.E0);
                 this.E0 = null;
@@ -3206,8 +3206,8 @@ public class PbModel extends DataModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048647, this)) == null) {
-            zs8 zs8Var = this.G;
-            if (zs8Var == null || zs8Var.M() == null || this.G.M().getAuthor() == null) {
+            ht8 ht8Var = this.G;
+            if (ht8Var == null || ht8Var.M() == null || this.G.M().getAuthor() == null) {
                 return null;
             }
             return this.G.M().getAuthor();
@@ -3228,7 +3228,7 @@ public class PbModel extends DataModel {
             if (getSugMatchWordsModel != null) {
                 getSugMatchWordsModel.cancelLoadData();
             }
-            ic9.f().a("PB");
+            qc9.f().a("PB");
             v2();
         }
     }
@@ -3237,7 +3237,7 @@ public class PbModel extends DataModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048700, this)) == null) {
-            if (PBCacheBlockSwitch.getIsOn() || !this.K0 || z47.b() == null || !z47.b().equals(this.b) || z47.a() == null) {
+            if (PBCacheBlockSwitch.getIsOn() || !this.K0 || a57.b() == null || !a57.b().equals(this.b) || a57.a() == null) {
                 return false;
             }
             return true;
@@ -3255,9 +3255,9 @@ public class PbModel extends DataModel {
             }
             cancelLoadData();
             if (this.V == null) {
-                zl9 zl9Var = new zl9("pbStat");
-                this.V = zl9Var;
-                zl9Var.f();
+                hm9 hm9Var = new hm9("pbStat");
+                this.V = hm9Var;
+                hm9Var.f();
             }
             boolean P2 = P2(3);
             if (this.O != null) {
@@ -3423,7 +3423,7 @@ public class PbModel extends DataModel {
         int intExtra2 = intent.getIntExtra("sort_type", -1);
         this.m = intExtra2;
         if (intExtra2 < 0) {
-            intExtra2 = p45.m().n("key_pb_current_sort_type", 2);
+            intExtra2 = q45.m().n("key_pb_current_sort_type", 2);
         }
         this.m = intExtra2;
         if (g2()) {
@@ -3463,7 +3463,7 @@ public class PbModel extends DataModel {
         this.H0 = intent.getBooleanExtra("key_is_share_thread", false);
         boolean booleanExtra = intent.getBooleanExtra("key_need_preload", false);
         this.K0 = booleanExtra;
-        if (!booleanExtra && !z47.c()) {
+        if (!booleanExtra && !a57.c()) {
             z = false;
         } else {
             z = true;
@@ -3537,19 +3537,19 @@ public class PbModel extends DataModel {
         }
     }
 
-    public void p3(zs8 zs8Var, ArrayList<sl9> arrayList) {
+    public void p3(ht8 ht8Var, ArrayList<am9> arrayList) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048720, this, zs8Var, arrayList) == null) && arrayList != null && zs8Var.F() != null) {
-            sl9 sl9Var = (sl9) ListUtils.getItem(zs8Var.F(), 0);
-            if (sl9Var != null) {
+        if ((interceptable == null || interceptable.invokeLL(1048720, this, ht8Var, arrayList) == null) && arrayList != null && ht8Var.F() != null) {
+            am9 am9Var = (am9) ListUtils.getItem(ht8Var.F(), 0);
+            if (am9Var != null) {
                 String l1 = l1(arrayList);
-                String O = sl9Var.O();
+                String O = am9Var.O();
                 if (StringUtils.isNull(O) || "0".equals(O) || (l1 != null && l1.equals(O))) {
-                    zs8Var.F().remove(sl9Var);
+                    ht8Var.F().remove(am9Var);
                 }
             }
             this.G.Y = arrayList.size();
-            arrayList.addAll(zs8Var.F());
+            arrayList.addAll(ht8Var.F());
         }
     }
 
@@ -3571,7 +3571,7 @@ public class PbModel extends DataModel {
         if ((interceptable != null && interceptable.invokeLI(1048738, this, pbPageRequestMessage, i) != null) || pbPageRequestMessage == null) {
             return;
         }
-        ArrayList<sl9> F = this.G.F();
+        ArrayList<am9> F = this.G.F();
         boolean z = false;
         switch (i) {
             case 1:
@@ -3593,9 +3593,9 @@ public class PbModel extends DataModel {
                         while (true) {
                             int i4 = size - i3;
                             if (i4 >= 0) {
-                                sl9 sl9Var = F.get(i4);
-                                if (sl9Var != null) {
-                                    String O = sl9Var.O();
+                                am9 am9Var = F.get(i4);
+                                if (am9Var != null) {
+                                    String O = am9Var.O();
                                     this.d = O;
                                     if (StringUtils.isNull(O)) {
                                     }
@@ -3743,19 +3743,19 @@ public class PbModel extends DataModel {
         }
     }
 
-    public void z2(zs8 zs8Var, int i, String str) {
+    public void z2(ht8 ht8Var, int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048749, this, zs8Var, i, str) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048749, this, ht8Var, i, str) == null) {
             this.b0 = true;
-            if (zs8Var != null && zs8Var.h == null) {
-                q3(zs8Var);
-                E0(zs8Var);
-                if (zs8Var.M() != null) {
-                    zs8Var.M().setCopyThreadRemindType(0);
+            if (ht8Var != null && ht8Var.h == null) {
+                q3(ht8Var);
+                E0(ht8Var);
+                if (ht8Var.M() != null) {
+                    ht8Var.M().setCopyThreadRemindType(0);
                 }
                 h hVar = this.N;
-                if (hVar != null && zs8Var != null) {
-                    hVar.c(true, 0, i, 0, zs8Var, str, 0);
+                if (hVar != null && ht8Var != null) {
+                    hVar.c(true, 0, i, 0, ht8Var, str, 0);
                 }
             }
         }

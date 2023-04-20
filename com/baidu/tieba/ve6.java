@@ -1,22 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
-/* compiled from: OnWebScrollChangeListener.java */
+import android.net.http.SslError;
+import android.webkit.SslErrorHandler;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebView;
 /* loaded from: classes6.dex */
-public final /* synthetic */ class ve6 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ve6 {
+    void a(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError);
 
-    public static void a(we6 we6Var, int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{we6Var, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-        }
-    }
+    void b(WebView webView);
 
-    public static void b(we6 we6Var, int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{we6Var, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-        }
-    }
+    void c(WebView webView, WebResourceRequest webResourceRequest, int i, CharSequence charSequence);
+
+    void d(WebView webView, String str);
+
+    void e(WebView webView, String str);
+
+    void onPageFinished(WebView webView, String str);
+
+    boolean shouldOverrideUrlLoading(WebView webView, String str);
 }

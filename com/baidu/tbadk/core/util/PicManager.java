@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.util.resourceLoader.IMImageSize;
 import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.sm;
+import com.baidu.tieba.tm;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -135,17 +135,17 @@ public class PicManager {
                 if (fixBitmap == null) {
                     return;
                 }
-                addPicMemoryCache(str, new sm(fixBitmap, z2));
+                addPicMemoryCache(str, new tm(fixBitmap, z2));
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public static void addPicMemoryCache(String str, sm smVar) {
+    public static void addPicMemoryCache(String str, tm tmVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, smVar) == null) {
-            TbImageMemoryCache.s().k(str, smVar);
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, tmVar) == null) {
+            TbImageMemoryCache.s().k(str, tmVar);
         }
     }
 

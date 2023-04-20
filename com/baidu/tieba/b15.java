@@ -1,72 +1,159 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import android.util.ArrayMap;
-import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.dialog.yun.YunTask;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import java.util.Comparator;
+import java.util.concurrent.PriorityBlockingQueue;
+import kotlin.collections.CollectionsKt___CollectionsKt;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes3.dex */
-public class b15 {
+public final class b15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, String> a;
+    public final int a;
+    public final Comparator<YunTask> b;
+    public final PriorityBlockingQueue<YunTask> c;
 
-    public b15() {
+    /* loaded from: classes3.dex */
+    public /* synthetic */ class a {
+        public static final /* synthetic */ int[] $EnumSwitchMapping$0;
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-969722202, "Lcom/baidu/tieba/b15$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-969722202, "Lcom/baidu/tieba/b15$a;");
+                    return;
+                }
+            }
+            int[] iArr = new int[YunTask.Type.values().length];
+            iArr[YunTask.Type.DIRECT_EXECUTE.ordinal()] = 1;
+            iArr[YunTask.Type.ENQUEUE.ordinal()] = 2;
+            $EnumSwitchMapping$0 = iArr;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947592131, "Lcom/baidu/tieba/b15;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947592131, "Lcom/baidu/tieba/b15;");
+        }
+    }
+
+    public b15(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayMap();
+        this.a = i;
+        this.b = new Comparator() { // from class: com.baidu.tieba.y05
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            @Override // java.util.Comparator
+            public final int compare(Object obj, Object obj2) {
+                InterceptResult invokeLL;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, obj, obj2)) == null) ? b15.b((YunTask) obj, (YunTask) obj2) : invokeLL.intValue;
+            }
+        };
+        this.c = new PriorityBlockingQueue<>(11, this.b);
     }
 
-    @NonNull
-    public static b15 b(@NonNull String str, @NonNull String str2) {
+    public final void c(YunTask yunTask) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yunTask) == null) {
+            yunTask.b(this);
+            this.c.add(yunTask);
+            int size = this.c.size();
+            int i = this.a;
+            if (size > i) {
+                int size2 = this.c.size();
+                while (i < size2) {
+                    YunTask yunTask2 = (YunTask) CollectionsKt___CollectionsKt.elementAt(this.c, i);
+                    this.c.remove(yunTask2);
+                    yunTask2.g();
+                    i++;
+                }
+            }
+            d();
+        }
+    }
+
+    public static final int b(YunTask yunTask, YunTask yunTask2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            b15 b15Var = new b15();
-            if (!str2.startsWith("http") && !str2.startsWith("https")) {
-                if (str2.startsWith("dialoginternal://")) {
-                    Uri parse = Uri.parse(str2);
-                    for (String str3 : parse.getQueryParameterNames()) {
-                        String queryParameter = parse.getQueryParameter(str3);
-                        if (!TextUtils.isEmpty(str3) && !TextUtils.isEmpty(queryParameter)) {
-                            b15Var.a.put(str3, queryParameter);
-                        }
-                    }
-                    b15Var.a.put("yun_dialogClass", parse.getAuthority());
-                    b15Var.a.put("yun_dialogName", str);
-                    b15Var.a.put("yun_dialogUrl", str2);
-                }
-            } else {
-                b15Var.a.put("yun_dialogClass", "WebViewYunDialog");
-                b15Var.a.put("yun_dialogName", str);
-                b15Var.a.put("yun_dialogUrl", str2);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, yunTask, yunTask2)) == null) {
+            if (yunTask2.f().isExecuting()) {
+                return Integer.MAX_VALUE;
             }
-            return b15Var;
+            return yunTask2.e() - yunTask.e();
         }
-        return (b15) invokeLL.objValue;
+        return invokeLL.intValue;
     }
 
-    public String a(@NonNull String str) {
-        InterceptResult invokeL;
+    public final void a(YunTask task) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return this.a.get(str);
+        if (interceptable == null || interceptable.invokeL(1048576, this, task) == null) {
+            Intrinsics.checkNotNullParameter(task, "task");
+            int i = a.$EnumSwitchMapping$0[task.getType().ordinal()];
+            if (i != 1) {
+                if (i == 2) {
+                    c(task);
+                    return;
+                }
+                return;
+            }
+            task.c();
         }
-        return (String) invokeL.objValue;
+    }
+
+    public final void e(YunTask task) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, task) == null) {
+            Intrinsics.checkNotNullParameter(task, "task");
+            this.c.remove(task);
+            d();
+        }
+    }
+
+    public final void d() {
+        YunTask peek;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (peek = this.c.peek()) != null && peek.f().isUnStart()) {
+            peek.c();
+        }
     }
 }

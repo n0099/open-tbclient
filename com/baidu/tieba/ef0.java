@@ -1,72 +1,58 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Build;
-import android.os.Process;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
-public class ef0 {
+public final class ef0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(Context context) {
-        InterceptResult invokeL;
+    public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            int i = Build.VERSION.SDK_INT;
-            if (i >= 23) {
-                return Process.is64Bit();
+        if (interceptable == null || interceptable.invokeLL(65536, null, str, str2) == null) {
+            if (str2.length() > 2001) {
+                int i = 0;
+                while (i < str2.length()) {
+                    int i2 = i + 2001;
+                    if (i2 < str2.length()) {
+                        b(3, str, str2.substring(i, i2));
+                    } else {
+                        b(3, str, str2.substring(i));
+                    }
+                    i = i2;
+                }
+                return;
             }
-            if (i >= 21) {
-                return c(context);
-            }
-            return false;
+            b(3, str, str2);
         }
-        return invokeL.booleanValue;
     }
 
-    public static boolean b() {
-        InterceptResult invokeV;
-        String str;
+    public static void b(int i, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                String[] strArr = Build.SUPPORTED_ABIS;
-                if (strArr.length > 0) {
-                    str = strArr[0];
-                } else {
-                    str = null;
+        if (interceptable == null || interceptable.invokeILL(65537, null, i, str, str2) == null) {
+            if (i != 2) {
+                if (i != 3) {
+                    if (i != 4) {
+                        if (i != 5) {
+                            if (i != 6) {
+                                Log.d(str, str2);
+                                return;
+                            } else {
+                                Log.e(str, str2);
+                                return;
+                            }
+                        }
+                        Log.w(str, str2);
+                        return;
+                    }
+                    Log.i(str, str2);
+                    return;
                 }
-            } else {
-                str = Build.CPU_ABI;
+                Log.d(str, str2);
+                return;
             }
-            if (str == null || !str.contains("arm64")) {
-                return false;
-            }
-            return true;
+            Log.v(str, str2);
         }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (context == null) {
-                return false;
-            }
-            try {
-                Object invoke = ClassLoader.class.getDeclaredMethod("findLibrary", String.class).invoke(context.getClassLoader(), "art");
-                if (invoke == null) {
-                    return false;
-                }
-                return ((String) invoke).contains("lib64");
-            } catch (Exception unused) {
-                return b();
-            }
-        }
-        return invokeL.booleanValue;
     }
 }

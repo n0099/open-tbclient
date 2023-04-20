@@ -1,8 +1,7 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.model.response.NextActive;
-import com.baidu.bdtask.model.response.TaskProcessData;
+import com.baidu.bdtask.model.meter.TaskMeterData;
 import com.baidu.bdtask.model.response.TaskResponseData;
 import com.baidu.bdtask.model.ui.TaskUIData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,42 +12,42 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class qt extends it<TaskResponseData> {
+public final class qt extends jt<TaskMeterData> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final kt a;
+    public final lt a;
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "response" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TaskMeterData.key : (String) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qt(kt ktVar) {
-        super(ktVar);
+    public qt(lt ltVar) {
+        super(ltVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ktVar};
+            Object[] objArr = {ltVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((kt) newInitContext.callArgs[0]);
+                super((lt) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = ktVar;
+        this.a = ltVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.it
+    @Override // com.baidu.tieba.jt
     /* renamed from: c */
-    public TaskResponseData a(String str) {
+    public TaskMeterData a(String str) {
         InterceptResult invokeL;
         JSONObject jSONObject;
         int optInt;
@@ -61,35 +60,20 @@ public final class qt extends it<TaskResponseData> {
                 e = e;
             }
             try {
-                it a = this.a.a(TaskUIData.key);
+                jt a = this.a.a(TaskUIData.key);
                 String optString = jSONObject.optString(TaskUIData.key);
-                Intrinsics.checkExpressionValueIsNotNull(optString, "responseObj.optString(TaskUIData.key)");
+                Intrinsics.checkExpressionValueIsNotNull(optString, "guide.optString(TaskUIData.key)");
                 TaskUIData taskUIData = (TaskUIData) a.a(optString);
                 if (taskUIData == null) {
                     taskUIData = new TaskUIData(null, null, 0, null, null, null, null, null, null, 0, null, null, 4095, null);
                 }
-                JSONObject optJSONObject = jSONObject.optJSONObject("progress");
-                if (optJSONObject == null) {
-                    optJSONObject = new JSONObject();
-                }
-                int optInt2 = optJSONObject.optInt("total");
-                int optInt3 = optJSONObject.optInt(TaskProcessData.keyComplete);
-                boolean optBoolean = optJSONObject.optBoolean("done");
-                JSONObject optJSONObject2 = jSONObject.optJSONObject(TaskResponseData.keyNextActive);
-                if (optJSONObject2 == null) {
-                    optJSONObject2 = new JSONObject();
-                }
-                long optLong = optJSONObject2.optLong(NextActive.keyUtil, 0L);
-                String taskInfo = optJSONObject2.optString(NextActive.keyTaskInfo, "");
-                TaskProcessData taskProcessData = new TaskProcessData(optInt2, optInt3, optBoolean);
-                Intrinsics.checkExpressionValueIsNotNull(taskInfo, "taskInfo");
-                return new TaskResponseData(optInt, taskProcessData, taskUIData, new NextActive(optLong, taskInfo));
+                return new TaskMeterData(optInt, taskUIData);
             } catch (Exception e2) {
                 e = e2;
                 e.printStackTrace();
-                return new TaskResponseData(0, null, null, null, 15, null);
+                return new TaskMeterData(0, null, 3, null);
             }
         }
-        return (TaskResponseData) invokeL.objValue;
+        return (TaskMeterData) invokeL.objValue;
     }
 }

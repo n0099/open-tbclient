@@ -24,8 +24,8 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.g9;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.jr5;
-import com.baidu.tieba.x36;
+import com.baidu.tieba.kr5;
+import com.baidu.tieba.y36;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -79,28 +79,28 @@ public class TabLiveStageLiveView extends AlaRoundRelativeLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (x36.d(this.a.j)) {
+                if (y36.d(this.a.j)) {
                     if (g9.a(this.a.getContext()) instanceof TbPageContext) {
                         int i = this.a.i;
                         String str = YYLiveUtil.SOURCE_HOME_LIVE_TAB_STAGE;
                         if (i != 101 && this.a.i == 102) {
                             str = YYLiveUtil.SOURCE_HOME_LIVE_TAB_RECOMMEND;
                         }
-                        x36.i((TbPageContext) g9.a(this.a.getContext()), this.a.j, str);
+                        y36.i((TbPageContext) g9.a(this.a.getContext()), this.a.j, str);
                     }
                 } else {
-                    x36.g(this.a.getContext(), this.a.j);
+                    y36.g(this.a.getContext(), this.a.j);
                 }
                 int i2 = this.a.i;
                 String str2 = TiebaStatic.YYValues.YY_LIVE;
                 if (i2 == 101) {
                     StatisticItem statisticItem = new StatisticItem("c13556");
                     if (this.a.j.liveInfo != null) {
-                        int a = x36.a(this.a.j.liveInfo);
+                        int a = y36.a(this.a.j.liveInfo);
                         if (this.a.j.liveInfo.yyExt == null) {
                             str2 = "";
                         } else {
-                            TiebaStaticHelper.addYYParam(statisticItem, x36.j(this.a.j.liveInfo.yyExt, this.a.j.roomId));
+                            TiebaStaticHelper.addYYParam(statisticItem, y36.j(this.a.j.liveInfo.yyExt, this.a.j.roomId));
                         }
                         statisticItem.param("obj_param1", a);
                         statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, str2);
@@ -112,11 +112,11 @@ public class TabLiveStageLiveView extends AlaRoundRelativeLayout {
                 } else if (this.a.i == 102) {
                     StatisticItem statisticItem2 = new StatisticItem("c13559");
                     if (this.a.j.liveInfo != null) {
-                        int a2 = x36.a(this.a.j.liveInfo);
+                        int a2 = y36.a(this.a.j.liveInfo);
                         if (this.a.j.liveInfo.yyExt == null) {
                             str2 = "";
                         } else {
-                            TiebaStaticHelper.addYYParam(statisticItem2, x36.j(this.a.j.liveInfo.yyExt, this.a.j.roomId));
+                            TiebaStaticHelper.addYYParam(statisticItem2, y36.j(this.a.j.liveInfo.yyExt, this.a.j.roomId));
                         }
                         statisticItem2.param(TiebaStatic.Params.OBJ_PARAM2, a2);
                         statisticItem2.param(TiebaStatic.Params.OBJ_PARAM3, str2);
@@ -206,8 +206,8 @@ public class TabLiveStageLiveView extends AlaRoundRelativeLayout {
                 SdkLiveInfoData.LiveAuthor liveAuthor = sdkLiveInfoData.liveAuthor;
                 if (liveAuthor != null) {
                     String name_show = liveAuthor.getName_show();
-                    if (jr5.e(name_show) > 16) {
-                        name_show = jr5.m(name_show, 16) + StringHelper.STRING_MORE;
+                    if (kr5.e(name_show) > 16) {
+                        name_show = kr5.m(name_show, 16) + StringHelper.STRING_MORE;
                     }
                     this.e.setText(name_show);
                     AlaUtilHelper.startLoadPortrait(this.b, sdkLiveInfoData.liveAuthor.portrait, false);

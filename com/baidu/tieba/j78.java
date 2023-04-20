@@ -1,36 +1,42 @@
 package com.baidu.tieba;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TimeHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
 public class j78 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String a;
+    public static final String b;
+    public static final String c;
+    public static final String d;
+    public static final String e;
+    public static final String f;
+    public static final String g;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65536, null, j)) == null) {
-            if (j == 0) {
-                return false;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947836318, "Lcom/baidu/tieba/j78;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            p45 m = p45.m();
-            if (!TimeHelper.isSameDay(m.o("key_chat_room_last_timestamp@" + j + "_" + TbadkCoreApplication.getCurrentAccount(), 0L), System.currentTimeMillis())) {
-                return false;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947836318, "Lcom/baidu/tieba/j78;");
+                return;
             }
-            return true;
         }
-        return invokeJ.booleanValue;
-    }
-
-    public static void b(long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(65537, null, j) == null) && j != 0) {
-            p45 m = p45.m();
-            m.A("key_chat_room_last_timestamp@" + j + "_" + TbadkCoreApplication.getCurrentAccount(), System.currentTimeMillis());
-        }
+        a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f086d);
+        b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f086f);
+        c = TbadkCoreApplication.getInst().getString(R.string.group_chat_group_had_close);
+        d = TbadkCoreApplication.getInst().getString(R.string.group_chat_no_speak_all);
+        e = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0885);
+        f = TbadkCoreApplication.getInst().getString(R.string.group_chat_no_speak_person);
+        g = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f087a);
     }
 }

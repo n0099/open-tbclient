@@ -1,107 +1,115 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.util.SparseIntArray;
 import android.view.View;
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.adp.widget.ListView.TypeAdapter.ViewHolder;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.pb.pb.main.AbsPbActivity;
+import com.baidu.tieba.pb.pb.main.PbFragment;
+import com.baidu.tieba.pb.videopb.AbsVideoPbFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class xv8 {
+public abstract class xv8<T, V extends TypeAdapter.ViewHolder> extends vm<T, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public BdTypeListView b;
-    public boolean c;
+    public g09 a;
+    public PbFragment b;
+    public AbsVideoPbFragment c;
     public int d;
-    public int e;
-    public a f;
+    public boolean e;
+    public SparseIntArray f;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void a();
-    }
-
-    public xv8(BdTypeListView bdTypeListView) {
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public xv8(g09 g09Var, BdUniqueId bdUniqueId) {
+        super(r0, bdUniqueId);
+        AbsPbActivity Q;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bdTypeListView};
+            Object[] objArr = {g09Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = UtilHelper.getDimenPixelSize(R.dimen.tbds144);
-        this.d = -1;
-        this.e = -1;
-        this.b = bdTypeListView;
+        if (g09Var == null) {
+            Q = null;
+        } else {
+            Q = g09Var.Q();
+        }
+        this.d = 3;
+        this.e = false;
+        this.f = new SparseIntArray();
+        t(g09Var);
     }
 
-    public final int a(List<hn> list, int i) {
-        InterceptResult invokeLI;
+    @Override // com.baidu.tieba.vm
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, T t, V v) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, list, i)) == null) {
-            if (!ListUtils.isEmpty(list) && i != -1) {
-                int i2 = 0;
-                for (int i3 = 0; i3 < list.size(); i3++) {
-                    if ((list.get(i3) instanceof sl9) && ((sl9) list.get(i3)).getType() == sl9.R0 && (i2 = i2 + 1) == i) {
-                        return i3;
-                    }
-                }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), view2, viewGroup, t, v})) == null) {
+            this.d = TbadkCoreApplication.getInst().getSkinType();
+            return null;
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    public int s(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            int i2 = this.f.get(i, -1);
+            if (i2 != -1) {
+                return i2;
             }
-            return -1;
+            int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(i);
+            this.f.put(i, dimensionPixelSize);
+            return dimensionPixelSize;
         }
-        return invokeLI.intValue;
+        return invokeI.intValue;
     }
 
-    public void b() {
+    public void setFromCDN(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.e = a(this.b.getData(), es8.b().c());
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.e = z;
         }
     }
 
-    public void c(int i, int i2) {
-        View childAt;
+    public void t(g09 g09Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) != null) || this.b == null || this.c || !es8.b().e() || es8.b().c() == -1 || this.e < 0 || (childAt = this.b.getChildAt(i2 - 1)) == null) {
-            return;
-        }
-        if (this.d <= 0) {
-            this.d = this.b.getHeight() - this.a;
-        }
-        if (this.d <= 0) {
-            return;
-        }
-        int headerViewsCount = this.e + this.b.getHeaderViewsCount();
-        int i3 = (i + i2) - 1;
-        if (i3 > headerViewsCount) {
-            if (i3 - 1 == headerViewsCount && childAt.getTop() > this.d) {
-                return;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, g09Var) == null) && g09Var != null) {
+            this.a = g09Var;
+            this.b = g09Var.w1();
+            AbsVideoPbFragment M = g09Var.M();
+            this.c = M;
+            PbFragment pbFragment = this.b;
+            if (pbFragment != null) {
+                this.mContext = pbFragment.getActivity();
+            } else if (M != null) {
+                this.mContext = M.getActivity();
+            } else {
+                this.mContext = null;
             }
-            a aVar = this.f;
-            if (aVar != null) {
-                aVar.a();
-            }
-            this.c = true;
-        }
-    }
-
-    public void d(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f = aVar;
         }
     }
 }

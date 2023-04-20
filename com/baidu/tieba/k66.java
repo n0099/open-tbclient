@@ -14,8 +14,8 @@ public class k66 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public t36 a;
-    public t36 b;
+    public u36 a;
+    public u36 b;
 
     static {
         InterceptResult invokeClinit;
@@ -47,7 +47,7 @@ public class k66 extends BaseCardInfo {
         }
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.hn
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.in
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

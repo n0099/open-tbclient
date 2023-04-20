@@ -17,10 +17,10 @@ import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dq5;
-import com.baidu.tieba.hha;
+import com.baidu.tieba.ea8;
+import com.baidu.tieba.eq5;
 import com.baidu.tieba.impersonal.databinding.ActivityPersonalChatBinding;
-import com.baidu.tieba.w98;
+import com.baidu.tieba.pha;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -60,7 +60,7 @@ public final class PersonalChatActivity extends BaseFragmentActivity implements 
         c = new a(null);
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.ll5
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.ml5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -370,7 +370,7 @@ public final class PersonalChatActivity extends BaseFragmentActivity implements 
             if (bundle == null) {
                 PersonalChatFragment personalChatFragment = new PersonalChatFragment();
                 personalChatFragment.setArguments(getIntent().getExtras());
-                dq5.a(getSupportFragmentManager(), R.id.obfuscated_res_0x7f090684, personalChatFragment);
+                eq5.a(getSupportFragmentManager(), R.id.obfuscated_res_0x7f090684, personalChatFragment);
             }
             adjustResizeForSoftInput();
             addGlobalLayoutListener();
@@ -384,8 +384,8 @@ public final class PersonalChatActivity extends BaseFragmentActivity implements 
                 str = "0";
             }
             boolean z = false;
-            int b = hha.b(str, 0);
-            w98.b((b == 1 || b == 2) ? true : true);
+            int b = pha.b(str, 0);
+            ea8.b((b == 1 || b == 2) ? true : true);
         }
     }
 

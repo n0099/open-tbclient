@@ -7,10 +7,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.IMUserExtraData;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tieba.e28;
+import com.baidu.tieba.f28;
 import com.baidu.tieba.gg;
 import com.baidu.tieba.hi;
-import com.baidu.tieba.yx4;
+import com.baidu.tieba.zx4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +29,7 @@ public class ImMessageCenterPojo implements Serializable {
     public static final int UN_DELETE = 0;
     public static final long serialVersionUID = -8887966163420052407L;
     public transient /* synthetic */ FieldHolder $fh;
-    public yx4 atInfoData;
+    public zx4 atInfoData;
     public String bjhAvatar;
     public int followStatus;
     public String forumName;
@@ -83,13 +83,13 @@ public class ImMessageCenterPojo implements Serializable {
         this.mCustomGroupType = 2;
     }
 
-    public yx4 getAtInfoData() {
+    public zx4 getAtInfoData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.atInfoData;
         }
-        return (yx4) invokeV.objValue;
+        return (zx4) invokeV.objValue;
     }
 
     public String getBjhAvatar() {
@@ -491,7 +491,7 @@ public class ImMessageCenterPojo implements Serializable {
             if (!z) {
                 imMessageCenterPojo.setCustomGroupType(2);
             }
-            imMessageCenterPojo.setLast_content(e28.B(commonMsgPojo.getMsg_type(), commonMsgPojo.getContent()));
+            imMessageCenterPojo.setLast_content(f28.B(commonMsgPojo.getMsg_type(), commonMsgPojo.getContent()));
             imMessageCenterPojo.setLast_user_name(userData.getName_show());
             imMessageCenterPojo.setLast_content_time(commonMsgPojo.getCreate_time() * 1000);
             imMessageCenterPojo.setSelf(commonMsgPojo.isSelf);
@@ -520,10 +520,10 @@ public class ImMessageCenterPojo implements Serializable {
         return invokeL.booleanValue;
     }
 
-    public void setAtInfoData(yx4 yx4Var) {
+    public void setAtInfoData(zx4 zx4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048615, this, yx4Var) == null) {
-            this.atInfoData = yx4Var;
+        if (interceptable == null || interceptable.invokeL(1048615, this, zx4Var) == null) {
+            this.atInfoData = zx4Var;
         }
     }
 

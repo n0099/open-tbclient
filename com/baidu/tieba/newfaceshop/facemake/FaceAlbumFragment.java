@@ -19,15 +19,15 @@ import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.aq8;
+import com.baidu.tieba.bq8;
 import com.baidu.tieba.face.data.FaceData;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.os4;
 import com.baidu.tieba.ps4;
-import com.baidu.tieba.qf5;
-import com.baidu.tieba.rs4;
-import com.baidu.tieba.sm;
-import com.baidu.tieba.sp8;
-import com.baidu.tieba.tp8;
+import com.baidu.tieba.qs4;
+import com.baidu.tieba.rf5;
+import com.baidu.tieba.ss4;
+import com.baidu.tieba.tm;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,21 +42,21 @@ import java.util.List;
 public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScrollListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ps4 a;
+    public qs4 a;
     public GridView b;
-    public tp8 c;
+    public bq8 c;
     public List<ImageFileInfo> d;
-    public sp8 e;
+    public aq8 e;
     public NoDataView f;
     public BaseFragmentActivity g;
 
     /* loaded from: classes5.dex */
-    public class a implements rs4 {
+    public class a implements ss4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FaceAlbumFragment a;
 
-        @Override // com.baidu.tieba.rs4
+        @Override // com.baidu.tieba.ss4
         public void onPreLoad() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -81,8 +81,8 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
             this.a = faceAlbumFragment;
         }
 
-        @Override // com.baidu.tieba.rs4
-        public void a(List<os4> list, List<ImageFileInfo> list2, String str) {
+        @Override // com.baidu.tieba.ss4
+        public void a(List<ps4> list, List<ImageFileInfo> list2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048576, this, list, list2, str) == null) {
                 if (!ListUtils.isEmpty(list2)) {
@@ -97,7 +97,7 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
     }
 
     /* loaded from: classes5.dex */
-    public class b implements qf5 {
+    public class b implements rf5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FaceAlbumFragment a;
@@ -120,11 +120,11 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
             this.a = faceAlbumFragment;
         }
 
-        @Override // com.baidu.tieba.qf5
-        public void a(sm smVar, String str, boolean z) {
+        @Override // com.baidu.tieba.rf5
+        public void a(tm tmVar, String str, boolean z) {
             TbImageView tbImageView;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLZ(1048576, this, smVar, str, z) == null) && (tbImageView = (TbImageView) this.a.b.findViewWithTag(str)) != null && smVar != null) {
+            if ((interceptable == null || interceptable.invokeLLZ(1048576, this, tmVar, str, z) == null) && (tbImageView = (TbImageView) this.a.b.findViewWithTag(str)) != null && tmVar != null) {
                 tbImageView.invalidate();
             }
         }
@@ -148,9 +148,9 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            tp8 tp8Var = this.c;
-            if (tp8Var != null) {
-                return tp8Var.f();
+            bq8 bq8Var = this.c;
+            if (bq8Var != null) {
+                return bq8Var.f();
             }
             return null;
         }
@@ -160,7 +160,7 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
     public final void K1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.i(os4.f, new a(this));
+            this.a.i(ps4.f, new a(this));
         }
     }
 
@@ -169,20 +169,20 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDestroy();
-            ps4 ps4Var = this.a;
-            if (ps4Var != null) {
-                ps4Var.d();
+            qs4 qs4Var = this.a;
+            if (qs4Var != null) {
+                qs4Var.d();
             }
         }
     }
 
-    public void M1(sp8 sp8Var) {
+    public void M1(aq8 aq8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, sp8Var) == null) {
-            this.e = sp8Var;
-            tp8 tp8Var = this.c;
-            if (tp8Var != null) {
-                tp8Var.j(sp8Var);
+        if (interceptable == null || interceptable.invokeL(1048580, this, aq8Var) == null) {
+            this.e = aq8Var;
+            bq8 bq8Var = this.c;
+            if (bq8Var != null) {
+                bq8Var.j(aq8Var);
             }
         }
     }
@@ -193,10 +193,10 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.d = new ArrayList();
-            this.a = new ps4(getActivity());
-            tp8 tp8Var = new tp8(this.g, this.d);
-            this.c = tp8Var;
-            tp8Var.j(this.e);
+            this.a = new qs4(getActivity());
+            bq8 bq8Var = new bq8(this.g, this.d);
+            this.c = bq8Var;
+            bq8Var.j(this.e);
             this.b.setAdapter((ListAdapter) this.c);
             this.b.setOnScrollListener(this);
             if (getArguments() != null && (serializable = getArguments().getSerializable(PickFaceTabActivityConfig.CHOOSED_LIST)) != null && (serializable instanceof ArrayList)) {
@@ -214,9 +214,9 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
     }
 
     public final void L1() {
-        tp8 tp8Var;
+        bq8 bq8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (tp8Var = this.c) != null && tp8Var.g() != null) {
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (bq8Var = this.c) != null && bq8Var.g() != null) {
             int childCount = this.b.getChildCount();
             int firstVisiblePosition = this.b.getFirstVisiblePosition();
             for (int i = 0; i < childCount; i++) {

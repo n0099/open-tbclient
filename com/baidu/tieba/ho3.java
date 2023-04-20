@@ -1,14 +1,27 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes4.dex */
-public class ho3 implements gr1 {
+public class ho3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public Map<String, String> b;
+
+    /* loaded from: classes4.dex */
+    public interface a {
+        void a(ho3 ho3Var);
+
+        void b(ho3 ho3Var);
+
+        void onFinish();
+
+        void onStart();
+    }
 
     public ho3() {
         Interceptable interceptable = $ic;
@@ -21,14 +34,6 @@ public class ho3 implements gr1 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.gr1
-    public void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            to3.i(context);
         }
     }
 }

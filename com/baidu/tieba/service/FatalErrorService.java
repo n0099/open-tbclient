@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.ei;
 import com.baidu.tieba.ji;
 import com.baidu.tieba.ki;
-import com.baidu.tieba.p45;
+import com.baidu.tieba.q45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -223,10 +223,10 @@ public class FatalErrorService extends BdBaseService {
                     e(FileHelper.GetFileByAbsolutePath(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.FATAL_ERROR_FILE), TbConfig.ERROR_UPLOAD_SERVER, "0", true, true);
                     e(FileHelper.GetFileByAbsolutePath(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.LOG_ERROR_FILE), "c/s/clientlog", "0", false, false);
                     f();
-                    if (TbConfig.getVersion().equals(p45.m().s("native_crash_dump_version", ""))) {
+                    if (TbConfig.getVersion().equals(q45.m().s("native_crash_dump_version", ""))) {
                         z = true;
                     } else {
-                        p45.m().B("native_crash_dump_version", TbConfig.getVersion());
+                        q45.m().B("native_crash_dump_version", TbConfig.getVersion());
                         z = false;
                     }
                     File GetFile = FileHelper.GetFile(TbConfig.FATAL_ERROR_NATIVE_DIR);

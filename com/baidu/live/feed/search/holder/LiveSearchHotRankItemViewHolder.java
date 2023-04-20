@@ -10,8 +10,8 @@ import com.baidu.live.business.model.data.LiveHostInfo;
 import com.baidu.live.business.model.data.LiveRoomEntity;
 import com.baidu.live.feed.search.view.LiveBaseLottieView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ac0;
-import com.baidu.tieba.j90;
+import com.baidu.tieba.bc0;
+import com.baidu.tieba.k90;
 import com.facebook.drawee.view.SimpleDraweeView;
 /* loaded from: classes2.dex */
 public class LiveSearchHotRankItemViewHolder extends RecyclerView.ViewHolder {
@@ -30,9 +30,9 @@ public class LiveSearchHotRankItemViewHolder extends RecyclerView.ViewHolder {
         this.d = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f091162);
         this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925c2);
         this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092597);
-        this.e.setTextColor(ac0.f().a(view2.getContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_1F1F1F"));
-        this.f.setTextColor(ac0.f().a(view2.getContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_858585"));
-        if (!LiveFeedPageSdk.UI_MODE_NIGHT.equals(ac0.f().r()) && !"dark".equals(ac0.f().r())) {
+        this.e.setTextColor(bc0.f().a(view2.getContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_1F1F1F"));
+        this.f.setTextColor(bc0.f().a(view2.getContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_858585"));
+        if (!LiveFeedPageSdk.UI_MODE_NIGHT.equals(bc0.f().r()) && !"dark".equals(bc0.f().r())) {
             this.c.setAnimationFromUrl("https://ala-rmb-gift.bj.bcebos.com/lottie/common/live_feed_page_shinning.json");
         } else {
             this.c.setAnimationFromUrl("https://ala-rmb-gift.bj.bcebos.com/lottie/common/live_feed_page_shinning_night.json");
@@ -54,10 +54,10 @@ public class LiveSearchHotRankItemViewHolder extends RecyclerView.ViewHolder {
             if (i4 != 1) {
                 if (i4 != 2) {
                     if (i4 != 3) {
-                        this.b.setTextColor(ac0.f().a(this.a.getContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_858585"));
+                        this.b.setTextColor(bc0.f().a(this.a.getContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_858585"));
                     } else {
                         TextView textView2 = this.b;
-                        if (LiveFeedPageSdk.UI_MODE_NIGHT.equals(ac0.f().r())) {
+                        if (LiveFeedPageSdk.UI_MODE_NIGHT.equals(bc0.f().r())) {
                             i3 = -8760559;
                         } else {
                             i3 = -349938;
@@ -66,7 +66,7 @@ public class LiveSearchHotRankItemViewHolder extends RecyclerView.ViewHolder {
                     }
                 } else {
                     TextView textView3 = this.b;
-                    if (LiveFeedPageSdk.UI_MODE_NIGHT.equals(ac0.f().r())) {
+                    if (LiveFeedPageSdk.UI_MODE_NIGHT.equals(bc0.f().r())) {
                         i2 = -8375552;
                     } else {
                         i2 = -39424;
@@ -75,7 +75,7 @@ public class LiveSearchHotRankItemViewHolder extends RecyclerView.ViewHolder {
                 }
             } else {
                 TextView textView4 = this.b;
-                if (LiveFeedPageSdk.UI_MODE_NIGHT.equals(ac0.f().r())) {
+                if (LiveFeedPageSdk.UI_MODE_NIGHT.equals(bc0.f().r())) {
                     i = -8447719;
                 } else {
                     i = -52429;
@@ -115,7 +115,7 @@ public class LiveSearchHotRankItemViewHolder extends RecyclerView.ViewHolder {
         }
         TextView textView6 = this.f;
         if (textView6 != null) {
-            textView6.setText(j90.a(textView6.getContext(), liveRoomEntity.audienceCount));
+            textView6.setText(k90.a(textView6.getContext(), liveRoomEntity.audienceCount));
         }
     }
 

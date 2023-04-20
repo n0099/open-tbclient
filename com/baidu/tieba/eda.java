@@ -1,76 +1,76 @@
 package com.baidu.tieba;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes4.dex */
 public final class eda {
     public static /* synthetic */ Interceptable $ic;
+    public static List<WeakReference<ScheduledFuture<?>>> a;
+    public static ExecutorService b;
+    public static ScheduledExecutorService c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public static class a extends xca {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947731879, "Lcom/baidu/tieba/eda;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947731879, "Lcom/baidu/tieba/eda;");
+                return;
             }
         }
-
-        @Override // com.baidu.tieba.xca
-        public final void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (ada.a(com.baidu.ubs.analytics.d.a.b)) {
-                    for (File file : eda.a(com.baidu.ubs.analytics.d.a.b)) {
-                        if (hca.c(hca.a(file, "http://absample.baidu.com/appabapp/appapi/sdkerrorlog"), null)) {
-                            ada.b(file.getPath());
-                        }
-                    }
-                }
-                if (ada.a(com.baidu.ubs.analytics.d.a.c)) {
-                    for (File file2 : eda.a(com.baidu.ubs.analytics.d.a.c)) {
-                        if (!file2.getName().equals(vca.e()) && hca.c(hca.a(file2, "http://absample.baidu.com/appabapp/appapi/sdklog"), null)) {
-                            ada.b(file2.getPath());
-                        }
-                    }
-                }
-            }
-        }
+        a = new ArrayList();
+        b = Executors.newFixedThreadPool(2);
+        c = Executors.newScheduledThreadPool(2);
     }
 
-    public static /* synthetic */ List a(String str) {
-        ArrayList arrayList = new ArrayList();
-        File[] listFiles = new File(str).listFiles();
-        if (listFiles != null) {
-            for (int i = 0; i < listFiles.length; i++) {
-                String name = listFiles[i].getName();
-                if (name.endsWith("txt") || name.endsWith("log")) {
-                    arrayList.add(listFiles[i]);
-                }
-            }
-        }
-        return arrayList;
-    }
-
-    public static void b() {
+    public static synchronized void a(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            wca.a(new a());
+        if (interceptable == null || interceptable.invokeL(65537, null, runnable) == null) {
+            synchronized (eda.class) {
+                if (c == null || c.isShutdown()) {
+                    c = Executors.newScheduledThreadPool(2);
+                }
+                c.execute(runnable);
+            }
+        }
+    }
+
+    public static void c(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, runnable) == null) {
+            ExecutorService executorService = b;
+            if (executorService == null || executorService.isShutdown()) {
+                b = Executors.newFixedThreadPool(2);
+            }
+            b.execute(runnable);
+        }
+    }
+
+    public static synchronized void b(Runnable runnable, long j, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{runnable, Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            synchronized (eda.class) {
+                if (c == null || c.isShutdown()) {
+                    c = Executors.newScheduledThreadPool(2);
+                }
+                a.add(new WeakReference<>(c.scheduleAtFixedRate(runnable, j, j2, TimeUnit.MILLISECONDS)));
+            }
         }
     }
 }

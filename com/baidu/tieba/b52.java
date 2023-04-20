@@ -1,22 +1,147 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
-import com.baidu.tieba.qq2;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.SchemeConfig;
+import com.baidu.searchbox.unitedscheme.SchemeRouter;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
+import com.baidu.tieba.sr1;
+import com.baidu.tieba.ts2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import okhttp3.Response;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class b52 {
+public class b52 extends s93 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public static final String b;
-    public static final String c;
+    public static Set<String> f;
+    public static final Set<String> g;
     public transient /* synthetic */ FieldHolder $fh;
+    public ExecutorService c;
+    public int d;
+    public d52 e;
+
+    /* loaded from: classes3.dex */
+    public class a implements sr1.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ UnitedSchemeEntity b;
+        public final /* synthetic */ CallbackHandler c;
+        public final /* synthetic */ b52 d;
+
+        public a(b52 b52Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {b52Var, context, unitedSchemeEntity, callbackHandler};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = b52Var;
+            this.a = context;
+            this.b = unitedSchemeEntity;
+            this.c = callbackHandler;
+        }
+
+        @Override // com.baidu.tieba.sr1.b
+        public void a(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                if (z) {
+                    v42.c("LocalDebugAction", "Authentication Success");
+                    b52.g.add(this.d.o(this.a));
+                    this.d.p(this.a, this.b, this.c);
+                    return;
+                }
+                v42.c("LocalDebugAction", "Authentication Fail : Not developer");
+                this.d.w(this.a, this.b, 401);
+            }
+        }
+
+        @Override // com.baidu.tieba.sr1.b
+        public void b(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
+                v42.d("LocalDebugAction", "onFail : Authentication exception :", exc);
+                this.d.w(this.a, this.b, 401);
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ File c;
+        public final /* synthetic */ UnitedSchemeEntity d;
+        public final /* synthetic */ CallbackHandler e;
+        public final /* synthetic */ b52 f;
+
+        public b(b52 b52Var, Context context, String str, File file, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {b52Var, context, str, file, unitedSchemeEntity, callbackHandler};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f = b52Var;
+            this.a = context;
+            this.b = str;
+            this.c = file;
+            this.d = unitedSchemeEntity;
+            this.e = callbackHandler;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            this.f.x(this.a, this.b, this.c, this.d, this.e);
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -31,89 +156,273 @@ public class b52 {
                 return;
             }
         }
-        a = "__localDebug__" + File.separator + "master.js";
-        b = "__localDebug__" + File.separator + "main.js";
-        c = "__localDebug__" + File.separator + "slave.js";
+        g = new HashSet();
     }
 
-    public static qq2.g a(rs2 rs2Var) {
-        InterceptResult invokeL;
+    public final void q() {
+        v73 b0;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, rs2Var)) == null) {
-            File d = d();
-            d52.e().f("unzipstart");
-            qq2.M(b(), d, rs2Var);
-            d52.e().f("unzipend");
-            qq2.g gVar = new qq2.g();
-            File file = new File(d, "app.json");
-            SwanAppConfigData b2 = g83.b(d.getAbsolutePath());
-            gVar.a = d.getPath() + File.separator;
-            gVar.b = b2;
-            u42.k("LocalDebugBundleHelper", "configFile path: " + file.getPath() + " exist: " + file.exists() + " info.mAppBundlePath path: " + gVar.a);
-            return gVar;
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || (b0 = v73.b0()) == null) {
+            return;
         }
-        return (qq2.g) invokeL.objValue;
+        ek3.j(b0.w());
+        System.exit(0);
     }
 
-    public static File b() {
+    public final boolean t() {
         InterceptResult invokeV;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return new File(c(), "local_debug.swan");
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public static File c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            File file = new File(AppRuntime.getAppContext().getFilesDir(), "swan_local_debug_zip");
-            if (!file.exists()) {
-                file.mkdirs();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            ef4 b2 = gf4.b();
+            if (b2 == null) {
+                str = "1";
+            } else {
+                str = b2.i().getString("enable_local_debug_switch", "1");
             }
-            return file;
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public static File d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            File file = new File(AppRuntime.getAppContext().getFilesDir(), "swan_local_debug");
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            return file;
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public static String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return d() + File.separator + a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return d() + File.separator + c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return new File(AppRuntime.getAppContext().getFilesDir(), "swan_local_debug").exists();
+            return TextUtils.equals(str, "1");
         }
         return invokeV.booleanValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public b52(s83 s83Var) {
+        super(s83Var, "/swanAPI/localdebuglaunch");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {s83Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.s93
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, v73 v73Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, v73Var)) == null) {
+            if (!t()) {
+                v42.c("LocalDebugAction", "switch is off");
+                w(context, unitedSchemeEntity, 1003);
+                return false;
+            }
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo != null && optParamsAsJo.length() > 0) {
+                this.e = d52.c(optParamsAsJo);
+                if (ah3.e(0).swanCoreVersionCode < this.e.h) {
+                    v42.c("LocalDebugAction", "swan js version is low");
+                    w(context, unitedSchemeEntity, 1002);
+                    return false;
+                } else if (!u()) {
+                    v42.c("LocalDebugAction", "debug model invalid");
+                    w(context, unitedSchemeEntity, 202);
+                    return false;
+                } else if (!SwanAppAllianceLoginHelper.d.f() && !s().contains(cr2.h0().h(context)) && !g.contains(o(context))) {
+                    io1.b(this.e.b, new a(this, context, unitedSchemeEntity, callbackHandler));
+                    return true;
+                } else {
+                    p(context, unitedSchemeEntity, callbackHandler);
+                    return true;
+                }
+            }
+            v42.c("LocalDebugAction", "param is null");
+            w(context, unitedSchemeEntity, 202);
+            return false;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    public final String o(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            return cr2.h0().h(context) + this.e.b;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final String r(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            try {
+                return URLEncoder.encode(str, "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                if (s93.b) {
+                    Log.e("LocalDebugAction", "url encode fail", e);
+                    return str;
+                }
+                return str;
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final void p(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, callbackHandler) == null) {
+            File b2 = c52.b();
+            if (b2.exists()) {
+                boolean L = zn4.L(b2);
+                v42.i("LocalDebugAction", "debug bundle delete: " + L);
+            }
+            if (c52.g()) {
+                boolean L2 = zn4.L(c52.d());
+                v42.i("LocalDebugAction", "unzip folder delete: " + L2);
+            }
+            this.c = Executors.newFixedThreadPool(4);
+            this.d = 0;
+            e52.e().f("downloadstart");
+            for (int i = 0; i < this.e.c.length(); i++) {
+                String a2 = this.e.a(i);
+                if (TextUtils.isEmpty(a2)) {
+                    int i2 = this.d + 1;
+                    this.d = i2;
+                    if (i2 >= this.e.c.length()) {
+                        v42.c("LocalDebugAction", "IPs are invalid");
+                        w(context, unitedSchemeEntity, 202);
+                        e52.e().f("downloadfail");
+                    }
+                } else {
+                    this.c.execute(new b(this, context, a2, b2, unitedSchemeEntity, callbackHandler));
+                }
+            }
+        }
+    }
+
+    public final Set<String> s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (f == null) {
+                f = new HashSet();
+                ef4 b2 = gf4.b();
+                String str = "";
+                if (b2 != null) {
+                    str = b2.i().getString("auth_white_list", "");
+                }
+                JSONArray jSONArray = null;
+                try {
+                    jSONArray = new JSONArray(str);
+                } catch (JSONException unused) {
+                    if (s93.b) {
+                        Log.d("LocalDebugAction", "JSONException: parse cloud white list");
+                    }
+                }
+                if (jSONArray != null) {
+                    for (int i = 0; i < jSONArray.length(); i++) {
+                        f.add(jSONArray.optString(i));
+                    }
+                }
+            }
+            return f;
+        }
+        return (Set) invokeV.objValue;
+    }
+
+    public final boolean u() {
+        InterceptResult invokeV;
+        JSONArray jSONArray;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (!TextUtils.isEmpty(this.e.a) && !TextUtils.isEmpty(this.e.b) && (jSONArray = this.e.c) != null && jSONArray.length() > 0 && !TextUtils.isEmpty(this.e.d)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final ts2.a v(UnitedSchemeEntity unitedSchemeEntity) {
+        InterceptResult invokeL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, unitedSchemeEntity)) == null) {
+            if (unitedSchemeEntity != null && unitedSchemeEntity.getUri() != null) {
+                str = unitedSchemeEntity.getUri().toString();
+            } else {
+                str = "";
+            }
+            v42.i("LocalDebugAction", "local debug scheme = " + str);
+            return (ts2.a) ((ts2.a) ((ts2.a) ((ts2.a) ((ts2.a) ((ts2.a) ((ts2.a) new ts2.a().v0(this.e.b)).A0(false)).L0(true)).M0(this.e.e)).N0(this.e.f)).K0(str)).P0(this.e.g);
+        }
+        return (ts2.a) invokeL.objValue;
+    }
+
+    public final void w(Context context, UnitedSchemeEntity unitedSchemeEntity, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048585, this, context, unitedSchemeEntity, i) == null) {
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(i);
+            ef4 b2 = gf4.b();
+            String str = "";
+            if (b2 != null) {
+                str = b2.i().getString("error_url", "");
+            }
+            if (TextUtils.isEmpty(str)) {
+                n73.g(context, "IPs are invalid ：" + i).G();
+                return;
+            }
+            StringBuilder sb = new StringBuilder();
+            sb.append(SchemeConfig.getSchemeHead());
+            sb.append("://v1/easybrowse/open?url=");
+            sb.append(r(str + "?" + i));
+            SchemeRouter.invoke(context, sb.toString());
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:36:0x00c5, code lost:
+        if (r6 >= r4.e.c.length()) goto L37;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void x(Context context, String str, File file, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(1048586, this, context, str, file, unitedSchemeEntity, callbackHandler) == null) {
+            try {
+                Response executeSync = ze4.g().getRequest().url(this.e.b(str)).connectionTimeout(3000).build().executeSync();
+                if (executeSync != null && executeSync.code() == 200 && executeSync.body() != null) {
+                    boolean a2 = co4.a(executeSync.body().byteStream(), file);
+                    v42.i("LocalDebugAction", "save debug bundle: " + a2);
+                    e52.e().f("downloadsuccess");
+                    this.e.e = str;
+                    context.startActivity(ts2.g1(context, v(unitedSchemeEntity)));
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                    if (this.c != null) {
+                        this.c.shutdownNow();
+                        this.c = null;
+                    }
+                    if (!ProcessUtils.isMainProcess()) {
+                        if (s93.b) {
+                            Log.d("LocalDebugAction", "Suicide for reload.");
+                        }
+                        q();
+                    }
+                }
+                if (executeSync != null) {
+                    executeSync.close();
+                }
+            } catch (IOException unused) {
+                synchronized (this) {
+                    if (this.e.c != null) {
+                        int i = this.d + 1;
+                        this.d = i;
+                    }
+                    v42.c("LocalDebugAction", "Host IPs are invalid");
+                    w(context, unitedSchemeEntity, 1001);
+                    e52.e().f("downloadfail");
+                }
+            }
+        }
     }
 }

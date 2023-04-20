@@ -5,8 +5,8 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.bva;
-import com.baidu.tieba.dva;
+import com.baidu.tieba.jva;
+import com.baidu.tieba.lva;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -110,9 +110,9 @@ public class AGCUtils {
             }
             String str = null;
             try {
-                bva b = bva.b();
+                jva b = jva.b();
                 if (b.getContext() != context) {
-                    b = bva.a(new dva().a(context));
+                    b = jva.a(new lva().a(context));
                 }
                 str = b.c().a("client/cp_id");
             } catch (NullPointerException unused) {
@@ -143,10 +143,10 @@ public class AGCUtils {
             InputStream inputStream = null;
             try {
                 try {
-                    dva dvaVar = new dva();
+                    lva lvaVar = new lva();
                     inputStream = context.getResources().getAssets().open("agconnect-services.json");
-                    dvaVar.b(inputStream);
-                    str2 = dvaVar.a(context).a(str);
+                    lvaVar.b(inputStream);
+                    str2 = lvaVar.a(context).a(str);
                 } catch (IOException e) {
                     HMSLog.e("AGCUtils", "Get " + str + " failed: " + e);
                     str2 = "";
@@ -197,9 +197,9 @@ public class AGCUtils {
                 str = null;
             }
             try {
-                bva b = bva.b();
+                jva b = jva.b();
                 if (b.getContext() != context) {
-                    b = bva.a(new dva().a(context));
+                    b = jva.a(new lva().a(context));
                 }
                 str = b.c().a("client/app_id");
             } catch (NullPointerException unused) {

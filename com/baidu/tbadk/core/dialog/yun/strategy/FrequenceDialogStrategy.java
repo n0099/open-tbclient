@@ -7,10 +7,10 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.log.YunDialogLog;
 import com.baidu.tbadk.data.DialogStrategiesData;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.jv4;
-import com.baidu.tieba.k25;
-import com.baidu.tieba.ng8;
-import com.baidu.tieba.z15;
+import com.baidu.tieba.a25;
+import com.baidu.tieba.kv4;
+import com.baidu.tieba.l25;
+import com.baidu.tieba.vg8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes3.dex */
-public class FrequenceDialogStrategy implements z15 {
+public class FrequenceDialogStrategy implements a25 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -65,7 +65,7 @@ public class FrequenceDialogStrategy implements z15 {
         }
     }
 
-    @Override // com.baidu.tieba.z15
+    @Override // com.baidu.tieba.a25
     @NonNull
     public Map<String, Object> a(@NonNull DialogStrategiesData dialogStrategiesData, @NonNull Map<String, Object> map, @NonNull Map<String, Object> map2) {
         InterceptResult invokeLLL;
@@ -78,7 +78,7 @@ public class FrequenceDialogStrategy implements z15 {
         return (Map) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.z15
+    @Override // com.baidu.tieba.a25
     public boolean b(@NonNull Map<String, Object> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -91,21 +91,21 @@ public class FrequenceDialogStrategy implements z15 {
                     if (data.frequence == 0) {
                         return true;
                     }
-                    int n = k25.b.n(k25.a.a(data.dialogName), 0);
+                    int n = l25.b.n(l25.a.a(data.dialogName), 0);
                     if (n < data.frequence) {
                         z = true;
                     }
                     if (!z) {
-                        ng8 yunDialogLog = YunDialogLog.getInstance();
+                        vg8 yunDialogLog = YunDialogLog.getInstance();
                         yunDialogLog.c("YunDialogManager", "云弹窗 " + data.dialogName + " 命中频次超限限制，当前已展示次数：" + n + "，配置展现次数：" + data.frequence);
                     }
                     return z;
                 }
-                ng8 yunDialogLog2 = YunDialogLog.getInstance();
+                vg8 yunDialogLog2 = YunDialogLog.getInstance();
                 yunDialogLog2.c("YunDialogManager", "云弹窗 " + data.dialogName + " 命中频次时间限制，当前时间戳：" + currentTimeMillis + " 配置时间：" + data.startTimestamp + " - " + data.endTimestamp);
                 return false;
             } catch (Exception e) {
-                if (!jv4.e() && !jv4.h() && !TbadkApplication.getInst().isDebugMode()) {
+                if (!kv4.e() && !kv4.h() && !TbadkApplication.getInst().isDebugMode()) {
                     YunDialogLog.getInstance().c("YunDialogManager", "云弹窗频次策略解析失败");
                     return false;
                 }

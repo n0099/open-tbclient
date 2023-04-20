@@ -1,7 +1,7 @@
 package com.baidu.tieba;
-/* loaded from: classes6.dex */
-public interface vw5 extends bn5 {
-    void onDestroy();
 
-    void onResume();
+import com.baidu.tbadk.core.data.GameData;
+/* loaded from: classes6.dex */
+public interface vw5 {
+    GameData i1();
 }

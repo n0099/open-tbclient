@@ -15,15 +15,15 @@ import com.baidu.tbadk.core.atomData.AlaFrsStoryLiveGatherActivityConfig;
 import com.baidu.tbadk.core.atomData.AlaGameFrsLiveListActivityConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
+import com.baidu.tieba.a67;
 import com.baidu.tieba.ala.frsgamelive.message.AlaFrsStoryLiveGatherRespMessage;
 import com.baidu.tieba.ala.frsgamelive.message.AlaGameFrsLiveThreadsRespMessage;
 import com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsStoryLiveGatherActivity;
 import com.baidu.tieba.ala.gamefrslivelist.AlaGameFrsLiveListActivity;
 import com.baidu.tieba.ala.gamelist.mvc.AlaAllGameLiveEntryActivity;
-import com.baidu.tieba.i76;
-import com.baidu.tieba.p76;
+import com.baidu.tieba.j76;
 import com.baidu.tieba.q76;
-import com.baidu.tieba.y57;
+import com.baidu.tieba.r76;
 import com.baidu.tieba.z57;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -70,18 +70,18 @@ public class AlaFrsLiveStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof z57)) {
+            if (!(data instanceof a67)) {
                 return;
             }
-            z57 z57Var = (z57) data;
-            i76 i76Var = new i76(true);
-            i76Var.b().e = 2;
-            i76Var.h(z57Var.c());
-            i76Var.i(z57Var.d());
-            i76Var.g(z57Var.b());
-            i76Var.j(1);
-            i76Var.k(false);
-            z57Var.a(i76Var);
+            a67 a67Var = (a67) data;
+            j76 j76Var = new j76(true);
+            j76Var.b().e = 2;
+            j76Var.h(a67Var.c());
+            j76Var.i(a67Var.d());
+            j76Var.g(a67Var.b());
+            j76Var.j(1);
+            j76Var.k(false);
+            a67Var.a(j76Var);
         }
     }
 
@@ -118,19 +118,19 @@ public class AlaFrsLiveStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof y57)) {
+            if (!(data instanceof z57)) {
                 return;
             }
-            y57 y57Var = (y57) data;
-            i76 i76Var = new i76(true);
-            i76Var.b().e = 9;
-            i76Var.h(y57Var.c());
-            i76Var.i(y57Var.d());
-            i76Var.g(y57Var.b());
-            i76Var.j(1);
-            i76Var.k(true);
-            if (y57Var.h(9)) {
-                y57Var.a(i76Var);
+            z57 z57Var = (z57) data;
+            j76 j76Var = new j76(true);
+            j76Var.b().e = 9;
+            j76Var.h(z57Var.c());
+            j76Var.i(z57Var.d());
+            j76Var.g(z57Var.b());
+            j76Var.j(1);
+            j76Var.k(true);
+            if (z57Var.h(9)) {
+                z57Var.a(j76Var);
             }
         }
     }
@@ -168,18 +168,18 @@ public class AlaFrsLiveStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof z57)) {
+            if (!(data instanceof a67)) {
                 return;
             }
-            z57 z57Var = (z57) data;
-            i76 i76Var = new i76(false);
-            i76Var.b().e = 1;
-            i76Var.h(z57Var.c());
-            i76Var.i(z57Var.d());
-            i76Var.g(z57Var.b());
-            i76Var.j(2);
-            i76Var.k(false);
-            z57Var.a(i76Var);
+            a67 a67Var = (a67) data;
+            j76 j76Var = new j76(false);
+            j76Var.b().e = 1;
+            j76Var.h(a67Var.c());
+            j76Var.i(a67Var.d());
+            j76Var.g(a67Var.b());
+            j76Var.j(2);
+            j76Var.k(false);
+            a67Var.a(j76Var);
         }
     }
 
@@ -216,16 +216,16 @@ public class AlaFrsLiveStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof z57)) {
+            if (!(data instanceof a67)) {
                 return;
             }
-            z57 z57Var = (z57) data;
-            q76 q76Var = new q76();
-            q76Var.b().e = 3;
-            q76Var.g(z57Var.c());
-            q76Var.h(z57Var.d());
-            q76Var.i(false);
-            z57Var.a(q76Var);
+            a67 a67Var = (a67) data;
+            r76 r76Var = new r76();
+            r76Var.b().e = 3;
+            r76Var.g(a67Var.c());
+            r76Var.h(a67Var.d());
+            r76Var.i(false);
+            a67Var.a(r76Var);
         }
     }
 
@@ -262,18 +262,18 @@ public class AlaFrsLiveStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof y57)) {
+            if (!(data instanceof z57)) {
                 return;
             }
-            y57 y57Var = (y57) data;
-            q76 q76Var = new q76();
-            q76Var.b().e = 8;
-            q76Var.b().b = R.string.obfuscated_res_0x7f0f0255;
-            q76Var.g(y57Var.c());
-            q76Var.h(y57Var.d());
-            q76Var.i(true);
-            if (y57Var.h(8)) {
-                y57Var.a(q76Var);
+            z57 z57Var = (z57) data;
+            r76 r76Var = new r76();
+            r76Var.b().e = 8;
+            r76Var.b().b = R.string.obfuscated_res_0x7f0f0255;
+            r76Var.g(z57Var.c());
+            r76Var.h(z57Var.d());
+            r76Var.i(true);
+            if (z57Var.h(8)) {
+                z57Var.a(r76Var);
             }
         }
     }
@@ -311,15 +311,15 @@ public class AlaFrsLiveStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof y57)) {
+            if (!(data instanceof z57)) {
                 return;
             }
-            y57 y57Var = (y57) data;
-            p76 p76Var = new p76();
-            p76Var.i(y57Var.c());
-            p76Var.j(y57Var.d());
-            p76Var.h(y57Var.b());
-            p76Var.g(y57Var);
+            z57 z57Var = (z57) data;
+            q76 q76Var = new q76();
+            q76Var.i(z57Var.c());
+            q76Var.j(z57Var.d());
+            q76Var.h(z57Var.b());
+            q76Var.g(z57Var);
         }
     }
 

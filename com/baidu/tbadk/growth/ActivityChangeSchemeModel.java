@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.k45;
-import com.baidu.tieba.of5;
+import com.baidu.tieba.l45;
+import com.baidu.tieba.pf5;
 import com.baidu.tieba.w8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -99,15 +99,15 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
                 }
                 if ("NewUserRedPackageActivity".equals(simpleName)) {
                     UrlManager.getInstance().dealOneLink(pageContext, new String[]{scheme});
-                    of5.c(scheme);
+                    pf5.c(scheme);
                 } else if ("MainTabActivity".equalsIgnoreCase(simpleName)) {
-                    int a = k45.a();
+                    int a = l45.a();
                     if (a != 2) {
                         this.a.T(a);
                         return;
                     }
                     UrlManager.getInstance().dealOneLink(pageContext, new String[]{scheme});
-                    of5.c(scheme);
+                    pf5.c(scheme);
                 } else {
                     this.a.S();
                 }
@@ -145,7 +145,7 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
                 if (invoke != null) {
                     str = (String) invoke;
                 }
-                of5.b(str);
+                pf5.b(str);
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             } catch (NoSuchMethodException e2) {
@@ -171,13 +171,13 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             if (i == 1) {
-                of5.b("a025");
+                pf5.b("a025");
             } else if (i == 22) {
-                of5.b("a088");
+                pf5.b("a088");
             } else if (i == 3) {
-                of5.b("a079");
+                pf5.b("a079");
             } else if (i == 8) {
-                of5.b("a011");
+                pf5.b("a011");
             }
         }
     }

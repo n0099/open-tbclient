@@ -3,8 +3,8 @@ package com.baidu.tieba.themeCenter.bubble.group;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.is9;
-import com.baidu.tieba.wr9;
+import com.baidu.tieba.es9;
+import com.baidu.tieba.qs9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,8 +21,8 @@ import tbclient.GetBubbleByCategory.ThemeBubbleInMain;
 public class BubbleGroupHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<wr9> mBubbleGroupList;
-    public is9 mRecommand;
+    public List<es9> mBubbleGroupList;
+    public qs9 mRecommand;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BubbleGroupHttpResponseMessage(int i) {
@@ -60,24 +60,24 @@ public class BubbleGroupHttpResponseMessage extends TbHttpResponsedMessage {
         DataRes dataRes = getBubbleByCategoryResIdl.data;
         if (dataRes != null) {
             if (dataRes.recommend != null) {
-                is9 is9Var = new is9();
-                this.mRecommand = is9Var;
-                is9Var.d(getBubbleByCategoryResIdl.data.recommend);
+                qs9 qs9Var = new qs9();
+                this.mRecommand = qs9Var;
+                qs9Var.d(getBubbleByCategoryResIdl.data.recommend);
             }
             if (getBubbleByCategoryResIdl.data.bubbles != null) {
                 this.mBubbleGroupList = new ArrayList();
                 for (ThemeBubbleInMain themeBubbleInMain : getBubbleByCategoryResIdl.data.bubbles) {
                     if (themeBubbleInMain != null && !StringUtils.isNull(themeBubbleInMain.bubble_category)) {
-                        wr9 wr9Var = new wr9();
-                        wr9Var.c(themeBubbleInMain);
-                        this.mBubbleGroupList.add(wr9Var);
+                        es9 es9Var = new es9();
+                        es9Var.c(themeBubbleInMain);
+                        this.mBubbleGroupList.add(es9Var);
                     }
                 }
             }
         }
     }
 
-    public List<wr9> getGroupList() {
+    public List<es9> getGroupList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -86,12 +86,12 @@ public class BubbleGroupHttpResponseMessage extends TbHttpResponsedMessage {
         return (List) invokeV.objValue;
     }
 
-    public is9 getRecommand() {
+    public qs9 getRecommand() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.mRecommand;
         }
-        return (is9) invokeV.objValue;
+        return (qs9) invokeV.objValue;
     }
 }

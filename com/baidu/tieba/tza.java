@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,149 +10,146 @@ import java.io.IOException;
 import java.io.InputStream;
 import org.brotli.dec.BrotliRuntimeException;
 /* loaded from: classes6.dex */
-public final class tza {
+public class tza extends InputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public byte[] A;
-    public int B;
-    public int C;
-    public int D;
-    public int E;
-    public int F;
-    public int G;
-    public byte[] H;
-    public int I;
-    public int J;
-    public int K;
-    public int L;
-    public int M;
-    public int N;
-    public int O;
-    public int P;
-    public int Q;
-    public long R;
-    public byte[] S;
-    public int T;
-    public int U;
-    public int V;
-    public int W;
-    public int X;
-    public int Y;
-    public byte[] Z;
-    public int a;
+    public byte[] a;
     public int b;
-    public final kza c;
-    public byte[] d;
-    public final int[] e;
-    public final int[] f;
-    public int g;
-    public boolean h;
-    public boolean i;
-    public boolean j;
-    public final qza k;
-    public final qza l;
-    public final qza m;
-    public final int[] n;
-    public final int[] o;
-    public final int[] p;
-    public final int[] q;
-    public int r;
-    public int s;
-    public int t;
-    public boolean u;
-    public int v;
-    public int w;
-    public int x;
-    public int y;
-    public byte[] z;
+    public int c;
+    public final b0b d;
 
-    public tza() {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public tza(InputStream inputStream) throws IOException {
+        this(inputStream, 16384, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {inputStream};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((InputStream) objArr2[0], ((Integer) objArr2[1]).intValue(), (byte[]) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 0;
-        this.c = new kza();
-        this.e = new int[3240];
-        this.f = new int[3240];
-        this.k = new qza();
-        this.l = new qza();
-        this.m = new qza();
-        this.n = new int[3];
-        this.o = new int[3];
-        this.p = new int[6];
-        this.q = new int[]{16, 15, 11, 4};
-        this.r = 0;
-        this.s = 0;
-        this.t = 0;
-        this.u = false;
-        this.v = 0;
-        this.Q = 0;
-        this.R = 0L;
-        this.S = new byte[0];
-        this.T = 0;
     }
 
-    public static void a(tza tzaVar) throws IOException {
+    public tza(InputStream inputStream, int i, byte[] bArr) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, tzaVar) == null) {
-            int i = tzaVar.a;
-            if (i != 0) {
-                if (i == 11) {
-                    return;
-                }
-                tzaVar.a = 11;
-                kza.b(tzaVar.c);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {inputStream, Integer.valueOf(i), bArr};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            throw new IllegalStateException("State MUST be initialized");
         }
-    }
-
-    public static int b(kza kzaVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, kzaVar)) == null) {
-            if (kza.i(kzaVar, 1) == 0) {
-                return 16;
-            }
-            int i = kza.i(kzaVar, 3);
-            if (i != 0) {
-                return i + 17;
-            }
-            int i2 = kza.i(kzaVar, 3);
-            if (i2 == 0) {
-                return 17;
-            }
-            return i2 + 8;
-        }
-        return invokeL.intValue;
-    }
-
-    public static void c(tza tzaVar, InputStream inputStream) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, tzaVar, inputStream) == null) {
-            if (tzaVar.a == 0) {
-                kza.e(tzaVar.c, inputStream);
-                int b = b(tzaVar.c);
-                if (b != 9) {
-                    int i = 1 << b;
-                    tzaVar.P = i;
-                    tzaVar.O = i - 16;
-                    tzaVar.a = 1;
+        b0b b0bVar = new b0b();
+        this.d = b0bVar;
+        if (i > 0) {
+            if (inputStream != null) {
+                this.a = new byte[i];
+                this.b = 0;
+                this.c = 0;
+                try {
+                    b0b.c(b0bVar, inputStream);
+                    if (bArr != null) {
+                        vza.s(this.d, bArr);
+                        return;
+                    }
                     return;
+                } catch (BrotliRuntimeException e) {
+                    throw new IOException("Brotli decoder initialization failed", e);
                 }
-                throw new BrotliRuntimeException("Invalid 'windowBits' code");
             }
-            throw new IllegalStateException("State MUST be uninitialized");
+            throw new IllegalArgumentException("source is null");
         }
+        throw new IllegalArgumentException("Bad buffer size:" + i);
+    }
+
+    @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
+    public void close() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            b0b.a(this.d);
+        }
+    }
+
+    @Override // java.io.InputStream
+    public int read() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.c >= this.b) {
+                byte[] bArr = this.a;
+                int read = read(bArr, 0, bArr.length);
+                this.b = read;
+                this.c = 0;
+                if (read == -1) {
+                    return -1;
+                }
+            }
+            byte[] bArr2 = this.a;
+            int i = this.c;
+            this.c = i + 1;
+            return bArr2[i] & 255;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // java.io.InputStream
+    public int read(byte[] bArr, int i, int i2) throws IOException {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i, i2)) == null) {
+            if (i >= 0) {
+                if (i2 >= 0) {
+                    int i3 = i + i2;
+                    if (i3 <= bArr.length) {
+                        if (i2 == 0) {
+                            return 0;
+                        }
+                        int max = Math.max(this.b - this.c, 0);
+                        if (max != 0) {
+                            max = Math.min(max, i2);
+                            System.arraycopy(this.a, this.c, bArr, i, max);
+                            this.c += max;
+                            i += max;
+                            i2 -= max;
+                            if (i2 == 0) {
+                                return max;
+                            }
+                        }
+                        try {
+                            this.d.Z = bArr;
+                            this.d.U = i;
+                            this.d.V = i2;
+                            this.d.W = 0;
+                            vza.i(this.d);
+                            if (this.d.W == 0) {
+                                return -1;
+                            }
+                            return this.d.W + max;
+                        } catch (BrotliRuntimeException e) {
+                            throw new IOException("Brotli stream decoding failed", e);
+                        }
+                    }
+                    throw new IllegalArgumentException("Buffer overflow: " + i3 + " > " + bArr.length);
+                }
+                throw new IllegalArgumentException("Bad length: " + i2);
+            }
+            throw new IllegalArgumentException("Bad offset: " + i);
+        }
+        return invokeLII.intValue;
     }
 }

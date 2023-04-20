@@ -7,14 +7,14 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ala.alasquare.live_tab.view.StageLiveViewHolder;
+import com.baidu.tieba.ala.alasquare.live_tab.view.OfficialRecommendLiveViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class a46 extends um<g46, StageLiveViewHolder> {
+public class a46 extends vm<e46, OfficialRecommendLiveViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
@@ -22,7 +22,7 @@ public class a46 extends um<g46, StageLiveViewHolder> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a46(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), g46.b);
+        super(tbPageContext.getPageActivity(), e46.b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -43,30 +43,30 @@ public class a46 extends um<g46, StageLiveViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.um
+    @Override // com.baidu.tieba.vm
     /* renamed from: s */
-    public StageLiveViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    public OfficialRecommendLiveViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
             this.b = new i56(this.a, viewGroup);
-            return new StageLiveViewHolder(this.b);
+            return new OfficialRecommendLiveViewHolder(this.b);
         }
-        return (StageLiveViewHolder) invokeL.objValue;
+        return (OfficialRecommendLiveViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.um
+    @Override // com.baidu.tieba.vm
     /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, g46 g46Var, StageLiveViewHolder stageLiveViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, e46 e46Var, OfficialRecommendLiveViewHolder officialRecommendLiveViewHolder) {
         InterceptResult invokeCommon;
         i56 i56Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, g46Var, stageLiveViewHolder})) == null) {
-            if (stageLiveViewHolder != null && (i56Var = stageLiveViewHolder.a) != null) {
-                i56Var.l(g46Var);
-                stageLiveViewHolder.a.m(this.a, TbadkCoreApplication.getInst().getSkinType());
-                return stageLiveViewHolder.getView();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, e46Var, officialRecommendLiveViewHolder})) == null) {
+            if (officialRecommendLiveViewHolder != null && (i56Var = officialRecommendLiveViewHolder.a) != null) {
+                i56Var.l(e46Var);
+                officialRecommendLiveViewHolder.a.m(this.a, TbadkCoreApplication.getInst().getSkinType());
+                return officialRecommendLiveViewHolder.getView();
             }
             return null;
         }

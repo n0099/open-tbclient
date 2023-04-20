@@ -1,37 +1,49 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class jg8 extends ad5 {
+public class jg8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jg8(Context context, int i) {
-        super(context, TbadkCoreApplication.getInst().getString(R.string.editor_location), 7, i);
+    public jg8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.d = R.drawable.obfuscated_res_0x7f0809d1;
-        this.i = true;
-        this.p = new int[]{18};
+    }
+
+    public void a(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        JSONObject optJSONObject = jSONObject.optJSONObject("error");
+        if (optJSONObject != null) {
+            optJSONObject.optInt("errno");
+            String optString = optJSONObject.optString(VideoFinishResult.KEY_ERROR_USER_MSG);
+            this.a = optString;
+            if (!StringUtils.isNull(optString)) {
+                this.a = optJSONObject.optString("errmsg");
+            }
+        }
+        JSONObject optJSONObject2 = jSONObject.optJSONObject("data");
+        if (optJSONObject2 != null) {
+            optJSONObject2.optString(VideoFinishResult.KEY_ERROR_USER_MSG);
+        }
     }
 }

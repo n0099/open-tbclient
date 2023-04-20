@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.view.FrsTopBarGroupEntranceGuideView;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.q25;
+import com.baidu.tieba.r25;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -115,7 +115,7 @@ public final class FrsTopBarGroupEntranceGuideView extends RelativeLayout {
             }
         }
         c();
-        this.f = new Runnable() { // from class: com.baidu.tieba.kj7
+        this.f = new Runnable() { // from class: com.baidu.tieba.lj7
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -251,7 +251,7 @@ public final class FrsTopBarGroupEntranceGuideView extends RelativeLayout {
             } else {
                 textView = textView3;
             }
-            q25 d = q25.d(textView);
+            r25 d = r25.d(textView);
             d.w(R.color.CAM_X0101);
             d.B(R.dimen.T_X09);
             d.C(R.string.F_X01);

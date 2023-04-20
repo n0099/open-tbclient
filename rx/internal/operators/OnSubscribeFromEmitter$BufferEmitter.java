@@ -1,10 +1,10 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.a2b;
-import com.baidu.tieba.c5b;
-import com.baidu.tieba.l1b;
-import com.baidu.tieba.w3b;
-import com.baidu.tieba.w4b;
+import com.baidu.tieba.e4b;
+import com.baidu.tieba.e5b;
+import com.baidu.tieba.i2b;
+import com.baidu.tieba.k5b;
+import com.baidu.tieba.t1b;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes9.dex */
@@ -15,15 +15,15 @@ public final class OnSubscribeFromEmitter$BufferEmitter<T> extends OnSubscribeFr
     public final Queue<Object> queue;
     public final AtomicInteger wip;
 
-    public OnSubscribeFromEmitter$BufferEmitter(l1b<? super T> l1bVar, int i) {
-        super(l1bVar);
-        Queue<Object> w3bVar;
-        if (c5b.b()) {
-            w3bVar = new w4b<>(i);
+    public OnSubscribeFromEmitter$BufferEmitter(t1b<? super T> t1bVar, int i) {
+        super(t1bVar);
+        Queue<Object> e4bVar;
+        if (k5b.b()) {
+            e4bVar = new e5b<>(i);
         } else {
-            w3bVar = new w3b<>(i);
+            e4bVar = new e4b<>(i);
         }
-        this.queue = w3bVar;
+        this.queue = e4bVar;
         this.wip = new AtomicInteger();
     }
 
@@ -33,7 +33,7 @@ public final class OnSubscribeFromEmitter$BufferEmitter<T> extends OnSubscribeFr
         if (this.wip.getAndIncrement() != 0) {
             return;
         }
-        l1b<? super T> l1bVar = this.actual;
+        t1b<? super T> t1bVar = this.actual;
         Queue<Object> queue = this.queue;
         int i2 = 1;
         do {
@@ -43,7 +43,7 @@ public final class OnSubscribeFromEmitter$BufferEmitter<T> extends OnSubscribeFr
                 i = (j2 > j ? 1 : (j2 == j ? 0 : -1));
                 if (i == 0) {
                     break;
-                } else if (l1bVar.isUnsubscribed()) {
+                } else if (t1bVar.isUnsubscribed()) {
                     queue.clear();
                     return;
                 } else {
@@ -66,13 +66,13 @@ public final class OnSubscribeFromEmitter$BufferEmitter<T> extends OnSubscribeFr
                     } else if (z) {
                         break;
                     } else {
-                        l1bVar.onNext((Object) NotificationLite.e(poll));
+                        t1bVar.onNext((Object) NotificationLite.e(poll));
                         j2++;
                     }
                 }
             }
             if (i == 0) {
-                if (l1bVar.isUnsubscribed()) {
+                if (t1bVar.isUnsubscribed()) {
                     queue.clear();
                     return;
                 }
@@ -90,7 +90,7 @@ public final class OnSubscribeFromEmitter$BufferEmitter<T> extends OnSubscribeFr
                 }
             }
             if (j2 != 0) {
-                a2b.g(this, j2);
+                i2b.g(this, j2);
             }
             i2 = this.wip.addAndGet(-i2);
         } while (i2 != 0);

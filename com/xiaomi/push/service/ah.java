@@ -21,7 +21,7 @@ import com.xiaomi.push.ix;
 import com.xiaomi.push.service.bg;
 import java.nio.ByteBuffer;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class ah {
     public static fk a(XMPushService xMPushService, byte[] bArr) {
         id idVar = new id();

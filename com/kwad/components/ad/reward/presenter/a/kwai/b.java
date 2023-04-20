@@ -50,8 +50,8 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
             aVar.a(this);
             aVar.a(this.bJ);
             aVar.a(this.bS, this.nM.mRootContainer, adTemplate);
-            aVar.a(new a.InterfaceC0555a() { // from class: com.kwad.components.ad.reward.presenter.a.kwai.b.2
-                @Override // com.kwad.components.ad.i.a.InterfaceC0555a
+            aVar.a(new a.InterfaceC0554a() { // from class: com.kwad.components.ad.reward.presenter.a.kwai.b.2
+                @Override // com.kwad.components.ad.i.a.InterfaceC0554a
                 public final void V(boolean z) {
                     b.this.nM.mF = z;
                 }

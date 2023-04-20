@@ -4,20 +4,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Callable;
 /* loaded from: classes3.dex */
 public class bua implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ wua a;
-    public final /* synthetic */ Callable b;
+    public final /* synthetic */ mua a;
+    public final /* synthetic */ dua b;
 
-    public bua(wua wuaVar, Callable callable) {
+    public bua(dua duaVar, mua muaVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {wuaVar, callable};
+            Object[] objArr = {duaVar, muaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,18 +26,20 @@ public class bua implements Runnable {
                 return;
             }
         }
-        this.a = wuaVar;
-        this.b = callable;
+        this.b = duaVar;
+        this.a = muaVar;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                this.a.b(this.b.call());
-            } catch (Exception e) {
-                this.a.a(e);
+            synchronized (this.b.c) {
+                cva cvaVar = this.b.a;
+                if (cvaVar != null) {
+                    this.a.c();
+                    ((qua) cvaVar).a.countDown();
+                }
             }
         }
     }

@@ -9,7 +9,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tieba.a9;
 import com.baidu.tieba.g9;
-import com.baidu.tieba.kn9;
+import com.baidu.tieba.sn9;
 import com.baidu.tieba.wi;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -46,7 +46,7 @@ public class VoiceButton extends ImageView {
         this.b = false;
     }
 
-    public kn9 getRecorderManager() {
+    public sn9 getRecorderManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -56,7 +56,7 @@ public class VoiceButton extends ImageView {
             }
             return null;
         }
-        return (kn9) invokeV.objValue;
+        return (sn9) invokeV.objValue;
     }
 
     public VoiceManager getVoiceManager() {
@@ -81,7 +81,7 @@ public class VoiceButton extends ImageView {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
-            kn9 recorderManager = getRecorderManager();
+            sn9 recorderManager = getRecorderManager();
             if (motionEvent.getAction() == 0) {
                 if (recorderManager == null || !recorderManager.f()) {
                     return false;
@@ -107,7 +107,7 @@ public class VoiceButton extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, yiVar) == null) {
             this.a = yiVar;
-            kn9 recorderManager = getRecorderManager();
+            sn9 recorderManager = getRecorderManager();
             if (recorderManager != null) {
                 recorderManager.e(yiVar);
                 recorderManager.d(wi.a);

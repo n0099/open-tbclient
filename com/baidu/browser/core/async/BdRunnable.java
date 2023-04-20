@@ -1,7 +1,7 @@
 package com.baidu.browser.core.async;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.yv;
+import com.baidu.tieba.aw;
 import com.baidu.tieba.zv;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,10 +12,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.tun2tornadolite.booster.data.TornadoLiteRuntime;
 /* loaded from: classes.dex */
-public abstract class BdRunnable implements Runnable, zv {
+public abstract class BdRunnable implements Runnable, aw {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zv a;
+    public aw a;
     public STATUS b;
 
     public abstract void b();
@@ -121,25 +121,25 @@ public abstract class BdRunnable implements Runnable, zv {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.zv
+    @Override // com.baidu.tieba.aw
     public void onComplete() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.b = STATUS.COMPLETE;
-            zv zvVar = this.a;
-            if (zvVar != null) {
-                zvVar.onComplete();
+            aw awVar = this.a;
+            if (awVar != null) {
+                awVar.onComplete();
             }
-            yv.f().d();
+            zv.f().d();
         }
     }
 
-    @Override // com.baidu.tieba.zv
+    @Override // com.baidu.tieba.aw
     public void onStart() {
-        zv zvVar;
+        aw awVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (zvVar = this.a) != null) {
-            zvVar.onStart();
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (awVar = this.a) != null) {
+            awVar.onStart();
         }
     }
 
@@ -160,29 +160,29 @@ public abstract class BdRunnable implements Runnable, zv {
         }
     }
 
-    @Override // com.baidu.tieba.zv
+    @Override // com.baidu.tieba.aw
     public void a(Error error) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, error) == null) {
             this.b = STATUS.FAIL;
-            zv zvVar = this.a;
-            if (zvVar != null) {
-                zvVar.a(error);
+            aw awVar = this.a;
+            if (awVar != null) {
+                awVar.a(error);
             }
-            yv.f().d();
+            zv.f().d();
         }
     }
 
-    @Override // com.baidu.tieba.zv
+    @Override // com.baidu.tieba.aw
     public void onException(Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, exc) == null) {
             this.b = STATUS.FAIL;
-            zv zvVar = this.a;
-            if (zvVar != null) {
-                zvVar.onException(exc);
+            aw awVar = this.a;
+            if (awVar != null) {
+                awVar.onException(exc);
             }
-            yv.f().d();
+            zv.f().d();
         }
     }
 }

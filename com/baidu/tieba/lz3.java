@@ -1,11 +1,12 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.manage.Download;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
+import com.baidu.swan.gamecenter.appmanager.install.InstallPluginDelegateActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,14 +16,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class lz3 {
+public class lz3 extends ActivityDelegation {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public Download a;
+    public String a;
     public JSONObject b;
     public d c;
-    public nz3 d;
 
     /* loaded from: classes5.dex */
     public static /* synthetic */ class a {
@@ -64,9 +64,9 @@ public class lz3 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ty3.n().t(this.b);
-                ty3.n().l(this.a);
-                ty3.n().k();
+                uy3.n().t(this.b);
+                uy3.n().l(this.a);
+                uy3.n().k();
             }
         }
     }
@@ -75,16 +75,17 @@ public class lz3 {
     public static class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Download a;
+        public JSONObject a;
         public JSONObject b;
-        public mz3 c;
+        public nz3 c;
+        public Activity d;
 
-        public c(@NonNull Download download, JSONObject jSONObject, @NonNull mz3 mz3Var) {
+        public c(@NonNull JSONObject jSONObject, JSONObject jSONObject2, @NonNull nz3 nz3Var, Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {download, jSONObject, mz3Var};
+                Object[] objArr = {jSONObject, jSONObject2, nz3Var, activity};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -94,28 +95,29 @@ public class lz3 {
                     return;
                 }
             }
-            this.a = download;
-            this.b = jSONObject;
-            this.c = mz3Var;
+            this.a = jSONObject;
+            this.b = jSONObject2;
+            this.c = nz3Var;
+            this.d = activity;
         }
 
-        public /* synthetic */ c(Download download, JSONObject jSONObject, mz3 mz3Var, a aVar) {
-            this(download, jSONObject, mz3Var);
+        public /* synthetic */ c(JSONObject jSONObject, JSONObject jSONObject2, nz3 nz3Var, Activity activity, a aVar) {
+            this(jSONObject, jSONObject2, nz3Var, activity);
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ty3.n().G(this.b);
-                vz3.a(this.a.getKeyByUser(), "installApp", null, null, new tz3(this.b));
-                ty3.n().r(AppRuntime.getAppContext(), this.a.getUrl(), this.a.getKeyByUser(), this.c);
+                uy3.n().G(this.b);
+                wz3.a(this.a.optString("packageName"), "installApp", null, null, new uz3(this.b));
+                lz3.f(this.d, this.a, this.c);
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class d implements mz3 {
+    public class d implements nz3 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -140,7 +142,7 @@ public class lz3 {
             this.c = lz3Var;
         }
 
-        @Override // com.baidu.tieba.mz3
+        @Override // com.baidu.tieba.nz3
         public void setFilePath(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -148,7 +150,7 @@ public class lz3 {
             }
         }
 
-        @Override // com.baidu.tieba.mz3
+        @Override // com.baidu.tieba.nz3
         public void setPackageName(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
@@ -156,15 +158,15 @@ public class lz3 {
             }
         }
 
-        @Override // com.baidu.tieba.nz3
-        public void a(pz3 pz3Var) {
+        @Override // com.baidu.tieba.oz3
+        public void a(qz3 qz3Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, pz3Var) == null) {
-                if (lz3.e) {
-                    Log.d("InstallAppLocal", "onResult mPackageName:" + this.a);
+            if (interceptable == null || interceptable.invokeL(1048576, this, qz3Var) == null) {
+                if (lz3.d) {
+                    Log.d("InstallAppDelegation", "onResult mPackageName:" + this.a);
                 }
-                this.c.setResult(pz3Var);
-                wy3.d.execute(new b(this.b, this.a, null));
+                this.c.setResult(qz3Var);
+                xy3.d.execute(new b(this.b, this.a, null));
             }
         }
     }
@@ -182,15 +184,13 @@ public class lz3 {
                 return;
             }
         }
-        e = eo1.a;
+        d = fo1.a;
     }
 
-    public lz3(Download download, JSONObject jSONObject) {
+    public lz3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {download, jSONObject};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -200,34 +200,97 @@ public class lz3 {
                 return;
             }
         }
-        this.a = download;
-        this.b = jSONObject;
         this.c = new d(this);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void setResult(pz3 pz3Var) {
+    public final void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, pz3Var) == null) {
-            nz3 nz3Var = this.d;
-            if (nz3Var != null) {
-                nz3Var.a(pz3Var);
-            }
-            if (pz3Var != null && !pz3Var.d()) {
-                vz3.a(this.a.getKeyByUser(), "installApp", com.baidu.pass.biometrics.face.liveness.b.a.g0, String.valueOf(pz3Var.c()), new tz3(this.b));
-            }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (this.c != null) {
-                ty3.n().B(this.a.getKeyByUser(), this.c);
+                uy3.n().B(this.a, this.c);
                 this.c = null;
             }
+            this.c = null;
         }
     }
 
-    public void c(nz3 nz3Var) {
+    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
+    public void onAgentDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, nz3Var) == null) {
-            this.d = nz3Var;
-            wy3.d.execute(new c(this.a, this.b, this.c, null));
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (d) {
+                Log.d("InstallAppDelegation", "onAgentDestroy mPackageName:" + this.a);
+            }
+            g();
+        }
+    }
+
+    public static void f(Activity activity, @NonNull JSONObject jSONObject, @NonNull nz3 nz3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65541, null, activity, jSONObject, nz3Var) == null) {
+            String optString = jSONObject.optString("url");
+            boolean optBoolean = jSONObject.optBoolean("baiduAppDownload");
+            String optString2 = jSONObject.optString("packageName");
+            if (uy3.n().y(optString) == null && optBoolean) {
+                if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
+                    m44.c().d(optString, optString2);
+                    return;
+                }
+                return;
+            }
+            uy3.n().r(activity, optString, optString2, nz3Var);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void setResult(qz3 qz3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, this, qz3Var) == null) {
+            if (qz3Var != null) {
+                this.mResult.putString("functionType", qz3Var.a());
+                this.mResult.putString("resultData", qz3Var.b());
+                this.mResult.putInt("resultStatus", qz3Var.c());
+                if (!qz3Var.d()) {
+                    wz3.a(this.a, "installApp", com.baidu.pass.biometrics.face.liveness.b.a.g0, String.valueOf(qz3Var.c()), new uz3(this.b));
+                }
+            }
+            g();
+            finish();
+        }
+    }
+
+    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
+    public boolean onExec() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (d) {
+                Log.d("InstallAppDelegation", "onExec mParams" + this.mParams);
+            }
+            this.b = vk3.d(this.mParams.getString("ubc_params", ""));
+            JSONObject d2 = vk3.d(this.mParams.getString("data", ""));
+            String optString = d2.optString("packageName");
+            this.a = optString;
+            this.mResult.putString("packageName", optString);
+            xy3.d.execute(new c(d2, this.b, this.c, getAgent(), null));
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
+    public void onSelfFinish() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (d) {
+                Log.d("InstallAppDelegation", "onSelfFinish mPackageName:" + this.a);
+            }
+            int i = 31003;
+            if (getAgent() instanceof InstallPluginDelegateActivity) {
+                i = ((InstallPluginDelegateActivity) getAgent()).a();
+            }
+            wz3.a(this.a, "installApp", com.baidu.pass.biometrics.face.liveness.b.a.g0, String.valueOf(i), new uz3(this.b));
+            g();
         }
     }
 }

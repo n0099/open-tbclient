@@ -1,33 +1,23 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.TBAlertBuilder;
-import com.baidu.tbadk.core.dialog.TBAlertConfig;
-import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.data.LevePopData;
+import com.baidu.tbadk.core.atomData.UpdateDialogConfig;
+import com.baidu.tbadk.coreExtra.data.CombineDownload;
+import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class u15 extends j15 {
+public class u15 extends l15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public static final void f(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, view2) == null) {
-        }
-    }
 
     public u15() {
         Interceptable interceptable = $ic;
@@ -43,95 +33,17 @@ public final class u15 extends j15 {
         }
     }
 
-    @Override // com.baidu.tieba.j15
-    public void c() {
+    @Override // com.baidu.tieba.l15
+    public void a(@NonNull Context context, @NonNull c15 c15Var) {
+        JSONObject syncJson;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            z05.r("userGrowth");
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, context, c15Var) != null) || (syncJson = TbSingleton.getInstance().getSyncJson()) == null) {
+            return;
         }
-    }
-
-    @Override // com.baidu.tieba.j15
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            z05.l("userGrowth");
-        }
-    }
-
-    public static final void g(LevePopData levePopData, View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, levePopData, view2) == null) {
-            it4.v(view2.getContext(), null, levePopData.getBtn_scheme(), true);
-        }
-    }
-
-    @Override // com.baidu.tieba.j15
-    public void b(TBAlertBuilder builder) {
-        String cancel_btn_text;
-        String btn_text;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, builder) == null) {
-            Intrinsics.checkNotNullParameter(builder, "builder");
-            final LevePopData levePopData = TbSingleton.getInstance().getLevePopData();
-            RelativeLayout relativeLayout = new RelativeLayout(getActivity());
-            View view2 = new View(getActivity());
-            q25 d = q25.d(view2);
-            d.n(1);
-            d.o(R.string.J_X06);
-            d.f(R.color.CAM_X0205);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, UtilHelper.getDimenPixelSize(R.dimen.tbds127));
-            layoutParams.setMargins(0, UtilHelper.getDimenPixelSize(R.dimen.tbds149), 0, 0);
-            relativeLayout.addView(view2, layoutParams);
-            ImageView imageView = new ImageView(getActivity());
-            imageView.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.icon_mask_usergrouth_home, WebPManager.ResourceStateType.NORMAL));
-            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
-            layoutParams2.addRule(14);
-            relativeLayout.addView(imageView, layoutParams2);
-            builder.x(levePopData.getTitle());
-            builder.q(levePopData.getDesc());
-            builder.o(true);
-            builder.l(relativeLayout);
-            TBAlertConfig.a[] aVarArr = new TBAlertConfig.a[2];
-            if (StringUtils.isNull(levePopData.getCancel_btn_text())) {
-                cancel_btn_text = TbadkCoreApplication.getInst().getString(R.string.guide_popup_window_known);
-            } else {
-                cancel_btn_text = levePopData.getCancel_btn_text();
-            }
-            aVarArr[0] = new TBAlertConfig.a(cancel_btn_text, TBAlertConfig.OperateBtnStyle.SECONDARY, new View.OnClickListener() { // from class: com.baidu.tieba.f15
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // android.view.View.OnClickListener
-                public final void onClick(View view3) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view3) == null) {
-                        u15.f(view3);
-                    }
-                }
-            });
-            if (StringUtils.isNull(levePopData.getBtn_text())) {
-                btn_text = TbadkCoreApplication.getInst().getString(R.string.check_detail);
-            } else {
-                btn_text = levePopData.getBtn_text();
-            }
-            aVarArr[1] = new TBAlertConfig.a(btn_text, TBAlertConfig.OperateBtnStyle.MAIN, new View.OnClickListener() { // from class: com.baidu.tieba.h15
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // android.view.View.OnClickListener
-                public final void onClick(View view3) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view3) == null) {
-                        u15.g(LevePopData.this, view3);
-                    }
-                }
-            });
-            builder.u(aVarArr);
-            builder.j(false);
-            builder.i();
-            builder.z();
-            PollingModel.J0(levePopData, true);
-        }
+        VersionData versionData = new VersionData();
+        versionData.parserJson(syncJson.optJSONObject("version"));
+        CombineDownload combineDownload = new CombineDownload();
+        combineDownload.parserJson(syncJson.optJSONObject("combine_download"));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), versionData, combineDownload)));
     }
 }

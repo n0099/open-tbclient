@@ -1,157 +1,90 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ProgressBar;
+import android.view.ViewStub;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.coreExtra.view.BaseWebView;
-import com.baidu.tieba.payment.PayVcodeActivity;
+import com.baidu.sapi2.share.ShareStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@SuppressLint({"ResourceAsColor"})
+import com.google.gson.Gson;
 /* loaded from: classes6.dex */
-public class ur8 extends y8<PayVcodeActivity> {
+public class ur8 extends pr8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public PayVcodeActivity a;
-    public ViewGroup b;
-    public View c;
-    public ViewGroup d;
-    public TextView e;
-    public BaseWebView f;
-    public TextView g;
-    public ProgressBar h;
+    public ViewStub o;
+    public View p;
+    public TbImageView q;
+    public TextView r;
+    public TextView s;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ur8(PayVcodeActivity payVcodeActivity) {
-        super(payVcodeActivity.getPageContext());
+    public ur8(TbPageContext tbPageContext, View view2) {
+        super(tbPageContext, view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {payVcodeActivity};
+            Object[] objArr = {tbPageContext, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((a9) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (View) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = payVcodeActivity;
-        payVcodeActivity.setContentView(R.layout.obfuscated_res_0x7f0d070e);
-        B(payVcodeActivity);
+        ViewStub viewStub = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f0927e6);
+        this.o = viewStub;
+        viewStub.inflate();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.o.getLayoutParams();
+        layoutParams.topMargin = ii.j(tbPageContext.getPageActivity()) / 2;
+        this.o.setLayoutParams(layoutParams);
+        this.p = view2.findViewById(R.id.obfuscated_res_0x7f0926a2);
+        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.user_avatar);
+        this.q = tbImageView;
+        tbImageView.setIsRound(true);
+        this.q.setDefaultBgResource(R.drawable.icon_default_avatar100_bg);
+        this.r = (TextView) view2.findViewById(R.id.user_name);
+        this.s = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0926cc);
     }
 
-    public BaseWebView A() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.pr8
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f;
-        }
-        return (BaseWebView) invokeV.objValue;
-    }
-
-    public View u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.c;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public TextView x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.g;
-        }
-        return (TextView) invokeV.objValue;
-    }
-
-    public TextView y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.e;
-        }
-        return (TextView) invokeV.objValue;
-    }
-
-    public ViewGroup z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.d;
-        }
-        return (ViewGroup) invokeV.objValue;
-    }
-
-    public final void B(PayVcodeActivity payVcodeActivity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, payVcodeActivity) == null) {
-            this.b = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f091960);
-            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09195a);
-            this.e = textView;
-            SkinManager.setBackgroundResource(textView, R.drawable.s_navbar_button_bg);
-            SkinManager.setViewTextColor(this.e, R.color.CAM_X0101, 1);
-            this.f = (BaseWebView) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f0926f4);
-            this.g = (TextView) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f092866);
-            this.c = payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f09195e);
-            this.d = (ViewGroup) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f09195f);
-            this.h = (ProgressBar) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f091961);
-            this.f.setHorizontalScrollBarEnabled(false);
-            this.f.setHorizontalScrollbarOverlay(false);
-            this.f.setScrollBarStyle(33554432);
-            this.f.getSettings().setJavaScriptEnabled(true);
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            super.a(i);
+            r25 d = r25.d(this.p);
+            d.o(R.string.J_X05);
+            d.f(R.color.CAM_X0204);
+            r25 d2 = r25.d(this.r);
+            d2.w(R.color.CAM_X0105);
+            d2.B(R.dimen.T_X05);
+            d2.C(R.string.F_X02);
+            r25 d3 = r25.d(this.s);
+            d3.w(R.color.CAM_X0108);
+            d3.B(R.dimen.T_X08);
+            d3.C(R.string.F_X01);
         }
     }
 
-    public void C(boolean z) {
-        int i;
+    @Override // com.baidu.tieba.pr8
+    public void c(qr8 qr8Var) {
+        ShareStorage.StorageModel storageModel;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            TextView textView = this.g;
-            if (z) {
-                i = 0;
-            } else {
-                i = 8;
-            }
-            textView.setVisibility(i);
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qr8Var) != null) || qr8Var == null || (storageModel = (ShareStorage.StorageModel) new Gson().fromJson(qr8Var.d, (Class<Object>) ShareStorage.StorageModel.class)) == null) {
+            return;
         }
-    }
-
-    public void D(boolean z) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            ProgressBar progressBar = this.h;
-            if (z) {
-                i = 0;
-            } else {
-                i = 8;
-            }
-            progressBar.setVisibility(i);
-        }
-    }
-
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            zm5.a(this.a.getPageContext(), this.b);
-            SkinManager.setBgColor(this.g, i);
-            SkinManager.setBackgroundResource(this.e, R.drawable.s_navbar_button_bg);
-            SkinManager.setViewTextColor(this.e, R.color.CAM_X0101, 1);
-        }
+        this.q.N(storageModel.url, 10, false);
+        this.r.setText(storageModel.displayname);
+        this.s.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f121c, storageModel.app));
     }
 }

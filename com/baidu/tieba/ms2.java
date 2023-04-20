@@ -1,108 +1,186 @@
 package com.baidu.tieba;
 
-import android.os.Looper;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
-import com.baidu.tieba.il3;
+import android.os.Bundle;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.dns.transmit.model.DnsModel;
+import com.baidu.tieba.ls2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class ms2 implements ys2 {
+public class ms2 extends v33 {
     public static /* synthetic */ Interceptable $ic;
+    public static Map<String, om3<Bundle>> h;
     public transient /* synthetic */ FieldHolder $fh;
+    public int f;
+    public String g;
 
-    public static SwanAppConfigData a(File file) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, file)) == null) {
-            if (file != null && file.exists()) {
-                long currentTimeMillis = System.currentTimeMillis();
-                SwanAppConfigData b = g83.b(file.getAbsolutePath());
-                if (ys2.a) {
-                    long currentTimeMillis2 = System.currentTimeMillis();
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("buildAppJsonConfig cost = ");
-                    sb.append(currentTimeMillis2 - currentTimeMillis);
-                    sb.append("ms ; current thread is main = ");
-                    if (Looper.getMainLooper() == Looper.myLooper()) {
-                        z = true;
+    /* loaded from: classes5.dex */
+    public class a implements om3<Bundle> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ ms2 b;
+
+        public a(ms2 ms2Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ms2Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ms2Var;
+            this.a = str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.om3
+        /* renamed from: b */
+        public void a(Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+                this.b.g = bundle.getString("key_launch_app_id");
+                this.b.f = bundle.getInt("key_launch_status");
+                if (TextUtils.equals(this.a, this.b.g)) {
+                    ms2 ms2Var = this.b;
+                    ms2Var.d.putInt(DnsModel.MSG_OK, ms2Var.f);
+                    this.b.c();
+                }
+                ms2.h.remove(this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b implements om3<Bundle> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ ls2.e b;
+
+        public b(String str, ls2.e eVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, eVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = eVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.om3
+        /* renamed from: b */
+        public void a(Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+                String string = bundle.getString("key_launch_app_id");
+                int i = bundle.getInt("key_launch_status");
+                if (TextUtils.equals(this.a, string)) {
+                    if (i == 0) {
+                        this.b.b();
                     } else {
-                        z = false;
+                        this.b.a();
                     }
-                    sb.append(z);
-                    sb.append(" ; path = ");
-                    sb.append(file);
-                    Log.d("SwanPerformance", sb.toString());
                 }
-                return b;
+                ms2.h.remove(this.a);
             }
-            return null;
         }
-        return (SwanAppConfigData) invokeL.objValue;
     }
 
-    public static SwanAppConfigData b(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
-            if (file != null && file.exists()) {
-                SwanAppConfigData swanAppConfigData = (SwanAppConfigData) ns2.c().b(file.getAbsolutePath());
-                if (swanAppConfigData == null) {
-                    swanAppConfigData = x13.e().j(file);
-                    if (swanAppConfigData == null) {
-                        swanAppConfigData = a(file);
-                    }
-                    ns2.c().d(file.getAbsolutePath(), swanAppConfigData);
-                } else if (ys2.a) {
-                    Log.d("SwanPerformance", "adopt cached app.json");
-                }
-                return swanAppConfigData;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947983165, "Lcom/baidu/tieba/ms2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return null;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947983165, "Lcom/baidu/tieba/ms2;");
+                return;
+            }
         }
-        return (SwanAppConfigData) invokeL.objValue;
+        boolean z = fo1.a;
+        h = new cm4();
     }
 
-    public static Boolean c(boolean z) {
-        InterceptResult invokeZ;
+    public ms2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
-            Boolean bool = (Boolean) ns2.c().b("getNightModeStateCache");
-            if (bool == null) {
-                return Boolean.valueOf(br2.M().a());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            if (z) {
-                ns2.c().e("getNightModeStateCache");
-            }
-            return bool;
         }
-        return (Boolean) invokeZ.objValue;
+        this.f = -1;
+        this.g = "";
     }
 
-    public static List<il3.a> d() {
-        InterceptResult invokeV;
+    public static void k(String str) {
+        om3<Bundle> om3Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            List<il3.a> list = (List) ns2.c().b("getStorageListCache");
-            if (list == null) {
-                List<il3.a> d = il3.d();
-                ns2.c().d("getStorageListCache", d);
-                return d;
-            }
-            return list;
+        if ((interceptable == null || interceptable.invokeL(65544, null, str) == null) && (om3Var = h.get(str)) != null) {
+            Bundle bundle = new Bundle();
+            bundle.putString("key_launch_app_id", str);
+            bundle.putInt("key_launch_status", 1);
+            om3Var.a(bundle);
         }
-        return (List) invokeV.objValue;
     }
 
-    public static void e(Boolean bool) {
+    public static void l(String str) {
+        om3<Bundle> om3Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bool) == null) {
-            ns2.c().d("getNightModeStateCache", bool);
+        if ((interceptable == null || interceptable.invokeL(65545, null, str) == null) && (om3Var = h.get(str)) != null) {
+            Bundle bundle = new Bundle();
+            bundle.putString("key_launch_app_id", str);
+            bundle.putInt("key_launch_status", 0);
+            om3Var.a(bundle);
+        }
+    }
+
+    @Override // com.baidu.tieba.v33
+    public void b(@NonNull Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            String string = bundle.getString("desAppId");
+            h.put(string, new a(this, string));
+        }
+    }
+
+    public static void j(String str, ls2.e eVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65543, null, str, eVar) == null) && !TextUtils.isEmpty(str) && eVar != null) {
+            h.put(str, new b(str, eVar));
         }
     }
 }

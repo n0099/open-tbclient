@@ -1,17 +1,21 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* compiled from: ChatBoxDialogService.java */
 /* loaded from: classes4.dex */
-public interface fi5 extends ki5 {
-    @NonNull
-    public static final ServiceReference a = new ServiceReference("ImMessageCenter", "ChatBoxDialogService");
+public final /* synthetic */ class fi5 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void onChangeSkinType(int i);
-
-    void onDestroy();
-
-    void onPause();
-
-    void onResume();
+    public static gi5 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return (gi5) ServiceManager.getService(gi5.a);
+        }
+        return (gi5) invokeV.objValue;
+    }
 }

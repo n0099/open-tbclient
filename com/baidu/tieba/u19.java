@@ -1,77 +1,93 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.os.Bundle;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.util.DataExt;
+import com.baidu.tieba.person.PersonMoreData;
+import com.baidu.tieba.person.PersonMoreItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class u19 extends um<q29, CardViewHolder<i39>> {
+public class u19 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public i39 b;
+    public v19 a;
+    public TbPageContext b;
+    public List<in> c;
+    public PersonMoreData d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public u19(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public u19(TbPageContext tbPageContext, Bundle bundle, yg6<v29> yg6Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {tbPageContext, bundle, yg6Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
+        this.b = tbPageContext;
+        v19 v19Var = new v19(tbPageContext);
+        this.a = v19Var;
+        v19Var.f(yg6Var);
+        a(bundle);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.um
-    /* renamed from: s */
-    public CardViewHolder<i39> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public final void a(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            this.b = new i39(this.a);
-            return new CardViewHolder<>(this.b);
-        }
-        return (CardViewHolder) invokeL.objValue;
-    }
-
-    public void onScroll() {
-        i39 i39Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (i39Var = this.b) != null) {
-            i39Var.onScroll();
+        if ((interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) && bundle != null && (bundle.get(PersonMoreData.URL_MAPS) instanceof ArrayList)) {
+            this.d = new PersonMoreData();
+            this.d.mUrlMaps.addAll(DataExt.toEntityList(bundle.getStringArrayList(PersonMoreData.URL_MAPS).toString(), PersonMoreItemData.class));
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.um
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, q29 q29Var, CardViewHolder<i39> cardViewHolder) {
-        InterceptResult invokeCommon;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, q29Var, cardViewHolder})) == null) {
-            cardViewHolder.a().l(q29Var);
-            return cardViewHolder.getView();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.c = new ArrayList();
+            PersonMoreData personMoreData = this.d;
+            if (personMoreData != null && !ListUtils.isEmpty(personMoreData.mUrlMaps)) {
+                for (PersonMoreItemData personMoreItemData : this.d.mUrlMaps) {
+                    if (personMoreItemData != null && !StringUtils.isNull(personMoreItemData.mUrl)) {
+                        v29 v29Var = new v29();
+                        v29Var.e = personMoreItemData.mName;
+                        v29Var.a = 36;
+                        v29Var.g = personMoreItemData.mUrl;
+                        v29Var.k = personMoreItemData.mId;
+                        this.c.add(v29Var);
+                    }
+                }
+            }
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b.getPageActivity().setContentView(R.layout.obfuscated_res_0x7f0d074e);
+            this.a.c(this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091afe));
+            b();
+            this.a.e(this.c);
+        }
+    }
+
+    public void d() {
+        v19 v19Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (v19Var = this.a) != null) {
+            v19Var.d();
+        }
     }
 }

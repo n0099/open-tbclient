@@ -2,7 +2,7 @@ package com.xiaomi.push.service;
 
 import com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer;
 import org.apache.commons.codec.net.QCodec;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class bp {
     public static int a = 8;
     public int d = IMediaPlayer.SHARED_PLAYER_ON_INFO_EXTRA;

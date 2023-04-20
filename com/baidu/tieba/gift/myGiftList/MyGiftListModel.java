@@ -8,9 +8,9 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.a9;
-import com.baidu.tieba.al9;
-import com.baidu.tieba.cl7;
-import com.baidu.tieba.vx4;
+import com.baidu.tieba.dl7;
+import com.baidu.tieba.il9;
+import com.baidu.tieba.wx4;
 import com.baidu.tieba.za;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -29,14 +29,14 @@ public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
     public boolean e;
     public long f;
     public String g;
-    public cl7 h;
+    public dl7 h;
     public b i;
     public za j;
     public int mUserType;
 
     /* loaded from: classes4.dex */
     public interface b {
-        void a(int i, String str, boolean z, cl7 cl7Var);
+        void a(int i, String str, boolean z, dl7 dl7Var);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -129,8 +129,8 @@ public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
         aVar.getHttpMessageListener().setSelfListener(true);
         this.j.getSocketMessageListener().setSelfListener(true);
         registerListener(this.j);
-        al9.h(309052, GetPersonalGiftListSocketResponseMessage.class, false, false);
-        al9.c(309052, CmdConfigHttp.CMD_GET_PERSONAL_GIFT_LIST, TbConfig.GET_PERSONAL_GIFT_LIST, GetPersonalGiftListHttpResponseMessage.class, false, false, false, false);
+        il9.h(309052, GetPersonalGiftListSocketResponseMessage.class, false, false);
+        il9.c(309052, CmdConfigHttp.CMD_GET_PERSONAL_GIFT_LIST, TbConfig.GET_PERSONAL_GIFT_LIST, GetPersonalGiftListHttpResponseMessage.class, false, false, false, false);
     }
 
     public void a0(b bVar) {
@@ -231,37 +231,37 @@ public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
         return invokeV.booleanValue;
     }
 
-    public final void Z(cl7 cl7Var) {
+    public final void Z(dl7 dl7Var) {
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, cl7Var) != null) || cl7Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, dl7Var) != null) || dl7Var == null) {
             return;
         }
         if (this.h == null) {
-            this.h = new cl7();
+            this.h = new dl7();
         }
         if (this.h.c() == null) {
-            this.h.i(new cl7.b());
+            this.h.i(new dl7.b());
         }
         if (this.h.d() == null) {
-            this.h.j(new cl7.c());
+            this.h.j(new dl7.c());
         }
         if (this.h.a() == null) {
             this.h.g(new ArrayList<>());
         }
-        this.h.h(cl7Var.b());
-        this.h.k(cl7Var.e());
-        this.h.i(cl7Var.c());
-        this.h.j(cl7Var.d());
-        cl7 cl7Var2 = this.h;
-        cl7Var2.h = cl7Var.h;
-        cl7Var2.f = cl7Var.f;
-        if (cl7Var.g != null) {
-            cl7Var2.g = new vx4();
-            vx4 vx4Var = this.h.g;
-            vx4 vx4Var2 = cl7Var.g;
-            vx4Var.a = vx4Var2.a;
-            vx4Var.b = vx4Var2.b;
+        this.h.h(dl7Var.b());
+        this.h.k(dl7Var.e());
+        this.h.i(dl7Var.c());
+        this.h.j(dl7Var.d());
+        dl7 dl7Var2 = this.h;
+        dl7Var2.h = dl7Var.h;
+        dl7Var2.f = dl7Var.f;
+        if (dl7Var.g != null) {
+            dl7Var2.g = new wx4();
+            wx4 wx4Var = this.h.g;
+            wx4 wx4Var2 = dl7Var.g;
+            wx4Var.a = wx4Var2.a;
+            wx4Var.b = wx4Var2.b;
         }
         if (this.h.c() != null) {
             this.b = this.h.c().a;
@@ -272,12 +272,12 @@ public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
             }
             this.a = z;
         }
-        if (cl7Var.a() != null && cl7Var.a().size() > 0) {
+        if (dl7Var.a() != null && dl7Var.a().size() > 0) {
             if (this.c) {
-                ArrayList<cl7.a> a2 = cl7Var.a();
+                ArrayList<dl7.a> a2 = dl7Var.a();
                 int size = this.h.a().size() + 1;
                 for (int i = 0; i < a2.size(); i++) {
-                    cl7.a aVar = a2.get(i);
+                    dl7.a aVar = a2.get(i);
                     if (aVar != null) {
                         aVar.h = size;
                         size++;
@@ -287,7 +287,7 @@ public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
                 return;
             }
             this.h.a().clear();
-            this.h.a().addAll(cl7Var.a());
+            this.h.a().addAll(dl7Var.a());
         }
     }
 

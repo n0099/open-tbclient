@@ -13,15 +13,15 @@ import com.baidu.tbadk.widget.falling.FallingEventType;
 import com.baidu.tbadk.widget.falling.FallingView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.immessagecenter.slice.Slice;
-import com.baidu.tieba.k78;
-import com.baidu.tieba.o58;
-import com.baidu.tieba.ys5;
+import com.baidu.tieba.s78;
+import com.baidu.tieba.w58;
+import com.baidu.tieba.zs5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class FallingSlice extends Slice {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,13 +29,13 @@ public class FallingSlice extends Slice {
     public final TbPageContext<?> j;
     public c k;
     @Nullable
-    public o58 l;
+    public w58 l;
     public long m;
     public boolean n;
-    public final ys5 o;
+    public final zs5 o;
 
-    /* loaded from: classes4.dex */
-    public class a implements ys5 {
+    /* loaded from: classes5.dex */
+    public class a implements zs5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FallingSlice a;
@@ -58,7 +58,7 @@ public class FallingSlice extends Slice {
             this.a = fallingSlice;
         }
 
-        @Override // com.baidu.tieba.ys5
+        @Override // com.baidu.tieba.zs5
         public void a(FallingEventType fallingEventType, @Nullable Object obj) {
             String str;
             Interceptable interceptable = $ic;
@@ -69,13 +69,13 @@ public class FallingSlice extends Slice {
                     str = "";
                 }
                 if (fallingEventType == FallingEventType.CLICK) {
-                    k78.f("c15184", str, this.a.m, this.a.n);
+                    s78.f("c15184", str, this.a.m, this.a.n);
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements FallingView.r {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -116,7 +116,7 @@ public class FallingSlice extends Slice {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -217,16 +217,16 @@ public class FallingSlice extends Slice {
         }
     }
 
-    public void X(@NonNull FallingData fallingData, long j, boolean z, @Nullable o58 o58Var) {
+    public void X(@NonNull FallingData fallingData, long j, boolean z, @Nullable w58 w58Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{fallingData, Long.valueOf(j), Boolean.valueOf(z), o58Var}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{fallingData, Long.valueOf(j), Boolean.valueOf(z), w58Var}) == null) {
             this.m = j;
             this.n = z;
-            this.l = o58Var;
+            this.l = w58Var;
             ChatFallingView chatFallingView = this.k.b;
             if (chatFallingView != null) {
                 chatFallingView.x(fallingData, this.j, false);
-                k78.f("c15183", fallingData.getAffect(), this.m, z);
+                s78.f("c15183", fallingData.getAffect(), this.m, z);
             }
         }
     }

@@ -14,7 +14,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import com.baidu.swan.videoplayer.SwanVideoView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.uo4;
+import com.baidu.tieba.vo4;
 import java.util.Locale;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -43,7 +43,7 @@ public class MediaController extends RelativeLayout {
     public SwanVideoView r;
     public boolean s;
     public boolean t;
-    public uo4 u;
+    public vo4 u;
     public boolean v;
     public boolean w;
     public View.OnClickListener x;
@@ -324,8 +324,8 @@ public class MediaController extends RelativeLayout {
         }
     }
 
-    public void setToggleScreenListener(uo4 uo4Var) {
-        this.u = uo4Var;
+    public void setToggleScreenListener(vo4 vo4Var) {
+        this.u = vo4Var;
     }
 
     public void t(boolean z) {

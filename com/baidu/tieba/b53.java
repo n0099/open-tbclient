@@ -1,85 +1,147 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Bundle;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.minivideo.effect.core.vlogedit.MediaTrackConfig;
+import com.baidu.swan.apps.media.chooser.model.MediaModel;
+import com.baidu.swan.apps.publisher.ReplyEditorParams;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.lang.ref.WeakReference;
 /* loaded from: classes3.dex */
-public final class b53 extends r93 {
+public class b53 {
     public static /* synthetic */ Interceptable $ic;
+    public static b53 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public b a;
+    public WeakReference<a53> b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947595913, "Lcom/baidu/tieba/b53;")) == null) {
-            return;
+    /* loaded from: classes3.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes3.dex */
+    public class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public WeakReference<v73> a;
+        public WeakReference<d72> b;
+        public String c;
+        public MediaModel d;
+
+        public b(b53 b53Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {b53Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947595913, "Lcom/baidu/tieba/b53;");
+
+        public /* synthetic */ b(b53 b53Var, a aVar) {
+            this(b53Var);
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b53(r83 dispatcher) {
-        super(dispatcher, "/swanAPI/community/closeCommunityEditor");
+    public b53() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {dispatcher};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        Intrinsics.checkNotNullParameter(dispatcher, "dispatcher");
     }
 
-    @Override // com.baidu.tieba.r93
-    public boolean d(Context context, UnitedSchemeEntity entity, CallbackHandler callbackHandler, u73 u73Var) {
-        InterceptResult invokeLLLL;
+    public static b53 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, entity, callbackHandler, u73Var)) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(entity, "entity");
-            if (u73Var != null) {
-                ht2 U = ht2.U();
-                Intrinsics.checkNotNullExpressionValue(U, "SwanAppController.getInstance()");
-                d72 V = U.V();
-                if (V != null) {
-                    a72 m = V.m();
-                    if (m instanceof y43) {
-                        ((y43) m).t3();
-                        entity.result = UnitedSchemeUtility.wrapCallbackParams(0, "");
-                        return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (b53.class) {
+                    if (c == null) {
+                        c = new b53();
                     }
                 }
-                entity.result = UnitedSchemeUtility.wrapCallbackParams(201, "top is not publisher");
-                return false;
             }
-            entity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal app info");
+            return c;
+        }
+        return (b53) invokeV.objValue;
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = null;
+        }
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            a53 a53Var = this.b.get();
+            if (a53Var != null) {
+                a53Var.F1();
+                return true;
+            }
             return false;
         }
-        return invokeLLLL.booleanValue;
+        return invokeV.booleanValue;
+    }
+
+    public void d(String str, MediaModel mediaModel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, mediaModel) == null) {
+            v73 M = v73.M();
+            d72 H = it2.U().H();
+            if (M != null && H != null) {
+                b bVar = new b(this, null);
+                this.a = bVar;
+                bVar.a = new WeakReference<>(M);
+                this.a.b = new WeakReference<>(H);
+                b bVar2 = this.a;
+                bVar2.c = str;
+                bVar2.d = mediaModel;
+                return;
+            }
+            this.a = null;
+        }
+    }
+
+    public void e(v73 v73Var, ReplyEditorParams replyEditorParams, x43 x43Var) {
+        d72 H;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(1048579, this, v73Var, replyEditorParams, x43Var) == null) && (H = it2.U().H()) != null && v73Var != null) {
+            Bundle bundle = new Bundle();
+            bundle.putParcelable("params", replyEditorParams);
+            b bVar = this.a;
+            if (bVar != null && v73Var == bVar.a.get() && H == this.a.b.get()) {
+                bundle.putBoolean(MediaTrackConfig.AE_IMPORT_DRAFT, true);
+                bundle.putString("content", this.a.c);
+                bundle.putParcelable("image", this.a.d);
+            }
+            a53 a53Var = new a53();
+            a53Var.l1(bundle);
+            a53Var.S1(x43Var);
+            a53Var.v1(H.B(), "ReplyEditor");
+            this.b = new WeakReference<>(a53Var);
+        }
     }
 }

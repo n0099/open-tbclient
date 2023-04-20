@@ -1,21 +1,22 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.browser.core.webview.base.BaseWebView;
+import com.baidu.tieba.pf6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Arrays;
+import java.util.Objects;
 /* loaded from: classes4.dex */
-public class fc6 extends ec6<BaseWebView> {
+public abstract class fc6<T extends pf6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public final T[] b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public fc6(int i) {
-        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -25,50 +26,70 @@ public class fc6 extends ec6<BaseWebView> {
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ec6
-    /* renamed from: d */
-    public synchronized BaseWebView a() {
-        InterceptResult invokeV;
-        BaseWebView baseWebView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this) {
-                baseWebView = (BaseWebView) super.a();
-                if (baseWebView != null) {
-                    baseWebView.k();
-                }
-            }
-            return baseWebView;
+        this.a = 0;
+        if (i > 0) {
+            this.b = (T[]) new pf6[i];
+        } else {
+            this.b = (T[]) new pf6[5];
         }
-        return (BaseWebView) invokeV.objValue;
+        Arrays.fill(this.b, (Object) null);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ec6
-    /* renamed from: e */
-    public synchronized boolean c(@NonNull BaseWebView baseWebView) {
+    public synchronized boolean c(T t) {
         InterceptResult invokeL;
-        boolean c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, baseWebView)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t)) == null) {
             synchronized (this) {
-                c = super.c(baseWebView);
-                if (c) {
-                    baseWebView.j();
-                } else {
-                    baseWebView.destroy();
+                if (b(t)) {
+                    return true;
+                }
+                if (this.a < this.b.length) {
+                    T[] tArr = this.b;
+                    int i = this.a;
+                    this.a = i + 1;
+                    tArr[i] = t;
+                    return true;
+                }
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public synchronized T a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this) {
+                if (this.a <= 0) {
+                    return null;
+                }
+                T[] tArr = this.b;
+                int i = this.a - 1;
+                this.a = i;
+                T t = tArr[i];
+                this.b[i] = null;
+                return t;
+            }
+        }
+        return (T) invokeV.objValue;
+    }
+
+    public boolean b(T t) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t)) == null) {
+            for (int i = 0; i < this.a; i++) {
+                if (Objects.equals(this.b[i], t)) {
+                    return true;
                 }
             }
-            return c;
+            return false;
         }
         return invokeL.booleanValue;
     }

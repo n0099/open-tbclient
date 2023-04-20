@@ -23,7 +23,7 @@ import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.baidu.tieba.R;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.protobuf.CodedInputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class BottomSheetDialog extends AppCompatDialog {
     public BottomSheetBehavior<FrameLayout> behavior;
     @NonNull

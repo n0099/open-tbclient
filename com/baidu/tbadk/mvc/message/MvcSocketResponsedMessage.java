@@ -5,10 +5,10 @@ import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
-import com.baidu.tieba.b05;
-import com.baidu.tieba.gk5;
-import com.baidu.tieba.kk5;
+import com.baidu.tieba.c05;
+import com.baidu.tieba.hk5;
 import com.baidu.tieba.li;
+import com.baidu.tieba.lk5;
 import com.baidu.tieba.me;
 import com.baidu.tieba.zh;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +22,7 @@ import java.lang.reflect.Field;
 import java.util.List;
 import protobuf.Error;
 /* loaded from: classes3.dex */
-public abstract class MvcSocketResponsedMessage<D extends kk5, M extends Message> extends TbSocketReponsedMessage {
+public abstract class MvcSocketResponsedMessage<D extends lk5, M extends Message> extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public D data;
@@ -52,7 +52,7 @@ public abstract class MvcSocketResponsedMessage<D extends kk5, M extends Message
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        gk5 gk5Var;
+        hk5 hk5Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             super.afterDispatchInBackGround(i, (int) bArr);
@@ -60,28 +60,28 @@ public abstract class MvcSocketResponsedMessage<D extends kk5, M extends Message
                 String str = null;
                 if (getOrginalMessage() instanceof MvcSocketMessage) {
                     MvcSocketMessage mvcSocketMessage = (MvcSocketMessage) getOrginalMessage();
-                    if (mvcSocketMessage.isNeedCache() && (mvcSocketMessage.getData() instanceof gk5)) {
-                        gk5Var = (gk5) mvcSocketMessage.getData();
+                    if (mvcSocketMessage.isNeedCache() && (mvcSocketMessage.getData() instanceof hk5)) {
+                        hk5Var = (hk5) mvcSocketMessage.getData();
                     }
-                    gk5Var = null;
+                    hk5Var = null;
                 } else {
                     if (getOrginalMessage() != null && (getOrginalMessage().getExtra() instanceof MvcNetMessage)) {
                         MvcNetMessage mvcNetMessage = (MvcNetMessage) getOrginalMessage().getExtra();
-                        if (mvcNetMessage.isNeedCache() && (mvcNetMessage.getRequestData() instanceof gk5)) {
-                            gk5Var = (gk5) mvcNetMessage.getRequestData();
+                        if (mvcNetMessage.isNeedCache() && (mvcNetMessage.getRequestData() instanceof hk5)) {
+                            hk5Var = (hk5) mvcNetMessage.getRequestData();
                         }
                     }
-                    gk5Var = null;
+                    hk5Var = null;
                 }
-                if (gk5Var != null) {
-                    String cacheKey = gk5Var.getCacheKey();
-                    String P = gk5Var.P();
-                    if (gk5Var.isNeedUid()) {
+                if (hk5Var != null) {
+                    String cacheKey = hk5Var.getCacheKey();
+                    String P = hk5Var.P();
+                    if (hk5Var.isNeedUid()) {
                         str = TbadkCoreApplication.getCurrentAccount();
                     }
                     if (cacheKey != null && !TextUtils.isEmpty(P) && bArr != null) {
-                        b05.d();
-                        me<byte[]> c = b05.c(P, str);
+                        c05.d();
+                        me<byte[]> c = c05.c(P, str);
                         if (c == null) {
                             return;
                         }
@@ -157,7 +157,7 @@ public abstract class MvcSocketResponsedMessage<D extends kk5, M extends Message
             } else if (getOrginalMessage() != null && (getOrginalMessage().getExtra() instanceof MvcNetMessage)) {
                 obj = createData(((MvcNetMessage) getOrginalMessage().getExtra()).getResponseDataClass());
             }
-            if (obj instanceof kk5) {
+            if (obj instanceof lk5) {
                 D d = (D) obj;
                 this.data = d;
                 d.initByProtobuf(parseFrom);

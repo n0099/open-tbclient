@@ -1,28 +1,28 @@
 package rx.internal.producers;
 
-import com.baidu.tieba.a2b;
-import com.baidu.tieba.c5b;
-import com.baidu.tieba.g1b;
-import com.baidu.tieba.h1b;
-import com.baidu.tieba.l1b;
-import com.baidu.tieba.r1b;
-import com.baidu.tieba.v3b;
-import com.baidu.tieba.v4b;
+import com.baidu.tieba.d4b;
+import com.baidu.tieba.d5b;
+import com.baidu.tieba.i2b;
+import com.baidu.tieba.k5b;
+import com.baidu.tieba.o1b;
+import com.baidu.tieba.p1b;
+import com.baidu.tieba.t1b;
+import com.baidu.tieba.z1b;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.exceptions.MissingBackpressureException;
 /* loaded from: classes9.dex */
-public final class QueuedProducer<T> extends AtomicLong implements h1b, g1b<T> {
+public final class QueuedProducer<T> extends AtomicLong implements p1b, o1b<T> {
     public static final Object NULL_SENTINEL = new Object();
     public static final long serialVersionUID = 7277121710709137047L;
-    public final l1b<? super T> child;
+    public final t1b<? super T> child;
     public volatile boolean done;
     public Throwable error;
     public final Queue<Object> queue;
     public final AtomicInteger wip;
 
-    @Override // com.baidu.tieba.g1b
+    @Override // com.baidu.tieba.o1b
     public void onCompleted() {
         this.done = true;
         drain();
@@ -32,13 +32,13 @@ public final class QueuedProducer<T> extends AtomicLong implements h1b, g1b<T> {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public QueuedProducer(l1b<? super T> l1bVar) {
-        this(l1bVar, r0);
-        Queue v3bVar;
-        if (c5b.b()) {
-            v3bVar = new v4b();
+    public QueuedProducer(t1b<? super T> t1bVar) {
+        this(t1bVar, r0);
+        Queue d4bVar;
+        if (k5b.b()) {
+            d4bVar = new d5b();
         } else {
-            v3bVar = new v3b();
+            d4bVar = new d4b();
         }
     }
 
@@ -54,26 +54,26 @@ public final class QueuedProducer<T> extends AtomicLong implements h1b, g1b<T> {
         return true;
     }
 
-    @Override // com.baidu.tieba.g1b
+    @Override // com.baidu.tieba.o1b
     public void onError(Throwable th) {
         this.error = th;
         this.done = true;
         drain();
     }
 
-    @Override // com.baidu.tieba.g1b
+    @Override // com.baidu.tieba.o1b
     public void onNext(T t) {
         if (!offer(t)) {
             onError(new MissingBackpressureException());
         }
     }
 
-    @Override // com.baidu.tieba.h1b
+    @Override // com.baidu.tieba.p1b
     public void request(long j) {
         int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
         if (i >= 0) {
             if (i > 0) {
-                a2b.b(this, j);
+                i2b.b(this, j);
                 drain();
                 return;
             }
@@ -82,8 +82,8 @@ public final class QueuedProducer<T> extends AtomicLong implements h1b, g1b<T> {
         throw new IllegalArgumentException("n >= 0 required");
     }
 
-    public QueuedProducer(l1b<? super T> l1bVar, Queue<Object> queue) {
-        this.child = l1bVar;
+    public QueuedProducer(t1b<? super T> t1bVar, Queue<Object> queue) {
+        this.child = t1bVar;
         this.queue = queue;
         this.wip = new AtomicInteger();
     }
@@ -111,7 +111,7 @@ public final class QueuedProducer<T> extends AtomicLong implements h1b, g1b<T> {
     private void drain() {
         boolean z;
         if (this.wip.getAndIncrement() == 0) {
-            l1b<? super T> l1bVar = this.child;
+            t1b<? super T> t1bVar = this.child;
             Queue<Object> queue = this.queue;
             while (!checkTerminated(this.done, queue.isEmpty())) {
                 this.wip.lazySet(1);
@@ -133,9 +133,9 @@ public final class QueuedProducer<T> extends AtomicLong implements h1b, g1b<T> {
                     }
                     try {
                         if (poll == NULL_SENTINEL) {
-                            l1bVar.onNext(null);
+                            t1bVar.onNext(null);
                         } else {
-                            l1bVar.onNext(poll);
+                            t1bVar.onNext(poll);
                         }
                         j--;
                         j2++;
@@ -143,7 +143,7 @@ public final class QueuedProducer<T> extends AtomicLong implements h1b, g1b<T> {
                         if (poll == NULL_SENTINEL) {
                             poll = null;
                         }
-                        r1b.g(th, l1bVar, poll);
+                        z1b.g(th, t1bVar, poll);
                         return;
                     }
                 }

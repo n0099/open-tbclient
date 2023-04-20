@@ -1,15 +1,13 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.tbadk.data.HotEventData;
-import com.baidu.tieba.la5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public final class o15 extends k15 {
+public class o15 implements bj1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,31 +25,21 @@ public final class o15 extends k15 {
         }
     }
 
-    public static final void b() {
+    @Override // com.baidu.tieba.bj1
+    public Object get() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            z05.r("sEventDialog");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new cg7());
+            arrayList.add(new gg7());
+            arrayList.add(new kg7());
+            arrayList.add(new og7());
+            arrayList.add(new sg7());
+            arrayList.add(new wg7());
+            arrayList.add(new ah7());
+            return arrayList;
         }
-    }
-
-    @Override // com.baidu.tieba.k15
-    public void a(Context context, b15 data) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, data) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(data, "data");
-            la5.h(HotEventData.getInstance(), new la5.d() { // from class: com.baidu.tieba.i15
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // com.baidu.tieba.la5.d
-                public final void onDismiss() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        o15.b();
-                    }
-                }
-            });
-        }
+        return invokeV.objValue;
     }
 }

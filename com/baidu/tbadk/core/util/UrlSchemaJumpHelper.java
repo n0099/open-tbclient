@@ -24,10 +24,10 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.util.PersonalChatUtil;
 import com.baidu.tieba.gg;
-import com.baidu.tieba.it4;
-import com.baidu.tieba.jv4;
-import com.baidu.tieba.p45;
-import com.baidu.tieba.rm5;
+import com.baidu.tieba.jt4;
+import com.baidu.tieba.kv4;
+import com.baidu.tieba.q45;
+import com.baidu.tieba.sm5;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -87,8 +87,8 @@ public class UrlSchemaJumpHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, checkSchemeFlutterCallBack) == null) {
             MessageTask findTask = MessageManager.getInstance().findTask(2002015);
-            if (jv4.c().contains("-Flutter") && findTask == null) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921674, new rm5(checkSchemeFlutterCallBack) { // from class: com.baidu.tbadk.core.util.UrlSchemaJumpHelper.10
+            if (kv4.c().contains("-Flutter") && findTask == null) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921674, new sm5(checkSchemeFlutterCallBack) { // from class: com.baidu.tbadk.core.util.UrlSchemaJumpHelper.10
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ CheckSchemeFlutterCallBack val$callBack;
@@ -111,7 +111,7 @@ public class UrlSchemaJumpHelper {
                         this.val$callBack = checkSchemeFlutterCallBack;
                     }
 
-                    @Override // com.baidu.tieba.rm5
+                    @Override // com.baidu.tieba.sm5
                     public void onFail() {
                         CheckSchemeFlutterCallBack checkSchemeFlutterCallBack2;
                         Interceptable interceptable2 = $ic;
@@ -120,7 +120,7 @@ public class UrlSchemaJumpHelper {
                         }
                     }
 
-                    @Override // com.baidu.tieba.rm5
+                    @Override // com.baidu.tieba.sm5
                     public void onSuccess() {
                         CheckSchemeFlutterCallBack checkSchemeFlutterCallBack2;
                         Interceptable interceptable2 = $ic;
@@ -158,7 +158,7 @@ public class UrlSchemaJumpHelper {
         if ((interceptable != null && interceptable.invokeV(65539, null) != null) || !ListUtils.isEmpty(SCHEMA_BLACK_LIST)) {
             return;
         }
-        String s = p45.m().s(KEY_APP_JUMP_BLACK_LIST, null);
+        String s = q45.m().s(KEY_APP_JUMP_BLACK_LIST, null);
         if (TextUtils.isEmpty(s)) {
             return;
         }
@@ -519,7 +519,7 @@ public class UrlSchemaJumpHelper {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65549, null, context, str) == null) && !StringUtils.isNull(str)) {
             Uri parse = Uri.parse(str);
-            it4.y(context, "", parse.getQueryParameter("url"), parse.getBooleanQueryParameter("need_nav", false), true, true, null);
+            jt4.y(context, "", parse.getQueryParameter("url"), parse.getBooleanQueryParameter("need_nav", false), true, true, null);
         }
     }
 
@@ -706,10 +706,10 @@ public class UrlSchemaJumpHelper {
                     SCHEMA_BLACK_LIST.clear();
                     SCHEMA_BLACK_LIST.addAll(arrayList);
                 }
-                p45.m().B(KEY_APP_JUMP_BLACK_LIST, jSONArray.toString());
+                q45.m().B(KEY_APP_JUMP_BLACK_LIST, jSONArray.toString());
                 return;
             }
-            p45.m().H(KEY_APP_JUMP_BLACK_LIST);
+            q45.m().H(KEY_APP_JUMP_BLACK_LIST);
             SCHEMA_BLACK_LIST.clear();
         }
     }

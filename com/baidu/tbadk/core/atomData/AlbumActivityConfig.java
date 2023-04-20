@@ -319,9 +319,16 @@ public class AlbumActivityConfig extends IntentConfig {
         }
     }
 
+    public void setOnlySelectPngAndJpeg(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048588, this, z) == null) && getIntent() != null) {
+            getIntent().putExtra(IntentConfig.KEY_ONLY_SELECT_PNG_AND_JPEG, z);
+        }
+    }
+
     public void setRedirectToWorkPublishPage(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
             getIntent().putExtra(KEY_DIRECT_TO_WORK_PUBLISH_PAGE, true);
             getIntent().putExtra(WorkPublishActivityConfig.PARAM_SHOW_DRAFT, i);
         }
@@ -329,21 +336,21 @@ public class AlbumActivityConfig extends IntentConfig {
 
     public void setRequestFrom(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048589, this, i) == null) && getIntent() != null) {
+        if ((interceptable == null || interceptable.invokeI(1048590, this, i) == null) && getIntent() != null) {
             getIntent().putExtra(CAMERA_REQUEST_FROM, i);
         }
     }
 
     public void setResourceType(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048590, this, i) == null) && getIntent() != null) {
+        if ((interceptable == null || interceptable.invokeI(1048591, this, i) == null) && getIntent() != null) {
             getIntent().putExtra("from_type", i);
         }
     }
 
     public void setStatisticFrom(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
             getIntent().putExtra(WriteActivityConfig.KEY_STATISTIS_FROM, i);
         }
     }

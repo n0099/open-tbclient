@@ -5,9 +5,9 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.le8;
 import com.baidu.tieba.lego.card.exception.CardParseException;
-import com.baidu.tieba.ne8;
+import com.baidu.tieba.te8;
+import com.baidu.tieba.ve8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ public class SingleLineCard extends BaseCardInfo {
     public transient /* synthetic */ FieldHolder $fh;
     public final int bgColor;
     public final int bgColorNight;
-    public final le8 buttonInfo;
+    public final te8 buttonInfo;
     public final int gravity;
     public final int height;
     public final String iconTitle;
@@ -69,9 +69,9 @@ public class SingleLineCard extends BaseCardInfo {
             this.iconUrlNight = optJSONObject.optString("urlNight");
             this.iconType = optJSONObject.optInt("type");
             this.iconTitle = optJSONObject.optString("text");
-            int b = ne8.b(optJSONObject.optString("tColor", ""));
-            int b2 = ne8.b(optJSONObject.optString("tColorN", ""));
-            if (!ne8.a(b) && !ne8.a(b2)) {
+            int b = ve8.b(optJSONObject.optString("tColor", ""));
+            int b2 = ve8.b(optJSONObject.optString("tColorN", ""));
+            if (!ve8.a(b) && !ve8.a(b2)) {
                 this.iconTitleColor = b;
                 this.iconTitleColorNight = b2;
             } else {
@@ -96,13 +96,13 @@ public class SingleLineCard extends BaseCardInfo {
         for (int i3 = 0; i3 < length; i3++) {
             this.params.add(optJSONArray.optString(i3));
         }
-        this.paramColor = ne8.b(jSONObject.optString("pColor", ""));
-        this.paramColorNight = ne8.b(jSONObject.optString("pColorNight", ""));
-        this.titleColor = ne8.b(jSONObject.optString("tColor", ""));
-        this.titleColorNight = ne8.b(jSONObject.optString("tColorNight", ""));
-        this.bgColor = ne8.b(jSONObject.optString("bgColor", ""));
-        this.bgColorNight = ne8.b(jSONObject.optString("bgColorNight", ""));
-        this.buttonInfo = le8.a(jSONObject.optJSONObject("moreButton"));
+        this.paramColor = ve8.b(jSONObject.optString("pColor", ""));
+        this.paramColorNight = ve8.b(jSONObject.optString("pColorNight", ""));
+        this.titleColor = ve8.b(jSONObject.optString("tColor", ""));
+        this.titleColorNight = ve8.b(jSONObject.optString("tColorNight", ""));
+        this.bgColor = ve8.b(jSONObject.optString("bgColor", ""));
+        this.bgColorNight = ve8.b(jSONObject.optString("bgColorNight", ""));
+        this.buttonInfo = te8.a(jSONObject.optJSONObject("moreButton"));
         if (jSONObject.optInt("showLeftLine") == 1) {
             z = true;
         } else {
@@ -139,13 +139,13 @@ public class SingleLineCard extends BaseCardInfo {
         return invokeV.intValue;
     }
 
-    public le8 getButtonInfo() {
+    public te8 getButtonInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.buttonInfo;
         }
-        return (le8) invokeV.objValue;
+        return (te8) invokeV.objValue;
     }
 
     public int getGravity() {

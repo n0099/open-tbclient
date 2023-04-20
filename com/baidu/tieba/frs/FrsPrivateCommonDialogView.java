@@ -16,10 +16,10 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.lf5;
-import com.baidu.tieba.p45;
-import com.baidu.tieba.q25;
-import com.baidu.tieba.qk6;
+import com.baidu.tieba.mf5;
+import com.baidu.tieba.q45;
+import com.baidu.tieba.r25;
+import com.baidu.tieba.rk6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -117,7 +117,7 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, privateForumPopInfoData, z)) == null) {
-            if (!p45.m().i(e(privateForumPopInfoData, z), false)) {
+            if (!q45.m().i(e(privateForumPopInfoData, z), false)) {
                 return false;
             }
             return true;
@@ -128,7 +128,7 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
     public static void setDialogShown(PrivateForumPopInfoData privateForumPopInfoData, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65541, null, privateForumPopInfoData, z) == null) {
-            p45.m().w(e(privateForumPopInfoData, z), true);
+            q45.m().w(e(privateForumPopInfoData, z), true);
         }
     }
 
@@ -187,7 +187,7 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
                     this.f.setText(R.string.frs_private_create_button);
                     h();
                     SkinManager.setImageResource(this.c, R.drawable.pic_frs_private_create_success);
-                    Glide.with(this.a).load(qk6.b("pic_frs_private_create_success_bg.webp", "pic_frs_private_create_success_bg")).into(this.a);
+                    Glide.with(this.a).load(rk6.b("pic_frs_private_create_success_bg.webp", "pic_frs_private_create_success_bg")).into(this.a);
                 }
             } else {
                 this.f.setText(R.string.frs_private_fail_button);
@@ -221,18 +221,18 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
             this.h = findViewById(R.id.header_bg);
             this.i = findViewById(R.id.private_pop_content);
             SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0108);
-            q25 d = q25.d(this.f);
+            r25 d = r25.d(this.f);
             d.m(R.dimen.tbds1);
             d.o(R.string.J_X07);
             d.l(R.color.CAM_X0304);
             d.w(R.color.CAM_X0304);
-            q25 d2 = q25.d(this.d);
+            r25 d2 = r25.d(this.d);
             d2.C(R.string.F_X02);
             d2.w(R.color.CAM_X0105);
-            q25 d3 = q25.d(this.h);
+            r25 d3 = r25.d(this.h);
             d3.o(R.string.J_X14);
             d3.f(R.color.CAM_X0201);
-            q25 d4 = q25.d(this.i);
+            r25 d4 = r25.d(this.i);
             d4.o(R.string.J_X17);
             d4.f(R.color.CAM_X0201);
         }
@@ -243,7 +243,7 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.b.setVisibility(0);
             this.c.setVisibility(0);
-            String avater = lf5.d().e().getAvater();
+            String avater = mf5.d().e().getAvater();
             if (avater.startsWith("http")) {
                 this.b.N(avater, 10, false);
             } else {

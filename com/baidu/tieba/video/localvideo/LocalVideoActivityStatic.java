@@ -19,14 +19,14 @@ import com.baidu.tbadk.core.atomData.EditVideoActivityConfig;
 import com.baidu.tbadk.core.atomData.RecordVideoActivityConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gu9;
-import com.baidu.tieba.gv9;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.ul;
+import com.baidu.tieba.ou9;
+import com.baidu.tieba.ov9;
 import com.baidu.tieba.video.editvideo.EditVideoActivity;
 import com.baidu.tieba.video.record.RecordVideoActivity;
-import com.baidu.tieba.vj6;
 import com.baidu.tieba.vl;
+import com.baidu.tieba.wj6;
+import com.baidu.tieba.wl;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -155,9 +155,9 @@ public class LocalVideoActivityStatic {
             arrayList.add("com.baidu.tieba.resloader.face_beautification.mp3");
             arrayList.add("com.baidu.tieba.resloader.v3.mp3");
             RequestParams requestParams = new RequestParams();
-            requestParams.setRunType(vl.a);
+            requestParams.setRunType(wl.a);
             requestParams.setRunNode("aps");
-            requestParams.addChannel(new ul(arrayList, new a(this, customResponsedMessage)));
+            requestParams.addChannel(new vl(arrayList, new a(this, customResponsedMessage)));
             PmsManager.getInstance().execute(requestParams);
         }
     }
@@ -182,12 +182,12 @@ public class LocalVideoActivityStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<vj6> run(CustomMessage<Object> customMessage) {
+        public CustomResponsedMessage<wj6> run(CustomMessage<Object> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (customMessage != null && (customMessage.getData() instanceof gu9)) {
-                    return new CustomResponsedMessage<>(2921466, new gv9((gu9) customMessage.getData()));
+                if (customMessage != null && (customMessage.getData() instanceof ou9)) {
+                    return new CustomResponsedMessage<>(2921466, new ov9((ou9) customMessage.getData()));
                 }
                 return null;
             }

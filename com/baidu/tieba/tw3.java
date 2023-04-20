@@ -4,57 +4,54 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.swan.game.ad.entity.AdElementInfo;
+import com.baidu.swan.game.ad.entity.AdResponseInfo;
 import com.baidu.swan.game.ad.utils.NetworkUtils;
+import com.baidu.tieba.ww3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import okhttp3.Response;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class tw3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fw3 a;
-    public Context b;
+    public Context a;
+    public hw3 b;
+    public boolean c;
 
     /* loaded from: classes6.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lw3 a;
-        public final /* synthetic */ JSONObject b;
+        public final /* synthetic */ yw3 a;
+        public final /* synthetic */ mw3 b;
         public final /* synthetic */ tw3 c;
 
         /* renamed from: com.baidu.tieba.tw3$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0443a extends ResponseCallback<dw3> {
+        public class C0427a extends ResponseCallback<AdResponseInfo> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            @Override // com.baidu.searchbox.http.callback.ResponseCallback
-            public void onFail(Exception exc) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
-                }
-            }
+            public int a;
+            public final /* synthetic */ a b;
 
             /* renamed from: com.baidu.tieba.tw3$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes6.dex */
-            public class RunnableC0444a implements Runnable {
+            public class RunnableC0428a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ dw3 a;
-                public final /* synthetic */ C0443a b;
+                public final /* synthetic */ AdElementInfo a;
+                public final /* synthetic */ C0427a b;
 
-                public RunnableC0444a(C0443a c0443a, dw3 dw3Var) {
+                public RunnableC0428a(C0427a c0427a, AdElementInfo adElementInfo) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {c0443a, dw3Var};
+                        Object[] objArr = {c0427a, adElementInfo};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -64,20 +61,20 @@ public class tw3 {
                             return;
                         }
                     }
-                    this.b = c0443a;
-                    this.a = dw3Var;
+                    this.b = c0427a;
+                    this.a = adElementInfo;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable = $ic;
-                    if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.a.c.a != null) {
-                        this.b.a.c.a.i(this.a);
+                    if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.b.c.b != null) {
+                        this.b.b.c.b.c(this.a);
                     }
                 }
             }
 
-            public C0443a(a aVar) {
+            public C0427a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -92,50 +89,90 @@ public class tw3 {
                         return;
                     }
                 }
-                this.a = aVar;
+                this.b = aVar;
+                this.a = 0;
+            }
+
+            @Override // com.baidu.searchbox.http.callback.ResponseCallback
+            public void onFail(Exception exc) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) != null) {
+                    return;
+                }
+                this.b.c.g("3010002");
+                a aVar = this.b;
+                aVar.c.j(aVar.a, "requestFail", aVar.b);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             /* renamed from: a */
-            public void onSuccess(dw3 dw3Var, int i) {
+            public void onSuccess(AdResponseInfo adResponseInfo, int i) {
                 Interceptable interceptable = $ic;
-                if ((interceptable != null && interceptable.invokeLI(1048576, this, dw3Var, i) != null) || dw3Var == null) {
-                    return;
+                if (interceptable == null || interceptable.invokeLI(1048576, this, adResponseInfo, i) == null) {
+                    a aVar = this.b;
+                    aVar.c.j(aVar.a, "requestSuccess", aVar.b);
+                    if (adResponseInfo != null) {
+                        if (adResponseInfo.getAdInstanceList().size() > 0) {
+                            kx3.c(new RunnableC0428a(this, adResponseInfo.getPrimaryAdInstanceInfo()));
+                            return;
+                        }
+                        if (!this.b.c.c) {
+                            a aVar2 = this.b;
+                            aVar2.c.j(aVar2.a, "requestNoAd", aVar2.b);
+                        }
+                        if (this.a == 1 && this.b.a.i.c() == "video" && px3.h()) {
+                            a aVar3 = this.b;
+                            aVar3.c.h(aVar3.b, aVar3.a, this);
+                            return;
+                        }
+                        this.a = 0;
+                        String errorCode = adResponseInfo.getErrorCode();
+                        if (errorCode.equals("0")) {
+                            errorCode = "201000";
+                        }
+                        this.b.c.g(errorCode);
+                        return;
+                    }
+                    this.b.c.g("200000");
                 }
-                jx3.c(new RunnableC0444a(this, dw3Var));
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             /* renamed from: b */
-            public dw3 parseResponse(Response response, int i) {
+            public AdResponseInfo parseResponse(Response response, int i) {
                 InterceptResult invokeLI;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, i)) == null) {
-                    if (response == null || response.body() == null || !response.isSuccessful()) {
-                        return null;
-                    }
-                    try {
-                        String string = response.body().string();
-                        if (!TextUtils.isEmpty(string)) {
-                            return new dw3(string);
+                    if (response != null && response.body() != null) {
+                        this.a++;
+                        if (!response.isSuccessful()) {
+                            return null;
                         }
-                    } catch (Exception | OutOfMemoryError e) {
-                        e.printStackTrace();
+                        try {
+                            String string = response.body().string();
+                            if (!TextUtils.isEmpty(string)) {
+                                if (this.b.c.c) {
+                                    return new AdResponseInfo(string, this.b.c.c);
+                                }
+                                return new AdResponseInfo(string);
+                            }
+                        } catch (Exception | OutOfMemoryError unused) {
+                        }
                     }
                     return null;
                 }
-                return (dw3) invokeLI.objValue;
+                return (AdResponseInfo) invokeLI.objValue;
             }
         }
 
-        public a(tw3 tw3Var, lw3 lw3Var, JSONObject jSONObject) {
+        public a(tw3 tw3Var, yw3 yw3Var, mw3 mw3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {tw3Var, lw3Var, jSONObject};
+                Object[] objArr = {tw3Var, yw3Var, mw3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -146,18 +183,73 @@ public class tw3 {
                 }
             }
             this.c = tw3Var;
-            this.a = lw3Var;
-            this.b = jSONObject;
+            this.a = yw3Var;
+            this.b = mw3Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            yw3 yw3Var;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (yw3Var = this.a) != null && yw3Var.i != null) {
+                C0427a c0427a = new C0427a(this);
+                if (NetworkUtils.f(this.c.a)) {
+                    if (this.c.c) {
+                        yw3 yw3Var2 = this.a;
+                        if (yw3Var2 instanceof zw3) {
+                            zw3 zw3Var = (zw3) yw3Var2;
+                            if (this.b != null && zw3Var.i() != null) {
+                                this.b.a(zw3Var.g(), zw3Var.i(), c0427a);
+                                return;
+                            }
+                            return;
+                        }
+                    }
+                    this.c.c = false;
+                    String g = this.a.g();
+                    mw3 mw3Var = this.b;
+                    if (mw3Var != null) {
+                        mw3Var.f(g, c0427a);
+                    }
+                    this.c.j(this.a, "request", this.b);
+                    return;
+                }
+                this.c.g("3010003");
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ tw3 b;
+
+        public b(tw3 tw3Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tw3Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = tw3Var;
+            this.a = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                C0443a c0443a = new C0443a(this);
-                if (NetworkUtils.f(this.c.b)) {
-                    this.a.b("https://afdconf.baidu.com/afd/download", this.b, c0443a);
-                }
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.b != null) {
+                this.b.b.a(this.a);
             }
         }
     }
@@ -177,20 +269,85 @@ public class tw3 {
                 return;
             }
         }
-        this.b = context;
+        this.a = context;
     }
 
-    public void d(fw3 fw3Var) {
+    public final void g(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fw3Var) == null) {
-            this.a = fw3Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            kx3.c(new b(this, str));
         }
     }
 
-    public void c(lw3 lw3Var, JSONObject jSONObject) {
+    public void k(hw3 hw3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, lw3Var, jSONObject) == null) {
-            ix3.d(new a(this, lw3Var, jSONObject), "AdLandingDownloadRequest");
+        if (interceptable == null || interceptable.invokeL(1048580, this, hw3Var) == null) {
+            this.b = hw3Var;
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public tw3(Context context, boolean z) {
+        this(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                this((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.c = z;
+    }
+
+    public void i(yw3 yw3Var, mw3 mw3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, yw3Var, mw3Var) == null) {
+            jx3.d(new a(this, yw3Var, mw3Var), "execAdRequest");
+        }
+    }
+
+    public void h(mw3 mw3Var, yw3 yw3Var, ResponseCallback<AdResponseInfo> responseCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mw3Var, yw3Var, responseCallback) == null) {
+            if (NetworkUtils.f(this.a)) {
+                this.c = true;
+                if (yw3Var instanceof zw3) {
+                    zw3 zw3Var = (zw3) yw3Var;
+                    if (mw3Var != null && zw3Var.i() != null) {
+                        mw3Var.a(zw3Var.g(), zw3Var.i(), responseCallback);
+                        return;
+                    }
+                    return;
+                }
+                ww3.b bVar = new ww3.b();
+                bVar.m(px3.c());
+                bVar.j(px3.d());
+                bVar.o(yw3Var.i.g());
+                bVar.l(ox3.i(this.a));
+                bVar.i(ox3.h(this.a));
+                zw3 zw3Var2 = new zw3(this.a, bVar.h(), 5, 5);
+                if (mw3Var != null && zw3Var2.i() != null) {
+                    mw3Var.a(zw3Var2.g(), zw3Var2.i(), responseCallback);
+                    return;
+                }
+                return;
+            }
+            g("3010003");
+        }
+    }
+
+    public final void j(yw3 yw3Var, String str, mw3 mw3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, yw3Var, str, mw3Var) == null) {
+            ex3.n(str, ex3.a(yw3Var.i.c(), yw3Var.i.f(), yw3Var.i.e(), yw3Var.i.b(), false), mw3Var);
         }
     }
 }

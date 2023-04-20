@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pl5;
+import com.baidu.tieba.ql5;
 import com.baidu.tieba.te;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -79,7 +79,7 @@ public class PageStayDurationSwitch extends te {
     public void changeSettingByType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            pl5 b = pl5.b();
+            ql5 b = ql5.b();
             boolean z = true;
             if (1 != i) {
                 z = false;

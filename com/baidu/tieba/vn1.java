@@ -1,44 +1,60 @@
 package com.baidu.tieba;
 
-import android.database.ContentObserver;
-import android.os.Handler;
+import android.content.ComponentName;
+import android.content.ServiceConnection;
+import android.os.IBinder;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sso.r.a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class vn1 extends ContentObserver {
+public class vn1 implements ServiceConnection {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xn1 a;
+    public tn1 a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vn1(xn1 xn1Var) {
-        super(null);
+    public vn1(tn1 tn1Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {xn1Var};
+            Object[] objArr = {tn1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Handler) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = xn1Var;
+        this.a = tn1Var;
     }
 
-    @Override // android.database.ContentObserver
-    public void onChange(boolean z) {
-        xn1 xn1Var;
+    @Override // android.content.ServiceConnection
+    public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && (xn1Var = this.a) != null) {
-            xn1Var.b = xn1Var.a.a(0, null);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
+            this.a.a = a.AbstractBinderC0178a.a(iBinder);
+            qn1 qn1Var = this.a.e;
+            if (qn1Var != null) {
+                qn1Var.a();
+            }
+        }
+    }
+
+    @Override // android.content.ServiceConnection
+    public void onServiceDisconnected(ComponentName componentName) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
+            tn1 tn1Var = this.a;
+            tn1Var.a = null;
+            qn1 qn1Var = tn1Var.e;
+            if (qn1Var != null) {
+                qn1Var.a();
+            }
         }
     }
 }

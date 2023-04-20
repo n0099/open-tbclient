@@ -9,7 +9,7 @@ import com.xiaomi.push.hs;
 import com.xiaomi.push.ie;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class bb {
     public static int a(ba baVar, hn hnVar) {
         return baVar.a(hnVar, bc.a[hnVar.ordinal()] != 1 ? 0 : 1);

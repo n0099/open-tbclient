@@ -1,9 +1,9 @@
 package com.opensource.svgaplayer.proto;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.qya;
-import com.baidu.tieba.rya;
-import com.baidu.tieba.vya;
+import com.baidu.tieba.dza;
+import com.baidu.tieba.yya;
+import com.baidu.tieba.zya;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -60,7 +60,7 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
                     return;
                 }
             }
-            this.shapes = vya.i();
+            this.shapes = dza.i();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -109,7 +109,7 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, list)) == null) {
-                vya.a(list);
+                dza.a(list);
                 this.shapes = list;
                 return this;
             }
@@ -154,39 +154,39 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.squareup.wire2.ProtoAdapter
-        public FrameEntity decode(qya qyaVar) throws IOException {
+        public FrameEntity decode(yya yyaVar) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, qyaVar)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, yyaVar)) == null) {
                 Builder builder = new Builder();
-                long c = qyaVar.c();
+                long c = yyaVar.c();
                 while (true) {
-                    int f = qyaVar.f();
+                    int f = yyaVar.f();
                     if (f != -1) {
                         if (f != 1) {
                             if (f != 2) {
                                 if (f != 3) {
                                     if (f != 4) {
                                         if (f != 5) {
-                                            FieldEncoding g = qyaVar.g();
-                                            builder.addUnknownField(f, g, g.rawProtoAdapter().decode(qyaVar));
+                                            FieldEncoding g = yyaVar.g();
+                                            builder.addUnknownField(f, g, g.rawProtoAdapter().decode(yyaVar));
                                         } else {
-                                            builder.shapes.add(ShapeEntity.ADAPTER.decode(qyaVar));
+                                            builder.shapes.add(ShapeEntity.ADAPTER.decode(yyaVar));
                                         }
                                     } else {
-                                        builder.clipPath(ProtoAdapter.STRING.decode(qyaVar));
+                                        builder.clipPath(ProtoAdapter.STRING.decode(yyaVar));
                                     }
                                 } else {
-                                    builder.transform(Transform.ADAPTER.decode(qyaVar));
+                                    builder.transform(Transform.ADAPTER.decode(yyaVar));
                                 }
                             } else {
-                                builder.layout(Layout.ADAPTER.decode(qyaVar));
+                                builder.layout(Layout.ADAPTER.decode(yyaVar));
                             }
                         } else {
-                            builder.alpha(ProtoAdapter.FLOAT.decode(qyaVar));
+                            builder.alpha(ProtoAdapter.FLOAT.decode(yyaVar));
                         }
                     } else {
-                        qyaVar.d(c);
+                        yyaVar.d(c);
                         return builder.build();
                     }
                 }
@@ -197,27 +197,27 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
-        public void encode(rya ryaVar, FrameEntity frameEntity) throws IOException {
+        public void encode(zya zyaVar, FrameEntity frameEntity) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, ryaVar, frameEntity) == null) {
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, zyaVar, frameEntity) == null) {
                 Float f = frameEntity.alpha;
                 if (f != null) {
-                    ProtoAdapter.FLOAT.encodeWithTag(ryaVar, 1, f);
+                    ProtoAdapter.FLOAT.encodeWithTag(zyaVar, 1, f);
                 }
                 Layout layout = frameEntity.layout;
                 if (layout != null) {
-                    Layout.ADAPTER.encodeWithTag(ryaVar, 2, layout);
+                    Layout.ADAPTER.encodeWithTag(zyaVar, 2, layout);
                 }
                 Transform transform = frameEntity.transform;
                 if (transform != null) {
-                    Transform.ADAPTER.encodeWithTag(ryaVar, 3, transform);
+                    Transform.ADAPTER.encodeWithTag(zyaVar, 3, transform);
                 }
                 String str = frameEntity.clipPath;
                 if (str != null) {
-                    ProtoAdapter.STRING.encodeWithTag(ryaVar, 4, str);
+                    ProtoAdapter.STRING.encodeWithTag(zyaVar, 4, str);
                 }
-                ShapeEntity.ADAPTER.asRepeated().encodeWithTag(ryaVar, 5, frameEntity.shapes);
-                ryaVar.k(frameEntity.unknownFields());
+                ShapeEntity.ADAPTER.asRepeated().encodeWithTag(zyaVar, 5, frameEntity.shapes);
+                zyaVar.k(frameEntity.unknownFields());
             }
         }
 
@@ -276,7 +276,7 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
                 if (transform != null) {
                     newBuilder2.transform = Transform.ADAPTER.redact(transform);
                 }
-                vya.k(newBuilder2.shapes, ShapeEntity.ADAPTER);
+                dza.k(newBuilder2.shapes, ShapeEntity.ADAPTER);
                 newBuilder2.clearUnknownFields();
                 return newBuilder2.build();
             }
@@ -345,7 +345,7 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
         this.layout = layout;
         this.transform = transform;
         this.clipPath = str;
-        this.shapes = vya.g("shapes", list);
+        this.shapes = dza.g("shapes", list);
     }
 
     public boolean equals(Object obj) {
@@ -359,7 +359,7 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
                 return false;
             }
             FrameEntity frameEntity = (FrameEntity) obj;
-            if (unknownFields().equals(frameEntity.unknownFields()) && vya.f(this.alpha, frameEntity.alpha) && vya.f(this.layout, frameEntity.layout) && vya.f(this.transform, frameEntity.transform) && vya.f(this.clipPath, frameEntity.clipPath) && this.shapes.equals(frameEntity.shapes)) {
+            if (unknownFields().equals(frameEntity.unknownFields()) && dza.f(this.alpha, frameEntity.alpha) && dza.f(this.layout, frameEntity.layout) && dza.f(this.transform, frameEntity.transform) && dza.f(this.clipPath, frameEntity.clipPath) && this.shapes.equals(frameEntity.shapes)) {
                 return true;
             }
             return false;
@@ -425,7 +425,7 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
             builder.layout = this.layout;
             builder.transform = this.transform;
             builder.clipPath = this.clipPath;
-            builder.shapes = vya.c("shapes", this.shapes);
+            builder.shapes = dza.c("shapes", this.shapes);
             builder.addUnknownFields(unknownFields());
             return builder;
         }

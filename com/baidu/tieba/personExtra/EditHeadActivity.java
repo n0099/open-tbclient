@@ -48,8 +48,8 @@ import com.baidu.tbadk.img.ImageUploadResult;
 import com.baidu.tbadk.widget.DragImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.s45;
-import com.baidu.tieba.sf5;
+import com.baidu.tieba.t45;
+import com.baidu.tieba.tf5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -83,7 +83,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
     public View j;
     public Button k;
     public Button l;
-    public s45 m;
+    public t45 m;
     public k n;
     public j o;
     public RadioButton p;
@@ -120,7 +120,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         public final /* synthetic */ EditHeadActivity a;
 
         /* loaded from: classes5.dex */
-        public class a implements sf5.d {
+        public class a implements tf5.d {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ g a;
@@ -143,7 +143,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
                 this.a = gVar;
             }
 
-            @Override // com.baidu.tieba.sf5.d
+            @Override // com.baidu.tieba.tf5.d
             public void a(String str, ImageUploadResult imageUploadResult) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLL(1048576, this, str, imageUploadResult) == null) {
@@ -248,11 +248,11 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
                     this.a.b2();
                     return;
                 }
-                sf5 sf5Var = new sf5(FileHelper.getFileDireciory(str), "head");
-                sf5Var.j();
-                sf5Var.l(new a(this));
-                sf5Var.n(this.a.z);
-                sf5Var.g(false);
+                tf5 tf5Var = new tf5(FileHelper.getFileDireciory(str), "head");
+                tf5Var.j();
+                tf5Var.l(new a(this));
+                tf5Var.n(this.a.z);
+                tf5Var.g(false);
                 EditHeadActivity editHeadActivity = this.a;
                 editHeadActivity.showLoadingDialog(editHeadActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f160d));
             }
@@ -1096,9 +1096,9 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.D = (NavigationBar) findViewById(R.id.navigation_bar);
-            s45 s45Var = new s45(getPageContext());
-            this.m = s45Var;
-            s45Var.e(new a(this));
+            t45 t45Var = new t45(getPageContext());
+            this.m = t45Var;
+            t45Var.e(new a(this));
             this.m.h(false);
             this.d = (EditHeadsImageTopLayerView) findViewById(R.id.obfuscated_res_0x7f09100f);
             if (EditHeadActivityConfig.FROM_FLUTTER_IMAGEPICKER.equals(this.b)) {

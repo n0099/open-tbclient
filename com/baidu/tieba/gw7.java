@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.TopicList.TopicList;
 import tbclient.TopicList.TopicListModule;
 /* loaded from: classes4.dex */
-public class gw7 implements hn {
+public class gw7 implements in {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,7 +48,7 @@ public class gw7 implements hn {
         }
     }
 
-    @Override // com.baidu.tieba.hn
+    @Override // com.baidu.tieba.in
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

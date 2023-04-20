@@ -9,9 +9,9 @@ import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 import com.baidu.swan.apps.res.ui.wheelview3d.WheelView3d;
 import com.baidu.tieba.R;
-import com.baidu.tieba.i63;
-import com.baidu.tieba.ll3;
-import com.baidu.tieba.m63;
+import com.baidu.tieba.j63;
+import com.baidu.tieba.ml3;
+import com.baidu.tieba.n63;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -41,11 +41,11 @@ public class BdTimePicker extends LinearLayout {
     }
 
     /* loaded from: classes3.dex */
-    public class a implements m63 {
+    public class a implements n63 {
         public a() {
         }
 
-        @Override // com.baidu.tieba.m63
+        @Override // com.baidu.tieba.n63
         public void a(WheelView3d wheelView3d, int i) {
             BdTimePicker bdTimePicker = BdTimePicker.this;
             bdTimePicker.a = i + bdTimePicker.f;
@@ -54,11 +54,11 @@ public class BdTimePicker extends LinearLayout {
     }
 
     /* loaded from: classes3.dex */
-    public class b implements m63 {
+    public class b implements n63 {
         public b() {
         }
 
-        @Override // com.baidu.tieba.m63
+        @Override // com.baidu.tieba.n63
         public void a(WheelView3d wheelView3d, int i) {
             BdTimePicker bdTimePicker = BdTimePicker.this;
             bdTimePicker.b = i + bdTimePicker.h;
@@ -141,9 +141,9 @@ public class BdTimePicker extends LinearLayout {
     public final void f(Context context) {
         setOrientation(0);
         LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00d8, this);
-        this.l = ll3.f(context, this.l);
-        this.m = ll3.f(context, 16.0f);
-        this.n = ll3.f(context, 14.0f);
+        this.l = ml3.f(context, this.l);
+        this.m = ml3.f(context, 16.0f);
+        this.n = ml3.f(context, 14.0f);
         j();
         this.e = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0923c5);
         WheelView3d wheelView3d = (WheelView3d) findViewById(R.id.obfuscated_res_0x7f09287a);
@@ -222,7 +222,7 @@ public class BdTimePicker extends LinearLayout {
                 arrayList.add(String.format("%02d", Integer.valueOf(i)));
                 i++;
             } else {
-                this.c.setAdapter(new i63(this.f, i2));
+                this.c.setAdapter(new j63(this.f, i2));
                 k(this.c, this.f, this.g);
                 setHour(this.a);
                 return;
@@ -249,7 +249,7 @@ public class BdTimePicker extends LinearLayout {
                 arrayList.add(String.format("%02d", Integer.valueOf(i)));
                 i++;
             } else {
-                this.d.setAdapter(new i63(this.h, i2));
+                this.d.setAdapter(new j63(this.h, i2));
                 k(this.d, this.h, this.i);
                 setMinute(this.b);
                 return;

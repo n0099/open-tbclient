@@ -13,11 +13,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class x19 extends um<u29, CardViewHolder<e39>> {
+public class x19 extends vm<q29, CardViewHolder<g39>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public e39 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public x19(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -42,42 +41,25 @@ public class x19 extends um<u29, CardViewHolder<e39>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.um
+    @Override // com.baidu.tieba.vm
     /* renamed from: s */
-    public CardViewHolder<e39> onCreateViewHolder(ViewGroup viewGroup) {
+    public CardViewHolder<g39> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            this.b = new e39(this.a);
-            return new CardViewHolder<>(this.b);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            return new CardViewHolder<>(new g39(this.a));
         }
         return (CardViewHolder) invokeL.objValue;
     }
 
-    public void u(boolean z) {
-        e39 e39Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && (e39Var = this.b) != null) {
-            e39Var.x(z);
-        }
-    }
-
-    public void onPause() {
-        e39 e39Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (e39Var = this.b) != null) {
-            e39Var.u();
-        }
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.um
+    @Override // com.baidu.tieba.vm
     /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, u29 u29Var, CardViewHolder<e39> cardViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, q29 q29Var, CardViewHolder<g39> cardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, u29Var, cardViewHolder})) == null) {
-            cardViewHolder.a().l(u29Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, q29Var, cardViewHolder})) == null) {
+            cardViewHolder.a().l(q29Var);
             return cardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;

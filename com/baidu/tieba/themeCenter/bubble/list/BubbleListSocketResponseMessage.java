@@ -4,7 +4,7 @@ import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.is9;
+import com.baidu.tieba.qs9;
 import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -25,7 +25,7 @@ public class BubbleListSocketResponseMessage extends SocketResponsedMessage {
     public boolean hasMore;
     public boolean isDefault;
     public List<DressItemData> mDressItemList;
-    public is9 mRecommand;
+    public qs9 mRecommand;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BubbleListSocketResponseMessage() {
@@ -67,9 +67,9 @@ public class BubbleListSocketResponseMessage extends SocketResponsedMessage {
             DataRes dataRes = getBubbleListResIdl.data;
             if (dataRes != null) {
                 if (dataRes.recommend != null) {
-                    is9 is9Var = new is9();
-                    this.mRecommand = is9Var;
-                    is9Var.d(getBubbleListResIdl.data.recommend);
+                    qs9 qs9Var = new qs9();
+                    this.mRecommand = qs9Var;
+                    qs9Var.d(getBubbleListResIdl.data.recommend);
                 }
                 if (getBubbleListResIdl.data.bubbles != null) {
                     this.mDressItemList = new ArrayList();
@@ -104,13 +104,13 @@ public class BubbleListSocketResponseMessage extends SocketResponsedMessage {
         return (List) invokeV.objValue;
     }
 
-    public is9 getRecommand() {
+    public qs9 getRecommand() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.mRecommand;
         }
-        return (is9) invokeV.objValue;
+        return (qs9) invokeV.objValue;
     }
 
     public boolean hasMore() {

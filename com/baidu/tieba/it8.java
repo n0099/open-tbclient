@@ -1,162 +1,130 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.resourceLoaderProc.BigImageLoaderProc;
+import com.baidu.tbadk.coreExtra.view.ImageUrlData;
+import com.baidu.tbadk.widget.richText.TbRichTextData;
+import com.baidu.tbadk.widget.richText.TbRichTextImageInfo;
+import com.baidu.tieba.pb.pb.main.AbsPbActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.ManagerElection;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes5.dex */
 public class it8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
-    public List<String> c;
-    public List<String> d;
-    public String e;
-    public boolean f;
-    public int g;
-    public int h;
 
-    public it8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.g;
-        }
-        return invokeV.intValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.h;
-        }
-        return invokeV.intValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public List<String> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.d;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public List<String> g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.c;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public static it8 i(ManagerElection managerElection) {
+    public static String a(TbRichTextData tbRichTextData) {
         InterceptResult invokeL;
-        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, managerElection)) == null) {
-            if (managerElection == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tbRichTextData)) == null) {
+            if (tbRichTextData == null) {
                 return null;
             }
-            it8 it8Var = new it8();
-            boolean z2 = false;
-            if (managerElection.can_vote.intValue() == 1) {
-                z = true;
+            StringBuilder sb = new StringBuilder(150);
+            TbRichTextImageInfo Y = tbRichTextData.Y();
+            if (Y == null) {
+                return null;
+            }
+            if (!StringUtils.isNull(Y.Q())) {
+                return Y.Q();
+            }
+            if (Y.getHeight() * Y.getWidth() > TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) {
+                double sqrt = Math.sqrt((TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) / (Y.getHeight() * Y.getWidth()));
+                sb.append(BigImageLoaderProc.NCDN_PER);
+                sb.append(String.valueOf((int) (Y.getWidth() * sqrt)));
+                sb.append("&height=");
+                sb.append(String.valueOf((int) (Y.getHeight() * sqrt)));
             } else {
-                z = false;
+                double width = Y.getWidth() / Y.getHeight();
+                double sqrt2 = Math.sqrt((TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) / width);
+                sb.append(BigImageLoaderProc.NCDN_PER);
+                sb.append(String.valueOf((int) (width * sqrt2)));
+                sb.append("&height=");
+                sb.append(String.valueOf((int) sqrt2));
             }
-            it8Var.a = z;
-            it8Var.b = managerElection.vote_num.intValue();
-            if (managerElection.is_show_distribute.intValue() == 1) {
-                z2 = true;
+            sb.append("&src=");
+            sb.append(hi.getUrlEncode(Y.getSrc()));
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void b(am9 am9Var, AbsPbActivity.e eVar) {
+        ImageUrlData imageUrlData;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65537, null, am9Var, eVar) != null) || am9Var == null || am9Var.a0() == null || am9Var.a0().S() == null || eVar == null || eVar.a == null || eVar.b == null || am9Var.a0().S().size() == 0) {
+            return;
+        }
+        String str = (String) ListUtils.getItem(eVar.a, eVar.j);
+        if (StringUtils.isNull(str)) {
+            return;
+        }
+        eVar.a = new ArrayList<>();
+        ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = eVar.b;
+        eVar.b = new ConcurrentHashMap<>();
+        Iterator<TbRichTextData> it = am9Var.a0().S().iterator();
+        while (it.hasNext()) {
+            TbRichTextData next = it.next();
+            if (next != null && next.getType() == 8) {
+                String a = a(next);
+                if (!StringUtils.isNull(a) && concurrentHashMap.get(a) != null && (imageUrlData = concurrentHashMap.get(a)) != null) {
+                    eVar.a.add(a);
+                    eVar.b.put(a, imageUrlData);
+                }
             }
-            it8Var.f = z2;
-            it8Var.g = managerElection.remainder_time.intValue();
-            it8Var.h = managerElection.status.intValue();
-            it8Var.e = managerElection.tail_text;
-            it8Var.c = managerElection.vote_condition_title;
-            it8Var.d = managerElection.vote_condition;
-            return it8Var;
         }
-        return (it8) invokeL.objValue;
+        eVar.j = ListUtils.getPosition(eVar.a, str);
     }
 
-    public void j(boolean z) {
+    public static am9 c(ht8 ht8Var, boolean z, int i) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.a = z;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{ht8Var, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
+            if (z) {
+                if (ht8Var != null && ht8Var.F() != null && ht8Var.F().size() > 0) {
+                    am9 am9Var = ht8Var.F().get(0);
+                    if (am9Var.E() != 1) {
+                        return d(ht8Var);
+                    }
+                    return am9Var;
+                }
+                return null;
+            }
+            return d(ht8Var);
         }
+        return (am9) invokeCommon.objValue;
     }
 
-    public void k(int i) {
+    public static am9 d(ht8 ht8Var) {
+        InterceptResult invokeL;
+        MetaData metaData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.h = i;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, ht8Var)) == null) {
+            if (ht8Var != null && ht8Var.M() != null && ht8Var.M().getAuthor() != null) {
+                am9 am9Var = new am9();
+                MetaData author = ht8Var.M().getAuthor();
+                String userId = author.getUserId();
+                HashMap<String, MetaData> userMap = ht8Var.M().getUserMap();
+                if (userMap != null && (metaData = userMap.get(userId)) != null && metaData.getUserId() != null) {
+                    author = metaData;
+                }
+                am9Var.K0(1);
+                am9Var.Q0(ht8Var.M().getFirstPostId());
+                am9Var.h1(ht8Var.M().getTitle());
+                am9Var.g1(ht8Var.M().getCreateTime());
+                am9Var.H0(author);
+                return am9Var;
+            }
+            return null;
         }
-    }
-
-    public void l(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.b = i;
-        }
+        return (am9) invokeL.objValue;
     }
 }

@@ -1,17 +1,22 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import android.annotation.SuppressLint;
+import android.os.Handler;
+import android.os.Message;
 import com.baidu.nadcore.webview.view.AbsNadBrowserView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
+@SuppressLint({"HandlerLeak"})
 /* loaded from: classes6.dex */
-public final class s81 implements View.OnClickListener {
+public final class s81 extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ AbsNadBrowserView a;
 
+    /* JADX DEBUG: Incorrect args count in method signature: ()V */
     public s81(AbsNadBrowserView absNadBrowserView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -30,11 +35,21 @@ public final class s81 implements View.OnClickListener {
         this.a = absNadBrowserView;
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view2) {
+    @Override // android.os.Handler
+    public void handleMessage(Message msg) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            this.a.M();
+        if (interceptable == null || interceptable.invokeL(1048576, this, msg) == null) {
+            Intrinsics.checkNotNullParameter(msg, "msg");
+            int i = msg.what;
+            if (i != 1) {
+                if (i == 2) {
+                    this.a.S(msg.arg1);
+                    return;
+                }
+                return;
+            }
+            this.a.l();
+            this.a.k();
         }
     }
 }

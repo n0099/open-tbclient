@@ -44,37 +44,37 @@ import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ad.download.view.ApkDownloadView;
 import com.baidu.tieba.ad.webview.BaseAdWebView;
-import com.baidu.tieba.ai0;
-import com.baidu.tieba.bk0;
-import com.baidu.tieba.bz5;
+import com.baidu.tieba.bi0;
+import com.baidu.tieba.ck0;
 import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.fi0;
-import com.baidu.tieba.fm9;
-import com.baidu.tieba.gm9;
-import com.baidu.tieba.gz5;
-import com.baidu.tieba.hm9;
+import com.baidu.tieba.cz5;
+import com.baidu.tieba.gi0;
 import com.baidu.tieba.hz5;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.ii0;
 import com.baidu.tieba.iz5;
 import com.baidu.tieba.jg;
+import com.baidu.tieba.ji0;
 import com.baidu.tieba.jz5;
-import com.baidu.tieba.km5;
-import com.baidu.tieba.l11;
-import com.baidu.tieba.lw4;
-import com.baidu.tieba.lz5;
+import com.baidu.tieba.kz5;
+import com.baidu.tieba.lm5;
+import com.baidu.tieba.m11;
+import com.baidu.tieba.mw4;
 import com.baidu.tieba.mz5;
-import com.baidu.tieba.o35;
+import com.baidu.tieba.nm9;
+import com.baidu.tieba.nz5;
 import com.baidu.tieba.og;
-import com.baidu.tieba.oj0;
-import com.baidu.tieba.oz5;
-import com.baidu.tieba.r35;
-import com.baidu.tieba.t35;
+import com.baidu.tieba.om9;
+import com.baidu.tieba.p35;
+import com.baidu.tieba.pj0;
+import com.baidu.tieba.pm9;
+import com.baidu.tieba.pz5;
+import com.baidu.tieba.s35;
 import com.baidu.tieba.u35;
 import com.baidu.tieba.v35;
-import com.baidu.tieba.v51;
-import com.baidu.tieba.xj0;
+import com.baidu.tieba.w35;
+import com.baidu.tieba.w51;
 import com.baidu.tieba.yj0;
+import com.baidu.tieba.zj0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -94,15 +94,15 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
     public static /* synthetic */ Interceptable $ic;
     public static boolean C;
     public transient /* synthetic */ FieldHolder $fh;
-    public lz5 A;
-    public xj0 B;
+    public mz5 A;
+    public yj0 B;
     public TBAdWebView t;
-    public fm9 u;
-    public hm9 v;
-    public t35 w;
+    public nm9 u;
+    public pm9 v;
+    public u35 w;
     public boolean x;
     public boolean y;
-    public oz5 z;
+    public pz5 z;
 
     static {
         InterceptResult invokeClinit;
@@ -267,8 +267,8 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
         @Override // com.baidu.tieba.ad.webview.BaseAdWebView.c, android.webkit.WebViewClient
         public boolean shouldOverrideUrlLoading(WebView webView, String str) {
             InterceptResult invokeLL;
-            iz5 iz5Var;
-            iz5 iz5Var2;
+            jz5 jz5Var;
+            jz5 jz5Var2;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, webView, str)) == null) {
                 if (TextUtils.isEmpty(str)) {
@@ -277,7 +277,7 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
                 if (this.c.S1(str)) {
                     return true;
                 }
-                int i = bz5.l().i(this.c.getPageContext().getPageActivity(), new String[]{str});
+                int i = cz5.l().i(this.c.getPageContext().getPageActivity(), new String[]{str});
                 if (i == 1) {
                     this.c.finish();
                     return true;
@@ -285,8 +285,8 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
                     return true;
                 } else {
                     AdWebViewActivity adWebViewActivity = this.c;
-                    if (adWebViewActivity.A1(adWebViewActivity.b) && (iz5Var2 = this.c.a) != null) {
-                        iz5Var2.q(false);
+                    if (adWebViewActivity.A1(adWebViewActivity.b) && (jz5Var2 = this.c.a) != null) {
+                        jz5Var2.q(false);
                     }
                     AdWebViewActivity adWebViewActivity2 = this.c;
                     adWebViewActivity2.b = str;
@@ -296,8 +296,8 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
                     }
                     if (URLUtil.isNetworkUrl(this.c.b)) {
                         this.c.showProgressBar();
-                        if (this.c.y && (iz5Var = this.c.a) != null) {
-                            iz5Var.r();
+                        if (this.c.y && (jz5Var = this.c.a) != null) {
+                            jz5Var.r();
                         }
                         return false;
                     }
@@ -343,7 +343,7 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
     }
 
     /* loaded from: classes3.dex */
-    public class b implements ai0 {
+    public class b implements bi0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdWebViewActivity a;
@@ -366,11 +366,11 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
             this.a = adWebViewActivity;
         }
 
-        @Override // com.baidu.tieba.ai0
+        @Override // com.baidu.tieba.bi0
         public void a(boolean z, @Nullable Map<String, String> map) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZL(1048576, this, z, map) == null) {
-                String p = fi0.p(map);
+                String p = gi0.p(map);
                 if (!TextUtils.isEmpty(p)) {
                     this.a.Q1(p);
                 }
@@ -379,7 +379,7 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
     }
 
     /* loaded from: classes3.dex */
-    public class c implements hm9 {
+    public class c implements pm9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdWebViewActivity a;
@@ -402,7 +402,7 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
             this.a = adWebViewActivity;
         }
 
-        @Override // com.baidu.tieba.hm9
+        @Override // com.baidu.tieba.pm9
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -457,7 +457,7 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
     }
 
     /* loaded from: classes3.dex */
-    public class e implements r35 {
+    public class e implements s35 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdWebViewActivity a;
@@ -480,7 +480,7 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
             this.a = adWebViewActivity;
         }
 
-        @Override // com.baidu.tieba.r35
+        @Override // com.baidu.tieba.s35
         public void a(List<Long> list) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, list) == null) && list != null && list.size() != 0) {
@@ -491,7 +491,7 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
                     sb.append(l);
                     str = "_";
                 }
-                og a = km5.a();
+                og a = lm5.a();
                 a.a("frame_delta", sb.toString());
                 BdStatisticsManager.getInstance().performance(AlbumActivityConfig.FROM_WEB_VIEW, a);
             }
@@ -532,7 +532,7 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
     }
 
     /* loaded from: classes3.dex */
-    public class g implements oz5.b {
+    public class g implements pz5.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdWebViewActivity a;
@@ -555,12 +555,12 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
             this.a = adWebViewActivity;
         }
 
-        @Override // com.baidu.tieba.oz5.b
+        @Override // com.baidu.tieba.pz5.b
         public void a(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
                 JSONObject optJSONObject = jSONObject.optJSONObject("data");
-                this.a.A = lz5.a(optJSONObject);
+                this.a.A = mz5.a(optJSONObject);
                 if (this.a.A == null) {
                     return;
                 }
@@ -640,7 +640,7 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
             return;
         }
         C = true;
-        o35.a().b(16, new e(this));
+        p35.a().b(16, new e(this));
     }
 
     @Override // com.baidu.tieba.ad.browser.newstyle.AdBaseWebViewActivity
@@ -687,7 +687,7 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
     public void initCookie() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            gz5.c(getApplicationContext());
+            hz5.c(getApplicationContext());
         }
     }
 
@@ -747,11 +747,11 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
 
     @Override // com.baidu.tieba.ad.browser.newstyle.AdBaseWebViewActivity
     public void loadUrl(String str) {
-        iz5 iz5Var;
+        jz5 jz5Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
-            if (this.y && (iz5Var = this.a) != null) {
-                iz5Var.r();
+            if (this.y && (jz5Var = this.a) != null) {
+                jz5Var.r();
             }
             TBAdWebView tBAdWebView = this.t;
             if (tBAdWebView != null) {
@@ -789,15 +789,15 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
             this.t.setDownloadStartListener(this);
             i iVar = new i(this, this.t, this);
             this.t.setWebViewClient(iVar);
-            hz5 hz5Var = new hz5(this);
-            hz5Var.a(this.v);
-            this.t.setWebChromeClient(hz5Var);
+            iz5 iz5Var = new iz5(this);
+            iz5Var.a(this.v);
+            this.t.setWebChromeClient(iz5Var);
             if (this.f) {
                 addJavascriptInterface();
             }
             CompatibleUtile.getInstance().removeJavascriptInterface(this.t);
             boolean isHybridBridgeEnabled = TbadkCoreApplication.getInst().isHybridBridgeEnabled();
-            t35 m = WebViewBridge.m(isHybridBridgeEnabled, this.t, iVar, hz5Var, null);
+            u35 m = WebViewBridge.m(isHybridBridgeEnabled, this.t, iVar, iz5Var, null);
             this.w = m;
             if (isHybridBridgeEnabled) {
                 m.d(new NamedBridgeHandler(this, m) { // from class: com.baidu.tieba.ad.browser.newstyle.AdWebViewActivity.2
@@ -824,7 +824,7 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
                             int i2 = newInitContext.flag;
                             if ((i2 & 1) != 0) {
                                 int i3 = i2 & 2;
-                                super((t35) newInitContext.callArgs[0]);
+                                super((u35) newInitContext.callArgs[0]);
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -833,7 +833,7 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
                         this.this$0 = this;
                     }
 
-                    @v35(isAsync = false, value = "trackFPS")
+                    @w35(isAsync = false, value = "trackFPS")
                     private void trackFPS() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(65537, this) == null) {
@@ -904,7 +904,7 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
                             int i2 = newInitContext.flag;
                             if ((i2 & 1) != 0) {
                                 int i3 = i2 & 2;
-                                super((t35) newInitContext.callArgs[0]);
+                                super((u35) newInitContext.callArgs[0]);
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -913,7 +913,7 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
                         this.this$0 = this;
                     }
 
-                    @v35(isAsync = false, value = "share")
+                    @w35(isAsync = false, value = "share")
                     private void share(JSONObject jSONObject) {
                         Interceptable interceptable2 = $ic;
                         if ((interceptable2 != null && interceptable2.invokeL(65537, this, jSONObject) != null) || jSONObject == null) {
@@ -953,7 +953,7 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
                             int i2 = newInitContext.flag;
                             if ((i2 & 1) != 0) {
                                 int i3 = i2 & 2;
-                                super((t35) newInitContext.callArgs[0]);
+                                super((u35) newInitContext.callArgs[0]);
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -962,7 +962,7 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
                         this.this$0 = this;
                     }
 
-                    @v35(isAsync = false, value = "viewHideSwitch")
+                    @w35(isAsync = false, value = "viewHideSwitch")
                     private void viewHideSwitch(JSONObject jSONObject) {
                         Interceptable interceptable2 = $ic;
                         if ((interceptable2 != null && interceptable2.invokeL(65537, this, jSONObject) != null) || jSONObject == null) {
@@ -985,44 +985,44 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
         }
     }
 
-    public xj0 O1(String str) {
+    public yj0 O1(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (oj0.b().query(str) != null) {
-                return oj0.b().query(str);
+            if (pj0.b().query(str) != null) {
+                return pj0.b().query(str);
             }
-            xj0 xj0Var = new xj0();
-            xj0Var.h(str);
-            bk0 bk0Var = new bk0();
-            bk0Var.j = str;
-            bk0Var.a = this.o;
-            xj0Var.p = bk0Var;
             yj0 yj0Var = new yj0();
-            yj0Var.a = "LANDING_PAGE";
-            xj0Var.q = yj0Var;
-            return xj0Var;
+            yj0Var.h(str);
+            ck0 ck0Var = new ck0();
+            ck0Var.j = str;
+            ck0Var.a = this.o;
+            yj0Var.p = ck0Var;
+            zj0 zj0Var = new zj0();
+            zj0Var.a = "LANDING_PAGE";
+            yj0Var.q = zj0Var;
+            return yj0Var;
         }
-        return (xj0) invokeL.objValue;
+        return (yj0) invokeL.objValue;
     }
 
     @Override // com.baidu.tieba.ad.webview.BaseAdWebView.d
-    public void j1(@NonNull xj0 xj0Var) {
+    public void j1(@NonNull yj0 yj0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, xj0Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048596, this, yj0Var) == null) {
             if (this.r) {
                 W1();
                 return;
             }
             if (this.z == null) {
-                this.z = new oz5(new g(this));
+                this.z = new pz5(new g(this));
             }
-            String str = xj0Var.g;
+            String str = yj0Var.g;
             HashMap hashMap = new HashMap();
             hashMap.put("ext", this.o);
             hashMap.put("charge_url", this.q);
             hashMap.put("apk_url", str);
-            this.z.g(hashMap, oz5.c);
+            this.z.g(hashMap, pz5.c);
         }
     }
 
@@ -1032,9 +1032,9 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
         if (interceptable == null || interceptable.invokeL(1048600, this, bundle) == null) {
             super.onCreate(bundle);
             MessageManager.getInstance().runTask(2001308, (Class) null);
-            fm9 fm9Var = new fm9();
-            this.u = fm9Var;
-            fm9Var.a(new XiubaTbJsBridge(getPageContext()));
+            nm9 nm9Var = new nm9();
+            this.u = nm9Var;
+            nm9Var.a(new XiubaTbJsBridge(getPageContext()));
             this.u.a(new CommonTbJsBridge(getPageContext()));
             this.u.a(buildGameDownloadJSPrompt());
             if (this.e) {
@@ -1057,7 +1057,7 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
             apkDownloadView.setTextColorInitSkin(R.color.CAM_X0101);
             apkDownloadView.setTextColorSkin(R.color.CAM_X0101);
             apkDownloadView.c();
-            new jz5(apkDownloadView, this.B);
+            new kz5(apkDownloadView, this.B);
             return apkDownloadView;
         }
         return (ApkDownloadView) invokeV.objValue;
@@ -1068,7 +1068,7 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             ClogBuilder clogBuilder = new ClogBuilder();
             clogBuilder.y(ClogBuilder.LogType.FREE_SHOW).q(String.valueOf(0)).v("DOWNLOAD_RECTIFY").k(String.valueOf(this.A.a)).p(this.o);
-            l11.b(clogBuilder);
+            m11.b(clogBuilder);
             int i2 = this.A.a;
             if (i2 != 1) {
                 if (i2 != 2 && i2 != 3) {
@@ -1101,7 +1101,7 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
         if (TextUtils.isEmpty(str)) {
             str = String.valueOf(System.currentTimeMillis());
         }
-        xj0 O1 = O1(str);
+        yj0 O1 = O1(str);
         this.B = O1;
         this.t.d(O1);
         this.a.j(this.B);
@@ -1111,11 +1111,11 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            String str2 = ii0.d().r() + "://vendor/ad";
+            String str2 = ji0.d().r() + "://vendor/ad";
             if (str.startsWith(str2)) {
                 if (!str.startsWith(str2 + "/download")) {
                     if (!str.startsWith(str2 + "/registerDeeplink")) {
-                        return v51.b.a().a(this, str, this.q, new b(this));
+                        return w51.b.a().a(this, str, this.q, new b(this));
                     }
                     return false;
                 }
@@ -1127,38 +1127,38 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
     }
 
     public final void V1() {
-        lz5 lz5Var;
-        lw4 lw4Var;
+        mz5 mz5Var;
+        mw4 mw4Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.B != null && (lz5Var = this.A) != null && (lw4Var = lz5Var.b) != null) {
-            String str = lw4Var.j;
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.B != null && (mz5Var = this.A) != null && (mw4Var = mz5Var.b) != null) {
+            String str = mw4Var.j;
             if (!TextUtils.isEmpty(str)) {
                 this.B.g = str;
             }
-            mz5.d(this.A, P1(), this, new h(this), new a(this));
+            nz5.d(this.A, P1(), this, new h(this), new a(this));
         }
     }
 
-    public final gm9 buildGameDownloadJSPrompt() {
+    public final om9 buildGameDownloadJSPrompt() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001386, gm9.class, getPageContext());
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001386, om9.class, getPageContext());
             if (runTask != null && runTask.getData() != null) {
-                return (gm9) runTask.getData();
+                return (om9) runTask.getData();
             }
             return null;
         }
-        return (gm9) invokeV.objValue;
+        return (om9) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.ad.browser.newstyle.AdBaseWebViewActivity
     public void webViewDestory() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
-            fm9 fm9Var = this.u;
-            if (fm9Var != null) {
-                fm9Var.h();
+            nm9 nm9Var = this.u;
+            if (nm9Var != null) {
+                nm9Var.h();
             }
             TBAdWebView tBAdWebView = this.t;
             if (tBAdWebView != null) {
@@ -1197,7 +1197,7 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
                 }
             }
             hashMap.put(TbConfig.LOCAL_PIC_DIR, jSONArray);
-            u35 j = u35.j("TBJS_COMMON_Image", "onImageUploadFinish", hashMap, 0L, false);
+            v35 j = v35.j("TBJS_COMMON_Image", "onImageUploadFinish", hashMap, 0L, false);
             if (this.w != null) {
                 this.w.c(j);
             }

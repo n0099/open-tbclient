@@ -4,7 +4,7 @@ import com.xiaomi.push.fk;
 import com.xiaomi.push.ga;
 import com.xiaomi.push.gm;
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ci implements ga {
     public final /* synthetic */ XMPushService a;
 

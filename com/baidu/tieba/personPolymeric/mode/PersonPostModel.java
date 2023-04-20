@@ -30,13 +30,13 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.a9;
 import com.baidu.tieba.bb;
 import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
-import com.baidu.tieba.hn;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.o59;
-import com.baidu.tieba.p59;
+import com.baidu.tieba.in;
 import com.baidu.tieba.personPolymeric.mode.message.UserPostPageHttpResponseMessage;
 import com.baidu.tieba.personPolymeric.mode.message.UserPostPageRequestMessage;
 import com.baidu.tieba.personPolymeric.mode.message.UserPostPageSocketResponsedMessage;
+import com.baidu.tieba.w59;
+import com.baidu.tieba.x59;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -71,7 +71,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     public Map<String, Object> dataResMap;
     public int hide_post;
     public boolean isShowRecycleBinRedTip;
-    public o59 mCardNullPolymericData;
+    public w59 mCardNullPolymericData;
     public int mFrom;
     public boolean mIsHost;
     public boolean mIsReset;
@@ -80,8 +80,8 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     public ResponsedMessage<?> mResponsedMessage;
     public HttpMessageListener pageHttpListener;
     public bb pageSocketListener;
-    public final ArrayList<hn> postList;
-    public final ArrayList<hn> threadList;
+    public final ArrayList<in> postList;
+    public final ArrayList<in> threadList;
     public int view_card_num;
 
     /* loaded from: classes5.dex */
@@ -458,7 +458,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     }
 
     /* loaded from: classes5.dex */
-    public static class PostInfoList extends OrmObject implements Serializable, PreLoadImageProvider, hn {
+    public static class PostInfoList extends OrmObject implements Serializable, PreLoadImageProvider, in {
         public static /* synthetic */ Interceptable $ic;
         public static final BdUniqueId POST_INFO;
         public transient /* synthetic */ FieldHolder $fh;
@@ -509,7 +509,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             POST_INFO = BdUniqueId.gen();
         }
 
-        @Override // com.baidu.tieba.hn
+        @Override // com.baidu.tieba.in
         public BdUniqueId getType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1066,16 +1066,16 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         return invokeII.intValue;
     }
 
-    public static ArrayList<hn> mergeDynamicThreadByTime(ArrayList<hn> arrayList) {
+    public static ArrayList<in> mergeDynamicThreadByTime(ArrayList<in> arrayList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, arrayList)) == null) {
             String yearBytime = StringHelper.getYearBytime(System.currentTimeMillis());
-            Iterator<hn> it = arrayList.iterator();
+            Iterator<in> it = arrayList.iterator();
             String str = "";
             String str2 = "";
             while (it.hasNext()) {
-                hn next = it.next();
+                in next = it.next();
                 if (next instanceof CardPersonDynamicThreadData) {
                     CardPersonDynamicThreadData cardPersonDynamicThreadData = (CardPersonDynamicThreadData) next;
                     cardPersonDynamicThreadData.D = true;
@@ -1110,15 +1110,15 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         this.dataResMap = DataExt.toMap(dataRes);
         this.hide_post = dataRes.hide_post.intValue();
         if (this.mIsHost && ((2 == dataRes.mask_type.intValue() || 3 == dataRes.mask_type.intValue() || 4 == dataRes.mask_type.intValue()) && i == 1)) {
-            this.postList.add(new p59());
+            this.postList.add(new x59());
             z = false;
         } else {
             z = true;
         }
         if (ListUtils.isEmpty(dataRes.post_list) && z) {
-            o59 o59Var = new o59();
-            this.mCardNullPolymericData = o59Var;
-            this.postList.add(o59Var);
+            w59 w59Var = new w59();
+            this.mCardNullPolymericData = w59Var;
+            this.postList.add(w59Var);
             return;
         }
         for (tbclient.PostInfoList postInfoList : dataRes.post_list) {

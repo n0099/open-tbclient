@@ -4,14 +4,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.CardForumEnterView;
+import com.baidu.tieba.feed.component.CardAppView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class m07 extends lz6<CardForumEnterView, wv6> {
+public class m07 extends mz6<CardAppView, wv6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,26 +35,26 @@ public class m07 extends lz6<CardForumEnterView, wv6> {
         }
     }
 
-    @Override // com.baidu.tieba.lz6, com.baidu.tieba.a07
+    @Override // com.baidu.tieba.mz6, com.baidu.tieba.b07
     @NonNull
     public View a(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             View a = super.a(viewGroup);
-            i17.n(a, null, null, null, -2);
+            j17.j(a);
             return a;
         }
         return (View) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.a07
+    @Override // com.baidu.tieba.b07
     /* renamed from: e */
-    public void b(@NonNull CardForumEnterView cardForumEnterView, @NonNull wv6 wv6Var) {
+    public void b(@NonNull CardAppView cardAppView, @NonNull wv6 wv6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardForumEnterView, wv6Var) == null) {
-            cardForumEnterView.update(wv6Var);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardAppView, wv6Var) == null) {
+            cardAppView.a(wv6Var);
         }
     }
 }

@@ -13,9 +13,9 @@ import androidx.annotation.ColorInt;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.widget.image.TbImage;
-import com.baidu.tieba.ao9;
-import com.baidu.tieba.jt5;
-import com.baidu.tieba.lt5;
+import com.baidu.tieba.io9;
+import com.baidu.tieba.kt5;
+import com.baidu.tieba.mt5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,7 +43,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000\u0093\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0004\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0007\n\u0002\u0010\u000e\n\u0002\b\u0005\n\u0002\u0010\u0007\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0000\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000*\u0001\u001c\u0018\u00002\u00020\u00012\u00020\u0002B%\b\u0007\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0006\u0012\b\b\u0002\u0010\u0007\u001a\u00020\b¢\u0006\u0002\u0010\tJ\b\u0010%\u001a\u00020 H\u0002J\u0010\u0010&\u001a\u00020 2\u0006\u0010'\u001a\u00020(H\u0016J\u0010\u0010)\u001a\u00020 2\u0006\u0010'\u001a\u00020(H\u0016J\u0012\u0010*\u001a\u00020 2\b\u0010\u0005\u001a\u0004\u0018\u00010\u0006H\u0002J\b\u0010+\u001a\u00020 H\u0002J\u0018\u0010,\u001a\u00020 2\u0006\u0010-\u001a\u00020.2\b\b\u0001\u0010/\u001a\u00020\bJ\u0006\u00100\u001a\u00020 J\u0010\u00101\u001a\u00020 2\b\u00102\u001a\u0004\u0018\u000103J\u001c\u00104\u001a\u00020 2\b\u00105\u001a\u0004\u0018\u0001062\b\u00107\u001a\u0004\u0018\u000108H\u0016J\u0016\u00109\u001a\u00020 2\u000e\u0010\u001b\u001a\n\u0012\u0004\u0012\u00020 \u0018\u00010\u001fJ\u0010\u0010:\u001a\u00020 2\b\u0010;\u001a\u0004\u0018\u00010<J&\u0010=\u001a\u00020 2\u0006\u0010>\u001a\u00020.2\u0006\u0010?\u001a\u00020.2\u0006\u0010@\u001a\u00020.2\u0006\u0010A\u001a\u00020.J\u000e\u0010B\u001a\u00020 2\u0006\u0010C\u001a\u00020DJ\u0006\u0010E\u001a\u00020 J\u0006\u0010F\u001a\u00020 J\u0012\u0010G\u001a\u00020 2\b\u0010H\u001a\u0004\u0018\u00010IH\u0002R\u0010\u0010\n\u001a\u0004\u0018\u00010\u000bX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\f\u001a\u0004\u0018\u00010\rX\u0082\u000e¢\u0006\u0002\n\u0000R\u001b\u0010\u000e\u001a\u00020\u000f8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0012\u0010\u0013\u001a\u0004\b\u0010\u0010\u0011R\u0010\u0010\u0014\u001a\u0004\u0018\u00010\u0015X\u0082\u000e¢\u0006\u0002\n\u0000R\u001a\u0010\u0016\u001a\u00020\u0017X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0016\u0010\u0018\"\u0004\b\u0019\u0010\u001aR\u0010\u0010\u001b\u001a\u00020\u001cX\u0082\u0004¢\u0006\u0004\n\u0002\u0010\u001dR\u0016\u0010\u001e\u001a\n\u0012\u0004\u0012\u00020 \u0018\u00010\u001fX\u0082\u000e¢\u0006\u0002\n\u0000R\u001b\u0010!\u001a\u00020\u00158BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b$\u0010\u0013\u001a\u0004\b\"\u0010#¨\u0006J"}, d2 = {"Lcom/baidu/tbadk/widget/image/TbImage;", "Lcom/facebook/drawee/view/SimpleDraweeView;", "Lcom/baidu/tbadk/widget/image/ITbImage;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "defStyleAttr", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "animatedDrawable2", "Lcom/facebook/fresco/animation/drawable/AnimatedDrawable2;", "controlAnimatable", "Landroid/graphics/drawable/Animatable;", "draweeControllerBuilder", "Lcom/facebook/drawee/backends/pipeline/PipelineDraweeControllerBuilder;", "getDraweeControllerBuilder", "()Lcom/facebook/drawee/backends/pipeline/PipelineDraweeControllerBuilder;", "draweeControllerBuilder$delegate", "Lkotlin/Lazy;", "hierarchyBuilder", "Lcom/facebook/drawee/generic/GenericDraweeHierarchyBuilder;", "isLooping", "", "()Z", "setLooping", "(Z)V", ServiceSpecificExtraArgs.CastExtraArgs.LISTENER, "com/baidu/tbadk/widget/image/TbImage$listener$1", "Lcom/baidu/tbadk/widget/image/TbImage$listener$1;", "onWebpEndedListener", "Lkotlin/Function0;", "", "uriHierarchyBuilder", "getUriHierarchyBuilder", "()Lcom/facebook/drawee/generic/GenericDraweeHierarchyBuilder;", "uriHierarchyBuilder$delegate", "checkOptionNonNull", "displayImage", "url", "", "preloadImage", "processAttrs", "setAnimatedDrawableListener", "setBorder", "borderWidth", "", "borderColor", "setCircle", "setCustomColorFilter", "colorFilter", "Landroid/graphics/ColorFilter;", "setImageURI", "uri", "Landroid/net/Uri;", "callerContext", "", "setOnWebpEndedListener", "setPlaceHolderDrawable", ResourceManager.DRAWABLE, "Landroid/graphics/drawable/Drawable;", "setRadius", "leftTopRadius", "rightTopRadius", "rightBottomRadius", "leftBottomRadius", "setScaleType", "scaleType", "Lcom/facebook/drawee/drawable/ScalingUtils$ScaleType;", "startPlay", "stopPlay", "updateViewSize", "imageInfo", "Lcom/facebook/imagepipeline/image/ImageInfo;", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes3.dex */
-public final class TbImage extends SimpleDraweeView implements jt5 {
+public final class TbImage extends SimpleDraweeView implements kt5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
@@ -412,7 +412,7 @@ public final class TbImage extends SimpleDraweeView implements jt5 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return jt5.a.a(this);
+            return kt5.a.a(this);
         }
         return (ImageView.ScaleType[]) invokeV.objValue;
     }
@@ -490,7 +490,7 @@ public final class TbImage extends SimpleDraweeView implements jt5 {
                 setImageURI(url);
                 return;
             }
-            lt5.a.a().a(url, this);
+            mt5.a.a().a(url, this);
         }
     }
 
@@ -499,7 +499,7 @@ public final class TbImage extends SimpleDraweeView implements jt5 {
         GenericDraweeHierarchyBuilder genericDraweeHierarchyBuilder2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, attributeSet) == null) && attributeSet != null) {
-            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, ao9.TbFrescoImage);
+            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, io9.TbFrescoImage);
             int resourceId = obtainStyledAttributes.getResourceId(3, 0);
             GenericDraweeHierarchyBuilder genericDraweeHierarchyBuilder3 = null;
             if (resourceId != 0) {

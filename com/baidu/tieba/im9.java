@@ -1,114 +1,153 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.webkit.WebView;
-import androidx.core.util.Pair;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
 /* loaded from: classes4.dex */
-public abstract class im9 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String PROXY_CLASS_NAME_SUFFIX = "_Proxy";
-    public static final String PROXY_CLASS_PACKAGE_NAME = "com.baidu.tieba.h5power";
+public class im9 {
+    public static /* synthetic */ Interceptable $ic;
+    public static HashMap<String, km9> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, List<jm9>> mAsyncCallBackMethodList;
-    public HashSet<String> mNotificationNameList;
 
-    public km9 dispatch(WebView webView, mm9 mm9Var, km9 km9Var) {
-        InterceptResult invokeLLL;
+    public static void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, mm9Var, km9Var)) == null) {
-            return null;
-        }
-        return (km9) invokeLLL.objValue;
-    }
-
-    public abstract List<km9> processNotification(WebView webView, String str, HashMap hashMap);
-
-    public im9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
         }
     }
 
-    public km9 addObserver(WebView webView, String str, km9 km9Var, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{webView, str, km9Var, Boolean.valueOf(z)})) == null) {
-            if (km9Var == null) {
-                km9Var = new km9();
-            }
-            if (this.mNotificationNameList.contains(str)) {
-                km9Var.n(false);
-                km9Var.s(true);
-                List<jm9> list = this.mAsyncCallBackMethodList.get(str);
-                if (list == null) {
-                    list = new ArrayList<>();
-                }
-                jm9 jm9Var = new jm9();
-                jm9Var.e(km9Var.c());
-                jm9Var.d(z);
-                jm9Var.f(km9Var.e());
-                list.add(jm9Var);
-                this.mAsyncCallBackMethodList.put(str, list);
-                if (webView instanceof oe6) {
-                    ((oe6) webView).a(str, jm9Var.a());
+    /* loaded from: classes4.dex */
+    public static class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return km9Var;
         }
-        return (km9) invokeCommon.objValue;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof BackgroundSwitchMessage) && ((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
+                im9.a(1);
+            }
+        }
     }
 
-    public km9 addObserver(String str, km9 km9Var, boolean z) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947858452, "Lcom/baidu/tieba/im9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947858452, "Lcom/baidu/tieba/im9;");
+                return;
+            }
+        }
+        MessageManager.getInstance().registerListener(new a(2001011));
+        a = new HashMap<>();
+    }
+
+    public static void a(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65537, null, i) == null) {
+            for (String str : a.keySet()) {
+                b(a.get(str), i);
+            }
+        }
+    }
+
+    public static void b(km9 km9Var, int i) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65538, null, km9Var, i) == null) {
+            jm9 jm9Var = km9Var.d;
+            jm9 jm9Var2 = km9Var.e;
+            jm9 jm9Var3 = km9Var.f;
+            if (jm9Var.b + jm9Var2.b + jm9Var3.b >= i) {
+                og ogVar = new og("dbg");
+                ogVar.b("act", km9Var.c);
+                ogVar.b("httpTimeCost", String.valueOf(jm9Var.a));
+                ogVar.b("httpNum", String.valueOf(jm9Var.b));
+                ogVar.b("httpFailnum", String.valueOf(jm9Var.c));
+                ogVar.b("httpSize", String.valueOf(jm9Var.d));
+                ogVar.b("socketTimeCost", String.valueOf(jm9Var2.a));
+                ogVar.b("socketNum", String.valueOf(jm9Var2.b));
+                ogVar.b("socketFailnum", String.valueOf(jm9Var2.c));
+                ogVar.b("socketSize", String.valueOf(jm9Var2.d));
+                ogVar.b("abortTimeCost", String.valueOf(jm9Var3.a));
+                ogVar.b("abortNum", String.valueOf(jm9Var3.b));
+                ogVar.b("netType", km9Var.b);
+                if (km9Var.a) {
+                    str = "1";
+                } else {
+                    str = "0";
+                }
+                ogVar.b("isJson", str);
+                BdStatisticsManager.getInstance().debug("frs", ogVar);
+                jm9Var.a();
+                jm9Var2.a();
+                jm9Var3.a();
+            }
+        }
+    }
+
+    public static void c(String str, String str2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(65539, null, str, str2, z) == null) {
+            if (str2 == null) {
+                str2 = "";
+            }
+            String str3 = str + str2;
+            if (!a.containsKey(str3)) {
+                a.put(str3, new km9(str, str2, z));
+            }
+        }
+    }
+
+    public static km9 e(String str, String str2, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, km9Var, z)) == null) {
-            return addObserver(null, str, km9Var, z);
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65541, null, str, str2, z)) == null) {
+            if (str2 == null) {
+                str2 = "";
+            }
+            String str3 = str + str2;
+            if (!a.containsKey(str3)) {
+                a.put(str3, new km9(str, str2, z));
+            }
+            return a.get(str3);
         }
         return (km9) invokeLLZ.objValue;
-    }
-
-    public km9 dispatch(mm9 mm9Var, km9 km9Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, mm9Var, km9Var)) == null) {
-            return dispatch(null, mm9Var, km9Var);
-        }
-        return (km9) invokeLL.objValue;
-    }
-
-    public void removeObserverBridge(List<Pair<String, String>> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, list) == null) && list != null && !list.isEmpty()) {
-            for (Pair<String, String> pair : list) {
-                List<jm9> list2 = this.mAsyncCallBackMethodList.get(pair.first);
-                if (list2 != null && !list2.isEmpty()) {
-                    Iterator<jm9> it = list2.iterator();
-                    while (it.hasNext()) {
-                        if (TextUtils.equals(it.next().a(), pair.second)) {
-                            it.remove();
-                        }
-                    }
-                }
-            }
-        }
     }
 }

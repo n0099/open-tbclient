@@ -1,23 +1,25 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface kk6 {
-    public static final ServiceReference a = new ServiceReference("tieba.core", "eventbus");
+public abstract class kk6 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        public static final ServiceReference a = new ServiceReference("tieba.core", "eventbus.autorelease");
-
-        void a(@NonNull BdUniqueId bdUniqueId);
+    public kk6() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
-
-    <T extends jk6> void a(@NonNull Object obj, @NonNull lk6<T> lk6Var);
-
-    <T extends jk6> void b(@Nullable T t);
-
-    void unregister(@NonNull Object obj);
 }

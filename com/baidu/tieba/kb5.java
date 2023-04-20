@@ -1,38 +1,16 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Iterator;
-import org.json.JSONException;
 import org.json.JSONObject;
+import tbclient.TailInfo;
 /* loaded from: classes5.dex */
 public class kb5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public String i;
-    public String j;
-    public String k;
-    public String l;
-    public String m;
-    public int n;
-    public int o;
-    public boolean p;
-    public String q;
 
     public kb5() {
         Interceptable interceptable = $ic;
@@ -48,195 +26,31 @@ public class kb5 {
         }
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.i;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.j;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.l;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.o;
-        }
-        return invokeV.intValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.m;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.n;
-        }
-        return invokeV.intValue;
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.q;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.p;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static HashMap<String, kb5> p(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
             try {
-                JSONObject jSONObject2 = jSONObject.getJSONObject("top_level_navi");
-                Iterator<String> keys = jSONObject2.keys();
-                HashMap<String, kb5> hashMap = new HashMap<>();
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    JSONObject jSONObject3 = jSONObject2.getJSONObject(next);
-                    kb5 kb5Var = new kb5();
-                    kb5Var.o(jSONObject3);
-                    hashMap.put(next, kb5Var);
-                }
-                return hashMap;
-            } catch (JSONException e) {
+                jSONObject.optString("icon_url");
+                jSONObject.optString("icon_link");
+                jSONObject.optString("content");
+                jSONObject.optInt("tail_type");
+            } catch (Exception e) {
                 e.printStackTrace();
-                return null;
             }
         }
-        return (HashMap) invokeL.objValue;
     }
 
-    public boolean n(kb5 kb5Var) {
-        InterceptResult invokeL;
+    public void b(TailInfo tailInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, kb5Var)) == null) {
-            if (kb5Var == null) {
-                return false;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tailInfo) == null) {
+            try {
+                String str = tailInfo.icon_url;
+                String str2 = tailInfo.icon_link;
+                String str3 = tailInfo.content;
+                tailInfo.tail_type.intValue();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            if (this == kb5Var) {
-                return true;
-            }
-            if (!this.a.equals(kb5Var.a) || !this.b.equals(kb5Var.b) || !this.c.equals(kb5Var.c) || !this.d.equals(kb5Var.d) || !this.e.equals(kb5Var.e) || !this.f.equals(kb5Var.f) || !this.g.equals(kb5Var.g) || !this.h.equals(kb5Var.h) || !this.i.equals(kb5Var.i) || !this.j.equals(kb5Var.j) || !this.k.equals(kb5Var.k) || !this.l.equals(kb5Var.l) || !this.m.equals(kb5Var.m) || this.n != kb5Var.n || this.o != kb5Var.o || this.p != kb5Var.p || !this.q.equals(kb5Var.q)) {
-                return false;
-            }
-            return true;
         }
-        return invokeL.booleanValue;
-    }
-
-    public void o(JSONObject jSONObject) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048590, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        this.a = jSONObject.optString("color");
-        this.b = jSONObject.optString("color_night");
-        this.c = jSONObject.optString("color_dark");
-        this.d = jSONObject.optString(BigdayActivityConfig.IMG_URL);
-        this.e = jSONObject.optString("img_url_night");
-        this.f = jSONObject.optString("img_url_dark");
-        this.g = jSONObject.optString("card_color");
-        this.h = jSONObject.optString("card_color_night");
-        this.i = jSONObject.optString("card_color_dark");
-        this.j = jSONObject.optString("card_img_url");
-        this.k = jSONObject.optString("card_img_url_night");
-        this.l = jSONObject.optString("card_img_url_dark");
-        this.m = jSONObject.optString("card_jump_url");
-        this.n = jSONObject.optInt("card_show_height");
-        this.o = jSONObject.optInt("card_img_width");
-        if (jSONObject.optInt("is_black_title") != 2) {
-            z = true;
-        } else {
-            z = false;
-        }
-        this.p = z;
-        this.q = jSONObject.optString("h5_img_url");
     }
 }

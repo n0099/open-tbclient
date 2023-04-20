@@ -1,12 +1,10 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.Intent;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public interface qt1 {
-    boolean b(Context context, Intent intent, String str, String str2, String str3);
-
-    boolean c();
-
-    boolean d();
+    @Nullable
+    vz1 a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull zk2 zk2Var);
 }

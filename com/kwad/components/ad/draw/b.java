@@ -40,7 +40,7 @@ public final class b extends KSFrameLayout {
         this.aP = new View.OnClickListener() { // from class: com.kwad.components.ad.draw.b.1
             @Override // android.view.View.OnClickListener
             public final void onClick(View view2) {
-                com.kwad.components.core.c.a.a.a(new a.C0594a(b.this.aK.mRootContainer.getContext()).L(b.this.aK.mAdTemplate).b(b.this.aK.mApkDownloadHelper).aj(false).ae(3).a(new a.b() { // from class: com.kwad.components.ad.draw.b.1.1
+                com.kwad.components.core.c.a.a.a(new a.C0593a(b.this.aK.mRootContainer.getContext()).L(b.this.aK.mAdTemplate).b(b.this.aK.mApkDownloadHelper).aj(false).ae(3).a(new a.b() { // from class: com.kwad.components.ad.draw.b.1.1
                     @Override // com.kwad.components.core.c.a.a.b
                     public final void onAdClicked() {
                     }

@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
-import com.baidu.tieba.kj9;
+import com.baidu.tieba.sj9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,16 +12,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class StampShareDialogConfig extends ShareDialogConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public kj9 mStampShareData;
+    public sj9 mStampShareData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public StampShareDialogConfig(Context context, ShareItem shareItem, boolean z, kj9 kj9Var) {
+    public StampShareDialogConfig(Context context, ShareItem shareItem, boolean z, sj9 sj9Var) {
         super(context, shareItem, z);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, shareItem, Boolean.valueOf(z), kj9Var};
+            Object[] objArr = {context, shareItem, Boolean.valueOf(z), sj9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,15 +33,15 @@ public class StampShareDialogConfig extends ShareDialogConfig {
                 return;
             }
         }
-        this.mStampShareData = kj9Var;
+        this.mStampShareData = sj9Var;
     }
 
-    public kj9 getStampShareData() {
+    public sj9 getStampShareData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.mStampShareData;
         }
-        return (kj9) invokeV.objValue;
+        return (sj9) invokeV.objValue;
     }
 }

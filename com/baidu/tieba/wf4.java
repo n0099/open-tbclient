@@ -1,19 +1,20 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.database.Cursor;
+import android.net.Uri;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
-public class wf4 extends uf4<pg4> {
+public class wf4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ConcurrentHashMap<Class<?>, vf4> a;
+    public ConcurrentHashMap<Class<?>, Uri> b;
 
     public wf4() {
         Interceptable interceptable = $ic;
@@ -25,58 +26,49 @@ public class wf4 extends uf4<pg4> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        c();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.uf4
-    /* renamed from: f */
-    public ContentValues c(pg4 pg4Var) {
+    public <T> vf4<T> a(Class<T> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, pg4Var)) == null) {
-            return a(pg4Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
+            return this.a.get(cls);
         }
-        return (ContentValues) invokeL.objValue;
+        return (vf4) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.uf4
-    /* renamed from: g */
-    public pg4 d(Cursor cursor) {
+    public <T> Uri b(Class<T> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cursor)) == null) {
-            if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
-                pg4 pg4Var = new pg4();
-                if (b(cursor, pg4Var)) {
-                    return pg4Var;
-                }
-                return null;
-            }
-            return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls)) == null) {
+            return this.b.get(cls);
         }
-        return (pg4) invokeL.objValue;
+        return (Uri) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.uf4
-    public List<pg4> e(Cursor cursor) {
-        InterceptResult invokeL;
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cursor)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
-                do {
-                    pg4 pg4Var = new pg4();
-                    if (b(cursor, pg4Var)) {
-                        arrayList.add(pg4Var);
-                    }
-                } while (cursor.moveToNext());
-                return arrayList;
-            }
-            return arrayList;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a = new ConcurrentHashMap<>();
+            this.b = new ConcurrentHashMap<>();
+            this.a.put(ug4.class, new zf4());
+            this.a.put(vg4.class, new ag4());
+            this.a.put(sg4.class, new yf4());
+            this.a.put(qg4.class, new xf4());
+            this.a.put(PMSAppInfo.class, new uf4());
+            this.a.put(wg4.class, new bg4());
+            this.a.put(xg4.class, new cg4());
+            this.b.put(ug4.class, mg4.f);
+            this.b.put(vg4.class, mg4.g);
+            this.b.put(sg4.class, mg4.d);
+            this.b.put(qg4.class, mg4.h);
+            this.b.put(PMSAppInfo.class, mg4.e);
+            this.b.put(wg4.class, mg4.i);
+            this.b.put(xg4.class, mg4.j);
         }
-        return (List) invokeL.objValue;
     }
 }

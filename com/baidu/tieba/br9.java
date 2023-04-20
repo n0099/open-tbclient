@@ -1,31 +1,34 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.switchs.LooperBlockSwitch;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedList;
 /* loaded from: classes3.dex */
 public class br9 {
     public static /* synthetic */ Interceptable $ic;
-    public static br9 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-    public boolean b;
+    public hr9 a;
+    public x05 b;
+    public gr9 c;
+    public fr9 d;
+    public dr9 e;
+    public er9 f;
+    public cr9 g;
+    public MainTabActivity h;
+    public boolean i;
 
-    /* loaded from: classes3.dex */
-    public interface a {
-        void a(Application application);
-    }
-
-    public br9() {
+    public br9(@NonNull MainTabActivity mainTabActivity, @NonNull ro9 ro9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity, ro9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,57 +38,66 @@ public class br9 {
                 return;
             }
         }
-        this.b = false;
-        this.a = c();
+        this.i = false;
+        this.h = mainTabActivity;
+        this.a = new hr9(mainTabActivity.getPageContext(), ro9Var, mainTabActivity, false);
+        this.b = new x05(mainTabActivity.getPageContext());
+        this.c = new gr9(mainTabActivity, ro9Var);
+        this.d = new fr9(mainTabActivity, ro9Var);
+        this.f = new er9(mainTabActivity, ro9Var);
+        this.g = new cr9(mainTabActivity, ro9Var);
+        this.e = new dr9(mainTabActivity, ro9Var);
     }
 
-    public static br9 b() {
-        InterceptResult invokeV;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (br9.class) {
-                    if (c == null) {
-                        c = new br9();
-                    }
-                }
-            }
-            return c;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || LooperBlockSwitch.getIsOn() || !this.i) {
+            return;
         }
-        return (br9) invokeV.objValue;
+        LinkedList linkedList = new LinkedList();
+        linkedList.add(this.g);
+        linkedList.add(this.c);
+        linkedList.add(this.d);
+        linkedList.add(this.e);
+        u05.g(linkedList);
     }
 
-    public final boolean a() {
-        InterceptResult invokeV;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (p45.m().n("pref_key_jpush_sdk_enable", 0) != 1) {
-                return false;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (LooperBlockSwitch.getIsOn()) {
+                LinkedList linkedList = new LinkedList();
+                linkedList.add(this.a);
+                u05.g(linkedList);
+            } else if (!this.i) {
+            } else {
+                yc8.m = false;
+                LinkedList linkedList2 = new LinkedList();
+                linkedList2.add(this.g);
+                linkedList2.add(this.a);
+                u05.g(linkedList2);
             }
-            return true;
         }
-        return invokeV.booleanValue;
     }
 
-    public final a c() {
-        InterceptResult invokeV;
-        CustomResponsedMessage runTask;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (a() && (runTask = MessageManager.getInstance().runTask(2156672, a.class)) != null) {
-                return (a) runTask.getData();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (LooperBlockSwitch.getIsOn()) {
+                LinkedList linkedList = new LinkedList();
+                linkedList.add(this.a);
+                u05.g(linkedList);
+                return;
             }
-            return null;
-        }
-        return (a) invokeV.objValue;
-    }
-
-    public void d(Application application) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, application) == null) && !this.b && (aVar = this.a) != null) {
-            aVar.a(application);
-            this.b = true;
+            LinkedList linkedList2 = new LinkedList();
+            linkedList2.add(this.a);
+            linkedList2.add(this.c);
+            linkedList2.add(this.d);
+            linkedList2.add(this.g);
+            linkedList2.add(this.b);
+            linkedList2.add(this.f);
+            u05.g(linkedList2);
+            this.i = true;
         }
     }
 }

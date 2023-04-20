@@ -1,49 +1,189 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.graphics.drawable.Animatable;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.component.container.view.SwanAppComponentContainerView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.facebook.drawee.controller.BaseControllerListener;
+import com.facebook.drawee.drawable.ScalingUtils;
+import com.facebook.drawee.view.SimpleDraweeView;
+import com.facebook.imagepipeline.image.ImageInfo;
 /* loaded from: classes3.dex */
-public final class a42 extends d32 {
+public final class a42 extends d32<SimpleDraweeView, b42> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean u;
+    public z32 i;
+    public SwanAppComponentContainerView j;
+    public SimpleDraweeView k;
+
+    /* loaded from: classes3.dex */
+    public class a extends BaseControllerListener<ImageInfo> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ boolean a;
+        public final /* synthetic */ SimpleDraweeView b;
+        public final /* synthetic */ a42 c;
+
+        public a(a42 a42Var, boolean z, SimpleDraweeView simpleDraweeView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {a42Var, Boolean.valueOf(z), simpleDraweeView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = a42Var;
+            this.a = z;
+            this.b = simpleDraweeView;
+        }
+
+        @Override // com.facebook.drawee.controller.BaseControllerListener, com.facebook.drawee.controller.ControllerListener
+        public void onFailure(String str, Throwable th) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, str, th) == null) {
+                super.onFailure(str, th);
+                if (this.a && this.c.i != null) {
+                    this.c.i.a(0, this.b, null);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.facebook.drawee.controller.BaseControllerListener, com.facebook.drawee.controller.ControllerListener
+        public void onFinalImageSet(String str, ImageInfo imageInfo, Animatable animatable) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, imageInfo, animatable) == null) {
+                super.onFinalImageSet(str, (String) imageInfo, animatable);
+                if (this.a && this.c.i != null) {
+                    this.c.i.a(1, this.b, null);
+                }
+            }
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a42() {
-        super("coverImage", "viewId");
+    public a42(@NonNull Context context, @NonNull b42 b42Var) {
+        super(context, b42Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, b42Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((String) objArr[0], (String) objArr[1]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (e32) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.u = false;
+        g(4);
+        this.j = new SwanAppComponentContainerView(context);
+        this.k = new SimpleDraweeView(context);
     }
 
-    @Override // com.baidu.tieba.d32, com.baidu.tieba.i32, com.baidu.tieba.k32, com.baidu.tieba.tx2
-    public void a(JSONObject jSONObject) throws JSONException {
-        JSONObject jSONObject2;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.k32
+    @NonNull
+    /* renamed from: a0 */
+    public SimpleDraweeView v(@NonNull Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, context)) == null) {
+            return this.k;
         }
-        super.a(jSONObject);
-        this.u = jSONObject.optBoolean("loadState", false);
-        ay2 ay2Var = this.h;
-        if (ay2Var != null && (jSONObject2 = this.j) != null) {
-            ay2Var.i(jSONObject2.optBoolean("fixed", false));
+        return (SimpleDraweeView) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.k32
+    /* renamed from: b0 */
+    public void A(@NonNull SimpleDraweeView simpleDraweeView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, simpleDraweeView) == null) {
+            super.A(simpleDraweeView);
+            simpleDraweeView.getHierarchy().setActualImageScaleType(ScalingUtils.ScaleType.FIT_XY);
+        }
+    }
+
+    public void e0(z32 z32Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, z32Var) == null) {
+            this.i = z32Var;
+        }
+    }
+
+    @Override // com.baidu.tieba.k32
+    @NonNull
+    public SwanAppComponentContainerView u(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, context)) == null) {
+            return this.j;
+        }
+        return (SwanAppComponentContainerView) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.d32
+    /* renamed from: c0 */
+    public void T(@NonNull SimpleDraweeView simpleDraweeView, @NonNull b42 b42Var, @NonNull n42 n42Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048587, this, simpleDraweeView, b42Var, n42Var) == null) {
+            super.O(simpleDraweeView, b42Var, n42Var);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.d32, com.baidu.tieba.i32, com.baidu.tieba.k32
+    @NonNull
+    /* renamed from: Y */
+    public n42 k(@NonNull b42 b42Var, @NonNull b42 b42Var2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, b42Var, b42Var2)) == null) {
+            n42 k = super.k(b42Var, b42Var2);
+            if (b42Var.u != b42Var2.u) {
+                k.b(9);
+            }
+            return k;
+        }
+        return (n42) invokeLL.objValue;
+    }
+
+    public final BaseControllerListener<ImageInfo> Z(@NonNull SimpleDraweeView simpleDraweeView, @NonNull b42 b42Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, simpleDraweeView, b42Var)) == null) {
+            return new a(this, b42Var.u, simpleDraweeView);
+        }
+        return (BaseControllerListener) invokeLL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.d32
+    /* renamed from: d0 */
+    public void U(@NonNull SimpleDraweeView simpleDraweeView, @NonNull b42 b42Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048588, this, simpleDraweeView, b42Var) == null) {
+            super.V(simpleDraweeView, b42Var, Z(simpleDraweeView, b42Var));
         }
     }
 }

@@ -1,81 +1,157 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.hh2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.uk4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.ZeusWebViewPreloadClass;
-import com.facebook.common.internal.Sets;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class ih2 {
+public final class ih2 implements uk4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Set<String> a;
-    public static final Set<String> b;
-    public static final Set<String> c;
-    public static final Map<String, hh2> d;
-    public static boolean e;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public boolean b;
+    public uk4 c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947853430, "Lcom/baidu/tieba/ih2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes4.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes4.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public ih2 a;
+
+        public b() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947853430, "Lcom/baidu/tieba/ih2;");
-                return;
-            }
-        }
-        a = Sets.newHashSet(ZeusWebViewPreloadClass.ZEUS_FILE_DIR);
-        b = new HashSet(a);
-        c = new HashSet(b);
-        d = new HashMap();
-        e = false;
-    }
-
-    public static hh2 a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            c();
-            return d.get(str);
-        }
-        return (hh2) invokeL.objValue;
-    }
-
-    public static hh2 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            hh2.b bVar = new hh2.b();
-            bVar.d(ZeusWebViewPreloadClass.ZEUS_FILE_DIR);
-            bVar.e(br2.w0().a());
-            bVar.b(br2.w0().d());
-            return bVar.a();
-        }
-        return (hh2) invokeV.objValue;
-    }
-
-    public static void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            if (!e) {
-                for (String str : c) {
-                    if (ZeusWebViewPreloadClass.ZEUS_FILE_DIR.equals(str)) {
-                        d.put(str, b());
-                    }
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            e = true;
+        }
+
+        public ih2 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                ih2 ih2Var = this.a;
+                this.a = null;
+                return ih2Var;
+            }
+            return (ih2) invokeV.objValue;
+        }
+
+        public final ih2 c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                if (this.a == null) {
+                    this.a = new ih2(null);
+                }
+                return this.a;
+            }
+            return (ih2) invokeV.objValue;
+        }
+
+        public b b(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable != null && (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) != null) {
+                return (b) invokeZ.objValue;
+            }
+            c().b = z;
+            return this;
+        }
+
+        public b d(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable != null && (invokeL = interceptable.invokeL(1048579, this, str)) != null) {
+                return (b) invokeL.objValue;
+            }
+            c().a = str;
+            return this;
+        }
+
+        public b e(uk4 uk4Var) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable != null && (invokeL = interceptable.invokeL(1048580, this, uk4Var)) != null) {
+                return (b) invokeL.objValue;
+            }
+            c().c = uk4Var;
+            return this;
+        }
+    }
+
+    public ih2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @NonNull
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return "SoLib:: libName=" + this.a + " buildin=" + this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public /* synthetic */ ih2(a aVar) {
+        this();
+    }
+
+    @Override // com.baidu.tieba.uk4
+    public void a(String str, uk4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, aVar) == null) {
+            uk4 uk4Var = this.c;
+            if (uk4Var != null) {
+                uk4Var.a(str, aVar);
+            } else if (aVar != null) {
+                aVar.a(true);
+            }
         }
     }
 }

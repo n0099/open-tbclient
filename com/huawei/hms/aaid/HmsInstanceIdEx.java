@@ -2,8 +2,8 @@ package com.huawei.hms.aaid;
 
 import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ewa;
-import com.baidu.tieba.fwa;
+import com.baidu.tieba.mwa;
+import com.baidu.tieba.nwa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -93,15 +93,15 @@ public class HmsInstanceIdEx {
         return (HmsInstanceIdEx) invokeL.objValue;
     }
 
-    public final ewa<TokenResult> a(Exception exc) {
+    public final mwa<TokenResult> a(Exception exc) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, exc)) == null) {
-            fwa fwaVar = new fwa();
-            fwaVar.c(exc);
-            return fwaVar.b();
+            nwa nwaVar = new nwa();
+            nwaVar.c(exc);
+            return nwaVar.b();
         }
-        return (ewa) invokeL.objValue;
+        return (mwa) invokeL.objValue;
     }
 
     public final String a(String str) {
@@ -155,8 +155,8 @@ public class HmsInstanceIdEx {
         return invokeL.longValue;
     }
 
-    /* JADX DEBUG: Type inference failed for r0v22. Raw type applied. Possible types: com.baidu.tieba.ewa<TResult>, com.baidu.tieba.ewa<com.huawei.hms.aaid.entity.TokenResult> */
-    public ewa<TokenResult> getToken() {
+    /* JADX DEBUG: Type inference failed for r0v22. Raw type applied. Possible types: com.baidu.tieba.mwa<TResult>, com.baidu.tieba.mwa<com.huawei.hms.aaid.entity.TokenResult> */
+    public mwa<TokenResult> getToken() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -164,9 +164,9 @@ public class HmsInstanceIdEx {
                 try {
                     HMSLog.i(TAG, "use proxy get token, please check HmsMessageService.onNewToken receive result.");
                     ProxyCenter.getProxy().getToken(this.a, null, null);
-                    fwa fwaVar = new fwa();
-                    fwaVar.setResult(new TokenResult());
-                    return fwaVar.b();
+                    nwa nwaVar = new nwa();
+                    nwaVar.setResult(new TokenResult());
+                    return nwaVar.b();
                 } catch (ApiException e) {
                     return a(e);
                 } catch (Exception unused) {
@@ -186,6 +186,6 @@ public class HmsInstanceIdEx {
                 return a(ErrorEnum.ERROR_INTERNAL_ERROR.toApiException());
             }
         }
-        return (ewa) invokeV.objValue;
+        return (mwa) invokeV.objValue;
     }
 }

@@ -1,120 +1,165 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class pza {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int b(int i, int i2) {
-        InterceptResult invokeII;
+    public static int a(String str, String str2) {
+        InterceptResult invokeLL;
+        int length;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65537, null, i, i2)) == null) {
-            int i3 = 1 << (i2 - 1);
-            while ((i & i3) != 0) {
-                i3 >>= 1;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
+            if (str == null && str2 == null) {
+                return 0;
             }
-            return (i & (i3 - 1)) + i3;
-        }
-        return invokeII.intValue;
-    }
-
-    public static void a(int[] iArr, int i, int i2, int[] iArr2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{iArr, Integer.valueOf(i), Integer.valueOf(i2), iArr2, Integer.valueOf(i3)}) == null) {
-            int[] iArr3 = new int[i3];
-            int[] iArr4 = new int[16];
-            int[] iArr5 = new int[16];
-            int i4 = 0;
-            for (int i5 = 0; i5 < i3; i5++) {
-                int i6 = iArr2[i5];
-                iArr4[i6] = iArr4[i6] + 1;
+            if (str != null && str2 == null) {
+                return 1;
             }
-            iArr5[1] = 0;
-            int i7 = 1;
-            while (i7 < 15) {
-                int i8 = i7 + 1;
-                iArr5[i8] = iArr5[i7] + iArr4[i7];
-                i7 = i8;
+            if (str == null) {
+                return -1;
             }
-            for (int i9 = 0; i9 < i3; i9++) {
-                if (iArr2[i9] != 0) {
-                    int i10 = iArr2[i9];
-                    int i11 = iArr5[i10];
-                    iArr5[i10] = i11 + 1;
-                    iArr3[i11] = i9;
-                }
+            if (str.equals(str2)) {
+                return 0;
             }
-            int i12 = 1 << i2;
-            if (iArr5[15] == 1) {
-                for (int i13 = 0; i13 < i12; i13++) {
-                    iArr[i + i13] = iArr3[0];
-                }
-                return;
+            if (str.startsWith(str2)) {
+                return 1;
             }
-            int i14 = 2;
-            int i15 = 0;
-            int i16 = 1;
-            int i17 = 2;
-            while (i16 <= i2) {
-                while (iArr4[i16] > 0) {
-                    d(iArr, i + i4, i17, i12, iArr3[i15] | (i16 << 16));
-                    i4 = b(i4, i16);
-                    iArr4[i16] = iArr4[i16] - 1;
-                    i15++;
-                }
-                i16++;
-                i17 <<= 1;
+            if (str2.startsWith(str)) {
+                return -1;
             }
-            int i18 = i12 - 1;
-            int i19 = -1;
-            int i20 = i2 + 1;
-            int i21 = i;
-            while (i20 <= 15) {
-                while (iArr4[i20] > 0) {
-                    int i22 = i4 & i18;
-                    if (i22 != i19) {
-                        i21 += i12;
-                        int c = c(iArr4, i20, i2);
-                        iArr[i + i22] = ((c + i2) << 16) | ((i21 - i) - i22);
-                        i12 = 1 << c;
-                        i19 = i22;
+            String[] split = str.split("\\.|-");
+            String[] split2 = str2.split("\\.|-");
+            if (split.length <= split2.length) {
+                length = split.length;
+            } else {
+                length = split2.length;
+            }
+            for (int i = 0; i < length; i++) {
+                try {
+                    int parseInt = Integer.parseInt(split[i]);
+                    int parseInt2 = Integer.parseInt(split2[i]);
+                    Integer.parseInt(split[i]);
+                    Integer.parseInt(split2[i]);
+                    if (parseInt > parseInt2) {
+                        return 1;
                     }
-                    d(iArr, (i4 >> i2) + i21, i14, i12, ((i20 - i2) << 16) | iArr3[i15]);
-                    i4 = b(i4, i20);
-                    iArr4[i20] = iArr4[i20] - 1;
-                    i15++;
+                    if (parseInt < parseInt2) {
+                        return -1;
+                    }
+                } catch (NumberFormatException e) {
+                    e.printStackTrace();
                 }
-                i20++;
-                i14 <<= 1;
             }
+            if (split.length > length) {
+                return 1;
+            }
+            if (split2.length > length) {
+                return -1;
+            }
+            return str.compareTo(str2);
         }
+        return invokeLL.intValue;
     }
 
-    public static int c(int[] iArr, int i, int i2) {
-        InterceptResult invokeLII;
-        int i3;
+    public static String b(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65538, null, iArr, i, i2)) == null) {
-            int i4 = 1 << (i - i2);
-            while (i < 15 && (i3 = i4 - iArr[i]) > 0) {
-                i++;
-                i4 = i3 << 1;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
+            if (context != null && str != null) {
+                try {
+                    PackageManager packageManager = context.getPackageManager();
+                    return packageManager.getApplicationLabel(packageManager.getApplicationInfo(str, 128)).toString();
+                } catch (Exception unused) {
+                }
             }
-            return i - i2;
+            return "";
         }
-        return invokeLII.intValue;
+        return (String) invokeLL.objValue;
     }
 
-    public static void d(int[] iArr, int i, int i2, int i3, int i4) {
+    public static boolean d(Context context, Class<? extends Activity> cls) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{iArr, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            do {
-                i3 -= i2;
-                iArr[i + i3] = i4;
-            } while (i3 > 0);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, cls)) == null) {
+            if (context != null && cls != null) {
+                try {
+                    context.getPackageManager().getActivityInfo(new ComponentName(context.getPackageName(), cls.getName()), 0);
+                    return true;
+                } catch (Exception unused) {
+                }
+            }
+            return false;
         }
+        return invokeLL.booleanValue;
+    }
+
+    /*  JADX ERROR: NullPointerException in pass: RegionMakerVisitor
+        java.lang.NullPointerException: Cannot read field "wordsInUse" because "set" is null
+        	at java.base/java.util.BitSet.or(BitSet.java:943)
+        	at jadx.core.utils.BlockUtils.getPathCross(BlockUtils.java:732)
+        	at jadx.core.utils.BlockUtils.getPathCross(BlockUtils.java:811)
+        	at jadx.core.dex.visitors.regions.IfMakerHelper.restructureIf(IfMakerHelper.java:88)
+        	at jadx.core.dex.visitors.regions.RegionMaker.processIf(RegionMaker.java:706)
+        	at jadx.core.dex.visitors.regions.RegionMaker.traverse(RegionMaker.java:155)
+        	at jadx.core.dex.visitors.regions.RegionMaker.makeRegion(RegionMaker.java:94)
+        	at jadx.core.dex.visitors.regions.RegionMaker.processIf(RegionMaker.java:730)
+        	at jadx.core.dex.visitors.regions.RegionMaker.traverse(RegionMaker.java:155)
+        	at jadx.core.dex.visitors.regions.RegionMaker.makeRegion(RegionMaker.java:94)
+        	at jadx.core.dex.visitors.regions.RegionMaker.processIf(RegionMaker.java:735)
+        	at jadx.core.dex.visitors.regions.RegionMaker.traverse(RegionMaker.java:155)
+        	at jadx.core.dex.visitors.regions.RegionMaker.makeRegion(RegionMaker.java:94)
+        	at jadx.core.dex.visitors.regions.RegionMakerVisitor.visit(RegionMakerVisitor.java:52)
+        */
+    public static boolean e(android.content.Context r4, android.content.Intent r5) {
+        /*
+            com.baidu.titan.sdk.runtime.Interceptable r0 = com.baidu.tieba.pza.$ic
+            if (r0 != 0) goto L1a
+        L4:
+            r0 = 0
+            if (r4 == 0) goto L19
+            if (r5 != 0) goto La
+            goto L19
+        La:
+            android.content.pm.PackageManager r4 = r4.getPackageManager()     // Catch: java.lang.Exception -> L19
+            java.util.List r4 = r4.queryIntentActivities(r5, r0)     // Catch: java.lang.Exception -> L19
+            int r4 = r4.size()     // Catch: java.lang.Exception -> L19
+            if (r4 <= 0) goto L19
+            r0 = 1
+        L19:
+            return r0
+        L1a:
+            r1 = r0
+            r2 = 65540(0x10004, float:9.1841E-41)
+            r3 = 0
+            com.baidu.titan.sdk.runtime.InterceptResult r0 = r1.invokeLL(r2, r3, r4, r5)
+            if (r0 == 0) goto L4
+            boolean r1 = r0.booleanValue
+            return r1
+        */
+        throw new UnsupportedOperationException("Method not decompiled: com.baidu.tieba.pza.e(android.content.Context, android.content.Intent):boolean");
+    }
+
+    public static String c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            try {
+                PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
+                return packageInfo.packageName + "(" + packageInfo.versionName + SmallTailInfo.EMOTION_SUFFIX;
+            } catch (Throwable unused) {
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
     }
 }

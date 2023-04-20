@@ -27,14 +27,14 @@ import com.baidu.tbadk.data.CommitVoteResMsg;
 import com.baidu.tieba.R;
 import com.baidu.tieba.barselect.model.CandidateSearchHttpResMsg;
 import com.baidu.tieba.barselect.model.CandidateSearchSocketResMsg;
-import com.baidu.tieba.bb6;
+import com.baidu.tieba.cb6;
+import com.baidu.tieba.fn9;
 import com.baidu.tieba.gg;
 import com.baidu.tieba.hi;
 import com.baidu.tieba.ii;
 import com.baidu.tieba.jg;
-import com.baidu.tieba.qa6;
+import com.baidu.tieba.ra6;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
-import com.baidu.tieba.xm9;
 import com.baidu.tieba.za;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -50,7 +50,7 @@ public class CandidateSearchActivity extends BaseActivity {
     public NavigationBar a;
     public BdRecyclerView b;
     public CandidateSearchAdapter c;
-    public bb6 d;
+    public cb6 d;
     public String e;
     public View f;
     public View g;
@@ -58,7 +58,7 @@ public class CandidateSearchActivity extends BaseActivity {
     public EditText i;
     public ImageView j;
     public TextView k;
-    public List<qa6> l;
+    public List<ra6> l;
     public View.OnClickListener m;
     public za n;
     public TextView.OnEditorActionListener o;
@@ -140,24 +140,24 @@ public class CandidateSearchActivity extends BaseActivity {
             if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
                 return;
             }
-            qa6 qa6Var = null;
+            ra6 ra6Var = null;
             if (responsedMessage instanceof CandidateSearchHttpResMsg) {
-                qa6Var = ((CandidateSearchHttpResMsg) responsedMessage).candidateData;
+                ra6Var = ((CandidateSearchHttpResMsg) responsedMessage).candidateData;
             } else if (responsedMessage instanceof CandidateSearchSocketResMsg) {
-                qa6Var = ((CandidateSearchSocketResMsg) responsedMessage).candidateData;
+                ra6Var = ((CandidateSearchSocketResMsg) responsedMessage).candidateData;
             }
-            if (responsedMessage.getError() == 0 && qa6Var != null) {
+            if (responsedMessage.getError() == 0 && ra6Var != null) {
                 this.a.b.setVisibility(0);
                 this.a.f.setVisibility(8);
                 if (this.a.i.getText() != null) {
-                    qa6Var.j = this.a.i.getText().toString();
+                    ra6Var.j = this.a.i.getText().toString();
                 }
                 if (this.a.l == null) {
                     this.a.l = new ArrayList();
                 } else {
                     this.a.l.clear();
                 }
-                this.a.l.add(qa6Var);
+                this.a.l.add(ra6Var);
                 this.a.c.setData(this.a.l);
                 return;
             }
@@ -246,15 +246,15 @@ public class CandidateSearchActivity extends BaseActivity {
             if (error == 0) {
                 ii.P(TbadkCoreApplication.getInst(), R.string.bar_manager_vote_success);
                 if (this.a.l != null) {
-                    for (qa6 qa6Var : this.a.l) {
-                        qa6Var.k = true;
+                    for (ra6 ra6Var : this.a.l) {
+                        ra6Var.k = true;
                     }
                 }
             } else if (error == 3250023) {
-                xm9.b(error, "", null);
+                fn9.b(error, "", null);
             } else if (error == 3250021) {
                 if (httpResponsedMessage instanceof CommitVoteResMsg) {
-                    xm9.a(error, ((CommitVoteResMsg) httpResponsedMessage).getTokenData(), null);
+                    fn9.a(error, ((CommitVoteResMsg) httpResponsedMessage).getTokenData(), null);
                 }
             } else if (error != 3250002 && error != 3250004) {
                 ii.Q(TbadkCoreApplication.getInst(), httpResponsedMessage.getErrorString());
@@ -448,7 +448,7 @@ public class CandidateSearchActivity extends BaseActivity {
             this.b.setAdapter(candidateSearchAdapter);
             registerListener(this.n);
             registerListener(this.p);
-            this.d = new bb6(getPageContext());
+            this.d = new cb6(getPageContext());
             jg.a().postDelayed(this.r, 100L);
         }
     }

@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,23 +10,111 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.SimpleForum;
-import tbclient.ThemeColorInfo;
 /* loaded from: classes5.dex */
-public class kz4 {
+public class kz4 implements vj9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public boolean d;
-    public int e;
-    public px4 f;
-    public int g;
-    public int h;
-    public String i;
-    public String j;
-    public List<String> k;
+    public int a;
+    public List<a> b;
+
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public int b;
+        public String c;
+        public String d;
+        public int e;
+        public boolean f;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public int a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.b;
+            }
+            return invokeV.intValue;
+        }
+
+        public String b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.a;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public String c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.d;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public String d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.c;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public int e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.e;
+            }
+            return invokeV.intValue;
+        }
+
+        public boolean f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return this.f;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public void g(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048582, this, jSONObject) != null) || jSONObject == null) {
+                return;
+            }
+            this.a = jSONObject.optString("icon_name");
+            this.b = jSONObject.optInt("icon_level");
+            this.c = jSONObject.optString("icon_small_pic");
+            this.d = jSONObject.optString("icon_pic");
+            this.e = jSONObject.optInt("light_up");
+        }
+
+        public void h(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+                this.f = z;
+            }
+        }
+    }
 
     public kz4() {
         Interceptable interceptable = $ic;
@@ -43,141 +130,40 @@ public class kz4 {
         }
     }
 
-    public String a() {
+    public List<a> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+            return this.b;
         }
-        return (String) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public String b() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.a;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e;
-        }
         return invokeV.intValue;
     }
 
-    public String d() {
-        InterceptResult invokeV;
+    public void c(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public List<String> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.k;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.j;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void h(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, jSONObject) != null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        this.a = String.valueOf(jSONObject.optLong("id", 0L));
-        this.b = jSONObject.optString("name");
-        this.c = jSONObject.optString("avatar");
-        this.e = jSONObject.optInt("level_id");
-        this.j = jSONObject.optString("recommend_tip");
-        JSONObject optJSONObject = jSONObject.optJSONObject("multi_forum_perm");
-        if (optJSONObject != null) {
-            px4 px4Var = new px4();
-            this.f = px4Var;
-            px4Var.a(optJSONObject);
-        }
-        int optInt = jSONObject.optInt("memberNum", 0);
-        this.h = optInt;
-        if (optInt == 0) {
-            this.h = jSONObject.optInt("member_num", 0);
-        }
-        this.g = jSONObject.optInt("post_num", 0);
-        JSONArray optJSONArray = jSONObject.optJSONArray("pendants");
+        this.a = jSONObject.optInt("levelup");
+        JSONArray optJSONArray = jSONObject.optJSONArray("icon_info");
         if (optJSONArray != null) {
-            this.k = new ArrayList();
+            this.b = new ArrayList();
             for (int i = 0; i < optJSONArray.length(); i++) {
-                this.k.add(optJSONArray.optString(i));
+                if (optJSONArray.optJSONObject(i) != null) {
+                    a aVar = new a();
+                    aVar.g(optJSONArray.optJSONObject(i));
+                    this.b.add(aVar);
+                }
             }
-        }
-    }
-
-    public void i(SimpleForum simpleForum) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, simpleForum) != null) || simpleForum == null) {
-            return;
-        }
-        this.a = String.valueOf(simpleForum.id);
-        this.b = simpleForum.name;
-        this.c = simpleForum.avatar;
-        if (simpleForum.is_liked.intValue() == 1) {
-            z = true;
-        } else {
-            z = false;
-        }
-        this.d = z;
-        this.e = simpleForum.level_id.intValue();
-        this.j = simpleForum.recommend_tip;
-        if (simpleForum.multi_forum_perm != null) {
-            px4 px4Var = new px4();
-            this.f = px4Var;
-            px4Var.b(simpleForum.multi_forum_perm);
-        }
-        simpleForum.is_brand_forum.intValue();
-        this.h = simpleForum.member_num.intValue();
-        this.g = simpleForum.post_num.intValue();
-        this.i = simpleForum.first_class;
-        ThemeColorInfo themeColorInfo = simpleForum.theme_color;
-        this.k = simpleForum.pendants;
-    }
-
-    public void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public void k(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.d = z;
         }
     }
 }

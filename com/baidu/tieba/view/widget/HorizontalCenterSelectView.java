@@ -17,7 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.q25;
+import com.baidu.tieba.r25;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -190,7 +190,7 @@ public class HorizontalCenterSelectView extends RecyclerView {
                 }
                 bVar.b.setTextSize(0, this.a.b.getTextSize());
                 bVar.b.setTextColor(this.a.b.getColor());
-                q25.d(bVar.b).A(R.array.S_O_X001);
+                r25.d(bVar.b).A(R.array.S_O_X001);
                 bVar.b.setOnClickListener(new a(this, i));
                 if (i == this.a.i) {
                     bVar.b.setAlpha(1.0f);

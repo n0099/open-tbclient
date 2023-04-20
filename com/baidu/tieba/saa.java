@@ -1,98 +1,201 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.IBinder;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 /* loaded from: classes6.dex */
 public class saa {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948146070, "Lcom/baidu/tieba/saa;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948146070, "Lcom/baidu/tieba/saa;");
-                return;
-            }
+    public static void a() {
+        hba c;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65536, null) == null) && (c = nba.c()) != null) {
+            c.b();
         }
-        a = kaa.m();
     }
 
-    @SuppressLint({"MissingPermission"})
-    public static boolean a(Context context) {
+    public static Context b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            fba a = nba.a();
+            if (a != null) {
+                return a.getAppContext();
+            }
+            return null;
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    public static int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            fba a = nba.a();
+            if (a != null) {
+                return a.d();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public static haa i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return nba.e();
+        }
+        return (haa) invokeV.objValue;
+    }
+
+    public static laa j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return nba.f();
+        }
+        return (laa) invokeV.objValue;
+    }
+
+    public static boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            gba b = nba.b();
+            if (b != null) {
+                return b.isAgreePrivacy();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            fba a = nba.a();
+            if (a != null) {
+                return a.isDebug();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static String c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            ConnectivityManager connectivityManager = (ConnectivityManager) context.getApplicationContext().getSystemService("connectivity");
-            if (connectivityManager == null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            fba a = nba.a();
+            if (a != null) {
+                return a.c(str);
             }
-            NetworkInfo networkInfo = null;
-            try {
-                networkInfo = connectivityManager.getActiveNetworkInfo();
-            } catch (Exception e) {
-                if (a) {
-                    Log.d("UBCUtil", "get network info error! " + Log.getStackTraceString(e));
-                }
-            }
-            if (networkInfo == null || !networkInfo.isConnectedOrConnecting()) {
-                return false;
-            }
-            return true;
+            return str;
         }
-        return invokeL.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    public static String b(byte[] bArr, String str, boolean z) {
-        InterceptResult invokeLLZ;
+    public static IBinder e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, bArr, str, z)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (byte b : bArr) {
-                String hexString = Integer.toHexString(b & 255);
-                if (z) {
-                    hexString = hexString.toUpperCase();
-                }
-                if (hexString.length() == 1) {
-                    sb.append("0");
-                }
-                sb.append(hexString);
-                sb.append(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            hba c = nba.c();
+            if (c != null) {
+                return c.a(str);
             }
-            return sb.toString();
+            return null;
         }
-        return (String) invokeLLZ.objValue;
+        return (IBinder) invokeL.objValue;
     }
 
-    public static String c(byte[] bArr, boolean z) {
-        InterceptResult invokeLZ;
+    public static String h(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, bArr, z)) == null) {
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                messageDigest.reset();
-                messageDigest.update(bArr);
-                return b(messageDigest.digest(), "", z);
-            } catch (NoSuchAlgorithmException e) {
-                throw new RuntimeException(e);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            fba a = nba.a();
+            if (a != null) {
+                return a.e(str);
             }
+            return str;
         }
-        return (String) invokeLZ.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    public static String k(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65546, null, z)) == null) {
+            fba a = nba.a();
+            if (a != null) {
+                return a.b(z);
+            }
+            return "";
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public static void q(int i) {
+        fba a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(65552, null, i) == null) && (a = nba.a()) != null) {
+            a.a(i);
+        }
+    }
+
+    public static int f(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, str, i)) == null) {
+            fba a = nba.a();
+            if (a != null) {
+                return a.getInt(str, i);
+            }
+            return i;
+        }
+        return invokeLI.intValue;
+    }
+
+    public static long g(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, str, j)) == null) {
+            fba a = nba.a();
+            if (a != null) {
+                return a.getLong(str, j);
+            }
+            return j;
+        }
+        return invokeLJ.longValue;
+    }
+
+    public static void n(String str, int i) {
+        fba a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(65549, null, str, i) == null) && (a = nba.a()) != null) {
+            a.putInt(str, i);
+        }
+    }
+
+    public static void o(String str, long j) {
+        fba a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLJ(65550, null, str, j) == null) && (a = nba.a()) != null) {
+            a.putLong(str, j);
+        }
+    }
+
+    public static void p(String str, String str2) {
+        fba a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65551, null, str, str2) == null) && (a = nba.a()) != null) {
+            a.putString(str, str2);
+        }
     }
 }

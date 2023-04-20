@@ -49,20 +49,20 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.imageManager.TbFaceManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a2a;
-import com.baidu.tieba.ad5;
+import com.baidu.tieba.bd5;
 import com.baidu.tieba.card.OriginalThreadCardView;
-import com.baidu.tieba.cd5;
-import com.baidu.tieba.dq4;
-import com.baidu.tieba.e85;
+import com.baidu.tieba.dd5;
+import com.baidu.tieba.eq4;
+import com.baidu.tieba.f85;
 import com.baidu.tieba.frs.FrsTabItemData;
 import com.baidu.tieba.hi;
+import com.baidu.tieba.i2a;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.j3a;
-import com.baidu.tieba.kr5;
 import com.baidu.tieba.lg;
-import com.baidu.tieba.p45;
-import com.baidu.tieba.pc5;
+import com.baidu.tieba.lr5;
+import com.baidu.tieba.q45;
+import com.baidu.tieba.qc5;
+import com.baidu.tieba.r3a;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.tieba.view.BdTopToast;
@@ -121,7 +121,7 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.ll5
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.ml5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -244,7 +244,7 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
                 if (!BdNetTypeUtil.isNetWorkAvailable()) {
                     this.a.showToast(R.string.obfuscated_res_0x7f0f0d1b);
                 }
-                if (kr5.a() || this.a.W2()) {
+                if (lr5.a() || this.a.W2()) {
                     return;
                 }
                 if (this.a.X2()) {
@@ -270,7 +270,7 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_SUCCESS).param("obj_source", 8));
                 }
                 this.a.a3();
-                dq4.d().b("share_thread");
+                eq4.d().b("share_thread");
             }
         }
     }
@@ -306,7 +306,7 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
                 if (motionEvent.getAction() == 1) {
                     view2.requestFocus();
-                    this.a.S.C(new pc5(5, -1, null));
+                    this.a.S.C(new qc5(5, -1, null));
                     this.a.E.requestFocus();
                     return false;
                 }
@@ -497,7 +497,7 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
             if (this.V == null) {
-                this.V = new j3a(getPageContext());
+                this.V = new r3a(getPageContext());
             }
             this.V.c(this.S);
         }
@@ -795,18 +795,18 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(5);
-            this.S.d(new cd5(getActivity(), 2));
+            this.S.d(new dd5(getActivity(), 2));
             if (this.U == null) {
-                a2a a2aVar = new a2a(getActivity(), this.k);
-                this.U = a2aVar;
-                a2aVar.h();
+                i2a i2aVar = new i2a(getActivity(), this.k);
+                this.U = i2aVar;
+                i2aVar.h();
                 this.U.i();
                 this.U.m("from_share_write");
                 this.U.j(this.p.getForumId(), this.j);
             }
             this.S.d(this.U);
             this.S.h(arrayList);
-            ad5 p = this.S.p(5);
+            bd5 p = this.S.p(5);
             if (p != null) {
                 p.l = 1;
             }
@@ -1045,11 +1045,11 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
     }
 
     @Override // com.baidu.tieba.write.write.AbsBaseWriteActivity
-    public void q2(@NonNull pc5 pc5Var) {
+    public void q2(@NonNull qc5 qc5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048616, this, pc5Var) == null) {
-            if (pc5Var.a == 31) {
-                Object obj = pc5Var.c;
+        if (interceptable == null || interceptable.invokeL(1048616, this, qc5Var) == null) {
+            if (qc5Var.a == 31) {
+                Object obj = qc5Var.c;
                 if (obj instanceof Integer) {
                     int i = 0;
                     int intValue = ((Integer) obj).intValue();
@@ -1067,7 +1067,7 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
                     }
                 }
             }
-            int i2 = pc5Var.a;
+            int i2 = qc5Var.a;
             if (i2 == 29) {
                 this.p.setVideoInfo(null);
             } else if (i2 == 24) {
@@ -1075,19 +1075,19 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
                     showToast(R.string.over_limit_tip);
                     return;
                 }
-                Object obj2 = pc5Var.c;
-                if (!(obj2 instanceof e85)) {
+                Object obj2 = qc5Var.c;
+                if (!(obj2 instanceof f85)) {
                     return;
                 }
-                e85 e85Var = (e85) obj2;
-                if (EmotionGroupType.isSendAsPic(e85Var.getType())) {
+                f85 f85Var = (f85) obj2;
+                if (EmotionGroupType.isSendAsPic(f85Var.getType())) {
                     this.S.s();
                 }
-                n2(e85Var);
+                n2(f85Var);
             } else if (i2 != 12 && i2 != 13 && i2 != 46 && i2 != 49) {
                 if (i2 == 43) {
-                    p45.m().w("hot_topic_has_click", true);
-                    this.S.C(new pc5(2, 26, null));
+                    q45.m().w("hot_topic_has_click", true);
+                    this.S.C(new qc5(2, 26, null));
                     this.n = true;
                     u2(true);
                     if (X1().isFocused()) {

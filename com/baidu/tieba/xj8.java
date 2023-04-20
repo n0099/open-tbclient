@@ -1,15 +1,14 @@
 package com.baidu.tieba;
 
 import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.live.interfaces.service.ThirdPartAccountService;
-import com.baidu.tieba.medialive.thirdaccount.ThirdPartyAccountServiceImpl;
+import com.baidu.searchbox.live.interfaces.service.RouterService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class xj8 extends qj1<ThirdPartAccountService> {
+public class xj8 extends rj1<RouterService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,14 +27,14 @@ public class xj8 extends qj1<ThirdPartAccountService> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qj1
+    @Override // com.baidu.tieba.rj1
     /* renamed from: a */
-    public ThirdPartAccountService createService() throws ServiceNotFoundException {
+    public RouterService createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new ThirdPartyAccountServiceImpl();
+            return new yj8();
         }
-        return (ThirdPartAccountService) invokeV.objValue;
+        return (RouterService) invokeV.objValue;
     }
 }

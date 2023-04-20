@@ -1,158 +1,158 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Rect;
-import android.view.View;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.immessagecenter.chatgroup.utility.tag.core.TagAdapter;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.util.DataExt;
+import com.baidu.tieba.im.db.pojo.GroupChatRoomPojo;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.ImageMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.NoticeModifySysMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.RecallSysMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.ShareForumSysMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.ShareThreadSysMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.SubscribeSysMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.TextGenImageMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.TextMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.TipsSysMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.VoiceMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes5.dex */
 public class p78 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public RecyclerView a;
-    public TagAdapter b;
-    public s78 c;
+    public final u68 a;
 
-    /* loaded from: classes5.dex */
-    public static class a extends RecyclerView.ItemDecoration {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final int a;
-        public final int b;
-
-        public a(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = i;
-            this.b = i2;
-        }
-
-        @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
-        public void getItemOffsets(Rect rect, View view2, RecyclerView recyclerView, RecyclerView.State state) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLLL(1048576, this, rect, view2, recyclerView, state) == null) {
-                super.getItemOffsets(rect, view2, recyclerView, state);
-                int i = this.a;
-                rect.set(i / 2, this.b, i / 2, 0);
-            }
-        }
-    }
-
-    public p78(Context context, RecyclerView recyclerView, s78 s78Var, t78 t78Var, int i, int i2) {
+    public p78() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, recyclerView, s78Var, t78Var, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (context != null && recyclerView != null && s78Var != null && t78Var != null) {
-            this.a = recyclerView;
-            TagAdapter tagAdapter = new TagAdapter(t78Var, s78Var, context);
-            this.b = tagAdapter;
-            this.a.setAdapter(tagAdapter);
-            this.c = s78Var;
-            if (i2 == 1) {
-                n78 n78Var = new n78(recyclerView, i);
-                GridLayoutManager gridLayoutManager = new GridLayoutManager(context, n78Var.b());
-                gridLayoutManager.setSpanSizeLookup(n78Var);
-                this.a.setLayoutManager(gridLayoutManager);
-                this.a.addItemDecoration(new a(i, i));
-                return;
+        this.a = new u68();
+        b();
+    }
+
+    @Nullable
+    public static String a(List<GroupChatRoomPojo> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return null;
             }
-            this.a.addItemDecoration(new a(i, 0));
-            this.a.setLayoutManager(new LinearLayoutManager(context, 0, false));
-            return;
+            ArrayList arrayList = new ArrayList();
+            for (int i = 0; i < list.size(); i++) {
+                GroupChatRoomPojo groupChatRoomPojo = list.get(i);
+                HashMap hashMap = new HashMap();
+                hashMap.put("room_id", Long.valueOf(groupChatRoomPojo.getRoomId()));
+                hashMap.put("msg_id", String.valueOf(groupChatRoomPojo.getLatestMsgId()));
+                arrayList.add(hashMap);
+            }
+            if (ListUtils.isEmpty(arrayList)) {
+                return null;
+            }
+            return DataExt.toJson(arrayList);
         }
-        throw new IllegalArgumentException("入参不能为null");
+        return (String) invokeL.objValue;
     }
 
-    public q78 a(int i) {
-        InterceptResult invokeI;
+    public static long f(@NonNull ChatMsg chatMsg) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return this.c.d(i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, chatMsg)) == null) {
+            long millis = TimeUnit.MICROSECONDS.toMillis(chatMsg.getMsgId());
+            if (millis == 0) {
+                return System.currentTimeMillis();
+            }
+            return millis;
         }
-        return (q78) invokeI.objValue;
+        return invokeL.longValue;
     }
 
-    public void c(List list) {
+    public boolean c(ChatMsg chatMsg) {
+        InterceptResult invokeL;
+        BaseSysMsg e;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.c.g(list);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, chatMsg)) == null) {
+            if (chatMsg == null || (e = e(chatMsg)) == null || e.getMsgConf() == null || !e.getMsgConf().isVisible()) {
+                return false;
+            }
+            return true;
         }
+        return invokeL.booleanValue;
     }
 
-    public void d(List list) {
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.c.h(list);
-        }
-    }
-
-    public void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.c.i(i);
-        }
-    }
-
-    public void f(a58 a58Var) {
-        TagAdapter tagAdapter;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, a58Var) == null) && (tagAdapter = this.b) != null) {
-            tagAdapter.p(a58Var);
-        }
-    }
-
-    public void g(r78 r78Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, r78Var) == null) {
-            this.c.k(r78Var);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.I(1, TextMsg.class);
+            this.a.I(3, VoiceMsg.class);
+            this.a.I(2, ImageMsg.class);
+            this.a.I(101, TextGenImageMsg.class);
+            this.a.I(7009, ShareForumSysMsg.class);
+            this.a.I(7010, ShareThreadSysMsg.class);
+            this.a.I(7001, NoticeModifySysMsg.class);
+            this.a.J(RecallSysMsg.MSG_TYPE_LIST, RecallSysMsg.class);
+            this.a.J(TipsSysMsg.MSG_TYPE_LIST, TipsSysMsg.class);
+            this.a.I(-7015, SubscribeSysMsg.class);
         }
     }
 
-    public void h(int i) {
+    @Nullable
+    public BaseMsg d(long j, @NonNull ChatMsg chatMsg) {
+        InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.c.m(i);
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j, chatMsg)) == null) {
+            if (TextUtils.isEmpty(chatMsg.getChatRoomContentExt())) {
+                return null;
+            }
+            return this.a.G(j, chatMsg);
         }
+        return (BaseMsg) invokeJL.objValue;
     }
 
-    public List<q78> b() {
-        InterceptResult invokeV;
+    @Nullable
+    public BaseSysMsg e(@NonNull ChatMsg chatMsg) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c.f();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, chatMsg)) == null) {
+            if (TextUtils.isEmpty(chatMsg.getMsgContent())) {
+                return null;
+            }
+            try {
+                BaseSysMsg H = this.a.H(chatMsg);
+                if (H.getMsgConf() != null) {
+                    if (H.getMsgConf().isVisible()) {
+                        return H;
+                    }
+                }
+                return null;
+            } catch (Exception e) {
+                BdLog.e(e);
+                return null;
+            }
         }
-        return (List) invokeV.objValue;
+        return (BaseSysMsg) invokeL.objValue;
     }
 }

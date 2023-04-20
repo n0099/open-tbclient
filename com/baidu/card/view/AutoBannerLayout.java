@@ -13,17 +13,17 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.a35;
 import com.baidu.tieba.g9;
-import com.baidu.tieba.hx;
 import com.baidu.tieba.ii;
 import com.baidu.tieba.ix;
-import com.baidu.tieba.v25;
+import com.baidu.tieba.jx;
 import com.baidu.tieba.w25;
-import com.baidu.tieba.wu4;
-import com.baidu.tieba.ww4;
 import com.baidu.tieba.x25;
+import com.baidu.tieba.xu4;
 import com.baidu.tieba.xw4;
-import com.baidu.tieba.z25;
+import com.baidu.tieba.y25;
+import com.baidu.tieba.yw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,18 +31,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes2.dex */
-public class AutoBannerLayout extends RelativeLayout implements ix, hx<xw4> {
+public class AutoBannerLayout extends RelativeLayout implements jx, ix<yw4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CoverFlowView<ww4> a;
-    public List<ww4> b;
-    public wu4 c;
+    public CoverFlowView<xw4> a;
+    public List<xw4> b;
+    public xu4 c;
     public String d;
-    public x25<ww4> e;
-    public x25<ww4> f;
+    public y25<xw4> e;
+    public y25<xw4> f;
 
     /* loaded from: classes2.dex */
-    public class a extends v25 {
+    public class a extends w25 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AutoBannerLayout a;
@@ -65,35 +65,35 @@ public class AutoBannerLayout extends RelativeLayout implements ix, hx<xw4> {
             this.a = autoBannerLayout;
         }
 
-        @Override // com.baidu.tieba.v25, com.baidu.tieba.t25
-        public w25 a() {
+        @Override // com.baidu.tieba.w25, com.baidu.tieba.u25
+        public x25 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                w25 w25Var = new w25();
-                w25Var.c(R.drawable.shape_home_feed_banner_dot_n);
-                w25Var.g(R.drawable.shape_home_feed_banner_dot_s);
-                w25Var.d(81);
-                w25Var.e(R.dimen.M_H_X003);
-                w25Var.h(R.dimen.M_W_X003);
-                return w25Var;
+                x25 x25Var = new x25();
+                x25Var.c(R.drawable.shape_home_feed_banner_dot_n);
+                x25Var.g(R.drawable.shape_home_feed_banner_dot_s);
+                x25Var.d(81);
+                x25Var.e(R.dimen.M_H_X003);
+                x25Var.h(R.dimen.M_W_X003);
+                return x25Var;
             }
-            return (w25) invokeV.objValue;
+            return (x25) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.v25, com.baidu.tieba.t25
-        public z25 c() {
+        @Override // com.baidu.tieba.w25, com.baidu.tieba.u25
+        public a35 c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                z25 z25Var = new z25();
-                z25Var.a(ii.g(this.a.getContext(), R.dimen.tbds209));
-                return z25Var;
+                a35 a35Var = new a35();
+                a35Var.a(ii.g(this.a.getContext(), R.dimen.tbds209));
+                return a35Var;
             }
-            return (z25) invokeV.objValue;
+            return (a35) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.v25, com.baidu.tieba.t25
+        @Override // com.baidu.tieba.w25, com.baidu.tieba.u25
         public TbImageView d(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -112,7 +112,7 @@ public class AutoBannerLayout extends RelativeLayout implements ix, hx<xw4> {
     }
 
     /* loaded from: classes2.dex */
-    public class b implements x25<ww4> {
+    public class b implements y25<xw4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AutoBannerLayout a;
@@ -136,19 +136,19 @@ public class AutoBannerLayout extends RelativeLayout implements ix, hx<xw4> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.x25
+        @Override // com.baidu.tieba.y25
         /* renamed from: c */
-        public void a(int i, ww4 ww4Var) {
+        public void a(int i, xw4 xw4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, ww4Var) == null) {
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, xw4Var) == null) {
                 int count = ListUtils.getCount(this.a.b);
                 if (i >= 0 && i <= count && this.a.e != null) {
-                    this.a.e.a(i, ww4Var);
+                    this.a.e.a(i, xw4Var);
                 }
             }
         }
 
-        @Override // com.baidu.tieba.x25
+        @Override // com.baidu.tieba.y25
         public void b(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
@@ -230,20 +230,20 @@ public class AutoBannerLayout extends RelativeLayout implements ix, hx<xw4> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.hx
+    @Override // com.baidu.tieba.ix
     /* renamed from: g */
-    public void a(xw4 xw4Var) {
+    public void a(yw4 yw4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, xw4Var) == null) {
-            if (xw4Var != null && !ListUtils.isEmpty(xw4Var.a)) {
-                h(xw4Var.a);
+        if (interceptable == null || interceptable.invokeL(1048580, this, yw4Var) == null) {
+            if (yw4Var != null && !ListUtils.isEmpty(yw4Var.a)) {
+                h(yw4Var.a);
             } else {
                 setVisibility(8);
             }
         }
     }
 
-    public void h(List<ww4> list) {
+    public void h(List<xw4> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
             if (list != null && !ListUtils.isEmpty(list)) {
@@ -276,9 +276,9 @@ public class AutoBannerLayout extends RelativeLayout implements ix, hx<xw4> {
     public void setBannerHeight(int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048585, this, i) == null) && this.a != null) {
-            z25 z25Var = new z25();
-            z25Var.a(i);
-            this.a.y(z25Var);
+            a35 a35Var = new a35();
+            a35Var.a(i);
+            this.a.y(a35Var);
         }
     }
 
@@ -289,15 +289,15 @@ public class AutoBannerLayout extends RelativeLayout implements ix, hx<xw4> {
         }
     }
 
-    public void setIWindowChangedListener(wu4 wu4Var) {
+    public void setIWindowChangedListener(xu4 xu4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, wu4Var) == null) {
-            this.c = wu4Var;
+        if (interceptable == null || interceptable.invokeL(1048587, this, xu4Var) == null) {
+            this.c = xu4Var;
         }
     }
 
     public void setIndicatorVisible(int i) {
-        CoverFlowView<ww4> coverFlowView;
+        CoverFlowView<xw4> coverFlowView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048588, this, i) == null) && (coverFlowView = this.a) != null) {
             coverFlowView.setIndicatorVisible(i);
@@ -305,22 +305,22 @@ public class AutoBannerLayout extends RelativeLayout implements ix, hx<xw4> {
     }
 
     public void setMarqueenTime(long j) {
-        CoverFlowView<ww4> coverFlowView;
+        CoverFlowView<xw4> coverFlowView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeJ(1048589, this, j) == null) && (coverFlowView = this.a) != null) {
             coverFlowView.setMarqueenTime(j);
         }
     }
 
-    public void setOnCoverViewCallback(x25<ww4> x25Var) {
+    public void setOnCoverViewCallback(y25<xw4> y25Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, x25Var) == null) {
-            this.e = x25Var;
+        if (interceptable == null || interceptable.invokeL(1048590, this, y25Var) == null) {
+            this.e = y25Var;
         }
     }
 
     public void setPageMargin(int i) {
-        CoverFlowView<ww4> coverFlowView;
+        CoverFlowView<xw4> coverFlowView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048591, this, i) == null) && (coverFlowView = this.a) != null) {
             coverFlowView.setPageMargin(i);
@@ -328,7 +328,7 @@ public class AutoBannerLayout extends RelativeLayout implements ix, hx<xw4> {
     }
 
     public void d() {
-        CoverFlowView<ww4> coverFlowView;
+        CoverFlowView<xw4> coverFlowView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (coverFlowView = this.a) != null) {
             coverFlowView.m();
@@ -377,9 +377,9 @@ public class AutoBannerLayout extends RelativeLayout implements ix, hx<xw4> {
         }
     }
 
-    @Override // com.baidu.tieba.ix
+    @Override // com.baidu.tieba.jx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        CoverFlowView<ww4> coverFlowView;
+        CoverFlowView<xw4> coverFlowView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048583, this, tbPageContext, i) == null) && (coverFlowView = this.a) != null) {
             coverFlowView.t();

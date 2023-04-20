@@ -1,28 +1,32 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import protobuf.ConfigVersion;
 /* loaded from: classes5.dex */
-public class jq9 extends CustomMessageListener {
+public class jq9 extends bb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
-    public final jo9 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jq9(MainTabActivity mainTabActivity, jo9 jo9Var) {
-        super(2001304);
+    public jq9(MainTabActivity mainTabActivity, ro9 ro9Var) {
+        super(1001);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, jo9Var};
+            Object[] objArr = {mainTabActivity, ro9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,36 +38,42 @@ public class jq9 extends CustomMessageListener {
             }
         }
         this.a = mainTabActivity;
-        this.b = jo9Var;
+    }
+
+    public final boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (-1 == this.a.j) {
+                return true;
+            }
+            long currentTimeMillis = System.currentTimeMillis() - this.a.j;
+            if (currentTimeMillis <= 0 || currentTimeMillis >= 300000) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void b(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && str != null && TbadkCoreApplication.getInst().getConfigVersion() != null && a()) {
+            this.a.j = System.currentTimeMillis();
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005009, null));
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        jo9 jo9Var;
-        boolean z;
+    /* renamed from: c */
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        ConfigVersion configVersion;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer) && (jo9Var = this.b) != null && jo9Var.y() != null) {
-            int intValue = ((Integer) customResponsedMessage.getData()).intValue();
-            int oldSkinType = TbadkCoreApplication.getInst().getOldSkinType();
-            boolean z2 = false;
-            if (intValue != 2 && oldSkinType != 2) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z) {
-                return;
-            }
-            if ((intValue == 3 || intValue == 0) && oldSkinType == 2) {
-                z2 = true;
-            }
-            if (z2) {
-                this.b.y().e(1);
-            } else if (TbadkCoreApplication.getInst().isThemeIconCover()) {
-                this.b.y().e(2);
-            } else {
-                this.b.y().e(1);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, socketResponsedMessage) == null) && socketResponsedMessage != null && socketResponsedMessage.getCmd() == 1001 && (socketResponsedMessage instanceof ResponseOnlineMessage)) {
+            ResponseOnlineMessage responseOnlineMessage = (ResponseOnlineMessage) socketResponsedMessage;
+            if (socketResponsedMessage.getError() == 0 && (configVersion = responseOnlineMessage.getConfigVersion()) != null) {
+                b(configVersion.sync);
             }
         }
     }

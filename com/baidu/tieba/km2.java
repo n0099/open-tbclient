@@ -19,7 +19,7 @@ public class km2 implements ZeusPluginFactory {
     public String name() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "swan_rtc_room" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "swan_rtc_item" : (String) invokeV.objValue;
     }
 
     public km2(@NonNull String str) {
@@ -45,9 +45,9 @@ public class km2 implements ZeusPluginFactory {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, invoker)) == null) {
-            fo2 a = br2.D().a(invoker, this.a);
-            u42.i("【RtcRoomPluginFactory】", "Factory 「Hash:" + hashCode() + "」 is creating inline RtcRoom「Hash:" + a.hashCode() + "」");
-            return new im2(a);
+            fo2 d = cr2.D().d(invoker, this.a);
+            v42.i("【RtcItemPluginFactory】", "Factory 「Hash:" + hashCode() + "」 is creating inline RtcItem「Hash:" + d.hashCode() + "」");
+            return new im2(d);
         }
         return (ZeusPlugin) invokeL.objValue;
     }

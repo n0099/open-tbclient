@@ -24,7 +24,9 @@ import com.baidu.android.imsdk.media.message.IChatMessageManager;
 import com.baidu.android.imsdk.media.message.MediaChatMessageCloudManager;
 import com.baidu.android.imsdk.pubaccount.PaInfo;
 import com.baidu.android.imsdk.pubaccount.db.PaInfoDBManager;
+import com.baidu.android.imsdk.ubc.MessageUbc;
 import com.baidu.android.imsdk.ubc.ScreenUbc;
+import com.baidu.android.imsdk.ubc.UBCConstants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.MsgUtility;
 import com.baidu.android.imsdk.utils.Utility;
@@ -201,20 +203,6 @@ public class MediaChatMessageManager implements IChatMessageManager {
         return invokeLL.intValue;
     }
 
-    private void updateChatMsgStatus(ChatMsg chatMsg, int i) {
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65548, this, chatMsg, i) == null) {
-            if (i == 0) {
-                i2 = 0;
-            } else {
-                i2 = 2;
-            }
-            chatMsg.setStatus(i2);
-            MediaMessageDBManager.getInstance(this.mAppContext).updateMsgStatus(chatMsg);
-        }
-    }
-
     private int saveOrUpdateMsg(ChatMsg chatMsg, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
@@ -300,6 +288,24 @@ public class MediaChatMessageManager implements IChatMessageManager {
             }
         }
         return invokeL.longValue;
+    }
+
+    private void updateChatMsgStatus(ChatMsg chatMsg, int i) {
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65548, this, chatMsg, i) == null) {
+            if (i == 0) {
+                i2 = 0;
+            } else {
+                MessageUbc.DebugInfo debugInfo = new MessageUbc.DebugInfo();
+                debugInfo.clientSource = MediaChatMessageManager.class.getSimpleName() + "_updateChatMsgStatus";
+                debugInfo.msgId = chatMsg.getMsgId();
+                MessageUbc.uploadUbc(this.mAppContext, i, UBCConstants.SEND_FAIL_RECORD_UBC, debugInfo, chatMsg);
+                i2 = 2;
+            }
+            chatMsg.setStatus(i2);
+            MediaMessageDBManager.getInstance(this.mAppContext).updateMsgStatus(chatMsg);
+        }
     }
 
     public int delDraftMsg(int i, long j) {

@@ -16,7 +16,6 @@ import com.baidu.android.imsdk.ubc.UBCConstants;
 import com.baidu.android.imsdk.utils.BaseHttpRequest;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.tieba.v60;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -106,11 +105,14 @@ public class IMSendChatMsgRequest extends BaseHttpRequest {
         if (interceptable == null || interceptable.invokeILL(1048581, this, i, bArr, th) == null) {
             Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
             this.mChatMsg.setStatus(2);
+            MessageUbc.DebugInfo debugInfo = new MessageUbc.DebugInfo();
+            debugInfo.clientSource = IMSendChatMsgRequest.class.getSimpleName() + "_onFailure";
+            debugInfo.msgId = this.mChatMsg.getMsgId();
+            MessageUbc.uploadUbc(this.mContext, i, UBCConstants.SEND_FAIL_RECORD_UBC, debugInfo, this.mChatMsg);
             ISendMessageListener iSendMessageListener = this.mListener;
             if (iSendMessageListener != null) {
                 iSendMessageListener.onSendMessageResult(((Integer) transErrorCode.first).intValue(), this.mChatMsg);
             }
-            v60.d().f(this.mUbc.generateUBCData(String.valueOf(transErrorCode.first), (String) transErrorCode.second), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
         }
     }
 
@@ -218,33 +220,60 @@ public class IMSendChatMsgRequest extends BaseHttpRequest {
         return (byte[]) invokeV.objValue;
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:15:0x0042  */
+    /* JADX WARN: Removed duplicated region for block: B:17:0x0049  */
+    /* JADX WARN: Removed duplicated region for block: B:18:0x0050  */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x0089  */
+    /* JADX WARN: Removed duplicated region for block: B:30:? A[RETURN, SYNTHETIC] */
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public void onSuccess(int i, byte[] bArr) {
+        int i2;
+        ISendMessageListener iSendMessageListener;
+        JSONObject jSONObject;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048582, this, i, bArr) == null) {
             String str = new String(bArr);
             LogUtils.d(TAG, "onSuccess result = " + str);
             long j = -1;
             try {
-                JSONObject jSONObject = new JSONObject(str);
-                i = jSONObject.optInt("error_code");
-                j = jSONObject.optLong("msgid", -1L);
+                jSONObject = new JSONObject(str);
+                i2 = jSONObject.optInt("error_code");
             } catch (Exception e) {
+                e = e;
+                i2 = i;
+            }
+            try {
+                j = jSONObject.optLong("msgid", -1L);
+            } catch (Exception e2) {
+                e = e2;
                 LogUtils.e(TAG, "onSuccess Exception ", e);
+                if (j > 0) {
+                }
+                if (i2 != 0) {
+                }
+                iSendMessageListener = this.mListener;
+                if (iSendMessageListener == null) {
+                }
             }
             if (j > 0) {
                 this.mChatMsg.setMsgId(j);
             }
-            if (i == 0) {
+            if (i2 != 0) {
                 this.mChatMsg.setStatus(0);
             } else {
                 this.mChatMsg.setStatus(2);
+                MessageUbc.DebugInfo debugInfo = new MessageUbc.DebugInfo();
+                debugInfo.clientSource = IMSendChatMsgRequest.class.getSimpleName() + "_onSuccess";
+                debugInfo.msgId = this.mChatMsg.getMsgId();
+                MessageUbc.uploadUbc(this.mContext, i, UBCConstants.SEND_FAIL_RECORD_UBC, debugInfo, this.mChatMsg);
             }
-            ISendMessageListener iSendMessageListener = this.mListener;
-            if (iSendMessageListener != null) {
-                iSendMessageListener.onSendMessageResult(i, this.mChatMsg);
+            iSendMessageListener = this.mListener;
+            if (iSendMessageListener == null) {
+                iSendMessageListener.onSendMessageResult(i2, this.mChatMsg);
             }
-            v60.d().f(this.mUbc.generateUBCData(String.valueOf(i), "send_msg_client"), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
         }
     }
 }

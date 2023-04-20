@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ii;
 import com.baidu.tieba.jg;
-import com.baidu.tieba.q25;
+import com.baidu.tieba.r25;
 import com.baidu.tieba.view.widget.mediaedit.adapter.rangerslider.VideoClipAdapter;
 import com.baidu.tieba.view.widget.mediaedit.manager.CustomLinearLayoutManager;
 import com.baidu.tieba.view.widget.pickcover.SlideBarView;
@@ -638,7 +638,7 @@ public class PickCoverLayout extends FrameLayout {
             this.g = inflate.findViewById(R.id.obfuscated_res_0x7f092653);
             EMTextView eMTextView = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f09066e);
             this.h = eMTextView;
-            q25.d(eMTextView).A(R.array.S_O_X001);
+            r25.d(eMTextView).A(R.array.S_O_X001);
             addView(inflate);
             CustomLinearLayoutManager customLinearLayoutManager = new CustomLinearLayoutManager(getContext(), 0, false);
             this.c = customLinearLayoutManager;

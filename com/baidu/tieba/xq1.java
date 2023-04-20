@@ -6,24 +6,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes7.dex */
-public class xq1 implements fr1 {
+public class xq1 implements lt1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.fr1
-    public String c() {
+    @Override // com.baidu.tieba.lt1
+    public String[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "0" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
+        }
+        return (String[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.fr1
-    public boolean d() {
+    @Override // com.baidu.tieba.lt1
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return false;
+            return true;
         }
         return invokeV.booleanValue;
     }
@@ -40,5 +44,21 @@ public class xq1 implements fr1 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    @Override // com.baidu.tieba.lt1
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (!cr2.w0().d()) {
+                if (vd2.b()) {
+                    return vd2.b + File.separator + "libcom.baidu.zeus.so";
+                }
+                return vd2.d + File.separator + "libcom.baidu.zeus.so";
+            }
+            return null;
+        }
+        return (String) invokeV.objValue;
     }
 }

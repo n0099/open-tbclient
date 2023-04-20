@@ -17,7 +17,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.kz4;
+import com.baidu.tieba.lz4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -295,19 +295,19 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
         }
     }
 
-    public void f(ThreadData threadData, kz4 kz4Var, boolean z) {
+    public void f(ThreadData threadData, lz4 lz4Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048576, this, threadData, kz4Var, z) == null) {
-            if (threadData != null && kz4Var != null && !StringUtils.isNull(kz4Var.d())) {
+        if (interceptable == null || interceptable.invokeLLZ(1048576, this, threadData, lz4Var, z) == null) {
+            if (threadData != null && lz4Var != null && !StringUtils.isNull(lz4Var.d())) {
                 this.e = threadData;
                 i(z);
                 this.i = true;
                 setVisibility(0);
-                this.b.N(kz4Var.a(), 10, false);
-                this.c.setText(kz4Var.d());
+                this.b.N(lz4Var.a(), 10, false);
+                this.c.setText(lz4Var.d());
                 if (!this.g) {
                     this.g = true;
-                    this.h = kz4Var.e();
+                    this.h = lz4Var.e();
                     j();
                     return;
                 }

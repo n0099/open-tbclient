@@ -21,7 +21,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ji;
-import com.baidu.tieba.sm;
+import com.baidu.tieba.tm;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -77,16 +77,16 @@ public class BitmapHelper {
         return (interceptable == null || (invokeLII = interceptable.invokeLII(65542, null, bitmap, i, i2)) == null) ? bitmap : (Bitmap) invokeLII.objValue;
     }
 
-    public static sm checkIsValidPhotoMemoryCache(String str, sm smVar, int i, int i2) {
+    public static tm checkIsValidPhotoMemoryCache(String str, tm tmVar, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLII = interceptable.invokeLLII(65543, null, str, smVar, i, i2)) == null) ? smVar : (sm) invokeLLII.objValue;
+        return (interceptable == null || (invokeLLII = interceptable.invokeLLII(65543, null, str, tmVar, i, i2)) == null) ? tmVar : (tm) invokeLLII.objValue;
     }
 
-    public static sm checkIsValidPicMemoryCache(String str, sm smVar, int i, int i2) {
+    public static tm checkIsValidPicMemoryCache(String str, tm tmVar, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLII = interceptable.invokeLLII(65544, null, str, smVar, i, i2)) == null) ? smVar : (sm) invokeLLII.objValue;
+        return (interceptable == null || (invokeLLII = interceptable.invokeLLII(65544, null, str, tmVar, i, i2)) == null) ? tmVar : (tm) invokeLLII.objValue;
     }
 
     public static int getGradeResourceIdInEnterForum(int i) {

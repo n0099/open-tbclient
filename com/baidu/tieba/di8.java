@@ -1,14 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.live.interfaces.browser.IBrowserView;
-import com.baidu.searchbox.live.interfaces.service.BrowserProxyService;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.searchbox.live.interfaces.service.AccountManagerService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class di8 implements BrowserProxyService {
+public class di8 extends rj1<AccountManagerService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,13 +26,15 @@ public class di8 implements BrowserProxyService {
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.BrowserProxyService
-    public IBrowserView buildLightBrowserViewInstance() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.rj1
+    /* renamed from: a */
+    public AccountManagerService createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new bi8();
+            return new ei8();
         }
-        return (IBrowserView) invokeV.objValue;
+        return (AccountManagerService) invokeV.objValue;
     }
 }

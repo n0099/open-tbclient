@@ -23,11 +23,11 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.a55;
+import com.baidu.tieba.bj9;
 import com.baidu.tieba.ii;
 import com.baidu.tieba.square.data.ForumInfoData;
 import com.baidu.tieba.tbadkCore.LikeModel;
-import com.baidu.tieba.ti9;
-import com.baidu.tieba.y45;
 import com.baidu.tieba.z45;
 import com.baidu.tieba.z8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -40,12 +40,12 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
     public transient /* synthetic */ FieldHolder $fh;
     public BdListView a;
     public ForumRankModel b;
-    public ti9 c;
+    public bj9 c;
     public NavigationBar d;
     public TbImageView e;
     public LikeModel f;
     public LinearLayout g;
-    public z45 h;
+    public a55 h;
     public FrameLayout i;
     public String j;
     public boolean k;
@@ -87,7 +87,7 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements y45.g {
+    public class b implements z45.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ForumRankActivity a;
@@ -110,7 +110,7 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
             this.a = forumRankActivity;
         }
 
-        @Override // com.baidu.tieba.y45.g
+        @Override // com.baidu.tieba.z45.g
         public void f(boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && !this.a.b.loadData()) {
@@ -168,11 +168,11 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
                             this.a.j = forumRankData.pic_url;
                         }
                         this.a.c.f(forumRankData.forumsquare_list);
-                        ti9 ti9Var = this.a.c;
+                        bj9 bj9Var = this.a.c;
                         if (forumRankData.is_order == 0) {
                             z = false;
                         }
-                        ti9Var.h(Boolean.valueOf(z));
+                        bj9Var.h(Boolean.valueOf(z));
                         this.a.d.setTitleText(forumRankData.title);
                         ForumInfoData[] forumInfoDataArr = forumRankData.forumsquare_list;
                         if (forumInfoDataArr != null && forumInfoDataArr.length > 100 && this.a.a.getAdapter2().l() <= 0) {
@@ -306,9 +306,9 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
             }
             this.k = true;
             this.b.setLoadDataCallBack(this.l);
-            ti9 ti9Var = new ti9(getPageContext(), 0);
-            this.c = ti9Var;
-            ti9Var.e(100);
+            bj9 bj9Var = new bj9(getPageContext(), 0);
+            this.c = bj9Var;
+            bj9Var.e(100);
             this.c.h(Boolean.TRUE);
             this.c.g(ForumDetailActivityConfig.FromType.BAR_RANK);
             this.a.setAdapter((ListAdapter) this.c);
@@ -358,9 +358,9 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.forum_list_forum_footer, (ViewGroup) null);
             this.g = linearLayout;
             linearLayout.setOnClickListener(new a(this));
-            z45 z45Var = new z45(getPageContext());
-            this.h = z45Var;
-            this.a.setPullRefresh(z45Var);
+            a55 a55Var = new a55(getPageContext());
+            this.h = a55Var;
+            this.a.setPullRefresh(a55Var);
             TextView textView = new TextView(getActivity());
             textView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + ii.g(getActivity(), R.dimen.obfuscated_res_0x7f070282)));
             this.a.w(textView, 0);

@@ -4,75 +4,161 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.searchbox.http.request.PostBodyRequest;
-import com.baidu.swan.game.ad.entity.AdResponseInfo;
+import com.baidu.swan.game.ad.utils.NetworkUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidubce.AbstractBceClient;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
 import okhttp3.Response;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class uw3 implements lw3 {
+public class uw3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public gw3 a;
     public Context b;
 
     /* loaded from: classes6.dex */
-    public class a extends ResponseCallback<String> {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ mw3 a;
+        public final /* synthetic */ JSONObject b;
+        public final /* synthetic */ uw3 c;
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        /* renamed from: a */
-        public void onSuccess(String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
+        /* renamed from: com.baidu.tieba.uw3$a$a  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public class C0439a extends ResponseCallback<ew3> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            @Override // com.baidu.searchbox.http.callback.ResponseCallback
+            public void onFail(Exception exc) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
+                }
+            }
+
+            /* renamed from: com.baidu.tieba.uw3$a$a$a  reason: collision with other inner class name */
+            /* loaded from: classes6.dex */
+            public class RunnableC0440a implements Runnable {
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ ew3 a;
+                public final /* synthetic */ C0439a b;
+
+                public RunnableC0440a(C0439a c0439a, ew3 ew3Var) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {c0439a, ew3Var};
+                        interceptable.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.b = c0439a;
+                    this.a = ew3Var;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable = $ic;
+                    if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.a.c.a != null) {
+                        this.b.a.c.a.i(this.a);
+                    }
+                }
+            }
+
+            public C0439a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.searchbox.http.callback.ResponseCallback
+            /* renamed from: a */
+            public void onSuccess(ew3 ew3Var, int i) {
+                Interceptable interceptable = $ic;
+                if ((interceptable != null && interceptable.invokeLI(1048576, this, ew3Var, i) != null) || ew3Var == null) {
+                    return;
+                }
+                kx3.c(new RunnableC0440a(this, ew3Var));
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.searchbox.http.callback.ResponseCallback
+            /* renamed from: b */
+            public ew3 parseResponse(Response response, int i) {
+                InterceptResult invokeLI;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, i)) == null) {
+                    if (response == null || response.body() == null || !response.isSuccessful()) {
+                        return null;
+                    }
+                    try {
+                        String string = response.body().string();
+                        if (!TextUtils.isEmpty(string)) {
+                            return new ew3(string);
+                        }
+                    } catch (Exception | OutOfMemoryError e) {
+                        e.printStackTrace();
+                    }
+                    return null;
+                }
+                return (ew3) invokeLI.objValue;
             }
         }
 
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-            }
-        }
-
-        public a(uw3 uw3Var) {
+        public a(uw3 uw3Var, mw3 mw3Var, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {uw3Var};
+                Object[] objArr = {uw3Var, mw3Var, jSONObject};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.c = uw3Var;
+            this.a = mw3Var;
+            this.b = jSONObject;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public String parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
-                if (response != null && response.body() != null) {
-                    response.body().close();
-                    return "";
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                C0439a c0439a = new C0439a(this);
+                if (NetworkUtils.f(this.c.b)) {
+                    this.a.b("https://afdconf.baidu.com/afd/download", this.b, c0439a);
                 }
-                return "";
             }
-            return (String) invokeLI.objValue;
         }
     }
 
@@ -94,81 +180,17 @@ public class uw3 implements lw3 {
         this.b = context;
     }
 
-    @Override // com.baidu.tieba.lw3
-    public void a(String str, JSONObject jSONObject, ResponseCallback<AdResponseInfo> responseCallback) {
+    public void d(gw3 gw3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, jSONObject, responseCallback) == null) {
-            boolean startsWith = str.startsWith("https://");
-            this.a = startsWith;
-            if (startsWith) {
-                ((PostBodyRequest.PostBodyRequestBuilder) ye4.g().postRequest().url(str)).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString())).build().executeAsync(responseCallback);
-            } else {
-                ((PostBodyRequest.PostBodyRequestBuilder) ye4.g().postRequest().url(str)).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString())).build().executeAsync(responseCallback);
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gw3Var) == null) {
+            this.a = gw3Var;
         }
     }
 
-    @Override // com.baidu.tieba.lw3
-    public void b(String str, JSONObject jSONObject, ResponseCallback<dw3> responseCallback) {
+    public void c(mw3 mw3Var, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject, responseCallback) == null) {
-            ((PostBodyRequest.PostBodyRequestBuilder) ye4.g().postRequest().url(str)).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString())).build().executeAsync(responseCallback);
-        }
-    }
-
-    @Override // com.baidu.tieba.lw3
-    public void c(String str, ResponseCallback<mv3> responseCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, responseCallback) == null) {
-            boolean startsWith = str.startsWith("https://");
-            this.a = startsWith;
-            if (startsWith) {
-                ye4.g().getRequest().url(str).build().executeAsync(responseCallback);
-            } else {
-                ye4.g().getRequest().url(str).build().executeAsync(responseCallback);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.lw3
-    public void f(String str, ResponseCallback<AdResponseInfo> responseCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, str, responseCallback) == null) {
-            boolean startsWith = str.startsWith("https://");
-            this.a = startsWith;
-            if (startsWith) {
-                ye4.g().getRequest().url(str).build().executeAsync(responseCallback);
-            } else {
-                ye4.g().getRequest().url(str).build().executeAsync(responseCallback);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.lw3
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        xe4 xe4Var = new xe4();
-        xe4Var.b = "POST";
-        xe4Var.a = "https://pimlog.baidu.com/mapp/advlog";
-        xe4Var.d = RequestBody.create(MediaType.get(AbstractBceClient.DEFAULT_CONTENT_TYPE), str);
-        ye4.g().e(xe4Var);
-    }
-
-    @Override // com.baidu.tieba.lw3
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            a aVar = new a(this);
-            boolean startsWith = str.startsWith("https://");
-            this.a = startsWith;
-            if (startsWith) {
-                ye4.g().getRequest().url(str).build().executeAsync(aVar);
-            } else {
-                ye4.g().getRequest().url(str).build().executeAsync(aVar);
-            }
+        if (interceptable == null || interceptable.invokeLL(1048576, this, mw3Var, jSONObject) == null) {
+            jx3.d(new a(this, mw3Var, jSONObject), "AdLandingDownloadRequest");
         }
     }
 }

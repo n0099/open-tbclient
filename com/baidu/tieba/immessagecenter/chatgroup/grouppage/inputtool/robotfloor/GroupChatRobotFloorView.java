@@ -20,13 +20,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.view.RoundTbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c68;
-import com.baidu.tieba.d68;
-import com.baidu.tieba.e68;
 import com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.ChatRoomRecycleAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputtool.robotfloor.adapter.RobotItem;
-import com.baidu.tieba.n38;
-import com.baidu.tieba.q25;
+import com.baidu.tieba.k68;
+import com.baidu.tieba.l68;
+import com.baidu.tieba.m68;
+import com.baidu.tieba.o38;
+import com.baidu.tieba.r25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,7 +34,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class GroupChatRobotFloorView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,17 +50,17 @@ public class GroupChatRobotFloorView extends RelativeLayout {
     public long j;
     public long k;
     public ChatRoomRecycleAdapter l;
-    public d68 m;
+    public l68 m;
     public e n;
     public LinearLayoutManager o;
     public int p;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface e {
         void a(String str, int i, int i2);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a extends RecyclerView.OnScrollListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -102,7 +102,7 @@ public class GroupChatRobotFloorView extends RelativeLayout {
                     return;
                 }
                 this.a.p = findFirstVisibleItemPosition;
-                n38 l = this.a.m.l(findFirstVisibleItemPosition);
+                o38 l = this.a.m.l(findFirstVisibleItemPosition);
                 if (l == null) {
                     return;
                 }
@@ -135,7 +135,7 @@ public class GroupChatRobotFloorView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -167,8 +167,8 @@ public class GroupChatRobotFloorView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class c implements c68 {
+    /* loaded from: classes5.dex */
+    public class c implements k68 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ GroupChatRobotFloorView a;
@@ -191,7 +191,7 @@ public class GroupChatRobotFloorView extends RelativeLayout {
             this.a = groupChatRobotFloorView;
         }
 
-        @Override // com.baidu.tieba.c68
+        @Override // com.baidu.tieba.k68
         public void a(String str, int i) {
             GroupChatRobotFloorView groupChatRobotFloorView;
             e eVar;
@@ -202,8 +202,8 @@ public class GroupChatRobotFloorView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class d implements c68 {
+    /* loaded from: classes5.dex */
+    public class d implements k68 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ GroupChatRobotFloorView a;
@@ -226,7 +226,7 @@ public class GroupChatRobotFloorView extends RelativeLayout {
             this.a = groupChatRobotFloorView;
         }
 
-        @Override // com.baidu.tieba.c68
+        @Override // com.baidu.tieba.k68
         public void a(String str, int i) {
             GroupChatRobotFloorView groupChatRobotFloorView;
             e eVar;
@@ -261,13 +261,13 @@ public class GroupChatRobotFloorView extends RelativeLayout {
     public void m(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            q25 d2 = q25.d(this.c);
+            r25 d2 = r25.d(this.c);
             d2.o(R.string.J_X18);
             d2.f(R.color.CAM_X0207);
-            q25 d3 = q25.d(this.e);
+            r25 d3 = r25.d(this.e);
             d3.o(R.string.J_X03);
             d3.f(R.color.CAM_X0210);
-            q25 d4 = q25.d(this.h);
+            r25 d4 = r25.d(this.h);
             d4.w(R.color.CAM_X0107);
             d4.B(R.dimen.T_X08);
         }
@@ -319,10 +319,10 @@ public class GroupChatRobotFloorView extends RelativeLayout {
     }
 
     public void l(List<Object> list) {
-        d68 d68Var;
+        l68 l68Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, list) == null) && !ListUtils.isEmpty(list) && (d68Var = this.m) != null) {
-            d68Var.p(list);
+        if ((interceptable == null || interceptable.invokeL(1048581, this, list) == null) && !ListUtils.isEmpty(list) && (l68Var = this.m) != null) {
+            l68Var.p(list);
         }
     }
 
@@ -334,10 +334,10 @@ public class GroupChatRobotFloorView extends RelativeLayout {
     }
 
     public void setData(List<Object> list) {
-        d68 d68Var;
+        l68 l68Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, list) == null) && !ListUtils.isEmpty(list) && (d68Var = this.m) != null) {
-            d68Var.o(list);
+        if ((interceptable == null || interceptable.invokeL(1048585, this, list) == null) && !ListUtils.isEmpty(list) && (l68Var = this.m) != null) {
+            l68Var.o(list);
         }
     }
 
@@ -362,9 +362,9 @@ public class GroupChatRobotFloorView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
             this.j = j;
             this.k = j2;
-            d68 d68Var = this.m;
-            if (d68Var != null) {
-                d68Var.u(j, j2);
+            l68 l68Var = this.m;
+            if (l68Var != null) {
+                l68Var.u(j, j2);
             }
         }
     }
@@ -382,22 +382,22 @@ public class GroupChatRobotFloorView extends RelativeLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            d68 d68Var = this.m;
-            if (d68Var != null) {
-                return d68Var.k();
+            l68 l68Var = this.m;
+            if (l68Var != null) {
+                return l68Var.k();
             }
             return 0;
         }
         return invokeV.intValue;
     }
 
-    public d68 getRobotItemDataAdapter() {
+    public l68 getRobotItemDataAdapter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.m;
         }
-        return (d68) invokeV.objValue;
+        return (l68) invokeV.objValue;
     }
 
     public final void j() {
@@ -409,10 +409,10 @@ public class GroupChatRobotFloorView extends RelativeLayout {
     }
 
     public void n() {
-        d68 d68Var;
+        l68 l68Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (d68Var = this.m) != null) {
-            d68Var.s();
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (l68Var = this.m) != null) {
+            l68Var.s();
         }
     }
 
@@ -433,10 +433,10 @@ public class GroupChatRobotFloorView extends RelativeLayout {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.b.getPageActivity());
         this.o = linearLayoutManager;
         this.i.setLayoutManager(linearLayoutManager);
-        d68 d68Var = new d68(this.b);
-        this.m = d68Var;
-        d68Var.t(new c(this));
-        ChatRoomRecycleAdapter chatRoomRecycleAdapter = new ChatRoomRecycleAdapter(new e68(new d(this)), this.m, this.b);
+        l68 l68Var = new l68(this.b);
+        this.m = l68Var;
+        l68Var.t(new c(this));
+        ChatRoomRecycleAdapter chatRoomRecycleAdapter = new ChatRoomRecycleAdapter(new m68(new d(this)), this.m, this.b);
         this.l = chatRoomRecycleAdapter;
         this.i.setAdapter(chatRoomRecycleAdapter);
         m(TbadkCoreApplication.getInst().getSkinType());

@@ -1,96 +1,186 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.text.TextUtils;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.view.BdTopToast;
+import com.baidu.tbadk.switchs.LooperBlockSwitch;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class et9 {
+public final class et9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a c;
     public transient /* synthetic */ FieldHolder $fh;
+    public x95 a;
+    public gt9 b;
 
-    public static boolean d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? i == 1990059 : invokeI.booleanValue;
-    }
-
-    public static void a(p05 p05Var, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65536, null, p05Var, i) == null) && p05Var != null && i >= 0) {
-            int i2 = 1;
-            int i3 = i + 1;
-            boolean d = p05Var.d();
-            String valueOf = String.valueOf(TbadkCoreApplication.getCurrentAccountId());
-            if (d) {
-                i2 = 2;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947746015, "Lcom/baidu/tieba/et9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            TiebaStatic.log(new StatisticItem("c14633").param("uid", valueOf).param("obj_locate", i3).param("obj_type", i2));
-        }
-    }
-
-    public static boolean b(Activity activity, int i, String str) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65537, null, activity, i, str)) == null) {
-            if (d(i)) {
-                e(activity, str);
-                return true;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947746015, "Lcom/baidu/tieba/et9;");
+                return;
             }
-            return false;
         }
-        return invokeLIL.booleanValue;
+        c = new a(null);
     }
 
-    public static void g(ViewGroup viewGroup, String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLZ(65542, null, viewGroup, str, z) == null) && viewGroup != null && !TextUtils.isEmpty(str)) {
-            BdTopToast bdTopToast = new BdTopToast(viewGroup.getContext());
-            bdTopToast.h(z);
-            bdTopToast.g(str);
-            bdTopToast.i(viewGroup);
-        }
+    public /* synthetic */ et9(DefaultConstructorMarker defaultConstructorMarker) {
+        this();
     }
 
-    public static String c(View view2) {
-        InterceptResult invokeL;
+    @JvmStatic
+    public static final et9 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
-            if (view2 == null) {
-                return null;
-            }
-            Object tag = view2.getTag();
-            if (tag instanceof sl9) {
-                sl9 sl9Var = (sl9) tag;
-                if (sl9Var.q() != null) {
-                    return sl9Var.q().getUserId();
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? c.a() : (et9) invokeV.objValue;
+    }
+
+    /* loaded from: classes4.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            return null;
         }
-        return (String) invokeL.objValue;
+
+        @JvmStatic
+        public final et9 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return b.a.a();
+            }
+            return (et9) invokeV.objValue;
+        }
     }
 
-    public static void e(Activity activity, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, str) == null) && activity != null && !TextUtils.isEmpty(str)) {
-            g((ViewGroup) activity.findViewById(16908290), str, false);
+    /* loaded from: classes4.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final b a;
+        public static final et9 b;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-821839647, "Lcom/baidu/tieba/et9$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-821839647, "Lcom/baidu/tieba/et9$b;");
+                    return;
+                }
+            }
+            a = new b();
+            b = new et9(null);
+        }
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public final et9 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return b;
+            }
+            return (et9) invokeV.objValue;
         }
     }
 
-    public static void f(View view2, sl9 sl9Var) {
+    public et9() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65541, null, view2, sl9Var) != null) || view2 == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
-        view2.setTag(sl9Var);
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            gt9 gt9Var = this.b;
+            if (gt9Var != null) {
+                ft9.c(gt9Var.c(), gt9Var.b(), gt9Var.a(), gt9Var.d());
+            }
+            this.b = null;
+        }
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (LooperBlockSwitch.getIsOn()) {
+                a15.o(TbadkCoreApplication.getInst(), "updateDialog", new JSONObject());
+                return;
+            }
+            x95 x95Var = this.a;
+            if (x95Var != null) {
+                ft9.b(x95Var);
+            }
+            this.a = null;
+        }
+    }
+
+    public final void d(gt9 gt9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gt9Var) == null) {
+            this.b = gt9Var;
+        }
+    }
+
+    public final void e(x95 x95Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, x95Var) == null) {
+            this.a = x95Var;
+        }
     }
 }

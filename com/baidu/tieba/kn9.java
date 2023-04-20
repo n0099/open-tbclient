@@ -1,23 +1,12 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
+import java.io.IOException;
 /* loaded from: classes5.dex */
 public interface kn9 {
-    void a(TbPageContext<?> tbPageContext);
+    void a(nn9 nn9Var);
 
-    void b(String str);
+    VideoFinishResult b(String str, int i) throws IOException;
 
-    boolean c(yi yiVar, int i);
-
-    void cancelRecord();
-
-    void d(int i);
-
-    void e(yi yiVar);
-
-    boolean f();
-
-    void release();
-
-    void stopRecord();
+    void cancel();
 }

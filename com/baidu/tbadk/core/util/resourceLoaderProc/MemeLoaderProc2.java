@@ -17,9 +17,9 @@ import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tieba.ag;
 import com.baidu.tieba.dg;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.jq5;
-import com.baidu.tieba.rv4;
-import com.baidu.tieba.sm;
+import com.baidu.tieba.kq5;
+import com.baidu.tieba.sv4;
+import com.baidu.tieba.tm;
 import com.baidu.tieba.ub;
 import com.baidu.tieba.yb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class MemeLoaderProc2 implements dg<sm> {
+public class MemeLoaderProc2 implements dg<tm> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isFromCDN;
@@ -36,13 +36,13 @@ public class MemeLoaderProc2 implements dg<sm> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: decodeToResource */
-    public sm m54decodeToResource(byte[] bArr, Object... objArr) {
+    public tm m54decodeToResource(byte[] bArr, Object... objArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, bArr, objArr)) == null) {
             return null;
         }
-        return (sm) invokeLL.objValue;
+        return (tm) invokeLL.objValue;
     }
 
     @Override // com.baidu.tieba.dg
@@ -93,7 +93,7 @@ public class MemeLoaderProc2 implements dg<sm> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return rv4.c().g();
+            return sv4.c().g();
         }
         return invokeV.booleanValue;
     }
@@ -107,7 +107,7 @@ public class MemeLoaderProc2 implements dg<sm> {
         return (Bitmap) invokeLII.objValue;
     }
 
-    public sm createImageFromDiskPicOperate(yb ybVar, String str, int i, int i2) {
+    public tm createImageFromDiskPicOperate(yb ybVar, String str, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLII = interceptable.invokeLLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ybVar, str, i, i2)) == null) {
@@ -119,15 +119,15 @@ public class MemeLoaderProc2 implements dg<sm> {
             if (checkBitmapSize == null && ybVar.c() == null) {
                 return null;
             }
-            return new sm(checkBitmapSize, ybVar.isGif(), str, ybVar.c());
+            return new tm(checkBitmapSize, ybVar.isGif(), str, ybVar.c());
         }
-        return (sm) invokeLLII.objValue;
+        return (tm) invokeLLII.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.baidu.tieba.dg
-    public sm getFromLocal(String str, String str2, int i, int i2, ag agVar, Object... objArr) {
+    public tm getFromLocal(String str, String str2, int i, int i2, ag agVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), agVar, objArr})) == null) {
@@ -162,29 +162,29 @@ public class MemeLoaderProc2 implements dg<sm> {
             }
             return createImageFromDiskPicOperate(ybVar, str, i, i2);
         }
-        return (sm) invokeCommon.objValue;
+        return (tm) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.baidu.tieba.dg
-    public sm getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
+    public tm getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
-            sm checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(str, TbImageMemoryCache.s().w(str), i, i2);
+            tm checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(str, TbImageMemoryCache.s().w(str), i, i2);
             if (checkIsValidPicMemoryCache != null && checkIsValidPicMemoryCache.p() != null && !checkIsValidPicMemoryCache.p().isRecycled()) {
                 return checkIsValidPicMemoryCache;
             }
             return null;
         }
-        return (sm) invokeCommon.objValue;
+        return (tm) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.baidu.tieba.dg
-    public sm getFromRemote(String str, String str2, int i, int i2, ag agVar, Object... objArr) {
+    public tm getFromRemote(String str, String str2, int i, int i2, ag agVar, Object... objArr) {
         InterceptResult invokeCommon;
         int i3;
         int i4;
@@ -206,13 +206,13 @@ public class MemeLoaderProc2 implements dg<sm> {
                 i4 = i2;
             }
             if (!this.isShare) {
-                jq5.e(this.isFromCDN, str, str);
-                Pair<Boolean, String> d = jq5.d(str);
+                kq5.e(this.isFromCDN, str, str);
+                Pair<Boolean, String> d = kq5.d(str);
                 if (((Boolean) d.first).booleanValue()) {
                     str3 = (String) d.second;
                 }
             } else {
-                jq5.g(MemeLoaderProc2.class.getSimpleName(), str);
+                kq5.g(MemeLoaderProc2.class.getSimpleName(), str);
             }
             String str4 = str3;
             WebClient webClient = new WebClient();
@@ -235,7 +235,7 @@ public class MemeLoaderProc2 implements dg<sm> {
             s.q(pbImageSize + i5);
             return storeBitmap(str4, str2, agVar, null, checkBitmapSize(BitmapHelper.Bytes2Bitmap(downloadImageBytes), i3, i4), (webClient.isGif || ii.D(downloadImageBytes)) ? true : true, webClient, downloadImageBytes, needCache);
         }
-        return (sm) invokeCommon.objValue;
+        return (tm) invokeCommon.objValue;
     }
 
     public void setIsShare(boolean z) {
@@ -245,13 +245,13 @@ public class MemeLoaderProc2 implements dg<sm> {
         }
     }
 
-    public sm storeBitmap(String str, String str2, ag agVar, sm smVar, Bitmap bitmap, boolean z, WebClient webClient, byte[] bArr, boolean z2) {
+    public tm storeBitmap(String str, String str2, ag agVar, tm tmVar, Bitmap bitmap, boolean z, WebClient webClient, byte[] bArr, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{str, str2, agVar, smVar, bitmap, Boolean.valueOf(z), webClient, bArr, Boolean.valueOf(z2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{str, str2, agVar, tmVar, bitmap, Boolean.valueOf(z), webClient, bArr, Boolean.valueOf(z2)})) == null) {
             if (bitmap != null || bArr != null) {
-                smVar = new sm(bitmap, z, str2, bArr);
-                smVar.y(z2);
+                tmVar = new tm(bitmap, z, str2, bArr);
+                tmVar.y(z2);
                 if (z2) {
                     yb ybVar = new yb("images", TbMd5.getNameMd5FromUrl(str2), DiskFileOperate.Action.WRITE);
                     ybVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
@@ -268,20 +268,20 @@ public class MemeLoaderProc2 implements dg<sm> {
                     }
                 }
             }
-            return smVar;
+            return tmVar;
         }
-        return (sm) invokeCommon.objValue;
+        return (tm) invokeCommon.objValue;
     }
 
     @Override // com.baidu.tieba.dg
     public void updateMemory(String str, Object obj, int i, int i2, Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) && obj != null && (obj instanceof sm)) {
-            sm smVar = (sm) obj;
-            if (smVar.u()) {
-                smVar.A(i);
-                smVar.z(i2);
-                TbImageMemoryCache.s().k(str, smVar);
+        if ((interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) && obj != null && (obj instanceof tm)) {
+            tm tmVar = (tm) obj;
+            if (tmVar.u()) {
+                tmVar.A(i);
+                tmVar.z(i2);
+                TbImageMemoryCache.s().k(str, tmVar);
             }
         }
     }

@@ -23,7 +23,7 @@ import com.baidu.tbadk.data.CommitVoteReqMsg;
 import com.baidu.tieba.R;
 import com.baidu.tieba.gg;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.qa6;
+import com.baidu.tieba.ra6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -38,7 +38,7 @@ public class CandidateSearchItemHolder extends RecyclerView.ViewHolder {
     public TextView d;
     public TextView e;
     public int f;
-    public qa6 g;
+    public ra6 g;
     public BdUniqueId h;
     public View i;
     public View.OnClickListener j;
@@ -141,21 +141,21 @@ public class CandidateSearchItemHolder extends RecyclerView.ViewHolder {
         findViewById.setOnClickListener(this.j);
     }
 
-    public void g(qa6 qa6Var) {
+    public void g(ra6 ra6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, qa6Var) == null) {
-            this.g = qa6Var;
-            if (qa6Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, ra6Var) == null) {
+            this.g = ra6Var;
+            if (ra6Var == null) {
                 return;
             }
-            this.a.N(qa6Var.c, 12, false);
-            this.b.setText(qa6Var.d);
-            String valueOf = String.valueOf(qa6Var.e);
+            this.a.N(ra6Var.c, 12, false);
+            this.b.setText(ra6Var.d);
+            String valueOf = String.valueOf(ra6Var.e);
             if (valueOf != null && valueOf.length() < 4) {
-                valueOf = String.format("%04d", Long.valueOf(qa6Var.e));
+                valueOf = String.format("%04d", Long.valueOf(ra6Var.e));
             }
-            h(this.c, String.format(this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f0da7), valueOf, Integer.valueOf(qa6Var.f)), qa6Var.j);
-            this.d.setText(String.format(this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f00ec), StringHelper.numFormatOverWanWithNegative(qa6Var.g), StringHelper.numFormatOverWanWithNegative(qa6Var.h), StringHelper.numFormatOverWanWithNegative(qa6Var.i)));
+            h(this.c, String.format(this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f0da7), valueOf, Integer.valueOf(ra6Var.f)), ra6Var.j);
+            this.d.setText(String.format(this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f00ec), StringHelper.numFormatOverWanWithNegative(ra6Var.g), StringHelper.numFormatOverWanWithNegative(ra6Var.h), StringHelper.numFormatOverWanWithNegative(ra6Var.i)));
             i();
         }
     }

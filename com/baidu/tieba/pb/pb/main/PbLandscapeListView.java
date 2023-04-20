@@ -13,8 +13,8 @@ import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.iw5;
-import com.baidu.tieba.kn;
+import com.baidu.tieba.jw5;
+import com.baidu.tieba.ln;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,11 +36,11 @@ public class PbLandscapeListView extends BdTypeListView {
     public boolean S;
     public boolean T;
     @NonNull
-    public iw5 U;
+    public jw5 U;
     public boolean V;
     public boolean W;
     public boolean a0;
-    public kn b0;
+    public ln b0;
 
     /* loaded from: classes5.dex */
     public interface b {
@@ -150,7 +150,7 @@ public class PbLandscapeListView extends BdTypeListView {
         this.R = false;
         this.S = false;
         this.T = false;
-        this.U = new iw5(this);
+        this.U = new jw5(this);
         G();
     }
 
@@ -220,7 +220,7 @@ public class PbLandscapeListView extends BdTypeListView {
         this.R = false;
         this.S = false;
         this.T = false;
-        this.U = new iw5(this);
+        this.U = new jw5(this);
         G();
     }
 
@@ -250,7 +250,7 @@ public class PbLandscapeListView extends BdTypeListView {
         this.R = false;
         this.S = false;
         this.T = false;
-        this.U = new iw5(this);
+        this.U = new jw5(this);
         G();
     }
 
@@ -288,9 +288,9 @@ public class PbLandscapeListView extends BdTypeListView {
             super.dispatchDraw(canvas);
             if (this.W && !this.a0) {
                 this.a0 = true;
-                kn knVar = this.b0;
-                if (knVar != null) {
-                    knVar.a();
+                ln lnVar = this.b0;
+                if (lnVar != null) {
+                    lnVar.a();
                 }
             }
         }

@@ -20,19 +20,19 @@ import com.baidu.tbadk.core.util.DialogLoginHelper;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.al9;
-import com.baidu.tieba.fn5;
-import com.baidu.tieba.hn;
+import com.baidu.tieba.ar8;
+import com.baidu.tieba.br8;
+import com.baidu.tieba.cr8;
+import com.baidu.tieba.er8;
+import com.baidu.tieba.gn5;
+import com.baidu.tieba.il9;
+import com.baidu.tieba.in;
 import com.baidu.tieba.newinterest.data.InterestCommitHttpResMsg;
 import com.baidu.tieba.newinterest.data.InterestedForumHttpResMsg;
 import com.baidu.tieba.newinterest.data.InterestedForumReqMsg;
 import com.baidu.tieba.newinterest.data.InterestedForumSocketResMsg;
-import com.baidu.tieba.p45;
-import com.baidu.tieba.sq8;
-import com.baidu.tieba.tq8;
-import com.baidu.tieba.uq8;
+import com.baidu.tieba.q45;
 import com.baidu.tieba.w8;
-import com.baidu.tieba.wq8;
 import com.baidu.tieba.za;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -57,7 +57,7 @@ public class InterestedForumModel {
     public Gson b;
     public d c;
     public c d;
-    public List<sq8> e;
+    public List<ar8> e;
     public boolean f;
     public za g;
     public HttpMessageListener h;
@@ -69,7 +69,7 @@ public class InterestedForumModel {
 
     /* loaded from: classes5.dex */
     public interface d {
-        void c(tq8 tq8Var);
+        void c(br8 br8Var);
 
         void onError(int i, String str);
     }
@@ -113,17 +113,17 @@ public class InterestedForumModel {
                 if (responsedMessage.getOrginalMessage() != null && responsedMessage.getOrginalMessage().getTag() != InterestedForumModel.i) {
                     return;
                 }
-                tq8 tq8Var = null;
+                br8 br8Var = null;
                 if (responsedMessage instanceof InterestedForumHttpResMsg) {
-                    tq8Var = ((InterestedForumHttpResMsg) responsedMessage).getPageData();
+                    br8Var = ((InterestedForumHttpResMsg) responsedMessage).getPageData();
                 } else if (responsedMessage instanceof InterestedForumSocketResMsg) {
-                    tq8Var = ((InterestedForumSocketResMsg) responsedMessage).getPageData();
+                    br8Var = ((InterestedForumSocketResMsg) responsedMessage).getPageData();
                 }
                 if (responsedMessage.getError() == 0) {
-                    if (tq8Var != null && !ListUtils.isEmpty(tq8Var.a)) {
-                        if (tq8Var != null && this.a.c != null) {
+                    if (br8Var != null && !ListUtils.isEmpty(br8Var.a)) {
+                        if (br8Var != null && this.a.c != null) {
                             InterestedForumModel.c(this.a);
-                            this.a.c.c(tq8Var);
+                            this.a.c.c(br8Var);
                         }
                     } else if (this.a.c != null) {
                         this.a.c.onError(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0d1b));
@@ -175,7 +175,7 @@ public class InterestedForumModel {
                     if (this.a.d != null) {
                         this.a.d.b();
                     }
-                    p45.m().A("key_select_interest_flag", System.currentTimeMillis());
+                    q45.m().A("key_select_interest_flag", System.currentTimeMillis());
                 } else if (this.a.c != null) {
                     this.a.c.onError(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                 }
@@ -270,11 +270,11 @@ public class InterestedForumModel {
     public final void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            fn5 fn5Var = new fn5(309654);
-            fn5Var.setResponsedClass(InterestedForumSocketResMsg.class);
-            fn5Var.g(true);
-            fn5Var.setPriority(4);
-            MessageManager.getInstance().registerTask(fn5Var);
+            gn5 gn5Var = new gn5(309654);
+            gn5Var.setResponsedClass(InterestedForumSocketResMsg.class);
+            gn5Var.g(true);
+            gn5Var.setPriority(4);
+            MessageManager.getInstance().registerTask(gn5Var);
         }
     }
 
@@ -312,14 +312,14 @@ public class InterestedForumModel {
         return i2;
     }
 
-    public void i(List<hn> list) throws UnsupportedEncodingException {
+    public void i(List<in> list) throws UnsupportedEncodingException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
             h(URLEncoder.encode(l(list), IMAudioTransRequest.CHARSET));
         }
     }
 
-    public void r(List<sq8> list) {
+    public void r(List<ar8> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, list) == null) {
             this.e = list;
@@ -352,14 +352,14 @@ public class InterestedForumModel {
         }
     }
 
-    public final List<Integer> k(List<sq8> list) {
+    public final List<Integer> k(List<ar8> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, list)) == null) {
             ArrayList arrayList = new ArrayList();
             if (list != null) {
-                for (sq8 sq8Var : list) {
-                    arrayList.add(Integer.valueOf(sq8Var.c()));
+                for (ar8 ar8Var : list) {
+                    arrayList.add(Integer.valueOf(ar8Var.c()));
                 }
             }
             return arrayList;
@@ -381,7 +381,7 @@ public class InterestedForumModel {
     public final void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GUIDE_INTERESTED_FORUM, al9.a(TbConfig.GUIDE_INTERESTED_FORUM_URL, 309654));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GUIDE_INTERESTED_FORUM, il9.a(TbConfig.GUIDE_INTERESTED_FORUM_URL, 309654));
             tbHttpMessageTask.setIsNeedAddCommenParam(false);
             tbHttpMessageTask.setResponsedClass(InterestedForumHttpResMsg.class);
             tbHttpMessageTask.setPriority(4);
@@ -410,9 +410,9 @@ public class InterestedForumModel {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             HashMap hashMap = new HashMap();
             if (!ListUtils.isEmpty(this.e)) {
-                for (sq8 sq8Var : this.e) {
-                    if (sq8Var != null) {
-                        hashMap.put(sq8Var.d(), new HashMap());
+                for (ar8 ar8Var : this.e) {
+                    if (ar8Var != null) {
+                        hashMap.put(ar8Var.d(), new HashMap());
                     }
                 }
             }
@@ -425,7 +425,7 @@ public class InterestedForumModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             InterestedForumReqMsg interestedForumReqMsg = new InterestedForumReqMsg();
-            List<sq8> list = this.e;
+            List<ar8> list = this.e;
             if (list == null) {
                 interestedForumReqMsg.classidList = k(null);
             } else {
@@ -437,24 +437,24 @@ public class InterestedForumModel {
         }
     }
 
-    public final String l(List<hn> list) {
+    public final String l(List<in> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, list)) == null) {
             HashMap hashMap = new HashMap();
             HashMap hashMap2 = null;
             String str = "";
-            for (hn hnVar : list) {
-                if (hnVar instanceof wq8) {
+            for (in inVar : list) {
+                if (inVar instanceof er8) {
                     if (!StringUtils.isNull(str)) {
                         hashMap.put(str, hashMap2);
                     }
                     hashMap2 = new HashMap();
-                    str = ((wq8) hnVar).b();
-                } else if (hnVar instanceof uq8) {
-                    uq8 uq8Var = (uq8) hnVar;
-                    if (uq8Var.i() && hashMap2 != null) {
-                        hashMap2.put(Long.valueOf(uq8Var.c()), uq8Var.d());
+                    str = ((er8) inVar).b();
+                } else if (inVar instanceof cr8) {
+                    cr8 cr8Var = (cr8) inVar;
+                    if (cr8Var.i() && hashMap2 != null) {
+                        hashMap2.put(Long.valueOf(cr8Var.c()), cr8Var.d());
                     }
                 }
             }
@@ -462,9 +462,9 @@ public class InterestedForumModel {
                 hashMap.put(str, hashMap2);
             }
             if (!ListUtils.isEmpty(this.e)) {
-                for (sq8 sq8Var : this.e) {
-                    if (sq8Var != null && !hashMap.containsKey(sq8Var.d())) {
-                        hashMap.put(sq8Var.d(), new HashMap());
+                for (ar8 ar8Var : this.e) {
+                    if (ar8Var != null && !hashMap.containsKey(ar8Var.d())) {
+                        hashMap.put(ar8Var.d(), new HashMap());
                     }
                 }
             }

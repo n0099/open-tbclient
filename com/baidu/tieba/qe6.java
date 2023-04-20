@@ -1,28 +1,20 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import android.webkit.JsPromptResult;
 import android.webkit.WebView;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONObject;
-/* compiled from: JsPromptInterface.java */
+import androidx.core.util.Pair;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes6.dex */
-public final /* synthetic */ class qe6 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface qe6 {
+    public static final ServiceReference a = new ServiceReference("Frames", "JsPromptBridge");
 
-    public static void a(re6 re6Var, WebView webView, String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLLL(65536, null, re6Var, webView, str, jSONObject) != null) || webView == null) {
-            return;
-        }
-        long currentTimeMillis = System.currentTimeMillis();
-        webView.evaluateJavascript("javascript:" + str + "&&" + str + "('" + jSONObject.toString() + "')", null);
-        StringBuilder sb = new StringBuilder();
-        sb.append("javascript 执行成功:");
-        sb.append(str);
-        sb.append(" 耗时：");
-        sb.append(System.currentTimeMillis() - currentTimeMillis);
-        Log.i("lt-log", sb.toString());
-    }
+    void a(WebView webView, String str, HashMap<String, Object> hashMap);
+
+    void b(List<Pair<String, String>> list);
+
+    boolean c(WebView webView, String str, JsPromptResult jsPromptResult);
+
+    void d(se6 se6Var, Object obj);
 }

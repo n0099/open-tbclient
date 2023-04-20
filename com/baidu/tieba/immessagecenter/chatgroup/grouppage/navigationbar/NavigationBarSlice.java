@@ -47,19 +47,19 @@ import com.baidu.tieba.immessagecenter.chatgroup.data.ChatNameChangeNotifyData;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatFragment;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
 import com.baidu.tieba.immessagecenter.slice.Slice;
-import com.baidu.tieba.k78;
-import com.baidu.tieba.p45;
-import com.baidu.tieba.pa5;
-import com.baidu.tieba.q25;
-import com.baidu.tieba.qba;
+import com.baidu.tieba.q45;
+import com.baidu.tieba.qa5;
+import com.baidu.tieba.r25;
+import com.baidu.tieba.s78;
 import com.baidu.tieba.view.BdTopToast;
+import com.baidu.tieba.yba;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.JsonSyntaxException;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class NavigationBarSlice extends Slice {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -83,7 +83,7 @@ public class NavigationBarSlice extends Slice {
     public boolean w;
     public boolean x;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a extends FastRequest.b<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -138,7 +138,7 @@ public class NavigationBarSlice extends Slice {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -171,7 +171,7 @@ public class NavigationBarSlice extends Slice {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -208,7 +208,7 @@ public class NavigationBarSlice extends Slice {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -236,13 +236,13 @@ public class NavigationBarSlice extends Slice {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                UrlManager.getInstance().dealOneLink(this.a.j, new String[]{qba.a(qba.a(TbConfig.URL_CHAT_ROOM, "roomId", String.valueOf(this.a.r)), "forumId", String.valueOf(this.a.s))});
-                k78.b("c15094", TbadkCoreApplication.getCurrentAccount(), this.a.s, this.a.r);
+                UrlManager.getInstance().dealOneLink(this.a.j, new String[]{yba.a(yba.a(TbConfig.URL_CHAT_ROOM, "roomId", String.valueOf(this.a.r)), "forumId", String.valueOf(this.a.s))});
+                s78.b("c15094", TbadkCoreApplication.getCurrentAccount(), this.a.s, this.a.r);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class e implements DialogInterface.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -272,7 +272,7 @@ public class NavigationBarSlice extends Slice {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class f implements DialogInterface.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -301,12 +301,12 @@ public class NavigationBarSlice extends Slice {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
                 dialogInterface.dismiss();
-                pa5.h((Activity) this.a);
+                qa5.h((Activity) this.a);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class g implements DialogInterface.OnDismissListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -341,7 +341,7 @@ public class NavigationBarSlice extends Slice {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class h implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -378,7 +378,7 @@ public class NavigationBarSlice extends Slice {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -438,7 +438,7 @@ public class NavigationBarSlice extends Slice {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class j {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -483,20 +483,20 @@ public class NavigationBarSlice extends Slice {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                q25 d = q25.d(this.a);
+                r25 d = r25.d(this.a);
                 d.o(R.string.J_X07);
                 d.f(R.color.CAM_X0201);
-                q25 d2 = q25.d(this.b);
+                r25 d2 = r25.d(this.b);
                 d2.C(R.string.F_X02);
                 d2.w(R.color.CAM_X0105);
                 d2.B(R.dimen.T_X05);
-                q25 d3 = q25.d(this.c);
+                r25 d3 = r25.d(this.c);
                 d3.C(R.string.F_X01);
                 d3.w(R.color.CAM_X0108);
                 d3.B(R.dimen.T_X07);
                 SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
                 SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0108);
-                q25 d4 = q25.d(this.d);
+                r25 d4 = r25.d(this.d);
                 d4.m(R.dimen.L_X02);
                 d4.l(R.color.CAM_X0302);
                 d4.o(R.string.J_X07);
@@ -600,8 +600,8 @@ public class NavigationBarSlice extends Slice {
             if (this.r <= 0 || this.l || i2 < TbSingleton.getInstance().getSendMsgNumToRemindSubscribe()) {
                 return false;
             }
-            p45 m = p45.m();
-            String q = p45.q("SHOW_SUBSCRIBE_REMIND_DIALOG_" + this.r);
+            q45 m = q45.m();
+            String q = q45.q("SHOW_SUBSCRIBE_REMIND_DIALOG_" + this.r);
             long o = m.o(q, 0L);
             if (o > 0 && TimeHelper.isSameDay(o, System.currentTimeMillis())) {
                 return false;
@@ -696,7 +696,7 @@ public class NavigationBarSlice extends Slice {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return p45.m().i("key_group_chat_subscribe_click", false);
+            return q45.m().i("key_group_chat_subscribe_click", false);
         }
         return invokeV.booleanValue;
     }
@@ -791,11 +791,11 @@ public class NavigationBarSlice extends Slice {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             this.p.j.setImageDrawable(WebPManager.getPureDrawable(R.drawable.im_group_chat, SkinManager.getColor(R.color.CAM_X0109), WebPManager.ResourceStateType.NORMAL_PRESS));
-            q25 d2 = q25.d(this.p.i);
+            r25 d2 = r25.d(this.p.i);
             d2.C(R.string.F_X02);
             d2.w(R.color.CAM_X0105);
             d2.B(R.dimen.T_X05);
-            q25 d3 = q25.d(this.p.k);
+            r25 d3 = r25.d(this.p.k);
             d3.w(R.string.F_X01);
             d3.w(R.color.CAM_X0109);
             d3.B(R.dimen.T_X09);
@@ -888,13 +888,13 @@ public class NavigationBarSlice extends Slice {
                 if (k0()) {
                     if (!j0()) {
                         v0(this.k.getActivity());
-                        p45.m().w("key_group_chat_subscribe_click", true);
+                        q45.m().w("key_group_chat_subscribe_click", true);
                     } else {
-                        pa5.h(this.k.getActivity());
+                        qa5.h(this.k.getActivity());
                     }
                 }
             } else {
-                pa5.i(this.k.getActivity());
+                qa5.i(this.k.getActivity());
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921770));
         }

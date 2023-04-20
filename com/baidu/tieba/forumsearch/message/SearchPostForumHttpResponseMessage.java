@@ -2,7 +2,7 @@ package com.baidu.tieba.forumsearch.message;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.j47;
+import com.baidu.tieba.k47;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import tbclient.SearchPostForum.SearchPostForumResIdl;
 public class SearchPostForumHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public j47 mSearchData;
+    public k47 mSearchData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SearchPostForumHttpResponseMessage(int i) {
@@ -49,19 +49,19 @@ public class SearchPostForumHttpResponseMessage extends TbHttpResponsedMessage {
                 setErrorString(searchPostForumResIdl.error.usermsg);
             }
             if (getError() == 0 && getOrginalMessage() != null && (getOrginalMessage().getExtra() instanceof SearchPostForumRequestMessage) && searchPostForumResIdl.data != null) {
-                j47 j47Var = new j47(((SearchPostForumRequestMessage) getOrginalMessage().getExtra()).get_word());
-                this.mSearchData = j47Var;
-                j47Var.b(searchPostForumResIdl.data);
+                k47 k47Var = new k47(((SearchPostForumRequestMessage) getOrginalMessage().getExtra()).get_word());
+                this.mSearchData = k47Var;
+                k47Var.b(searchPostForumResIdl.data);
             }
         }
     }
 
-    public j47 getSearchData() {
+    public k47 getSearchData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.mSearchData;
         }
-        return (j47) invokeV.objValue;
+        return (k47) invokeV.objValue;
     }
 }

@@ -1,85 +1,190 @@
 package com.baidu.tieba;
 
-import android.graphics.Matrix;
-import android.graphics.Rect;
-import android.graphics.RectF;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewParent;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.collection.SimpleArrayMap;
+import androidx.core.util.Pools;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
 /* loaded from: classes6.dex */
-public class va0 {
+public final class va0<T> {
     public static /* synthetic */ Interceptable $ic;
-    public static final ThreadLocal<Matrix> a;
-    public static final ThreadLocal<RectF> b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Pools.Pool<ArrayList<T>> a;
+    public final SimpleArrayMap<T, ArrayList<T>> b;
+    public final ArrayList<T> c;
+    public final HashSet<T> d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948233924, "Lcom/baidu/tieba/va0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948233924, "Lcom/baidu/tieba/va0;");
+    public va0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new ThreadLocal<>();
-        b = new ThreadLocal<>();
+        this.a = new Pools.SimplePool(10);
+        this.b = new SimpleArrayMap<>();
+        this.c = new ArrayList<>();
+        this.d = new HashSet<>();
     }
 
-    public static void a(ViewGroup viewGroup, View view2, Rect rect) {
+    @NonNull
+    public ArrayList<T> i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, null, viewGroup, view2, rect) == null) {
-            rect.set(0, 0, view2.getWidth(), view2.getHeight());
-            c(viewGroup, view2, rect);
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            this.c.clear();
+            this.d.clear();
+            int size = this.b.size();
+            for (int i = 0; i < size; i++) {
+                e(this.b.keyAt(i), this.c, this.d);
+            }
+            return this.c;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public void a(@NonNull T t, @NonNull T t2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, t, t2) == null) && this.b.containsKey(t) && this.b.containsKey(t2)) {
+            ArrayList<T> arrayList = this.b.get(t);
+            if (arrayList == null) {
+                arrayList = f();
+                this.b.put(t, arrayList);
+            }
+            arrayList.add(t2);
         }
     }
 
-    public static void b(ViewParent viewParent, View view2, Matrix matrix) {
+    public void b(@NonNull T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, viewParent, view2, matrix) == null) {
-            ViewParent parent = view2.getParent();
-            if ((parent instanceof View) && parent != viewParent) {
-                View view3 = (View) parent;
-                b(viewParent, view3, matrix);
-                matrix.preTranslate(-view3.getScrollX(), -view3.getScrollY());
-            }
-            matrix.preTranslate(view2.getLeft(), view2.getTop());
-            if (!view2.getMatrix().isIdentity()) {
-                matrix.preConcat(view2.getMatrix());
-            }
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) && !this.b.containsKey(t)) {
+            this.b.put(t, null);
         }
     }
 
-    public static void c(ViewGroup viewGroup, View view2, Rect rect) {
+    public boolean d(@NonNull T t) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, viewGroup, view2, rect) == null) {
-            Matrix matrix = a.get();
-            if (matrix == null) {
-                matrix = new Matrix();
-                a.set(matrix);
-            } else {
-                matrix.reset();
-            }
-            b(viewGroup, view2, matrix);
-            RectF rectF = b.get();
-            if (rectF == null) {
-                rectF = new RectF();
-                b.set(rectF);
-            }
-            rectF.set(rect);
-            matrix.mapRect(rectF);
-            rect.set((int) (rectF.left + 0.5f), (int) (rectF.top + 0.5f), (int) (rectF.right + 0.5f), (int) (rectF.bottom + 0.5f));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, t)) == null) {
+            return this.b.containsKey(t);
         }
+        return invokeL.booleanValue;
+    }
+
+    @Nullable
+    public List g(@NonNull T t) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, t)) == null) {
+            return this.b.get(t);
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public boolean j(@NonNull T t) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, t)) == null) {
+            int size = this.b.size();
+            for (int i = 0; i < size; i++) {
+                ArrayList<T> valueAt = this.b.valueAt(i);
+                if (valueAt != null && valueAt.contains(t)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void k(@NonNull ArrayList<T> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, arrayList) == null) {
+            arrayList.clear();
+            this.a.release(arrayList);
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            int size = this.b.size();
+            for (int i = 0; i < size; i++) {
+                ArrayList<T> valueAt = this.b.valueAt(i);
+                if (valueAt != null) {
+                    k(valueAt);
+                }
+            }
+            this.b.clear();
+        }
+    }
+
+    @NonNull
+    public final ArrayList<T> f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            ArrayList<T> acquire = this.a.acquire();
+            if (acquire == null) {
+                return new ArrayList<>();
+            }
+            return acquire;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public final void e(T t, ArrayList<T> arrayList, HashSet<T> hashSet) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(1048580, this, t, arrayList, hashSet) != null) || arrayList.contains(t) || hashSet.contains(t)) {
+            return;
+        }
+        hashSet.add(t);
+        ArrayList<T> arrayList2 = this.b.get(t);
+        if (arrayList2 != null) {
+            int size = arrayList2.size();
+            for (int i = 0; i < size; i++) {
+                e(arrayList2.get(i), arrayList, hashSet);
+            }
+        }
+        hashSet.remove(t);
+        arrayList.add(t);
+    }
+
+    @Nullable
+    public List<T> h(@NonNull T t) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, t)) == null) {
+            int size = this.b.size();
+            ArrayList arrayList = null;
+            for (int i = 0; i < size; i++) {
+                ArrayList<T> valueAt = this.b.valueAt(i);
+                if (valueAt != null && valueAt.contains(t)) {
+                    if (arrayList == null) {
+                        arrayList = new ArrayList();
+                    }
+                    arrayList.add(this.b.keyAt(i));
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
     }
 }

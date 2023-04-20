@@ -1,7 +1,8 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.flow.data.ApkDownloadInfoData;
+import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,15 +11,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class v29 extends BaseCardInfo implements hn {
+public class v29 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
-    public static BdUniqueId c;
+    public static BdUniqueId q;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ApkDownloadInfoData> a;
-    public List<ApkDownloadInfoData> b;
+    public int a;
+    public int b;
+    public boolean c;
+    public boolean d;
+    public String e;
+    public boolean f;
+    public String g;
+    public UserData h;
+    public x29 i;
+    public Bundle j;
+    public int k;
+    public String l;
+    public int m;
+    public boolean n;
+    public boolean o;
+    public boolean p;
 
     static {
         InterceptResult invokeClinit;
@@ -33,7 +46,7 @@ public class v29 extends BaseCardInfo implements hn {
                 return;
             }
         }
-        c = BdUniqueId.gen();
+        q = BdUniqueId.gen();
     }
 
     public v29() {
@@ -46,19 +59,16 @@ public class v29 extends BaseCardInfo implements hn {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = new ArrayList();
-        this.b = new ArrayList();
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.hn
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.in
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return c;
+            return q;
         }
         return (BdUniqueId) invokeV.objValue;
     }

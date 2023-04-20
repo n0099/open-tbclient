@@ -2,7 +2,7 @@ package com.baidu.tieba.addresslist.im.newFriend;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.sy7;
+import com.baidu.tieba.ty7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import org.json.JSONObject;
 public class RecommendFriendResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<sy7> mDatas;
+    public List<ty7> mDatas;
     public int mErrCode;
     public String mErrMsg;
 
@@ -57,26 +57,26 @@ public class RecommendFriendResponseMessage extends JsonHttpResponsedMessage {
                 if (optJSONObject != null && (optJSONArray = optJSONObject.optJSONArray("recommend_list")) != null) {
                     this.mDatas = new ArrayList();
                     for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                        sy7 sy7Var = new sy7();
+                        ty7 ty7Var = new ty7();
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
-                        sy7Var.h(jSONObject2.optLong("user_id"));
-                        sy7Var.j(jSONObject2.optString("user_name"));
-                        sy7Var.k(jSONObject2.optString("portrait"));
-                        sy7Var.g(jSONObject2.optString("message"));
+                        ty7Var.h(jSONObject2.optLong("user_id"));
+                        ty7Var.j(jSONObject2.optString("user_name"));
+                        ty7Var.k(jSONObject2.optString("portrait"));
+                        ty7Var.g(jSONObject2.optString("message"));
                         if (jSONObject2.optInt("type") == 0) {
-                            sy7Var.l(0);
+                            ty7Var.l(0);
                         } else {
-                            sy7Var.l(1);
+                            ty7Var.l(1);
                         }
-                        sy7Var.i(1);
-                        this.mDatas.add(sy7Var);
+                        ty7Var.i(1);
+                        this.mDatas.add(ty7Var);
                     }
                 }
             }
         }
     }
 
-    public List<sy7> getDatas() {
+    public List<ty7> getDatas() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

@@ -5,14 +5,14 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.constants.ARConfigKey;
-import com.baidu.tieba.bq5;
+import com.baidu.tieba.cq5;
 import com.baidu.tieba.immessagecenter.chatgroup.data.AtInfo;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.bubble.topbubble.TopBubbleData;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.EnableDegradeUserData;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.effect.ChatConf;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.effect.ChatResource;
-import com.baidu.tieba.o68;
+import com.baidu.tieba.w68;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ChatRoomDetail extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,7 +54,7 @@ public class ChatRoomDetail extends OrmObject implements Serializable {
     public List<AbilityItem> longPressMsgBtn;
     @Nullable
     @SerializedName("mask_info")
-    public List<o68> maskInfoList;
+    public List<w68> maskInfoList;
     public String prologue;
     @Nullable
     @SerializedName("quick_talk")
@@ -68,7 +68,7 @@ public class ChatRoomDetail extends OrmObject implements Serializable {
     @SerializedName("user_info")
     public UserInfo userInfo;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class BasicInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -162,7 +162,7 @@ public class ChatRoomDetail extends OrmObject implements Serializable {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class ExtraInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int BANNED = 1;
@@ -266,7 +266,7 @@ public class ChatRoomDetail extends OrmObject implements Serializable {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class UserInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int BANNED = 1;
@@ -279,7 +279,7 @@ public class ChatRoomDetail extends OrmObject implements Serializable {
         public String cannotTalkText;
         @Nullable
         @SerializedName("main_data")
-        @bq5(deserialize = false, serialize = false)
+        @cq5(deserialize = false, serialize = false)
         public List<EnableDegradeUserData> enableDegradeUserDataList;
         @SerializedName("forum_level")
         public int forumLevel;
@@ -538,7 +538,7 @@ public class ChatRoomDetail extends OrmObject implements Serializable {
     }
 
     @Nullable
-    public List<o68> getMaskInfoList() {
+    public List<w68> getMaskInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {

@@ -21,16 +21,16 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.swan.apps.res.ui.SwanAppScrollView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bk3;
-import com.baidu.tieba.br2;
-import com.baidu.tieba.dk3;
-import com.baidu.tieba.eo1;
-import com.baidu.tieba.ol3;
+import com.baidu.tieba.ck3;
+import com.baidu.tieba.cr2;
+import com.baidu.tieba.ek3;
+import com.baidu.tieba.fo1;
+import com.baidu.tieba.pl3;
 import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class BaseActivityDialog extends Activity implements DialogInterface {
-    public static final boolean q = eo1.a;
+    public static final boolean q = fo1.a;
     public TextView a;
     public TextView b;
     public LinearLayout c;
@@ -101,7 +101,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
                 }
                 e.t(valueOf, e.this);
                 intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-                dk3.g(appContext, intent);
+                ek3.g(appContext, intent);
             }
         }
 
@@ -168,7 +168,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         }
 
         public void E(boolean z) {
-            ol3.a0(new a(z));
+            pl3.a0(new a(z));
         }
 
         public void onEvent(c cVar) {
@@ -322,7 +322,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
 
     @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
-        Resources b2 = br2.M().b();
+        Resources b2 = cr2.M().b();
         if (b2 != null) {
             return b2;
         }
@@ -463,7 +463,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         if (this.m.p > 0) {
             this.n.getLayoutParams().height = this.m.p;
         }
-        if (bk3.k() || bk3.l()) {
+        if (ck3.k() || ck3.l()) {
             int dimensionPixelSize = this.b.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07012a);
             this.b.setPadding(dimensionPixelSize, 0, dimensionPixelSize, 0);
         }

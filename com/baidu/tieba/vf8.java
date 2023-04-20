@@ -1,176 +1,103 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Application;
-import android.os.Bundle;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class vf8 {
+public class vf8 extends t65<v65, a> {
     public static /* synthetic */ Interceptable $ic;
-    public static final List<String> a;
-    public static Application.ActivityLifecycleCallbacks b;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context d;
 
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
+    public class a extends BdBaseViewPagerAdapter.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public TbImageView d;
 
-    /* loaded from: classes6.dex */
-    public static class b implements Application.ActivityLifecycleCallbacks {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(vf8 vf8Var, View view2) {
+            super(view2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vf8Var, view2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    super((View) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-        }
-
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityDestroyed(Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-                BdLog.e("activity is " + activity);
-            }
-        }
-
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityStarted(Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
-                BdLog.e("activity is " + activity);
-            }
-        }
-
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityStopped(Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
-                BdLog.e("activity is " + activity);
-            }
-        }
-
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityCreated(Activity activity, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
-                BdLog.e("activity is " + activity);
-            }
-        }
-
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048580, this, activity, bundle) == null) {
-                BdLog.e("activity is " + activity);
-            }
-        }
-
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityPaused(Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
-                BdLog.e("activity is " + activity);
-                if (vf8.c(activity) || vf8.d(activity)) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016521, activity));
-                }
-            }
-        }
-
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityResumed(Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-                BdLog.e("activity is " + activity);
-                if ((vf8.c(activity) || vf8.d(activity)) && TbadkCoreApplication.getInst().canSendForegroundMessage()) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016520, activity));
-                }
+            if (view2 instanceof TbImageView) {
+                TbImageView tbImageView = (TbImageView) view2;
+                this.d = tbImageView;
+                tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948238977, "Lcom/baidu/tieba/vf8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948238977, "Lcom/baidu/tieba/vf8;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vf8(Context context, BdUniqueId bdUniqueId) {
+        super(context, bdUniqueId);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = Arrays.asList("com.baidu.sapi2.activity.LoginActivity", "com.baidu.sapi2.activity.social.WXLoginActivity");
+        this.d = context;
     }
 
-    public static boolean d(Activity activity) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.t65
+    /* renamed from: f */
+    public a b(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity)) == null) {
-            return a.contains(activity.getComponentName().getClassName());
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            TbImageView tbImageView = new TbImageView(this.d);
+            tbImageView.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+            return new a(this, tbImageView);
         }
-        return invokeL.booleanValue;
+        return (a) invokeL.objValue;
     }
 
-    public static void e(Application application) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.t65
+    /* renamed from: g */
+    public View d(ViewGroup viewGroup, a aVar, v65 v65Var) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, application) == null) {
-            if (b == null) {
-                b = new b(null);
-            }
-            application.registerActivityLifecycleCallbacks(b);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, viewGroup, aVar, v65Var)) == null) {
+            aVar.d.N(v65Var.a(), 17, false);
+            return null;
         }
-    }
-
-    public static boolean c(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, activity)) == null) {
-            String className = activity.getComponentName().getClassName();
-            if (!className.contains("AlaMasterLiveRoomActivity") && !className.contains("LivePlayerActivity") && !className.contains("LiveShowActivity") && !className.contains("AlaLiveEndActivity") && !className.contains("LiveListActivity") && !className.contains("BuyTBeanActivity") && !className.contains("YuyinLivePlayerActivity") && !className.contains("YuyinAlaCreateLiveRoomActivity")) {
-                if (className.equals("com.baidu.megapp.proxy.activity.ActivityProxy")) {
-                    String stringExtra = activity.getIntent().getStringExtra("megapp_extra_target_activity");
-                    if (!TextUtils.isEmpty(stringExtra) && (stringExtra.contains("AlaMasterLiveRoomActivity") || stringExtra.contains("LivePlayerActivity") || stringExtra.contains("AlaLiveEndActivity"))) {
-                        return true;
-                    }
-                }
-                if (!className.contains("com.yy.mobile") && !className.contains("com.duowan.mobile")) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
+        return (View) invokeLLL.objValue;
     }
 }

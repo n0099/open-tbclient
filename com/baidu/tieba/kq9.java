@@ -2,7 +2,12 @@ package com.baidu.tieba;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.data.UserData;
+import com.baidu.tieba.redtip.PersonRedTipManager;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,16 +18,15 @@ public class kq9 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
-    public uo9 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public kq9(MainTabActivity mainTabActivity) {
-        super(2921736);
+    public kq9(MainTabActivity mainTabActivity, ro9 ro9Var) {
+        super(2001247);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity};
+            Object[] objArr = {mainTabActivity, ro9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,36 +38,24 @@ public class kq9 extends CustomMessageListener {
             }
         }
         this.a = mainTabActivity;
-        this.b = mainTabActivity.e;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        uo9 uo9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && SpeedStatsUtils.UBC_VALUE_SPLASH.equals(customResponsedMessage.getData())) {
-            MainTabActivity mainTabActivity = this.a;
-            this.b = mainTabActivity.e;
-            mainTabActivity.M1(true);
-            if (MainTabActivity.Y && (uo9Var = this.b) != null && uo9Var.h() != null) {
-                this.b.h().a();
-            }
-            uo9 uo9Var2 = this.b;
-            if (uo9Var2 != null && uo9Var2.c() != null) {
-                this.b.c().b();
-            }
-            ws9.c().b();
-            ws9.c().a();
-            if (i35.a().f()) {
-                i35.a().g(this.a.getClass().getName());
-                i35.a().l(false);
-            }
-            if (i35.a().e()) {
-                i35.a().b();
-                i35.a().h(this.a.getClass().getName());
-                i35.a().k(false);
-            }
+        if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
+            return;
+        }
+        UserData e = mf5.d().e();
+        if (TbadkCoreApplication.isLogin() && e != null && e.getUserId() != null && !e.getUserId().equals(this.a.s) && e.getIsGodInvited()) {
+            this.a.s = e.getUserId();
+            jt4.v(this.a.getPageContext().getPageActivity(), "", TbWebViewActivityConfig.GOD_INVITE_JUMP_URL + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE, true);
+        }
+        if (!q45.m().i("key_new_god_invited_my_tab_red_tip_showed", false) && TbadkCoreApplication.isLogin() && e != null && e.getUserId() != null && !e.getUserId().equals(this.a.s) && e.getNewGodData() != null && e.getNewGodData().isNewGodInvited()) {
+            PersonRedTipManager.getInstance().updateRedTipState(11, true, true);
+            TiebaStatic.log(new StatisticItem("c13688").param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_locate", 0));
+            q45.m().w("key_new_god_invited_my_tab_red_tip_showed", true);
         }
     }
 }

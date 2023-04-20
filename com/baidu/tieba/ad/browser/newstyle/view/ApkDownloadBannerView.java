@@ -15,8 +15,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.kz5;
-import com.baidu.tieba.xj0;
+import com.baidu.tieba.lz5;
+import com.baidu.tieba.yj0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class ApkDownloadBannerView extends LinearLayout implements kz5 {
+public class ApkDownloadBannerView extends LinearLayout implements lz5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
@@ -36,7 +36,7 @@ public class ApkDownloadBannerView extends LinearLayout implements kz5 {
     public int f;
     public boolean g;
 
-    @Override // com.baidu.tieba.kz5
+    @Override // com.baidu.tieba.lz5
     public boolean a(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -46,14 +46,14 @@ public class ApkDownloadBannerView extends LinearLayout implements kz5 {
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.qk0
+    @Override // com.baidu.tieba.rk0
     public void b(@NonNull ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.qk0
+    @Override // com.baidu.tieba.rk0
     @NonNull
     public View getRealView() {
         InterceptResult invokeV;
@@ -61,15 +61,15 @@ public class ApkDownloadBannerView extends LinearLayout implements kz5 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this : (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.kz5
+    @Override // com.baidu.tieba.lz5
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.kz5
-    public void setOnClickInterceptListener(kz5.a aVar) {
+    @Override // com.baidu.tieba.lz5
+    public void setOnClickInterceptListener(lz5.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, aVar) == null) {
         }
@@ -279,12 +279,12 @@ public class ApkDownloadBannerView extends LinearLayout implements kz5 {
         return (BannerDownloadStateBar) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.qk0
-    public void update(String str, @NonNull xj0 xj0Var) {
+    @Override // com.baidu.tieba.rk0
+    public void update(String str, @NonNull yj0 yj0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, str, xj0Var) == null) {
-            getActionBar().setState(d(xj0Var.c));
-            this.b.setProgress((int) (Math.max(xj0Var.i, xj0Var.j) * 100.0f));
+        if (interceptable == null || interceptable.invokeLL(1048587, this, str, yj0Var) == null) {
+            getActionBar().setState(d(yj0Var.c));
+            this.b.setProgress((int) (Math.max(yj0Var.i, yj0Var.j) * 100.0f));
         }
     }
 }

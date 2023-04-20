@@ -1,12 +1,22 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.tbadk.data.DialogStrategiesData;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* compiled from: DialogStrategy.java */
 /* loaded from: classes7.dex */
-public interface z15 {
-    @NonNull
-    Map<String, Object> a(@NonNull DialogStrategiesData dialogStrategiesData, @NonNull Map<String, Object> map, @NonNull Map<String, Object> map2);
+public final /* synthetic */ class z15 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean b(@NonNull Map<String, Object> map);
+    @NonNull
+    public static q45 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return q45.m();
+        }
+        return (q45) invokeV.objValue;
+    }
 }

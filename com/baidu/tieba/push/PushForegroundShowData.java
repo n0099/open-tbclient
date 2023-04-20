@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class PushForegroundShowData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PUSH_KEY_GAME_TYPE = "game_play";

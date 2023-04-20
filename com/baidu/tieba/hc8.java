@@ -1,9 +1,12 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.chatmessage.messages.AudioMsg;
-import com.baidu.tieba.impersonal.data.VoiceMsgContent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.widget.image.TbImage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,94 +14,65 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public final class hc8 extends bc8<AudioMsg, VoiceMsgContent> {
+public final class hc8 extends gc8<sa8, ImageView, ma8> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947819020, "Lcom/baidu/tieba/hc8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947819020, "Lcom/baidu/tieba/hc8;");
-        }
-    }
-
-    @Override // com.baidu.tieba.bc8
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 3;
-        }
-        return invokeV.intValue;
-    }
-
-    public hc8() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public hc8(String name) {
+        super(name);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {name};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(name, "name");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.bc8
-    /* renamed from: h */
-    public AudioMsg e(VoiceMsgContent voiceMsgContent) {
+    @Override // com.baidu.tieba.gc8
+    /* renamed from: l */
+    public ImageView g(ViewGroup parent) {
         InterceptResult invokeL;
-        int i;
-        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, voiceMsgContent)) == null) {
-            String str2 = (voiceMsgContent == null || (str2 = voiceMsgContent.b()) == null) ? "" : "";
-            if (voiceMsgContent != null) {
-                i = voiceMsgContent.a();
-            } else {
-                i = 0;
-            }
-            AudioMsg audioMsg = new AudioMsg(str2, i, 2);
-            if (voiceMsgContent != null) {
-                str = voiceMsgContent.f();
-            } else {
-                str = null;
-            }
-            audioMsg.setRemoteUrl(str);
-            return audioMsg;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, parent)) == null) {
+            Intrinsics.checkNotNullParameter(parent, "parent");
+            Context context = parent.getContext();
+            Intrinsics.checkNotNullExpressionValue(context, "parent.context");
+            TbImage tbImage = new TbImage(context, null, 0, 6, null);
+            tbImage.setLayoutParams(new LinearLayout.LayoutParams(UtilHelper.getDimenPixelSize(R.dimen.tbds96), UtilHelper.getDimenPixelSize(R.dimen.tbds50)));
+            return tbImage;
         }
-        return (AudioMsg) invokeL.objValue;
+        return (ImageView) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.bc8
-    /* renamed from: i */
-    public VoiceMsgContent g(AudioMsg sdkMsg) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.gc8
+    /* renamed from: k */
+    public void d(ImageView imageView, ma8 data) {
+        TbImage tbImage;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, sdkMsg)) == null) {
-            Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
-            VoiceMsgContent voiceMsgContent = new VoiceMsgContent();
-            String localUrl = sdkMsg.getLocalUrl();
-            Intrinsics.checkNotNullExpressionValue(localUrl, "sdkMsg.localUrl");
-            voiceMsgContent.i(localUrl);
-            String remoteUrl = sdkMsg.getRemoteUrl();
-            Intrinsics.checkNotNullExpressionValue(remoteUrl, "sdkMsg.remoteUrl");
-            voiceMsgContent.k(remoteUrl);
-            voiceMsgContent.h(sdkMsg.getDuration());
-            return voiceMsgContent;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, imageView, data) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            if (imageView instanceof TbImage) {
+                tbImage = (TbImage) imageView;
+            } else {
+                tbImage = null;
+            }
+            sa8 f = data.c().f();
+            if (f != null && tbImage != null) {
+                tbImage.i("res://drawable/" + f.a());
+            }
         }
-        return (VoiceMsgContent) invokeL.objValue;
     }
 }

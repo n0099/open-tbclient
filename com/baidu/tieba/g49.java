@@ -14,14 +14,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class g49 extends um<q59, CardViewHolder<s69>> {
+public class g49 extends vm<r59, CardViewHolder<u69>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g49(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), q59.e);
+        super(tbPageContext.getPageActivity(), r59.g);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -42,26 +42,26 @@ public class g49 extends um<q59, CardViewHolder<s69>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.um
+    @Override // com.baidu.tieba.vm
     /* renamed from: s */
-    public CardViewHolder<s69> onCreateViewHolder(ViewGroup viewGroup) {
+    public CardViewHolder<u69> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new CardViewHolder<>(new s69(this.a));
+            return new CardViewHolder<>(new u69(this.a));
         }
         return (CardViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.um
+    @Override // com.baidu.tieba.vm
     /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, q59 q59Var, CardViewHolder<s69> cardViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, r59 r59Var, CardViewHolder<u69> cardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, q59Var, cardViewHolder})) == null) {
-            cardViewHolder.a().l(q59Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, r59Var, cardViewHolder})) == null) {
             cardViewHolder.a().m(this.a, TbadkCoreApplication.getInst().getSkinType());
+            cardViewHolder.a().l(r59Var);
             return cardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;

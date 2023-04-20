@@ -42,7 +42,7 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
     public static final int[] CHECKED_STATE_SET = {16842912};
     public static final int[] DRAGGED_STATE_SET = {R.attr.obfuscated_res_0x7f04066a};
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface OnCheckedChangeListener {
         void onCheckedChanged(MaterialCardView materialCardView, boolean z);
     }

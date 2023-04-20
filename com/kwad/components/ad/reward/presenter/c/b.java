@@ -107,8 +107,8 @@ public final class b extends a implements com.kwad.components.ad.reward.presente
         this.tp = ig();
         this.nM.a(this.mt);
         hVar.c(this.tp);
-        hVar.c(new com.kwad.components.core.webview.b.a(new a.InterfaceC0607a() { // from class: com.kwad.components.ad.reward.presenter.c.b.1
-            @Override // com.kwad.components.core.webview.b.a.InterfaceC0607a
+        hVar.c(new com.kwad.components.core.webview.b.a(new a.InterfaceC0606a() { // from class: com.kwad.components.ad.reward.presenter.c.b.1
+            @Override // com.kwad.components.core.webview.b.a.InterfaceC0606a
             public final void ii() {
                 com.kwad.components.ad.reward.model.b.P(b.this.nM.mContext);
             }

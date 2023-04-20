@@ -1,28 +1,35 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.App;
 /* loaded from: classes7.dex */
-public class zl9 {
+public class zl9 extends am9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public og a;
-    public String b;
-    public boolean c;
+    public AdvertAppInfo a1;
+    public boolean b1;
+    public String c1;
+    public String d1;
+    public String e1;
+    public long f1;
+    public int g1;
+    public boolean h1;
+    public int i1;
+    public int j1;
 
-    public zl9(String str) {
+    public zl9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,131 +39,134 @@ public class zl9 {
                 return;
             }
         }
-        this.b = null;
-        this.c = false;
-        e(str, false);
+        this.b1 = false;
     }
 
-    public void a() {
-        cm9 c;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a != null && (c = c()) != null && c.f != null) {
-            long e = this.a.e();
-            if (e > 3000) {
-                bm9 bm9Var = c.f;
-                bm9Var.a += e;
-                bm9Var.b++;
-                am9.b(c, 10);
-            }
-        }
-    }
-
-    public void b(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
-        cm9 c;
-        String str2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i), str, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) != null) || this.a == null || (c = c()) == null) {
-            return;
-        }
-        if (z) {
-            bm9 bm9Var = c.d;
-            if (bm9Var == null) {
-                return;
-            }
-            bm9Var.b++;
-            if (z2) {
-                bm9Var.a += j2;
-                bm9Var.d += j;
-            } else {
-                bm9Var.c++;
-            }
-        } else {
-            bm9 bm9Var2 = c.e;
-            if (bm9Var2 == null) {
-                return;
-            }
-            bm9Var2.b++;
-            if (z2) {
-                bm9Var2.a += j3;
-                bm9Var2.d += j;
-            } else {
-                bm9Var2.c++;
-            }
-            j2 = j3;
-        }
-        this.a = null;
-        if (z2) {
-            am9.b(c, 10);
-        }
-        if (this.b == "frsStat") {
-            if (!z2 || j2 > 3000) {
-                og ogVar = new og("dbg");
-                ogVar.b("act", "frs");
-                String str3 = "0";
-                if (z2) {
-                    str2 = "0";
-                } else {
-                    str2 = "1";
-                }
-                ogVar.b("result", str2);
-                if (z) {
-                    str3 = "1";
-                }
-                ogVar.b("isHttp", str3);
-                ogVar.b("timeCost", String.valueOf(j2));
-                ogVar.b(StatConstants.KEY_EXT_ERR_CODE, String.valueOf(i));
-                ogVar.b(StatConstants.KEY_EXT_ERR_MSG, str);
-                ogVar.b("down", String.valueOf(j));
-                BdStatisticsManager.getInstance().debug("frs", ogVar);
-            }
-        }
-    }
-
-    public final cm9 c() {
+    public AdvertAppInfo getAdvertAppInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return am9.e(this.b, d(), this.c);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a1;
         }
-        return (cm9) invokeV.objValue;
+        return (AdvertAppInfo) invokeV.objValue;
     }
 
-    public final String d() {
+    public int getPosition() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            AdvertAppInfo advertAppInfo = this.a1;
+            if (advertAppInfo == null) {
+                return 0;
+            }
+            return gg.e(advertAppInfo.f, 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public String q1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            int netType = BdNetTypeUtil.netType();
-            if (netType == 0) {
-                return "N";
+            AdvertAppInfo advertAppInfo = this.a1;
+            if (advertAppInfo == null) {
+                return "";
             }
-            if (netType == 1) {
-                return "WIFI";
-            }
-            if (netType == 3) {
-                return "3G";
-            }
-            if (netType != 2) {
-                return "N";
-            }
-            return "2G";
+            return advertAppInfo.g;
         }
         return (String) invokeV.objValue;
     }
 
-    public void f() {
+    public String r1() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.a.g();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            AdvertAppInfo advertAppInfo = this.a1;
+            if (advertAppInfo == null) {
+                return "";
+            }
+            return advertAppInfo.a;
         }
+        return (String) invokeV.objValue;
     }
 
-    public void e(String str, boolean z) {
+    public String s1() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048580, this, str, z) == null) {
-            this.b = str;
-            this.c = z;
-            this.a = new og("dbg");
-            am9.c(str, d(), z);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.b1) {
+                return "PB_BANNER";
+            }
+            if (this.h1) {
+                return "VIDEO_PB";
+            }
+            return "PB";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public AdvertAppInfo.ILegoAdvert t1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            AdvertAppInfo advertAppInfo = this.a1;
+            if (advertAppInfo == null) {
+                return null;
+            }
+            return advertAppInfo.h;
+        }
+        return (AdvertAppInfo.ILegoAdvert) invokeV.objValue;
+    }
+
+    public boolean u1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            AdvertAppInfo advertAppInfo = this.a1;
+            if (advertAppInfo != null && advertAppInfo.i() == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.am9, com.baidu.tieba.in
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        AdvertAppInfo advertAppInfo;
+        AdvertAppInfo.ILegoAdvert iLegoAdvert;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (!sv4.c().g() && (advertAppInfo = this.a1) != null && (iLegoAdvert = advertAppInfo.h) != null && !iLegoAdvert.isNoPicAd()) {
+                return AdvertAppInfo.x;
+            }
+            if (UbsABTestHelper.isPbPageBannerFunAdSdkTest() && this.b1) {
+                return AdvertAppInfo.x;
+            }
+            AdvertAppInfo advertAppInfo2 = this.a1;
+            if (advertAppInfo2 != null && advertAppInfo2.h != null) {
+                int i = advertAppInfo2.c;
+                if (i != 1001 && i != -1001) {
+                    if (t1() != null) {
+                        return AdvertAppInfo.z;
+                    }
+                    return null;
+                }
+                return AdvertAppInfo.x;
+            }
+            return AdvertAppInfo.x;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void v1(App app) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, app) == null) {
+            AdvertAppInfo advertAppInfo = new AdvertAppInfo();
+            this.a1 = advertAppInfo;
+            advertAppInfo.l(app);
+            this.a1.j = s1();
         }
     }
 }

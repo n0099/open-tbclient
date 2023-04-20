@@ -1,36 +1,46 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
+import android.app.Activity;
+import android.content.DialogInterface;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.c05;
-import com.baidu.tieba.themeCenter.background.DressItemData;
+import com.baidu.tbadk.core.data.LoginDialogData;
+import com.baidu.tbadk.core.dialog.TBAlertBuilder;
+import com.baidu.tbadk.core.util.DialogLoginHelper;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.t05;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class er9 {
+public class er9 extends w05 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final MainTabActivity f;
+    public final ro9 g;
+    public qb5 h;
 
     /* loaded from: classes4.dex */
-    public static class a implements c05.e {
+    public class a implements DialogInterface.OnDismissListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c05 a;
+        public final /* synthetic */ er9 a;
 
-        public a(c05 c05Var) {
+        public a(er9 er9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {c05Var};
+                Object[] objArr = {er9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -40,30 +50,32 @@ public class er9 {
                     return;
                 }
             }
-            this.a = c05Var;
+            this.a = er9Var;
         }
 
-        @Override // com.baidu.tieba.c05.e
-        public void onClick(c05 c05Var) {
+        @Override // android.content.DialogInterface.OnDismissListener
+        public void onDismiss(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) {
-                this.a.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                a15.r("operateNew");
+                this.a.c();
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public static class b implements c05.e {
+    public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c05 a;
+        public final /* synthetic */ AlertDialog a;
+        public final /* synthetic */ er9 b;
 
-        public b(c05 c05Var) {
+        public b(er9 er9Var, AlertDialog alertDialog) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {c05Var};
+                Object[] objArr = {er9Var, alertDialog};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -73,117 +85,54 @@ public class er9 {
                     return;
                 }
             }
-            this.a = c05Var;
+            this.b = er9Var;
+            this.a = alertDialog;
         }
 
-        @Override // com.baidu.tieba.c05.e
-        public void onClick(c05 c05Var) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            String str;
+            String str2;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2 != null && view2.getContext() != null) {
                 this.a.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class c implements c05.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c05 a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ TbPageContext c;
-        public final /* synthetic */ int d;
-        public final /* synthetic */ String e;
-        public final /* synthetic */ String f;
-
-        public c(c05 c05Var, int i, TbPageContext tbPageContext, int i2, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c05Var, Integer.valueOf(i), tbPageContext, Integer.valueOf(i2), str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+                LoginDialogData loginDialogData = new LoginDialogData(view2.getContext(), LoginDialogData.HOME_OPERATE_DIALOG);
+                String b = this.b.h.b();
+                if (TextUtils.isEmpty(b)) {
                     return;
                 }
-            }
-            this.a = c05Var;
-            this.b = i;
-            this.c = tbPageContext;
-            this.d = i2;
-            this.e = str;
-            this.f = str2;
-        }
-
-        @Override // com.baidu.tieba.c05.e
-        public void onClick(c05 c05Var) {
-            int i;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) {
-                this.a.dismiss();
-                int i2 = this.b;
-                String str = null;
-                if (i2 != 1) {
-                    if (i2 != 2) {
-                        if (i2 != 3) {
-                            if (i2 != 4) {
-                                if (i2 != 5) {
-                                    if (i2 != 7) {
-                                        i = 0;
-                                    } else {
-                                        i = 22;
-                                    }
-                                } else {
-                                    i = 18;
-                                    TiebaStatic.log("c10767");
-                                }
-                            } else {
-                                i = 14;
-                                TiebaStatic.log("c10285");
-                                str = "4012001002";
-                            }
-                        } else {
-                            i = 11;
-                            TiebaStatic.log("c10276");
-                            str = "4011001002";
-                        }
-                    } else {
-                        i = 13;
-                        TiebaStatic.log("c10282");
-                        str = "4012001001";
-                    }
+                if (TbadkCoreApplication.getInst().getSkinType() == 4) {
+                    str = "skin=dark";
                 } else {
-                    i = 10;
-                    TiebaStatic.log("c10271");
-                    str = "4011001001";
+                    str = "skin=default";
                 }
-                MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(this.c.getPageActivity(), TbadkCoreApplication.getCurrentMemberType(), "", i);
-                if (!StringUtils.isNULL(str)) {
-                    memberPayActivityConfig.setSceneId(str);
+                if (b.contains("?")) {
+                    str2 = b + "&customfullscreen=1&nonavigationbar=1&" + str;
+                } else {
+                    str2 = b + "?customfullscreen=1&nonavigationbar=1&" + str;
                 }
-                memberPayActivityConfig.setFromScence(this.d);
-                memberPayActivityConfig.setReferPageClickZone(this.e, this.f);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
+                loginDialogData.setJumpUrl(str2);
+                if (DialogLoginHelper.checkUpIsLogin(loginDialogData)) {
+                    jt4.v(view2.getContext(), null, str2, true);
+                }
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public static class d implements c05.e {
+    public class c implements TbImageView.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c05 a;
+        public final /* synthetic */ TBAlertBuilder a;
+        public final /* synthetic */ AlertDialog b;
+        public final /* synthetic */ er9 c;
 
-        public d(c05 c05Var) {
+        public c(er9 er9Var, TBAlertBuilder tBAlertBuilder, AlertDialog alertDialog) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {c05Var};
+                Object[] objArr = {er9Var, tBAlertBuilder, alertDialog};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -193,126 +142,109 @@ public class er9 {
                     return;
                 }
             }
-            this.a = c05Var;
+            this.c = er9Var;
+            this.a = tBAlertBuilder;
+            this.b = alertDialog;
         }
 
-        @Override // com.baidu.tieba.c05.e
-        public void onClick(c05 c05Var) {
+        @Override // com.baidu.tbadk.widget.TbImageView.f
+        public void a(String str, boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) {
-                this.a.dismiss();
+            if (interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) {
+                if (!z) {
+                    this.c.c();
+                } else {
+                    this.a.A(this.b);
+                }
+            }
+        }
+
+        @Override // com.baidu.tbadk.widget.TbImageView.f
+        public void onCancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.c.c();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
-    public static class e implements c05.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c05 a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ TbPageContext c;
-
-        public e(c05 c05Var, String str, TbPageContext tbPageContext) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c05Var, str, tbPageContext};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = c05Var;
-            this.b = str;
-            this.c = tbPageContext;
-        }
-
-        @Override // com.baidu.tieba.c05.e
-        public void onClick(c05 c05Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) {
-                this.a.dismiss();
-                if (this.b == null) {
-                    return;
-                }
-                TbadkCoreApplication.getInst().setThemeWebviewOpen(true);
-                it4.q(this.c.getPageActivity(), this.b);
-            }
-        }
-    }
-
-    public static boolean a(DressItemData dressItemData) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public er9(@NonNull MainTabActivity mainTabActivity, @NonNull ro9 ro9Var) {
+        super(mainTabActivity);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, dressItemData)) == null) {
-            int freeUserLevel = dressItemData.getFreeUserLevel();
-            if (dressItemData.isDefault() || freeUserLevel == 0) {
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity, ro9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Activity) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (freeUserLevel == 100) {
-                if (dressItemData.getActivityFinish() != 0) {
-                    return true;
-                }
-                return false;
-            } else if (freeUserLevel == 101) {
-                if (TbadkCoreApplication.getCurrentMemberType() == 3) {
-                    return true;
-                }
-                return false;
-            } else if (TbadkCoreApplication.getCurrentMemberType() >= 2 && TbadkCoreApplication.getCurrentVipLevel() >= freeUserLevel) {
-                return true;
+        }
+        this.g = ro9Var;
+        this.f = mainTabActivity;
+    }
+
+    @Override // com.baidu.tieba.t05
+    public void d(@NonNull t05.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            boolean z = false;
+            if (a15.i()) {
+                aVar.a(false);
+            } else if (!q45.m().i(h25.d(), true)) {
+                aVar.a(false);
             } else {
-                return false;
+                qb5 homeOperateData = TbSingleton.getInstance().getHomeOperateData();
+                this.h = homeOperateData;
+                if (homeOperateData == null) {
+                    aVar.a(false);
+                } else if (!homeOperateData.c()) {
+                    aVar.a(false);
+                } else {
+                    if (!TextUtils.isEmpty(this.h.a()) && this.h.a().contains("not_show")) {
+                        q45.m().w(h25.d(), false);
+                    } else if (this.g.y() != null && this.g.y().getCurrentTabType() == 2) {
+                        z = true;
+                    }
+                    aVar.a(z);
+                }
             }
         }
-        return invokeL.booleanValue;
     }
 
-    public static void b(TbPageContext<?> tbPageContext, int i, String str) {
+    @Override // com.baidu.tieba.w05
+    public void g(TBAlertBuilder tBAlertBuilder) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLIL(65537, null, tbPageContext, i, str) != null) || tbPageContext == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tBAlertBuilder) == null) {
+            q45.m().w(h25.d(), false);
+            int h = TBAlertBuilder.h(TbadkCoreApplication.getInst());
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(h, (h * 4) / 3);
+            TbImageView tbImageView = new TbImageView(this.b);
+            tbImageView.setLayoutParams(layoutParams);
+            tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            tBAlertBuilder.k(tbImageView);
+            tBAlertBuilder.r(true);
+            tBAlertBuilder.v(true);
+            tBAlertBuilder.j(false);
+            tBAlertBuilder.s(new a(this));
+            AlertDialog d = tBAlertBuilder.d();
+            tbImageView.setOnClickListener(new b(this, d));
+            tbImageView.setEvent(new c(this, tBAlertBuilder, d));
+            tbImageView.N(this.h.a(), 10, false);
         }
-        c05 c05Var = new c05(tbPageContext.getPageActivity());
-        c05Var.setMessageId(R.string.obfuscated_res_0x7f0f14ff);
-        c05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038d, new d(c05Var));
-        c05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f14fe, new e(c05Var, str, tbPageContext));
-        c05Var.create(tbPageContext);
-        c05Var.show();
     }
 
-    public static void c(TbPageContext<?> tbPageContext, int i, String str, int i2) {
+    @Override // com.baidu.tieba.w05
+    public void i() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65538, null, new Object[]{tbPageContext, Integer.valueOf(i), str, Integer.valueOf(i2)}) != null) || tbPageContext == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            a15.l("operateNew");
         }
-        c05 c05Var = new c05(tbPageContext.getPageActivity());
-        c05Var.setButtonTextColor(R.color.CAM_X0305);
-        c05Var.setTitle(str);
-        a aVar = new a(c05Var);
-        c05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038d, aVar);
-        c05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0a62, aVar);
-        c05Var.create(tbPageContext);
-        c05Var.show();
-    }
-
-    public static void d(TbPageContext<?> tbPageContext, int i, String str, int i2, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65539, null, new Object[]{tbPageContext, Integer.valueOf(i), str, Integer.valueOf(i2), str2, str3}) != null) || tbPageContext == null) {
-            return;
-        }
-        c05 c05Var = new c05(tbPageContext.getPageActivity());
-        c05Var.setButtonTextColor(R.color.CAM_X0305);
-        c05Var.setMessage(str);
-        c05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038d, new b(c05Var));
-        c05Var.setPositiveButton(R.string.open_now, new c(c05Var, i, tbPageContext, i2, str2, str3));
-        c05Var.create(tbPageContext);
-        c05Var.show();
     }
 }

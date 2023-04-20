@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.faceshop.EmotionPackageData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,11 +9,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class iu6 implements hn {
+public class iu6 implements in {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
+    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
-    public EmotionPackageData a;
 
     static {
         InterceptResult invokeClinit;
@@ -29,7 +27,7 @@ public class iu6 implements hn {
                 return;
             }
         }
-        b = BdUniqueId.gen();
+        a = BdUniqueId.gen();
     }
 
     public iu6() {
@@ -46,12 +44,12 @@ public class iu6 implements hn {
         }
     }
 
-    @Override // com.baidu.tieba.hn
+    @Override // com.baidu.tieba.in
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return b;
+            return a;
         }
         return (BdUniqueId) invokeV.objValue;
     }

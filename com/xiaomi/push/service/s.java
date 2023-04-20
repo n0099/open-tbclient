@@ -10,7 +10,7 @@ import com.xiaomi.push.service.XMPushService;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class s extends XMPushService.j {
     public final /* synthetic */ r a;
 

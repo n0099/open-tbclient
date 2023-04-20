@@ -11,7 +11,7 @@ import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.live.business.base.LiveBaseItemView;
 import com.baidu.live.business.model.data.LiveRoomEntity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ac0;
+import com.baidu.tieba.bc0;
 /* loaded from: classes2.dex */
 public class LiveLoadMoreView extends LiveBaseItemView {
     public ViewGroup h;
@@ -146,15 +146,15 @@ public class LiveLoadMoreView extends LiveBaseItemView {
     }
 
     public void g(String str) {
-        String g = ac0.f().g(str);
+        String g = bc0.f().g(str);
         if (TextUtils.isEmpty(g)) {
-            int h = ac0.f().h(str);
+            int h = bc0.f().h(str);
             if (h != 0) {
                 this.i.setAnimation(h);
             }
         } else {
             this.i.setAnimation(g);
         }
-        this.j.setTextColor(ac0.f().a(getContext(), str, "color_1F1F1F"));
+        this.j.setTextColor(bc0.f().a(getContext(), str, "color_1F1F1F"));
     }
 }

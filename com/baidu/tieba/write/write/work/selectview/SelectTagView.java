@@ -19,9 +19,9 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.AutoChangeLineView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.q25;
+import com.baidu.tieba.h8a;
+import com.baidu.tieba.r25;
 import com.baidu.tieba.write.write.work.selectview.SelectTagView;
-import com.baidu.tieba.z7a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -66,7 +66,7 @@ public final class SelectTagView extends RelativeLayout {
             }
         }
         this.h = new ArrayList<>();
-        this.k = z7a.a;
+        this.k = h8a.a;
         b();
     }
 
@@ -106,7 +106,7 @@ public final class SelectTagView extends RelativeLayout {
             }
         }
         this.h = new ArrayList<>();
-        this.k = z7a.a;
+        this.k = h8a.a;
         b();
     }
 
@@ -130,7 +130,7 @@ public final class SelectTagView extends RelativeLayout {
             }
         }
         this.h = new ArrayList<>();
-        this.k = z7a.a;
+        this.k = h8a.a;
         b();
     }
 
@@ -167,7 +167,7 @@ public final class SelectTagView extends RelativeLayout {
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, textView, i, str)) == null) {
             textView.setCompoundDrawablePadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
             textView.setCompoundDrawables(null, null, null, null);
-            q25 d = q25.d(textView);
+            r25 d = r25.d(textView);
             d.w(R.color.CAM_X0105);
             d.B(R.dimen.T_X09);
             d.o(R.string.J_X01);
@@ -200,7 +200,7 @@ public final class SelectTagView extends RelativeLayout {
             Intrinsics.checkNotNullExpressionValue(findViewById6, "findViewById(R.id.content_bottom_line)");
             setMBottomLine(findViewById6);
             e();
-            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.c8a
+            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.k8a
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -224,7 +224,7 @@ public final class SelectTagView extends RelativeLayout {
             WebPManager.setPureDrawable(getMRightArrow(), R.drawable.icon_list_arrow20_right, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL);
             SkinManager.setBackgroundColor(getMBottomLine(), R.color.CAM_X0210);
             getMCenterContentTips().setTextColor(SkinManager.getColor(R.color.CAM_X0109));
-            q25 d = q25.d(getMCenterContent());
+            r25 d = r25.d(getMCenterContent());
             d.C(R.string.F_X01);
             d.B(R.dimen.T_X07);
             d.w(R.color.CAM_X0105);

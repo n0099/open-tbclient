@@ -3,25 +3,27 @@ package com.baidu.tieba;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.card.ThreadCardViewHolder;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.dy;
+import com.baidu.tieba.ey;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class xc7 extends y47<md7, ThreadCardViewHolder<md7>> {
+/* loaded from: classes7.dex */
+public class xc7 extends z47<md7, ThreadCardViewHolder<md7>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public xc7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(tbPageContext, bdUniqueId);
+        super(tbPageContext, bdUniqueId, bdUniqueId2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -32,7 +34,7 @@ public class xc7 extends y47<md7, ThreadCardViewHolder<md7>> {
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -43,13 +45,13 @@ public class xc7 extends y47<md7, ThreadCardViewHolder<md7>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.um
+    @Override // com.baidu.tieba.vm
     /* renamed from: G */
     public ThreadCardViewHolder<md7> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            dy.b bVar = new dy.b(this.c.getPageActivity(), true);
+            ey.b bVar = new ey.b(this.c.getPageActivity(), true);
             bVar.n(new fd7(this.c.getPageActivity()));
             bVar.l().b(0);
             bVar.l().c(0);
@@ -65,7 +67,7 @@ public class xc7 extends y47<md7, ThreadCardViewHolder<md7>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.y47, com.baidu.tieba.um
+    @Override // com.baidu.tieba.z47, com.baidu.tieba.vm
     /* renamed from: H */
     public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, md7 md7Var, ThreadCardViewHolder<md7> threadCardViewHolder) {
         InterceptResult invokeCommon;
@@ -74,6 +76,7 @@ public class xc7 extends y47<md7, ThreadCardViewHolder<md7>> {
             threadCardViewHolder.a().r(i);
             threadCardViewHolder.e(md7Var);
             threadCardViewHolder.a().onChangeSkinType(this.c, TbadkCoreApplication.getInst().getSkinType());
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new w55(13)));
             return threadCardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;

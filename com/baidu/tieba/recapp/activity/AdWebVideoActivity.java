@@ -14,13 +14,13 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ac9;
 import com.baidu.tieba.ad.browser.newstyle.AdWebViewActivity;
 import com.baidu.tieba.ad.browser.newstyle.TBAdWebView;
+import com.baidu.tieba.hc9;
+import com.baidu.tieba.ic9;
 import com.baidu.tieba.ii;
 import com.baidu.tieba.recapp.view.DistributeVideoView;
 import com.baidu.tieba.recapp.view.WebViewContainer;
-import com.baidu.tieba.zb9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,7 +42,7 @@ public class AdWebVideoActivity extends AdWebViewActivity {
     public int K;
     public int L;
     public int M;
-    public zb9 N;
+    public hc9 N;
     public WebViewContainer.OnScrollChangedCallback O;
 
     /* loaded from: classes6.dex */
@@ -241,7 +241,7 @@ public class AdWebVideoActivity extends AdWebViewActivity {
                 if (this.M == 14) {
                     Integer valueOf = Integer.valueOf(ii.l(getActivity()));
                     builder.video_height = valueOf;
-                    builder.video_width = Integer.valueOf(ac9.c(valueOf.intValue()));
+                    builder.video_width = Integer.valueOf(ic9.c(valueOf.intValue()));
                 } else {
                     Integer valueOf2 = Integer.valueOf(ii.l(getActivity()));
                     builder.video_width = valueOf2;
@@ -260,9 +260,9 @@ public class AdWebVideoActivity extends AdWebViewActivity {
                 int intValue2 = build.video_height.intValue();
                 this.J = intValue2;
                 this.L = intValue2 / 2;
-                zb9 zb9Var = this.N;
-                if (zb9Var != null) {
-                    this.D.setVideoTailFrameData(zb9Var);
+                hc9 hc9Var = this.N;
+                if (hc9Var != null) {
+                    this.D.setVideoTailFrameData(hc9Var);
                 }
                 this.D.setPageContext(getPageContext());
                 this.D.setData(build, 2, getPageContext());
@@ -305,9 +305,9 @@ public class AdWebVideoActivity extends AdWebViewActivity {
                 this.M = intent.getIntExtra(AdWebVideoActivityConfig.KEY_GOOD_STYLE, 7);
                 String stringExtra = intent.getStringExtra(AdWebVideoActivityConfig.KEY_TAIL_FRAME);
                 if (!TextUtils.isEmpty(stringExtra)) {
-                    zb9 zb9Var = new zb9();
-                    this.N = zb9Var;
-                    zb9Var.c(stringExtra);
+                    hc9 hc9Var = new hc9();
+                    this.N = hc9Var;
+                    hc9Var.c(stringExtra);
                 }
             } else if (bundle != null) {
                 this.F = bundle.getString("video_url");

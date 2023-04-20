@@ -1,14 +1,11 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.model.AdBaseModel;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoAd;
-import com.baidu.platform.comapi.map.MapBundleKey;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
-import com.baidu.tbadk.core.atomData.RecommendDetailActivityConfig;
-import com.baidu.tbadk.core.atomData.WriteActivityConfig;
-import com.baidu.tbadk.core.util.TiebaMainDatabaseHelper;
+import com.baidu.bdtask.BDPTask;
+import com.baidu.bdtask.model.response.TaskResponseData;
+import com.baidu.nadcore.net.request.Headers;
+import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,12 +13,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.InputStream;
 import java.util.HashMap;
 import kotlin.Unit;
-import kotlin.collections.CollectionsKt__CollectionsKt;
+import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
@@ -29,6 +25,221 @@ public final class yn0 {
     public static /* synthetic */ Interceptable $ic;
     public static final yn0 a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes7.dex */
+    public interface a {
+        void a(fq0 fq0Var);
+
+        void onFail(Exception exc);
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class b implements jr0<JSONObject> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Function2 a;
+        public final /* synthetic */ kq0 b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ Function2 d;
+
+        @Override // com.baidu.tieba.ir0
+        public void c(Headers headers, InputStream stream, int i) throws Exception {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, headers, stream, i) == null) {
+                Intrinsics.checkNotNullParameter(headers, "headers");
+                Intrinsics.checkNotNullParameter(stream, "stream");
+            }
+        }
+
+        public b(Function2 function2, kq0 kq0Var, String str, Function2 function22) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {function2, kq0Var, str, function22};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = function2;
+            this.b = kq0Var;
+            this.c = str;
+            this.d = function22;
+        }
+
+        @Override // com.baidu.tieba.ir0
+        public void a(Exception exception, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, exception, i) == null) {
+                Intrinsics.checkNotNullParameter(exception, "exception");
+                this.a.invoke(exception, 1);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.jr0
+        /* renamed from: f */
+        public JSONObject d(Headers headers, String response, int i) throws Exception {
+            InterceptResult invokeLLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048581, this, headers, response, i)) == null) {
+                Intrinsics.checkNotNullParameter(headers, "headers");
+                Intrinsics.checkNotNullParameter(response, "response");
+                return new JSONObject(response);
+            }
+            return (JSONObject) invokeLLI.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.jr0
+        /* renamed from: e */
+        public void b(Headers headers, JSONObject jSONObject, int i) {
+            String str;
+            boolean z;
+            JSONObject optJSONObject;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLI(1048580, this, headers, jSONObject, i) == null) {
+                Intrinsics.checkNotNullParameter(headers, "headers");
+                if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
+                    str = optJSONObject.optString("token");
+                } else {
+                    str = null;
+                }
+                String str2 = str;
+                if (str2 != null && str2.length() != 0) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                if (!z) {
+                    yn0.a.e(this.b, this.c, str2, this.d, this.a);
+                    return;
+                }
+                Function2 function2 = this.a;
+                function2.invoke(new IllegalStateException("token 为空, taskId: " + this.c), 1);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class c extends kr0<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ a a;
+
+        public String f(Headers headers, String response, int i) {
+            InterceptResult invokeLLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, headers, response, i)) == null) {
+                Intrinsics.checkNotNullParameter(headers, "headers");
+                Intrinsics.checkNotNullParameter(response, "response");
+                return response;
+            }
+            return (String) invokeLLI.objValue;
+        }
+
+        public c(a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = aVar;
+        }
+
+        @Override // com.baidu.tieba.ir0
+        public void a(Exception exception, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, exception, i) == null) {
+                Intrinsics.checkNotNullParameter(exception, "exception");
+                this.a.onFail(exception);
+            }
+        }
+
+        @Override // com.baidu.tieba.jr0
+        public /* bridge */ /* synthetic */ Object d(Headers headers, String str, int i) {
+            f(headers, str, i);
+            return str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.jr0
+        /* renamed from: e */
+        public void b(Headers headers, String str, int i) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLLI(1048579, this, headers, str, i) == null) && str != null) {
+                this.a.a(fq0.g.a(new JSONObject(str)));
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class d implements lq {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Function2 a;
+        public final /* synthetic */ Function2 b;
+
+        public d(Function2 function2, Function2 function22) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {function2, function22};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = function2;
+            this.b = function22;
+        }
+
+        @Override // com.baidu.tieba.lq
+        public void a(TaskResponseData data) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, data) == null) {
+                Intrinsics.checkNotNullParameter(data, "data");
+                try {
+                    String coin = new JSONObject(data.getUi().getExtra()).optString("coin");
+                    String nextCoin = new JSONObject(data.getUi().getExtra()).optString("invokeCoin");
+                    Function2 function2 = this.a;
+                    Intrinsics.checkNotNullExpressionValue(coin, "coin");
+                    Intrinsics.checkNotNullExpressionValue(nextCoin, "nextCoin");
+                    function2.invoke(coin, nextCoin);
+                } catch (Exception e) {
+                    this.b.invoke(e, 2);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.lq
+        public void onError(int i, String errorMsg) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, errorMsg) == null) {
+                Intrinsics.checkNotNullParameter(errorMsg, "errorMsg");
+                this.b.invoke(new RuntimeException(errorMsg), 2);
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -60,215 +271,118 @@ public final class yn0 {
         }
     }
 
-    public final HashMap<String, String> a(HashMap<String, String> hashMap) throws IllegalStateException {
+    public final HashMap<String, String> a(kq0 kq0Var) {
         InterceptResult invokeL;
-        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hashMap)) == null) {
-            for (String str : CollectionsKt__CollectionsKt.arrayListOf("reward", "panel", "common_info", "ext_info")) {
-                if (hashMap.containsKey(str)) {
-                    String str2 = hashMap.get(str);
-                    if (str2 != null && str2.length() != 0) {
-                        z = false;
-                        continue;
-                    } else {
-                        z = true;
-                        continue;
-                    }
-                    if (z) {
-                    }
-                }
-                throw new IllegalStateException("key: " + str + " 数据不可为 null");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, kq0Var)) == null) {
+            HashMap<String, String> hashMap = new HashMap<>();
+            try {
+                hashMap.put("logid", kq0Var.t());
+                hashMap.put("id_from", kq0Var.B());
+                hashMap.put("task_policy", kq0Var.v());
+            } catch (Exception e) {
+                e.printStackTrace();
             }
             return hashMap;
         }
         return (HashMap) invokeL.objValue;
     }
 
-    public final JSONObject b(HashMap<String, String> hashMap) throws JSONException {
+    public final JSONObject b(kq0 kq0Var) {
         InterceptResult invokeL;
         String str;
         String str2;
-        JSONArray jSONArray;
         String str3;
-        JSONObject jSONObject;
-        JSONObject jSONObject2;
-        JSONObject jSONObject3;
-        String str4;
-        String str5;
-        String str6;
-        String str7;
-        String str8;
-        String str9;
-        String replace$default;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap)) == null) {
-            JSONObject jSONObject4 = new JSONObject();
-            JSONObject c = a.c(hashMap.get("reward"));
-            JSONObject c2 = a.c(hashMap.get(WriteActivityConfig.VIDEO_INFO));
-            JSONObject c3 = a.c(hashMap.get("image_info"));
-            JSONObject c4 = a.c(hashMap.get("convert"));
-            JSONObject c5 = a.c(hashMap.get("panel"));
-            JSONObject c6 = a.c(hashMap.get("common_info"));
-            JSONObject c7 = a.c(hashMap.get("app_info"));
-            JSONObject c8 = a.c(hashMap.get("download"));
-            JSONObject c9 = a.c(hashMap.get("cmd_policy"));
-            JSONObject c10 = a.c(hashMap.get("big_card"));
-            String str10 = hashMap.get("ext_info");
-            String str11 = hashMap.get("lp_real_url");
-            String str12 = hashMap.get("type");
-            if (c4 != null) {
-                c4.put("type", str12);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kq0Var)) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject();
+                if (kq0Var != null) {
+                    str = kq0Var.t();
+                } else {
+                    str = null;
+                }
+                jSONObject.put("id_from", str);
+                if (kq0Var != null) {
+                    str2 = kq0Var.B();
+                } else {
+                    str2 = null;
+                }
+                jSONObject.put("logid", str2);
+                if (kq0Var != null) {
+                    str3 = kq0Var.v();
+                } else {
+                    str3 = null;
+                }
+                jSONObject.put("task_policy", str3);
+                return jSONObject;
+            } catch (JSONException unused) {
+                return null;
             }
-            if (c4 != null) {
-                c4.put("download", c8);
-            }
-            if (c4 != null) {
-                c4.put("app_info", c7);
-            }
-            if (c4 != null) {
-                c4.put("button_scheme", c4.optString("button_scheme"));
-            }
-            if (c4 != null) {
-                c4.put("ext", str10);
-            }
-            if (c4 != null) {
-                str = "button_scheme";
-                c4.put(BdVideoAd.AD_VIDEO_DAPAGE, ClogBuilder.Page.WELFAREMAXLP.type);
-            } else {
-                str = "button_scheme";
-            }
-            jSONObject4.put("reward", c);
-            jSONObject4.put("app_info", c7);
-            jSONObject4.put("cmd_policy", c9);
-            jSONObject4.put("big_card", c10);
-            jSONObject4.put("ext_info", str10);
-            jSONObject4.put("lp_real_url", str11);
-            jSONObject4.put(WriteActivityConfig.VIDEO_INFO, c2);
-            jSONObject4.put("image_info", c3);
-            jSONObject4.put("convert", c4);
-            yn0 yn0Var = a;
-            String str13 = hashMap.get("download");
-            String str14 = null;
-            if (str13 != null && (replace$default = StringsKt__StringsJVMKt.replace$default(str13, EmotionResourceInfo.JSON_KEY_PKG_NAME, "apk_name", false, 4, (Object) null)) != null) {
-                str2 = StringsKt__StringsJVMKt.replace$default(replace$default, "key", "download_key", false, 4, (Object) null);
-            } else {
-                str2 = null;
-            }
-            jSONObject4.put(TiebaMainDatabaseHelper.TABLE_NAME_DOWNLOAD_INFO, yn0Var.c(str2));
-            if (c6 != null) {
-                jSONArray = c6.optJSONArray("ad_monitor_url");
-            } else {
-                jSONArray = null;
-            }
-            jSONObject4.put("ad_monitor_url", jSONArray);
-            jSONObject4.put("type", str12);
-            if (c5 != null) {
-                str3 = c5.optString("panel_cmd");
-            } else {
-                str3 = null;
-            }
-            jSONObject4.put("panel_cmd", str3);
-            if (c5 != null) {
-                jSONObject = c5.optJSONObject("sliding_tag");
-            } else {
-                jSONObject = null;
-            }
-            jSONObject4.put("sliding_tag", jSONObject);
-            if (c6 != null) {
-                jSONObject2 = c6.optJSONObject("sv_title");
-            } else {
-                jSONObject2 = null;
-            }
-            jSONObject4.put("sv_title", jSONObject2);
-            if (c6 != null) {
-                jSONObject3 = c6.optJSONObject("sv_button");
-            } else {
-                jSONObject3 = null;
-            }
-            jSONObject4.put("sv_button", jSONObject3);
-            JSONObject jSONObject5 = new JSONObject();
-            jSONObject5.put(MapBundleKey.MapObjKey.OBJ_AD_STYLE, AdBaseModel.STYLE.REWARD_VIDEO_LP_IMPL.value);
-            if (c5 != null) {
-                str4 = c5.optString("brand_name");
-            } else {
-                str4 = null;
-            }
-            jSONObject5.put("user_name", str4);
-            if (c5 != null) {
-                str5 = c5.optString("title");
-            } else {
-                str5 = null;
-            }
-            jSONObject5.put("title", str5);
-            if (c5 != null) {
-                str6 = c5.optString("avatar");
-            } else {
-                str6 = null;
-            }
-            jSONObject5.put(RecommendDetailActivityConfig.USER_PORTRAIT, str6);
-            if (c4 != null) {
-                str7 = c4.optString(str);
-            } else {
-                str7 = null;
-            }
-            jSONObject5.put("scheme", str7);
-            if (c6 != null) {
-                str8 = c6.optString("refer_url");
-            } else {
-                str8 = null;
-            }
-            jSONObject5.put("refer_url", str8);
-            if (c6 != null) {
-                str9 = c6.optString("prerender_scheme");
-            } else {
-                str9 = null;
-            }
-            if (c6 != null) {
-                str14 = c6.optString("refer_url");
-            }
-            jSONObject5.put("prerender_scheme", q31.l(str9, str14));
-            jSONObject4.put("ad_common", jSONObject5);
-            JSONObject jSONObject6 = new JSONObject();
-            jSONObject6.put("convert", c4);
-            Unit unit = Unit.INSTANCE;
-            jSONObject4.put("enhance", jSONObject6);
-            return jSONObject4;
         }
         return (JSONObject) invokeL.objValue;
     }
 
-    public final JSONObject c(String str) throws JSONException {
-        InterceptResult invokeL;
+    public final void c(kq0 kq0Var, String activeUrl, String completeTaskId, Function2<? super String, ? super String, Unit> success, Function2<? super Throwable, ? super Integer, Unit> fail) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, kq0Var, activeUrl, completeTaskId, success, fail) == null) {
+            Intrinsics.checkNotNullParameter(activeUrl, "activeUrl");
+            Intrinsics.checkNotNullParameter(completeTaskId, "completeTaskId");
+            Intrinsics.checkNotNullParameter(success, "success");
+            Intrinsics.checkNotNullParameter(fail, "fail");
+            yq0 b2 = yq0.b();
+            Intrinsics.checkNotNullExpressionValue(b2, "HttpFactory.getInstance()");
+            cr0 a2 = b2.a();
+            rr0 rr0Var = new rr0();
+            rr0Var.l(activeUrl);
+            rr0Var.h(mr0.c);
+            rr0Var.d("User-Agent", ji0.c().a().h());
+            a2.a(rr0Var, new b(fail, kq0Var, completeTaskId, success));
+        }
+    }
+
+    public final void d(kq0 rewardData, String str, a callback) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, rewardData, str, callback) == null) {
+            Intrinsics.checkNotNullParameter(rewardData, "rewardData");
+            Intrinsics.checkNotNullParameter(callback, "callback");
             if (str != null && str.length() != 0) {
                 z = false;
             } else {
                 z = true;
             }
             if (z) {
-                return null;
+                return;
             }
-            return new JSONObject(str);
+            pn0 pn0Var = (pn0) ServiceManager.getService(pn0.a);
+            if (pn0Var != null) {
+                str = pn0Var.a(str);
+            }
+            rr0 rr0Var = new rr0();
+            rr0Var.h(mr0.c);
+            rr0Var.d("User-Agent", ji0.c().a().h());
+            rr0Var.l(str);
+            rr0Var.f(qr0.e(a(rewardData)));
+            rr0Var.g(3000);
+            yq0 b2 = yq0.b();
+            Intrinsics.checkNotNullExpressionValue(b2, "HttpFactory.getInstance()");
+            b2.a().a(rr0Var, new c(callback));
         }
-        return (JSONObject) invokeL.objValue;
     }
 
-    public final sp0 d(HashMap<String, String> toLpModel) throws Exception {
-        InterceptResult invokeL;
+    public final void e(kq0 kq0Var, String completeTaskId, String token, Function2<? super String, ? super String, Unit> success, Function2<? super Throwable, ? super Integer, Unit> fail) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, toLpModel)) == null) {
-            Intrinsics.checkNotNullParameter(toLpModel, "$this$toLpModel");
-            a(toLpModel);
-            JSONObject b = b(toLpModel);
-            AdBaseModel d = rp0.d("", 0, b, b.optString("ext_info"));
-            if (d != null) {
-                return (sp0) d;
+        if (interceptable == null || interceptable.invokeLLLLL(1048580, this, kq0Var, completeTaskId, token, success, fail) == null) {
+            Intrinsics.checkNotNullParameter(completeTaskId, "completeTaskId");
+            Intrinsics.checkNotNullParameter(token, "token");
+            Intrinsics.checkNotNullParameter(success, "success");
+            Intrinsics.checkNotNullParameter(fail, "fail");
+            if (!TextUtils.isEmpty(token) && !TextUtils.isEmpty(completeTaskId)) {
+                BDPTask.m.G(token, completeTaskId, 0, b(kq0Var), new d(success, fail));
+                return;
             }
-            throw new NullPointerException("null cannot be cast to non-null type com.baidu.nadcore.model.AdRewardVideoLpModel");
+            fail.invoke(new IllegalArgumentException("token: " + token + " taskId: " + completeTaskId), 2);
         }
-        return (sp0) invokeL.objValue;
     }
 }

@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.oc7;
+import com.baidu.tieba.pc7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ public class HeaderComponentMultiAdapter extends RecyclerView.Adapter<a> {
     public transient /* synthetic */ FieldHolder $fh;
     public List<LiveFuseForumData> a;
     public Context b;
-    public oc7 c;
+    public pc7 c;
 
     /* loaded from: classes4.dex */
     public static class a extends RecyclerView.ViewHolder {
@@ -111,10 +111,10 @@ public class HeaderComponentMultiAdapter extends RecyclerView.Adapter<a> {
         return (a) invokeLI.objValue;
     }
 
-    public void m(oc7 oc7Var) {
+    public void m(pc7 pc7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, oc7Var) == null) {
-            this.c = oc7Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, pc7Var) == null) {
+            this.c = pc7Var;
         }
     }
 }

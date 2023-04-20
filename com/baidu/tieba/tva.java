@@ -3,27 +3,29 @@ package com.baidu.tieba;
 import android.content.Context;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.mva;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes6.dex */
-public class tva extends sva {
+public class tva extends nva {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, String> c;
-    public final Object d;
-    public pva e;
-    public boolean f;
+    public final Context c;
+    public final String d;
+    public ova e;
+    public volatile uva f;
+    public final Object g;
+    public hva h;
+    public final Map<String, String> i;
+    public volatile vva j;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public tva(Context context, String str) {
-        super(context, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -33,74 +35,136 @@ public class tva extends sva {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new HashMap();
-        this.d = new Object();
-        this.f = true;
-        try {
-            String a = a("/AD91D45E3E72DB6989DDCB13287E75061FABCB933D886E6C6ABEF0939B577138");
-            String a2 = a("/B314B3BF013DF5AC4134E880AF3D2B7C9FFBE8F0305EAC1C898145E2BCF1F21C");
-            String a3 = a("/C767BD8FDF53E53D059BE95B09E2A71056F5F180AECC62836B287ACA5793421B");
-            String a4 = a("/DCB3E6D4C2CF80F30D89CDBC412C964DA8381BB84668769391FBCC3E329AD0FD");
-            if (a == null || a2 == null || a3 == null || a4 == null) {
-                this.f = false;
-            } else {
-                this.e = new ova(a, a2, a3, a4);
-            }
-        } catch (IllegalArgumentException | NoSuchAlgorithmException | InvalidKeySpecException unused) {
-            Log.e("SecurityResourcesReader", "Exception when reading the 'K&I' for 'Config'.");
-            this.e = null;
-        }
+        this.g = new Object();
+        this.h = hva.b;
+        this.i = new HashMap();
+        this.c = context;
+        this.d = str;
     }
 
-    private String a(String str) {
+    public static String e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) ? super.a(str, null) : (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.sva, com.baidu.tieba.mva
-    public String a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (!this.f) {
-                String a = a(str);
-                return a != null ? a : str2;
-            } else if (this.e == null) {
-                Log.e("SecurityResourcesReader", "KEY is null return def directly");
-                return str2;
-            } else {
-                synchronized (this.d) {
-                    String str3 = this.c.get(str);
-                    if (str3 != null) {
-                        return str3;
-                    }
-                    String a2 = a(str);
-                    if (a2 == null) {
-                        return str2;
-                    }
-                    String a3 = this.e.a(a2, str2);
-                    this.c.put(str, a3);
-                    return a3;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            int i = 0;
+            if (str.length() > 0) {
+                while (str.charAt(i) == '/') {
+                    i++;
                 }
             }
+            return WebvttCueParser.CHAR_SLASH + str.substring(i);
         }
-        return (String) invokeLL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public String toString() {
+    @Override // com.baidu.tieba.kva
+    public String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? i(str, null) : (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.kva
+    public hva b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "SecurityResourcesReader{mKey=, encrypt=" + this.f + '}';
+            if (this.h == null) {
+                this.h = hva.b;
+            }
+            if (this.h == hva.b && this.f == null) {
+                f();
+            }
+            hva hvaVar = this.h;
+            return hvaVar == null ? hva.b : hvaVar;
         }
-        return (String) invokeV.objValue;
+        return (hva) invokeV.objValue;
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f == null) {
+            synchronized (this.g) {
+                if (this.f == null) {
+                    if (this.e != null) {
+                        this.f = new yva(this.e.b());
+                        this.e.a();
+                        throw null;
+                    }
+                    this.f = new bwa(this.c, this.d);
+                    this.j = new vva(this.f);
+                }
+                h();
+            }
+        }
+    }
+
+    public final String g(String str) {
+        InterceptResult invokeL;
+        mva.a aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            Map<String, mva.a> a = mva.a();
+            if (a.containsKey(str) && (aVar = a.get(str)) != null) {
+                return aVar.a(this);
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.nva, com.baidu.tieba.kva
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : (Context) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.nva, com.baidu.tieba.kva
+    public String getIdentifier() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "DEFAULT_INSTANCE" : (String) invokeV.objValue;
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.h == hva.b) {
+            if (this.f != null) {
+                this.h = qva.f(this.f.a("/region", null), this.f.a("/agcgw/url", null));
+            } else {
+                Log.w("AGConnectServiceConfig", "get route fail , config not ready");
+            }
+        }
+    }
+
+    public String i(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, str2)) == null) {
+            if (str != null) {
+                if (this.f == null) {
+                    f();
+                }
+                String e = e(str);
+                String str3 = this.i.get(e);
+                if (str3 != null) {
+                    return str3;
+                }
+                String g = g(e);
+                if (g != null) {
+                    return g;
+                }
+                String a = this.f.a(e, str2);
+                return vva.c(a) ? this.j.a(a, str2) : a;
+            }
+            throw new NullPointerException("path must not be null.");
+        }
+        return (String) invokeLL.objValue;
     }
 }

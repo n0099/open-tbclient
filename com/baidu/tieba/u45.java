@@ -1,138 +1,252 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Handler;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.graphics.Canvas;
+import android.graphics.LinearGradient;
+import android.graphics.Paint;
+import android.graphics.Path;
+import android.graphics.RectF;
+import android.graphics.Shader;
+import android.text.style.ReplacementSpan;
+import androidx.annotation.FloatRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.GreyUtil;
 import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.tbselector.utils.SelectorHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Arrays;
 /* loaded from: classes6.dex */
-public class u45 {
+public class u45 extends ReplacementSpan {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public Context b;
-    public View c;
-    public TextView d;
-    public ImageView e;
-    public Toast f;
-    public Handler g;
-    public Runnable h;
+    public float[] a;
+    public int b;
+    public RectF c;
+    public int d;
+    public int e;
+    public int f;
+    public int g;
+    public int h;
+    public Paint i;
+    public String j;
+    public int k;
+    public int l;
+    public boolean m;
+    public int n;
+    public boolean o;
+    public int p;
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u45 a;
-
-        public a(u45 u45Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {u45Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = u45Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a.f != null) {
-                    this.a.f.cancel();
-                }
-                if (this.a.c != null && (this.a.c.getParent() instanceof ViewGroup)) {
-                    ((ViewGroup) this.a.c.getParent()).removeView(this.a.c);
-                }
-            }
-        }
-    }
-
-    public u45() {
+    public u45(int i, int i2, int i3, int i4, int i5, int i6, int i7) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i8 = newInitContext.flag;
+            if ((i8 & 1) != 0) {
+                int i9 = i8 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 3000L;
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.h = new a(this);
-        this.b = TbadkCoreApplication.getInst().getContext();
-        this.g = new Handler();
+        this.a = new float[8];
+        this.c = new RectF();
+        this.n = 255;
+        this.o = false;
+        this.p = 0;
+        if (i2 > 0) {
+            c(i2);
+        }
+        this.b = i3;
+        this.d = i4;
+        this.e = i5;
+        this.f = i6;
+        this.h = i7;
+        Paint paint = new Paint();
+        this.i = paint;
+        paint.setAntiAlias(true);
+        this.i.setStyle(Paint.Style.STROKE);
+        this.i.setTextSize(this.d);
     }
 
-    public void c(CharSequence charSequence) {
+    public void a(@FloatRange(from = 0.0d, to = 1.0d) float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, charSequence) == null) {
-            View inflate = LayoutInflater.from(this.b).inflate(R.layout.image_toast_view, (ViewGroup) null);
-            this.c = inflate;
-            this.d = (TextView) inflate.findViewById(R.id.tip_text);
-            this.e = (ImageView) this.c.findViewById(R.id.tip_iamge);
-            this.c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(ii.g(this.b, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
-            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
-            this.d.setText(charSequence);
-            this.e.setImageResource(R.drawable.icon_toast_game_error);
-            e(this.c);
+        if (interceptable == null || interceptable.invokeF(1048576, this, f) == null) {
+            this.n = (int) (f * 255.0f);
         }
     }
 
-    public void d(CharSequence charSequence) {
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence) == null) {
-            View inflate = LayoutInflater.from(this.b).inflate(R.layout.image_toast_view, (ViewGroup) null);
-            this.c = inflate;
-            this.d = (TextView) inflate.findViewById(R.id.tip_text);
-            this.e = (ImageView) this.c.findViewById(R.id.tip_iamge);
-            this.c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(ii.g(this.b, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
-            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
-            this.d.setText(charSequence);
-            this.e.setImageResource(R.drawable.icon_toast_game_ok);
-            e(this.c);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            Arrays.fill(this.a, i);
         }
     }
 
-    public void e(View view2) {
+    public void c(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-            this.g.removeCallbacks(this.h);
-            if (this.f == null) {
-                this.f = new Toast(this.b);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            float[] B = p25.B(i);
+            if (!Arrays.equals(this.a, B)) {
+                this.a = B;
             }
-            this.g.postDelayed(this.h, this.a);
-            this.f.setView(view2);
-            this.f.setDuration(1);
-            this.f.setGravity(17, 0, 0);
-            GreyUtil.grey(this.f);
-            this.f.show();
         }
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.p = i;
+        }
+    }
+
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.j = str;
+        }
+    }
+
+    public void f(boolean z) {
+        Paint paint;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(1048582, this, z) != null) || (paint = this.i) == null) {
+            return;
+        }
+        this.m = z;
+        if (z) {
+            paint.setStyle(Paint.Style.FILL);
+        } else {
+            paint.setStyle(Paint.Style.STROKE);
+        }
+    }
+
+    public void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.o = z;
+        }
+    }
+
+    public void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.k = i;
+        }
+    }
+
+    public void i(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.l = i;
+        }
+    }
+
+    @Override // android.text.style.ReplacementSpan
+    public void draw(@NonNull Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, @NonNull Paint paint) {
+        int i6;
+        int color;
+        int color2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
+            this.i.setColor(SkinManager.getColor(this.b));
+            this.i.setAlpha(this.n);
+            if (this.m) {
+                this.i.setStyle(Paint.Style.FILL);
+            } else {
+                this.i.setStyle(Paint.Style.STROKE);
+            }
+            if (this.o) {
+                RectF rectF = this.c;
+                int i7 = this.k;
+                rectF.left = f + i7;
+                int i8 = this.p;
+                rectF.top = (i4 - this.h) + i8;
+                rectF.right = f + this.g + i7;
+                rectF.bottom = i4 + i8;
+            } else {
+                Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
+                if (t25.b(charSequence)) {
+                    t25.a(fontMetricsInt, (int) paint.getTextSize());
+                    i6 = 0 - UtilHelper.getDimenPixelSize(R.dimen.tbds3);
+                } else {
+                    i6 = (((fontMetricsInt.descent - fontMetricsInt.ascent) - this.h) / 2) + 0;
+                }
+                int i9 = i6 + i4 + fontMetricsInt.ascent;
+                RectF rectF2 = this.c;
+                rectF2.left = f + this.k;
+                rectF2.top = Math.max(i9, i4 + fontMetricsInt.top);
+                RectF rectF3 = this.c;
+                rectF3.right = f + this.g + this.k;
+                rectF3.bottom = Math.min(i9 + this.h, i4 + fontMetricsInt.bottom);
+            }
+            String str = this.j;
+            if (str != null) {
+                if (" 吧主".equals(str)) {
+                    color = SelectorHelper.getResources().getColor(R.color.CAM_X0302);
+                    color2 = SelectorHelper.getResources().getColor(R.color.CAM_X0302);
+                } else if (" 小吧主".equals(this.j)) {
+                    color = SelectorHelper.getResources().getColor(R.color.CAM_X0302);
+                    color2 = SelectorHelper.getResources().getColor(R.color.CAM_X0302);
+                } else if (" 楼主".equals(this.j)) {
+                    color = SelectorHelper.getResources().getColor(R.color.CAM_X0302);
+                    color2 = SelectorHelper.getResources().getColor(R.color.CAM_X0302);
+                } else {
+                    color = SelectorHelper.getResources().getColor(R.color.CAM_X0302);
+                    color2 = SelectorHelper.getResources().getColor(R.color.CAM_X0302);
+                }
+                int i10 = color;
+                int i11 = color2;
+                RectF rectF4 = this.c;
+                this.i.setShader(new LinearGradient(rectF4.left, rectF4.top, rectF4.right, rectF4.bottom, i10, i11, Shader.TileMode.CLAMP));
+            }
+            Path path = new Path();
+            path.addRoundRect(this.c, this.a, Path.Direction.CW);
+            canvas.drawPath(path, this.i);
+            this.i.setShader(null);
+            if (TbadkCoreApplication.getInst().getSkinType() == 4 && this.j != null) {
+                this.i.setColor(SelectorHelper.getResources().getColor(R.color.obfuscated_res_0x7f060649));
+                if (this.m) {
+                    this.i.setStyle(Paint.Style.FILL);
+                } else {
+                    this.i.setStyle(Paint.Style.STROKE);
+                }
+                Path path2 = new Path();
+                path2.addRoundRect(this.c, this.a, Path.Direction.CW);
+                canvas.drawPath(path2, this.i);
+            }
+            Paint.FontMetricsInt fontMetricsInt2 = this.i.getFontMetricsInt();
+            int i12 = this.e;
+            if (i12 != 0) {
+                this.i.setColor(SkinManager.getColor(i12));
+            } else {
+                this.i.setColor(SelectorHelper.getResources().getColor(R.color.CAM_X0201));
+            }
+            this.i.setStyle(Paint.Style.FILL);
+            float centerY = this.c.centerY();
+            int i13 = fontMetricsInt2.bottom;
+            canvas.drawText(charSequence, i, i2, f + this.f + this.k, (int) ((centerY + ((i13 - fontMetricsInt2.top) / 2)) - i13), this.i);
+        }
+    }
+
+    @Override // android.text.style.ReplacementSpan
+    public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, @Nullable Paint.FontMetricsInt fontMetricsInt) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
+            int measureText = ((int) this.i.measureText(charSequence, i, i2)) + (this.f * 2);
+            this.g = measureText;
+            return measureText + this.k + this.l;
+        }
+        return invokeCommon.intValue;
     }
 }

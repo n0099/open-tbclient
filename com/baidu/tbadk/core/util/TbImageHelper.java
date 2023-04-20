@@ -5,7 +5,7 @@ import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tieba.ob;
-import com.baidu.tieba.rv4;
+import com.baidu.tieba.sv4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -74,7 +74,7 @@ public class TbImageHelper {
     public void updatePostImageSize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            int d = rv4.c().d();
+            int d = sv4.c().d();
             int i = 1300;
             if (d != 0) {
                 if (d != 1) {
@@ -92,11 +92,11 @@ public class TbImageHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             String valueOf = String.valueOf(45);
-            if (rv4.c().e() == 0) {
+            if (sv4.c().e() == 0) {
                 if (getIsWifi()) {
                     valueOf = String.valueOf(80);
                 }
-            } else if (rv4.c().e() == 1) {
+            } else if (sv4.c().e() == 1) {
                 valueOf = String.valueOf(80);
             }
             this.mUrlQuality = valueOf;
@@ -188,7 +188,7 @@ public class TbImageHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             boolean z = true;
-            if (rv4.c().e() != 0 ? rv4.c().e() != 1 : !this.mIsWifiCache) {
+            if (sv4.c().e() != 0 ? sv4.c().e() != 1 : !this.mIsWifiCache) {
                 z = false;
             }
             setShowBigImage(z);

@@ -1,96 +1,37 @@
 package com.baidu.tieba;
 
 import android.opengl.GLES20;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.opengl.Matrix;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.minivideo.effect.core.Rotation;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.nio.Buffer;
-import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
-import java.nio.FloatBuffer;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class jf0 extends gf0 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String G = "attribute vec4 position;\nattribute vec4 inputTextureCoordinate;\nvarying vec2 textureCoordinate;\n";
-    public static int[] H;
-    public static int I;
+public class jf0 extends hf0 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int[] A;
-    public int[] B;
-    public int[] C;
-    public FloatBuffer D;
-    public List<Integer> E;
-    public int F;
+    public int A;
+    public int B;
 
-    @Override // com.baidu.tieba.gf0
-    public void s() {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public jf0() {
+        this("attribute vec4 position;\nattribute vec4 inputTextureCoordinate;\nuniform mat4 uMVPMatrix;\nuniform mat4 uTexMatrix;\nvarying vec2 textureCoordinate;\n \nvoid main()\n{\n    gl_Position = uMVPMatrix * position;\n    textureCoordinate = (uTexMatrix * inputTextureCoordinate).xy;\n}", "precision highp float;\n \nvarying highp vec2 textureCoordinate;\n \nuniform sampler2D inputImageTexture;\nuniform float alpha;\n \nvoid main()\n{\n     vec4 inputColor = texture2D(inputImageTexture, textureCoordinate);\n     gl_FragColor = vec4(inputColor.rgb, inputColor.a * alpha);\n}");
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ List a;
-        public final /* synthetic */ jf0 b;
-
-        public a(jf0 jf0Var, List list) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jf0Var, list};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = jf0Var;
-            this.a = list;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.E = this.a;
-                for (int i = 0; i < this.a.size(); i++) {
-                    this.b.C[i] = ((Integer) this.a.get(i)).intValue();
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947881237, "Lcom/baidu/tieba/jf0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947881237, "Lcom/baidu/tieba/jf0;");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                this((String) objArr[0], (String) objArr[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        H = new int[]{33987, 33988, 33989, 33990, 33991, 33992, 33993, 33994, 33995, 33996};
-        I = 1;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -112,150 +53,56 @@ public class jf0 extends gf0 {
                 return;
             }
         }
-        this.F = 3553;
-        if (!TextUtils.isEmpty(str2) && str2.contains("samplerExternalOES")) {
-            this.F = 36197;
-        }
-        int i3 = I;
-        this.A = new int[i3];
-        this.B = new int[i3];
-        this.C = new int[i3];
-        for (int i4 = 0; i4 < I; i4++) {
-            this.C[i4] = -1;
-        }
-        this.D = ByteBuffer.allocateDirect(of0.a.length * 4).order(ByteOrder.nativeOrder()).asFloatBuffer();
-        X(Rotation.NORMAL, false, false);
+        float[] fArr = new float[16];
+        this.y = fArr;
+        this.z = new float[16];
+        Matrix.setIdentityM(fArr, 0);
+        Matrix.setIdentityM(this.z, 0);
     }
 
-    public void Y(List<Integer> list) {
+    public void U(float[] fArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) && list != null && list.size() != 0) {
-            B(new a(this, list));
+        if (interceptable == null || interceptable.invokeL(1048576, this, fArr) == null) {
+            this.y = fArr;
+            S(this.A, fArr, true);
         }
     }
 
-    public static String W(int i) {
-        InterceptResult invokeI;
+    public void V(float[] fArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
-            if (I <= H.length) {
-                I = i;
-                StringBuilder sb = new StringBuilder(G);
-                for (int i2 = 0; i2 < i; i2++) {
-                    StringBuilder sb2 = new StringBuilder();
-                    sb2.append("attribute vec4 inputTextureCoordinate");
-                    int i3 = i2 + 2;
-                    sb2.append(i3);
-                    sb.append(sb2.toString());
-                    sb.append(";\n");
-                    sb.append("varying vec2 textureCoordinate" + i3);
-                    sb.append(";\n");
-                }
-                sb.append("\nvoid main()\n{\n    gl_Position = position;\n    textureCoordinate = inputTextureCoordinate.xy;\n");
-                for (int i4 = 0; i4 < i; i4++) {
-                    sb.append("    ");
-                    StringBuilder sb3 = new StringBuilder();
-                    sb3.append("textureCoordinate");
-                    int i5 = i4 + 2;
-                    sb3.append(i5);
-                    sb.append(sb3.toString());
-                    sb.append(" = ");
-                    sb.append("inputTextureCoordinate" + i5);
-                    sb.append(".xy");
-                    sb.append(";\n");
-                }
-                sb.append("}");
-                return sb.toString();
-            }
-            throw new RuntimeException("too many textures !!!");
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fArr) == null) {
+            this.z = fArr;
+            S(this.B, fArr, true);
         }
-        return (String) invokeI.objValue;
     }
 
-    public void X(Rotation rotation, boolean z, boolean z2) {
+    @Override // com.baidu.tieba.hf0
+    public int i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{rotation, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            this.D.clear();
-            this.D.put(of0.b(rotation, z, z2)).position(0);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.A;
         }
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.gf0
-    public void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            int i = 0;
-            while (true) {
-                int[] iArr = this.A;
-                if (i < iArr.length) {
-                    GLES20.glDisableVertexAttribArray(iArr[i]);
-                    i++;
-                } else {
-                    return;
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.gf0
-    public void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            super.u();
-            List<Integer> list = this.E;
-            if (list != null) {
-                Y(list);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.gf0
-    public void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            int i = 0;
-            while (true) {
-                int[] iArr = this.A;
-                if (i < iArr.length) {
-                    if (this.C[i] != -1) {
-                        GLES20.glEnableVertexAttribArray(iArr[i]);
-                        GLES20.glActiveTexture(H[i]);
-                        GLES20.glBindTexture(this.F, this.C[i]);
-                        GLES20.glUniform1i(this.B[i], i + 3);
-                        this.D.position(0);
-                        GLES20.glVertexAttribPointer(this.A[i], 2, 5126, false, 0, (Buffer) this.D);
-                    }
-                    i++;
-                } else {
-                    return;
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.gf0
+    @Override // com.baidu.tieba.hf0
     public void t() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.t();
-            int i = 0;
-            while (true) {
-                int[] iArr = this.A;
-                if (i < iArr.length) {
-                    int j = j();
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("inputTextureCoordinate");
-                    int i2 = i + 2;
-                    sb.append(i2);
-                    iArr[i] = GLES20.glGetAttribLocation(j, sb.toString());
-                    int[] iArr2 = this.B;
-                    int j2 = j();
-                    iArr2[i] = GLES20.glGetUniformLocation(j2, "inputImageTexture" + i2);
-                    i++;
-                } else {
-                    return;
-                }
-            }
+            this.A = GLES20.glGetUniformLocation(j(), "uMVPMatrix");
+            this.B = GLES20.glGetUniformLocation(j(), "uTexMatrix");
+        }
+    }
+
+    @Override // com.baidu.tieba.hf0
+    public void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.u();
+            U(this.y);
+            V(this.z);
         }
     }
 }

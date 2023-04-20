@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.atomData.RecommendDetailActivityConfig;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ii;
 import com.baidu.tieba.im.recommend.detail.RecommendDetailModel;
-import com.baidu.tieba.o08;
+import com.baidu.tieba.p08;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -23,7 +23,7 @@ import tbclient.Bigvip.UserInfoBigVip;
 public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivity> implements RecommendDetailModel.e, BdSwitchView.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public o08 a;
+    public p08 a;
     public RecommendDetailModel b;
     public long c;
     public String d;
@@ -176,9 +176,9 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             super.onChangeSkinType(i);
-            o08 o08Var = this.a;
-            if (o08Var != null) {
-                o08Var.j(i);
+            p08 p08Var = this.a;
+            if (p08Var != null) {
+                p08Var.j(i);
             }
         }
     }
@@ -195,10 +195,10 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
 
     @Override // com.baidu.tieba.im.recommend.detail.RecommendDetailModel.e
     public void P(UserInfoBigVip userInfoBigVip, boolean z) {
-        o08 o08Var;
+        p08 p08Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, userInfoBigVip, z) == null) && (o08Var = this.a) != null && userInfoBigVip != null) {
-            o08Var.g();
+        if ((interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, userInfoBigVip, z) == null) && (p08Var = this.a) != null && userInfoBigVip != null) {
+            p08Var.g();
             this.a.p(userInfoBigVip, z);
         }
     }
@@ -222,7 +222,7 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
-            this.a = new o08(this);
+            this.a = new p08(this);
             this.b = new RecommendDetailModel(getPageContext(), this, this);
             z1(bundle);
             this.a.a();
@@ -264,11 +264,11 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.b
     public void c0(View view2, BdSwitchView.SwitchState switchState) {
-        o08 o08Var;
+        p08 p08Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, view2, switchState) == null) && (o08Var = this.a) != null && this.b != null) {
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, view2, switchState) == null) && (p08Var = this.a) != null && this.b != null) {
             boolean z = false;
-            if (view2 == o08Var.c()) {
+            if (view2 == p08Var.c()) {
                 RecommendDetailModel recommendDetailModel = this.b;
                 if (switchState != BdSwitchView.SwitchState.OFF) {
                     z = true;
@@ -287,11 +287,11 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
     @Override // com.baidu.tieba.im.recommend.detail.RecommendDetailModel.e
     public void onFailed(String str) {
         RecommendDetailModel recommendDetailModel;
-        o08 o08Var;
+        p08 p08Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            if (!StringUtils.isNull(str) && (o08Var = this.a) != null) {
-                o08Var.g();
+            if (!StringUtils.isNull(str) && (p08Var = this.a) != null) {
+                p08Var.g();
                 this.a.b();
             }
             if (this.a != null && (recommendDetailModel = this.b) != null && recommendDetailModel.Z() && !this.b.X() && StringUtils.isNull(str)) {

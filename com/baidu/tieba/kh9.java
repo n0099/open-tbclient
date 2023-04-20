@@ -1,155 +1,105 @@
 package com.baidu.tieba;
 
+import android.content.Intent;
+import android.net.Uri;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.searchbox.launch.stats.SpeedStatsManager;
+import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
+import com.baidu.tbadk.core.util.DeviceInfoUtil;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class kh9 extends jk6 {
+public class kh9 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
-    public static final a b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
+    @NonNull
+    public final hh9 a;
+    @NonNull
+    public final ih9 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947913229, "Lcom/baidu/tieba/kh9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947913229, "Lcom/baidu/tieba/kh9;");
-                return;
-            }
-        }
-        b = new a(null);
-    }
-
-    @JvmStatic
-    public static final void a(TbPageContext<?> tbPageContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, tbPageContext) == null) {
-            b.a(tbPageContext);
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        /* renamed from: com.baidu.tieba.kh9$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public static final class C0323a extends CustomMessageListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C0323a() {
-                super(2921797);
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        super(((Integer) newInitContext.callArgs[0]).intValue());
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                Object obj;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                    Integer num = null;
-                    if (customResponsedMessage != null) {
-                        obj = customResponsedMessage.getData();
-                    } else {
-                        obj = null;
-                    }
-                    if (obj instanceof Integer) {
-                        num = (Integer) obj;
-                    }
-                    if (num != null) {
-                        ik6.b().b(new kh9(num.intValue()));
-                    }
-                }
-            }
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @JvmStatic
-        public final void a(TbPageContext<?> pageContext) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, pageContext) == null) {
-                Intrinsics.checkNotNullParameter(pageContext, "pageContext");
-                pageContext.registerListener(new C0323a());
-            }
-        }
-    }
-
-    public kh9(int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kh9(@NonNull hh9 hh9Var, @NonNull ih9 ih9Var) {
+        super(2016311);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            Object[] objArr = {hh9Var, ih9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i;
+        this.a = hh9Var;
+        this.b = ih9Var;
     }
 
-    public final boolean b() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.a == 1) {
-                return true;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2016311) {
+            SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_SHOW_END_STAMP_KEY);
+            Object data = customResponsedMessage.getData();
+            if (data instanceof String) {
+                String str2 = (String) data;
+                lo9.a("SplashClickListener link:" + str2);
+                if (!TextUtils.isEmpty(str2) && !TextUtils.equals("advertevent", Uri.parse(str2).getScheme())) {
+                    Intent intent = new Intent();
+                    int indexOf = str2.indexOf("&extInfo=");
+                    if (indexOf > 0) {
+                        str = str2.substring(0, indexOf);
+                    } else {
+                        str = str2;
+                    }
+                    String substring = str2.substring(str.length() + 9, str2.length());
+                    if (str.startsWith("https://") || str.startsWith("http://")) {
+                        intent.putExtra("gd_ad", true);
+                        intent.putExtra("ext_info", substring);
+                    }
+                    if (!this.a.h() && ((StringUtils.isNull(str) || !str.startsWith("bdtiebalive")) && this.a.g() != 2)) {
+                        intent.putExtra(DealIntentService.KEY_CLASS, 30);
+                        intent.putExtra(BigdayActivityConfig.JUMP_URL, str);
+                        intent.putExtra("is_ad", true);
+                        TbadkCoreApplication.setIntent(intent);
+                    } else {
+                        intent.putExtra(DealIntentService.KEY_CLASS, 30);
+                        intent.putExtra(BigdayActivityConfig.JUMP_URL, str);
+                        intent.putExtra("is_ad", true);
+                        UtilHelper.commenDealIntent(this.a.getActivity(), intent);
+                    }
+                }
+                this.a.e();
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SPLASH_GOTO_MAIN_TAB).param("obj_locate", this.a.getActivity().getClass().getSimpleName()).param("obj_param1", 5).param(TiebaStatic.Params.OBJ_PARAM3, String.valueOf(this.a.d())));
+                if (!this.a.d() && !DeviceInfoUtil.isHuaWeiP40Pro()) {
+                    SpeedStatsManager.getInstance().setStatsFlag(-1);
+                    if (!this.a.h()) {
+                        TiebaStatic.log(new StatisticItem("ignore_speed").param("obj_source", "click"));
+                        return;
+                    }
+                    return;
+                }
+                this.b.a();
             }
-            return false;
         }
-        return invokeV.booleanValue;
     }
 }

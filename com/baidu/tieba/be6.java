@@ -1,221 +1,149 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.sapi2.views.SmsLoginView;
-import com.baidu.tbadk.TbConfig;
+import androidx.core.util.Pair;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tieba.browser.exception.UnzipErrorException;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Map;
-import java.util.Set;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class be6 {
+public class be6 extends BdAsyncTask<Void, Void, zd6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final String b;
+    public final String c;
+    public final String d;
 
-    public static yd6 a(String str, String str2) {
-        InterceptResult invokeLL;
+    public be6(String str, fa9 fa9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
-            File k = td6.l().k();
-            File file = new File(k, str + "/" + str2);
-            if (!file.exists() || TextUtils.isEmpty(str2)) {
-                return null;
-            }
-            Map<String, de6> b = b(file);
-            if (!f(file, b)) {
-                return null;
-            }
-            return new yd6(file, str2, b);
-        }
-        return (yd6) invokeLL.objValue;
-    }
-
-    public static Map<String, de6> b(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
-            File file2 = new File(file, "router.json");
-            if (!file2.exists()) {
-                return null;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(ff6.d(file2));
-                Map<String, de6> d = d(jSONObject.optJSONObject("config"));
-                Map<String, de6> d2 = d(jSONObject.optJSONObject("proxyConfig"));
-                if (!df6.b(d2)) {
-                    d.putAll(d2);
-                }
-                return d;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, fa9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (Map) invokeL.objValue;
+        this.a = str;
+        this.c = fa9Var.c();
+        this.b = fa9Var.a();
+        this.d = fa9Var.b();
     }
 
-    public static Set<String> c(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public static void c(String str, fa9 fa9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            HashSet hashSet = new HashSet();
-            if (jSONObject == null) {
-                return hashSet;
-            }
-            JSONArray optJSONArray = jSONObject.optJSONArray("data_urls");
-            if (!df6.c(optJSONArray)) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    hashSet.add(optJSONArray.optString(i, ""));
-                }
-            }
-            return hashSet;
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, fa9Var) == null) {
+            be6 be6Var = new be6(str, fa9Var);
+            be6Var.setPriority(4);
+            be6Var.execute(new Void[0]);
         }
-        return (Set) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:16:0x0048 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r10v0, types: [int] */
-    /* JADX WARN: Type inference failed for: r10v1 */
-    /* JADX WARN: Type inference failed for: r10v4, types: [boolean] */
-    public static Map<String, de6> d(JSONObject jSONObject) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: b */
+    public zd6 doInBackground(Void... voidArr) {
         InterceptResult invokeL;
         boolean z;
-        JSONObject optJSONObject;
+        zd6 zd6Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
-            HashMap hashMap = new HashMap();
-            if (jSONObject == null) {
-                return hashMap;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
+            File file = new File(ud6.l().m(), this.a);
+            if (!gf6.a(file)) {
+                ye6.b("lt-log", "离线包下载失败：" + this.a + "->目录创建失败");
             }
-            Iterator<String> keys = jSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                if (!TextUtils.isEmpty(next) && !hashMap.containsKey(next)) {
-                    try {
-                        JSONObject jSONObject2 = jSONObject.getJSONObject(next);
-                        String optString = jSONObject2.optString("module", "");
-                        String optString2 = jSONObject2.optString("path", "");
-                        ?? optInt = jSONObject2.optInt("proxyMode", 0);
-                        if (jSONObject2.has("proxySwitch") && (optJSONObject = jSONObject2.optJSONObject("proxySwitch")) != null) {
-                            optInt = if6.a(optJSONObject.optString("android", ""), TbConfig.getVersion());
-                        }
-                        de6 de6Var = new de6();
-                        if (jSONObject2.optInt("proxyMode", 0) == 1) {
-                            z = true;
-                        } else {
-                            z = false;
-                        }
-                        de6Var.i = z;
-                        if (optInt == 1) {
-                            de6Var.h = true;
-                            de6Var.a = le6.a(jSONObject2);
-                        } else {
-                            de6Var.h = false;
-                            de6Var.b = c(jSONObject2);
-                        }
-                        de6Var.c = optString;
-                        de6Var.d = optString2;
-                        de6Var.f = e(next, jSONObject2);
-                        hashMap.put(next, de6Var);
-                        u99.a().j(next, next);
-                        u99.a().k(next, optString2);
-                    } catch (JSONException unused) {
-                    }
+            File file2 = new File(file, this.c + ".zip");
+            if (!file2.exists()) {
+                z = new NetWork(this.b).downloadFile(file2.getAbsolutePath(), null, 0, 3, 0, true);
+            } else {
+                z = true;
+            }
+            if (!z) {
+                gf6.c(file2);
+                ye6.b("lt-log", "离线包下载失败:网络下载异常：" + this.a);
+                ud6.t("download bundle", "download_error", this.a, this.c, hf6.a(Pair.create("error_code", "-1"), Pair.create(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "网络下载错误")));
+                return null;
+            } else if (!ff6.d(file2, this.d)) {
+                gf6.c(file2);
+                ye6.b("lt-log", "离线包目md5验证失败：" + this.a);
+                ud6.t("download bundle", "md5_error", this.a, this.c, hf6.a(Pair.create("detail", this.d + "_" + ff6.b(file2))));
+                return null;
+            } else {
+                File file3 = new File(ud6.l().k(), this.a);
+                if (!e(file2, file3, this.c)) {
+                    ud6.t("download bundle", "unzip_error", this.a, this.c, "");
+                    return null;
                 }
+                File file4 = new File(file3, this.c);
+                Map<String, ee6> b = ce6.b(file4);
+                if (ce6.f(file4, b)) {
+                    zd6Var = new zd6(file4, this.c, b);
+                } else {
+                    zd6Var = null;
+                }
+                if (zd6Var != null && zd6Var.c()) {
+                    ud6.i(ud6.l().k(), this.c, this.a);
+                    ud6.i(ud6.l().m(), this.c + ".zip", this.a);
+                    return zd6Var;
+                }
+                gf6.b(file4);
+                ye6.b("lt-log", "离线包应用失败：" + this.a + "，path：" + file4.getAbsolutePath());
+                return null;
             }
-            return hashMap;
         }
-        return (Map) invokeL.objValue;
+        return (zd6) invokeL.objValue;
     }
 
-    public static Set<String> e(String str, JSONObject jSONObject) {
-        InterceptResult invokeLL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: d */
+    public void onPostExecute(zd6 zd6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, jSONObject)) == null) {
-            HashSet<String> hashSet = new HashSet();
-            if (jSONObject == null) {
-                return hashSet;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zd6Var) == null) {
+            super.onPostExecute(zd6Var);
+            if (zd6Var != null) {
+                ud6.l().v(this.a, zd6Var.b());
+                ud6.l().s();
+                xd6.d().j(this.a, zd6Var.a());
+                xd6.d().c(this.a);
+                ud6.t("download bundle", "success", "", this.a, zd6Var.b());
+            } else {
+                xd6.d().c(this.a);
             }
-            JSONArray optJSONArray = jSONObject.optJSONArray("source");
-            if (!df6.c(optJSONArray)) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    hashSet.add(optJSONArray.optString(i, ""));
-                }
-            }
-            String optString = jSONObject.optString("staticPrePath", "");
-            for (String str2 : hashSet) {
-                if (!TextUtils.isEmpty(str2)) {
-                    u99 a = u99.a();
-                    a.j(optString + "/" + str2, str);
-                    u99 a2 = u99.a();
-                    a2.k(optString + "/" + str2, str2);
-                }
-            }
-            return hashSet;
+            td6.b(zd6Var, this.a);
         }
-        return (Set) invokeLL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:27:0x0094 A[Catch: Exception -> 0x00e0, TryCatch #0 {Exception -> 0x00e0, blocks: (B:12:0x0023, B:15:0x002e, B:18:0x003c, B:21:0x0045, B:22:0x0052, B:24:0x0058, B:25:0x008e, B:27:0x0094, B:29:0x00a2, B:30:0x00ae, B:32:0x00ba, B:34:0x00c0), top: B:44:0x0023 }] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static boolean f(File file, Map<String, de6> map) {
-        InterceptResult invokeLL;
-        String d;
-        JSONObject optJSONObject;
+    public final boolean e(File file, File file2, String str) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, file, map)) == null) {
-            File file2 = new File(file, "staticSources.json");
-            if (df6.b(map) || !file2.exists() || !file2.isFile()) {
-                return false;
-            }
-            try {
-                d = ff6.d(file2);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            if (TextUtils.isEmpty(d)) {
-                return false;
-            }
-            JSONObject optJSONObject2 = new JSONObject(d).optJSONObject("sources");
-            if (optJSONObject2 == null || (optJSONObject = optJSONObject2.optJSONObject(SmsLoginView.f.j)) == null) {
-                return true;
-            }
-            HashMap hashMap = new HashMap();
-            for (Map.Entry<String, de6> entry : map.entrySet()) {
-                de6 value = entry.getValue();
-                HashSet<String> hashSet = new HashSet(value.f);
-                hashSet.add(value.d);
-                Log.e("lt-log", "-------------------------：" + entry.getKey());
-                for (String str : hashSet) {
-                    String str2 = (String) hashMap.get(str);
-                    if (str2 == null) {
-                        str2 = ef6.b(new File(file, str));
-                        hashMap.put(str, str2);
-                    }
-                    String optString = optJSONObject.optString(str, "");
-                    if (TextUtils.isEmpty(optString) || !optString.equalsIgnoreCase(str2)) {
-                        Log.e("lt-log", str + "," + optString + "_" + str2);
-                        return false;
-                    }
-                    while (r5.hasNext()) {
-                    }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, file, file2, str)) == null) {
+            File file3 = new File(file2, str);
+            if (!file3.exists()) {
+                try {
+                    lf6.c(file, file3);
+                    return true;
+                } catch (UnzipErrorException e) {
+                    gf6.b(file2);
+                    ye6.b("lt-log", "离线包资源解压缩失败：" + e);
+                    return false;
                 }
             }
             return true;
         }
-        return invokeLL.booleanValue;
+        return invokeLLL.booleanValue;
     }
 }

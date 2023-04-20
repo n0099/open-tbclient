@@ -5,7 +5,7 @@ import android.content.Context;
 import com.xiaomi.push.ep;
 import com.xiaomi.push.id;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class as {
     public abstract ep a(Context context, int i, String str, Map<String, String> map);
 

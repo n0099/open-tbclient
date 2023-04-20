@@ -1,7 +1,9 @@
 package com.baidu.tieba;
 /* loaded from: classes4.dex */
-public interface hk5 extends fk5 {
-    boolean C(String str);
+public interface hk5 extends gk5 {
+    String P();
 
-    String r();
+    boolean isNeedUid();
+
+    boolean z();
 }

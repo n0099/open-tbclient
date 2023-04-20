@@ -2,6 +2,7 @@ package com.baidu.tieba;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,16 +13,16 @@ public class rq9 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
-    public final uo9 b;
+    public final ro9 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rq9(MainTabActivity mainTabActivity) {
-        super(2921509);
+    public rq9(MainTabActivity mainTabActivity, ro9 ro9Var) {
+        super(2001304);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity};
+            Object[] objArr = {mainTabActivity, ro9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,14 +34,37 @@ public class rq9 extends CustomMessageListener {
             }
         }
         this.a = mainTabActivity;
-        this.b = mainTabActivity.e;
+        this.b = ro9Var;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        ro9 ro9Var;
+        boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof Boolean)) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer) && (ro9Var = this.b) != null && ro9Var.y() != null) {
+            int intValue = ((Integer) customResponsedMessage.getData()).intValue();
+            int oldSkinType = TbadkCoreApplication.getInst().getOldSkinType();
+            boolean z2 = false;
+            if (intValue != 2 && oldSkinType != 2) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
+                return;
+            }
+            if ((intValue == 3 || intValue == 0) && oldSkinType == 2) {
+                z2 = true;
+            }
+            if (z2) {
+                this.b.y().e(1);
+            } else if (TbadkCoreApplication.getInst().isThemeIconCover()) {
+                this.b.y().e(2);
+            } else {
+                this.b.y().e(1);
+            }
         }
     }
 }

@@ -1,10 +1,10 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.util.PriorityOrganizer;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.hi5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ public class qe7 extends PriorityOrganizer.Task {
     public transient /* synthetic */ FieldHolder $fh;
     public FrsFragment m;
     public FrsActivity n;
-    public hi5.b o;
+    public boolean o;
 
     public qe7(FrsActivity frsActivity, FrsFragment frsFragment) {
         Interceptable interceptable = $ic;
@@ -37,17 +37,33 @@ public class qe7 extends PriorityOrganizer.Task {
         this.m = frsFragment;
     }
 
+    public void F(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            this.o = z;
+        }
+    }
+
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public boolean u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            FrsFragment frsFragment = this.m;
+            if (frsFragment != null && !frsFragment.G3() && TbSingleton.getInstance().getFrsResponseData() != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
     public boolean w() {
         InterceptResult invokeV;
-        hi5.b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            FrsFragment frsFragment = this.m;
-            if (frsFragment != null) {
-                this.o = frsFragment.M3();
-            }
-            if (p45.m().i("key_chat_group_guide_show", false) || (bVar = this.o) == null || !bVar.m0()) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (a15.i() || !this.o || !yh7.d(TbSingleton.getInstance().getFrsResponseData(), this.m)) {
                 return false;
             }
             return true;
@@ -58,11 +74,7 @@ public class qe7 extends PriorityOrganizer.Task {
     @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
     public void z() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            hi5.b bVar = this.o;
-            if (bVar != null) {
-                bVar.U0();
-            }
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             t();
         }
     }

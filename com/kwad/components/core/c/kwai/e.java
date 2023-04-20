@@ -25,7 +25,7 @@ import com.kwad.sdk.utils.u;
 public final class e extends c implements View.OnClickListener {
     @Nullable
     public b DG;
-    public b.C0596b DH;
+    public b.C0595b DH;
     public Runnable DP;
     public KsAdWebView bF;
     public aa bI;

@@ -1,89 +1,140 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Calendar;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class d01 {
+public final class d01 {
     public static /* synthetic */ Interceptable $ic;
+    public static m01 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(@Nullable String str, @Nullable String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                String[] split = str.split(":");
-                String[] split2 = str2.split(":");
-                if (split.length != 0 && split2.length != 0) {
-                    try {
-                        Calendar calendar = Calendar.getInstance();
-                        long timeInMillis = calendar.getTimeInMillis();
-                        calendar.set(11, yz0.c(split[0]));
-                        calendar.set(12, yz0.c(split[1]));
-                        long timeInMillis2 = calendar.getTimeInMillis();
-                        calendar.set(11, yz0.c(split2[0]));
-                        calendar.set(12, yz0.c(split2[1]));
-                        long timeInMillis3 = calendar.getTimeInMillis();
-                        if (timeInMillis < timeInMillis2 || timeInMillis > timeInMillis3) {
-                            return false;
-                        }
-                        return true;
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
+    /* loaded from: classes4.dex */
+    public static class a extends m01 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            return false;
         }
-        return invokeLL.booleanValue;
-    }
 
-    @SuppressLint({"SourceLockedOrientationActivity"})
-    public static void b(Activity activity, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(65537, null, activity, z) == null) && activity != null) {
-            c01.b("BdVideoSys", "SCREEN_ORIENTATION_LANDSCAPE");
-            if (z) {
-                activity.setRequestedOrientation(8);
-            } else {
-                activity.setRequestedOrientation(0);
+        @Override // com.baidu.tieba.m01
+        public boolean c(int i, @Nullable String str) {
+            InterceptResult invokeIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, str)) == null) {
+                return yr0.f();
             }
-            activity.getWindow().setFlags(1024, 1024);
+            return invokeIL.booleanValue;
         }
     }
 
-    public static void c(Activity activity, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(65538, null, activity, z) == null) && activity != null) {
-            if (z) {
-                activity.getWindow().addFlags(128);
-            } else {
-                activity.getWindow().clearFlags(128);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947650628, "Lcom/baidu/tieba/d01;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947650628, "Lcom/baidu/tieba/d01;");
+                return;
             }
         }
+        a = new a();
     }
 
-    public static void startActivity(Context context, ComponentName componentName) throws Exception {
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, context, componentName) == null) {
-            new Intent().setComponent(componentName);
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            c(3, null, str, null);
         }
     }
 
-    public static void startActivity(Context context, String str, String str2, String str3) throws Exception {
+    public static void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, str2, str3) == null) {
-            new Intent().setComponent(new ComponentName(str, str2 + str3));
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
+            c(6, null, str, null);
+        }
+    }
+
+    public static void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
+            c(4, null, str, null);
+        }
+    }
+
+    public static void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
+            c(2, null, str, null);
+        }
+    }
+
+    public static void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65546, null, str) == null) {
+            c(5, null, str, null);
+        }
+    }
+
+    public static void b(@Nullable String str, @Nullable String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+            c(3, str, str2, null);
+        }
+    }
+
+    public static void e(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
+            c(6, str, str2, null);
+        }
+    }
+
+    public static void f(String str, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65542, null, str, th) == null) {
+            c(6, null, str, th);
+        }
+    }
+
+    public static void i(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65545, null, str, str2) == null) {
+            c(2, str, str2, null);
+        }
+    }
+
+    public static void k(String str, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65547, null, str, th) == null) {
+            c(5, null, str, th);
+        }
+    }
+
+    public static void c(int i, @Nullable String str, @Nullable String str2, @Nullable Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), str, str2, th}) == null) {
+            a.a(i, str, str2, th);
         }
     }
 }

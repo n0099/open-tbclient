@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.Window;
 import android.view.WindowManager;
 import com.badlogic.gdx.Application;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface q1 extends Application {
     Window getApplicationWindow();
 

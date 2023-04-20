@@ -1,33 +1,49 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.f1b;
-import com.baidu.tieba.j1b;
+import com.baidu.tieba.k1b;
+import com.baidu.tieba.n1b;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.NoSuchElementException;
+import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicLong;
+import rx.exceptions.MissingBackpressureException;
+import rx.internal.operators.NotificationLite;
+import rx.internal.util.BackpressureDrainManager;
 /* loaded from: classes6.dex */
-public final class u2b<T> implements j1b.c<T> {
+public class u2b<T> implements n1b.b<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final f1b.a<T> a;
+    public final Long a;
+    public final a2b b;
+    public final k1b.d c;
 
     /* loaded from: classes6.dex */
-    public static final class a<T> extends l1b<T> {
+    public static final class a<T> extends t1b<T> implements BackpressureDrainManager.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final k1b<? super T> e;
-        public T f;
-        public int g;
+        public final ConcurrentLinkedQueue<Object> e;
+        public final AtomicLong f;
+        public final t1b<? super T> g;
+        public final AtomicBoolean h;
+        public final BackpressureDrainManager i;
+        public final a2b j;
+        public final k1b.d k;
 
-        public a(k1b<? super T> k1bVar) {
+        public a(t1b<? super T> t1bVar, Long l, a2b a2bVar, k1b.d dVar) {
+            AtomicLong atomicLong;
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {k1bVar};
+                Object[] objArr = {t1bVar, l, a2bVar, dVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -37,60 +53,192 @@ public final class u2b<T> implements j1b.c<T> {
                     return;
                 }
             }
-            this.e = k1bVar;
+            this.e = new ConcurrentLinkedQueue<>();
+            this.h = new AtomicBoolean(false);
+            this.g = t1bVar;
+            if (l != null) {
+                atomicLong = new AtomicLong(l.longValue());
+            } else {
+                atomicLong = null;
+            }
+            this.f = atomicLong;
+            this.j = a2bVar;
+            this.i = new BackpressureDrainManager(this);
+            this.k = dVar;
         }
 
-        @Override // com.baidu.tieba.g1b
+        @Override // rx.internal.util.BackpressureDrainManager.a
+        public void a(Throwable th) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
+                if (th != null) {
+                    this.g.onError(th);
+                } else {
+                    this.g.onCompleted();
+                }
+            }
+        }
+
+        @Override // rx.internal.util.BackpressureDrainManager.a
+        public boolean accept(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+                return NotificationLite.a(this.g, obj);
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.o1b
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                if (this.g == 2) {
-                    m5b.j(th);
-                    return;
-                }
-                this.f = null;
-                this.e.b(th);
+            if ((interceptable == null || interceptable.invokeL(1048582, this, th) == null) && !this.h.get()) {
+                this.i.terminateAndDrain(th);
             }
         }
 
-        @Override // com.baidu.tieba.g1b
+        @Override // com.baidu.tieba.o1b
         public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-                int i = this.g;
-                if (i == 0) {
-                    this.g = 1;
-                    this.f = t;
-                } else if (i == 1) {
-                    this.g = 2;
-                    this.e.b(new IndexOutOfBoundsException("The upstream produced more than one value"));
-                }
+            if ((interceptable != null && interceptable.invokeL(1048583, this, t) != null) || !g()) {
+                return;
+            }
+            this.e.offer(NotificationLite.h(t));
+            this.i.drain();
+        }
+
+        @Override // com.baidu.tieba.t1b
+        public void d() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                e(Long.MAX_VALUE);
             }
         }
 
-        @Override // com.baidu.tieba.g1b
+        public p1b h() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.i;
+            }
+            return (p1b) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.o1b
         public void onCompleted() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int i = this.g;
-                if (i == 0) {
-                    this.e.b(new NoSuchElementException());
-                } else if (i == 1) {
-                    this.g = 2;
-                    T t = this.f;
-                    this.f = null;
-                    this.e.c(t);
-                }
+            if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && !this.h.get()) {
+                this.i.terminateAndDrain();
             }
+        }
+
+        @Override // rx.internal.util.BackpressureDrainManager.a
+        public Object peek() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                return this.e.peek();
+            }
+            return invokeV.objValue;
+        }
+
+        @Override // rx.internal.util.BackpressureDrainManager.a
+        public Object poll() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+                Object poll = this.e.poll();
+                AtomicLong atomicLong = this.f;
+                if (atomicLong != null && poll != null) {
+                    atomicLong.incrementAndGet();
+                }
+                return poll;
+            }
+            return invokeV.objValue;
+        }
+
+        /* JADX WARN: Removed duplicated region for block: B:36:0x003d A[EXC_TOP_SPLITTER, SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:40:0x004d A[SYNTHETIC] */
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public final boolean g() {
+            InterceptResult invokeV;
+            long j;
+            boolean z;
+            a2b a2bVar;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                if (this.f == null) {
+                    return true;
+                }
+                do {
+                    j = this.f.get();
+                    if (j <= 0) {
+                        try {
+                        } catch (MissingBackpressureException e) {
+                            if (this.h.compareAndSet(false, true)) {
+                                unsubscribe();
+                                this.g.onError(e);
+                            }
+                        }
+                        if (this.k.a() && poll() != null) {
+                            z = true;
+                            a2bVar = this.j;
+                            if (a2bVar != null) {
+                                try {
+                                    a2bVar.call();
+                                } catch (Throwable th) {
+                                    z1b.e(th);
+                                    this.i.terminateAndDrain(th);
+                                    return false;
+                                }
+                            }
+                            if (!z) {
+                                return false;
+                            }
+                        }
+                        z = false;
+                        a2bVar = this.j;
+                        if (a2bVar != null) {
+                        }
+                        if (!z) {
+                        }
+                    }
+                } while (!this.f.compareAndSet(j, j - 1));
+                return true;
+            }
+            return invokeV.booleanValue;
         }
     }
 
-    public u2b(f1b.a<T> aVar) {
+    /* loaded from: classes6.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final u2b<?> a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-423504186, "Lcom/baidu/tieba/u2b$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-423504186, "Lcom/baidu/tieba/u2b$b;");
+                    return;
+                }
+            }
+            a = new u2b<>();
+        }
+    }
+
+    public u2b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -100,20 +248,34 @@ public final class u2b<T> implements j1b.c<T> {
                 return;
             }
         }
-        this.a = aVar;
+        this.a = null;
+        this.b = null;
+        this.c = k1b.b;
     }
 
-    public void call(k1b<? super T> k1bVar) {
+    public static <T> u2b<T> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, k1bVar) == null) {
-            a aVar = new a(k1bVar);
-            k1bVar.a(aVar);
-            this.a.call(aVar);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return (u2b<T>) b.a;
         }
+        return (u2b) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.j1b.c, com.baidu.tieba.t1b
-    public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((k1b) ((k1b) obj));
+    public t1b<? super T> call(t1b<? super T> t1bVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t1bVar)) == null) {
+            a aVar = new a(t1bVar, this.a, this.b, this.c);
+            t1bVar.b(aVar);
+            t1bVar.f(aVar.h());
+            return aVar;
+        }
+        return (t1b) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.n1b.b, com.baidu.tieba.f2b
+    public /* bridge */ /* synthetic */ Object call(Object obj) {
+        return call((t1b) ((t1b) obj));
     }
 }

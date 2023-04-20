@@ -14,9 +14,9 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.R;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ao;
-import com.baidu.tieba.nm;
-import com.baidu.tieba.xn;
+import com.baidu.tieba.bo;
+import com.baidu.tieba.om;
+import com.baidu.tieba.yn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -51,9 +51,9 @@ public class RefresherView extends ViewGroup {
     public int u;
     public final b v;
     public final c w;
-    public ao x;
+    public bo x;
     public d y;
-    public xn z;
+    public yn z;
 
     /* loaded from: classes.dex */
     public static /* synthetic */ class a {
@@ -116,9 +116,9 @@ public class RefresherView extends ViewGroup {
                     this.f.w.sendEmptyMessageAtTime(1000, this.b);
                 }
                 this.f.A = IRefreshable$State.animating;
-                ao aoVar = this.f.x;
-                if (aoVar != null) {
-                    aoVar.a(IRefreshable$State.animating);
+                bo boVar = this.f.x;
+                if (boVar != null) {
+                    boVar.a(IRefreshable$State.animating);
                 }
             }
         }
@@ -133,18 +133,18 @@ public class RefresherView extends ViewGroup {
                     RefresherView refresherView = this.f;
                     refresherView.s = refresherView.u;
                     this.f.A = IRefreshable$State.idle;
-                    ao aoVar = this.f.x;
-                    if (aoVar != null) {
-                        aoVar.a(IRefreshable$State.idle);
+                    bo boVar = this.f.x;
+                    if (boVar != null) {
+                        boVar.a(IRefreshable$State.idle);
                     }
-                    if (this.f.u == 0 && aoVar != null) {
-                        aoVar.b();
+                    if (this.f.u == 0 && boVar != null) {
+                        boVar.b();
                         this.f.l = false;
                     }
                 } else {
                     RefresherView refresherView2 = this.f;
                     int i2 = this.e;
-                    refresherView2.s = (int) (refresherView2.u + (i2 * (1.0f - nm.a.getInterpolation(this.d / i2))));
+                    refresherView2.s = (int) (refresherView2.u + (i2 * (1.0f - om.a.getInterpolation(this.d / i2))));
                     this.a = uptimeMillis;
                     this.b = uptimeMillis + 16;
                     this.f.w.removeMessages(1000);
@@ -165,13 +165,13 @@ public class RefresherView extends ViewGroup {
                     RefresherView refresherView = this.f;
                     refresherView.s = refresherView.c;
                     this.f.A = IRefreshable$State.idle;
-                    ao aoVar = this.f.x;
-                    if (aoVar != null) {
-                        aoVar.a(IRefreshable$State.idle);
+                    bo boVar = this.f.x;
+                    if (boVar != null) {
+                        boVar.a(IRefreshable$State.idle);
                         this.f.W();
                     }
                 } else {
-                    this.f.s = nm.a(i2, i, false);
+                    this.f.s = om.a(i2, i, false);
                     this.a = uptimeMillis;
                     this.b = uptimeMillis + 16;
                     this.f.w.removeMessages(1001);
@@ -228,7 +228,7 @@ public class RefresherView extends ViewGroup {
     public class d extends BdAsyncTask<Void, Void, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final ao a;
+        public final bo a;
         public final /* synthetic */ RefresherView b;
 
         public d(RefresherView refresherView) {
@@ -271,9 +271,9 @@ public class RefresherView extends ViewGroup {
                 return (Void) invokeL.objValue;
             }
             this.b.l = true;
-            ao aoVar = this.a;
-            if (aoVar != null) {
-                aoVar.c();
+            bo boVar = this.a;
+            if (boVar != null) {
+                boVar.c();
                 return null;
             }
             return null;
@@ -291,7 +291,7 @@ public class RefresherView extends ViewGroup {
     }
 
     /* loaded from: classes.dex */
-    public class e extends Handler implements xn {
+    public class e extends Handler implements yn {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int a;
@@ -324,7 +324,7 @@ public class RefresherView extends ViewGroup {
         /* JADX WARN: Code restructure failed: missing block: B:9:0x0017, code lost:
             if (r0 != 3) goto L9;
          */
-        @Override // com.baidu.tieba.yn
+        @Override // com.baidu.tieba.zn
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -341,16 +341,16 @@ public class RefresherView extends ViewGroup {
                         if (this.g.t <= this.g.c || this.g.A != IRefreshable$State.pulling_no_refresh) {
                             if (this.g.t < this.g.c && this.g.A == IRefreshable$State.pulling_refresh) {
                                 this.g.A = IRefreshable$State.pulling_no_refresh;
-                                ao aoVar = this.g.x;
-                                if (aoVar != null) {
-                                    aoVar.a(IRefreshable$State.pulling_no_refresh);
+                                bo boVar = this.g.x;
+                                if (boVar != null) {
+                                    boVar.a(IRefreshable$State.pulling_no_refresh);
                                 }
                             }
                         } else {
                             this.g.A = IRefreshable$State.pulling_refresh;
-                            ao aoVar2 = this.g.x;
-                            if (aoVar2 != null) {
-                                aoVar2.a(IRefreshable$State.pulling_refresh);
+                            bo boVar2 = this.g.x;
+                            if (boVar2 != null) {
+                                boVar2.a(IRefreshable$State.pulling_refresh);
                             }
                         }
                         this.g.invalidate();
@@ -368,7 +368,7 @@ public class RefresherView extends ViewGroup {
             return invokeL.booleanValue;
         }
 
-        @Override // com.baidu.tieba.yn
+        @Override // com.baidu.tieba.zn
         public void b(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
@@ -390,7 +390,7 @@ public class RefresherView extends ViewGroup {
             }
         }
 
-        @Override // com.baidu.tieba.yn
+        @Override // com.baidu.tieba.zn
         public void c(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
@@ -405,7 +405,7 @@ public class RefresherView extends ViewGroup {
             }
         }
 
-        @Override // com.baidu.tieba.yn
+        @Override // com.baidu.tieba.zn
         public boolean dispatchTouchEvent(MotionEvent motionEvent) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -432,7 +432,7 @@ public class RefresherView extends ViewGroup {
             }
         }
 
-        @Override // com.baidu.tieba.xn
+        @Override // com.baidu.tieba.yn
         public void d(boolean z, int i, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
@@ -454,7 +454,7 @@ public class RefresherView extends ViewGroup {
             }
         }
 
-        @Override // com.baidu.tieba.yn
+        @Override // com.baidu.tieba.zn
         public void draw(Canvas canvas) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
@@ -475,7 +475,7 @@ public class RefresherView extends ViewGroup {
             }
         }
 
-        @Override // com.baidu.tieba.yn
+        @Override // com.baidu.tieba.zn
         public boolean e(MotionEvent motionEvent) {
             InterceptResult invokeL;
             View childAt;
@@ -493,9 +493,9 @@ public class RefresherView extends ViewGroup {
                             childAt.getLocationOnScreen(this.g.o);
                             if (this.g.o[0] == this.g.r && x > this.g.n + this.a) {
                                 this.g.A = IRefreshable$State.pulling_no_refresh;
-                                ao aoVar = this.g.x;
-                                if (aoVar != null) {
-                                    aoVar.a(IRefreshable$State.pulling_no_refresh);
+                                bo boVar = this.g.x;
+                                if (boVar != null) {
+                                    boVar.a(IRefreshable$State.pulling_no_refresh);
                                 }
                                 return true;
                             }
@@ -503,9 +503,9 @@ public class RefresherView extends ViewGroup {
                             this.g.h.getLocationOnScreen(this.g.o);
                             if (this.g.o[0] == this.g.r && x > this.g.n + this.a) {
                                 this.g.A = IRefreshable$State.pulling_no_refresh;
-                                ao aoVar2 = this.g.x;
-                                if (aoVar2 != null) {
-                                    aoVar2.a(IRefreshable$State.pulling_no_refresh);
+                                bo boVar2 = this.g.x;
+                                if (boVar2 != null) {
+                                    boVar2.a(IRefreshable$State.pulling_no_refresh);
                                 }
                                 return true;
                             }
@@ -555,18 +555,18 @@ public class RefresherView extends ViewGroup {
                     RefresherView refresherView = this.g;
                     refresherView.t = refresherView.u;
                     this.g.A = IRefreshable$State.idle;
-                    ao aoVar = this.g.x;
-                    if (aoVar != null) {
-                        aoVar.a(IRefreshable$State.idle);
+                    bo boVar = this.g.x;
+                    if (boVar != null) {
+                        boVar.a(IRefreshable$State.idle);
                     }
-                    if (this.g.u == 0 && aoVar != null) {
-                        aoVar.b();
+                    if (this.g.u == 0 && boVar != null) {
+                        boVar.b();
                         this.g.l = false;
                     }
                 } else {
                     RefresherView refresherView2 = this.g;
                     float f2 = this.e;
-                    refresherView2.t = (int) (refresherView2.u + (f2 * (1.0f - nm.a.getInterpolation(this.d / f2))));
+                    refresherView2.t = (int) (refresherView2.u + (f2 * (1.0f - om.a.getInterpolation(this.d / f2))));
                     this.c = uptimeMillis;
                     this.b = uptimeMillis + 16;
                     removeMessages(1000);
@@ -587,13 +587,13 @@ public class RefresherView extends ViewGroup {
                     RefresherView refresherView = this.g;
                     refresherView.t = refresherView.c;
                     this.g.A = IRefreshable$State.idle;
-                    ao aoVar = this.g.x;
-                    if (aoVar != null) {
-                        aoVar.a(IRefreshable$State.idle);
+                    bo boVar = this.g.x;
+                    if (boVar != null) {
+                        boVar.a(IRefreshable$State.idle);
                         this.g.W();
                     }
                 } else {
-                    this.g.t = nm.a(f2, f, false);
+                    this.g.t = om.a(f2, f, false);
                     this.c = uptimeMillis;
                     this.b = uptimeMillis + 16;
                     removeMessages(1001);
@@ -605,7 +605,7 @@ public class RefresherView extends ViewGroup {
     }
 
     /* loaded from: classes.dex */
-    public class f implements xn {
+    public class f implements yn {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ RefresherView a;
@@ -628,7 +628,7 @@ public class RefresherView extends ViewGroup {
             this.a = refresherView;
         }
 
-        @Override // com.baidu.tieba.yn
+        @Override // com.baidu.tieba.zn
         public void c(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
@@ -636,7 +636,7 @@ public class RefresherView extends ViewGroup {
             }
         }
 
-        @Override // com.baidu.tieba.yn
+        @Override // com.baidu.tieba.zn
         public boolean dispatchTouchEvent(MotionEvent motionEvent) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -654,7 +654,7 @@ public class RefresherView extends ViewGroup {
         /* JADX WARN: Code restructure failed: missing block: B:9:0x0017, code lost:
             if (r0 != 3) goto L9;
          */
-        @Override // com.baidu.tieba.yn
+        @Override // com.baidu.tieba.zn
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -671,16 +671,16 @@ public class RefresherView extends ViewGroup {
                         if (this.a.s <= this.a.c || this.a.A != IRefreshable$State.pulling_no_refresh) {
                             if (this.a.s < this.a.c && this.a.A == IRefreshable$State.pulling_refresh) {
                                 this.a.A = IRefreshable$State.pulling_no_refresh;
-                                ao aoVar = this.a.x;
-                                if (aoVar != null) {
-                                    aoVar.a(IRefreshable$State.pulling_no_refresh);
+                                bo boVar = this.a.x;
+                                if (boVar != null) {
+                                    boVar.a(IRefreshable$State.pulling_no_refresh);
                                 }
                             }
                         } else {
                             this.a.A = IRefreshable$State.pulling_refresh;
-                            ao aoVar2 = this.a.x;
-                            if (aoVar2 != null) {
-                                aoVar2.a(IRefreshable$State.pulling_refresh);
+                            bo boVar2 = this.a.x;
+                            if (boVar2 != null) {
+                                boVar2.a(IRefreshable$State.pulling_refresh);
                             }
                         }
                         this.a.invalidate();
@@ -698,7 +698,7 @@ public class RefresherView extends ViewGroup {
             return invokeL.booleanValue;
         }
 
-        @Override // com.baidu.tieba.yn
+        @Override // com.baidu.tieba.zn
         public void b(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
@@ -720,7 +720,7 @@ public class RefresherView extends ViewGroup {
             }
         }
 
-        @Override // com.baidu.tieba.xn
+        @Override // com.baidu.tieba.yn
         public void d(boolean z, int i, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
@@ -742,7 +742,7 @@ public class RefresherView extends ViewGroup {
             }
         }
 
-        @Override // com.baidu.tieba.yn
+        @Override // com.baidu.tieba.zn
         public void draw(Canvas canvas) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
@@ -763,7 +763,7 @@ public class RefresherView extends ViewGroup {
             }
         }
 
-        @Override // com.baidu.tieba.yn
+        @Override // com.baidu.tieba.zn
         public boolean e(MotionEvent motionEvent) {
             InterceptResult invokeL;
             View childAt;
@@ -780,9 +780,9 @@ public class RefresherView extends ViewGroup {
                             childAt.getLocationOnScreen(this.a.o);
                             if (this.a.o[1] == this.a.q && y > this.a.m) {
                                 this.a.A = IRefreshable$State.pulling_no_refresh;
-                                ao aoVar = this.a.x;
-                                if (aoVar != null) {
-                                    aoVar.a(IRefreshable$State.pulling_no_refresh);
+                                bo boVar = this.a.x;
+                                if (boVar != null) {
+                                    boVar.a(IRefreshable$State.pulling_no_refresh);
                                 }
                                 return true;
                             }
@@ -790,9 +790,9 @@ public class RefresherView extends ViewGroup {
                             this.a.h.getLocationOnScreen(this.a.o);
                             if (this.a.o[1] == this.a.q && y > this.a.m) {
                                 this.a.A = IRefreshable$State.pulling_no_refresh;
-                                ao aoVar2 = this.a.x;
-                                if (aoVar2 != null) {
-                                    aoVar2.a(IRefreshable$State.pulling_no_refresh);
+                                bo boVar2 = this.a.x;
+                                if (boVar2 != null) {
+                                    boVar2.a(IRefreshable$State.pulling_no_refresh);
                                 }
                                 return true;
                             }
@@ -961,10 +961,10 @@ public class RefresherView extends ViewGroup {
         }
     }
 
-    public void setOnRefreshListener(ao aoVar) {
+    public void setOnRefreshListener(bo boVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, aoVar) == null) {
-            this.x = aoVar;
+        if (interceptable == null || interceptable.invokeL(1048591, this, boVar) == null) {
+            this.x = boVar;
         }
     }
 

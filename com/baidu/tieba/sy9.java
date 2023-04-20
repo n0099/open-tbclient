@@ -1,142 +1,95 @@
 package com.baidu.tieba;
 
-import android.graphics.SurfaceTexture;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.dga;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.Layout;
+import android.text.Selection;
+import android.text.Spannable;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class sy9 implements dga.b {
+public class sy9 implements View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean o;
-    public static boolean p;
-    public static String q;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public boolean b;
-    public boolean c;
-    public int d;
-    public int e;
-    public int f;
-    public int g;
-    public int h;
-    public int i;
-    public int j;
-    public int k;
-    public SurfaceTexture l;
-    public volatile boolean m;
-    public volatile boolean n;
+    public final Spannable a;
+    public cv5 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948167894, "Lcom/baidu/tieba/sy9;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948167894, "Lcom/baidu/tieba/sy9;");
-        }
-    }
-
-    public sy9() {
+    public sy9(Spannable spannable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {spannable};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.j = -1;
-        this.m = false;
-        this.n = false;
+        this.b = null;
+        this.a = spannable;
     }
 
-    @Override // com.baidu.tieba.dga.b
-    public boolean a() {
-        InterceptResult invokeV;
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view2, MotionEvent motionEvent) {
+        InterceptResult invokeLL;
+        cv5 cv5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.m;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
+            int action = motionEvent.getAction();
+            if (!(view2 instanceof TextView)) {
+                return false;
+            }
+            TextView textView = (TextView) view2;
+            if (action == 3 && (cv5Var = this.b) != null) {
+                cv5Var.g(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
+                view2.invalidate();
+                this.b = null;
+                return false;
+            }
+            if (action == 1 || action == 0) {
+                int x = (int) motionEvent.getX();
+                int y = (int) motionEvent.getY();
+                Layout layout = textView.getLayout();
+                if (layout == null) {
+                    return false;
+                }
+                int offsetForHorizontal = layout.getOffsetForHorizontal(layout.getLineForVertical((y - textView.getTotalPaddingTop()) + textView.getScrollY()), (x - textView.getTotalPaddingLeft()) + textView.getScrollX());
+                Spannable spannable = this.a;
+                if (spannable == null) {
+                    return false;
+                }
+                cv5[] cv5VarArr = (cv5[]) spannable.getSpans(offsetForHorizontal, offsetForHorizontal, cv5.class);
+                if (cv5VarArr != null && cv5VarArr.length != 0 && cv5VarArr[0] != null) {
+                    if (action == 1) {
+                        cv5VarArr[0].g(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
+                        cv5VarArr[0].onClick(textView);
+                        view2.invalidate();
+                    } else {
+                        this.b = cv5VarArr[0];
+                        Spannable spannable2 = this.a;
+                        Selection.setSelection(spannable2, spannable2.getSpanStart(cv5VarArr[0]), this.a.getSpanEnd(cv5VarArr[0]));
+                        view2.invalidate();
+                    }
+                    return true;
+                }
+                cv5 cv5Var2 = this.b;
+                if (cv5Var2 != null) {
+                    cv5Var2.g(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
+                    view2.invalidate();
+                }
+                Selection.removeSelection(this.a);
+            }
+            return false;
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.dga.b
-    public boolean p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.n;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.dga.b
-    public int r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.i;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.dga.b
-    public int v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.h;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return p;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return o;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.dga.b
-    public void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.n = z;
-        }
-    }
-
-    @Override // com.baidu.tieba.dga.b
-    public void m(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.m = z;
-        }
+        return invokeLL.booleanValue;
     }
 }

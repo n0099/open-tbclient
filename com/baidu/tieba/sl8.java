@@ -1,34 +1,60 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.memberCenter.tail.data.TailData;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class sl8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public TailData b;
 
-    public sl8(int i, TailData tailData) {
+    public static void a(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), tailData};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeLLL(65536, null, str, str2, str3) == null) {
+            StatisticItem statisticItem = new StatisticItem("c14870");
+            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.addParam("obj_source", str);
+            statisticItem.addParam("obj_id", str2);
+            statisticItem.addParam("fid", str3);
+            TiebaStatic.log(statisticItem);
         }
-        this.a = 0;
-        this.a = i;
-        this.b = tailData;
+    }
+
+    public static void c(int i, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(65538, null, i, str, str2) == null) {
+            StatisticItem statisticItem = new StatisticItem("c14871");
+            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.addParam("obj_source", i);
+            statisticItem.addParam("fid", str);
+            statisticItem.addParam("obj_locate", str2);
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public static void d(int i, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(65539, null, i, str, str2) == null) {
+            StatisticItem statisticItem = new StatisticItem("c14872");
+            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.addParam("obj_source", i);
+            statisticItem.addParam("fid", str);
+            statisticItem.addParam("obj_locate", str2);
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public static void b(int i, String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), str, Long.valueOf(j)}) == null) {
+            StatisticItem statisticItem = new StatisticItem("c14873");
+            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.addParam("obj_source", i);
+            statisticItem.addParam("fid", str);
+            statisticItem.addParam("obj_locate", j);
+            TiebaStatic.log(statisticItem);
+        }
     }
 }

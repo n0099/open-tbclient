@@ -12,13 +12,13 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
+import com.baidu.tieba.an5;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.ld8;
 import com.baidu.tieba.lego.card.model.FocusListCard;
-import com.baidu.tieba.pd8;
-import com.baidu.tieba.qg6;
-import com.baidu.tieba.rk9;
-import com.baidu.tieba.zm5;
+import com.baidu.tieba.rg6;
+import com.baidu.tieba.td8;
+import com.baidu.tieba.xd8;
+import com.baidu.tieba.zk9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -73,13 +73,13 @@ public class FocusListCardView extends BaseCardView<FocusListCard> {
             if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || TextUtils.isEmpty(this.a.getFocusItemList().get(this.b).f)) {
                 return;
             }
-            qg6.b().d(true);
-            ld8 e = pd8.e(this.a);
+            rg6.b().d(true);
+            td8 e = xd8.e(this.a);
             e.b("obj_locate", this.b + 1);
             e.d(TiebaStatic.Params.OBJ_URL, this.a.getFocusItemList().get(this.b).f);
             e.c("obj_id", this.a.getFocusItemList().get(this.b).g);
             e.a(this.a);
-            rk9.c(this.c.i, this.a.getFocusItemList().get(this.b).f);
+            zk9.c(this.c.i, this.a.getFocusItemList().get(this.b).f);
         }
     }
 
@@ -156,7 +156,7 @@ public class FocusListCardView extends BaseCardView<FocusListCard> {
     public void t(FocusListCard focusListCard, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, focusListCard, i) == null) {
-            zm5.a(this.i, getRootView());
+            an5.a(this.i, getRootView());
             if (focusListCard != null) {
                 C(focusListCard);
             }

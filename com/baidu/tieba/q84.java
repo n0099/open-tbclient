@@ -1,27 +1,37 @@
 package com.baidu.tieba;
 
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
-public class q84 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
+/* loaded from: classes6.dex */
+public class q84 implements lp1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile p84 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized p84 a() {
-        InterceptResult invokeV;
-        p84 p84Var;
+    public q84() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (q84.class) {
-                if (a == null) {
-                    a = new p84();
-                }
-                p84Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return p84Var;
         }
-        return (p84) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.lp1
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            s84.a(str);
+        }
     }
 }

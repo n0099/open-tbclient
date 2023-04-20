@@ -1,5 +1,7 @@
 package com.baidu.tieba;
+
+import java.util.Map;
 /* loaded from: classes4.dex */
 public interface d81 {
-    void a(String str, boolean z, boolean z2);
+    void loadUrl(String str, Map<String, String> map);
 }

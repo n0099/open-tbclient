@@ -97,9 +97,9 @@ public class nl implements IPmsContext {
             }
             requestParams.setRunNode(str2);
             if ("0".equals(str)) {
-                requestParams.addChannel(yk.e().d());
-                requestParams.addChannel(new jm());
-                requestParams.addChannel(new ul());
+                requestParams.addChannel(yk.f().d());
+                requestParams.addChannel(new km());
+                requestParams.addChannel(new vl());
             }
             return requestParams;
         }

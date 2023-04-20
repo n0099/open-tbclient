@@ -3,7 +3,6 @@ package com.baidu.tieba;
 import android.content.ContentValues;
 import android.database.Cursor;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class ag4 extends uf4<vg4> {
+public class ag4 extends vf4<vg4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -31,7 +30,23 @@ public class ag4 extends uf4<vg4> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.uf4
+    @Override // com.baidu.tieba.vf4
+    /* renamed from: f */
+    public ContentValues c(vg4 vg4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, vg4Var)) == null) {
+            ContentValues a = super.a(vg4Var);
+            a.put("independent", Integer.valueOf(vg4Var.r ? 1 : 0));
+            a.put("sub_pkg_name", vg4Var.p);
+            a.put("app_id", vg4Var.o);
+            return a;
+        }
+        return (ContentValues) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.vf4
     /* renamed from: g */
     public vg4 d(Cursor cursor) {
         InterceptResult invokeL;
@@ -45,7 +60,7 @@ public class ag4 extends uf4<vg4> {
         return (vg4) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.uf4
+    @Override // com.baidu.tieba.vf4
     public List<vg4> e(Cursor cursor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -62,41 +77,23 @@ public class ag4 extends uf4<vg4> {
         return (List) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.uf4
-    /* renamed from: f */
-    public ContentValues c(vg4 vg4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, vg4Var)) == null) {
-            ContentValues a = super.a(vg4Var);
-            a.put("max_age", Long.valueOf(vg4Var.o));
-            a.put("token", vg4Var.p);
-            a.put("domains", vg4Var.q);
-            a.put(GameGuideConfigInfo.KEY_APP_KEY, vg4Var.r);
-            a.put("app_name", vg4Var.s);
-            return a;
-        }
-        return (ContentValues) invokeL.objValue;
-    }
-
     public final vg4 h(Cursor cursor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cursor)) == null) {
             if (cursor != null) {
-                int columnIndex = cursor.getColumnIndex("max_age");
-                int columnIndex2 = cursor.getColumnIndex("token");
-                int columnIndex3 = cursor.getColumnIndex("domains");
-                int columnIndex4 = cursor.getColumnIndex(GameGuideConfigInfo.KEY_APP_KEY);
-                int columnIndex5 = cursor.getColumnIndex("app_name");
+                int columnIndex = cursor.getColumnIndex("independent");
+                int columnIndex2 = cursor.getColumnIndex("sub_pkg_name");
+                int columnIndex3 = cursor.getColumnIndex("app_id");
                 vg4 vg4Var = new vg4();
                 if (b(cursor, vg4Var)) {
-                    vg4Var.o = cursor.getLong(columnIndex);
+                    boolean z = true;
+                    if (cursor.getInt(columnIndex) != 1) {
+                        z = false;
+                    }
+                    vg4Var.r = z;
                     vg4Var.p = cursor.getString(columnIndex2);
-                    vg4Var.q = cursor.getString(columnIndex3);
-                    vg4Var.r = cursor.getString(columnIndex4);
-                    vg4Var.s = cursor.getString(columnIndex5);
+                    vg4Var.o = cursor.getString(columnIndex3);
                     return vg4Var;
                 }
                 return null;

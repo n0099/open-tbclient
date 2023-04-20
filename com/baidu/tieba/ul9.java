@@ -1,24 +1,21 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.DetailInfo;
 /* loaded from: classes6.dex */
 public class ul9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public Bitmap c;
-    public String d;
-    public String e;
 
-    public ul9() {
+    public ul9(DetailInfo detailInfo) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {detailInfo};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,6 +25,10 @@ public class ul9 {
                 return;
             }
         }
-        this.a = 0;
+        if (detailInfo == null) {
+            return;
+        }
+        String str = detailInfo.text;
+        String str2 = detailInfo.url;
     }
 }

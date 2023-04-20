@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.message.HistoryMessage;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
-import com.baidu.tieba.xc9;
+import com.baidu.tieba.fd9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -22,7 +22,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class ImageViewerDispatcher implements xc9 {
+public class ImageViewerDispatcher implements fd9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -46,7 +46,7 @@ public class ImageViewerDispatcher implements xc9 {
     /* JADX WARN: Removed duplicated region for block: B:50:0x01ae  */
     /* JADX WARN: Removed duplicated region for block: B:53:0x01d7  */
     /* JADX WARN: Removed duplicated region for block: B:64:? A[RETURN, SYNTHETIC] */
-    @Override // com.baidu.tieba.xc9
+    @Override // com.baidu.tieba.fd9
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

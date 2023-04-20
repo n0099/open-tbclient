@@ -10,8 +10,8 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a41;
-import com.baidu.tieba.za1;
+import com.baidu.tieba.ab1;
+import com.baidu.tieba.b41;
 import java.util.regex.Pattern;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
@@ -63,8 +63,8 @@ public class UnifyTextView extends TextView {
             int i6 = round - textSize;
             fm.ascent = i6;
             fm.top = (i6 - this.c) - this.f;
-            String a = a41.a.a();
-            int a2 = a41.b.a();
+            String a = b41.a.a();
+            int a2 = b41.b.a();
             int i7 = 0;
             try {
                 if (text.length() == i2 && (subSequence = text.subSequence(i, i2)) != null && (StringsKt__StringsKt.contains$default(subSequence, 'y', false, 2, (Object) null) || StringsKt__StringsKt.contains$default(subSequence, 'g', false, 2, (Object) null))) {
@@ -115,7 +115,7 @@ public class UnifyTextView extends TextView {
         Intrinsics.checkNotNullParameter(context, "context");
         this.a = "UnifyTextView";
         this.c = a(context, R.dimen.nad_spannable_exclude_padding_text_top_bottom_extra);
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, za1.NADUnifyTextView);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, ab1.NADUnifyTextView);
         this.f = obtainStyledAttributes.getDimensionPixelSize(1, this.c);
         this.g = obtainStyledAttributes.getDimensionPixelSize(0, this.c);
         obtainStyledAttributes.recycle();

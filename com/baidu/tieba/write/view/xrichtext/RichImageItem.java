@@ -17,12 +17,12 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.bg;
 import com.baidu.tieba.cg;
-import com.baidu.tieba.cg5;
+import com.baidu.tieba.dg5;
 import com.baidu.tieba.hi;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.qf5;
-import com.baidu.tieba.sm;
-import com.baidu.tieba.tf5;
+import com.baidu.tieba.rf5;
+import com.baidu.tieba.tm;
+import com.baidu.tieba.uf5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -126,7 +126,7 @@ public class RichImageItem extends FrameLayout {
     }
 
     /* loaded from: classes6.dex */
-    public class c implements qf5 {
+    public class c implements rf5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ RichImageItem a;
@@ -149,13 +149,13 @@ public class RichImageItem extends FrameLayout {
             this.a = richImageItem;
         }
 
-        @Override // com.baidu.tieba.qf5
-        public void a(sm smVar, String str, boolean z) {
+        @Override // com.baidu.tieba.rf5
+        public void a(tm tmVar, String str, boolean z) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLLZ(1048576, this, smVar, str, z) != null) || smVar == null) {
+            if ((interceptable != null && interceptable.invokeLLZ(1048576, this, tmVar, str, z) != null) || tmVar == null) {
                 return;
             }
-            this.a.i(smVar);
+            this.a.i(tmVar);
             this.a.a.invalidate();
         }
     }
@@ -164,15 +164,15 @@ public class RichImageItem extends FrameLayout {
     public class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sm a;
+        public final /* synthetic */ tm a;
         public final /* synthetic */ RichImageItem b;
 
-        public d(RichImageItem richImageItem, sm smVar) {
+        public d(RichImageItem richImageItem, tm tmVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {richImageItem, smVar};
+                Object[] objArr = {richImageItem, tmVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -183,7 +183,7 @@ public class RichImageItem extends FrameLayout {
                 }
             }
             this.b = richImageItem;
-            this.a = smVar;
+            this.a = tmVar;
         }
 
         @Override // java.lang.Runnable
@@ -198,7 +198,7 @@ public class RichImageItem extends FrameLayout {
     }
 
     /* loaded from: classes6.dex */
-    public class e extends bg<sm> {
+    public class e extends bg<tm> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ RichImageItem a;
@@ -223,12 +223,12 @@ public class RichImageItem extends FrameLayout {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.bg
-        public void onLoaded(sm smVar, String str, int i) {
+        public void onLoaded(tm tmVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLLI(1048576, this, smVar, str, i) != null) || smVar == null) {
+            if ((interceptable != null && interceptable.invokeLLI(1048576, this, tmVar, str, i) != null) || tmVar == null) {
                 return;
             }
-            this.a.i(smVar);
+            this.a.i(tmVar);
             this.a.a.invalidate();
         }
     }
@@ -297,10 +297,10 @@ public class RichImageItem extends FrameLayout {
         e();
     }
 
-    public final void i(sm smVar) {
+    public final void i(tm tmVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, smVar) == null) && smVar != null && smVar.r() > 0 && smVar.m() > 0) {
-            h(smVar.r(), smVar.m());
+        if ((interceptable == null || interceptable.invokeL(1048581, this, tmVar) == null) && tmVar != null && tmVar.r() > 0 && tmVar.m() > 0) {
+            h(tmVar.r(), tmVar.m());
         }
     }
 
@@ -367,12 +367,12 @@ public class RichImageItem extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.a.setIsLongPic(this.d.isLong());
             int i = this.e;
-            ImageOperation g = cg5.g(i, i * 2);
+            ImageOperation g = dg5.g(i, i * 2);
             this.d.clearPageActions();
             this.d.addPageAction(g);
             if (this.d.getImageType() == 0) {
                 this.a.setTag(this.d.toCachedKey(true));
-                sm d2 = new tf5().d(this.d, new c(this), true);
+                tm d2 = new uf5().d(this.d, new c(this), true);
                 if (d2 != null && d2.r() > 0 && d2.m() > 0) {
                     post(new d(this, d2));
                 }

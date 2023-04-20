@@ -28,13 +28,13 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b98;
-import com.baidu.tieba.c98;
-import com.baidu.tieba.e98;
-import com.baidu.tieba.hn;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.m95;
-import com.baidu.tieba.rn;
+import com.baidu.tieba.in;
+import com.baidu.tieba.j98;
+import com.baidu.tieba.k98;
+import com.baidu.tieba.m98;
+import com.baidu.tieba.n95;
+import com.baidu.tieba.sn;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.tieba.w8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -47,16 +47,16 @@ import java.util.ArrayList;
 public class AgreeMeActivity extends BaseActivity implements BdListView.p {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c98 a;
-    public b98 b;
+    public k98 a;
+    public j98 b;
     public int c;
     public boolean d;
     public boolean e;
-    public b98.e f;
-    public c98.c g;
-    public rn h;
+    public j98.e f;
+    public k98.c g;
+    public sn h;
 
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.ll5
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.ml5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -64,7 +64,7 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.p {
     }
 
     /* loaded from: classes5.dex */
-    public class a implements b98.e {
+    public class a implements j98.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AgreeMeActivity a;
@@ -87,7 +87,7 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.p {
             this.a = agreeMeActivity;
         }
 
-        @Override // com.baidu.tieba.b98.e
+        @Override // com.baidu.tieba.j98.e
         public void a() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a != null) {
@@ -95,7 +95,7 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.p {
             }
         }
 
-        @Override // com.baidu.tieba.b98.e
+        @Override // com.baidu.tieba.j98.e
         public void b() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a.a != null) {
@@ -105,7 +105,7 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.p {
     }
 
     /* loaded from: classes5.dex */
-    public class b implements c98.c {
+    public class b implements k98.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AgreeMeActivity a;
@@ -128,8 +128,8 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.p {
             this.a = agreeMeActivity;
         }
 
-        @Override // com.baidu.tieba.c98.c
-        public void h(ArrayList<hn> arrayList) {
+        @Override // com.baidu.tieba.k98.c
+        public void h(ArrayList<in> arrayList) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, arrayList) == null) && this.a.b != null) {
                 this.a.b.k(this.a.a.f, arrayList);
@@ -143,11 +143,11 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.p {
             }
         }
 
-        @Override // com.baidu.tieba.c98.c
+        @Override // com.baidu.tieba.k98.c
         public void onFailed(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                m95.h0().Y(0);
+                n95.h0().Y(0);
                 if (this.a.b == null) {
                     return;
                 }
@@ -172,7 +172,7 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.p {
     }
 
     /* loaded from: classes5.dex */
-    public class c implements rn {
+    public class c implements sn {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AgreeMeActivity a;
@@ -195,40 +195,40 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.p {
             this.a = agreeMeActivity;
         }
 
-        @Override // com.baidu.tieba.rn
-        public void b(View view2, hn hnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+        @Override // com.baidu.tieba.sn
+        public void b(View view2, in inVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, hnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) != null) || !(hnVar instanceof e98)) {
+            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, inVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) != null) || !(inVar instanceof m98)) {
                 return;
             }
-            e98 e98Var = (e98) hnVar;
-            if (!TextUtils.isEmpty(e98Var.getTargetScheme())) {
-                UrlManager.getInstance().dealOneLink(e98Var.getTargetScheme());
-            } else if (e98Var.c() == 6) {
+            m98 m98Var = (m98) inVar;
+            if (!TextUtils.isEmpty(m98Var.getTargetScheme())) {
+                UrlManager.getInstance().dealOneLink(m98Var.getTargetScheme());
+            } else if (m98Var.c() == 6) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.a.getBaseContext(), Long.toString(TbadkCoreApplication.getCurrentAccountId()), TbadkCoreApplication.getCurrentAccountName())));
-            } else if (e98Var.c() != 2 && e98Var.c() != 4) {
-                if (e98Var.c() == 5) {
-                    this.a.H1(e98Var);
+            } else if (m98Var.c() != 2 && m98Var.c() != 4) {
+                if (m98Var.c() == 5) {
+                    this.a.H1(m98Var);
                 } else {
-                    this.a.F1(e98Var);
+                    this.a.F1(m98Var);
                 }
             } else {
-                this.a.G1(e98Var);
+                this.a.G1(m98Var);
             }
-            if (e98Var.v() != null) {
-                StatisticItem param = new StatisticItem(e98Var.v()).param("obj_locate", 1);
-                if (e98Var.getType() == e98.D) {
+            if (m98Var.v() != null) {
+                StatisticItem param = new StatisticItem(m98Var.v()).param("obj_locate", 1);
+                if (m98Var.getType() == m98.D) {
                     param.param("obj_type", 2);
                 } else {
                     param.param("obj_type", 1);
                 }
                 TiebaStatic.log(param);
             }
-            if (e98Var != null) {
+            if (m98Var != null) {
                 StatisticItem statisticItem = new StatisticItem("c13784");
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                statisticItem.param("tid", e98Var.x());
-                statisticItem.param("fname", e98Var.d());
+                statisticItem.param("tid", m98Var.x());
+                statisticItem.param("fname", m98Var.d());
                 statisticItem.param("obj_type", 2);
                 TiebaStatic.log(statisticItem);
             }
@@ -297,10 +297,10 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.p {
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        b98 b98Var;
+        j98 j98Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && BdNetTypeUtil.isNetWorkAvailable() && this.a != null && (b98Var = this.b) != null) {
-            hideNetRefreshView(b98Var.f());
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && BdNetTypeUtil.isNetWorkAvailable() && this.a != null && (j98Var = this.b) != null) {
+            hideNetRefreshView(j98Var.f());
             showLoadingView(this.b.d(), true);
             this.a.e();
         }
@@ -311,58 +311,58 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.p {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) && this.c != i) {
             this.c = i;
-            b98 b98Var = this.b;
-            if (b98Var != null) {
-                b98Var.c(i);
+            j98 j98Var = this.b;
+            if (j98Var != null) {
+                j98Var.c(i);
             }
         }
     }
 
-    public final void F1(e98 e98Var) {
+    public final void F1(m98 m98Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, e98Var) != null) || e98Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, m98Var) != null) || m98Var == null) {
             return;
         }
-        String o = e98Var.o();
-        PbActivityConfig createNormalCfg = new PbActivityConfig(this).createNormalCfg(e98Var.x(), o, 1, "mention");
+        String o = m98Var.o();
+        PbActivityConfig createNormalCfg = new PbActivityConfig(this).createNormalCfg(m98Var.x(), o, 1, "mention");
         createNormalCfg.setStartFrom(12);
-        createNormalCfg.setHighLightPostId(e98Var.o());
+        createNormalCfg.setHighLightPostId(m98Var.o());
         createNormalCfg.setJumpToCommentArea(!TextUtils.isEmpty(o));
-        createNormalCfg.setBjhData(e98Var.getBaijiahaoData());
+        createNormalCfg.setBjhData(m98Var.getBaijiahaoData());
         MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
     }
 
-    public void G1(e98 e98Var) {
+    public void G1(m98 m98Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e98Var) != null) || e98Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, m98Var) != null) || m98Var == null) {
             return;
         }
         ArrayList arrayList = new ArrayList();
         VideoItemData videoItemData = new VideoItemData();
-        videoItemData.thread_id = e98Var.x();
+        videoItemData.thread_id = m98Var.x();
         arrayList.add(videoItemData);
-        if (e98Var.c() == 4) {
-            videoItemData.highLightPostId = e98Var.o();
+        if (m98Var.c() == 4) {
+            videoItemData.highLightPostId = m98Var.o();
         }
         new VideoRecommentPlayActivityConfig(this, arrayList, (String) null, VideoRecommentPlayActivityConfig.FROM_AGREE_PAGE, !TextUtils.isEmpty(videoItemData.highLightPostId)).start();
     }
 
-    public final void H1(e98 e98Var) {
+    public final void H1(m98 m98Var) {
         String userName;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, e98Var) != null) || e98Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, m98Var) != null) || m98Var == null) {
             return;
         }
-        String x = e98Var.x();
-        String o = e98Var.o();
-        if (e98Var.u() == null) {
+        String x = m98Var.x();
+        String o = m98Var.o();
+        if (m98Var.u() == null) {
             userName = "";
         } else {
-            userName = e98Var.u().getUserName();
+            userName = m98Var.u().getUserName();
         }
         SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(getActivity()).createSubPbActivityConfig(x, "", "mention", false, userName, false, o, 0);
         createSubPbActivityConfig.setKeyPageStartFrom(13);
-        createSubPbActivityConfig.setBjhData(e98Var.getBaijiahaoData());
+        createSubPbActivityConfig.setBjhData(m98Var.getBaijiahaoData());
         createSubPbActivityConfig.setHighLightPostId(o);
         createSubPbActivityConfig.setKeyOriUgcTopPid("");
         createSubPbActivityConfig.start();
@@ -406,13 +406,13 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.p {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onDestroy();
-            b98 b98Var = this.b;
-            if (b98Var != null) {
-                b98Var.h();
+            j98 j98Var = this.b;
+            if (j98Var != null) {
+                j98Var.h();
             }
-            c98 c98Var = this.a;
-            if (c98Var != null) {
-                c98Var.d();
+            k98 k98Var = this.a;
+            if (k98Var != null) {
+                k98Var.d();
             }
         }
     }
@@ -430,10 +430,10 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.p {
 
     @Override // com.baidu.adp.widget.ListView.BdListView.p
     public void onScrollToBottom() {
-        c98 c98Var;
+        k98 k98Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (c98Var = this.a) != null) {
-            c98Var.h();
+        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (k98Var = this.a) != null) {
+            k98Var.h();
         }
     }
 
@@ -462,11 +462,11 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.p {
             super.onCreate(bundle);
             View inflate = getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d0084, (ViewGroup) null);
             setContentView(inflate);
-            b98 b98Var = new b98(getPageContext(), inflate);
-            this.b = b98Var;
-            b98Var.j(this.f);
+            j98 j98Var = new j98(getPageContext(), inflate);
+            this.b = j98Var;
+            j98Var.j(this.f);
             this.b.i(this.h);
-            this.a = new c98(getPageContext(), this.g);
+            this.a = new k98(getPageContext(), this.g);
             showLoadingView(this.b.d());
             this.b.l(false);
             this.a.e();

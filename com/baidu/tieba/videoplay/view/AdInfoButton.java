@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.p25;
 import com.baidu.tieba.q25;
+import com.baidu.tieba.r25;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -196,8 +196,8 @@ public class AdInfoButton extends RelativeLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
                 int[] iArr = {((Integer) valueAnimator.getAnimatedValue()).intValue()};
-                if (this.a.a.getBackground() instanceof p25) {
-                    ((p25) this.a.a.getBackground()).C(iArr);
+                if (this.a.a.getBackground() instanceof q25) {
+                    ((q25) this.a.a.getBackground()).C(iArr);
                     this.a.a.invalidate();
                 }
             }
@@ -322,12 +322,12 @@ public class AdInfoButton extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (this.e == AdChannel.CSJ) {
-                q25 d = q25.d(this.a);
+                r25 d = r25.d(this.a);
                 d.o(R.string.J_X05);
                 d.n(0);
                 d.f(R.color.CAM_X0614);
             } else {
-                q25 d2 = q25.d(this.a);
+                r25 d2 = r25.d(this.a);
                 d2.o(R.string.J_X05);
                 d2.n(0);
                 d2.f(R.color.CAM_X0302);
@@ -338,7 +338,7 @@ public class AdInfoButton extends RelativeLayout {
             } else if (adType == AdType.INFO) {
                 WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f0807ef, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
             }
-            q25 d3 = q25.d(this.c);
+            r25 d3 = r25.d(this.c);
             d3.B(R.dimen.T_X08);
             d3.w(R.color.CAM_X0101);
         }

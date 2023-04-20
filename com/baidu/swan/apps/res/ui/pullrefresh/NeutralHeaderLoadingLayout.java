@@ -7,11 +7,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.tieba.R;
-import com.baidu.tieba.eo1;
-import com.baidu.tieba.ll3;
+import com.baidu.tieba.fo1;
+import com.baidu.tieba.ml3;
 /* loaded from: classes3.dex */
 public class NeutralHeaderLoadingLayout extends LoadingLayout {
-    public static final boolean k = eo1.a;
+    public static final boolean k = fo1.a;
     public int e;
     public int f;
     public int g;
@@ -53,7 +53,7 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
         if (view2 != null) {
             return view2.getHeight();
         }
-        return ll3.f(getContext(), 50.0f);
+        return ml3.f(getContext(), 50.0f);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
@@ -169,7 +169,7 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
 
     public final void o() {
         this.j = (NeutralRefreshAnimView) findViewById(R.id.obfuscated_res_0x7f09180e);
-        int f = ll3.f(getContext(), 29.0f);
+        int f = ml3.f(getContext(), 29.0f);
         this.e = f;
         this.f = (int) (f * 2.4f);
         int i = (int) (f * 1.5f);

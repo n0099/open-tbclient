@@ -6,10 +6,10 @@ import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
-import com.baidu.tieba.bn5;
-import com.baidu.tieba.eu7;
+import com.baidu.tieba.cn5;
+import com.baidu.tieba.fu7;
 import com.baidu.tieba.homepage.topic.local.LocalChannelTopicListModel;
-import com.baidu.tieba.hu7;
+import com.baidu.tieba.iu7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ public class LocalChannelTopicListActivity extends SuspendedActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LocalChannelTopicListModel k;
-    public eu7 l;
+    public fu7 l;
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
     public void B1() {
@@ -54,10 +54,10 @@ public class LocalChannelTopicListActivity extends SuspendedActivity {
         }
 
         @Override // com.baidu.tieba.homepage.topic.local.LocalChannelTopicListModel.b
-        public void a(hu7 hu7Var) {
+        public void a(iu7 iu7Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, hu7Var) == null) && this.a.l != null) {
-                this.a.l.q(hu7Var);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, iu7Var) == null) && this.a.l != null) {
+                this.a.l.q(iu7Var);
             }
         }
 
@@ -122,9 +122,9 @@ public class LocalChannelTopicListActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDestroy();
-            eu7 eu7Var = this.l;
-            if (eu7Var != null) {
-                eu7Var.onDestroy();
+            fu7 fu7Var = this.l;
+            if (fu7Var != null) {
+                fu7Var.onDestroy();
             }
         }
     }
@@ -134,9 +134,9 @@ public class LocalChannelTopicListActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            eu7 eu7Var = this.l;
-            if (eu7Var != null) {
-                eu7Var.o(i);
+            fu7 fu7Var = this.l;
+            if (fu7Var != null) {
+                fu7Var.o(i);
             }
         }
     }
@@ -155,14 +155,14 @@ public class LocalChannelTopicListActivity extends SuspendedActivity {
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public bn5 s1(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public cn5 s1(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, linearLayout, navigationBar)) == null) {
-            eu7 eu7Var = new eu7(getPageContext(), linearLayout, navigationBar, new b(this));
-            this.l = eu7Var;
-            return eu7Var;
+            fu7 fu7Var = new fu7(getPageContext(), linearLayout, navigationBar, new b(this));
+            this.l = fu7Var;
+            return fu7Var;
         }
-        return (bn5) invokeLL.objValue;
+        return (cn5) invokeLL.objValue;
     }
 }

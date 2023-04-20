@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import com.baidu.searchbox.crius.constants.NativeConstants;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class bx implements ar {
     public static volatile bx a;
 
@@ -23,7 +23,7 @@ public final class bx implements ar {
     /* renamed from: a  reason: collision with other field name */
     public ConcurrentHashMap<String, a> f960a = new ConcurrentHashMap<>();
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static abstract class a implements Runnable {
         public long a;
 

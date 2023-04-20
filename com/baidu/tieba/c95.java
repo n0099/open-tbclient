@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,12 +10,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-import tbclient.FrsPage.DataRes;
 /* loaded from: classes3.dex */
 public class c95 {
     public static /* synthetic */ Interceptable $ic;
-    public static final c95 a;
+    public static final c95 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
 
     static {
         InterceptResult invokeClinit;
@@ -30,7 +31,25 @@ public class c95 {
                 return;
             }
         }
-        a = new c95(false);
+        c = new c95(false);
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
     }
 
     public c95(boolean z) {
@@ -45,47 +64,59 @@ public class c95 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = "";
+        this.b = "";
     }
 
-    @NonNull
-    public static c95 a(@Nullable JSONObject jSONObject) {
+    public static c95 d(JSONObject jSONObject) {
         InterceptResult invokeL;
-        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            boolean z = false;
-            if (jSONObject != null) {
-                i = jSONObject.optInt("voice_room_config");
-            } else {
-                i = 0;
+            if (jSONObject == null) {
+                return c;
             }
-            if (i == 1) {
-                z = true;
+            JSONObject optJSONObject = jSONObject.optJSONObject("video_activity");
+            if (optJSONObject != null) {
+                String optString = optJSONObject.optString("image_url");
+                String optString2 = optJSONObject.optString("url");
+                if (!StringUtils.isNull(optString) && !StringUtils.isNull(optString2)) {
+                    c95 c95Var = new c95(true);
+                    c95Var.f(optString);
+                    c95Var.e(optString2);
+                    return c95Var;
+                }
             }
-            return new c95(z);
+            return c;
         }
         return (c95) invokeL.objValue;
     }
 
-    @NonNull
-    public static c95 b(@Nullable DataRes dataRes) {
+    public boolean a(c95 c95Var) {
         InterceptResult invokeL;
-        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, dataRes)) == null) {
-            boolean z = false;
-            if (dataRes != null) {
-                i = dataRes.voice_room_config.intValue();
-            } else {
-                i = 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c95Var)) == null) {
+            if (this.b.equals(c95Var.b()) && this.a.equals(c95Var.c())) {
+                return true;
             }
-            if (i == 1) {
-                z = true;
-            }
-            return new c95(z);
+            return false;
         }
-        return (c95) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.a = str;
+        }
     }
 }

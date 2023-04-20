@@ -3,7 +3,7 @@ package com.baidu.tieba.interestlabel.message;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.wc8;
+import com.baidu.tieba.ed8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -47,17 +47,17 @@ public class ResponseHttpGetLabelMessage extends TbHttpResponsedMessage {
         if (getError() != 0) {
             return;
         }
-        wc8 wc8Var = null;
+        ed8 ed8Var = null;
         if (getOrginalMessage().getExtra() instanceof RequestGetLabelMessage) {
             requestGetLabelMessage = (RequestGetLabelMessage) getOrginalMessage().getExtra();
         } else {
             requestGetLabelMessage = null;
         }
         if (requestGetLabelMessage != null) {
-            wc8Var = requestGetLabelMessage.getLabelDataSet();
+            ed8Var = requestGetLabelMessage.getLabelDataSet();
         }
-        if (wc8Var != null) {
-            wc8Var.c(getTagListResIdl.data);
+        if (ed8Var != null) {
+            ed8Var.c(getTagListResIdl.data);
         }
     }
 }

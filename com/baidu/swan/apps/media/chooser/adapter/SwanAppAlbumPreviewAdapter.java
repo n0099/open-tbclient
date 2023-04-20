@@ -23,12 +23,12 @@ import com.baidu.swan.apps.media.chooser.model.MediaModel;
 import com.baidu.swan.apps.media.chooser.model.VideoModel;
 import com.baidu.swan.apps.media.image.HugePhotoDraweeView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jv2;
-import com.baidu.tieba.ll3;
-import com.baidu.tieba.nv2;
-import com.baidu.tieba.sk3;
-import com.baidu.tieba.tv2;
-import com.baidu.tieba.xv2;
+import com.baidu.tieba.kv2;
+import com.baidu.tieba.ml3;
+import com.baidu.tieba.ov2;
+import com.baidu.tieba.tk3;
+import com.baidu.tieba.uv2;
+import com.baidu.tieba.yv2;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.controller.AbstractDraweeController;
 import com.facebook.drawee.controller.BaseControllerListener;
@@ -44,9 +44,9 @@ import java.util.ArrayList;
 public class SwanAppAlbumPreviewAdapter extends PagerAdapter {
     public ArrayList<MediaModel> a;
     public Activity c;
-    public nv2 d;
+    public ov2 d;
     public h f;
-    public tv2 g;
+    public uv2 g;
     public int[] e = new int[1];
     public SparseArray<View> b = new SparseArray<>();
 
@@ -263,8 +263,8 @@ public class SwanAppAlbumPreviewAdapter extends PagerAdapter {
                 this.a.setIsDynamicBitmap(false);
                 this.a.setZoomEnabled(true);
                 Bitmap underlyingBitmap = ((CloseableStaticBitmap) obj).getUnderlyingBitmap();
-                SwanAppAlbumPreviewAdapter.this.e = sk3.j();
-                xv2 b = xv2.b(underlyingBitmap);
+                SwanAppAlbumPreviewAdapter.this.e = tk3.j();
+                yv2 b = yv2.b(underlyingBitmap);
                 if (b == null) {
                     return;
                 }
@@ -307,13 +307,13 @@ public class SwanAppAlbumPreviewAdapter extends PagerAdapter {
 
     public final void p(h hVar, ImageModel imageModel) {
         if (this.g == null) {
-            this.g = new tv2(this.c);
+            this.g = new uv2(this.c);
         }
         this.g.i(hVar.a, imageModel.getPath());
     }
 
     public final void s(h hVar, boolean z) {
-        nv2 nv2Var;
+        ov2 ov2Var;
         if (hVar == null) {
             return;
         }
@@ -321,8 +321,8 @@ public class SwanAppAlbumPreviewAdapter extends PagerAdapter {
         Animation loadAnimation = AnimationUtils.loadAnimation(this.c, R.anim.obfuscated_res_0x7f010149);
         loadAnimation.setAnimationListener(new f(this, hVar));
         hVar.b.startAnimation(loadAnimation);
-        if (z && (nv2Var = this.d) != null) {
-            nv2Var.e();
+        if (z && (ov2Var = this.d) != null) {
+            ov2Var.e();
         }
     }
 
@@ -346,8 +346,8 @@ public class SwanAppAlbumPreviewAdapter extends PagerAdapter {
         hVar.b.startAnimation(loadAnimation);
     }
 
-    public void x(nv2 nv2Var) {
-        this.d = nv2Var;
+    public void x(ov2 ov2Var) {
+        this.d = ov2Var;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -401,8 +401,8 @@ public class SwanAppAlbumPreviewAdapter extends PagerAdapter {
 
     public final void o(HugePhotoDraweeView hugePhotoDraweeView, Bitmap bitmap) {
         float width;
-        int o = ll3.o(this.c);
-        int n = ll3.n(this.c);
+        int o = ml3.o(this.c);
+        int n = ml3.n(this.c);
         if (bitmap != null && bitmap.getHeight() > n * 1.6f) {
             if (bitmap.getWidth() == 0) {
                 width = 1.0f;
@@ -425,9 +425,9 @@ public class SwanAppAlbumPreviewAdapter extends PagerAdapter {
                 fromFile = Uri.fromFile(new File(mediaModel.getPath()));
             }
             ImageRequestBuilder newBuilderWithSource = ImageRequestBuilder.newBuilderWithSource(fromFile);
-            newBuilderWithSource.setResizeOptions(new ResizeOptions(ll3.o(this.c), ll3.n(this.c), 10240.0f));
+            newBuilderWithSource.setResizeOptions(new ResizeOptions(ml3.o(this.c), ml3.n(this.c), 10240.0f));
             newBuilderWithSource.setLocalThumbnailPreviewsEnabled(true);
-            AbstractDraweeController build = Fresco.newDraweeControllerBuilder().setAutoPlayAnimations(jv2.d).setImageRequest(newBuilderWithSource.build()).setControllerListener(l).setOldController(hVar.b.getController()).build();
+            AbstractDraweeController build = Fresco.newDraweeControllerBuilder().setAutoPlayAnimations(kv2.d).setImageRequest(newBuilderWithSource.build()).setControllerListener(l).setOldController(hVar.b.getController()).build();
             hVar.b.setVisibility(0);
             hVar.b.setController(build);
             if (mediaModel instanceof ImageModel) {

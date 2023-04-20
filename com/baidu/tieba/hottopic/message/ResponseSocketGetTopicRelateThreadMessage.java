@@ -3,7 +3,7 @@ package com.baidu.tieba.hottopic.message;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hw7;
+import com.baidu.tieba.iw7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +19,7 @@ import tbclient.ThreadInfo;
 public class ResponseSocketGetTopicRelateThreadMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public hw7 hotThreadItemListData;
+    public iw7 hotThreadItemListData;
     public Page page;
     public List<ThreadInfo> thread_list;
 
@@ -41,13 +41,13 @@ public class ResponseSocketGetTopicRelateThreadMessage extends SocketResponsedMe
         }
     }
 
-    public hw7 getHotThreadItemListData() {
+    public iw7 getHotThreadItemListData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.hotThreadItemListData;
         }
-        return (hw7) invokeV.objValue;
+        return (iw7) invokeV.objValue;
     }
 
     public Page getPage() {
@@ -84,9 +84,9 @@ public class ResponseSocketGetTopicRelateThreadMessage extends SocketResponsedMe
                 DataRes dataRes = getTopicRelateThreadResIdl.data;
                 this.thread_list = dataRes.thread_list;
                 this.page = dataRes.page;
-                hw7 hw7Var = new hw7();
-                this.hotThreadItemListData = hw7Var;
-                hw7Var.i(getTopicRelateThreadResIdl.data);
+                iw7 iw7Var = new iw7();
+                this.hotThreadItemListData = iw7Var;
+                iw7Var.i(getTopicRelateThreadResIdl.data);
             }
             return getTopicRelateThreadResIdl;
         }

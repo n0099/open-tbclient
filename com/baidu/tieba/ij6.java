@@ -1,8 +1,6 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,15 +10,15 @@ import java.util.HashMap;
 import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public final class ij6 implements e07 {
+public final class ij6 implements f07 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.e07
+    @Override // com.baidu.tieba.f07
     public String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TbadkCoreStatisticKey.CONCERN_TAB_THREAD_CLICK : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "c13693" : (String) invokeV.objValue;
     }
 
     public ij6() {
@@ -37,24 +35,22 @@ public final class ij6 implements e07 {
         }
     }
 
-    @Override // com.baidu.tieba.e07
-    public Map<String, String> a(qw6 businessInfo) {
+    @Override // com.baidu.tieba.f07
+    public Map<String, String> a(rw6 businessInfo) {
         InterceptResult invokeL;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
             Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
             HashMap hashMap = new HashMap();
             Map<String, String> a = businessInfo.a();
-            hashMap.put("obj_type", gj6.a.a(businessInfo));
-            hashMap.put("obj_locate", "3");
-            hashMap.put(TiebaStatic.Params.OBJ_TO, "2");
-            hashMap.put("obj_source", "1");
-            hashMap.put("obj_param1", "1");
-            String str = a.get("live_type");
-            if (str == null) {
-                str = "";
+            hashMap.put("obj_locate", "2");
+            if (gg.e(a.get("is_video_work"), 0) == 1) {
+                str = "1";
+            } else {
+                str = "0";
             }
-            hashMap.put(TiebaStatic.Params.OBJ_PARAM2, str);
+            hashMap.put("obj_source", str);
             return hashMap;
         }
         return (Map) invokeL.objValue;

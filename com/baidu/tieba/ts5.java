@@ -1,157 +1,85 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
+import android.graphics.Bitmap;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.ListView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ps5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes6.dex */
-public abstract class ts5<T> extends us5 {
+public class ts5 implements ps5.j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int b;
-    public List<T> c;
-    public Context d;
-    public LayoutInflater e;
-    public yu4<T> f;
+    public Bitmap a;
+    public ImageView b;
+    public int c;
+    public ListView d;
 
-    public abstract void f(vs5 vs5Var, T t, int i);
-
-    /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public T a;
-        public int b;
-        public final /* synthetic */ ts5 c;
-
-        public a(ts5 ts5Var, T t, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ts5Var, t, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = ts5Var;
-            this.a = t;
-            this.b = i;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            yu4<T> yu4Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (yu4Var = this.c.f) != null) {
-                T t = this.a;
-                int i = this.b;
-                yu4Var.d(view2, t, i, i);
-            }
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ts5(Context context, int i) {
-        this(context, null, i);
+    public ts5(ListView listView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
+            Object[] objArr = {listView};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (List) objArr2[1], ((Integer) objArr2[2]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.c = -16777216;
+        this.d = listView;
     }
 
-    public ts5(Context context, List<T> list, int i) {
-        ArrayList arrayList;
+    @Override // com.baidu.tieba.ps5.j
+    public void a(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, list, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            ((ImageView) view2).setImageDrawable(null);
+            this.a.recycle();
+            this.a = null;
+        }
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.c = i;
+        }
+    }
+
+    @Override // com.baidu.tieba.ps5.j
+    public View b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            ListView listView = this.d;
+            View childAt = listView.getChildAt((i + listView.getHeaderViewsCount()) - this.d.getFirstVisiblePosition());
+            if (childAt == null) {
+                return null;
             }
-        }
-        this.d = context;
-        if (list == null) {
-            arrayList = new ArrayList();
-        } else {
-            arrayList = new ArrayList(list);
-        }
-        this.c = arrayList;
-        this.b = i;
-        this.e = LayoutInflater.from(this.d);
-    }
-
-    @Override // com.baidu.tieba.us5
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c.size();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.us5
-    public View b(int i, ViewGroup viewGroup) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, viewGroup)) == null) {
-            View inflate = this.e.inflate(this.b, viewGroup, false);
-            vs5 vs5Var = new vs5(inflate);
-            T t = this.c.get(i);
-            f(vs5Var, t, i);
-            vs5Var.c(new a(this, t, i));
-            return inflate;
-        }
-        return (View) invokeIL.objValue;
-    }
-
-    public void g(List<T> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            if (list == null) {
-                list = new ArrayList<>();
+            childAt.setPressed(false);
+            childAt.setDrawingCacheEnabled(true);
+            this.a = Bitmap.createBitmap(childAt.getDrawingCache());
+            childAt.setDrawingCacheEnabled(false);
+            if (this.b == null) {
+                this.b = new ImageView(this.d.getContext());
             }
-            this.c = list;
-            c();
+            this.b.setBackgroundColor(this.c);
+            this.b.setPadding(0, 0, 0, 0);
+            this.b.setImageBitmap(this.a);
+            this.b.setLayoutParams(new ViewGroup.LayoutParams(childAt.getWidth(), childAt.getHeight()));
+            return this.b;
         }
-    }
-
-    public void h(yu4<T> yu4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, yu4Var) == null) {
-            this.f = yu4Var;
-        }
+        return (View) invokeI.objValue;
     }
 }

@@ -1,34 +1,54 @@
 package com.baidu.tieba;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.LinearLayout;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.TimeHelper;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.editortools.EditorTools;
-import com.baidu.tieba.k4a;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
+import com.baidu.tbadk.core.atomData.BaseWriteConfig;
+import com.baidu.tbadk.core.atomData.WriteActivityConfig;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.httpNet.WebClient;
+import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.img.WriteImagesInfo;
+import com.baidu.tbadk.util.InsertGalleryAsyncTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class j6a extends d6a {
+public class j6a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public w3a V;
+    @NonNull
+    public final TbPageContext<?> a;
+    public final List<w4a> b;
+    public WriteImagesInfo c;
 
     /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
+    public class a extends InsertGalleryAsyncTask.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ j6a a;
+
+        @Override // com.baidu.tbadk.util.InsertGalleryAsyncTask.a
+        public void a(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+            }
+        }
 
         public a(j6a j6aVar) {
             Interceptable interceptable = $ic;
@@ -48,28 +68,34 @@ public class j6a extends d6a {
             this.a = j6aVar;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // com.baidu.tbadk.util.InsertGalleryAsyncTask.a
+        public void b(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                it4.x(this.a.a.getPageActivity(), "", ii.T(TbConfig.QUESTION_THREAD_RULE, "refer=3"), true, true, true);
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && new File(str).exists()) {
+                this.a.g().clear();
+                ImageFileInfo imageFileInfo = new ImageFileInfo();
+                imageFileInfo.setFilePath(str);
+                imageFileInfo.isFromMoreForum = true;
+                this.a.g().addChooseFile(imageFileInfo);
+                this.a.g().setMaxImagesAllowed(1);
+                j6a j6aVar = this.a;
+                j6aVar.l(j6aVar.g().toJsonString());
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements k4a.b {
+    public class b extends dr5<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ k4a a;
-        public final /* synthetic */ j6a b;
+        public final /* synthetic */ WriteData a;
 
-        public b(j6a j6aVar, k4a k4aVar) {
+        public b(j6a j6aVar, WriteData writeData) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {j6aVar, k4aVar};
+                Object[] objArr = {j6aVar, writeData};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -79,178 +105,282 @@ public class j6a extends d6a {
                     return;
                 }
             }
-            this.b = j6aVar;
-            this.a = k4aVar;
+            this.a = writeData;
         }
 
-        @Override // com.baidu.tieba.k4a.b
-        public void onClick() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.dr5
+        public String doInBackground() {
+            InterceptResult invokeV;
+            byte[] downloadImageBytes;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                g4a g4aVar = this.b.D;
-                if (g4aVar != null) {
-                    g4aVar.P(0);
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                String str = TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath() + "/imageCache" + pi.d(downloadImageBytes);
+                FileHelper.saveFileByAbsolutePath(str, new WebClient().downloadImageBytes(this.a.getNetImgUrl()));
+                return str;
+            }
+            return (String) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements gq5<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ j6a a;
+
+        public c(j6a j6aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {j6aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                if (this.b.V != null) {
-                    this.b.V.z(8);
-                }
-                this.a.B(8);
+            }
+            this.a = j6aVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.gq5
+        /* renamed from: a */
+        public void onReturnDataInUI(String str) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && !TextUtils.isEmpty(str) && new File(str).exists()) {
+                this.a.g().clear();
+                ImageFileInfo imageFileInfo = new ImageFileInfo();
+                imageFileInfo.setFilePath(str);
+                this.a.g().addChooseFile(imageFileInfo);
+                j6a j6aVar = this.a;
+                j6aVar.l(j6aVar.g().toJsonString());
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public j6a(@NonNull TbPageContext<?> tbPageContext, @NonNull NavigationBar navigationBar, @NonNull LinearLayout linearLayout, @NonNull EditorTools editorTools, @NonNull p4a p4aVar, boolean z) {
-        super(tbPageContext, navigationBar, linearLayout, editorTools, p4aVar, z);
+    public j6a(@NonNull TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, navigationBar, linearLayout, editorTools, p4aVar, Boolean.valueOf(z)};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (NavigationBar) objArr2[1], (LinearLayout) objArr2[2], (EditorTools) objArr2[3], (p4a) objArr2[4], ((Boolean) objArr2[5]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.b = new ArrayList();
+        WriteImagesInfo writeImagesInfo = new WriteImagesInfo();
+        this.c = writeImagesInfo;
+        this.a = tbPageContext;
+        writeImagesInfo.setMaxImagesAllowed(9);
     }
 
-    @Override // com.baidu.tieba.d6a, com.baidu.tieba.e6a
-    public void U(Bundle bundle) {
+    public void d(@NonNull WriteData writeData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
-            super.U(bundle);
-            this.p.setQuestionThread(true);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, writeData) == null) {
+            writeData.setWriteImagesInfo(this.c);
+            WriteImagesInfo writeImagesInfo = this.c;
+            if (writeImagesInfo != null && writeImagesInfo.size() > 0) {
+                Iterator<ImageFileInfo> it = this.c.getChosedFiles().iterator();
+                int i = 0;
+                while (it.hasNext()) {
+                    ImageFileInfo next = it.next();
+                    if (next != null && next.isFromCamera()) {
+                        i++;
+                    }
+                }
+                writeData.setTakePhotoNum(i);
+            }
         }
     }
 
-    public final void A0() {
+    public void f(@NonNull a5a a5aVar, @NonNull WriteData writeData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            p45.m().A("key_question_write_guide_time", System.currentTimeMillis());
+        if ((interceptable != null && interceptable.invokeLL(1048580, this, a5aVar, writeData) != null) || this.a.getPageActivity() == null || StringUtils.isNull(writeData.getNetImgUrl())) {
+            return;
+        }
+        hr5.b(new b(this, writeData), new c(this));
+    }
+
+    public ImageFileInfo b(@NonNull a5a a5aVar, @NonNull f85 f85Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, a5aVar, f85Var)) == null) {
+            PermissionJudgePolicy t = a5aVar.t();
+            t.clearRequestPermissionList();
+            t.appendRequestPermission(this.a.getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
+            if (t.startRequestPermission(this.a.getPageActivity())) {
+                return null;
+            }
+            if (this.c.size() >= this.c.getMaxImagesAllowed()) {
+                this.a.showToast(String.format(this.a.getString(R.string.max_choose_image_count), Integer.valueOf(this.c.getMaxImagesAllowed())));
+                return null;
+            }
+            ImageFileInfo imageFileInfo = new ImageFileInfo();
+            imageFileInfo.setImageType(1);
+            imageFileInfo.setFilePath(f85Var.d());
+            imageFileInfo.width = f85Var.h();
+            imageFileInfo.height = f85Var.b();
+            this.c.addChooseFile(imageFileInfo);
+            this.c.updateQuality();
+            return imageFileInfo;
+        }
+        return (ImageFileInfo) invokeLL.objValue;
+    }
+
+    public void e(@NonNull a5a a5aVar, @NonNull WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048579, this, a5aVar, writeData) != null) || this.a.getPageActivity() == null || !WriteActivityConfig.FROM_FORUM_SHARE.equals(writeData.getFrom()) || StringUtils.isNull(writeData.getMoreForumImg())) {
+            return;
+        }
+        a5aVar.t().clearRequestPermissionList();
+        a5aVar.t().appendRequestPermission(this.a.getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
+        if (a5aVar.t().startRequestPermission(this.a.getPageActivity())) {
+            return;
+        }
+        InsertGalleryAsyncTask insertGalleryAsyncTask = new InsertGalleryAsyncTask(this.a.getPageActivity(), writeData.getMoreForumImg(), new a(this));
+        insertGalleryAsyncTask.setFrom(1);
+        insertGalleryAsyncTask.execute(new String[0]);
+    }
+
+    public void c(w4a w4aVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, w4aVar) != null) || this.b.contains(w4aVar)) {
+            return;
+        }
+        this.b.add(w4aVar);
+    }
+
+    public final void i(Intent intent) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048583, this, intent) != null) || intent == null) {
+            return;
+        }
+        String stringExtra = intent.getStringExtra(BaseWriteConfig.KEY_WRITE_IMAGES_INFO_STRING);
+        for (w4a w4aVar : this.b) {
+            w4aVar.v(stringExtra);
         }
     }
 
-    @Override // com.baidu.tieba.d6a, com.baidu.tieba.e6a
-    public void Y() {
+    public final void j(Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            vk9.q(this.p.getForumId(), this);
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, intent) != null) || intent == null) {
+            return;
+        }
+        String stringExtra = intent.getStringExtra(AlbumActivityConfig.ALBUM_RESULT);
+        for (w4a w4aVar : this.b) {
+            w4aVar.u(stringExtra);
         }
     }
 
-    @Override // com.baidu.tieba.d6a, com.baidu.tieba.e6a
-    public void c0() {
+    public final void k(Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            super.c0();
-            vk9.A(this.p.getForumId(), this.p, false);
+        if ((interceptable != null && interceptable.invokeL(1048585, this, intent) != null) || intent == null) {
+            return;
+        }
+        String stringExtra = intent.getStringExtra(AlbumActivityConfig.ALBUM_RESULT);
+        for (w4a w4aVar : this.b) {
+            w4aVar.k(stringExtra);
         }
     }
 
-    @Override // com.baidu.tieba.d6a, com.baidu.tieba.e6a, com.baidu.tieba.s4a
-    public void j() {
+    public final void l(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            super.j();
-            vk9.A(this.p.getForumId(), this.p, true);
+        if ((interceptable != null && interceptable.invokeL(1048586, this, str) != null) || StringUtils.isNull(str)) {
+            return;
+        }
+        for (w4a w4aVar : this.b) {
+            w4aVar.i(str);
         }
     }
 
-    public final boolean z0() {
+    public void n(Intent intent) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048588, this, intent) != null) || intent == null) {
+            return;
+        }
+        i(intent);
+    }
+
+    public void o(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048589, this, bundle) != null) || bundle == null) {
+            return;
+        }
+        bundle.putString(BaseWriteConfig.KEY_WRITE_IMAGES_INFO_STRING, this.c.toJsonString());
+    }
+
+    public void p(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048590, this, str) == null) && !StringUtils.isNull(str)) {
+            this.c.parseJson(str);
+            this.c.updateQuality();
+        }
+    }
+
+    public void q(w4a w4aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, w4aVar) == null) {
+            this.b.remove(w4aVar);
+        }
+    }
+
+    public void r(@NonNull WriteImagesInfo writeImagesInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, writeImagesInfo) == null) {
+            this.c = writeImagesInfo;
+        }
+    }
+
+    @NonNull
+    public WriteImagesInfo g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return !TimeHelper.isSameDay(System.currentTimeMillis(), p45.m().o("key_question_write_guide_time", 0L));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.c;
         }
-        return invokeV.booleanValue;
+        return (WriteImagesInfo) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.d6a, com.baidu.tieba.e6a
-    public void M(@NonNull List<q4a<?>> list) {
+    public void h(Bundle bundle, Intent intent, @NonNull WriteData writeData) {
+        WriteData writeData2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            list.add(t5a.o(this.a));
-            g4a n = t5a.n(this.a, this, this.s, this.J);
-            this.D = n;
-            n.Q(false);
-            list.add(this.D);
-            y0(list);
-            v3a c = t5a.c(this.a, this, this.d, this.s, this.J);
-            this.E = c;
-            list.add(c);
-            list.add(t5a.h(this.a, this.C));
-            d4a k = t5a.k(this.a);
-            k.w(this.E);
-            list.add(k);
-            e4a l = t5a.l(this.a);
-            k.w(l);
-            list.add(l);
-        }
-    }
-
-    @Override // com.baidu.tieba.d6a, com.baidu.tieba.e6a
-    public void O(@NonNull EditorTools editorTools) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, editorTools) == null) {
-            editorTools.setMoreButtonAtEnd(false);
-            editorTools.setBarLauncherType(8);
-            editorTools.E(true);
-            editorTools.F(false);
-            editorTools.setBackgroundColorId(R.color.CAM_X0201);
-            v5a.m(this.a, editorTools, this.p.getCallFrom(), this).n(false);
-            editorTools.f();
-            super.O(editorTools);
-        }
-    }
-
-    @Override // com.baidu.tieba.d6a, com.baidu.tieba.e6a
-    public void P(@NonNull NavigationBar navigationBar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, navigationBar) == null) {
-            super.P(navigationBar);
-            navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f0fc6));
-            p0(0, ii.g(this.a.getPageActivity(), R.dimen.M_W_X002));
-            q0(R.drawable.obfuscated_res_0x7f080a2a, R.dimen.tbds42, R.dimen.tbds42, R.dimen.tbds3);
-            this.j.setOnClickListener(new a(this));
-        }
-    }
-
-    public final void y0(@NonNull List<q4a<?>> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, list) == null) && z0()) {
-            k4a r = t5a.r(this.a);
-            r.A(new b(this, r));
-            list.add(r);
-            g4a g4aVar = this.D;
-            if (g4aVar != null) {
-                g4aVar.P(8);
-            }
-            w3a d = t5a.d(this.a);
-            this.V = d;
-            list.add(d);
-            A0();
-        }
-    }
-
-    @Override // com.baidu.tieba.d6a, com.baidu.tieba.e6a, com.baidu.tieba.m4a
-    public void q(@NonNull r4a r4aVar, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, r4aVar, z) == null) {
-            super.q(r4aVar, z);
-            if (this.a.getPageActivity() == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048582, this, bundle, intent, writeData) == null) {
+            if (writeData.isFromErrorDialog() && (writeData2 = yn9.f) != null) {
+                this.c = writeData2.getWriteImagesInfo();
                 return;
             }
-            if (z) {
-                this.a.getPageActivity().getWindow().setSoftInputMode(16);
-            } else {
-                this.a.getPageActivity().getWindow().setSoftInputMode(48);
+            String str = null;
+            if (bundle != null) {
+                str = bundle.getString(BaseWriteConfig.KEY_WRITE_IMAGES_INFO_STRING);
+            } else if (intent != null) {
+                str = intent.getStringExtra(BaseWriteConfig.KEY_WRITE_IMAGES_INFO_STRING);
+                intent.putExtra(BaseWriteConfig.KEY_WRITE_IMAGES_INFO_STRING, "");
             }
+            p(str);
+            writeData.setWriteImagesInfo(g());
+        }
+    }
+
+    public void m(int i, int i2, Intent intent) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeIIL(1048587, this, i, i2, intent) != null) || intent == null || i2 != -1) {
+            return;
+        }
+        if (i == 12002) {
+            j(intent);
+        } else if (i == 12012) {
+            k(intent);
         }
     }
 }

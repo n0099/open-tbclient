@@ -64,7 +64,7 @@ public final class m extends e implements com.kwad.components.ad.splashscreen.f 
         int i2 = 0;
         boolean z2 = bVar != null;
         boolean z3 = i == 1;
-        com.kwad.components.core.c.a.a.a(new a.C0594a(this.yF.mRootContainer.getContext()).L(this.yF.mAdTemplate).b(this.yF.mApkDownloadHelper).aj(z3).ae(i).a(bVar).al(z2).a(new a.b() { // from class: com.kwad.components.ad.splashscreen.b.m.6
+        com.kwad.components.core.c.a.a.a(new a.C0593a(this.yF.mRootContainer.getContext()).L(this.yF.mAdTemplate).b(this.yF.mApkDownloadHelper).aj(z3).ae(i).a(bVar).al(z2).a(new a.b() { // from class: com.kwad.components.ad.splashscreen.b.m.6
             @Override // com.kwad.components.core.c.a.a.b
             public final void onAdClicked() {
                 String jC;

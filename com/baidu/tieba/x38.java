@@ -1,15 +1,31 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
+import androidx.annotation.Nullable;
+import java.util.Map;
 /* loaded from: classes6.dex */
 public interface x38 {
-    void c(@NonNull v38 v38Var);
+    void a();
 
-    void e(@NonNull BaseMsg baseMsg, @NonNull ChatRoomDetail chatRoomDetail);
+    void c(@NonNull String str);
 
-    void h();
+    void i();
+
+    void k(@NonNull String str);
+
+    void l(boolean z, int i, int i2, @Nullable Map<String, Object> map);
+
+    void m(@NonNull String str, @NonNull CharSequence charSequence);
+
+    void n(@NonNull v38 v38Var);
+
+    void o();
 
     void onDestroy();
+
+    void p();
+
+    void q(@NonNull String str, @Nullable String str2);
+
+    void r(int i, int i2, @Nullable String str);
 }

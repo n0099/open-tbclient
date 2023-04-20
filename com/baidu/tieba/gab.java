@@ -1,49 +1,85 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tv.athena.revenue.payui.view.AbsViewEventHandler;
+import com.huawei.hms.framework.common.StringUtils;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import java.text.DecimalFormat;
 /* loaded from: classes4.dex */
-public interface gab extends cab {
+public class gab {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public interface a {
-        void b();
+    public static String a(double d) {
+        InterceptResult invokeCommon;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Double.valueOf(d)})) == null) {
+            long j = (long) d;
+            if (d == j) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
+                return String.valueOf(j);
+            }
+            return new DecimalFormat("#.##").format(d);
+        }
+        return (String) invokeCommon.objValue;
     }
 
-    void setCallback(a aVar);
+    public static String b(double d) {
+        InterceptResult invokeCommon;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Double.valueOf(d)})) == null) {
+            long j = (long) d;
+            if (d == j) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
+                return String.valueOf(j);
+            }
+            return new DecimalFormat("#.#").format(d);
+        }
+        return (String) invokeCommon.objValue;
+    }
 
-    /* loaded from: classes4.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public y8b a;
-        public AbsViewEventHandler b;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+    public static double c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (str == null || str.length() == 0) {
+                return 0.0d;
+            }
+            try {
+                return Double.valueOf(str).doubleValue();
+            } catch (Throwable unused) {
+                RLog.error(StringUtils.TAG, "safeParseDouble " + str, new Object[0]);
+                return 0.0d;
             }
         }
+        return invokeL.doubleValue;
+    }
 
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "ViewParams{amount=" + this.a + "}";
+    public static long d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (str == null || str.length() == 0) {
+                return 0L;
             }
-            return (String) invokeV.objValue;
+            try {
+                return Long.valueOf(str).longValue();
+            } catch (Throwable unused) {
+                RLog.error(StringUtils.TAG, "safeParseLong " + str, new Object[0]);
+                return 0L;
+            }
         }
+        return invokeL.longValue;
     }
 }

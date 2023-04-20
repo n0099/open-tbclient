@@ -21,7 +21,7 @@ import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ac0;
+import com.baidu.tieba.bc0;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.google.android.gms.common.internal.ServiceSpecificExtraArgs;
 import java.util.ArrayList;
@@ -646,8 +646,8 @@ public final class LiveRecommendMoreAdapter extends RecyclerView.Adapter<Recycle
                 liveSearchResultViewHolder.d().setVisibility(0);
                 liveSearchResultViewHolder.d().setText("已关注");
                 liveSearchResultViewHolder.d().setTypeface(Typeface.DEFAULT);
-                liveSearchResultViewHolder.d().setTextColor(ac0.f().a(liveSearchResultViewHolder.getContext(), this.scene, "color_8585852"));
-                ac0 f = ac0.f();
+                liveSearchResultViewHolder.d().setTextColor(bc0.f().a(liveSearchResultViewHolder.getContext(), this.scene, "color_8585852"));
+                bc0 f = bc0.f();
                 Intrinsics.checkExpressionValueIsNotNull(f, "UIModeUtils.getInstance()");
                 String r = f.r();
                 if (Intrinsics.areEqual(r, "day")) {
@@ -660,8 +660,8 @@ public final class LiveRecommendMoreAdapter extends RecyclerView.Adapter<Recycle
             liveSearchResultViewHolder.d().setVisibility(0);
             liveSearchResultViewHolder.d().setText("关注");
             liveSearchResultViewHolder.d().setTypeface(Typeface.DEFAULT_BOLD);
-            liveSearchResultViewHolder.d().setTextColor(ac0.f().a(liveSearchResultViewHolder.getContext(), this.scene, "color_white3"));
-            ac0 f2 = ac0.f();
+            liveSearchResultViewHolder.d().setTextColor(bc0.f().a(liveSearchResultViewHolder.getContext(), this.scene, "color_white3"));
+            bc0 f2 = bc0.f();
             Intrinsics.checkExpressionValueIsNotNull(f2, "UIModeUtils.getInstance()");
             String r2 = f2.r();
             if (Intrinsics.areEqual(r2, "day")) {
@@ -682,7 +682,7 @@ public final class LiveRecommendMoreAdapter extends RecyclerView.Adapter<Recycle
         if (bool.booleanValue()) {
             liveSearchResultViewHolder.f().setVisibility(0);
             liveSearchResultViewHolder.e().setVisibility(0);
-            ac0 f3 = ac0.f();
+            bc0 f3 = bc0.f();
             Intrinsics.checkExpressionValueIsNotNull(f3, "UIModeUtils.getInstance()");
             String r3 = f3.r();
             if (Intrinsics.areEqual(r3, "day")) {

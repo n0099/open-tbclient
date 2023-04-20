@@ -6,10 +6,10 @@ import android.webkit.URLUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.tieba.browser.webview.scroll.NestedScrollWebView;
-import com.baidu.tieba.jf6;
-import com.baidu.tieba.of6;
-import com.baidu.tieba.rf6;
-import com.baidu.tieba.vf6;
+import com.baidu.tieba.kf6;
+import com.baidu.tieba.pf6;
+import com.baidu.tieba.sf6;
+import com.baidu.tieba.wf6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,12 +17,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 /* loaded from: classes3.dex */
-public abstract class MonitorWebView extends NestedScrollWebView implements of6 {
+public abstract class MonitorWebView extends NestedScrollWebView implements pf6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public vf6 l;
+    public wf6 l;
     public String m;
-    public final rf6 n;
+    public final sf6 n;
 
     public void e(Context context) {
         Interceptable interceptable = $ic;
@@ -49,7 +49,7 @@ public abstract class MonitorWebView extends NestedScrollWebView implements of6 
             }
         }
         this.m = "";
-        this.n = new rf6(this);
+        this.n = new sf6(this);
         e(context);
     }
 
@@ -88,7 +88,7 @@ public abstract class MonitorWebView extends NestedScrollWebView implements of6 
             }
         }
         this.m = "";
-        this.n = new rf6(this);
+        this.n = new sf6(this);
         e(context);
     }
 
@@ -112,17 +112,17 @@ public abstract class MonitorWebView extends NestedScrollWebView implements of6 
             }
         }
         this.m = "";
-        this.n = new rf6(this);
+        this.n = new sf6(this);
         e(context);
     }
 
-    public rf6 getController() {
+    public sf6 getController() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.n;
         }
-        return (rf6) invokeV.objValue;
+        return (sf6) invokeV.objValue;
     }
 
     @Override // android.webkit.WebView
@@ -155,20 +155,20 @@ public abstract class MonitorWebView extends NestedScrollWebView implements of6 
         if (interceptable == null || interceptable.invokeLL(1048582, this, str, map) == null) {
             if (i(str)) {
                 map.put("Accept", SapiWebView.DATA_MIME_TYPE);
-                this.m = jf6.c(str);
-                vf6 vf6Var = this.l;
-                if (vf6Var != null) {
-                    vf6Var.q(str);
+                this.m = kf6.c(str);
+                wf6 wf6Var = this.l;
+                if (wf6Var != null) {
+                    wf6Var.q(str);
                 }
             }
             super.loadUrl(str, map);
         }
     }
 
-    public void setPerfData(vf6 vf6Var) {
+    public void setPerfData(wf6 wf6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, vf6Var) == null) {
-            this.l = vf6Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, wf6Var) == null) {
+            this.l = wf6Var;
         }
     }
 }

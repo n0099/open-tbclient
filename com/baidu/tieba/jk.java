@@ -264,8 +264,8 @@ public abstract class jk {
             if (matrix2 != null) {
                 canvas.concat(matrix2);
             }
-            sm smVar = mkVar.b;
-            if (smVar != null && smVar.v()) {
+            tm tmVar = mkVar.b;
+            if (tmVar != null && tmVar.v()) {
                 if ((mkVar.b.p().getWidth() + paddingLeft + paddingRight > imageView.getWidth() || mkVar.b.p().getHeight() + paddingTop + paddingBottom > imageView.getHeight()) && (matrix = this.f) != null) {
                     canvas.concat(matrix);
                 }

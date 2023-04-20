@@ -1,61 +1,42 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Base64;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.nio.charset.Charset;
+import kotlin.Unit;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.functions.Function0;
 /* loaded from: classes4.dex */
-public class et {
+public final class et {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
-            if (bArr == null) {
-                return "";
-            }
-            return new String(bArr, Charset.forName("UTF-8"));
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448303838, "Lcom/baidu/tieba/et;")) == null) {
+            return;
         }
-        return (String) invokeL.objValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1448303838, "Lcom/baidu/tieba/et;");
+        }
     }
 
-    public static byte[] b(String str) {
-        InterceptResult invokeL;
+    @JvmStatic
+    public static final void a(Function0<Unit> function0) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return new byte[0];
+        if (interceptable == null || interceptable.invokeL(65537, null, function0) == null) {
+            try {
+                function0.invoke();
+            } catch (Throwable th) {
+                th.printStackTrace();
             }
-            return str.getBytes(Charset.forName("UTF-8"));
         }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public static byte[] c(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
-            if (bArr == null) {
-                return new byte[0];
-            }
-            return Base64.encode(bArr, 2);
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public static byte[] d(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
-            if (bArr != null && bArr.length != 0) {
-                return Base64.decode(bArr, 2);
-            }
-            return new byte[0];
-        }
-        return (byte[]) invokeL.objValue;
     }
 }

@@ -11,17 +11,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ThreadInfo;
-/* loaded from: classes5.dex */
+import tbclient.NewHottopic.TopicThread;
+/* loaded from: classes6.dex */
 public class pu7 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId f;
+    public static final BdUniqueId g;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
+    public long a;
+    public ThreadData b;
     public long c;
-    public String d;
-    public ThreadData e;
+    public int d;
+    public int e;
+    public boolean f;
 
     static {
         InterceptResult invokeClinit;
@@ -36,7 +37,7 @@ public class pu7 extends BaseCardInfo {
                 return;
             }
         }
-        f = BdUniqueId.gen();
+        g = BdUniqueId.gen();
     }
 
     public pu7() {
@@ -53,24 +54,45 @@ public class pu7 extends BaseCardInfo {
         }
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.hn
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.in
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return g;
         }
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public void c(ThreadInfo threadInfo) {
+    public void c(TopicThread topicThread) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, threadInfo) != null) || threadInfo == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, topicThread) != null) || topicThread == null) {
             return;
         }
-        ThreadData threadData = new ThreadData();
-        this.e = threadData;
-        threadData.parserProtobuf(threadInfo);
-        this.e.parser_title();
+        this.a = topicThread.feed_id.longValue();
+        if (topicThread.thread_info != null) {
+            ThreadData threadData = new ThreadData();
+            this.b = threadData;
+            threadData.parserProtobuf(topicThread.thread_info);
+            this.b.parser_title();
+        }
+        this.d = topicThread.user_agree.intValue();
+        this.e = topicThread.source.intValue();
+    }
+
+    public void d(tbclient.NewTopicThread.TopicThread topicThread) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, topicThread) != null) || topicThread == null) {
+            return;
+        }
+        this.a = topicThread.feed_id.longValue();
+        if (topicThread.thread_info != null) {
+            ThreadData threadData = new ThreadData();
+            this.b = threadData;
+            threadData.parserProtobuf(topicThread.thread_info);
+            this.b.parser_title();
+        }
+        this.d = Integer.parseInt(topicThread.user_agree);
+        this.e = topicThread.source.intValue();
     }
 }

@@ -1,115 +1,180 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.webkit.URLUtil;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.util.Pair;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import android.annotation.SuppressLint;
+import android.os.Build;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.MessageQueue;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.le6;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.Field;
 /* loaded from: classes5.dex */
 public class le6 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile a a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Set<fe6> a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
-            HashSet hashSet = new HashSet();
-            if (jSONObject == null) {
-                return hashSet;
-            }
-            JSONObject optJSONObject = jSONObject.optJSONObject(PrefetchEvent.MODULE);
-            if (optJSONObject == null) {
-                return hashSet;
-            }
-            Iterator<String> keys = optJSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                JSONObject optJSONObject2 = optJSONObject.optJSONObject(next);
-                if (optJSONObject2 != null) {
-                    String str = com.kuaishou.weapon.p0.q1.e;
-                    JSONObject optJSONObject3 = optJSONObject2.optJSONObject("since");
-                    if (optJSONObject3 != null) {
-                        str = optJSONObject3.optString("android", com.kuaishou.weapon.p0.q1.e);
-                    }
-                    fe6 fe6Var = new fe6(next, optJSONObject2.optString("method", "GET"), str);
-                    JSONObject optJSONObject4 = optJSONObject2.optJSONObject("headers");
-                    if (optJSONObject4 != null) {
-                        Iterator<String> keys2 = optJSONObject4.keys();
-                        while (keys2.hasNext()) {
-                            String next2 = keys2.next();
-                            if (!TextUtils.isEmpty(next2)) {
-                                fe6Var.a(next2, optJSONObject4.optString(next2));
-                            }
-                        }
-                    }
-                    hashSet.add(fe6Var);
-                }
-            }
-            return hashSet;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947940044, "Lcom/baidu/tieba/le6;")) == null) {
+            return;
         }
-        return (Set) invokeL.objValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947940044, "Lcom/baidu/tieba/le6;");
+        }
     }
 
-    public static void b(String str) {
-        JSONArray jSONArray;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            ee6.c().b();
-            try {
-                jSONArray = new JSONArray(str);
-            } catch (JSONException e) {
-                e.printStackTrace();
-                jSONArray = null;
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final Handler a;
+        public final Looper b;
+        public MessageQueue c;
+
+        public a(Looper looper) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if (df6.c(jSONArray)) {
+            this.b = looper;
+            this.a = new Handler(looper);
+        }
+
+        public static /* synthetic */ boolean b(Runnable runnable) {
+            runnable.run();
+            return false;
+        }
+
+        public boolean c(Runnable runnable) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable)) == null) {
+                if (a() == null) {
+                    return false;
+                }
+                return this.a.post(runnable);
+            }
+            return invokeL.booleanValue;
+        }
+
+        public void e(Runnable runnable) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048579, this, runnable) == null) && a() != null) {
+                this.a.removeCallbacks(runnable);
+            }
+        }
+
+        public void f(final Runnable runnable) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048580, this, runnable) != null) || a() == null) {
                 return;
             }
-            for (int i = 0; i < jSONArray.length(); i++) {
-                try {
-                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                    String optString = optJSONObject.optString("url", "");
-                    if (!TextUtils.isEmpty(optString)) {
-                        Set<fe6> a = a(optJSONObject);
-                        de6 de6Var = new de6();
-                        if (!df6.a(a)) {
-                            de6Var.a = a;
-                            de6Var.d = optString;
-                            ee6.c().a(optString, de6Var);
-                        } else {
-                            ee6.c().a(optString, de6Var);
-                        }
-                    }
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+            this.c.addIdleHandler(new MessageQueue.IdleHandler() { // from class: com.baidu.tieba.he6
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // android.os.MessageQueue.IdleHandler
+                public final boolean queueIdle() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? le6.a.b(runnable) : invokeV.booleanValue;
                 }
+            });
+        }
+
+        @SuppressLint({"DiscouragedPrivateApi"})
+        public final synchronized MessageQueue a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                synchronized (this) {
+                    if (this.c != null) {
+                        return this.c;
+                    }
+                    if (Build.VERSION.SDK_INT >= 23) {
+                        MessageQueue queue = this.b.getQueue();
+                        this.c = queue;
+                        return queue;
+                    }
+                    try {
+                        Field declaredField = Looper.class.getDeclaredField("mQueue");
+                        declaredField.setAccessible(true);
+                        Object obj = declaredField.get(this.b);
+                        if (obj instanceof MessageQueue) {
+                            this.c = (MessageQueue) obj;
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    return this.c;
+                }
+            }
+            return (MessageQueue) invokeV.objValue;
+        }
+
+        public boolean d(Runnable runnable, long j) {
+            InterceptResult invokeLJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, runnable, j)) == null) {
+                if (a() == null) {
+                    return false;
+                }
+                return this.a.postDelayed(runnable, j);
+            }
+            return invokeLJ.booleanValue;
+        }
+    }
+
+    public le6() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Nullable
-    public static List<Pair<String, Long>> c(@NonNull String str) {
-        InterceptResult invokeL;
+    public static a a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            mf6 mf6Var = (mf6) ServiceManager.getService(mf6.a);
-            if (mf6Var != null && URLUtil.isNetworkUrl(str)) {
-                return mf6Var.a(str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
+                synchronized (le6.class) {
+                    if (a == null) {
+                        a = new a(Looper.getMainLooper());
+                    }
+                }
             }
-            return null;
+            return a;
         }
-        return (List) invokeL.objValue;
+        return (a) invokeV.objValue;
     }
 }

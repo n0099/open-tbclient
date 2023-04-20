@@ -23,10 +23,10 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.l05;
-import com.baidu.tieba.n05;
+import com.baidu.tieba.m05;
+import com.baidu.tieba.o05;
 import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
-import com.baidu.tieba.q25;
+import com.baidu.tieba.r25;
 import com.baidu.tieba.tbadkCore.model.ForumManageModel;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.tieba.z8;
@@ -49,30 +49,30 @@ public class ReplyLinearLayout extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public final List<RelativeLayout> a;
     public TbPageContext<?> b;
-    public l05 c;
+    public m05 c;
     public ForumManageModel d;
     public TBAlertBuilder e;
     public PersonPostModel.PostInfoList f;
     public String g;
     public View h;
-    public n05.f i;
+    public o05.f i;
     public z8 j;
     public final View.OnClickListener k;
 
     /* loaded from: classes5.dex */
-    public class a implements n05.f {
+    public class a implements o05.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ReplyLinearLayout a;
 
         /* renamed from: com.baidu.tieba.post.ReplyLinearLayout$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class View$OnClickListenerC0399a implements View.OnClickListener {
+        public class View$OnClickListenerC0390a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public View$OnClickListenerC0399a(a aVar) {
+            public View$OnClickListenerC0390a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -154,16 +154,16 @@ public class ReplyLinearLayout extends LinearLayout {
             this.a = replyLinearLayout;
         }
 
-        @Override // com.baidu.tieba.n05.f
-        public void M0(n05 n05Var, int i, View view2) {
+        @Override // com.baidu.tieba.o05.f
+        public void M0(o05 o05Var, int i, View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLIL(1048576, this, n05Var, i, view2) != null) || this.a.b == null) {
+            if ((interceptable != null && interceptable.invokeLIL(1048576, this, o05Var, i, view2) != null) || this.a.b == null) {
                 return;
             }
             if (this.a.c != null) {
                 this.a.c.dismiss();
             }
-            Map map = (Map) n05Var.e().getTag();
+            Map map = (Map) o05Var.e().getTag();
             PersonPostModel.PostInfoContent postInfoContent = (PersonPostModel.PostInfoContent) map.get(Integer.valueOf((int) R.id.obfuscated_res_0x7f091d84));
             if (postInfoContent == null) {
                 return;
@@ -179,7 +179,7 @@ public class ReplyLinearLayout extends LinearLayout {
             this.a.e.x(this.a.b.getString(R.string.del_post_confirm));
             this.a.e.q(this.a.b.getString(R.string.obfuscated_res_0x7f0f04d6));
             this.a.e.o(true);
-            this.a.e.u(new TBAlertConfig.a(this.a.b.getString(R.string.obfuscated_res_0x7f0f038d), TBAlertConfig.OperateBtnStyle.SECONDARY, new View$OnClickListenerC0399a(this)), new TBAlertConfig.a(this.a.b.getString(R.string.obfuscated_res_0x7f0f04d9), TBAlertConfig.OperateBtnStyle.MAIN, new b(this)));
+            this.a.e.u(new TBAlertConfig.a(this.a.b.getString(R.string.obfuscated_res_0x7f0f038d), TBAlertConfig.OperateBtnStyle.SECONDARY, new View$OnClickListenerC0390a(this)), new TBAlertConfig.a(this.a.b.getString(R.string.obfuscated_res_0x7f0f04d9), TBAlertConfig.OperateBtnStyle.MAIN, new b(this)));
             this.a.e.d().setCanceledOnTouchOutside(false);
             this.a.e.z();
         }
@@ -271,7 +271,7 @@ public class ReplyLinearLayout extends LinearLayout {
             }
             this.a.p("c14537", postInfoContent.threadId);
             if (this.a.c == null) {
-                this.a.c = new l05(this.a.b);
+                this.a.c = new m05(this.a.b);
                 this.a.c.i(null, new String[]{this.a.b.getString(R.string.obfuscated_res_0x7f0f04d9)}, this.a.i);
             }
             this.a.c.g().e().setTag(map);
@@ -396,16 +396,16 @@ public class ReplyLinearLayout extends LinearLayout {
         if ((interceptable != null && interceptable.invokeL(1048576, this, viewGroup) != null) || viewGroup == null) {
             return;
         }
-        q25 d = q25.d(viewGroup.findViewById(R.id.obfuscated_res_0x7f091d83));
+        r25 d = r25.d(viewGroup.findViewById(R.id.obfuscated_res_0x7f091d83));
         d.B(R.dimen.T_X05);
         d.w(R.color.CAM_X0105);
         d.C(R.string.F_X01);
         WebPManager.setPureDrawable((ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091d90), R.drawable.icon_pure_pb_more18, R.color.CAM_X0111, WebPManager.ResourceStateType.NORMAL_PRESS);
-        q25 d2 = q25.d(viewGroup.findViewById(R.id.obfuscated_res_0x7f091d94));
+        r25 d2 = r25.d(viewGroup.findViewById(R.id.obfuscated_res_0x7f091d94));
         d2.B(R.dimen.T_X09);
         d2.w(R.color.CAM_X0109);
         d2.C(R.string.F_X01);
-        q25.d(viewGroup.findViewById(R.id.obfuscated_res_0x7f091d8a)).f(R.color.CAM_X0203);
+        r25.d(viewGroup.findViewById(R.id.obfuscated_res_0x7f091d8a)).f(R.color.CAM_X0203);
     }
 
     public final void p(String str, String str2) {

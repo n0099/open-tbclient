@@ -1,15 +1,19 @@
 package com.baidu.tieba;
 
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public abstract class s51 extends ol0 {
+public class s51 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public abstract String a();
+    public String a;
+    public String b;
+    public String c;
 
     public s51() {
         Interceptable interceptable = $ic;
@@ -23,5 +27,22 @@ public abstract class s51 extends ol0 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    @Nullable
+    public static s51 a(@Nullable JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            s51 s51Var = new s51();
+            s51Var.a = jSONObject.optString("icon");
+            s51Var.b = jSONObject.optString("text");
+            s51Var.c = jSONObject.optString("cmd");
+            return s51Var;
+        }
+        return (s51) invokeL.objValue;
     }
 }

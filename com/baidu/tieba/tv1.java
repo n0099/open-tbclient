@@ -1,57 +1,221 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.ab3;
-import com.baidu.tieba.ci2;
-import com.baidu.tieba.eg2;
-import com.baidu.tieba.hd2;
-import com.baidu.tieba.np1;
-import com.baidu.tieba.os2;
-import com.baidu.tieba.se2;
-import com.baidu.tieba.tl3;
-import com.baidu.tieba.u52;
-import com.baidu.tieba.ub2;
-import com.baidu.tieba.xy1;
-import com.baidu.tieba.zg3;
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.swan.apps.api.SwanApi$$ModulesProvider;
+import com.baidu.swan.apps.api.module.network.SwanApiNetworkV8Module;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class tv1 {
+public class tv1 implements wv1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
+    public Context a;
+    @NonNull
+    public CallbackHandler b;
+    public WeakReference<Activity> c;
+    public t62 d;
 
-    public static HashMap<Class, Object> a() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948194554, "Lcom/baidu/tieba/tv1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948194554, "Lcom/baidu/tieba/tv1;");
+                return;
+            }
+        }
+        e = fo1.a;
+    }
+
+    @Override // com.baidu.tieba.wv1
+    @NonNull
+    public t62 f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            HashMap<Class, Object> hashMap = new HashMap<>();
-            hashMap.put(ab3.b.class, new ab3.b());
-            hashMap.put(se2.f.class, new se2.f());
-            hashMap.put(se2.g.class, new se2.g());
-            hashMap.put(ub2.a.class, new ub2.a());
-            hashMap.put(hd2.a.class, new hd2.a());
-            hashMap.put(tl3.c.class, new tl3.c());
-            hashMap.put(zg3.b.class, new zg3.b());
-            hashMap.put(os2.c.class, new os2.c());
-            hashMap.put(hz2.class, new hz2());
-            hashMap.put(dv1.class, new dv1());
-            hashMap.put(ev1.class, new ev1());
-            hashMap.put(gg3.class, new gg3());
-            hashMap.put(fg3.class, new fg3());
-            hashMap.put(jg3.class, new jg3());
-            hashMap.put(yg2.class, new yg2());
-            hashMap.put(eg2.c.class, new eg2.c());
-            hashMap.put(rx2.class, new rx2());
-            hashMap.put(xy1.b.class, new xy1.b());
-            hashMap.put(np1.a.class, new np1.a());
-            hashMap.put(e62.class, new e62());
-            hashMap.put(ci2.a.class, new ci2.a());
-            hashMap.put(ci2.b.class, new ci2.b());
-            hashMap.put(u03.class, new u03());
-            hashMap.put(u52.b.class, new u52.b());
-            return hashMap;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.d;
         }
-        return (HashMap) invokeV.objValue;
+        return (t62) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.wv1
+    @NonNull
+    public CallbackHandler g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.b;
+        }
+        return (CallbackHandler) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.wv1
+    @NonNull
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return h();
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    @NonNull
+    public final Context h() {
+        InterceptResult invokeV;
+        Activity activity;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            WeakReference<Activity> weakReference = this.c;
+            if (weakReference != null) {
+                activity = weakReference.get();
+            } else {
+                activity = null;
+            }
+            if (activity == null) {
+                return this.a;
+            }
+            return activity;
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    public tv1(@NonNull Context context, @NonNull CallbackHandler callbackHandler, @NonNull t62 t62Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, callbackHandler, t62Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = context;
+        this.b = callbackHandler;
+        this.d = t62Var;
+    }
+
+    public void a(@NonNull t62 t62Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, t62Var) == null) {
+            t62Var.addJavascriptInterface(new SwanApiNetworkV8Module(this), SwanApiNetworkV8Module.MODULE_NAME);
+        }
+    }
+
+    public final void b(@NonNull t62 t62Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t62Var) == null) {
+            if (t62Var instanceof ff2) {
+                c((ff2) t62Var);
+            } else {
+                d(t62Var);
+            }
+        }
+    }
+
+    public final void c(@NonNull ff2 ff2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ff2Var) == null) {
+            e(ff2Var, SwanApi$$ModulesProvider.getV8ApiModules(this), cr2.s().b(this));
+        }
+    }
+
+    public final void d(@NonNull t62 t62Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, t62Var) == null) {
+            e(t62Var, SwanApi$$ModulesProvider.getWebviewApiModules(this), cr2.s().c(this));
+        }
+    }
+
+    public void i(Activity activity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048585, this, activity) == null) && activity != null) {
+            this.c = new WeakReference<>(activity);
+        }
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public final void e(@NonNull t62 t62Var, Map<String, Object> map, Map<String, Object> map2) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, t62Var, map, map2) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            if (map2 != null) {
+                if (map == null) {
+                    map = map2;
+                } else {
+                    try {
+                        map.putAll(map2);
+                    } catch (Exception e2) {
+                        if (!e) {
+                            return;
+                        }
+                        e2.printStackTrace();
+                        throw new RuntimeException("doBindSwanApis fail: " + e2.getMessage());
+                    }
+                }
+            }
+            if (map == null) {
+                if (!e) {
+                    return;
+                }
+                throw new RuntimeException("doBindSwanApis fail: api modules cannot be null");
+            }
+            for (Map.Entry<String, Object> entry : map.entrySet()) {
+                String key = entry.getKey();
+                Object value = entry.getValue();
+                if (TextUtils.isEmpty(key)) {
+                    if (e) {
+                        throw new RuntimeException("doBindSwanApis fail: moduleName cannot be empty");
+                    }
+                } else if (value == null) {
+                    if (e) {
+                        throw new RuntimeException("doBindSwanApis fail: module obj cannot be null");
+                    }
+                } else {
+                    t62Var.addJavascriptInterface(value, key);
+                    if (e) {
+                        if (t62Var instanceof ff2) {
+                            str = "V8";
+                        } else {
+                            str = "Webview";
+                        }
+                        Log.d("Api-Binder", "doBindSwanApis(" + str + "): bound " + key);
+                    }
+                }
+            }
+            if (e) {
+                long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
+                if (currentTimeMillis2 > 5) {
+                    Log.w("Api-Binder", "doBindSwanApis: 耗时 " + currentTimeMillis2 + "ms");
+                }
+            }
+        }
     }
 }

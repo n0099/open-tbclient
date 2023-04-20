@@ -1,12 +1,10 @@
 package com.baidu.tieba;
 
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.FrameLayout;
+import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.player.constants.PlayerStatus;
-import com.baidu.nadcore.player.ui.BdLayerTitleBarView;
-import com.baidu.searchbox.player.event.InteractiveEvent;
 import com.baidu.searchbox.player.event.LayerEvent;
 import com.baidu.searchbox.player.event.PlayerEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,10 +13,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class yt0 extends tt0 implements BdLayerTitleBarView.a {
+public class yt0 extends ut0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdLayerTitleBarView b;
+    public View b;
+    public View c;
+    public View d;
+    public boolean e;
 
     public yt0() {
         Interceptable interceptable = $ic;
@@ -30,11 +31,13 @@ public class yt0 extends tt0 implements BdLayerTitleBarView.a {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.e = true;
     }
 
-    @Override // com.baidu.tieba.ut0
+    @Override // com.baidu.tieba.vt0
     @NonNull
     public View getContentView() {
         InterceptResult invokeV;
@@ -45,78 +48,49 @@ public class yt0 extends tt0 implements BdLayerTitleBarView.a {
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.nt0
+    @Override // com.baidu.tieba.ot0
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b = new BdLayerTitleBarView(getContext());
-            this.b.setLayoutParams(new FrameLayout.LayoutParams(-1, -2));
-            this.b.setVisibility(4);
-            this.b.setListener(this);
-        }
-    }
-
-    @Override // com.baidu.nadcore.player.ui.BdLayerTitleBarView.a
-    public void onBack() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            q().d1(2);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.nad_bd_layer_control_bg, (ViewGroup) null);
+            this.b = inflate;
+            this.c = inflate.findViewById(R.id.full_top_shadow);
+            this.d = this.b.findViewById(R.id.full_bottom_shadow);
         }
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    @Override // com.baidu.tieba.nt0
-    public void k(@NonNull su0 su0Var) {
+    @Override // com.baidu.tieba.ot0
+    public void k(@NonNull tu0 tu0Var) {
         char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, su0Var) == null) {
-            String c2 = su0Var.c();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tu0Var) == null) {
+            String c2 = tu0Var.c();
             switch (c2.hashCode()) {
-                case -882902390:
-                    if (c2.equals(PlayerEvent.ACTION_SET_DATA_SOURCE)) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -745690976:
-                    if (c2.equals(InteractiveEvent.ACTION_INTERACTIVE_START)) {
-                        c = 5;
+                case -1043170264:
+                    if (c2.equals(PlayerEvent.ACTION_PLAYER_ATTACH)) {
+                        c = 2;
                         break;
                     }
                     c = 65535;
                     break;
                 case -552621273:
                     if (c2.equals(LayerEvent.ACTION_SWITCH_FULL)) {
-                        c = 6;
+                        c = 1;
                         break;
                     }
                     c = 65535;
                     break;
                 case -552580917:
                     if (c2.equals(LayerEvent.ACTION_SWITCH_HALF)) {
-                        c = 4;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -461848373:
-                    if (c2.equals(PlayerEvent.ACTION_ON_ERROR)) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 154871702:
-                    if (c2.equals(PlayerEvent.ACTION_ON_COMPLETE)) {
                         c = 0;
                         break;
                     }
                     c = 65535;
                     break;
-                case 250537257:
-                    if (c2.equals(LayerEvent.ACTION_NET_ERROR_SHOW)) {
-                        c = 2;
+                case -56310521:
+                    if (c2.equals(LayerEvent.ACTION_VIDEO_VIEW_CHANGED)) {
+                        c = 3;
                         break;
                     }
                     c = 65535;
@@ -125,47 +99,32 @@ public class yt0 extends tt0 implements BdLayerTitleBarView.a {
                     c = 65535;
                     break;
             }
-            if (c != 0 && c != 1 && c != 2) {
-                if (c != 4 && c != 5) {
-                    if (c == 6 && !q().Y()) {
-                        s(true, false);
-                        return;
-                    }
+            if (c != 0) {
+                if (c == 1 || c == 2 || c == 3) {
+                    this.b.setVisibility(8);
                     return;
                 }
-                this.b.a(false);
-            } else if (q().V0()) {
-                this.b.e(false, true, q().r1());
+                return;
             }
+            this.b.setVisibility(0);
         }
     }
 
-    @Override // com.baidu.tieba.nt0
-    public void n(PlayerStatus playerStatus, PlayerStatus playerStatus2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, playerStatus, playerStatus2) == null) {
-            super.n(playerStatus, playerStatus2);
-            if (playerStatus == PlayerStatus.PLAYING && q().V0()) {
-                px0 px0Var = this.a;
-                if ((px0Var instanceof gx0) && !((gx0) px0Var).X()) {
-                    this.b.a(true);
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.tt0
+    @Override // com.baidu.tieba.ut0
     public void s(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            super.s(z, z2);
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             if (z) {
-                if (q().V0() && q().f1() == 0) {
-                    this.b.e(true, !q().Y(), q().r1());
+                if (this.e) {
+                    this.b.setVisibility(0);
+                    this.c.setVisibility(0);
+                    this.d.setVisibility(0);
+                    return;
                 }
-            } else if (q().V0() && q().f1() == 0 && this.b.getVisibility() != 4 && q().Y()) {
-                this.b.a(true);
+                this.b.setVisibility(8);
+                return;
             }
+            this.b.setVisibility(8);
         }
     }
 }

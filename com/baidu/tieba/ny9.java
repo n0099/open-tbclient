@@ -1,177 +1,161 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.text.Layout;
+import android.text.Selection;
+import android.text.Spannable;
+import android.text.method.LinkMovementMethod;
+import android.view.MotionEvent;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
-import java.io.File;
 /* loaded from: classes5.dex */
-public class ny9 extends BdAsyncTask<Void, Void, String> {
+public class ny9 extends LinkMovementMethod {
     public static /* synthetic */ Interceptable $ic;
-    public static final String d;
+    public static ny9 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public b c;
+    public cv5 a;
+    public int b;
+    public int c;
+    public long d;
+    public int e;
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(boolean z, String str, String str2);
-
-        void b(int i, int i2);
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements of {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ny9 a;
-
-        public a(ny9 ny9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ny9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ny9Var;
-        }
-
-        @Override // com.baidu.tieba.of
-        public void onProgress(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) && this.a.c != null) {
-                this.a.c.b(i, i2);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948018939, "Lcom/baidu/tieba/ny9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948018939, "Lcom/baidu/tieba/ny9;");
-                return;
-            }
-        }
-        d = File.separator;
-    }
-
-    public ny9(String str, String str2, b bVar) {
+    public ny9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, bVar};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = str;
-        this.b = str2;
-        this.c = bVar;
+        this.e = -1;
     }
 
-    public final void c(File file) {
-        File[] listFiles;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, file) != null) || hi.isEmpty(this.a)) {
-            return;
-        }
-        File file2 = new File(this.a);
-        if (!file2.exists() || (listFiles = file2.listFiles()) == null) {
-            return;
-        }
-        for (File file3 : listFiles) {
-            if (file3 != null && !file3.equals(file)) {
-                FileHelper.deleteFileOrDir(file3);
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: d */
-    public String doInBackground(Void... voidArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-            if (!hi.isEmpty(this.a) && !hi.isEmpty(this.b)) {
-                new File(this.a).mkdirs();
-                String str = this.a + d + "annivervideo.temp";
-                File file = new File(str);
-                if (file.exists()) {
-                    file.delete();
-                }
-                kf kfVar = new kf();
-                kfVar.b().s(this.b);
-                if (new hf(kfVar).c(str, new a(this), 3, 3000, -1, -1, true, true)) {
-                    return e();
-                }
-            }
-            return "";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final String e() {
+    public static ny9 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            File file = new File(this.a + d + "annivervideo.temp");
-            StringBuilder sb = new StringBuilder();
-            sb.append(pi.c(this.b));
-            sb.append(DefaultHlsExtractorFactory.MP4_FILE_EXTENSION);
-            String sb2 = sb.toString();
-            File file2 = new File(this.a + d + sb2);
-            if (file2.exists()) {
-                file2.delete();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (f == null) {
+                f = new ny9();
             }
-            if (file.renameTo(file2)) {
-                c(file2);
-                return file2.getAbsolutePath();
-            }
-            return "";
+            return f;
         }
-        return (String) invokeV.objValue;
+        return (ny9) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPostExecute(String str) {
+    public static boolean c(float f2, float f3, float f4, float f5, long j, long j2, long j3) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, str) != null) || this.c == null) {
-            return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+            float abs = Math.abs(f4 - f2);
+            float abs2 = Math.abs(f5 - f3);
+            long j4 = j2 - j;
+            if (abs <= 100.0f && abs2 <= 100.0f && j4 >= j3) {
+                return true;
+            }
+            return false;
         }
-        if (!hi.isEmpty(str)) {
-            this.c.a(true, str, this.b);
-        } else {
-            this.c.a(false, null, null);
+        return invokeCommon.booleanValue;
+    }
+
+    public final cv5 b(TextView textView, Spannable spannable, MotionEvent motionEvent) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, textView, spannable, motionEvent)) == null) {
+            if (motionEvent != null && motionEvent.getAction() != 3) {
+                int x = ((int) motionEvent.getX()) - textView.getTotalPaddingLeft();
+                int y = ((int) motionEvent.getY()) - textView.getTotalPaddingTop();
+                int scrollX = x + textView.getScrollX();
+                int scrollY = y + textView.getScrollY();
+                try {
+                    Layout layout = textView.getLayout();
+                    int offsetForHorizontal = layout.getOffsetForHorizontal(layout.getLineForVertical(scrollY), scrollX);
+                    cv5[] cv5VarArr = (cv5[]) spannable.getSpans(offsetForHorizontal, offsetForHorizontal, cv5.class);
+                    if (cv5VarArr == null || cv5VarArr.length <= 0 || cv5VarArr[0] == null) {
+                        return null;
+                    }
+                    return cv5VarArr[0];
+                } catch (Exception e) {
+                    BdLog.e(e);
+                    return this.a;
+                }
+            }
+            return this.a;
         }
+        return (cv5) invokeLLL.objValue;
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.e = i;
+        }
+    }
+
+    @Override // android.text.method.LinkMovementMethod, android.text.method.ScrollingMovementMethod, android.text.method.BaseMovementMethod, android.text.method.MovementMethod
+    public boolean onTouchEvent(TextView textView, Spannable spannable, MotionEvent motionEvent) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, textView, spannable, motionEvent)) == null) {
+            cv5 b = b(textView, spannable, motionEvent);
+            if (b == null && motionEvent.getAction() == 0) {
+                try {
+                    return super.onTouchEvent(textView, spannable, motionEvent);
+                } catch (Exception e) {
+                    BdLog.e(e);
+                    return true;
+                }
+            }
+            if (b != null) {
+                this.a = b;
+            }
+            int i = this.e;
+            if (i > -1) {
+                this.a.g(i);
+            }
+            if (motionEvent.getAction() == 0) {
+                this.b = (int) motionEvent.getX();
+                this.c = (int) motionEvent.getY();
+                this.d = System.currentTimeMillis();
+                cv5 cv5Var = this.a;
+                if (cv5Var != null) {
+                    cv5Var.h(1);
+                    Selection.setSelection(spannable, spannable.getSpanStart(this.a), spannable.getSpanEnd(this.a));
+                }
+                textView.invalidate();
+            } else if (motionEvent.getAction() == 2) {
+                if (this.a != null && (Math.abs(this.b - motionEvent.getX()) > 20.0f || Math.abs(this.c - motionEvent.getY()) > 20.0f)) {
+                    this.a.h(2);
+                    textView.invalidate();
+                    Selection.removeSelection(spannable);
+                }
+            } else if (motionEvent.getAction() == 1 || motionEvent.getAction() == 3) {
+                cv5 cv5Var2 = this.a;
+                if (cv5Var2 != null) {
+                    cv5Var2.h(2);
+                    textView.invalidate();
+                    Selection.removeSelection(spannable);
+                }
+                if (c(this.b, this.c, motionEvent.getX(), motionEvent.getY(), this.d, System.currentTimeMillis(), 500L)) {
+                    return true;
+                }
+            }
+            try {
+                return super.onTouchEvent(textView, spannable, motionEvent);
+            } catch (Exception e2) {
+                BdLog.e(e2);
+                return true;
+            }
+        }
+        return invokeLLL.booleanValue;
     }
 }

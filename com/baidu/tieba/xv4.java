@@ -1,88 +1,105 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ByteArrayInputStream;
-import java.io.UnsupportedEncodingException;
-import java.security.InvalidKeyException;
-import java.security.Key;
-import java.security.NoSuchAlgorithmException;
-import java.security.PublicKey;
-import javax.crypto.BadPaddingException;
-import javax.crypto.Cipher;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
-import javax.security.cert.CertificateException;
-import javax.security.cert.X509Certificate;
-import org.json.JSONArray;
 /* loaded from: classes7.dex */
-public class xv4 {
+public abstract class xv4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile xv4 a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes7.dex */
+    public interface a {
+        void a(String str, int i, String str2);
+
+        void b(String str);
+
+        void c(AccountData accountData);
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948313811, "Lcom/baidu/tieba/xv4;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948313811, "Lcom/baidu/tieba/xv4;");
+        }
+    }
+
+    public abstract BdAsyncTask<?, ?, ?> a(String str, String str2, String str3, String str4, a aVar);
+
+    public abstract b c(String str);
+
+    public abstract void d();
+
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = null;
+            this.b = null;
+        }
+    }
 
     public xv4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public String a(String str, String str2) throws CertificateException, InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, UnsupportedEncodingException {
-        InterceptResult invokeLL;
-        int length;
+    public static xv4 b() {
+        InterceptResult invokeV;
+        CustomResponsedMessage runTask;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                PublicKey publicKey = X509Certificate.getInstance(new ByteArrayInputStream(str.getBytes())).getPublicKey();
-                JSONArray jSONArray = new JSONArray();
-                byte[] bytes = str2.getBytes("UTF-8");
-                if (bytes.length % 116 == 0) {
-                    length = bytes.length / 116;
-                } else {
-                    length = (bytes.length / 116) + 1;
-                }
-                for (int i = 0; i < length; i++) {
-                    if (1 == length) {
-                        jSONArray.put(ai.j(b(publicKey, bytes)));
-                    } else if (i != length - 1) {
-                        byte[] bArr = new byte[116];
-                        System.arraycopy(bytes, i * 116, bArr, 0, 116);
-                        jSONArray.put(ai.j(b(publicKey, bArr)));
-                    } else {
-                        int i2 = i * 116;
-                        int length2 = bytes.length - i2;
-                        byte[] bArr2 = new byte[length2];
-                        System.arraycopy(bytes, i2, bArr2, 0, length2);
-                        jSONArray.put(ai.j(b(publicKey, bArr2)));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
+                synchronized (xv4.class) {
+                    if (a == null && (runTask = MessageManager.getInstance().runTask(2001293, xv4.class)) != null && runTask.getData() != null) {
+                        a = (xv4) runTask.getData();
                     }
                 }
-                return ai.j(jSONArray.toString().getBytes("UTF-8"));
             }
-            return null;
+            return a;
         }
-        return (String) invokeLL.objValue;
-    }
-
-    public final byte[] b(Key key, byte[] bArr) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, UnsupportedEncodingException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, key, bArr)) == null) {
-            Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
-            cipher.init(1, key);
-            return cipher.doFinal(bArr);
-        }
-        return (byte[]) invokeLL.objValue;
+        return (xv4) invokeV.objValue;
     }
 }

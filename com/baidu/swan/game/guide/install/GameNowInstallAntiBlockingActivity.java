@@ -10,10 +10,10 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dl3;
-import com.baidu.tieba.my3;
-import com.baidu.tieba.ol3;
-import com.baidu.tieba.uk3;
+import com.baidu.tieba.el3;
+import com.baidu.tieba.ny3;
+import com.baidu.tieba.pl3;
+import com.baidu.tieba.vk3;
 @SuppressLint({"BaseActivity"})
 /* loaded from: classes3.dex */
 public class GameNowInstallAntiBlockingActivity extends Activity {
@@ -33,16 +33,16 @@ public class GameNowInstallAntiBlockingActivity extends Activity {
 
     @Override // android.app.Activity
     public void onCreate(@Nullable Bundle bundle) {
-        int c0 = ol3.c0(this);
+        int c0 = pl3.c0(this);
         super.onCreate(bundle);
-        ol3.g(this, c0);
-        my3.q();
+        pl3.g(this, c0);
+        ny3.q();
         setContentView(R.layout.obfuscated_res_0x7f0d00b3);
         Intent intent = getIntent();
         if (intent != null) {
             this.a = intent.getStringExtra("type");
             intent.getStringExtra("packageName");
-            uk3.d(intent.getStringExtra("ubc_params"));
+            vk3.d(intent.getStringExtra("ubc_params"));
         }
         ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910ab);
         View findViewById = findViewById(R.id.obfuscated_res_0x7f0910ad);
@@ -53,23 +53,23 @@ public class GameNowInstallAntiBlockingActivity extends Activity {
             findViewById(R.id.obfuscated_res_0x7f0910ac).setVisibility(0);
             imageView.setImageResource(R.drawable.obfuscated_res_0x7f08017f);
             findViewById(R.id.obfuscated_res_0x7f0910a9).setBackgroundResource(R.color.obfuscated_res_0x7f060317);
-            my3.n();
+            ny3.n();
         } else {
             FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07014c));
             layoutParams2.gravity = 80;
             imageView.setLayoutParams(layoutParams2);
             findViewById(R.id.obfuscated_res_0x7f0910ac).setVisibility(8);
-            if (dl3.m()) {
+            if (el3.m()) {
                 imageView.setImageResource(R.drawable.obfuscated_res_0x7f08017d);
-            } else if (dl3.n()) {
+            } else if (el3.n()) {
                 imageView.setImageResource(R.drawable.obfuscated_res_0x7f08017e);
-            } else if (dl3.r()) {
+            } else if (el3.r()) {
                 imageView.setImageResource(R.drawable.obfuscated_res_0x7f080180);
             } else {
                 imageView.setImageResource(R.drawable.obfuscated_res_0x7f08017c);
             }
             findViewById(R.id.obfuscated_res_0x7f0910a9).setBackgroundResource(R.color.obfuscated_res_0x7f0602e6);
-            my3.o();
+            ny3.o();
         }
         findViewById.setOnClickListener(new a());
     }

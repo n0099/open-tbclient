@@ -2,6 +2,7 @@ package com.baidu.tieba;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,10 +14,7 @@ public class ug9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public int b;
-    public int c;
-    public int d;
-    public mg9 e;
+    public String b;
 
     public ug9() {
         Interceptable interceptable = $ic;
@@ -31,68 +29,37 @@ public class ug9 {
                 return;
             }
         }
-        this.e = new mg9();
+        this.a = -1;
+        this.b = null;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
-        }
-        return invokeV.intValue;
-    }
-
-    public mg9 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.e;
-        }
-        return (mg9) invokeV.objValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.a;
         }
         return invokeV.intValue;
     }
 
-    public int d() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.b;
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public void f(JSONObject jSONObject) {
+    public void c(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, jSONObject) != null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         try {
-            this.e.c(jSONObject.optJSONObject("error"));
-            this.a = jSONObject.optInt("forum_id");
-            jSONObject.optString("forum_name");
-            this.b = jSONObject.optInt("signed");
-            jSONObject.optInt("is_on");
-            jSONObject.optInt("is_filter");
-            this.c = jSONObject.optInt("sign_day_count");
-            this.d = jSONObject.optInt("cur_score");
+            this.a = jSONObject.optInt("errno");
+            jSONObject.optString("errmsg");
+            this.b = jSONObject.optString(VideoFinishResult.KEY_ERROR_USER_MSG);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }

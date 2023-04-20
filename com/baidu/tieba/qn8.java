@@ -1,37 +1,95 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AlaInfoData;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.TiebaStaticHelper;
-import com.baidu.tbadk.core.util.YYLiveUtil;
+import android.os.SystemClock;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class qn8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public long b;
+    public long c;
+    public boolean d;
 
-    public static void a(String str, UserData userData) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948097710, "Lcom/baidu/tieba/qn8;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948097710, "Lcom/baidu/tieba/qn8;");
+        }
+    }
+
+    public qn8() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, str, userData) == null) && userData != null && userData.getUserId() != null && userData.getAlaUserData() != null && userData.getAlaInfo() != null) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            AlaInfoData alaInfo = userData.getAlaInfo();
-            String str2 = null;
-            if (!StringUtils.isNull(alaInfo.appId)) {
-                str2 = alaInfo.appId;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            if (alaInfo.mYyExtData != null) {
-                str2 = TiebaStatic.YYValues.YY_LIVE;
+        }
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = 0L;
+            this.b = 0L;
+            this.c = 0L;
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.c = SystemClock.elapsedRealtime();
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b = SystemClock.elapsedRealtime();
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.d = true;
+            this.a = SystemClock.elapsedRealtime();
+        }
+    }
+
+    public void d(o79 o79Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, o79Var) == null) && this.d) {
+            this.d = false;
+            long elapsedRealtime = SystemClock.elapsedRealtime();
+            long j = this.b - this.a;
+            long j2 = elapsedRealtime - this.c;
+            long j3 = j2 + j;
+            if ((BdNetTypeUtil.netType() == 2 || j <= 17500) && o79Var != null) {
+                o79Var.a(j, j2, j3);
             }
-            statisticItem.param("obj_param1", YYLiveUtil.calculateLiveType(alaInfo));
-            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, str2);
-            TiebaStaticHelper.addYYParam(statisticItem, alaInfo.mYyExtData);
-            TiebaStatic.log(statisticItem);
         }
     }
 }

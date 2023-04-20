@@ -1,97 +1,100 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.sapi2.activity.BaseActivity;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Build;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.apache.http.cookie.ClientCookie;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class j52 {
+public class j52 extends s93 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public JSONArray b;
-    public String c;
-    public String d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947834210, "Lcom/baidu/tieba/j52;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947834210, "Lcom/baidu/tieba/j52;");
-                return;
-            }
-        }
-        e = eo1.a;
-    }
-
-    public j52() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public j52(s83 s83Var) {
+        super(s83Var, "/swanAPI/remoteDebug");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {s83Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static j52 b(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.s93
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, v73 v73Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            j52 j52Var = new j52();
-            try {
-                j52Var.b = jSONObject.getJSONArray("host");
-                j52Var.a = jSONObject.getString("appKey");
-                jSONObject.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
-                j52Var.c = jSONObject.getString(ClientCookie.PORT_ATTR);
-                j52Var.d = Uri.decode(jSONObject.optString("url"));
-                return j52Var;
-            } catch (JSONException unused) {
-                if (e) {
-                    Log.e("RemoteDebugModel", "DebuggerLaunchAction params is invalid");
-                    return null;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, v73Var)) == null) {
+            v42.i("RemoteDebugAction", "handle entity: " + unitedSchemeEntity.toString());
+            return false;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.s93
+    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, v73 v73Var) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, v73Var)) == null) {
+            v42.i("RemoteDebugAction", "handleSubAction subAction: " + str);
+            if (!m52.d()) {
+                v42.c("RemoteDebugAction", "Can't invoke this action outside Remote Debug mode");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                return false;
+            }
+            SwanAppActivity w = u73.K().w();
+            char c = 65535;
+            int hashCode = str.hashCode();
+            if (hashCode != -279631955) {
+                if (hashCode == 1013845168 && str.equals("/swanAPI/remoteDebug/reload")) {
+                    c = 0;
                 }
-                return null;
+            } else if (str.equals("/swanAPI/remoteDebug/shutdown")) {
+                c = 1;
             }
+            if (c != 0) {
+                if (c != 1) {
+                    return super.i(context, unitedSchemeEntity, callbackHandler, str, v73Var);
+                }
+                if (w != null) {
+                    if (Build.VERSION.SDK_INT >= 21) {
+                        w.finishAndRemoveTask();
+                    } else {
+                        w.finish();
+                    }
+                    System.exit(0);
+                }
+                return true;
+            }
+            v42.i("RemoteDebugAction", "Remote Debug reload");
+            if (w != null) {
+                Intent intent = w.getIntent();
+                m52.f();
+                u73.K().n(new String[0]);
+                u73.K().l(intent.getExtras(), "update_tag_by_remote_debug");
+            }
+            return true;
         }
-        return (j52) invokeL.objValue;
-    }
-
-    public String a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            JSONArray jSONArray = this.b;
-            if (jSONArray == null) {
-                return "";
-            }
-            String optString = jSONArray.optString(i);
-            if (TextUtils.isEmpty(optString)) {
-                return "";
-            }
-            return "http://" + optString + ":" + this.c;
-        }
-        return (String) invokeI.objValue;
+        return invokeLLLLL.booleanValue;
     }
 }

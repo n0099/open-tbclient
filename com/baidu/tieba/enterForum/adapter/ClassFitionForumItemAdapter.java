@@ -12,9 +12,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.np6;
-import com.baidu.tieba.q25;
-import com.baidu.tieba.vr6;
+import com.baidu.tieba.op6;
+import com.baidu.tieba.r25;
+import com.baidu.tieba.wr6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,8 +25,8 @@ import java.util.List;
 public class ClassFitionForumItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<np6> a;
-    public vr6.b b;
+    public List<op6> a;
+    public wr6.b b;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -95,7 +95,7 @@ public class ClassFitionForumItemAdapter extends RecyclerView.Adapter<RecyclerVi
         }
     }
 
-    public ClassFitionForumItemAdapter(TbPageContext tbPageContext, List<np6> list) {
+    public ClassFitionForumItemAdapter(TbPageContext tbPageContext, List<op6> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -123,14 +123,14 @@ public class ClassFitionForumItemAdapter extends RecyclerView.Adapter<RecyclerVi
         return invokeI.intValue;
     }
 
-    public void m(vr6.b bVar) {
+    public void m(wr6.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
             this.b = bVar;
         }
     }
 
-    public void update(List<np6> list) {
+    public void update(List<op6> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
             this.a = list;
@@ -150,14 +150,14 @@ public class ClassFitionForumItemAdapter extends RecyclerView.Adapter<RecyclerVi
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
-        List<np6> list;
+        List<op6> list;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048579, this, viewHolder, i) == null) && (list = this.a) != null && list.get(i) != null && (viewHolder instanceof b)) {
             b bVar = (b) viewHolder;
             bVar.a.setImageResource(R.drawable.icon_pure_post_speak24);
             bVar.a.setImageDrawable(WebPManager.getMaskDrawable(this.a.get(i).a(), true));
             bVar.b.setText(this.a.get(i).b());
-            q25 d = q25.d(bVar.b);
+            r25 d = r25.d(bVar.b);
             d.B(R.dimen.T_X09);
             d.w(R.color.CAM_X0105);
             bVar.c.setOnClickListener(new a(this, i));

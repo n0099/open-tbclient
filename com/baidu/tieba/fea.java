@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,13 +8,30 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.utils.FileUtils;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class fea implements lea {
+public abstract class fea {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
-    public byte[] b;
-    public boolean c;
+    public a a;
+    public int b;
+    public fea c;
+    public cea d;
+    public volatile boolean e;
+    public volatile boolean f;
+    public String g;
+
+    /* loaded from: classes4.dex */
+    public interface a {
+        void a(fea feaVar);
+
+        void b(fea feaVar);
+
+        void c(int i, int i2);
+
+        void d(String str, fea feaVar);
+    }
 
     public fea() {
         Interceptable interceptable = $ic;
@@ -29,122 +47,137 @@ public class fea implements lea {
         }
     }
 
-    @Override // com.baidu.tieba.lea
-    public int a(byte[] bArr, int i) {
-        InterceptResult invokeLI;
+    public String a(String str, String str2) {
+        InterceptResult invokeLL;
+        String fileNameWithOutExtention;
+        StringBuilder sb;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, bArr, i)) == null) {
-            float f = this.a;
-            if (f != 1.0d) {
-                if (bArr != null) {
-                    this.b = c(bArr, f);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
+            }
+            if (str2 == null) {
+                str2 = "";
+            }
+            if (TextUtils.isEmpty(this.g)) {
+                sb = new StringBuilder();
+                fileNameWithOutExtention = FileUtils.removeExtention(str);
+            } else {
+                fileNameWithOutExtention = FileUtils.getFileNameWithOutExtention(str);
+                sb = new StringBuilder();
+                sb.append(this.g);
+            }
+            sb.append(fileNameWithOutExtention);
+            sb.append(str2);
+            return sb.toString();
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public abstract void b();
+
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.b = i;
+        }
+    }
+
+    public abstract void d(cea ceaVar);
+
+    public void e(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
+            this.a = aVar;
+        }
+    }
+
+    public void f(fea feaVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, feaVar) == null) {
+            this.c = feaVar;
+        }
+    }
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || this.f) {
+            return;
+        }
+        this.e = true;
+        a aVar = this.a;
+        if (aVar != null) {
+            aVar.d(getClass().getName() + str, this);
+        }
+    }
+
+    public abstract void h();
+
+    public void i(int i) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) || (aVar = this.a) == null) {
+            return;
+        }
+        aVar.c(this.b, i);
+    }
+
+    public boolean j(cea ceaVar) {
+        InterceptResult invokeL;
+        List<aea> a2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, ceaVar)) == null) {
+            if (ceaVar != null && ceaVar.c() != null && ceaVar.c().size() == 1 && ceaVar.c().get(0).a() != null && (a2 = ceaVar.c().get(0).a()) != null && a2.size() == 1) {
+                aea aeaVar = a2.get(0);
+                if (aeaVar.b() != null && !aeaVar.b().isNeedEdit()) {
+                    return false;
                 }
-                return i;
             }
-            this.b = bArr;
-            this.c = true;
-            return i;
-        }
-        return invokeLI.intValue;
-    }
-
-    @Override // com.baidu.tieba.lea
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            float f = this.a;
-            return f >= 0.0f && f <= 1.0f;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.lea
-    public boolean a(int i, int i2, int i3, int i4) {
-        InterceptResult invokeIIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4)) == null) {
-            return false;
-        }
-        return invokeIIII.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.lea
-    public byte[] a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            if (this.c) {
-                this.c = false;
-                return this.b;
-            }
-            return null;
-        }
-        return (byte[]) invokeI.objValue;
-    }
-
-    public void b(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048580, this, f) == null) {
-            this.a = f;
-        }
-    }
-
-    @Override // com.baidu.tieba.lea
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return true;
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.lea
-    public void c() {
+    public int k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.c = false;
-            this.b = null;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.b : invokeV.intValue;
     }
 
-    public final byte[] c(byte[] bArr, float f) {
-        InterceptResult invokeLF;
+    public void l(cea ceaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048583, this, bArr, f)) == null) {
-            if (bArr == null || bArr.length == 0) {
-                return null;
+        if (interceptable == null || interceptable.invokeL(1048587, this, ceaVar) == null) {
+            this.d = ceaVar;
+            a aVar = this.a;
+            if (aVar != null) {
+                aVar.c(this.b, 100);
+                this.a.b(this);
             }
-            int length = bArr.length / 2;
-            short[] sArr = new short[length];
-            for (int i = 0; i < length; i++) {
-                int i2 = i * 2;
-                sArr[i] = (short) (((short) (((bArr[i2 + 1] & 255) << 8) | (bArr[i2] & 255))) * f);
+            fea feaVar = this.c;
+            if (feaVar != null) {
+                feaVar.d(ceaVar);
             }
-            for (int i3 = 0; i3 < length; i3++) {
-                int i4 = i3 * 2;
-                bArr[i4] = (byte) (sArr[i3] & 255);
-                bArr[i4 + 1] = (byte) ((sArr[i3] & 65280) >> 8);
-            }
-            return bArr;
-        }
-        return (byte[]) invokeLF.objValue;
-    }
-
-    @Override // com.baidu.tieba.lea
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.c = false;
-            this.b = null;
         }
     }
 
-    @Override // com.baidu.tieba.lea
-    public void e() {
+    public boolean m() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.c == null : invokeV.booleanValue;
+    }
+
+    public cea n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.d : (cea) invokeV.objValue;
+    }
+
+    public void o() {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (aVar = this.a) == null) {
+            return;
         }
+        aVar.a(this);
     }
 }

@@ -1,25 +1,60 @@
 package com.baidu.tieba;
 
+import android.os.Handler;
+import android.os.Looper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 /* loaded from: classes6.dex */
 public class w8b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public GiftBagsInfo a;
+    public Handler a;
     public boolean b;
+    public Runnable c;
 
-    public w8b(GiftBagsInfo giftBagsInfo, boolean z) {
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ w8b a;
+
+        public a(w8b w8bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {w8bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = w8bVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                RLog.info("PayFrequencyManager", "mResetFrequencyRunnable mIsFrequency:" + this.a.b + " to false");
+                this.a.b = false;
+            }
+        }
+    }
+
+    public w8b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {giftBagsInfo, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,32 +64,21 @@ public class w8b {
                 return;
             }
         }
-        this.a = giftBagsInfo;
-        this.b = z;
+        this.a = new Handler(Looper.getMainLooper());
+        this.b = false;
+        this.c = new a(this);
     }
 
-    public static boolean b(w8b w8bVar) {
-        InterceptResult invokeL;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, w8bVar)) == null) {
-            if (w8bVar != null && w8bVar.a() != null && w8bVar.a().giftbag != null && !w8bVar.a().giftbag.isEmpty()) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            RLog.info("PayFrequencyManager", "destory mIsFrequency:" + this.b);
+            this.b = false;
+            this.a.removeCallbacks(this.c);
         }
-        return invokeL.booleanValue;
     }
 
-    public GiftBagsInfo a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (GiftBagsInfo) invokeV.objValue;
-    }
-
-    public boolean c() {
+    public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -63,10 +87,15 @@ public class w8b {
         return invokeV.booleanValue;
     }
 
-    public void d(boolean z) {
+    public void e(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            RLog.info("PayFrequencyManager", "setIsFrequency from:" + this.b + " to:" + z);
             this.b = z;
+            this.a.removeCallbacks(this.c);
+            if (this.b) {
+                this.a.postDelayed(this.c, 3000L);
+            }
         }
     }
 }

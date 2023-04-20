@@ -3,19 +3,20 @@ package com.baidu.tieba;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.FrameLayout;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class ad7 extends um<jd7, a> {
+public class ad7 extends vm<kd7, a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -23,7 +24,7 @@ public class ad7 extends um<jd7, a> {
     public class a extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
+        public View a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(ad7 ad7Var, View view2) {
@@ -43,28 +44,19 @@ public class ad7 extends um<jd7, a> {
                     return;
                 }
             }
-            if (view2 instanceof TextView) {
-                this.a = (TextView) view2;
-                ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-1, -2);
-                marginLayoutParams.topMargin = ii.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X003);
-                this.a.setLayoutParams(marginLayoutParams);
-                this.a.setText(R.string.obfuscated_res_0x7f0f0772);
-                this.a.setPadding(ii.g(ad7Var.mContext, R.dimen.M_W_X005), ii.g(ad7Var.mContext, R.dimen.M_H_X005), 0, 0);
-                q25 d = q25.d(this.a);
-                d.B(R.dimen.T_X07);
-                d.C(R.string.F_X02);
+            if (view2 instanceof ViewGroup) {
+                ViewGroup viewGroup = (ViewGroup) view2;
+                if (viewGroup.getChildCount() > 0) {
+                    this.a = viewGroup.getChildAt(0);
+                }
             }
         }
 
         public void a() {
-            TextView textView;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (textView = this.a) != null) {
-                q25 d = q25.d(textView);
-                d.w(R.color.CAM_X0105);
-                d.n(1);
-                d.o(R.string.J_X06);
-                d.f(R.color.CAM_X0205);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                SkinManager.setBackgroundColor(this.a, R.color.CAM_X0209);
+                SkinManager.setBackgroundColor(this.itemView, R.color.CAM_X0205);
             }
         }
     }
@@ -92,24 +84,30 @@ public class ad7 extends um<jd7, a> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.um
-    /* renamed from: u */
+    @Override // com.baidu.tieba.vm
+    /* renamed from: s */
     public a onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new a(this, new TextView(this.mContext));
+            FrameLayout frameLayout = new FrameLayout(this.mContext);
+            View view2 = new View(this.mContext);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+            layoutParams.leftMargin = ii.g(this.mContext, R.dimen.M_W_X005);
+            layoutParams.rightMargin = ii.g(this.mContext, R.dimen.M_W_X005);
+            frameLayout.addView(view2, layoutParams);
+            return new a(this, frameLayout);
         }
         return (a) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.um
-    /* renamed from: x */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, jd7 jd7Var, a aVar) {
+    @Override // com.baidu.tieba.vm
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, kd7 kd7Var, a aVar) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, jd7Var, aVar})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, kd7Var, aVar})) == null) {
             aVar.a();
             return aVar.getView();
         }

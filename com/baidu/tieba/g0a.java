@@ -1,110 +1,78 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.graphics.Rect;
+import android.util.TypedValue;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+@SuppressLint({"ViewConstructor"})
 /* loaded from: classes4.dex */
-public class g0a {
+public class g0a extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public l0a b;
-    public b0a c;
+    public final int a;
+    public boolean b;
 
-    /* loaded from: classes4.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes4.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public boolean b;
-        public int c;
-        public l0a d;
-        public b0a e;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = "";
-            this.b = true;
-            this.c = 0;
-            this.d = null;
-            this.e = null;
-        }
-
-        public g0a d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                e();
-                return new g0a(this, null);
-            }
-            return (g0a) invokeV.objValue;
-        }
-
-        public final void e() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                if (TextUtils.isEmpty(this.a)) {
-                    this.a = FileHelper.getVideoTmpDir() + File.separator + "shaft_images";
-                }
-                if (this.c <= 0) {
-                    this.c = ((int) (Runtime.getRuntime().maxMemory() / 1024)) / 8;
-                }
-                if (this.d == null) {
-                    this.d = new l0a(this.c);
-                }
-                if (this.e == null) {
-                    this.e = new b0a(this.a);
-                }
-            }
-        }
-    }
-
-    public g0a(b bVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public g0a(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bVar};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        String unused = bVar.a;
-        this.a = bVar.b;
-        int unused2 = bVar.c;
-        this.b = bVar.d;
-        this.c = bVar.e;
+        this.a = (int) TypedValue.applyDimension(1, 15.0f, context.getResources().getDisplayMetrics());
+        setBackgroundResource(R.drawable.obfuscated_res_0x7f0812fe);
     }
 
-    public /* synthetic */ g0a(b bVar, a aVar) {
-        this(bVar);
+    public boolean a(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
+            Rect rect = new Rect();
+            getHitRect(rect);
+            int i3 = rect.left;
+            int i4 = this.a;
+            rect.left = i3 - i4;
+            rect.right += i4;
+            rect.top -= i4;
+            rect.bottom += i4;
+            return rect.contains(i, i2);
+        }
+        return invokeII.booleanValue;
+    }
+
+    @Override // android.view.View
+    public boolean isPressed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.view.View
+    public void setPressed(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.b = z;
+        }
     }
 }

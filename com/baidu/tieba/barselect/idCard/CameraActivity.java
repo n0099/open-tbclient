@@ -24,11 +24,11 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.CameraActivityConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ab6;
 import com.baidu.tieba.barselect.idCard.CameraView;
-import com.baidu.tieba.c05;
+import com.baidu.tieba.bb6;
+import com.baidu.tieba.d05;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.ya6;
+import com.baidu.tieba.za6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -55,7 +55,7 @@ public class CameraActivity extends BaseActivity {
     public FrameOverlayView k;
     public MaskView l;
     public ImageView m;
-    public ab6 n;
+    public bb6 n;
     public View.OnClickListener o;
     public View.OnClickListener p;
     public View.OnClickListener q;
@@ -141,7 +141,7 @@ public class CameraActivity extends BaseActivity {
         public void a(Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bitmap) == null) {
-                ya6.c(new a(this, bitmap));
+                za6.c(new a(this, bitmap));
             }
         }
     }
@@ -323,7 +323,7 @@ public class CameraActivity extends BaseActivity {
     }
 
     /* loaded from: classes3.dex */
-    public class d implements c05.e {
+    public class d implements d05.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Activity a;
@@ -348,18 +348,18 @@ public class CameraActivity extends BaseActivity {
             this.a = activity;
         }
 
-        @Override // com.baidu.tieba.c05.e
-        public void onClick(c05 c05Var) {
+        @Override // com.baidu.tieba.d05.e
+        public void onClick(d05 d05Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) {
-                c05Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, d05Var) == null) {
+                d05Var.dismiss();
                 this.a.finish();
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class e implements c05.e {
+    public class e implements d05.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Activity a;
@@ -384,11 +384,11 @@ public class CameraActivity extends BaseActivity {
             this.a = activity;
         }
 
-        @Override // com.baidu.tieba.c05.e
-        public void onClick(c05 c05Var) {
+        @Override // com.baidu.tieba.d05.e
+        public void onClick(d05 d05Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) {
-                c05Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, d05Var) == null) {
+                d05Var.dismiss();
                 Intent intent = new Intent();
                 intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
                 intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
@@ -400,7 +400,7 @@ public class CameraActivity extends BaseActivity {
     }
 
     /* loaded from: classes3.dex */
-    public class f implements ab6 {
+    public class f implements bb6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CameraActivity a;
@@ -423,7 +423,7 @@ public class CameraActivity extends BaseActivity {
             this.a = cameraActivity;
         }
 
-        @Override // com.baidu.tieba.ab6
+        @Override // com.baidu.tieba.bb6
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -711,14 +711,14 @@ public class CameraActivity extends BaseActivity {
     public final void Q1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ya6.a();
+            za6.a();
         }
     }
 
     public final void R1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ya6.c(new n(this));
+            za6.c(new n(this));
         }
     }
 
@@ -885,12 +885,12 @@ public class CameraActivity extends BaseActivity {
     public void U1(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
-            c05 c05Var = new c05(activity);
-            c05Var.setCanceledOnTouchOutside(false);
-            c05Var.setTitle(R.string.request_permission_default_title);
-            c05Var.setMessageId(R.string.request_permission_camera);
-            c05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0a41, new e(this, activity)).setNegativeButton(R.string.obfuscated_res_0x7f0f038d, new d(this, activity)).create(getPageContext());
-            c05Var.show();
+            d05 d05Var = new d05(activity);
+            d05Var.setCanceledOnTouchOutside(false);
+            d05Var.setTitle(R.string.request_permission_default_title);
+            d05Var.setMessageId(R.string.request_permission_camera);
+            d05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0a41, new e(this, activity)).setNegativeButton(R.string.obfuscated_res_0x7f0f038d, new d(this, activity)).create(getPageContext());
+            d05Var.show();
         }
     }
 

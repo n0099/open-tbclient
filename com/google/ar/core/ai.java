@@ -1,6 +1,6 @@
 package com.google.ar.core;
 
-import com.baidu.tieba.hsa;
+import com.baidu.tieba.psa;
 import com.google.ar.core.Session;
 /* loaded from: classes8.dex */
 public enum ai extends Session.c {
@@ -9,7 +9,7 @@ public enum ai extends Session.c {
     }
 
     @Override // com.google.ar.core.Session.c
-    public final hsa a(long j, Session session) {
+    public final psa a(long j, Session session) {
         return session.c.a(j, session);
     }
 }

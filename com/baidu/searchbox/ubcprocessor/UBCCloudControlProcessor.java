@@ -14,8 +14,8 @@ import com.baidu.searchbox.cloudcontrol.data.CloudControlResponseInfo;
 import com.baidu.searchbox.cloudcontrol.processor.ICloudControlProcessor;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
-import com.baidu.tieba.baa;
-import com.baidu.tieba.faa;
+import com.baidu.tieba.jaa;
+import com.baidu.tieba.naa;
 import com.baidu.ubc.UBCManager;
 import java.util.List;
 import org.json.JSONArray;
@@ -134,11 +134,11 @@ public class UBCCloudControlProcessor implements ICloudControlProcessor {
             str = option.optString("version_asc");
         }
         boolean z = !"0".equals(str);
-        faa faaVar = new faa("", serviceData);
-        if (faaVar.l()) {
-            final String g = faaVar.g();
-            ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).registerConfig(faaVar, z, new baa() { // from class: com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor.1
-                @Override // com.baidu.tieba.baa
+        naa naaVar = new naa("", serviceData);
+        if (naaVar.l()) {
+            final String g = naaVar.g();
+            ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).registerConfig(naaVar, z, new jaa() { // from class: com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor.1
+                @Override // com.baidu.tieba.jaa
                 public void setUBCConfigStatisticData(JSONObject jSONObject) {
                     ICloudControlUBCCallBack iCloudControlUBCCallBack2;
                     if (jSONObject != null && (iCloudControlUBCCallBack2 = iCloudControlUBCCallBack) != null) {

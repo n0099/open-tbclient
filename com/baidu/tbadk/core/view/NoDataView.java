@@ -19,9 +19,9 @@ import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a9;
-import com.baidu.tieba.hv4;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.m55;
+import com.baidu.tieba.iv4;
+import com.baidu.tieba.n55;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -263,9 +263,9 @@ public class NoDataView extends LinearLayout {
             this.f = (TextView) this.b.findViewById(R.id.tv_subtitle);
             this.g = (TextView) this.b.findViewById(R.id.tv_title);
             this.h = (TBSpecificationBtn) this.b.findViewById(R.id.btn_func);
-            m55 m55Var = new m55();
+            n55 n55Var = new n55();
             this.h.setTextSize(R.dimen.T_X05);
-            this.h.setConfig(m55Var);
+            this.h.setConfig(n55Var);
             this.l = (LinearLayout) this.b.findViewById(R.id.two_button_layout);
             this.o = R.color.CAM_X0107;
             this.p = R.color.CAM_X0109;
@@ -279,7 +279,7 @@ public class NoDataView extends LinearLayout {
         if (interceptable == null || interceptable.invokeLI(1048581, this, a9Var, i) == null) {
             if (a9Var instanceof TbPageContext) {
                 TbPageContext tbPageContext = (TbPageContext) a9Var;
-                hv4 layoutMode = tbPageContext.getLayoutMode();
+                iv4 layoutMode = tbPageContext.getLayoutMode();
                 if (i == 4) {
                     z = true;
                 } else {
@@ -427,11 +427,11 @@ public class NoDataView extends LinearLayout {
             if (bVar2 != null && bVar != null) {
                 this.i = (TBSpecificationBtn) this.l.findViewById(R.id.btn_left);
                 this.j = (TBSpecificationBtn) this.l.findViewById(R.id.btn_right);
-                m55 m55Var = new m55();
+                n55 n55Var = new n55();
                 this.i.setTextSize(R.dimen.obfuscated_res_0x7f070207);
-                this.i.setConfig(m55Var);
+                this.i.setConfig(n55Var);
                 this.j.setTextSize(R.dimen.obfuscated_res_0x7f070207);
-                this.j.setConfig(m55Var);
+                this.j.setConfig(n55Var);
                 this.i.setOnClickListener(bVar.a);
                 this.i.setText(bVar.b);
                 this.j.setOnClickListener(bVar2.a);

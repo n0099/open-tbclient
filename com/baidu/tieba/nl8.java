@@ -1,65 +1,176 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.memberCenter.memberTask.MemberTaskCenterHttpResMessage;
+import com.baidu.tieba.memberCenter.memberTask.MemberTaskCenterRequestMessage;
+import com.baidu.tieba.memberCenter.memberTask.MemberTaskCenterSocketResMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import java.util.List;
+import tbclient.GetMemberTaskList.ImgInfo;
 /* loaded from: classes5.dex */
-public final class nl8 {
+public class nl8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<ImgInfo> a;
+    public long b;
+    public List<jl8> c;
+    public b d;
+    public za e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948006415, "Lcom/baidu/tieba/nl8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948006415, "Lcom/baidu/tieba/nl8;");
-                return;
-            }
-        }
-        a = new a(null);
+    /* loaded from: classes5.dex */
+    public interface b {
+        void a(int i, String str);
+
+        void b(List<ImgInfo> list, List<jl8> list2, long j);
     }
 
     /* loaded from: classes5.dex */
-    public static final class a {
+    public class a extends za {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ nl8 a;
 
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(nl8 nl8Var, int i, int i2) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nl8Var, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = nl8Var;
+        }
+
+        @Override // com.baidu.tieba.za
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
+                return;
+            }
+            boolean z = responsedMessage instanceof MemberTaskCenterHttpResMessage;
+            if (!z && !(responsedMessage instanceof MemberTaskCenterSocketResMessage)) {
+                return;
+            }
+            if (z) {
+                MemberTaskCenterHttpResMessage memberTaskCenterHttpResMessage = (MemberTaskCenterHttpResMessage) responsedMessage;
+                if (memberTaskCenterHttpResMessage.hasError()) {
+                    if (this.a.d != null) {
+                        this.a.d.a(memberTaskCenterHttpResMessage.getError(), memberTaskCenterHttpResMessage.getErrorString());
+                        return;
+                    }
+                    return;
+                }
+                this.a.a = memberTaskCenterHttpResMessage.getImageList();
+                this.a.c = memberTaskCenterHttpResMessage.getTaskList();
+                if (memberTaskCenterHttpResMessage.getUserPointInfo() != null) {
+                    this.a.b = memberTaskCenterHttpResMessage.getUserPointInfo().points_total.longValue();
+                }
+                if (this.a.d != null) {
+                    this.a.d.b(this.a.a, this.a.c, this.a.b);
+                }
+            }
+            if (responsedMessage instanceof MemberTaskCenterSocketResMessage) {
+                MemberTaskCenterSocketResMessage memberTaskCenterSocketResMessage = (MemberTaskCenterSocketResMessage) responsedMessage;
+                if (memberTaskCenterSocketResMessage.hasError()) {
+                    if (this.a.d != null) {
+                        this.a.d.a(memberTaskCenterSocketResMessage.getError(), memberTaskCenterSocketResMessage.getErrorString());
+                        return;
+                    }
+                    return;
+                }
+                this.a.a = memberTaskCenterSocketResMessage.getImageList();
+                this.a.c = memberTaskCenterSocketResMessage.getTaskList();
+                if (memberTaskCenterSocketResMessage.getUserPointInfo() != null) {
+                    this.a.b = memberTaskCenterSocketResMessage.getUserPointInfo().points_total.longValue();
+                }
+                if (this.a.d != null) {
+                    this.a.d.b(this.a.a, this.a.c, this.a.b);
                 }
             }
         }
+    }
 
-        public final void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                new StatisticItem("c15102").param("uid", TbadkCoreApplication.getCurrentAccount()).eventStat();
+    public nl8() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.e = new a(this, CmdConfigHttp.CMD_MEMBER_TASK, 309427);
+        il9.h(309427, MemberTaskCenterSocketResMessage.class, false, false);
+        il9.c(309427, CmdConfigHttp.CMD_MEMBER_TASK, TbConfig.GET_MEMBER_TASK, MemberTaskCenterHttpResMessage.class, false, false, false, false);
+        MessageManager.getInstance().registerListener(this.e);
+    }
+
+    public void l(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+            this.b = j;
+        }
+    }
+
+    public void m(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
+            this.d = bVar;
+        }
+    }
+
+    public long h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return invokeV.longValue;
+    }
+
+    public List<jl8> i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            MessageManager.getInstance().sendMessage(new MemberTaskCenterRequestMessage());
+        }
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.e);
         }
     }
 }

@@ -27,7 +27,7 @@ import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.ubc.CaseUbc;
 import com.baidu.android.imsdk.ubc.ScreenUbc;
-import com.baidu.tieba.h70;
+import com.baidu.tieba.i70;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -953,7 +953,7 @@ public final class Utility {
         if (interceptable == null || interceptable.invokeL(65636, null, context) == null) {
             LogUtils.i("Utility", "--- Start IM Service ---");
             try {
-                h70.e(context).d(context, new Intent(context, h70.class));
+                i70.e(context).d(context, new Intent(context, i70.class));
             } catch (Exception e) {
                 LogUtils.e("Utility", "Exception ", e);
             }
@@ -1106,7 +1106,7 @@ public final class Utility {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65549, null, context, i)) == null) {
-            Intent intent = new Intent(context, h70.class);
+            Intent intent = new Intent(context, i70.class);
             intent.putExtra("method", i);
             intent.putExtra("service_id", 2);
             intent.setPackage(context.getPackageName());
@@ -1119,7 +1119,7 @@ public final class Utility {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65550, null, context, i)) == null) {
-            Intent intent = new Intent(context, h70.class);
+            Intent intent = new Intent(context, i70.class);
             intent.putExtra("method", i);
             intent.putExtra("service_id", 3);
             intent.setPackage(context.getPackageName());
@@ -1431,7 +1431,7 @@ public final class Utility {
                 creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, str);
             }
             try {
-                h70.e(context).d(context, creatMethodIntent);
+                i70.e(context).d(context, creatMethodIntent);
             } catch (Exception e) {
                 ListenerManager.getInstance().removeListener(str);
                 LogUtils.e("Utility", "Exception ", e);

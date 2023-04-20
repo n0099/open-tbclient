@@ -21,8 +21,8 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.data.MemberBroadcastData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.la0;
-import com.baidu.tieba.m56;
+import com.baidu.tieba.ma0;
+import com.baidu.tieba.n56;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -196,10 +196,10 @@ public class AlaLiveTabFeedActivity extends BaseFragmentActivity {
             this.a = navigationBar;
             navigationBar.setCenterTextTitle(getString(R.string.ala_live));
             this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            m56.a().c(TbadkCoreApplication.getInst());
-            la0 la0Var = new la0();
-            this.b = la0Var;
-            View onCreateView = la0Var.onCreateView(this, null, LiveFeedPageSdk.HOST_LIVE_TAB, this.c, null, null, false);
+            n56.a().c(TbadkCoreApplication.getInst());
+            ma0 ma0Var = new ma0();
+            this.b = ma0Var;
+            View onCreateView = ma0Var.onCreateView(this, null, LiveFeedPageSdk.HOST_LIVE_TAB, this.c, null, null, false);
             if (onCreateView.getParent() instanceof ViewGroup) {
                 ((ViewGroup) onCreateView.getParent()).removeView(onCreateView);
             }

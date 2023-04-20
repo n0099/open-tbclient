@@ -9,7 +9,7 @@ import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class bv {
     public static bv a = new bv();
 
@@ -25,7 +25,7 @@ public class bv {
     /* renamed from: a  reason: collision with other field name */
     public List<a> f955a = new ArrayList();
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static abstract class a {
         public void a(dv.a aVar) {
         }

@@ -17,8 +17,8 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.q25;
-import com.baidu.tieba.vm;
+import com.baidu.tieba.r25;
+import com.baidu.tieba.wm;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class PbListView extends vm {
+public class PbListView extends wm {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int B = 2131234513;
     public transient /* synthetic */ FieldHolder $fh;
@@ -235,7 +235,7 @@ public class PbListView extends vm {
         }
     }
 
-    @Override // com.baidu.tieba.vm
+    @Override // com.baidu.tieba.wm
     public void d() {
         View.OnClickListener onClickListener;
         Interceptable interceptable = $ic;
@@ -546,7 +546,7 @@ public class PbListView extends vm {
         }
     }
 
-    @Override // com.baidu.tieba.vm
+    @Override // com.baidu.tieba.wm
     public View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -568,7 +568,7 @@ public class PbListView extends vm {
             this.t = (ImageView) this.g.findViewById(R.id.pb_more_view_top_line);
             this.h = this.g.findViewById(R.id.empty_view);
             this.v = (LinearLayout) this.g.findViewById(R.id.pb_more_top_extra_view);
-            q25 d = q25.d(this.p);
+            r25 d = r25.d(this.p);
             d.B(R.dimen.T_X12);
             d.C(R.string.F_X01);
             d.w(R.color.CAM_X0107);

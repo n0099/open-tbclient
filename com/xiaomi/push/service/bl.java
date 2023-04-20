@@ -17,14 +17,14 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class bl extends bv.a implements cu.a {
     public long a;
 
     /* renamed from: a  reason: collision with other field name */
     public XMPushService f944a;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a implements cu.b {
         @Override // com.xiaomi.push.cu.b
         public String a(String str) {
@@ -50,7 +50,7 @@ public class bl extends bv.a implements cu.a {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class b extends com.xiaomi.push.cu {
         public b(Context context, com.xiaomi.push.ct ctVar, cu.b bVar, String str) {
             super(context, ctVar, bVar, str);

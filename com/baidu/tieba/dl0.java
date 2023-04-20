@@ -1,25 +1,89 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import androidx.core.provider.FontsContractCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.webkit.sdk.WebChromeClient;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class dl0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static File a(Context context) {
+    public static String a(String str, String str2, String str3, String str4) {
+        InterceptResult invokeLLLL;
+        double d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, str, str2, str3, str4)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            x01.f(jSONObject, "downStatus", str);
+            try {
+                d = Double.parseDouble(str2) * 100.0d;
+            } catch (Exception unused) {
+                d = 0.0d;
+            }
+            x01.e(jSONObject, "process", Math.round(d));
+            x01.f(jSONObject, "uri", str3);
+            x01.f(jSONObject, FontsContractCompat.Columns.FILE_ID, str4);
+            return jSONObject.toString();
+        }
+        return (String) invokeLLLL.objValue;
+    }
+
+    public static void b(@Nullable bi0 bi0Var, boolean z, @Nullable Map<String, String> map) {
+        String str;
+        String str2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65537, null, new Object[]{bi0Var, Boolean.valueOf(z), map}) != null) || bi0Var == null) {
+            return;
+        }
+        if (map == null) {
+            map = new HashMap<>();
+        }
+        if (z) {
+            str = "0";
+        } else {
+            str = "202";
+        }
+        y01.e(map, "status", str);
+        if (z) {
+            str2 = "调用成功";
+        } else {
+            str2 = "";
+        }
+        y01.e(map, "message", str2);
+        bi0Var.a(z, map);
+    }
+
+    public static void c(@Nullable bi0 bi0Var, String str, String str2, String str3, String str4) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLLLL(65538, null, bi0Var, str, str2, str3, str4) != null) || bi0Var == null) {
+            return;
+        }
+        HashMap hashMap = new HashMap();
+        hashMap.put(WebChromeClient.KEY_ARG_CALLBACK, str);
+        JSONObject jSONObject = new JSONObject();
+        x01.f(jSONObject, "uri", str2);
+        x01.f(jSONObject, FontsContractCompat.Columns.FILE_ID, str3);
+        x01.f(jSONObject, "downStatus", str4);
+        hashMap.put("data", jSONObject.toString());
+        b(bi0Var, true, hashMap);
+    }
+
+    public static String d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            File externalCacheDir = context.getExternalCacheDir();
-            if (externalCacheDir == null) {
-                return context.getCacheDir();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
             }
-            return externalCacheDir;
+            return x01.c(str).optString("bt_info");
         }
-        return (File) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 }

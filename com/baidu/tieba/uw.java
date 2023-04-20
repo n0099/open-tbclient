@@ -1,73 +1,72 @@
 package com.baidu.tieba;
 
-import android.widget.RelativeLayout;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.view.CardForumHeadLayout;
-import com.baidu.tbadk.TbPageContext;
+import android.content.res.Resources;
+import android.graphics.Rect;
+import android.view.View;
+import androidx.recyclerview.widget.RecyclerView;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import com.baidu.card.AutoVideoCardViewHolder;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.sina.weibo.sdk.utils.ResourceManager;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class uw extends rw implements hx<ThreadData>, ix {
+public class uw {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final CardForumHeadLayout e;
-    public int f;
-    public int g;
-    public int h;
 
-    public uw(TbPageContext tbPageContext) {
+    public static Rect a(on onVar, View view2, int i) {
+        InterceptResult invokeLLI;
+        BdTypeRecyclerView bdTypeRecyclerView;
+        RecyclerView.LayoutManager layoutManager;
+        int i2;
+        View findViewByPosition;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, onVar, view2, i)) == null) {
+            if (view2.getTag() instanceof AutoVideoCardViewHolder) {
+                return ThreadCardUtils.computeViewArea(((AutoVideoCardViewHolder) view2.getTag()).t().getVideoContainer());
             }
+            if (!(onVar instanceof BdTypeRecyclerView) || (layoutManager = (bdTypeRecyclerView = (BdTypeRecyclerView) onVar).getLayoutManager()) == null) {
+                return null;
+            }
+            int firstVisiblePosition = bdTypeRecyclerView.getFirstVisiblePosition();
+            int lastVisiblePosition = bdTypeRecyclerView.getLastVisiblePosition();
+            List<in> data = onVar.getData();
+            Object item = ListUtils.getItem(data, i);
+            if (!(item instanceof BaseCardInfo)) {
+                return null;
+            }
+            BaseCardInfo baseCardInfo = (BaseCardInfo) item;
+            int headerViewsCount = bdTypeRecyclerView.getHeaderViewsCount();
+            if (firstVisiblePosition > headerViewsCount) {
+                i2 = firstVisiblePosition - headerViewsCount;
+            } else {
+                i2 = headerViewsCount;
+            }
+            while (i2 <= lastVisiblePosition) {
+                Object item2 = ListUtils.getItem(data, i2 - headerViewsCount);
+                if ((item2 instanceof BaseCardInfo) && baseCardInfo.position == ((BaseCardInfo) item2).position && (findViewByPosition = layoutManager.findViewByPosition(i2)) != null && (findViewByPosition.getTag() instanceof AutoVideoCardViewHolder)) {
+                    return ThreadCardUtils.computeViewArea(((AutoVideoCardViewHolder) findViewByPosition.getTag()).t().getVideoContainer());
+                }
+                i2++;
+            }
+            return null;
         }
-        this.f = ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds10);
-        this.g = ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds44);
-        this.h = ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds60);
-        this.e = new CardForumHeadLayout(tbPageContext.getPageActivity());
-        h(-1);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-        layoutParams.leftMargin = this.g;
-        layoutParams.topMargin = this.f;
-        layoutParams.bottomMargin = this.h;
-        i(layoutParams);
-        g(this.e);
+        return (Rect) invokeLLI.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.hx
-    /* renamed from: k */
-    public void a(ThreadData threadData) {
+    public static int b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadData) == null) {
-            if (threadData != null && threadData.getAuthor() != null) {
-                this.e.setVisibility(0);
-                this.e.setData(threadData);
-                this.e.setTag(threadData);
-                return;
-            }
-            this.e.setVisibility(8);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            Resources resources = TbadkCoreApplication.getInst().getResources();
+            return resources.getIdentifier("icon_mask_level_usergrouth_" + i, ResourceManager.DRAWABLE, TbadkCoreApplication.getInst().getPackageName());
         }
-    }
-
-    @Override // com.baidu.tieba.ix
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            this.e.f();
-        }
+        return invokeI.intValue;
     }
 }

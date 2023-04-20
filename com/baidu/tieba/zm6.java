@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.an6;
+import com.baidu.tieba.bn6;
 import com.baidu.tieba.danmu.data.ItemState;
 import com.baidu.tieba.danmu.data.state.DrawState;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class zm6 implements an6.a {
+public final class zm6 implements bn6.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,8 +27,8 @@ public final class zm6 implements an6.a {
         }
     }
 
-    @Override // com.baidu.tieba.an6.a
-    public void a(fl6 item, long j, fn6 displayer, zk6 config) {
+    @Override // com.baidu.tieba.bn6.a
+    public void a(gl6 item, long j, gn6 displayer, al6 config) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{item, Long.valueOf(j), displayer, config}) == null) {
             Intrinsics.checkNotNullParameter(item, "item");
@@ -36,7 +36,7 @@ public final class zm6 implements an6.a {
             Intrinsics.checkNotNullParameter(config, "config");
             DrawState f = item.f();
             if (item.i().compareTo(ItemState.Measured) >= 0) {
-                f.A(displayer.getWidth() - ((((float) (j - item.j())) / ((float) config.t())) * (displayer.getWidth() + f.q())));
+                f.A((displayer.getWidth() - f.q()) * 0.5f);
                 f.H(true);
                 return;
             }

@@ -1,75 +1,32 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
+import android.app.Activity;
+import com.baidu.adp.widget.ListView.BdRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tbadk.trackConfig.TrackConfigResponseMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.PbListView;
+import com.baidu.tieba.yo5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ip5 {
+public class ip5 extends dp5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b a;
-    public HttpMessageListener b;
+    public yo5.c a;
+    public TbPageContext b;
+    public BdRecyclerView c;
+    public PbListView d;
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(boolean z, boolean z2);
-    }
-
-    /* loaded from: classes5.dex */
-    public class a extends HttpMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ip5 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(ip5 ip5Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ip5Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ip5Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof TrackConfigResponseMessage)) {
-                TrackConfigResponseMessage trackConfigResponseMessage = (TrackConfigResponseMessage) httpResponsedMessage;
-                if (this.a.a != null) {
-                    this.a.a.a(trackConfigResponseMessage.isSuccess(), trackConfigResponseMessage.getData());
-                }
-            }
-        }
-    }
-
-    public ip5() {
+    public ip5(TbPageContext tbPageContext, BdRecyclerView bdRecyclerView, yo5.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdRecyclerView, cVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -79,25 +36,90 @@ public class ip5 {
                 return;
             }
         }
-        this.b = new a(this, CmdConfigHttp.CMD_TRACK_CONFIG);
-        MessageManager.getInstance().registerListener(this.b);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_TRACK_CONFIG, TbConfig.SERVER_ADDRESS + TbConfig.GET_TRACK_CONFIG);
-        tbHttpMessageTask.setResponsedClass(TrackConfigResponseMessage.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        ug.h(TbSingleton.getInstance().isIsOpenTrack());
+        this.b = tbPageContext;
+        this.c = bdRecyclerView;
+        this.a = cVar;
+        PbListView pbListView = new PbListView(getActivity());
+        this.d = pbListView;
+        pbListView.c();
+        this.d.r(R.color.transparent);
+        this.d.v(this.a.a);
+        this.d.N(this.a.b);
+        this.d.A();
+        this.d.J(R.dimen.tbfontsize33);
+        this.d.H(SkinManager.getColor(R.color.CAM_X0107));
+        this.d.D(R.color.CAM_X0110);
+        this.d.u();
     }
 
-    public void b(b bVar) {
+    private Activity getActivity() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.a = bVar;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+            return this.b.getPageActivity();
+        }
+        return (Activity) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.dp5
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (this.a.g) {
+                e();
+            } else {
+                d();
+            }
         }
     }
 
-    public void c() {
+    @Override // com.baidu.tieba.dp5
+    public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_TRACK_CONFIG));
+            this.c.setNextPage(this.d);
+            this.d.S();
+            this.d.F(this.a.c);
+            this.d.E(null);
+        }
+    }
+
+    @Override // com.baidu.tieba.dp5
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.c.setNextPage(this.d);
+            this.d.g();
+            this.d.F(this.a.e);
+            this.d.E(null);
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.c.setNextPage(this.d);
+            this.d.g();
+            this.d.F(this.a.d);
+            this.d.E(null);
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.c.setNextPage(this.d);
+            this.d.g();
+            this.d.F(this.a.f);
+            this.d.E(this.a.h);
+        }
+    }
+
+    @Override // com.baidu.tieba.gp5
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.d.e(i);
         }
     }
 }

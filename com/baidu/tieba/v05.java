@@ -1,33 +1,24 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.content.DialogInterface;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.dialog.TBAlertBuilder;
+import com.baidu.tbadk.data.HotEventData;
+import com.baidu.tieba.ma5;
+import com.baidu.tieba.t05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class v05 extends s05 {
+public class v05 extends t05 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Activity c;
-    public TBAlertBuilder d;
-    public DialogInterface.OnDismissListener e;
-
-    public abstract void g(TBAlertBuilder tBAlertBuilder);
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
-    public abstract void i();
+    public final HotEventData c;
+    public j95 d;
 
     /* loaded from: classes6.dex */
-    public class a implements DialogInterface.OnDismissListener {
+    public class a implements ma5.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ v05 a;
@@ -50,27 +41,23 @@ public abstract class v05 extends s05 {
             this.a = v05Var;
         }
 
-        @Override // android.content.DialogInterface.OnDismissListener
-        public void onDismiss(DialogInterface dialogInterface) {
+        @Override // com.baidu.tieba.ma5.d
+        public void onDismiss() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                this.a.h();
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.a.c();
-                if (this.a.e != null) {
-                    this.a.e.onDismiss(dialogInterface);
-                }
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public v05(Activity activity) {
+    public v05(Activity activity, HotEventData hotEventData) {
         super(activity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
+            Object[] objArr = {activity, hotEventData};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -81,27 +68,35 @@ public abstract class v05 extends s05 {
                 return;
             }
         }
-        this.c = activity;
+        this.c = hotEventData;
     }
 
-    @Override // com.baidu.tieba.s05
+    @Override // com.baidu.tieba.t05
     public void b() {
-        TBAlertBuilder tBAlertBuilder;
+        j95 j95Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (tBAlertBuilder = this.d) != null) {
-            tBAlertBuilder.dismiss();
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (j95Var = this.d) != null) {
+            j95Var.m();
         }
     }
 
-    @Override // com.baidu.tieba.s05
+    @Override // com.baidu.tieba.t05
     public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(this.c);
-            this.d = tBAlertBuilder;
-            tBAlertBuilder.s(new a(this));
-            g(this.d);
-            i();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.d = ma5.h(this.c, new a(this));
+        }
+    }
+
+    @Override // com.baidu.tieba.t05
+    public void d(@NonNull t05.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            if (a15.i()) {
+                aVar.a(false);
+            } else {
+                aVar.a(true);
+            }
         }
     }
 }

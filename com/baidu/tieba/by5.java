@@ -1,17 +1,16 @@
 package com.baidu.tieba;
 
-import android.text.TextPaint;
-import android.text.style.ClickableSpan;
-import com.baidu.tbadk.TbadkApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes3.dex */
-public abstract class by5 extends ClickableSpan {
+public class by5 {
     public static /* synthetic */ Interceptable $ic;
+    public static by5 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public hm0 a;
 
     public by5() {
         Interceptable interceptable = $ic;
@@ -23,16 +22,34 @@ public abstract class by5 extends ClickableSpan {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = dm0.b().a();
     }
 
-    @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
-    public void updateDrawState(TextPaint ds) {
+    public static by5 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ds) == null) {
-            Intrinsics.checkNotNullParameter(ds, "ds");
-            ds.setColor(TbadkApplication.getInst().getResources().getColor(R.color.CAM_X0303));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (by5.class) {
+                    if (b == null) {
+                        b = new by5();
+                    }
+                }
+            }
+            return b;
         }
+        return (by5) invokeV.objValue;
+    }
+
+    public int b(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
+            return this.a.a(str, i);
+        }
+        return invokeLI.intValue;
     }
 }

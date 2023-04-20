@@ -1,127 +1,37 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.baseEditMark.MarkData;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tieba.myCollection.baseEditMark.MarkModel;
-import com.baidu.tieba.zs4;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AlaInfoData;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.TiebaStaticHelper;
+import com.baidu.tbadk.core.util.YYLiveUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class yn8 extends zs4 {
+public class yn8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MarkModel a;
 
-    public yn8(BaseActivity baseActivity) {
+    public static void a(String str, UserData userData) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseActivity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeLL(65536, null, str, userData) == null) && userData != null && userData.getUserId() != null && userData.getAlaUserData() != null && userData.getAlaInfo() != null) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            AlaInfoData alaInfo = userData.getAlaInfo();
+            String str2 = null;
+            if (!StringUtils.isNull(alaInfo.appId)) {
+                str2 = alaInfo.appId;
             }
-        }
-        this.a = null;
-        this.a = new MarkModel(baseActivity);
-    }
-
-    public yn8(BaseFragmentActivity baseFragmentActivity) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragmentActivity};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+            if (alaInfo.mYyExtData != null) {
+                str2 = TiebaStatic.YYValues.YY_LIVE;
             }
-        }
-        this.a = null;
-        this.a = new MarkModel(baseFragmentActivity);
-    }
-
-    @Override // com.baidu.tieba.zs4
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.T();
-        }
-    }
-
-    @Override // com.baidu.tieba.zs4
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.U();
-        }
-    }
-
-    @Override // com.baidu.tieba.zs4
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a.V();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.zs4
-    public MarkData f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a.W();
-        }
-        return (MarkData) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.zs4
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a.X();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.zs4
-    public void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.a.Y(z);
-        }
-    }
-
-    @Override // com.baidu.tieba.zs4
-    public void i(MarkData markData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, markData) == null) {
-            this.a.Z(markData);
-        }
-    }
-
-    @Override // com.baidu.tieba.zs4
-    public void j(zs4.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
-            this.a.a0(aVar);
+            statisticItem.param("obj_param1", YYLiveUtil.calculateLiveType(alaInfo));
+            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, str2);
+            TiebaStaticHelper.addYYParam(statisticItem, alaInfo.mYyExtData);
+            TiebaStatic.log(statisticItem);
         }
     }
 }

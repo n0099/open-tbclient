@@ -1,49 +1,59 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public final class eva {
+public class eva<TResult> {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<String, a> a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final mua<TResult> a;
 
-    /* loaded from: classes4.dex */
-    public interface a {
-        String a(cva cvaVar);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947749177, "Lcom/baidu/tieba/eva;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947749177, "Lcom/baidu/tieba/eva;");
+    public eva() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new HashMap();
+        this.a = new mua<>();
     }
 
-    public static Map<String, a> a() {
-        InterceptResult invokeV;
+    public void a(Exception exc) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a : (Map) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+            mua<TResult> muaVar = this.a;
+            synchronized (muaVar.a) {
+                if (!muaVar.b) {
+                    muaVar.b = true;
+                    muaVar.d = exc;
+                    muaVar.a.notifyAll();
+                    muaVar.b();
+                }
+            }
+        }
     }
 
-    public static void b(String str, a aVar) {
+    public void b(TResult tresult) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, aVar) == null) {
-            a.put(str, aVar);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tresult) == null) {
+            mua<TResult> muaVar = this.a;
+            synchronized (muaVar.a) {
+                if (!muaVar.b) {
+                    muaVar.b = true;
+                    muaVar.c = tresult;
+                    muaVar.a.notifyAll();
+                    muaVar.b();
+                }
+            }
         }
     }
 }

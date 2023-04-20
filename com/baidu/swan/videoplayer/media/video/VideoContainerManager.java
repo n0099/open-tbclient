@@ -12,11 +12,11 @@ import androidx.annotation.NonNull;
 import com.baidu.swan.apps.component.container.view.SwanAppComponentContainerView;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.j32;
-import com.baidu.tieba.l32;
-import com.baidu.tieba.n42;
-import com.baidu.tieba.ow2;
-import com.baidu.tieba.u42;
+import com.baidu.tieba.k32;
+import com.baidu.tieba.m32;
+import com.baidu.tieba.o42;
+import com.baidu.tieba.pw2;
+import com.baidu.tieba.v42;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.drawable.ScalingUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -24,7 +24,7 @@ import com.facebook.imagepipeline.common.ResizeOptions;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import java.io.File;
 /* loaded from: classes3.dex */
-public class VideoContainerManager extends j32<VideoHolderWrapper, ow2> {
+public class VideoContainerManager extends k32<VideoHolderWrapper, pw2> {
     public Context i;
     public SwanAppComponentContainerView j;
     public VideoHolderWrapper k;
@@ -146,8 +146,8 @@ public class VideoContainerManager extends j32<VideoHolderWrapper, ow2> {
         }
     }
 
-    public VideoContainerManager(@NonNull Context context, @NonNull ow2 ow2Var) {
-        super(context, ow2Var);
+    public VideoContainerManager(@NonNull Context context, @NonNull pw2 pw2Var) {
+        super(context, pw2Var);
         this.i = context;
         SwanAppComponentContainerView swanAppComponentContainerView = new SwanAppComponentContainerView(this.i);
         this.j = swanAppComponentContainerView;
@@ -167,7 +167,7 @@ public class VideoContainerManager extends j32<VideoHolderWrapper, ow2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.j32
+    @Override // com.baidu.tieba.k32
     @NonNull
     /* renamed from: L */
     public VideoHolderWrapper v(@NonNull Context context) {
@@ -180,14 +180,14 @@ public class VideoContainerManager extends j32<VideoHolderWrapper, ow2> {
         Q(playerIcon, 0);
     }
 
-    public void O(ow2 ow2Var) {
-        if (ow2Var == null) {
+    public void O(pw2 pw2Var) {
+        if (pw2Var == null) {
             return;
         }
-        P(ow2Var);
+        P(pw2Var);
     }
 
-    @Override // com.baidu.tieba.j32
+    @Override // com.baidu.tieba.k32
     @NonNull
     public SwanAppComponentContainerView u(@NonNull Context context) {
         return this.j;
@@ -216,9 +216,9 @@ public class VideoContainerManager extends j32<VideoHolderWrapper, ow2> {
         Q(I().getVideoPoster(), 8);
     }
 
-    public final void P(ow2 ow2Var) {
+    public final void P(pw2 pw2Var) {
         boolean z;
-        if (ow2Var == null) {
+        if (pw2Var == null) {
             return;
         }
         if (m() != null) {
@@ -231,15 +231,15 @@ public class VideoContainerManager extends j32<VideoHolderWrapper, ow2> {
                 ((ViewGroup) I().getParent()).removeView(I());
             }
             G().setDescendantFocusability(393216);
-            l32 insert = insert();
-            u42.b("video", "Add CoverContainerWrapper " + insert.a() + " position " + ow2Var.h);
+            m32 insert = insert();
+            v42.b("video", "Add CoverContainerWrapper " + insert.a() + " position " + pw2Var.h);
             return;
         }
-        ow2 n = n();
-        if (!TextUtils.equals(ow2Var.b, n.b) || !TextUtils.equals(ow2Var.c, n.c) || !TextUtils.equals(ow2Var.d, n.d)) {
-            n42.a("video", "updateCoverContainerPosition with different id");
+        pw2 n = n();
+        if (!TextUtils.equals(pw2Var.b, n.b) || !TextUtils.equals(pw2Var.c, n.c) || !TextUtils.equals(pw2Var.d, n.d)) {
+            o42.a("video", "updateCoverContainerPosition with different id");
         }
-        l32 update = update((VideoContainerManager) ow2Var);
-        u42.b("video", "Update CoverContainerWrapper " + update.a() + " position " + ow2Var.h);
+        m32 update = update((VideoContainerManager) pw2Var);
+        v42.b("video", "Update CoverContainerWrapper " + update.a() + " position " + pw2Var.h);
     }
 }

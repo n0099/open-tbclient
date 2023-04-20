@@ -1,20 +1,20 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.k1b;
-import com.baidu.tieba.m1b;
-import com.baidu.tieba.m5b;
-import com.baidu.tieba.v1b;
+import com.baidu.tieba.d2b;
+import com.baidu.tieba.s1b;
+import com.baidu.tieba.u1b;
+import com.baidu.tieba.u5b;
 import java.util.concurrent.atomic.AtomicBoolean;
 import rx.internal.subscriptions.CancellableSubscription;
 import rx.internal.subscriptions.SequentialSubscription;
 /* loaded from: classes9.dex */
 public final class SingleFromEmitter$SingleEmitterImpl<T> extends AtomicBoolean implements Object<T> {
     public static final long serialVersionUID = 8082834163465882809L;
-    public final k1b<? super T> actual;
+    public final s1b<? super T> actual;
     public final SequentialSubscription resource = new SequentialSubscription();
 
-    public SingleFromEmitter$SingleEmitterImpl(k1b<? super T> k1bVar) {
-        this.actual = k1bVar;
+    public SingleFromEmitter$SingleEmitterImpl(s1b<? super T> s1bVar) {
+        this.actual = s1bVar;
     }
 
     public void onError(Throwable th) {
@@ -29,7 +29,7 @@ public final class SingleFromEmitter$SingleEmitterImpl<T> extends AtomicBoolean 
                 this.resource.unsubscribe();
             }
         }
-        m5b.j(th);
+        u5b.j(th);
     }
 
     public void onSuccess(T t) {
@@ -42,12 +42,12 @@ public final class SingleFromEmitter$SingleEmitterImpl<T> extends AtomicBoolean 
         }
     }
 
-    public void setCancellation(v1b v1bVar) {
-        setSubscription(new CancellableSubscription(v1bVar));
+    public void setCancellation(d2b d2bVar) {
+        setSubscription(new CancellableSubscription(d2bVar));
     }
 
-    public void setSubscription(m1b m1bVar) {
-        this.resource.update(m1bVar);
+    public void setSubscription(u1b u1bVar) {
+        this.resource.update(u1bVar);
     }
 
     public boolean isUnsubscribed() {

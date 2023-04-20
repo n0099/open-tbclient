@@ -1,91 +1,66 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class w3a extends l4a<x4a> {
+public class w3a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View g;
 
-    @Override // com.baidu.tieba.q4a
-    public void a(@NonNull WriteData writeData) {
+    public static void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, writeData) == null) {
+        if ((interceptable != null && interceptable.invokeI(65536, null, i) != null) || i == -1) {
+            return;
+        }
+        new StatisticItem("c14823").addParam("obj_source", i).addParam("uid", TbadkCoreApplication.getCurrentAccount()).eventStat();
+    }
+
+    public static void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65537, null, i) == null) {
+            new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam("obj_locate", 14).addParam("obj_type", i).eventStat();
         }
     }
 
-    @Override // com.baidu.tieba.q4a
-    public void c(WriteData writeData) {
+    public static void c(WriteData writeData) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, writeData) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.q4a
-    public void e(@NonNull WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, writeData) == null) {
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w3a(@NonNull TbPageContext<?> tbPageContext) {
-        super(tbPageContext, x4a.class);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (Class) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeL(65538, null, writeData) == null) && writeData != null && writeData.isFromGameRank()) {
+            int i2 = 1;
+            if (writeData.getXiuxiuOriginalContent() != null && !writeData.getXiuxiuOriginalContent().equals(writeData.getContent())) {
+                i = 1;
+            } else {
+                i = 0;
             }
+            new StatisticItem("c15065").addParam("obj_id", writeData.getGameId()).addParam("obj_name", writeData.getGameName()).addParam("obj_param1", i).addParam(TiebaStatic.Params.OBJ_PARAM2, (writeData.getXiuxiuOriginalFname() == null || writeData.getXiuxiuOriginalFname().equals(writeData.getForumName())) ? 0 : 0).eventStat();
         }
     }
 
-    @Override // com.baidu.tieba.q4a
-    public void onChangeSkinType(int i) {
+    public static void d(WriteData writeData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            q25.d(this.g).f(R.color.CAM_X0210);
+        if ((interceptable == null || interceptable.invokeL(65539, null, writeData) == null) && writeData != null && writeData.isFromGameRank()) {
+            int i = 6;
+            String rewardsType = writeData.getRewardsType();
+            if (!TextUtils.isEmpty(rewardsType)) {
+                if (rewardsType.equals("gift")) {
+                    i = 1;
+                } else if (rewardsType.equals("coupon")) {
+                    i = 2;
+                } else if (rewardsType.equals("imprint")) {
+                    i = 3;
+                } else if (rewardsType.equals("memberCard")) {
+                    i = 4;
+                } else if (rewardsType.equals("experience")) {
+                    i = 5;
+                }
+            }
+            new StatisticItem("c15064").addParam("obj_id", writeData.getGameId()).addParam("obj_name", writeData.getGameName()).addParam("obj_param1", i).eventStat();
         }
-    }
-
-    public void z(int i) {
-        View view2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048581, this, i) == null) && (view2 = this.g) != null) {
-            view2.setVisibility(i);
-        }
-    }
-
-    @Override // com.baidu.tieba.q4a
-    public View s(@NonNull ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
-            this.g = new View(this.a.getPageActivity());
-            ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-1, ii.g(this.a.getPageActivity(), R.dimen.L_X01));
-            marginLayoutParams.setMargins(ii.g(this.a.getPageActivity(), R.dimen.M_W_X007), 0, ii.g(this.a.getPageActivity(), R.dimen.M_W_X007), 0);
-            this.g.setLayoutParams(marginLayoutParams);
-            return this.g;
-        }
-        return (View) invokeL.objValue;
     }
 }

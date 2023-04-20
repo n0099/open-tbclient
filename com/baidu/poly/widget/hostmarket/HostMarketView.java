@@ -14,7 +14,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.poly.widget.PayChannelEntity;
 import com.baidu.poly.widget.SwitchButton;
 import com.baidu.tieba.R;
-import com.baidu.tieba.eh1;
+import com.baidu.tieba.fh1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -32,9 +32,9 @@ public class HostMarketView extends FrameLayout {
 
     /* loaded from: classes2.dex */
     public interface c {
-        void a(boolean z, PayChannelEntity payChannelEntity, eh1 eh1Var);
+        void a(boolean z, PayChannelEntity payChannelEntity, fh1 fh1Var);
 
-        void b(eh1.a aVar);
+        void b(fh1.a aVar);
     }
 
     /* loaded from: classes2.dex */
@@ -72,7 +72,7 @@ public class HostMarketView extends FrameLayout {
     }
 
     /* loaded from: classes2.dex */
-    public class b implements eh1 {
+    public class b implements fh1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HostMarketView a;
@@ -95,8 +95,8 @@ public class HostMarketView extends FrameLayout {
             this.a = hostMarketView;
         }
 
-        @Override // com.baidu.tieba.eh1
-        public void a(eh1.a aVar) {
+        @Override // com.baidu.tieba.fh1
+        public void a(fh1.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 this.a.e.b(aVar);

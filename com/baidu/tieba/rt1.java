@@ -1,13 +1,12 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.content.Intent;
 /* loaded from: classes6.dex */
 public interface rt1 {
-    void a(Context context, nm3<Boolean> nm3Var);
+    boolean b(Context context, Intent intent, String str, String str2, String str3);
 
-    void b(boolean z, nm3<String> nm3Var);
+    boolean c();
 
-    void c(Context context, nm3<String> nm3Var);
-
-    void d(nm3<Integer> nm3Var);
+    boolean d();
 }

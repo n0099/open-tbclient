@@ -16,12 +16,12 @@ import com.baidu.tieba.R;
 import com.kwad.sdk.api.loader.Wrapper;
 /* loaded from: classes8.dex */
 public final class a extends Dialog {
-    public final InterfaceC0603a GY;
+    public final InterfaceC0602a GY;
     public final String GZ;
 
     /* renamed from: com.kwad.components.core.page.widget.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public interface InterfaceC0603a {
+    public interface InterfaceC0602a {
         void a(DialogInterface dialogInterface);
 
         void b(DialogInterface dialogInterface);
@@ -29,16 +29,16 @@ public final class a extends Dialog {
         void c(DialogInterface dialogInterface);
     }
 
-    public a(@NonNull Context context, @NonNull InterfaceC0603a interfaceC0603a) {
-        this(context, null, interfaceC0603a);
+    public a(@NonNull Context context, @NonNull InterfaceC0602a interfaceC0602a) {
+        this(context, null, interfaceC0602a);
     }
 
-    public a(@NonNull Context context, String str, @NonNull InterfaceC0603a interfaceC0603a) {
+    public a(@NonNull Context context, String str, @NonNull InterfaceC0602a interfaceC0602a) {
         super(context);
         if (context instanceof Activity) {
             setOwnerActivity((Activity) context);
         }
-        this.GY = interfaceC0603a;
+        this.GY = interfaceC0602a;
         this.GZ = str;
     }
 

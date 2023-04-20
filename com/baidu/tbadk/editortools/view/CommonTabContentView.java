@@ -15,7 +15,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.baidu.adp.widget.IndicatorView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cf5;
+import com.baidu.tieba.df5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -177,7 +177,7 @@ public class CommonTabContentView extends LinearLayout implements ViewPager.OnPa
         public transient /* synthetic */ FieldHolder $fh;
         public final int a;
         public final int b;
-        public cf5.a c;
+        public df5.a c;
         public final /* synthetic */ CommonTabContentView d;
 
         @Override // android.widget.Adapter
@@ -187,7 +187,7 @@ public class CommonTabContentView extends LinearLayout implements ViewPager.OnPa
             return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? i : invokeI.longValue;
         }
 
-        public b(CommonTabContentView commonTabContentView, Context context, int i, int i2, cf5.a aVar) {
+        public b(CommonTabContentView commonTabContentView, Context context, int i, int i2, df5.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -313,14 +313,14 @@ public class CommonTabContentView extends LinearLayout implements ViewPager.OnPa
         }
     }
 
-    public void e(cf5 cf5Var) {
+    public void e(df5 df5Var) {
         GridView gridView;
         int i;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cf5Var) != null) || cf5Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, df5Var) != null) || df5Var == null) {
             return;
         }
-        int c2 = cf5Var.c();
+        int c2 = df5Var.c();
         if (this.a.getChildCount() > 0 && this.c == c2) {
             for (int i2 = 0; i2 < this.a.getChildCount(); i2++) {
                 View childAt = this.a.getChildAt(i2);
@@ -332,8 +332,8 @@ public class CommonTabContentView extends LinearLayout implements ViewPager.OnPa
         }
         this.a.setAdapter(null);
         this.c = c2;
-        int b2 = cf5Var.b();
-        int k = cf5Var.k();
+        int b2 = df5Var.b();
+        int k = df5Var.k();
         if (c2 != 0 && b2 != 0 && k != 0) {
             int i3 = k * b2;
             this.e = i3;
@@ -349,21 +349,21 @@ public class CommonTabContentView extends LinearLayout implements ViewPager.OnPa
             } else {
                 this.b.setVisibility(4);
             }
-            this.g = cf5Var.g();
+            this.g = df5Var.g();
             ArrayList arrayList = new ArrayList();
             for (int i6 = 0; i6 < i5; i6++) {
-                if (cf5Var.d() == 0) {
+                if (df5Var.d() == 0) {
                     gridView = new GridView(getContext());
-                    gridView.setVerticalSpacing(cf5Var.l());
+                    gridView.setVerticalSpacing(df5Var.l());
                     gridView.setGravity(17);
-                    gridView.setHorizontalSpacing(cf5Var.e());
-                    if (cf5Var.i() != 0 || cf5Var.j() != 0) {
-                        gridView.setPadding(cf5Var.i(), 0, cf5Var.j(), 0);
+                    gridView.setHorizontalSpacing(df5Var.e());
+                    if (df5Var.i() != 0 || df5Var.j() != 0) {
+                        gridView.setPadding(df5Var.i(), 0, df5Var.j(), 0);
                     }
                     gridView.setSelector(R.color.common_color_10022);
                     gridView.setSelection(-1);
                 } else {
-                    gridView = (GridView) LayoutInflater.from(getContext()).inflate(cf5Var.d(), (ViewGroup) null);
+                    gridView = (GridView) LayoutInflater.from(getContext()).inflate(df5Var.d(), (ViewGroup) null);
                 }
                 GridView gridView2 = gridView;
                 if (this.g != null) {
@@ -376,7 +376,7 @@ public class CommonTabContentView extends LinearLayout implements ViewPager.OnPa
                 } else {
                     i = c2 - (this.e * i7);
                 }
-                gridView2.setAdapter((ListAdapter) new b(this, getContext(), i, i6 * this.e, cf5Var.m()));
+                gridView2.setAdapter((ListAdapter) new b(this, getContext(), i, i6 * this.e, df5Var.m()));
                 arrayList.add(gridView2);
             }
             CommonViewPagerAdapter commonViewPagerAdapter = new CommonViewPagerAdapter(this, arrayList);

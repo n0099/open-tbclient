@@ -23,8 +23,8 @@ import com.baidu.tbadk.core.message.ResponseUpdateMaskMessage;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a9;
 import com.baidu.tieba.bb;
-import com.baidu.tieba.o95;
-import com.baidu.tieba.p45;
+import com.baidu.tieba.p95;
+import com.baidu.tieba.q45;
 import com.baidu.tieba.setting.model.friendAndStrangerSwitch.FriendAndStrangerReqMsg;
 import com.baidu.tieba.setting.model.friendAndStrangerSwitch.FriendAndStrangerSwitchResMsg;
 import com.baidu.tieba.setting.model.friendAndStrangerSwitch.GetFriendAndStrangerSwitchModel;
@@ -120,43 +120,43 @@ public class MsgRemindModel extends BdBaseModel {
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
                 if (i == 2) {
                     if (z) {
-                        o95.d().M(z2);
+                        p95.d().M(z2);
                     }
                 } else if (i == 3) {
                     if (z) {
-                        o95.d().Q(z2);
+                        p95.d().Q(z2);
                     }
                 } else if (i == 1) {
                     if (z) {
-                        o95.d().R(z2);
+                        p95.d().R(z2);
                     }
                 } else if (i == 20) {
                     if (z) {
-                        o95.d().U(z2);
+                        p95.d().U(z2);
                     }
                 } else if (i == 30) {
                     if (z) {
-                        o95.d().W(z2);
+                        p95.d().W(z2);
                     }
                 } else if (i != 10) {
                     if (i == 7) {
                         if (z) {
-                            o95.d().Z(z2);
+                            p95.d().Z(z2);
                         }
                     } else if (i == 35) {
                         if (z) {
-                            o95.d().K(z2);
+                            p95.d().K(z2);
                         }
                     } else if (i == 6) {
                         if (z) {
-                            o95.d().Y(z2);
+                            p95.d().Y(z2);
                         }
                     } else if (i == 33) {
                         if (z) {
-                            o95.d().a0(z2);
+                            p95.d().a0(z2);
                         }
                     } else if (i == 34 && z) {
-                        o95.d().J(z2);
+                        p95.d().J(z2);
                     }
                 }
                 if (this.a.c != null) {
@@ -208,10 +208,10 @@ public class MsgRemindModel extends BdBaseModel {
                 FriendAndStrangerSwitchResMsg friendAndStrangerSwitchResMsg = (FriendAndStrangerSwitchResMsg) httpResponsedMessage;
                 if (friendAndStrangerSwitchResMsg.getError() == 0) {
                     GetFriendAndStrangerSwitchModel.FRIEND_AND_STRANGER_MASK_TYPE = friendAndStrangerReqMsg.mMaskType;
-                    p45 m = p45.m();
+                    q45 m = q45.m();
                     m.z(TbadkCoreApplication.getCurrentAccount() + "key_friend_type", friendAndStrangerReqMsg.mMaskType);
                     GetFriendAndStrangerSwitchModel.FRIEND_PRIVATE_MESSAGE_PUSH_TYPE = friendAndStrangerReqMsg.mPushType;
-                    p45 m2 = p45.m();
+                    q45 m2 = q45.m();
                     m2.z(TbadkCoreApplication.getCurrentAccount() + "key_friend_private_message_type", friendAndStrangerReqMsg.mPushType);
                 }
                 int i = friendAndStrangerReqMsg.mPushType;
@@ -470,7 +470,7 @@ public class MsgRemindModel extends BdBaseModel {
             if (z) {
                 this.b.a(i, true, z2);
                 if (i != 14) {
-                    if (!o95.d().v() && !o95.d().w() && !o95.d().y() && !o95.d().A() && !o95.d().D() && !o95.d().u() && !o95.d().G() && !o95.d().t()) {
+                    if (!p95.d().v() && !p95.d().w() && !p95.d().y() && !p95.d().A() && !p95.d().D() && !p95.d().u() && !p95.d().G() && !p95.d().t()) {
                         this.b.a(14, true, false);
                         return;
                     }

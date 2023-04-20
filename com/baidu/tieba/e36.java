@@ -1,27 +1,37 @@
 package com.baidu.tieba;
 
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes4.dex */
-public class e36 {
+public class e36 extends fr1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile d36 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized d36 a() {
-        InterceptResult invokeV;
-        d36 d36Var;
+    public e36() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (e36.class) {
-                if (a == null) {
-                    a = new d36();
-                }
-                d36Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return d36Var;
         }
-        return (d36) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.fr1
+    public void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            d36.c(z);
+        }
     }
 }

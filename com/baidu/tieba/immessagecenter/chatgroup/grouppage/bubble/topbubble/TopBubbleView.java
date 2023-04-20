@@ -20,7 +20,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatFragment;
-import com.baidu.tieba.q25;
+import com.baidu.tieba.r25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -193,19 +193,19 @@ public class TopBubbleView extends FrameLayout {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            q25 d = q25.d(this.a.d);
+            r25 d = r25.d(this.a.d);
             d.w(R.color.CAM_X0101);
             d.C(R.string.F_X01);
             d.B(R.dimen.T_X10);
-            q25 d2 = q25.d(this.a.e);
+            r25 d2 = r25.d(this.a.e);
             d2.C(R.string.F_X01);
             d2.w(R.color.CAM_X0107);
             d2.B(R.dimen.T_X08);
-            q25 d3 = q25.d(this.a.f);
+            r25 d3 = r25.d(this.a.f);
             d3.m(R.dimen.L_X02);
             d3.o(R.string.J_X05);
             d3.f(R.color.CAM_X0207);
-            q25 d4 = q25.d(this.a.c);
+            r25 d4 = r25.d(this.a.c);
             d4.o(R.string.J_X04);
             d4.f(R.color.CAM_X0304);
             SkinManager.setViewTextColor(this.a.d, (int) R.color.CAM_X0101);
@@ -219,7 +219,7 @@ public class TopBubbleView extends FrameLayout {
     public void c(@NonNull TopBubbleData topBubbleData, GroupChatFragment groupChatFragment) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, topBubbleData, groupChatFragment) == null) && topBubbleData != null) {
-            groupChatFragment.A2(0);
+            groupChatFragment.B2(0);
             this.a.b.setVisibility(0);
             if ("notice".equals(topBubbleData.getTopBubbleType())) {
                 this.a.d.setText(R.string.obfuscated_res_0x7f0f03c9);

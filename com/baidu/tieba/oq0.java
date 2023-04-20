@@ -9,18 +9,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmStatic;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringNumberConversionsKt;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public final class oq0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a c;
+    public static final a b;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
-    public int b;
 
     static {
         InterceptResult invokeClinit;
@@ -35,19 +32,15 @@ public final class oq0 {
                 return;
             }
         }
-        c = new a(null);
+        b = new a(null);
     }
 
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
             if (this != obj) {
-                if (obj instanceof oq0) {
-                    oq0 oq0Var = (oq0) obj;
-                    return Intrinsics.areEqual(this.a, oq0Var.a) && this.b == oq0Var.b;
-                }
-                return false;
+                return (obj instanceof oq0) && Intrinsics.areEqual(this.a, ((oq0) obj).a);
             }
             return true;
         }
@@ -57,9 +50,12 @@ public final class oq0 {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             String str = this.a;
-            return ((str != null ? str.hashCode() : 0) * 31) + this.b;
+            if (str != null) {
+                return str.hashCode();
+            }
+            return 0;
         }
         return invokeV.intValue;
     }
@@ -67,8 +63,8 @@ public final class oq0 {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "TaskCenterPolicy(invokeTaskActiveUrl=" + this.a + ", invokeTaskCoin=" + this.b + SmallTailInfo.EMOTION_SUFFIX;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return "TagItem(text=" + this.a + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }
@@ -96,24 +92,14 @@ public final class oq0 {
             this();
         }
 
-        @JvmStatic
         public final oq0 a(JSONObject jSONObject) {
             InterceptResult invokeL;
-            int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
                 if (jSONObject != null) {
-                    String optString = jSONObject.optString("invoke_active_url");
-                    Intrinsics.checkNotNullExpressionValue(optString, "optString(\"invoke_active_url\")");
-                    String optString2 = jSONObject.optString("invoke_coin");
-                    Intrinsics.checkNotNullExpressionValue(optString2, "optString(\"invoke_coin\")");
-                    Integer intOrNull = StringsKt__StringNumberConversionsKt.toIntOrNull(optString2);
-                    if (intOrNull != null) {
-                        i = intOrNull.intValue();
-                    } else {
-                        i = 0;
-                    }
-                    return new oq0(optString, i);
+                    String optString = jSONObject.optString("text");
+                    Intrinsics.checkNotNullExpressionValue(optString, "jsonObj.optString(\"text\")");
+                    return new oq0(optString);
                 }
                 return null;
             }
@@ -121,41 +107,22 @@ public final class oq0 {
         }
     }
 
-    public oq0(String invokeTaskActiveUrl, int i) {
+    public oq0(String text) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {invokeTaskActiveUrl, Integer.valueOf(i)};
+            Object[] objArr = {text};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(invokeTaskActiveUrl, "invokeTaskActiveUrl");
-        this.a = invokeTaskActiveUrl;
-        this.b = i;
-    }
-
-    public final String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
+        Intrinsics.checkNotNullParameter(text, "text");
+        this.a = text;
     }
 }

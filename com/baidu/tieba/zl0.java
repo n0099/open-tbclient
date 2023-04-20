@@ -1,128 +1,108 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import com.baidu.nadcore.exp.ADConfigError;
+import com.baidu.nadcore.net.request.Headers;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicBoolean;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 /* loaded from: classes7.dex */
-public class zl0 implements im0 {
+public class zl0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public am0 b;
-    public int c;
-    public long d;
-    public AtomicBoolean e;
 
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
+    public static class a extends kr0<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
 
-    /* loaded from: classes7.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final zl0 a;
-        public transient /* synthetic */ FieldHolder $fh;
+        @Override // com.baidu.tieba.ir0
+        public void a(Exception exc, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) {
+            }
+        }
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-228283763, "Lcom/baidu/tieba/zl0$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.jr0
+        /* renamed from: e */
+        public void b(Headers headers, String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLI(1048579, this, headers, str, i) == null) {
+            }
+        }
+
+        public String f(Headers headers, String str, int i) {
+            InterceptResult invokeLLI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, headers, str, i)) == null) ? str : (String) invokeLLI.objValue;
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-228283763, "Lcom/baidu/tieba/zl0$b;");
-                    return;
+            }
+        }
+
+        @Override // com.baidu.tieba.jr0
+        public /* bridge */ /* synthetic */ Object d(Headers headers, String str, int i) throws Exception {
+            f(headers, str, i);
+            return str;
+        }
+    }
+
+    public static t11 a(ADConfigError aDConfigError, int i, boolean z) {
+        InterceptResult invokeCommon;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{aDConfigError, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            t11 t11Var = new t11();
+            s11 b = t11Var.g("1042").b("f1", b(aDConfigError.code)).b("f2", b(String.valueOf(i)));
+            if (z) {
+                str = "0";
+            } else {
+                str = "1";
+            }
+            b.b("f3", b(str));
+            return t11Var;
+        }
+        return (t11) invokeCommon.objValue;
+    }
+
+    public static String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                try {
+                    return URLEncoder.encode(str, IMAudioTransRequest.CHARSET);
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
                 }
             }
-            a = new zl0(null);
+            return "";
         }
+        return (String) invokeL.objValue;
     }
 
-    public zl0() {
+    public static void c(ADConfigError aDConfigError, int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.c = -1;
-        this.d = 0L;
-        this.e = new AtomicBoolean(false);
-    }
-
-    public static zl0 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
-        }
-        return (zl0) invokeV.objValue;
-    }
-
-    public void b() {
-        am0 am0Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            int i = this.c + 1;
-            this.c = i;
-            if (i <= 2 && (am0Var = this.b) != null) {
-                am0Var.e();
-            }
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.e.set(false);
-        }
-    }
-
-    public /* synthetic */ zl0(a aVar) {
-        this();
-    }
-
-    @Override // com.baidu.tieba.im0
-    public void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(1048576, this, z) != null) || this.e.get()) {
+        if ((interceptable != null && interceptable.invokeCommon(65538, null, new Object[]{aDConfigError, Integer.valueOf(i), Boolean.valueOf(z)}) != null) || aDConfigError == null) {
             return;
         }
-        am0 am0Var = this.b;
-        if (am0Var != null) {
-            am0Var.d();
-            this.b = null;
-            this.c = -1;
-        }
-        if (z) {
-            if (this.d == 0 || System.currentTimeMillis() - this.d <= 300000) {
-                return;
-            }
-            if (this.e.compareAndSet(false, true)) {
-                this.b = new am0(60, this.c + 1, true);
-            }
-        } else {
-            if (this.e.compareAndSet(false, true)) {
-                this.b = new am0(60, this.c + 1, false);
-            }
-            wl0.d().f();
-        }
-        b();
-        this.d = System.currentTimeMillis();
+        m11.c(a(aDConfigError, i, z), new a());
     }
 }

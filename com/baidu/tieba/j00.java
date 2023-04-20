@@ -1,110 +1,26 @@
 package com.baidu.tieba;
 
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ByteArrayOutputStream;
+import com.baidu.webkit.internal.Base64;
+import com.google.android.exoplayer2.text.cea.Cea608Decoder;
+import kotlin.jvm.internal.ByteCompanionObject;
 /* loaded from: classes5.dex */
-public class j00 {
+public final class j00 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public boolean b;
-    public boolean c;
 
-    public j00(String str, boolean z, boolean z2) {
+    public static byte[] a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Boolean.valueOf(z), Boolean.valueOf(z2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = str;
-        this.b = z;
-        this.c = z2;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? new byte[]{0, -86, -91, -2, -41, ByteCompanionObject.MAX_VALUE, 37, -25, -33, 93, 51, -73, 32, -81, 61, 108, 37, 126, 14, -125, 125, ExifInterface.MARKER_SOF9, -29, 34, -60, 84, -67, -46, 125, -93, -67, -27, 97, 54, Base64.INTERNAL_PADDING, 0, -6, 83, 67, -116, 43, -24, 26, 88, -5, 33, 27, -105, 49, 76, -70, -32, 105, -48, 67, 69, 102, -111, -81, 93, -103, -18, 17, 55, 81, -34, -80, -76, -13, -84, 6, 91, 10, 48, -56, -1, 45, 9, 23, 34, 6, 103, Base64.INTERNAL_PADDING, ExifInterface.MARKER_SOF13, 29, 70, -19, ExifInterface.MARKER_SOF13, 20, ExifInterface.MARKER_EOI, -43, -97, 75, 23, -124, -101, -71, -75, -107, -88, -13, -71, 80, 90, -76, -119, 51, -80, 118, Byte.MIN_VALUE, -12, -108, 98, -29, -27, 60, -119, -74, 110, 61, 51, -22, 53, 66, -99, -45, -25, 111, -121, 25, -72, ByteCompanionObject.MAX_VALUE, 3, 51, -100, 57, -90, 116, ExifInterface.MARKER_SOF5, -117, 74, -71, 121, 59, 19, -8, -109, 33, -14, 76, -105, -127, -23, 5, 99, -82, 22, -99, 51, 78, -26, 77, -52, -29, 121, ExifInterface.START_CODE, -76, 20, 2, 116, 111, -76, 2, -78, -90, ExifInterface.MARKER_SOF10, 81, 115, 82, 50, 124, -83, 96, 20, ExifInterface.MARKER_SOI, -118, 105, 90, -70, 120, -33, -110, 12, -15, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, 34, -125, -116, 69, ExifInterface.MARKER_SOF10, -103, -109, -124, 26, 94, -89, -98, -11, -66, 89, 48, -68, ExifInterface.MARKER_SOF13, 107, -60, 12, 114, -71, 119, 49, ExifInterface.MARKER_APP1, -65, 113, -99, 3, -90, 79, -88, ExifInterface.MARKER_SOS, -87, -25, ExifInterface.MARKER_SOS, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, 110, -25, 29, 49, 124, -76, -91, 77, -11, -90, 114, ExifInterface.MARKER_SOF1, 118, -22, -5, -124, 19, 22, -74, -75, 78, 28, 47, -69} : (byte[]) invokeV.objValue;
     }
 
-    public static int a(int i) {
-        InterceptResult invokeI;
+    public static byte[] b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i != 4) {
-                            return i != 5 ? -1 : 0;
-                        }
-                        return 1;
-                    }
-                    return 3;
-                }
-                return 4;
-            }
-            return 6;
-        }
-        return invokeI.intValue;
-    }
-
-    public String b(byte[] bArr) {
-        InterceptResult invokeL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            for (int i2 = 0; i2 < (bArr.length + 4) / 5; i2++) {
-                short[] sArr = new short[5];
-                int[] iArr = new int[8];
-                int i3 = 5;
-                for (int i4 = 0; i4 < 5; i4++) {
-                    int i5 = (i2 * 5) + i4;
-                    if (i5 < bArr.length) {
-                        sArr[i4] = (short) (bArr[i5] & 255);
-                    } else {
-                        sArr[i4] = 0;
-                        i3--;
-                    }
-                }
-                int a = a(i3);
-                iArr[0] = (byte) ((sArr[0] >> 3) & 31);
-                iArr[1] = (byte) (((sArr[0] & 7) << 2) | ((sArr[1] >> 6) & 3));
-                iArr[2] = (byte) ((sArr[1] >> 1) & 31);
-                iArr[3] = (byte) (((sArr[1] & 1) << 4) | ((sArr[2] >> 4) & 15));
-                iArr[4] = (byte) (((sArr[2] & 15) << 1) | ((sArr[3] >> 7) & 1));
-                iArr[5] = (byte) ((sArr[3] >> 2) & 31);
-                iArr[6] = (byte) (((sArr[4] >> 5) & 7) | ((sArr[3] & 3) << 3));
-                iArr[7] = (byte) (sArr[4] & 31);
-                int i6 = 0;
-                while (true) {
-                    i = 8 - a;
-                    if (i6 >= i) {
-                        break;
-                    }
-                    char charAt = this.a.charAt(iArr[i6]);
-                    if (this.c) {
-                        charAt = Character.toLowerCase(charAt);
-                    }
-                    byteArrayOutputStream.write(charAt);
-                    i6++;
-                }
-                if (this.b) {
-                    while (i < 8) {
-                        byteArrayOutputStream.write(61);
-                        i++;
-                    }
-                }
-            }
-            return new String(byteArrayOutputStream.toByteArray());
-        }
-        return (String) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new byte[]{1, 0, 1} : (byte[]) invokeV.objValue;
     }
 }

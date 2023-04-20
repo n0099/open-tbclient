@@ -1,154 +1,179 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.os.Looper;
-import android.os.Message;
-import androidx.annotation.NonNull;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes6.dex */
-public abstract class vg3 {
+public final class vg3 extends wg3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
-    public tg3 a;
-    public qg3 b;
-    public volatile boolean c;
-    public HandlerThread d;
-    public Handler e;
-
-    public abstract void f();
+    public boolean g;
 
     /* loaded from: classes6.dex */
-    public class a extends Handler {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vg3 a;
+        public final /* synthetic */ ArrayList a;
+        public final /* synthetic */ vg3 b;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(vg3 vg3Var, Looper looper) {
-            super(looper);
+        public a(vg3 vg3Var, ArrayList arrayList) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {vg3Var, looper};
+                Object[] objArr = {vg3Var, arrayList};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = vg3Var;
+            this.b = vg3Var;
+            this.a = arrayList;
         }
 
-        @Override // android.os.Handler
-        public void handleMessage(@NonNull Message message) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 101) {
-                this.a.f();
-                if (this.a.c) {
-                    this.a.a.c();
-                } else {
-                    this.a.e.removeMessages(101);
-                }
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.m(this.a);
+                this.b.j();
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948239783, "Lcom/baidu/tieba/vg3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948239783, "Lcom/baidu/tieba/vg3;");
-                return;
-            }
-        }
-        f = eo1.a;
-    }
-
-    public synchronized void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this) {
-                if (this.c) {
-                    return;
-                }
-                d();
-                this.e.sendMessage(this.e.obtainMessage(101));
-            }
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.e == null) {
-            HandlerThread handlerThread = new HandlerThread("cookieSync");
-            this.d = handlerThread;
-            handlerThread.start();
-            this.e = new a(this, this.d.getLooper());
-        }
-    }
-
-    public synchronized void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                this.c = true;
-                if (this.d != null) {
-                    this.d.quitSafely();
-                }
-                this.e = null;
-                this.d = null;
-            }
-        }
-    }
-
-    public synchronized void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this) {
-                if (this.c) {
-                    return;
-                }
-                d();
-                this.e.sendMessageDelayed(this.e.obtainMessage(101), 5000L);
-            }
-        }
-    }
-
-    public vg3(qg3 qg3Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vg3(rg3 rg3Var) {
+        super(rg3Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {qg3Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {rg3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((rg3) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new tg3();
-        this.b = qg3Var;
+    }
+
+    @Override // com.baidu.tieba.wg3
+    public void f() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !this.b.a()) {
+            return;
+        }
+        long j = 0;
+        if (wg3.f) {
+            j = System.currentTimeMillis();
+        }
+        this.a.g(new a(this, this.b.n()));
+        if (wg3.f) {
+            Log.d("SwanCookieSyncPolicy", "saveCacheToDatabase costTime:" + (System.currentTimeMillis() - j));
+        }
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.g) {
+            return;
+        }
+        long j = 0;
+        if (wg3.f) {
+            j = System.currentTimeMillis();
+        }
+        this.a.b();
+        this.g = true;
+        if (wg3.f) {
+            Log.d("SwanCookieSyncPolicy", "clearExpiredCookies costTime:" + (System.currentTimeMillis() - j));
+        }
+    }
+
+    public void l() {
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (wg3.f) {
+                j = System.currentTimeMillis();
+            } else {
+                j = 0;
+            }
+            this.a.h();
+            if (wg3.f) {
+                Log.d("SwanCookieSyncPolicy", "preInitDatabase costTime:" + (System.currentTimeMillis() - j));
+            }
+        }
+    }
+
+    public ArrayList<qg3> k(String str) {
+        InterceptResult invokeL;
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (wg3.f) {
+                j = System.currentTimeMillis();
+            } else {
+                j = 0;
+            }
+            ArrayList<qg3> arrayList = new ArrayList<>();
+            try {
+                arrayList = this.a.e(str);
+            } catch (Exception e) {
+                v42.k("SwanCookieSyncPolicy", Log.getStackTraceString(e));
+            }
+            if (wg3.f) {
+                Log.d("SwanCookieSyncPolicy", "getCookiesForDomain costTime:" + (System.currentTimeMillis() - j));
+            }
+            return arrayList;
+        }
+        return (ArrayList) invokeL.objValue;
+    }
+
+    public final void m(ArrayList<qg3> arrayList) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) && arrayList != null && !arrayList.isEmpty()) {
+            if (wg3.f) {
+                Log.d("SwanCookieSyncPolicy", "syncFromRamToFlash start");
+            }
+            Iterator<qg3> it = arrayList.iterator();
+            while (it.hasNext()) {
+                qg3 next = it.next();
+                if (next != null) {
+                    if (wg3.f) {
+                        Log.d("SwanCookieSyncPolicy", "syncFromRamToFlash result cookie:" + next.toString());
+                    }
+                    int i = next.i;
+                    if (i != 0) {
+                        if (i != 2) {
+                            if (i == 3) {
+                                this.a.d(next.a, next.b, next.c);
+                                this.a.a(next);
+                                this.b.y(next);
+                            }
+                        } else {
+                            this.a.d(next.a, next.b, next.c);
+                            this.b.g(next);
+                        }
+                    } else {
+                        this.a.a(next);
+                        this.b.y(next);
+                    }
+                }
+            }
+        }
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tieba;
-/* loaded from: classes5.dex */
-public interface q35 {
-    void a(String str);
 
-    void b();
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
+public interface q35 {
+    void handle(String str, JSONObject jSONObject, JSONObject jSONObject2);
 }

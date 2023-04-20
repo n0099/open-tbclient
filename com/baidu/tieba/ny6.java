@@ -1,38 +1,57 @@
 package com.baidu.tieba;
 
-import android.text.SpannableStringBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
-import tbclient.FeedContentResource;
-import tbclient.TitleComponent;
+import tbclient.Agree;
+import tbclient.FeedSocialComponent;
 /* loaded from: classes5.dex */
 public final class ny6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final void a(TitleComponent titleComponent, List<b07<?>> dataList, SpannableStringBuilder titleBuilder, dx6 feedExtraData, boolean z) {
-        boolean z2;
+    public static final void a(FeedSocialComponent feedSocialComponent, List<c07<?>> dataList, ex6 feedExtraData, yx6 videoSchemaData) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{titleComponent, dataList, titleBuilder, feedExtraData, Boolean.valueOf(z)}) == null) {
-            Intrinsics.checkNotNullParameter(titleComponent, "<this>");
+        if (interceptable == null || interceptable.invokeLLLL(65536, null, feedSocialComponent, dataList, feedExtraData, videoSchemaData) == null) {
+            Intrinsics.checkNotNullParameter(feedSocialComponent, "<this>");
             Intrinsics.checkNotNullParameter(dataList, "dataList");
-            Intrinsics.checkNotNullParameter(titleBuilder, "titleBuilder");
             Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
-            ew6 ew6Var = new ew6(titleBuilder, z);
-            List<FeedContentResource> list = titleComponent.data;
-            if (list != null) {
-                ly6.a(list, titleBuilder, feedExtraData, ew6Var);
+            Intrinsics.checkNotNullParameter(videoSchemaData, "videoSchemaData");
+            ux6 ux6Var = new ux6();
+            Agree agree = feedSocialComponent.agree;
+            if (agree != null) {
+                Integer num = agree.agree_type;
+                Intrinsics.checkNotNullExpressionValue(num, "agree.agree_type");
+                ux6Var.e = num.intValue();
+                Integer num2 = feedSocialComponent.agree.has_agree;
+                Intrinsics.checkNotNullExpressionValue(num2, "agree.has_agree");
+                if (num2.intValue() > 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                ux6Var.f = z;
+                ux6Var.g = feedSocialComponent.agree.agree_num.longValue();
+                Long l = feedSocialComponent.agree.diff_agree_num;
+                Intrinsics.checkNotNullExpressionValue(l, "agree.diff_agree_num");
+                ux6Var.h = l.longValue();
+                Long l2 = feedSocialComponent.agree.disagree_num;
+                Intrinsics.checkNotNullExpressionValue(l2, "agree.disagree_num");
+                ux6Var.i = l2.longValue();
             }
-            if (titleBuilder.length() > 0) {
-                z2 = true;
-            } else {
-                z2 = false;
-            }
-            if (z2) {
-                dataList.add(new c07(ew6Var, "title"));
-            }
+            ux6Var.a = feedSocialComponent.share_num.intValue();
+            ux6Var.b = feedSocialComponent.comment_num.intValue();
+            ux6Var.c = String.valueOf(feedSocialComponent.tid);
+            Long fid = feedSocialComponent.fid;
+            Intrinsics.checkNotNullExpressionValue(fid, "fid");
+            ux6Var.d = fid.longValue();
+            ux6Var.l = feedExtraData.a();
+            videoSchemaData.f(ux6Var.f);
+            videoSchemaData.e(ux6Var.g);
+            ux6Var.j = videoSchemaData;
+            dataList.add(new d07(new mw6(ux6Var, fx6.b(feedExtraData, "comment_btn_click"), null, null, null, 28, null), "social_bar"));
         }
     }
 }

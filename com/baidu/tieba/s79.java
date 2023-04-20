@@ -1,9 +1,19 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.graphics.Rect;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.NetWorkChangedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.player.constants.PlayerConstant;
-import com.baidu.tbadk.core.atomData.FrsVideoTabPlayActivityConfig;
+import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,248 +23,605 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class s79 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public int f;
+    public int a;
+    public a9 b;
+    public int c;
+    public int d;
+    public kn e;
+    public View f;
+    public boolean g;
+    public m79 h;
+    public v79 i;
+    public boolean j;
+    public float k;
+    public boolean l;
+    public CustomMessageListener m;
+    public CustomMessageListener n;
+    public i79 o;
+    public final CustomMessageListener p;
+    public final CustomMessageListener q;
+    public j79 r;
 
-    public s79() {
+    public void s(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+        }
+    }
+
+    public void t(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ s79 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(s79 s79Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {s79Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = s79Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && !MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
+                jg.a().postDelayed(this.a.r, 500L);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ s79 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(s79 s79Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {s79Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = s79Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && SpeedStatsUtils.UBC_VALUE_SPLASH.equals(customResponsedMessage.getData())) {
+                jg.a().postDelayed(this.a.r, 500L);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ s79 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(s79 s79Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {s79Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = s79Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage.getCmd() != 2000994 || !(customResponsedMessage instanceof NetWorkChangedMessage)) {
+                return;
+            }
+            this.a.y();
+            if (!this.a.l || !this.a.l) {
+                return;
+            }
+            s79 s79Var = this.a;
+            s79Var.n(s79Var.i.a(), this.a.i.b(), this.a.i.d(), this.a.i.c());
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class d extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ s79 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public d(s79 s79Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {s79Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = s79Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921387 && (customResponsedMessage.getData() instanceof String)) {
+                String str = (String) customResponsedMessage.getData();
+                if (hi.isEmpty(str)) {
+                    return;
+                }
+                jg.a().removeCallbacks(this.a.o);
+                jg.a().removeCallbacks(this.a.r);
+                if (this.a.f != null && (this.a.f.getTag() instanceof m79)) {
+                    if (str.equals(((m79) this.a.f.getTag()).getPlayUrl())) {
+                        return;
+                    }
+                    ((m79) this.a.f.getTag()).stopPlay();
+                }
+                if (this.a.e == null) {
+                    return;
+                }
+                for (int i = 0; i < this.a.e.getListView().getChildCount(); i++) {
+                    View childAt = this.a.e.getListView().getChildAt(i);
+                    if ((childAt.getTag() instanceof m79) && str.equals(((m79) childAt.getTag()).getPlayUrl())) {
+                        this.a.f = childAt;
+                        return;
+                    }
+                }
+            }
+        }
+    }
+
+    public s79(a9 a9Var, kn knVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {a9Var, knVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = 0;
+        this.c = 0;
+        this.d = 0;
+        this.g = false;
+        this.j = true;
+        this.k = 0.0f;
+        this.l = true;
+        this.m = new a(this, 2921637);
+        this.n = new b(this, 2921736);
+        this.o = new i79();
+        this.p = new c(this, 2000994);
+        this.q = new d(this, 2921387);
+        this.r = new j79(this);
+        this.b = a9Var;
+        this.c = ii.j(a9Var.getPageActivity());
+        this.e = knVar;
+        BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
+        this.i = new v79();
+        a9Var.registerListener(this.p);
+        a9Var.registerListener(this.n);
+        a9Var.registerListener(this.m);
+    }
+
+    public void k(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && view2 != null && !l(view2) && (view2.getTag() instanceof m79)) {
+            ((m79) view2.getTag()).stopPlay();
+        }
+    }
+
+    public void p(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.a = i;
+        }
+    }
+
+    public void q(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.j = z;
+        }
+    }
+
+    public void v(kn knVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, knVar) == null) {
+            this.e = knVar;
+        }
+    }
+
+    public void w(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    public final void A(int i, View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, view2) == null) {
+            if (i == 1 && (view2.getTag() instanceof m79)) {
+                m79 m79Var = (m79) view2.getTag();
+                if (m79Var.isPlaying()) {
+                    m79Var.stopPlay();
+                }
+            } else if (i == 2 && (view2.getTag() instanceof l79)) {
+                ((l79) view2.getTag()).c();
             }
         }
     }
 
-    public String a(String str) {
-        InterceptResult invokeL;
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "Unknown";
-            }
-            char c = 65535;
-            switch (str.hashCode()) {
-                case -1679289728:
-                    if (str.equals("Concern")) {
-                        c = '\t';
-                        break;
-                    }
-                    break;
-                case -1152667590:
-                    if (str.equals("ad_feed")) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case -654725321:
-                    if (str.equals("ad_video_landing")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-                case -421681106:
-                    if (str.equals("HomePage")) {
-                        c = 7;
-                        break;
-                    }
-                    break;
-                case -181435716:
-                    if (str.equals("HomeVideo")) {
-                        c = '\b';
-                        break;
-                    }
-                    break;
-                case 2546:
-                    if (str.equals("PB")) {
-                        c = 5;
-                        break;
-                    }
-                    break;
-                case 70919:
-                    if (str.equals("Frs")) {
-                        c = 6;
-                        break;
-                    }
-                    break;
-                case 175967569:
-                    if (str.equals(FrsVideoTabPlayActivityConfig.KEY_FPS_MIDDLE_VIDEO_PAGE)) {
-                        c = 4;
-                        break;
-                    }
-                    break;
-                case 671041499:
-                    if (str.equals("ad_paster")) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case 1974553171:
-                    if (str.equals(PlayerConstant.PAGE_VIDEO_LANDING)) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-            }
-            switch (c) {
-                case 0:
-                case 1:
-                case 2:
-                    return "ad";
-                case 3:
-                case 4:
-                case 5:
-                case 6:
-                case 7:
-                case '\b':
-                case '\t':
-                    return "tbc";
-                default:
-                    return "Unknown";
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            jg.a().removeCallbacks(this.o);
+            jg.a().removeCallbacks(this.r);
+            i();
         }
-        return (String) invokeL.objValue;
     }
 
-    public String b(String str) {
-        InterceptResult invokeL;
+    public View j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "Unknown";
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.f;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.e == null) {
+            return;
+        }
+        for (int i = 0; i < this.e.getListView().getChildCount(); i++) {
+            View childAt = this.e.getListView().getChildAt(i);
+            if (childAt.getTag() instanceof m79) {
+                ((m79) childAt.getTag()).stopPlay();
             }
-            char c = 65535;
-            int hashCode = str.hashCode();
-            if (hashCode != 1567) {
-                if (hashCode != 1568) {
-                    if (hashCode != 1570) {
-                        if (hashCode != 1576) {
-                            if (hashCode != 1599) {
-                                switch (hashCode) {
-                                    case 49:
-                                        if (str.equals("1")) {
-                                            c = 0;
-                                            break;
-                                        }
-                                        break;
-                                    case 50:
-                                        if (str.equals("2")) {
-                                            c = 2;
-                                            break;
-                                        }
-                                        break;
-                                    case 51:
-                                        if (str.equals("3")) {
-                                            c = 4;
-                                            break;
-                                        }
-                                        break;
-                                    case 52:
-                                        if (str.equals("4")) {
-                                            c = 3;
-                                            break;
-                                        }
-                                        break;
-                                    default:
-                                        switch (hashCode) {
-                                            case 54:
-                                                if (str.equals("6")) {
-                                                    c = 7;
-                                                    break;
-                                                }
-                                                break;
-                                            case 55:
-                                                if (str.equals("7")) {
-                                                    c = 1;
-                                                    break;
-                                                }
-                                                break;
-                                            case 56:
-                                                if (str.equals("8")) {
-                                                    c = '\b';
-                                                    break;
-                                                }
-                                                break;
-                                            case 57:
-                                                if (str.equals("9")) {
-                                                    c = '\t';
-                                                    break;
-                                                }
-                                                break;
-                                        }
-                                }
-                            } else if (str.equals("21")) {
-                                c = '\f';
-                            }
-                        } else if (str.equals("19")) {
-                            c = '\n';
+        }
+    }
+
+    public boolean l(View view2) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, view2)) == null) {
+            if (view2 == null) {
+                return false;
+            }
+            Rect rect = new Rect();
+            view2.getGlobalVisibleRect(rect);
+            int i2 = this.a;
+            if (i2 == 1) {
+                int j = ii.j(this.b.getPageActivity()) / 2;
+                int i3 = rect.top;
+                if (i3 < 0 || i3 > j || rect.bottom - i3 < view2.getMeasuredHeight()) {
+                    return false;
+                }
+                return true;
+            } else if (i2 == 2) {
+                int k = ii.k(this.b.getPageActivity(), true);
+                float measuredHeight = (view2.getMeasuredHeight() * 2.0f) / 3.0f;
+                float statusBarHeight = UtilHelper.getStatusBarHeight() + measuredHeight + ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds104);
+                int mainTabBottomBarHeight = TbadkCoreApplication.getInst().getMainTabBottomBarHeight();
+                if (this.j) {
+                    this.k = measuredHeight + mainTabBottomBarHeight;
+                } else {
+                    this.k = measuredHeight;
+                }
+                if (rect.top > k - this.k || rect.bottom < statusBarHeight) {
+                    return false;
+                }
+                return true;
+            } else {
+                int i4 = rect.top;
+                if (i4 < 0 || (i = rect.bottom) > this.c - this.d || i - i4 < view2.getMeasuredHeight()) {
+                    return false;
+                }
+                return true;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void m(int i, int i2, boolean z, int i3) {
+        boolean z2;
+        boolean z3;
+        int i4;
+        View view2;
+        int i5;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), Integer.valueOf(i3)}) == null) {
+            this.i.e(i, i2, z);
+            kn knVar = this.e;
+            if (knVar != null && knVar.getListView().getChildCount() != 0 && this.e.getContentViewsCount() != 0) {
+                m79 m79Var = this.h;
+                if (m79Var != null && !l(m79Var.getVideoContainer())) {
+                    this.h.stopPlay();
+                }
+                View view3 = this.f;
+                int i6 = 0;
+                if (view3 != null && (view3.getTag() instanceof m79) && this.g) {
+                    if (l(((m79) this.f.getTag()).getVideoContainer())) {
+                        x(i3, this.f);
+                        this.g = false;
+                        return;
+                    }
+                    this.f = null;
+                }
+                int contentViewsCount = this.e.getContentViewsCount() + this.e.getHeaderViewsCount() + this.e.getFooterViewsCount();
+                if (i == 0) {
+                    z2 = true;
+                } else {
+                    int i7 = contentViewsCount - 1;
+                    z2 = false;
+                }
+                int childCount = this.e.getListView().getChildCount();
+                if (i != 0 && i2 != contentViewsCount - 1) {
+                    z3 = false;
+                } else {
+                    z3 = false;
+                    for (int i8 = 0; i8 < childCount; i8++) {
+                        if (z2) {
+                            i4 = i8;
+                        } else {
+                            i4 = (childCount - 1) - i8;
                         }
-                    } else if (str.equals("13")) {
-                        c = 11;
+                        View childAt = this.e.getListView().getChildAt(i4);
+                        if (childAt.getTag() instanceof m79) {
+                            m79 m79Var2 = (m79) childAt.getTag();
+                            if (!z3 && l(m79Var2.getVideoContainer())) {
+                                x(i3, childAt);
+                                z3 = true;
+                            } else {
+                                A(i3, childAt);
+                            }
+                        }
                     }
-                } else if (str.equals("11")) {
-                    c = 6;
                 }
-            } else if (str.equals("10")) {
-                c = 5;
-            }
-            switch (c) {
-                case 0:
-                    return "HomePage";
-                case 1:
-                    return "Concern";
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                case 6:
-                    return "Frs";
-                case 7:
-                    return "PB";
-                case '\b':
-                case '\t':
-                case '\n':
-                    return "HomeVideo";
-                case 11:
-                    return FrsVideoTabPlayActivityConfig.KEY_FPS_MIDDLE_VIDEO_PAGE;
-                case '\f':
-                    return PlayerConstant.PAGE_VIDEO_LANDING;
-                default:
-                    return "Unknown";
+                if (z3) {
+                    return;
+                }
+                int i9 = -1;
+                int i10 = 0;
+                while (true) {
+                    if (i10 >= childCount) {
+                        break;
+                    }
+                    View childAt2 = this.e.getListView().getChildAt(i10);
+                    if (childAt2.getTag() instanceof m79) {
+                        m79 m79Var3 = (m79) childAt2.getTag();
+                        if (m79Var3.isPlayStarted() && l(m79Var3.getVideoContainer())) {
+                            i9 = i10;
+                            break;
+                        }
+                    }
+                    i10++;
+                }
+                if (i9 >= 0) {
+                    while (i6 < childCount) {
+                        View childAt3 = this.e.getListView().getChildAt(i6);
+                        if (i6 != i9) {
+                            A(i3, childAt3);
+                        } else {
+                            x(i3, childAt3);
+                        }
+                        i6++;
+                    }
+                    return;
+                }
+                boolean z4 = false;
+                while (i6 < childCount) {
+                    if (z) {
+                        i5 = (childCount - 1) - i6;
+                    } else {
+                        i5 = i6;
+                    }
+                    View childAt4 = this.e.getListView().getChildAt(i5);
+                    if (childAt4.getTag() instanceof m79) {
+                        m79 m79Var4 = (m79) childAt4.getTag();
+                        if (!z4 && (m79Var4.isFullScreen() || l(m79Var4.getVideoContainer()))) {
+                            x(i3, childAt4);
+                            z4 = true;
+                        } else {
+                            A(i3, childAt4);
+                        }
+                    }
+                    i6++;
+                }
+                if (!z4 && (view2 = this.f) != null && (view2.getTag() instanceof m79)) {
+                    ((m79) this.f.getTag()).stopPlay();
+                }
             }
         }
-        return (String) invokeL.objValue;
     }
 
-    public int c(String str) {
-        InterceptResult invokeL;
+    public void n(int i, int i2, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return 1;
-            }
-            char c = 65535;
-            int hashCode = str.hashCode();
-            if (hashCode != 49) {
-                if (hashCode == 50 && str.equals("2")) {
-                    c = 1;
-                }
-            } else if (str.equals("1")) {
-                c = 0;
-            }
-            if (c == 0 || c != 1) {
-                return 1;
-            }
-            return 0;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            jg.a().removeCallbacks(this.r);
+            this.r.a(i);
+            this.r.c(i2);
+            this.r.b(z);
+            this.r.d(z2);
+            this.i.f(z2);
+            jg.a().postDelayed(this.r, 500L);
         }
-        return invokeL.intValue;
+    }
+
+    public void o() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) != null) || !this.l) {
+            return;
+        }
+        View view2 = this.f;
+        if (view2 != null && (view2.getTag() instanceof m79)) {
+            m79 m79Var = (m79) this.f.getTag();
+            if (this.g) {
+                m79Var.startPlay();
+                this.g = false;
+            }
+            if (this.f.getTag() instanceof l79) {
+                ((l79) this.f.getTag()).b();
+            }
+        }
+        this.f = null;
+    }
+
+    public void y() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            jg.a().removeCallbacks(this.o);
+            jg.a().removeCallbacks(this.r);
+            if (this.e == null) {
+                return;
+            }
+            for (int i = 0; i < this.e.getListView().getChildCount(); i++) {
+                View childAt = this.e.getListView().getChildAt(i);
+                if (childAt.getTag() instanceof m79) {
+                    m79 m79Var = (m79) childAt.getTag();
+                    if (m79Var.isPlayStarted()) {
+                        m79Var.stopPlay();
+                        return;
+                    }
+                }
+            }
+        }
+    }
+
+    public void z() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048595, this) != null) || this.e == null) {
+            return;
+        }
+        for (int i = 0; i < this.e.getListView().getChildCount(); i++) {
+            View childAt = this.e.getListView().getChildAt(i);
+            if (childAt.getTag() instanceof m79) {
+                m79 m79Var = (m79) childAt.getTag();
+                if (m79Var.isPlayStarted()) {
+                    t(m79Var.getCurrentPosition());
+                    s(m79Var.getPlayUrl());
+                    this.f = childAt;
+                    this.g = m79Var.isPlaying();
+                    m79Var.stopPlay();
+                    return;
+                }
+            }
+        }
+    }
+
+    public void r(boolean z) {
+        View view2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.l = z;
+            if (!z && (view2 = this.f) != null && (view2.getTag() instanceof m79) && ((m79) this.f.getTag()).getVideoContainer() != null) {
+                ((m79) this.f.getTag()).getVideoContainer().setTag(-1001, "1");
+            }
+        }
+    }
+
+    public void u(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048590, this, bdUniqueId) != null) || bdUniqueId == null) {
+            return;
+        }
+        CustomMessageListener customMessageListener = this.p;
+        if (customMessageListener != null) {
+            customMessageListener.setTag(bdUniqueId);
+        }
+        CustomMessageListener customMessageListener2 = this.q;
+        if (customMessageListener2 != null) {
+            customMessageListener2.setSelfListener(true);
+            this.q.setTag(bdUniqueId);
+        }
+        MessageManager.getInstance().registerListener(this.p);
+        MessageManager.getInstance().registerListener(this.q);
+    }
+
+    public final void x(int i, View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeIL(1048593, this, i, view2) != null) || view2 == null) {
+            return;
+        }
+        View view3 = this.f;
+        if (view3 != null && view3 != view2 && (view3.getTag() instanceof m79)) {
+            ((m79) this.f.getTag()).stopPlay();
+        }
+        this.f = view2;
+        if (i == 1 && (view2.getTag() instanceof m79)) {
+            m79 m79Var = (m79) view2.getTag();
+            if (this.l && !m79Var.isPlayStarted()) {
+                m79Var.startPlay();
+            }
+        } else if (i == 2 && (view2.getTag() instanceof l79)) {
+            ((l79) view2.getTag()).a();
+        }
     }
 }

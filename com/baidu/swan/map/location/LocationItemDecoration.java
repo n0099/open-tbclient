@@ -8,10 +8,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ll3;
+import com.baidu.tieba.ml3;
 /* loaded from: classes3.dex */
 public class LocationItemDecoration extends RecyclerView.ItemDecoration {
-    public static final int c = ll3.g(15.0f);
+    public static final int c = ml3.g(15.0f);
     public ColorDrawable a;
     public boolean b;
 

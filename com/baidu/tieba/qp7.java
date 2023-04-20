@@ -1,13 +1,14 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
 import java.util.List;
 /* loaded from: classes6.dex */
 public interface qp7 {
-    void a();
+    boolean a(BdUniqueId bdUniqueId, String str, String str2, String str3);
 
-    void b(int i);
+    boolean b(int i, bq7 bq7Var);
 
-    void onChangeSkinType(int i);
+    boolean c(int i);
 
-    void setData(List<hn> list);
+    void setData(List<in> list);
 }

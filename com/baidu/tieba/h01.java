@@ -1,52 +1,43 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.os.Process;
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.nadcore.player.remote.BDRemotePlayerService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.Iterator;
-import kotlin.jvm.JvmName;
-@JvmName(name = "LayerUtils")
+import java.util.Map;
 /* loaded from: classes4.dex */
-public final class h01 {
+public class h01 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947769792, "Lcom/baidu/tieba/h01;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947769792, "Lcom/baidu/tieba/h01;");
-                return;
-            }
-        }
-        k51.a(253.0f);
-        k51.a(9.0f);
-    }
-
-    public static final jx0 a(ArrayList<fx0> arrayList) {
-        InterceptResult invokeL;
+    public static void a(@Nullable String str, boolean z, int i, Map<String, String> map, CyberPlayerManager.InstallListener installListener, @Nullable CyberPlayerManager.GetNetHandleListener getNetHandleListener) {
+        Class<BDRemotePlayerService> cls;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, arrayList)) == null) {
-            if (arrayList != null) {
-                Iterator<fx0> it = arrayList.iterator();
-                while (it.hasNext()) {
-                    fx0 next = it.next();
-                    if (next instanceof jx0) {
-                        return (jx0) next;
-                    }
-                }
-                return null;
-            }
-            return null;
+        if ((interceptable != null && interceptable.invokeCommon(65536, null, new Object[]{str, Boolean.valueOf(z), Integer.valueOf(i), map, installListener, getNetHandleListener}) != null) || CyberPlayerManager.isCoreLoaded(i)) {
+            return;
         }
-        return (jx0) invokeL.objValue;
+        Context b = yr0.b();
+        jj0.c("DumediaUtils", "initCyber, pid = " + Process.myPid());
+        try {
+            if (TextUtils.isEmpty(str)) {
+                str = ji0.a().g();
+            }
+            String str2 = str;
+            if (z) {
+                cls = BDRemotePlayerService.class;
+            } else {
+                cls = null;
+            }
+            CyberPlayerManager.install(b, str2, (String) null, i, cls, map, installListener);
+            if (getNetHandleListener != null) {
+                CyberPlayerManager.setNetHandleListener(getNetHandleListener);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

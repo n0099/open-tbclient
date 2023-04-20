@@ -1,18 +1,22 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetThemeList.ThemeCarousel;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetBubbleByCategory.ThemeBubbleInMain;
+import tbclient.ThemeBgProp;
 /* loaded from: classes4.dex */
-public class es9 implements u25 {
+public class es9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public String b;
+    public List<DressItemData> b;
 
     public es9() {
         Interceptable interceptable = $ic;
@@ -28,32 +32,33 @@ public class es9 implements u25 {
         }
     }
 
-    @Override // com.baidu.tieba.u25
-    public String getPicLinkUrl() {
+    public List<DressItemData> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.u25
-    public String getPicUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.a;
         }
         return (String) invokeV.objValue;
     }
 
-    public void a(ThemeCarousel themeCarousel) {
+    public void c(ThemeBubbleInMain themeBubbleInMain) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, themeCarousel) != null) || themeCarousel == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, themeBubbleInMain) != null) || themeBubbleInMain == null) {
             return;
         }
-        this.a = themeCarousel.pic_url;
-        this.b = themeCarousel.active_url;
+        this.a = themeBubbleInMain.bubble_category;
+        this.b = new ArrayList();
+        for (ThemeBgProp themeBgProp : themeBubbleInMain.props) {
+            this.b.add(new DressItemData(themeBgProp));
+        }
     }
 }

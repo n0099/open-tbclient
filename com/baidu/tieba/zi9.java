@@ -1,61 +1,84 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.atomData.ForumListActivityConfig;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class zi9 {
+public class zi9 extends jv4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public ArrayList<zi9> e;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948361055, "Lcom/baidu/tieba/zi9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948361055, "Lcom/baidu/tieba/zi9;");
+                return;
+            }
+        }
+        c = TbConfig.SERVER_ADDRESS + TbConfig.FORUM_SQUARE;
+    }
 
     public zi9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public void a(JSONObject jSONObject) throws JSONException {
+    public long g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            this.a = jSONObject.optString(ForumListActivityConfig.KEY_MENU_TYPE);
-            this.b = jSONObject.optString("menu_name");
-            this.c = jSONObject.optString("menu_id");
-            String str = null;
-            String optString = jSONObject.optString("default_logo_url", null);
-            this.d = optString;
-            if (optString != null) {
-                str = this.d + "?v=2";
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            NetWork netWork = this.a;
+            if (netWork != null) {
+                return netWork.getNetContext().getStat().stat.c;
             }
-            this.d = str;
-            if (jSONObject.has("child_menu_list")) {
-                ArrayList<zi9> arrayList = new ArrayList<>();
-                JSONArray optJSONArray = jSONObject.optJSONArray("child_menu_list");
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    zi9 zi9Var = new zi9();
-                    zi9Var.a(optJSONArray.getJSONObject(i));
-                    arrayList.add(zi9Var);
-                }
-                this.e = arrayList;
-            }
+            return 0L;
         }
+        return invokeV.longValue;
+    }
+
+    public long h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            NetWork netWork = this.a;
+            if (netWork != null) {
+                return netWork.getNetContext().getStat().stat.d;
+            }
+            return 0L;
+        }
+        return invokeV.longValue;
+    }
+
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            f(c);
+            return d();
+        }
+        return (String) invokeV.objValue;
     }
 }

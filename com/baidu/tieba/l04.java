@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
+import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -10,9 +10,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class l04 extends a04 {
+public class l04 extends b04 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,12 +31,12 @@ public class l04 extends a04 {
                 return;
             }
         }
-        c = eo1.a;
+        c = fo1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public l04() {
-        super("StartAppUsagePage");
+        super("GetSwanGameDuration");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -51,30 +52,55 @@ public class l04 extends a04 {
         }
     }
 
-    @Override // com.baidu.tieba.a04
-    public uz1 a(@NonNull JSONObject jSONObject, @NonNull yk2 yk2Var) {
+    public static boolean b(Long l, Long l2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, yk2Var)) == null) {
-            u73 b0 = u73.b0();
-            if (b0 != null && b0.w() != null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, l, l2)) == null) {
+            if (l.longValue() / 86400000 == l2.longValue() / 86400000) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.b04
+    public vz1 a(@NonNull JSONObject jSONObject, @NonNull zk2 zk2Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, zk2Var)) == null) {
+            if (jSONObject == null) {
+                zk2Var.onFail(202, "params may be error");
+                return null;
+            }
+            if (c) {
+                Log.e("GetSwanGameDuration", "params is " + jSONObject.toString());
+            }
+            String optString = jSONObject.optString("swanGameId");
+            if (TextUtils.isEmpty(optString)) {
+                zk2Var.onFail(202, "params may be error");
+            } else {
+                dg3 a = jg3.a();
+                if (!b(Long.valueOf(a.getLong(optString + "_LastPause", 0L)), Long.valueOf(System.currentTimeMillis()))) {
+                    dg3 a2 = jg3.a();
+                    a2.putLong(optString + "_Duration", 0L);
+                }
+                dg3 a3 = jg3.a();
+                long j = a3.getLong(optString + "_Duration", 0L);
+                JSONObject jSONObject2 = new JSONObject();
+                JSONObject jSONObject3 = new JSONObject();
                 try {
-                    b0.w().startActivity(new Intent("android.settings.USAGE_ACCESS_SETTINGS"));
-                } catch (Exception e) {
+                    jSONObject3.put("swanGameDuration", j);
+                    jSONObject2.put("data", jSONObject3);
+                } catch (JSONException e) {
                     if (c) {
                         e.printStackTrace();
                     }
-                    yk3.f(b0.w());
                 }
-                yk2Var.a(null);
-            } else {
-                yk2Var.onFail(100, "swan or activity is null");
-                if (c) {
-                    Log.d("StartAppUsagePage", "swan or activity is null");
-                }
+                zk2Var.a(jSONObject2);
             }
             return null;
         }
-        return (uz1) invokeLL.objValue;
+        return (vz1) invokeLL.objValue;
     }
 }

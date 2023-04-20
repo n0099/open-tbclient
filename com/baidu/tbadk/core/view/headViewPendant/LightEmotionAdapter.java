@@ -13,8 +13,8 @@ import com.baidu.tbadk.data.LightEmotionData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.hi;
-import com.baidu.tieba.q25;
-import com.baidu.tieba.t55;
+import com.baidu.tieba.r25;
+import com.baidu.tieba.u55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,9 +30,9 @@ public class LightEmotionAdapter extends RecyclerView.Adapter<LightEmotionView> 
     public View b;
     public ArrayList<LightEmotionData> c;
 
-    public void p(t55 t55Var) {
+    public void p(u55 u55Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, t55Var) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, u55Var) == null) {
         }
     }
 
@@ -72,7 +72,7 @@ public class LightEmotionAdapter extends RecyclerView.Adapter<LightEmotionView> 
             EMTextView eMTextView;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (eMTextView = this.b) != null) {
-                q25 d = q25.d(eMTextView);
+                r25 d = r25.d(eMTextView);
                 d.w(R.color.CAM_X0101);
                 d.C(R.string.F_X01);
                 d.o(R.string.J_X07);

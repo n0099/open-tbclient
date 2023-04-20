@@ -1,85 +1,166 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tieba.postsearch.PostSearchActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetLockWindowMsg.DataRes;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public class j99 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public k99 c;
-    public MetaData d;
+    public PostSearchActivity a;
+    public View b;
+    public d99 c;
+    public f99 d;
+    public i99 e;
 
-    public j99() {
+    public j99(PostSearchActivity postSearchActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {postSearchActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = postSearchActivity;
+    }
+
+    public void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.c.j(i);
+            this.d.j(i);
+            this.e.g(i);
+            an5.a(this.a.getPageContext(), this.b);
         }
     }
 
-    public String a() {
+    public void i(ArrayList<String> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, arrayList) == null) {
+            this.e.j(false);
+            this.d.k(arrayList);
+        }
+    }
+
+    public void k(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            this.c.l(str);
+        }
+    }
+
+    public void l(ViewPager.OnPageChangeListener onPageChangeListener) {
+        i99 i99Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048587, this, onPageChangeListener) == null) && (i99Var = this.e) != null) {
+            i99Var.i(onPageChangeListener);
+        }
+    }
+
+    public void o(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.c.g();
+            d();
+            this.c.f();
+            this.e.j(true);
+            this.e.k(i);
+        }
+    }
+
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+            return this.e.d();
         }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public String b() {
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.d.e();
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.d.f();
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.c.h();
+        }
+    }
+
+    public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.d.i();
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public k99 c() {
-        InterceptResult invokeV;
+    public void h() {
+        d99 d99Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (d99Var = this.c) != null) {
+            d99Var.k();
         }
-        return (k99) invokeV.objValue;
     }
 
-    public MetaData d() {
-        InterceptResult invokeV;
+    public void m() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            this.d.m();
+            this.d.g();
         }
-        return (MetaData) invokeV.objValue;
     }
 
-    public void e(DataRes dataRes) {
+    public void n() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, dataRes) != null) || dataRes == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            this.d.p();
         }
-        this.a = dataRes.publish_user;
-        this.b = dataRes.publish_pic;
-        MetaData metaData = new MetaData();
-        this.d = metaData;
-        metaData.parserProtobuf(dataRes.author);
-        this.d.setPendantData(null);
-        k99 k99Var = new k99();
-        this.c = k99Var;
-        k99Var.e(dataRes.thread_info);
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.a.setContentView(R.layout.obfuscated_res_0x7f0d0799);
+            View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f091fbc);
+            this.b = findViewById;
+            this.c = new d99(this.a, findViewById);
+            this.d = new f99(this.a, this.b);
+            this.e = new i99(this.a, this.b);
+        }
+    }
+
+    public void j(int i, e99 e99Var, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), e99Var, Boolean.valueOf(z)}) == null) {
+            this.e.h(i, e99Var, z);
+        }
     }
 }

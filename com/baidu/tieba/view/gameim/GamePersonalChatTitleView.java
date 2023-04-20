@@ -13,9 +13,9 @@ import com.baidu.tbadk.core.elementsMaven.Direction;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.n55;
-import com.baidu.tieba.py7;
-import com.baidu.tieba.q25;
+import com.baidu.tieba.o55;
+import com.baidu.tieba.qy7;
+import com.baidu.tieba.r25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -27,12 +27,12 @@ public class GamePersonalChatTitleView extends RelativeLayout {
     public View a;
     public TextView b;
     public TBSpecificationBtn c;
-    public py7 d;
+    public qy7 d;
     public b e;
 
     /* loaded from: classes6.dex */
     public interface b {
-        void a(@NonNull py7 py7Var);
+        void a(@NonNull qy7 qy7Var);
     }
 
     /* loaded from: classes6.dex */
@@ -132,11 +132,11 @@ public class GamePersonalChatTitleView extends RelativeLayout {
         e();
     }
 
-    public void h(py7 py7Var) {
+    public void h(qy7 qy7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, py7Var) == null) {
-            this.d = py7Var;
-            this.b.setText(py7Var.c());
+        if (interceptable == null || interceptable.invokeL(1048581, this, qy7Var) == null) {
+            this.d = qy7Var;
+            this.b.setText(qy7Var.c());
         }
     }
 
@@ -156,9 +156,9 @@ public class GamePersonalChatTitleView extends RelativeLayout {
             layoutParams.addRule(11);
             layoutParams.addRule(15);
             this.c.setLayoutParams(layoutParams);
-            n55 n55Var = new n55();
-            n55Var.r(R.color.CAM_X0302, R.color.CAM_X0101);
-            this.c.setConfig(n55Var);
+            o55 o55Var = new o55();
+            o55Var.r(R.color.CAM_X0302, R.color.CAM_X0101);
+            this.c.setConfig(o55Var);
             this.c.setText(getContext().getString(R.string.game_title_btn));
             addView(this.c);
             this.c.setOnClickListener(new a(this));
@@ -173,7 +173,7 @@ public class GamePersonalChatTitleView extends RelativeLayout {
             this.b.setLayoutParams(layoutParams);
             this.b.setPadding(ii.g(getContext(), R.dimen.M_W_X008), ii.g(getContext(), R.dimen.tbds44), 0, ii.g(getContext(), R.dimen.tbds44));
             addView(this.b);
-            q25 d = q25.d(this.b);
+            r25 d = r25.d(this.b);
             d.B(R.dimen.T_X13);
             d.C(R.string.F_X01);
         }
@@ -207,9 +207,9 @@ public class GamePersonalChatTitleView extends RelativeLayout {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            q25.d(this).f(R.color.CAM_X0204);
-            q25.d(this.a).q(new int[]{R.color.msg_navitation_bar_start, R.color.msg_navitation_bar_end}, Direction.LEFT);
-            q25.d(this.b).w(R.color.CAM_X0105);
+            r25.d(this).f(R.color.CAM_X0204);
+            r25.d(this.a).q(new int[]{R.color.msg_navitation_bar_start, R.color.msg_navitation_bar_end}, Direction.LEFT);
+            r25.d(this.b).w(R.color.CAM_X0105);
             this.c.k();
         }
     }

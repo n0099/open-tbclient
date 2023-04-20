@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.data.TransmitForumData;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bg8;
+import com.baidu.tieba.jg8;
 import com.baidu.tieba.livesdk.share.model.AlaShareInBarModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -88,12 +88,12 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
         }
 
         @Override // com.baidu.tieba.livesdk.share.model.AlaShareInBarModel.b
-        public void a(int i, String str, bg8 bg8Var) {
+        public void a(int i, String str, jg8 jg8Var) {
             int i2;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, bg8Var) == null) {
+            if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, jg8Var) == null) {
                 this.a.closeLoadingDialog();
-                if (i == 0 && bg8Var != null) {
+                if (i == 0 && jg8Var != null) {
                     BdToast b = BdToast.b(this.a.getPageContext().getPageActivity(), this.a.getPageContext().getPageActivity().getString(R.string.share_alert_success));
                     b.g(BdToast.ToastIcon.SUCCESS);
                     b.d(3000);

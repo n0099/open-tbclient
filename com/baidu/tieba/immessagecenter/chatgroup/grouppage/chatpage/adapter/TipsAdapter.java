@@ -14,8 +14,8 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.TipsSysMsg;
-import com.baidu.tieba.k78;
-import com.baidu.tieba.q25;
+import com.baidu.tieba.r25;
+import com.baidu.tieba.s78;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -115,15 +115,15 @@ public class TipsAdapter extends BaseSysAdapter<TipsSysMsg, Holder> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), viewGroup, tipsSysMsg, holder, list, Integer.valueOf(i2)})) == null) {
-            q25 d = q25.d(holder.b);
+            r25 d = r25.d(holder.b);
             d.o(R.string.J_X04);
             d.f(R.color.CAM_X0625);
-            q25 d2 = q25.d(holder.a);
+            r25 d2 = r25.d(holder.a);
             d2.w(R.color.CAM_X0101);
             d2.B(R.dimen.T_X09);
             holder.a.setText(tipsSysMsg.getTips());
             if (-7014 == tipsSysMsg.getSysMsgType()) {
-                k78.a("c15095", 1, this.h, this.i, TbadkCoreApplication.getCurrentAccount());
+                s78.a("c15095", 1, this.h, this.i, TbadkCoreApplication.getCurrentAccount());
             }
             return holder.getView();
         }

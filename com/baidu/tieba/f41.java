@@ -1,27 +1,51 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.IBinder;
-import android.view.inputmethod.InputMethodManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.security.MessageDigest;
+import java.util.Locale;
 /* loaded from: classes4.dex */
 public class f41 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized void a(Context context, IBinder iBinder) {
+    public static String a(byte[] bArr, String str, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, context, iBinder) == null) {
-            synchronized (f41.class) {
-                InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService("input_method");
-                if (inputMethodManager != null) {
-                    try {
-                        inputMethodManager.hideSoftInputFromWindow(iBinder, 0);
-                    } catch (Exception unused) {
-                    }
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, bArr, str, z)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (byte b : bArr) {
+                String hexString = Integer.toHexString(b & 255);
+                if (z) {
+                    hexString = hexString.toUpperCase(Locale.getDefault());
                 }
+                if (hexString.length() == 1) {
+                    sb.append("0");
+                }
+                sb.append(hexString);
+                sb.append(str);
+            }
+            return sb.toString();
+        }
+        return (String) invokeLLZ.objValue;
+    }
+
+    public static String b(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, str, z)) == null) {
+            if (str == null) {
+                str = "";
+            }
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.update(str.getBytes());
+                return a(messageDigest.digest(), "", z);
+            } catch (Exception unused) {
+                return String.valueOf(str.hashCode());
             }
         }
+        return (String) invokeLZ.objValue;
     }
 }

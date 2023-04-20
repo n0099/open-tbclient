@@ -1,32 +1,56 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.task.HttpMessageTask;
+import com.baidu.tbadk.core.relogin.ReloginManager;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class zm5 {
+public class zm5 extends ra {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final boolean a(TbPageContext<?> tbPageContext, View view2) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zm5(int i) {
+        super(i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ta
+    public HttpMessage process(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, tbPageContext, view2)) == null) {
-            boolean z = false;
-            if (tbPageContext == null || view2 == null) {
-                return false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, httpMessage, httpMessageTask)) == null) {
+            if (httpMessageTask != null && (httpMessageTask instanceof TbHttpMessageTask)) {
+                TbHttpMessageTask tbHttpMessageTask = (TbHttpMessageTask) httpMessageTask;
+                if (httpMessage.removeParam("reloin_key") == null && ReloginManager.g().h() && tbHttpMessageTask.isNeedLogin()) {
+                    httpMessage.addParam("reloin_key", "reloin_value");
+                    ReloginManager.g().l(httpMessage);
+                    return null;
+                }
+                return httpMessage;
             }
-            hv4 layoutMode = tbPageContext.getLayoutMode();
-            if (TbadkCoreApplication.getInst().getSkinType() == 4) {
-                z = true;
-            }
-            layoutMode.l(z);
-            tbPageContext.getLayoutMode().k(view2);
-            return true;
+            return httpMessage;
         }
-        return invokeLL.booleanValue;
+        return (HttpMessage) invokeLL.objValue;
     }
 }

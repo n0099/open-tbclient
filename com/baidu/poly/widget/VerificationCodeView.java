@@ -17,7 +17,7 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cf1;
+import com.baidu.tieba.df1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -83,7 +83,7 @@ public class VerificationCodeView extends LinearLayout implements TextWatcher, V
             }
         }
         this.a = context;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, cf1.PolyVerificationCodeView);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, df1.PolyVerificationCodeView);
         this.c = obtainStyledAttributes.getInteger(3, 4);
         this.d = obtainStyledAttributes.getDimensionPixelSize(7, 105);
         this.e = obtainStyledAttributes.getColor(5, -16777216);

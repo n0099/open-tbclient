@@ -13,8 +13,8 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.feed.widget.roundcorners.RoundFrameLayout;
 import com.baidu.tieba.feed.widget.roundcorners.RoundLinearLayout;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.k17;
-import com.baidu.tieba.t17;
+import com.baidu.tieba.l17;
+import com.baidu.tieba.u17;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,9 +31,9 @@ import kotlin.jvm.internal.Intrinsics;
 public final class VirtualImageView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public t17 a;
-    public t17 b;
-    public t17 c;
+    public u17 a;
+    public u17 b;
+    public u17 c;
 
     static {
         InterceptResult invokeClinit;
@@ -99,9 +99,9 @@ public final class VirtualImageView extends RelativeLayout {
         int i3 = (int) (1.2f * f);
         RoundFrameLayout roundFrameLayout = new RoundFrameLayout(context);
         roundFrameLayout.setId(R.id.obfuscated_res_0x7f0905ae);
-        t17 t17Var = new t17(context);
-        this.a = t17Var;
-        roundFrameLayout.addView(t17Var.h(), new FrameLayout.LayoutParams(-1, -1));
+        u17 u17Var = new u17(context);
+        this.a = u17Var;
+        roundFrameLayout.addView(u17Var.h(), new FrameLayout.LayoutParams(-1, -1));
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(g, g);
         roundFrameLayout.setRadius(f);
         layoutParams.addRule(13);
@@ -111,7 +111,7 @@ public final class VirtualImageView extends RelativeLayout {
         roundLinearLayout.setOrientation(0);
         roundLinearLayout.setGravity(80);
         roundLinearLayout.setId(R.id.obfuscated_res_0x7f0905ac);
-        this.b = new t17(context);
+        this.b = new u17(context);
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(i3, i3);
         layoutParams2.leftMargin = (-(i3 - g)) / 2;
         roundLinearLayout.addView(this.b.h(), layoutParams2);
@@ -121,7 +121,7 @@ public final class VirtualImageView extends RelativeLayout {
         layoutParams3.addRule(10);
         layoutParams3.addRule(14);
         addView(roundLinearLayout, layoutParams3);
-        this.c = new t17(context);
+        this.c = new u17(context);
         int g2 = ii.g(context, R.dimen.tbds42);
         RelativeLayout.LayoutParams layoutParams4 = new RelativeLayout.LayoutParams(g2, g2);
         layoutParams4.addRule(8, R.id.obfuscated_res_0x7f0905ac);
@@ -173,7 +173,7 @@ public final class VirtualImageView extends RelativeLayout {
                 return;
             }
             this.c.h().setVisibility(0);
-            k17.a(this.c.h(), str);
+            l17.a(this.c.h(), str);
         }
     }
 

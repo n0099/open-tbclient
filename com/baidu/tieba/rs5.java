@@ -1,13 +1,18 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.graphics.Canvas;
+import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.ListAdapter;
+import android.widget.ListView;
 /* loaded from: classes6.dex */
 public interface rs5 {
     void a();
 
     void b(Canvas canvas);
+
+    void c(ListView listView, Context context, AttributeSet attributeSet);
 
     void onDraw(Canvas canvas);
 

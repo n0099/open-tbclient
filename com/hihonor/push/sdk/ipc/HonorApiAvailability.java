@@ -7,8 +7,8 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.tieba.lta;
-import com.baidu.tieba.ota;
+import com.baidu.tieba.tta;
+import com.baidu.tieba.wta;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -94,11 +94,11 @@ public class HonorApiAvailability {
         }
     }
 
-    public static ota a(Context context) {
+    public static wta a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            ota otaVar = new ota();
+            wta wtaVar = new wta();
             Intent intent = new Intent();
             intent.setComponent(new ComponentName("android", "com.hihonor.android.pushagentproxy.HiPushService"));
             List<ResolveInfo> queryIntentServices = context.getPackageManager().queryIntentServices(intent, 128);
@@ -107,15 +107,15 @@ public class HonorApiAvailability {
                 if (it.hasNext()) {
                     ResolveInfo next = it.next();
                     String str = next.serviceInfo.applicationInfo.packageName;
-                    String e = lta.e(context, str);
-                    otaVar.f(str);
-                    otaVar.g(next.serviceInfo.name);
-                    otaVar.h(e);
+                    String e = tta.e(context, str);
+                    wtaVar.f(str);
+                    wtaVar.g(next.serviceInfo.name);
+                    wtaVar.h(e);
                 }
             }
-            return otaVar;
+            return wtaVar;
         }
-        return (ota) invokeL.objValue;
+        return (wta) invokeL.objValue;
     }
 
     public static int b(Context context) {
@@ -124,7 +124,7 @@ public class HonorApiAvailability {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             if (context != null) {
-                ota a = a(context);
+                wta a = a(context);
                 String c = a.c();
                 String str = "service package name is " + c;
                 if (TextUtils.isEmpty(c)) {

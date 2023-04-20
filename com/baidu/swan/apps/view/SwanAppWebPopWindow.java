@@ -22,22 +22,22 @@ import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.apps.view.SwanAppWebPopPullLayout;
 import com.baidu.swan.menu.PopupWindow;
 import com.baidu.tieba.R;
-import com.baidu.tieba.br2;
-import com.baidu.tieba.bu1;
-import com.baidu.tieba.dk3;
-import com.baidu.tieba.du1;
-import com.baidu.tieba.en3;
-import com.baidu.tieba.eo1;
-import com.baidu.tieba.f92;
-import com.baidu.tieba.ht2;
-import com.baidu.tieba.i92;
-import com.baidu.tieba.ll3;
-import com.baidu.tieba.oe2;
-import com.baidu.tieba.rv1;
+import com.baidu.tieba.cr2;
+import com.baidu.tieba.cu1;
+import com.baidu.tieba.ek3;
+import com.baidu.tieba.eu1;
+import com.baidu.tieba.fn3;
+import com.baidu.tieba.fo1;
+import com.baidu.tieba.g92;
+import com.baidu.tieba.it2;
+import com.baidu.tieba.j92;
+import com.baidu.tieba.ml3;
+import com.baidu.tieba.pe2;
+import com.baidu.tieba.sv1;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class SwanAppWebPopWindow extends PopupWindow implements SwanAppWebPopPullLayout.c, View.OnClickListener {
-    public static final boolean s0 = eo1.a;
+    public static final boolean s0 = fo1.a;
     public static CloseStyle t0;
     public SwanAppActivity Q;
     public final FrameLayout R;
@@ -46,9 +46,9 @@ public class SwanAppWebPopWindow extends PopupWindow implements SwanAppWebPopPul
     public RelativeLayout U;
     public int V;
     public FrameLayout W;
-    public du1 X;
-    public bu1 Y;
-    public final en3 Z;
+    public eu1 X;
+    public cu1 Y;
+    public final fn3 Z;
     public boolean a0;
     public int b0;
     public final String c0;
@@ -77,9 +77,9 @@ public class SwanAppWebPopWindow extends PopupWindow implements SwanAppWebPopPul
     }
 
     /* loaded from: classes3.dex */
-    public class c extends f92 {
+    public class c extends g92 {
         public boolean c = false;
-        public final /* synthetic */ i92 d;
+        public final /* synthetic */ j92 d;
 
         /* loaded from: classes3.dex */
         public class a implements View.OnClickListener {
@@ -96,16 +96,16 @@ public class SwanAppWebPopWindow extends PopupWindow implements SwanAppWebPopPul
             }
         }
 
-        public c(i92 i92Var) {
-            this.d = i92Var;
+        public c(j92 j92Var) {
+            this.d = j92Var;
         }
 
-        @Override // com.baidu.tieba.f92, com.baidu.tieba.i92
+        @Override // com.baidu.tieba.g92, com.baidu.tieba.j92
         public void b(int i) {
             this.c = true;
-            i92 i92Var = this.d;
-            if (i92Var != null) {
-                i92Var.b(i);
+            j92 j92Var = this.d;
+            if (j92Var != null) {
+                j92Var.b(i);
             }
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(SwanAppWebPopWindow.this.Q).inflate(R.layout.obfuscated_res_0x7f0d00d1, (ViewGroup) null);
             linearLayout.setBackgroundColor(-1);
@@ -113,24 +113,24 @@ public class SwanAppWebPopWindow extends PopupWindow implements SwanAppWebPopPul
             SwanAppWebPopWindow.this.W.addView(linearLayout);
         }
 
-        @Override // com.baidu.tieba.f92, com.baidu.tieba.i92
+        @Override // com.baidu.tieba.g92, com.baidu.tieba.j92
         public void c(int i, String str, String str2) {
             this.c = true;
-            i92 i92Var = this.d;
-            if (i92Var != null) {
-                i92Var.c(i, str, str2);
+            j92 j92Var = this.d;
+            if (j92Var != null) {
+                j92Var.c(i, str, str2);
             }
         }
 
-        @Override // com.baidu.tieba.f92, com.baidu.tieba.i92
+        @Override // com.baidu.tieba.g92, com.baidu.tieba.j92
         public void e(String str) {
             if (this.c) {
                 return;
             }
             this.c = false;
-            i92 i92Var = this.d;
-            if (i92Var != null) {
-                i92Var.e(str);
+            j92 j92Var = this.d;
+            if (j92Var != null) {
+                j92Var.e(str);
             }
             SwanAppWebPopWindow.this.j0++;
             if (!SwanAppWebPopWindow.this.f0 && SwanAppWebPopWindow.this.j0 > 1 && SwanAppWebPopWindow.this.Y.canGoBack()) {
@@ -148,7 +148,7 @@ public class SwanAppWebPopWindow extends PopupWindow implements SwanAppWebPopPul
 
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
-            if (!dk3.d(SwanAppWebPopWindow.this.Q)) {
+            if (!ek3.d(SwanAppWebPopWindow.this.Q)) {
                 return;
             }
             SwanAppWebPopWindow.super.r();
@@ -224,9 +224,9 @@ public class SwanAppWebPopWindow extends PopupWindow implements SwanAppWebPopPul
     }
 
     public void i0() {
-        en3 en3Var = this.Z;
-        if (en3Var != null) {
-            en3Var.b(this.U);
+        fn3 fn3Var = this.Z;
+        if (fn3Var != null) {
+            fn3Var.b(this.U);
         }
     }
 
@@ -234,8 +234,8 @@ public class SwanAppWebPopWindow extends PopupWindow implements SwanAppWebPopPul
         if (!z()) {
             return;
         }
-        ObjectAnimator b2 = rv1.b(this.S);
-        ObjectAnimator d2 = rv1.d(this.T, this.V);
+        ObjectAnimator b2 = sv1.b(this.S);
+        ObjectAnimator d2 = sv1.d(this.T, this.V);
         AnimatorSet animatorSet = new AnimatorSet();
         animatorSet.addListener(new a());
         animatorSet.playTogether(b2, d2);
@@ -272,8 +272,8 @@ public class SwanAppWebPopWindow extends PopupWindow implements SwanAppWebPopPul
     public final void w0() {
         this.S.setAlpha(0.0f);
         this.T.setTranslationY(this.V);
-        ObjectAnimator c2 = rv1.c(this.S);
-        ObjectAnimator a2 = rv1.a(this.T);
+        ObjectAnimator c2 = sv1.c(this.S);
+        ObjectAnimator a2 = sv1.a(this.T);
         ArrayList arrayList = new ArrayList();
         arrayList.add(c2);
         arrayList.add(a2);
@@ -292,7 +292,7 @@ public class SwanAppWebPopWindow extends PopupWindow implements SwanAppWebPopPul
         }
         this.Q = swanAppActivity;
         this.c0 = str;
-        this.Z = new en3();
+        this.Z = new fn3();
         t0 = CloseStyle.CLOSE_AT_RIGHT;
         this.j0 = 0;
         F(false);
@@ -315,12 +315,12 @@ public class SwanAppWebPopWindow extends PopupWindow implements SwanAppWebPopPul
         this.S.getBackground().setAlpha((int) ((1.0f - f) * 153.0f));
     }
 
-    public final du1 k0(SwanAppActivity swanAppActivity) {
-        return oe2.U().f0().i(swanAppActivity);
+    public final eu1 k0(SwanAppActivity swanAppActivity) {
+        return pe2.U().f0().i(swanAppActivity);
     }
 
-    public final i92 l0(i92 i92Var) {
-        return new c(i92Var);
+    public final j92 l0(j92 j92Var) {
+        return new c(j92Var);
     }
 
     public SwanAppWebPopWindow p0(CloseStyle closeStyle) {
@@ -335,7 +335,7 @@ public class SwanAppWebPopWindow extends PopupWindow implements SwanAppWebPopPul
 
     public SwanAppWebPopWindow t0(int i) {
         if (this.Q == null) {
-            this.Q = ht2.U().getActivity();
+            this.Q = it2.U().getActivity();
         }
         this.d0 = this.Q.getString(i);
         return this;
@@ -368,9 +368,9 @@ public class SwanAppWebPopWindow extends PopupWindow implements SwanAppWebPopPul
         imageView2.setVisibility(8);
     }
 
-    /* JADX WARN: Type inference failed for: r0v26, types: [com.baidu.tieba.bu1] */
+    /* JADX WARN: Type inference failed for: r0v26, types: [com.baidu.tieba.cu1] */
     public final void n0() {
-        int n = ll3.n(br2.c());
+        int n = ml3.n(cr2.c());
         int i = (int) (n * 0.68d);
         this.V = i;
         int i2 = this.r0;
@@ -405,9 +405,9 @@ public class SwanAppWebPopWindow extends PopupWindow implements SwanAppWebPopPul
         }
         layoutParams2.height = dimensionPixelSize;
         this.W.setLayoutParams(layoutParams2);
-        du1 k0 = k0(this.Q);
+        eu1 k0 = k0(this.Q);
         this.X = k0;
-        k0.Y(l0(new f92()));
+        k0.Y(l0(new g92()));
         this.Y = this.X.r();
         this.X.loadUrl(this.c0);
         this.X.j(this.W, this.Y.covertToView());
@@ -441,7 +441,7 @@ public class SwanAppWebPopWindow extends PopupWindow implements SwanAppWebPopPul
             return;
         }
         if (this.Q == null) {
-            this.Q = ht2.U().getActivity();
+            this.Q = it2.U().getActivity();
         }
         View decorView = this.Q.getWindow().getDecorView();
         i0();

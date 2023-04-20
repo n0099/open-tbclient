@@ -1,110 +1,111 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import android.text.TextUtils;
+import android.webkit.MimeTypeMap;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.qc2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import com.baidu.webkit.sdk.WebResourceResponse;
+import java.util.Map;
+import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes5.dex */
-public final class mc2 implements dc2 {
+public final class mc2 implements qc2.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a b;
-    public OutputStream c;
-    public File d;
+    public CopyOnWriteArrayList<jc2> a;
+    public String b;
+    public Map<String, String> c;
+    public int d;
     public boolean e;
+    public String f;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a(File file);
-
-        void b(File file);
-    }
-
-    public mc2(File file, a aVar) {
+    public mc2(CopyOnWriteArrayList<jc2> copyOnWriteArrayList, String str, Map<String, String> map, int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {file, aVar};
+            Object[] objArr = {copyOnWriteArrayList, str, map, Integer.valueOf(i), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = file;
-        this.b = aVar;
-        b(file);
+        this.a = copyOnWriteArrayList;
+        this.b = str;
+        this.c = map;
+        this.d = i;
+        this.e = z;
     }
 
-    public void a() {
+    @Override // com.baidu.tieba.qc2.a
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.c == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.f = str;
         }
-        a aVar = this.b;
-        if (aVar != null) {
-            if (this.e) {
-                aVar.a(this.d);
-            } else {
-                aVar.b(this.d);
+    }
+
+    @Override // com.baidu.tieba.qc2.a
+    public WebResourceResponse b(String str, Map<String, String> map, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, map, z)) == null) {
+            if (this.d >= this.a.size()) {
+                return null;
             }
+            return this.a.get(this.d).a(new mc2(this.a, this.b, this.c, this.d + 1, z));
         }
-        yn4.d(this.c);
+        return (WebResourceResponse) invokeLLZ.objValue;
     }
 
-    public final void b(File file) {
+    @Override // com.baidu.tieba.qc2.a
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file) == null) {
-            try {
-                if (this.c == null && file != null) {
-                    yn4.h(this.d);
-                    this.c = new FileOutputStream(file);
-                }
-            } catch (Exception e) {
-                if (dc2.a) {
-                    Log.e("HybridIntercept", Log.getStackTraceString(e));
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.qc2.a
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.qc2.a
+    public String getMimeType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (TextUtils.isEmpty(this.f)) {
+                this.f = MimeTypeMap.getSingleton().getMimeTypeFromExtension(MimeTypeMap.getFileExtensionFromUrl(this.b));
             }
+            return this.f;
         }
+        return (String) invokeV.objValue;
     }
 
-    public void c(InputStream inputStream) {
+    @Override // com.baidu.tieba.qc2.a
+    public Map<String, String> getRequestHeaders() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, inputStream) == null) && inputStream != null && !this.e) {
-            yn4.Q(inputStream, this.d);
-            this.e = true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.c;
         }
-    }
-
-    public void d(byte[] bArr, int i, int i2) {
-        OutputStream outputStream;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(1048579, this, bArr, i, i2) == null) && (outputStream = this.c) != null) {
-            try {
-                if (i2 > 0) {
-                    outputStream.write(bArr, i, i2);
-                } else {
-                    this.e = true;
-                }
-            } catch (IOException unused) {
-                yn4.d(this.c);
-                this.c = null;
-                a aVar = this.b;
-                if (aVar != null) {
-                    aVar.b(this.d);
-                }
-            }
-        }
+        return (Map) invokeV.objValue;
     }
 }

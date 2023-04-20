@@ -19,7 +19,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatFragment;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
 import com.baidu.tieba.immessagecenter.slice.Slice;
-import com.baidu.tieba.p45;
+import com.baidu.tieba.q45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -71,7 +71,7 @@ public class TopBubbleSlice extends Slice {
                 Pair pair = (Pair) customResponsedMessage.getData();
                 if (this.a.l != null) {
                     this.a.k.b.setVisibility(0);
-                    this.a.j.A2(0);
+                    this.a.j.B2(0);
                     this.a.l.setContent((String) pair.first);
                     this.a.l.setVersionKey((String) pair.second);
                     this.a.k.b.c(this.a.l, this.a.j);
@@ -115,10 +115,10 @@ public class TopBubbleSlice extends Slice {
                 return;
             }
             if (this.a.l != null) {
-                p45.m().w(this.a.l.getVersionKey() + TbadkCoreApplication.getCurrentAccount(), true);
+                q45.m().w(this.a.l.getVersionKey() + TbadkCoreApplication.getCurrentAccount(), true);
             }
             this.a.k.b.setVisibility(8);
-            this.a.j.A2(8);
+            this.a.j.B2(8);
         }
     }
 
@@ -195,7 +195,7 @@ public class TopBubbleSlice extends Slice {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return p45.m().i(str + TbadkCoreApplication.getCurrentAccount(), false);
+            return q45.m().i(str + TbadkCoreApplication.getCurrentAccount(), false);
         }
         return invokeL.booleanValue;
     }

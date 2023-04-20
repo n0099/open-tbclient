@@ -1,16 +1,15 @@
 package com.baidu.tieba;
 
-import android.util.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
 /* loaded from: classes5.dex */
 public class mba {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static volatile iba a;
+    public static oba b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -26,45 +25,18 @@ public class mba {
                 return;
             }
         }
-        a = kaa.m();
+        b = new oba();
     }
 
-    public static boolean a(File file) {
-        InterceptResult invokeL;
+    public static iba a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
-            if (a) {
-                Log.d("UBCFileUtils", "delete file:" + file);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                a = b.a();
             }
-            if (file == null) {
-                return false;
-            }
-            boolean z = true;
-            if (file.exists()) {
-                if (file.isFile()) {
-                    return true & file.delete();
-                }
-                if (file.isDirectory()) {
-                    File[] listFiles = file.listFiles();
-                    if (listFiles != null) {
-                        for (File file2 : listFiles) {
-                            z &= a(file2);
-                        }
-                    }
-                    return z & file.delete();
-                } else if (!a) {
-                    return true;
-                } else {
-                    Log.d("UBCFileUtils", "a special file:" + file);
-                    return true;
-                }
-            } else if (!a) {
-                return true;
-            } else {
-                Log.d("UBCFileUtils", "not found the file to delete:" + file);
-                return true;
-            }
+            return a;
         }
-        return invokeL.booleanValue;
+        return (iba) invokeV.objValue;
     }
 }

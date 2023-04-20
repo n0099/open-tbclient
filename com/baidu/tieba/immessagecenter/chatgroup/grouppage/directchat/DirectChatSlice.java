@@ -11,16 +11,16 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.CustomRecyclerView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a58;
+import com.baidu.tieba.b58;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
 import com.baidu.tieba.immessagecenter.slice.Slice;
-import com.baidu.tieba.q25;
+import com.baidu.tieba.r25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class DirectChatSlice extends Slice {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,9 +33,9 @@ public class DirectChatSlice extends Slice {
     @Nullable
     public ChatRoomDetail m;
     @Nullable
-    public a58 n;
+    public b58 n;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -69,12 +69,12 @@ public class DirectChatSlice extends Slice {
         }
     }
 
-    public DirectChatSlice(@NonNull TbPageContext<?> tbPageContext, @NonNull a58 a58Var) {
+    public DirectChatSlice(@NonNull TbPageContext<?> tbPageContext, @NonNull b58 b58Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, a58Var};
+            Object[] objArr = {tbPageContext, b58Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -85,7 +85,7 @@ public class DirectChatSlice extends Slice {
             }
         }
         this.j = tbPageContext;
-        this.n = a58Var;
+        this.n = b58Var;
     }
 
     @Override // com.baidu.tieba.immessagecenter.slice.Slice
@@ -108,8 +108,8 @@ public class DirectChatSlice extends Slice {
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             super.H(i);
             this.l.notifyDataSetChanged();
-            q25.d(this.k.b).f(R.color.transparent);
-            q25.d(this.k.a).f(R.color.transparent);
+            r25.d(this.k.b).f(R.color.transparent);
+            r25.d(this.k.a).f(R.color.transparent);
         }
     }
 

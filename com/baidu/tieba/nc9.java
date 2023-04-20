@@ -1,230 +1,225 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import android.content.Context;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.core.view.RoundTbImageView;
-import com.baidu.tieba.recapp.widget.CountDownTextView;
+import com.baidu.tbadk.browser.SearchJsBridge;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tieba.tbadkCore.util.MercatorModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
+import tbclient.AppPosInfo;
 /* loaded from: classes5.dex */
-public class nc9 extends pc9 {
+public class nc9 {
     public static /* synthetic */ Interceptable $ic;
+    public static nc9 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public RelativeLayout h;
-    public RoundTbImageView i;
-    public TextView j;
-    public TextView k;
-    public TextView l;
-    public TextView m;
-    public CountDownTextView n;
+    public String a;
+    public String b;
+    public long c;
+    public String d;
+    public String e;
 
-    /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            }
-        }
-
-        public a(nc9 nc9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nc9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nc9 a;
-
-        public b(nc9 nc9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nc9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = nc9Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            View.OnClickListener onClickListener;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (onClickListener = this.a.g) != null) {
-                onClickListener.onClick(view2);
-                this.a.n.c();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zb9 a;
-        public final /* synthetic */ nc9 b;
-
-        public c(nc9 nc9Var, zb9 zb9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nc9Var, zb9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = nc9Var;
-            this.a = zb9Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            boolean z;
-            int i;
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                zb9 zb9Var = this.a;
-                String str2 = zb9Var.d;
-                if (!fi0.n(zb9Var.j)) {
-                    z = ei0.b(this.b.e.getPageActivity(), this.b.c.p);
-                } else {
-                    z = false;
-                }
-                if (!z) {
-                    AdvertAppInfo advertAppInfo = this.b.c;
-                    String str3 = advertAppInfo.g;
-                    if (advertAppInfo.e()) {
-                        str = this.b.c.getDownloadId();
-                    } else {
-                        str = this.b.c.a;
-                    }
-                    i = wa9.b(this.b.e, str2, str, str3, this.a.j);
-                } else {
-                    i = 3;
-                }
-                if (i == 0) {
-                    return;
-                }
-                ClogBuilder clogBuilder = new ClogBuilder();
-                clogBuilder.y(ClogBuilder.LogType.CLICK).v("VIDEO_FLOW_TAIL").q(String.valueOf(this.b.c.position + 1)).p(this.b.c.g);
-                l11.b(clogBuilder);
-                he8.c(this.b.c);
-                this.b.n.c();
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nc9(View view2, String str) {
-        super(view2, str);
+    public nc9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((View) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        l();
+        this.e = q45.m().s("asp_shown_info", "");
     }
 
-    @Override // com.baidu.tieba.pc9
-    public void j(CountDownTextView.c cVar) {
+    public static nc9 e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
-            super.j(cVar);
-            this.n.setTimeoutListener(cVar);
-        }
-    }
-
-    @Override // com.baidu.tieba.pc9
-    public void c(zb9 zb9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, zb9Var) == null) {
-            super.c(zb9Var);
-            if (zb9Var == null) {
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (f == null) {
+                synchronized (ym9.class) {
+                    if (f == null) {
+                        f = new nc9();
+                    }
+                }
             }
-            this.i.N(zb9Var.c, 30, false);
-            this.j.setText(zb9Var.b);
-            this.k.setText(zb9Var.i);
-            this.l.setText(zb9Var.e);
-            this.m.setOnClickListener(new b(this));
-            this.n.setFormatString(this.e.getResources().getString(R.string.obfuscated_res_0x7f0f00bc));
-            this.h.setOnClickListener(new c(this, zb9Var));
+            return f;
+        }
+        return (nc9) invokeV.objValue;
+    }
+
+    public final String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (TextUtils.isEmpty(this.d)) {
+                f();
+            }
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            q45.m().B("asp_shown_info", this.e);
         }
     }
 
-    @Override // com.baidu.tieba.pc9
-    public void d() {
+    public AppPosInfo a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.d();
-            this.n.update(5);
-            this.n.e();
-            ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.y(ClogBuilder.LogType.FREE_SHOW).v("VIDEO_FLOW_TAIL").q(String.valueOf(this.c.position + 1)).p(this.c.g);
-            l11.b(clogBuilder);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            AppPosInfo.Builder builder = new AppPosInfo.Builder();
+            builder.ap_mac = d();
+            builder.ap_connected = Boolean.valueOf(BdNetTypeUtil.isWifiNet());
+            builder.latitude = this.b;
+            builder.longitude = this.a;
+            builder.addr_timestamp = Long.valueOf(this.c);
+            builder.coordinate_type = "bd09ll";
+            builder.asp_shown_info = this.e;
+            MercatorModel.MercatorData e = MercatorModel.d().e();
+            if (e != null) {
+                builder.mercator_lat = e.T();
+                builder.mercator_lon = e.U();
+                builder.mercator_city = Integer.valueOf(e.Q());
+                builder.mercator_radius = e.W();
+                builder.mercator_time = Long.valueOf(e.X());
+            }
+            return builder.build(false);
+        }
+        return (AppPosInfo) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            AppPosInfo c = c();
+            JSONObject jSONObject = new JSONObject();
+            if (c != null) {
+                try {
+                    jSONObject.put("ap_mac", c.ap_mac);
+                    jSONObject.put("ap_connected", c.ap_connected);
+                    jSONObject.put("latitude", c.latitude);
+                    jSONObject.put("longitude", c.longitude);
+                    jSONObject.put("addr_timestamp", c.addr_timestamp);
+                    jSONObject.put("coordinate_type", c.coordinate_type);
+                    jSONObject.put("asp_shown_info", c.asp_shown_info);
+                    jSONObject.put(SearchJsBridge.COOKIE_MERCATOR_LAT, c.mercator_lat);
+                    jSONObject.put(SearchJsBridge.COOKIE_MERCATOR_LON, c.mercator_lon);
+                    jSONObject.put(SearchJsBridge.COOKIE_MERCATOR_CITY, c.mercator_city);
+                    jSONObject.put(SearchJsBridge.COOKIE_MERCATOR_RADIUS, c.mercator_radius);
+                    jSONObject.put(SearchJsBridge.COOKIE_MERCATOR_TIME, c.mercator_time);
+                    jSONObject.put("mercator_province_name", c.mercator_province_name);
+                    jSONObject.put("mercator_city_name", c.mercator_city_name);
+                    jSONObject.put("mercator_district_name", c.mercator_district_name);
+                } catch (JSONException unused) {
+                }
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public AppPosInfo c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            AppPosInfo.Builder builder = new AppPosInfo.Builder();
+            builder.ap_mac = d();
+            builder.ap_connected = Boolean.valueOf(BdNetTypeUtil.isWifiNet());
+            String str = this.b;
+            builder.latitude = str;
+            builder.longitude = this.a;
+            if (hi.isEmpty(str) || hi.isEmpty(this.a)) {
+                String s = q45.m().s("key_last_receive_location_latitude_and_longitude", "");
+                if (!hi.isEmpty(s)) {
+                    String[] split = s.split(",");
+                    if (split.length >= 2) {
+                        builder.latitude = split[0];
+                        builder.longitude = split[1];
+                    }
+                }
+            }
+            builder.addr_timestamp = Long.valueOf(this.c);
+            builder.coordinate_type = "BD09LL";
+            builder.asp_shown_info = this.e;
+            MercatorModel.MercatorData e = MercatorModel.d().e();
+            if (e != null) {
+                builder.mercator_lat = e.T();
+                builder.mercator_lon = e.U();
+                builder.mercator_city = Integer.valueOf(e.Q());
+                builder.mercator_radius = e.W();
+                builder.mercator_time = Long.valueOf(e.X());
+                builder.mercator_province_name = e.V();
+                builder.mercator_city_name = e.R();
+                builder.mercator_district_name = e.S();
+            }
+            return builder.build(false);
+        }
+        return (AppPosInfo) invokeV.objValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            Context applicationContext = TbadkCoreApplication.getInst().getApplicationContext();
+            if (PermissionUtil.isAgreePrivacyPolicy() && PermissionUtil.checkReadWifiState(applicationContext)) {
+                try {
+                    WifiInfo connectionInfo = ((WifiManager) applicationContext.getSystemService("wifi")).getConnectionInfo();
+                    if (connectionInfo != null) {
+                        this.d = connectionInfo.getBSSID();
+                    } else {
+                        this.d = "";
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 
-    public final void l() {
+    public void h(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b.setOnClickListener(new a(this));
-            this.h = (RelativeLayout) a(R.id.obfuscated_res_0x7f09009d);
-            this.i = (RoundTbImageView) a(R.id.user_head);
-            this.j = (TextView) a(R.id.user_name);
-            this.k = (TextView) a(R.id.obfuscated_res_0x7f092683);
-            this.l = (TextView) a(R.id.obfuscated_res_0x7f09250b);
-            this.m = (TextView) a(R.id.replay_btn);
-            this.n = (CountDownTextView) a(R.id.obfuscated_res_0x7f0907b0);
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.e = str;
+        }
+    }
+
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.a = str;
+        }
+    }
+
+    public void k(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+            this.c = j;
         }
     }
 }

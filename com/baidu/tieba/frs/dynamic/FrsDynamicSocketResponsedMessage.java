@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.dynamic;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
-import com.baidu.tieba.e87;
+import com.baidu.tieba.f87;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,10 +12,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.Error;
 import tbclient.StarTrends.StarTrendsResIdl;
 /* loaded from: classes4.dex */
-public class FrsDynamicSocketResponsedMessage extends MvcSocketResponsedMessage<e87, StarTrendsResIdl> {
+public class FrsDynamicSocketResponsedMessage extends MvcSocketResponsedMessage<f87, StarTrendsResIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public e87 responseData;
+    public f87 responseData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FrsDynamicSocketResponsedMessage() {
@@ -52,9 +52,9 @@ public class FrsDynamicSocketResponsedMessage extends MvcSocketResponsedMessage<
         Error error;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
-            e87 e87Var = new e87();
-            this.responseData = e87Var;
-            StarTrendsResIdl a = e87Var.a(bArr);
+            f87 f87Var = new f87();
+            this.responseData = f87Var;
+            StarTrendsResIdl a = f87Var.a(bArr);
             if (a != null && (error = a.error) != null) {
                 Integer num = error.errorno;
                 if (num != null) {

@@ -34,7 +34,7 @@ import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.internal.TextScale;
 import java.util.HashSet;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class BottomNavigationMenuView extends ViewGroup implements MenuView {
     public static final long ACTIVE_ANIMATION_DURATION_MS = 115;
     public static final int[] CHECKED_STATE_SET = {16842912};

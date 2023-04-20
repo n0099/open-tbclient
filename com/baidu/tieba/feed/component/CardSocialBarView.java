@@ -8,18 +8,18 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.av6;
-import com.baidu.tieba.lw6;
-import com.baidu.tieba.uz6;
+import com.baidu.tieba.bv6;
+import com.baidu.tieba.mw6;
+import com.baidu.tieba.vz6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class CardSocialBarView extends LinearLayout implements uz6 {
+public class CardSocialBarView extends LinearLayout implements vz6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final av6.j a;
+    public final bv6.j a;
     public ViewGroup b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -40,7 +40,7 @@ public class CardSocialBarView extends LinearLayout implements uz6 {
                 return;
             }
         }
-        this.a = av6.a().a();
+        this.a = bv6.a().a();
         a(context);
     }
 
@@ -63,7 +63,7 @@ public class CardSocialBarView extends LinearLayout implements uz6 {
                 return;
             }
         }
-        this.a = av6.a().a();
+        this.a = bv6.a().a();
         a(context);
     }
 
@@ -87,7 +87,7 @@ public class CardSocialBarView extends LinearLayout implements uz6 {
                 return;
             }
         }
-        this.a = av6.a().a();
+        this.a = bv6.a().a();
         a(context);
     }
 
@@ -100,14 +100,14 @@ public class CardSocialBarView extends LinearLayout implements uz6 {
         }
     }
 
-    public void update(@NonNull lw6 lw6Var) {
+    public void update(@NonNull mw6 mw6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lw6Var) == null) {
-            this.a.update(this.b, lw6Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mw6Var) == null) {
+            this.a.update(this.b, mw6Var);
         }
     }
 
-    @Override // com.baidu.tieba.uz6
+    @Override // com.baidu.tieba.vz6
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {

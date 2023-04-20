@@ -2,8 +2,8 @@ package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
-import java.util.TreeSet;
+import java.util.List;
 /* loaded from: classes6.dex */
 public interface qh5 {
-    void a(int i, long j, @NonNull TreeSet<ChatMsg> treeSet);
+    boolean a(int i, long j, @NonNull List<ChatMsg> list);
 }

@@ -1,111 +1,56 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.util.Log;
+import android.content.pm.PackageManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Method;
 /* loaded from: classes6.dex */
 public class uxa {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String a = "h";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static Object a;
-        public static Class<?> b;
-        public static Method c;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-358887538, "Lcom/baidu/tieba/uxa$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-358887538, "Lcom/baidu/tieba/uxa$a;");
-                    return;
-                }
-            }
-            try {
-                Class<?> cls = Class.forName("com.android.id.impl.IdProviderImpl");
-                b = cls;
-                a = cls.newInstance();
-                b.getMethod("getUDID", Context.class);
-                c = b.getMethod("getOAID", Context.class);
-                b.getMethod("getVAID", Context.class);
-                b.getMethod("getAAID", Context.class);
-            } catch (Throwable th) {
-                Log.e("XiaomiId", "xiaomi init error", th);
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948227755, "Lcom/baidu/tieba/uxa;")) == null) {
+            return;
         }
-
-        public static String a(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-                return b(context, c);
-            }
-            return (String) invokeL.objValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-
-        public static String b(Context context, Method method) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, method)) == null) {
-                Object obj = a;
-                if (obj != null && method != null) {
-                    try {
-                        Object invoke = method.invoke(obj, context);
-                        if (invoke != null) {
-                            return (String) invoke;
-                        }
-                        return null;
-                    } catch (Exception e) {
-                        Log.e("XiaomiId", "invoke method error", e);
-                        return null;
-                    }
-                }
-                return null;
-            }
-            return (String) invokeLL.objValue;
-        }
-
-        public static boolean c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-                if (b != null && a != null) {
-                    return true;
-                }
-                return false;
-            }
-            return invokeV.booleanValue;
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948227755, "Lcom/baidu/tieba/uxa;");
         }
     }
 
-    public static String a(Context context) {
+    public static String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            return a.a(context.getApplicationContext());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            Context a2 = qxa.a();
+            if (a2 == null) {
+                return "";
+            }
+            try {
+                return a2.getPackageManager().getPackageInfo(str, 0).versionName;
+            } catch (PackageManager.NameNotFoundException e) {
+                String str2 = a;
+                txa.d(str2, "getVersion NameNotFoundException : " + e.getMessage());
+                return "";
+            } catch (Exception e2) {
+                String str3 = a;
+                txa.d(str3, "getVersion: " + e2.getMessage());
+                return "";
+            } catch (Throwable unused) {
+                txa.d(a, "throwable");
+                return "";
+            }
         }
         return (String) invokeL.objValue;
-    }
-
-    public static boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a.c();
-        }
-        return invokeV.booleanValue;
     }
 }

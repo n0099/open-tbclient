@@ -1,11 +1,9 @@
 package com.baidu.tieba;
 
-import android.util.Base64;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.console.v8inspector.websocket.WebSocketException;
-import com.baidu.swan.apps.console.v8inspector.websocket.WebSocketFrame;
+import com.baidu.searchbox.bddownload.core.Util;
+import com.baidu.tieba.a62;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,248 +11,162 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.HashMap;
 import java.util.Map;
-import okhttp3.internal.ws.WebSocketProtocol;
+import okhttp3.internal.http2.Http2Codec;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes3.dex */
 public class b62 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean g;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public InputStream b;
-    public OutputStream c;
-    public a d;
-    public WebSocketFrame.OpCode e;
-    public final List<WebSocketFrame> f;
 
     /* loaded from: classes3.dex */
-    public interface a {
-        void a(WebSocketFrame webSocketFrame);
+    public static class a extends a62.b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final boolean b;
+        public transient /* synthetic */ FieldHolder $fh;
 
-        void b(IOException iOException);
+        @Override // com.baidu.tieba.a62.b
+        public String c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "101 Switching Protocols" : (String) invokeV.objValue;
+        }
 
-        void onClose();
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-965193970, "Lcom/baidu/tieba/b62$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-965193970, "Lcom/baidu/tieba/b62$a;");
+                    return;
+                }
+            }
+            b = fo1.a;
+        }
 
-        void onOpen();
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947596843, "Lcom/baidu/tieba/b62;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(a62.a aVar) {
+            super(aVar);
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947596843, "Lcom/baidu/tieba/b62;");
-                return;
-            }
-        }
-        g = eo1.a;
-    }
-
-    public b62() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = 1;
-        this.e = null;
-        this.f = new LinkedList();
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.a == 4) {
-            return;
-        }
-        yn4.d(this.b);
-        yn4.d(this.c);
-        this.a = 4;
-        this.d.onClose();
-    }
-
-    public static boolean f(Map<String, String> map) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, map)) == null) {
-            String str = map.get("Upgrade".toLowerCase());
-            String str2 = map.get(HTTP.CONN_DIRECTIVE.toLowerCase());
-            if (str2 != null && str2.toLowerCase().contains("Upgrade".toLowerCase())) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if ("websocket".equalsIgnoreCase(str) && z) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static String g(String str) throws NoSuchAlgorithmException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            MessageDigest messageDigest = MessageDigest.getInstance("SHA-1");
-            messageDigest.update((str + WebSocketProtocol.ACCEPT_MAGIC).getBytes());
-            return Base64.encodeToString(messageDigest.digest(), 2);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void a(WebSocketFrame.CloseCode closeCode, String str) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, closeCode, str) == null) {
-            int i = this.a;
-            this.a = 3;
-            if (i == 2) {
-                j(new WebSocketFrame.b(closeCode, str));
-            } else {
-                b();
-            }
-        }
-    }
-
-    public void h(InputStream inputStream, OutputStream outputStream) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, inputStream, outputStream) == null) {
-            this.b = inputStream;
-            this.c = outputStream;
-            this.a = 2;
-            a aVar = this.d;
-            if (aVar != null) {
-                aVar.onOpen();
-            }
-            i();
-        }
-    }
-
-    public final void c(WebSocketFrame webSocketFrame) throws IOException {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webSocketFrame) == null) {
-            WebSocketFrame.CloseCode closeCode = WebSocketFrame.CloseCode.NormalClosure;
-            if (webSocketFrame instanceof WebSocketFrame.b) {
-                WebSocketFrame.b bVar = (WebSocketFrame.b) webSocketFrame;
-                closeCode = bVar.v();
-                str = bVar.w();
-            } else {
-                str = "";
-            }
-            if (this.a == 3) {
-                b();
-            } else {
-                a(closeCode, str);
-            }
-        }
-    }
-
-    public synchronized void j(WebSocketFrame webSocketFrame) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, webSocketFrame) == null) {
-            synchronized (this) {
-                webSocketFrame.t(this.c);
-            }
-        }
-    }
-
-    public void k(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
-            this.d = aVar;
-        }
-    }
-
-    public final void d(WebSocketFrame webSocketFrame) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, webSocketFrame) == null) {
-            if (webSocketFrame.f() != WebSocketFrame.OpCode.Continuation) {
-                if (this.e != null && g) {
-                    throw new WebSocketException(WebSocketFrame.CloseCode.ProtocolError, "Previous continuous frame sequence not completed.");
-                }
-                this.e = webSocketFrame.f();
-                this.f.clear();
-                this.f.add(webSocketFrame);
-            } else if (webSocketFrame.h()) {
-                if (this.e != null) {
-                    this.f.add(webSocketFrame);
-                    this.d.a(new WebSocketFrame(this.e, this.f));
-                    this.e = null;
-                    this.f.clear();
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((a62.a) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
                     return;
                 }
-                throw new WebSocketException(WebSocketFrame.CloseCode.ProtocolError, "Continuous frame sequence was not started.");
-            } else if (this.e != null) {
-                this.f.add(webSocketFrame);
-            } else {
-                throw new WebSocketException(WebSocketFrame.CloseCode.ProtocolError, "Continuous frame sequence was not started.");
             }
         }
-    }
 
-    public final void e(WebSocketFrame webSocketFrame) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, webSocketFrame) == null) {
-            if (webSocketFrame.f() == WebSocketFrame.OpCode.Close) {
-                c(webSocketFrame);
-            } else if (webSocketFrame.f() == WebSocketFrame.OpCode.Ping) {
-                j(new WebSocketFrame(WebSocketFrame.OpCode.Pong, true, webSocketFrame.d()));
-            } else if (webSocketFrame.f() == WebSocketFrame.OpCode.Pong) {
-                if (g) {
-                    Log.i("V8WebSocket", "A pong request has received.");
-                }
-            } else if (webSocketFrame.h() && webSocketFrame.f() != WebSocketFrame.OpCode.Continuation) {
-                if (this.e == null) {
-                    if (webSocketFrame.f() != WebSocketFrame.OpCode.Text && webSocketFrame.f() != WebSocketFrame.OpCode.Binary) {
-                        throw new WebSocketException(WebSocketFrame.CloseCode.ProtocolError, "Non control or continuous frame expected.");
-                    }
-                    this.d.a(webSocketFrame);
-                    return;
-                }
-                throw new WebSocketException(WebSocketFrame.CloseCode.ProtocolError, "Continuous frame sequence not completed.");
-            } else {
-                d(webSocketFrame);
-            }
-        }
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            while (this.a == 2) {
+        @Override // com.baidu.tieba.a62.b
+        public Map<String, String> b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                HashMap hashMap = new HashMap();
+                hashMap.put("Upgrade", "websocket");
+                hashMap.put(HTTP.CONN_DIRECTIVE, "Upgrade");
                 try {
-                    try {
-                        e(WebSocketFrame.k(this.b));
-                    } catch (IOException e) {
-                        if (this.d != null) {
-                            this.d.b(e);
-                        }
-                        u42.d("V8WebSocket", "parse web socket frame fail", e);
+                    hashMap.put("Sec-WebSocket-Accept", c62.g(this.a.a.get("sec-websocket-key")));
+                } catch (NoSuchAlgorithmException e) {
+                    if (b) {
+                        Log.e("HandShakeResponse", "make accept key fail for error invalid algorithm", e);
                     }
-                } finally {
-                    b();
+                }
+                return hashMap;
+            }
+            return (Map) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class b extends a62.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String b;
+
+        @Override // com.baidu.tieba.a62.b
+        public String c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "200 OK" : (String) invokeV.objValue;
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(a62.a aVar) {
+            super(aVar);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((a62.a) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
         }
+
+        @Override // com.baidu.tieba.a62.b
+        public String a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.b == null) {
+                    this.b = new x52().toString();
+                }
+                return this.b;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.a62.b
+        public Map<String, String> b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                HashMap hashMap = new HashMap();
+                hashMap.put("Content-Type", "application/json; charset=UTF-8");
+                hashMap.put(Util.ACCEPT_RANGES, "bytes");
+                hashMap.put(HTTP.CONN_DIRECTIVE, Http2Codec.KEEP_ALIVE);
+                return hashMap;
+            }
+            return (Map) invokeV.objValue;
+        }
+    }
+
+    public static a62.b a(a62.a aVar) {
+        InterceptResult invokeL;
+        Map<String, String> map;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, aVar)) == null) {
+            if (aVar != null && (map = aVar.a) != null && map.size() >= 1) {
+                if (c62.f(aVar.a)) {
+                    aVar.e = true;
+                    return new a(aVar);
+                }
+                aVar.e = false;
+                return new b(aVar);
+            }
+            return null;
+        }
+        return (a62.b) invokeL.objValue;
     }
 }

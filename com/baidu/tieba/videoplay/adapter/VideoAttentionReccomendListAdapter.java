@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.hi;
-import com.baidu.tieba.q25;
+import com.baidu.tieba.r25;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -78,8 +78,8 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
             this.h = view2.findViewById(R.id.obfuscated_res_0x7f091052);
             this.b.setRadiusById(R.string.J_X05);
             this.b.setConrers(3);
-            q25.d(this.h).t(R.array.Mask_X003);
-            q25 d = q25.d(view2);
+            r25.d(this.h).t(R.array.Mask_X003);
+            r25 d = r25.d(view2);
             d.o(R.string.J_X05);
             d.f(R.color.CAM_X0613);
         }
@@ -190,7 +190,7 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048582, this, videoItemData, forumViewHolder) == null) && videoItemData != null && forumViewHolder != null) {
             forumViewHolder.e.setText(StringHelper.numberUniformFormatExtra(videoItemData.play_count));
-            q25 d = q25.d(forumViewHolder.e);
+            r25 d = r25.d(forumViewHolder.e);
             d.B(R.dimen.T_X09);
             d.w(R.color.CAM_X0101);
         }
@@ -280,7 +280,7 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
             } else {
                 sb.append("00");
             }
-            q25 d = q25.d(forumViewHolder.d);
+            r25 d = r25.d(forumViewHolder.d);
             d.B(R.dimen.T_X09);
             d.w(R.color.CAM_X0101);
             forumViewHolder.d.setText(sb.toString());

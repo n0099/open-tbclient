@@ -1,22 +1,19 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import androidx.annotation.NonNull;
-import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
-import com.baidu.tieba.pv3;
+import com.baidu.swan.game.ad.downloader.exception.DownloadException;
 /* loaded from: classes7.dex */
 public interface yv3 {
-    void a(DownloadInfo downloadInfo);
+    void a();
 
-    void b(DownloadInfo downloadInfo);
+    void b(DownloadException downloadException);
 
-    void c(DownloadInfo downloadInfo);
+    void c();
 
-    void d(DownloadInfo downloadInfo);
+    void d();
 
-    void destroy();
+    void e(long j, long j2);
 
-    void f(@NonNull String str, @NonNull Uri uri, @NonNull pv3.d<Boolean> dVar);
+    void f(long j, long j2);
 
-    DownloadInfo g(String str);
+    void onStart();
 }

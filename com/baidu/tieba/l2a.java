@@ -1,108 +1,142 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.write.util.PhotoType;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.framework.task.HttpMessageTask;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.write.share.CheckRequest;
+import com.baidu.tieba.write.share.CheckResponse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.nio.BufferUnderflowException;
-import java.nio.MappedByteBuffer;
-import java.nio.channels.FileChannel;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class l2a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public BdUniqueId a;
+    public k2a b;
+    public HttpMessageListener c;
 
-    /* JADX WARN: Not initialized variable reg: 1, insn: 0x0072: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r1 I:??[OBJECT, ARRAY]), block:B:47:0x0072 */
-    /* JADX WARN: Removed duplicated region for block: B:58:0x0075 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:19:0x0044 -> B:61:0x0070). Please submit an issue!!! */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static PhotoType a(String str) {
-        InterceptResult invokeL;
-        RandomAccessFile randomAccessFile;
-        RandomAccessFile randomAccessFile2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            PhotoType photoType = null;
-            photoType = null;
-            photoType = null;
-            photoType = null;
-            photoType = null;
-            photoType = null;
-            photoType = null;
-            photoType = null;
-            photoType = null;
-            photoType = null;
-            photoType = null;
-            RandomAccessFile randomAccessFile3 = null;
-            try {
-                try {
-                    try {
-                        randomAccessFile = new RandomAccessFile(str, "r");
-                        try {
-                            MappedByteBuffer map = randomAccessFile.getChannel().map(FileChannel.MapMode.READ_ONLY, 0L, randomAccessFile.length());
-                            if (map != null && map.getInt() == -1991225785 && map.getInt(4) == 218765834 && map.getInt(37) == 1633899596) {
-                                photoType = PhotoType.APNG;
-                            }
-                            randomAccessFile.close();
-                        } catch (FileNotFoundException e) {
-                            e = e;
-                            e.printStackTrace();
-                            if (randomAccessFile != null) {
-                                randomAccessFile.close();
-                            }
-                            return photoType;
-                        } catch (IOException e2) {
-                            e = e2;
-                            e.printStackTrace();
-                            if (randomAccessFile != null) {
-                                randomAccessFile.close();
-                            }
-                            return photoType;
-                        } catch (BufferUnderflowException e3) {
-                            e = e3;
-                            e.printStackTrace();
-                            if (randomAccessFile != null) {
-                                randomAccessFile.close();
-                            }
-                            return photoType;
-                        }
-                    } catch (Throwable th) {
-                        th = th;
-                        randomAccessFile3 = randomAccessFile2;
-                        if (randomAccessFile3 != null) {
-                            try {
-                                randomAccessFile3.close();
-                            } catch (IOException e4) {
-                                e4.printStackTrace();
-                            }
-                        }
-                        throw th;
-                    }
-                } catch (FileNotFoundException e5) {
-                    e = e5;
-                    randomAccessFile = null;
-                } catch (IOException e6) {
-                    e = e6;
-                    randomAccessFile = null;
-                } catch (BufferUnderflowException e7) {
-                    e = e7;
-                    randomAccessFile = null;
-                } catch (Throwable th2) {
-                    th = th2;
-                    if (randomAccessFile3 != null) {
-                    }
-                    throw th;
+    /* loaded from: classes5.dex */
+    public class a extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ l2a a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(l2a l2aVar, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {l2aVar, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-            } catch (IOException e8) {
-                e8.printStackTrace();
             }
-            return photoType;
+            this.a = l2aVar;
         }
-        return (PhotoType) invokeL.objValue;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || !(httpResponsedMessage instanceof CheckResponse)) {
+                return;
+            }
+            m2a checkResponseData = ((CheckResponse) httpResponsedMessage).getCheckResponseData();
+            if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
+                httpResponsedMessage.setErrorString(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1235));
+            }
+            if (this.a.b != null) {
+                this.a.b.a(checkResponseData, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+            }
+        }
+    }
+
+    public l2a(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.c = new a(this, CmdConfigHttp.CMD_CHECK_SHARE_SDK);
+        this.a = bdUniqueId;
+        b();
+    }
+
+    public void e(k2a k2aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, k2aVar) == null) {
+            this.b = k2aVar;
+        }
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            MessageManager messageManager = MessageManager.getInstance();
+            messageManager.registerTask(c());
+            this.c.setTag(this.a);
+            messageManager.registerListener(this.c);
+        }
+    }
+
+    public final HttpMessageTask c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CHECK_SHARE_SDK, TbConfig.CHECK_SHARE_SDK_URL);
+            tbHttpMessageTask.setIsNeedAddCommenParam(true);
+            tbHttpMessageTask.setRetry(3);
+            tbHttpMessageTask.setResponsedClass(CheckResponse.class);
+            return tbHttpMessageTask;
+        }
+        return (HttpMessageTask) invokeV.objValue;
+    }
+
+    public void d(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
+            if (StringUtils.isNull(str)) {
+                k2a k2aVar = this.b;
+                if (k2aVar != null) {
+                    k2aVar.a(null, -2112, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f03e5));
+                    return;
+                }
+                return;
+            }
+            MessageManager.getInstance().removeHttpMessage(this.a);
+            CheckRequest checkRequest = new CheckRequest();
+            checkRequest.setTag(this.a);
+            checkRequest.setAppkey(str);
+            checkRequest.setAppletsKey(str2);
+            MessageManager.getInstance().sendMessage(checkRequest);
+        }
     }
 }
